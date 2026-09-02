@@ -727,7 +727,7 @@ Para iniciar esta sección del documento, el equipo seleccionó las característ
 
 **User Persona: Estudiantes que quieran aprender**
 <p align="center">
-  <img src="public/assets/images-doc/user1.png" alt="User Persona Aprendiz" width="800">
+  <img src="public/assets/images-doc/user1.jpg" alt="User Persona Aprendiz" width="800">
   <br>
   <em>Figura 12. User Persona - Estudiantes que quieran aprender - Elaboración propia.</em>
 </p>
@@ -736,7 +736,7 @@ En esta figura se observa el arquetipo de usuario correspondiente al segmento de
 
 **User Persona: Estudiantes que quieran enseñar**
 <p align="center">
-  <img src="public/assets/images-doc/user2.png" alt="User Persona Tutor" width="800">
+  <img src="public/assets/images-doc/user2.jpg" alt="User Persona Tutor" width="800">
   <br>
   <em>Figura 14. User Persona - Estudiantes que quieran enseñar - Elaboración propia.</em>
 </p>
@@ -746,7 +746,7 @@ En esta figura se presenta el arquetipo de usuario "Lucía Torres", el cual pers
 
 **User Persona: Coordinador Institucional**
 <p align="center">
-  <img src="public/assets/images-doc/user3.png" alt="User Persona Coordinador" width="800">
+  <img src="public/assets/images-doc/user3.jpg" alt="User Persona Coordinador" width="800">
   <br>
   <em>Figura 15. User Persona - Coordinador Institucional - Elaboración propia.</em>
 </p>
@@ -821,7 +821,7 @@ En esta sección se presentan los User Journey Maps As-Is de cada User Persona, 
 
 #### Segmento #1: Estudiantes que quieran aprender
 <p align="center">
-  <img src="public/assets/images-doc/jur1.png" alt="Journey Map Aprendiz" width="800">
+  <img src="public/assets/images-doc/jur1.jpg" alt="Journey Map Aprendiz" width="800">
   <br>
   <em>Figura 16. User Journey Mapping – Estudiantes que quieran aprender - Elaboración propia. Nota: En esta figura se aprecia nuestro primer Journey Mapping de nuestro primer segmento estudiante aprendiz.</em>
 </p>
@@ -831,7 +831,7 @@ En esta figura se observa el recorrido del estudiante o aprendiz a través de ci
 
 #### Segmento #2: Estudiantes que quieran enseñar
 <p align="center">
-  <img src="public/assets/images-doc/jur2.png" alt="Journey Map Tutor" width="800">
+  <img src="public/assets/images-doc/jur2.jpg" alt="Journey Map Tutor" width="800">
   <br>
   <em>Figura 17. User Journey Mapping – Estudiantes que quieran enseñar - Elaboración propia. Nota: En esta figura se aprecia nuestro segundo Journey Mapping de nuestro segundo segmento estudiante tutor.</em>
 </p>
@@ -841,7 +841,7 @@ En la imagen tenemos la visualización de la experiencia desde la perspectiva de
 
 #### Segmento #3: Coordinador Institucional
 <p align="center">
-  <img src="public/assets/images-doc/jur3.png" alt="Journey Map Coordinador" width="800">
+  <img src="public/assets/images-doc/jur3.jpg" alt="Journey Map Coordinador" width="800">
   <br>
   <em>Figura 18. User Journey Mapping - Coordinador Institucional - Elaboración propia. Nota: En esta figura se aprecia nuestro tercer Journey Mapping de nuestro segmento coordinador institucional.</em>
 </p>
