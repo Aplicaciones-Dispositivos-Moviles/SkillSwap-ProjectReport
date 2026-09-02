@@ -1582,7 +1582,7 @@ Atributos
 | Atributo | Tipo | Descripción |
 |---|---|---|
 | id | int | Identificador único del quiz (autogenerado). |
-| tutorId | int | Usuario creador del quiz. *(Pendiente de confirmar si corresponde al Tutor o al Coordinador según el flujo de negocio final.)* |
+| tutorId | int | Usuario con rol `Coordinator`, creador del quiz. |
 | course | string | Curso o materia al que pertenece el quiz. |
 | title | string | Título del cuestionario. |
 | description | string | Descripción del contenido evaluado. |
@@ -2220,6 +2220,18 @@ A continuación se presenta el diagrama relacional completo de Innovify (SkillSw
 </p>
 
 En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos MySQL (`skillswap_db`) aloja de forma organizada las tablas de los siete Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `sessions` y `messages` en Workspace) y bajo acoplamiento entre ellos, referenciándose únicamente a través del identificador de usuario (`users.id`) como dato compartido. La incorporación de los campos `device_token` y `agora_channel_name` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, sin alterar la estructura ni las relaciones ya validadas en la versión web de la plataforma.
+
+
+
+A continuación se presenta el diagrama de clases UML completo de Innovify (SkillSwap), mostrando la totalidad del modelo de dominio y su segmentación entre los siete Bounded Contexts.
+
+<p align="center">
+  <img src="images-doc/class-diagram-full-mobile.svg" alt="Diagrama de Clases Completo" width="1000">
+  <br>
+  <em>Figura XX. Diagrama de Clases UML completo de Innovify - Elaboración propia. Nota: Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los siete Bounded Contexts (Identity & Access, Discovery, Workspace, Learning & Assessment, Reputation, Payments & Wallet, Moderation & Disputes), incluyendo los Value Objects incorporados para el soporte de las funcionalidades móviles (DeviceToken en Identity & Access y AgoraChannelName en Workspace). Elaborado en PlantUML.</em>
+</p>
+
+En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `TutoringSession`, `Quiz`, `Tutor`, `Review`, `Report`, `Wallet`, `Donation`) heredando de un `AbstractDomainAggregateRoot` compartido, manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos. La incorporación de los Value Objects `DeviceToken` en Identity & Access y el atributo `agoraChannelName` en `TutoringSession` (Workspace) demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, sin alterar la estructura ni las relaciones ya validadas en la versión web de la plataforma.
 
 ---
 
