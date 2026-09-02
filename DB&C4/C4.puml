@@ -1,0 +1,88 @@
+@startuml InnovifyContainer
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Diagrama de Contenedores - Innovify Platform
+
+' Personas
+Person(learner, "Estudiante Aprendiz", "Busca ayuda académica, reserva tutorías, resuelve quizzes y realiza donaciones.")
+Person(tutor, "Estudiante Tutor", "Brinda tutorías, asigna quizzes oficiales y recibe donaciones.")
+Person(professor, "Profesor Universitario", "Crea material oficial, atiende disputas y monitorea la analítica de su facultad.")
+
+' Sistemas Externos
+System_Ext(emailService, "Modelo externo Email Api", "Integración con correos")
+System_Ext(paymentGateway, "Modelo externo Correo", "Procesamiento externo (Legacy/Stripe)")
+System_Ext(paymentsService, "Payments & Wallet", "Modelo externo transaccional")
+System_Ext(agoraApi, "Agora Video SDK", "Integración con videollamadas en tiempo real")
+System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para archivos compartidos en el chat")
+
+' Sistema Central y sus Contenedores
+System_Boundary(innovify, "Innovify Platform") {
+    
+    Container(webApp, "Web Application", "JavaScript / HTML / CSS / Vite", "Single-page Application interactiva para el Coordinador/Profesor.")
+    Container(androidApp, "Android Native Application", "Kotlin / Jetpack Compose", "Aplicación móvil nativa para Estudiantes Aprendices y Tutores.")
+    Container(flutterApp, "Cross-Platform Application", "Flutter / Dart", "Aplicación móvil multiplataforma (Android/iOS) para Estudiantes Aprendices y Tutores.")
+    
+    Container(apiGateway, "Api Gateway", "Spring Cloud Gateway", "Controlador de tráfico de solicitudes HTTP entrantes.")
+
+    Container(identityBC, "Identity & Access Bounded Context", "Java / Spring Boot", "Gestión de autenticación y perfiles")
+    ContainerDb(identityDB, "Identity Database", "PostgreSQL 16", "Base de datos de preferencias del perfil")
+
+    Container(profileBC, "Discovery Bounded Context", "Java / Spring Boot", "Catálogo y búsqueda")
+    ContainerDb(discoveryDB, "Discovery Database", "PostgreSQL 16", "Base de datos de Discovery")
+
+    Container(collaborationBC, "Workspace Bounded Context", "Java / Spring Boot", "Chat y videollamadas")
+    ContainerDb(workplaceDB, "Workspace Database", "PostgreSQL 16", "Base de datos de Workspace")
+
+    Container(learningBC, "Learning & Assessment Bounded Context", "Java / Spring Boot", "Sesiones y quizzes")
+    ContainerDb(learningDB, "Learning Database", "PostgreSQL 16", "Base de datos de Learning & Assessment")
+
+    Container(reputationBC, "Reputation Bounded Context", "Java / Spring Boot", "Feedback y ratings")
+    ContainerDb(reputationDB, "Reputation Database", "PostgreSQL 16", "Base de datos de Reputation")
+
+    Container(moderationBC, "Moderation & Disputes Bounded Context", "Java / Spring Boot", "Resolución de disputas")
+    ContainerDb(moderationDB, "Moderation Database", "PostgreSQL 16", "Base de datos de Moderation & Disputes")
+
+    Container(billingBC, "Payments & Wallet Bounded Context", "Java / Spring Boot", "Pagos y donaciones")
+    ContainerDb(paymentsDB, "Payments Database", "PostgreSQL 16", "Base de datos Payments & Wallet")
+}
+
+' Relaciones Nivel 1 & 2
+Rel(learner, webApp, "Usa")
+Rel(tutor, webApp, "Usa")
+Rel(professor, webApp, "Usa")
+
+Rel(learner, androidApp, "Usa")
+Rel(tutor, androidApp, "Usa")
+Rel(learner, flutterApp, "Usa")
+Rel(tutor, flutterApp, "Usa")
+
+Rel(webApp, apiGateway, "Consume API RESTful vía HTTPS")
+Rel(androidApp, apiGateway, "Consume API RESTful vía HTTPS")
+Rel(flutterApp, apiGateway, "Consume API RESTful vía HTTPS")
+
+Rel(apiGateway, identityBC, "Enruta peticiones a")
+Rel(apiGateway, profileBC, "Enruta peticiones a")
+Rel(apiGateway, collaborationBC, "Enruta peticiones a")
+Rel(apiGateway, learningBC, "Enruta peticiones a")
+Rel(apiGateway, reputationBC, "Enruta peticiones a")
+Rel(apiGateway, moderationBC, "Enruta peticiones a")
+Rel(apiGateway, billingBC, "Enruta peticiones a")
+
+Rel(identityBC, identityDB, "Lee y Escribe")
+Rel(profileBC, discoveryDB, "Lee y Escribe")
+Rel(collaborationBC, workplaceDB, "Lee y Escribe")
+Rel(learningBC, learningDB, "Lee y Escribe")
+Rel(reputationBC, reputationDB, "Lee y Escribe")
+Rel(moderationBC, moderationDB, "Lee y Escribe")
+Rel(billingBC, paymentsDB, "Lee y Escribe")
+
+' Conexiones Externas
+Rel(identityBC, emailService, "Delega envío de validación a")
+Rel(collaborationBC, agoraApi, "Genera token de acceso en")
+Rel(collaborationBC, cloudStorage, "Guarda archivos en")
+Rel(billingBC, paymentsService, "Realiza transacción vía")
+Rel(billingBC, emailService, "Envía notificación vía")
+Rel(billingBC, paymentGateway, "Delega pago a")
+Rel(moderationBC, agoraApi, "Reporta incidentes a")
+
+@enduml
