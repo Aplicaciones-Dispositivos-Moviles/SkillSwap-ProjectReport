@@ -168,21 +168,742 @@ Un problema subyacente y desatendido es el **aislamiento del conocimiento**. Cad
 
 ## 2.1. Competidores
 
+**uDocz (Competidor Directo)**
+uDocz es una plataforma de origen peruano que se ha expandido por toda Latinoamérica, posicionándose como una de las comunidades de estudio más grandes para universitarios de habla hispana, con fuerte presencia en su **app móvil** (iOS y Android) además de la web. Su modelo se centra en que los estudiantes compartan y encuentren material de estudio, como apuntes de clase, resúmenes, guías y solucionarios, específicos para su universidad y carrera, todo accesible desde el celular con lectura offline. Aunque su fuerte es el intercambio de documentos, también ha incorporado un "Doc Tutor AI", flashcards y quizzes dentro de la misma app.
+
+**Knack (Competidor Directo)**
+Knack es una red de tutoría universitaria norteamericana que conecta, a través de su **app móvil**, a estudiantes con tutores pares que han sobresalido en cursos específicos. La plataforma se asocia directamente con las universidades, las cuales a menudo subsidian el costo, haciendo que las tutorías sean gratuitas para los estudiantes. Desde el celular, el alumno solicita un tutor, coordina la sesión y realiza el pago sin salir de la app.
+
+**StudyTree (Competidor Directo)**
+StudyTree es una **app móvil** (iOS y Android) que conecta a estudiantes universitarios entre sí para tutorías bajo demanda ("on-demand"), creando un marketplace donde unos ganan dinero enseñando y otros ahorran dinero aprendiendo. Su modelo, muy cercano al de Innovify, es mixto: la app es gratuita para el estudiante (B2C) y se comercializa como servicio SaaS a las universidades (B2B), quienes pagan por licencia y acceden a datos analíticos sobre el uso de tutorías por parte de sus alumnos.
+
+**Tutor Campus (Competidor Directo)**
+Tutor Campus es una **app móvil** (disponible en Google Play) enfocada en conectar estudiantes universitarios y egresados para el intercambio de conocimientos mediante tutorías y comunidad. Bajo la premisa de que "todos somos tutores y tutelados", permite formar pequeños grupos de interés y establecer contacto entre estudiantes de distintas universidades y carreras directamente desde el celular, sin depender de un canal web.
+
+---
+
 ### 2.1.1. Análisis competitivo
-*   **uDocz (Competidor Directo):** Plataforma web masiva centrada en el intercambio asíncrono de documentos (resúmenes, apuntes). No ofrece tutorías síncronas integradas en aplicaciones móviles.
-*   **Knack (Competidor Directo):** Red de tutoría intra-universitaria. Aunque robusta, a menudo se limita a una sola universidad y sus procesos pueden ser burocráticos.
-*   **GoPeer (Competidor Indirecto):** Universitarios enseñando a escolares. Su modelo y segmento de mercado (K-12) difiere del enfoque peer-to-peer universitario de Innovify.
+
+<table>
+  <tr>
+    <th colspan="2">¿Por qué llevar a cabo este análisis?</th>
+    <td colspan="5">¿Cómo se posiciona nuestra app móvil de tutorías interuniversitarias frente a otras soluciones móviles de apoyo académico entre estudiantes?</td>
+  </tr>
+  <tr>
+    <th colspan="2">(En la cabecera colocar por cada competidor nombre y logo)</th>
+    <td align="center"><b>Su startup</b><br><img src="public/assets/images-doc/Logo-Innovify.png" width="40"><br><b>SkillSwap (App móvil)</b></td>
+    <td align="center"><b>Competidor 1</b><br><img src="public/assets/images-doc/Udocz.png" width="40"><br><b>uDocz</b></td>
+    <td align="center"><b>Competidor 2</b><br><img src="public/assets/images-doc/Knock.png" width="40"><br><b>Knack</b></td>
+    <td align="center"><b>Competidor 3</b><br><img src="public/assets/images-doc/StudyTree.png" width="40"><br><b>StudyTree</b></td>
+    <td align="center"><b>Competidor 4</b><br><img src="public/assets/images-doc/TutorCampus.png" width="40"><br><b>Tutor Campus</b></td>
+  </tr>
+  <tr>
+    <td rowspan="2">Perfil</td>
+    <td>Overview</td>
+    <td>App móvil de aprendizaje colaborativo con videollamadas incrustadas (vía API), donación voluntaria B2C, validación automática con correo <code>.edu.pe</code> y dashboard analítico B2B para universidades.</td>
+    <td>App móvil de intercambio masivo de material de estudio (apuntes, resúmenes) con herramientas de IA (Doc Tutor AI, flashcards, quizzes) y lectura offline.</td>
+    <td>App móvil de tutoría <i>peer-to-peer</i> dentro de una misma universidad, con pago dentro de la app, a menudo subsidiada por la institución.</td>
+    <td>App móvil "on-demand" que conecta tutores y aprendices universitarios en tiempo real, con licenciamiento B2B a universidades.</td>
+    <td>App móvil de comunidad e intercambio de conocimientos entre universitarios y egresados, con formación de grupos por interés.</td>
+  </tr>
+  <tr>
+    <td>Ventaja competitiva<br><i>¿Qué valor ofrece a los clientes?</i></td>
+    <td>Recompensa económica vía donaciones; calidad validada por quizzes de profesores; data estratégica (dashboard B2B) accesible desde el celular.</td>
+    <td>Repositorio masivo accesible desde el móvil; fuerte efecto de red.</td>
+    <td>Alta confianza (tutor de la misma universidad); gratuito para el alumno gracias al subsidio institucional.</td>
+    <td>Modelo de negocio mixto (B2C/B2B) muy similar al nuestro, con analítica para universidades directamente desde la app.</td>
+    <td>Comunidad activa entre universidades distintas; enfoque en networking académico.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Perfil de Marketing</td>
+    <td>Mercado objetivo</td>
+    <td>Estudiantes universitarios de pregrado (B2C) y universidades/profesores que buscan analítica de rendimiento (B2B), vía app móvil.</td>
+    <td>Estudiantes universitarios de habla hispana que buscan material de apoyo, principalmente desde el celular.</td>
+    <td><b>Primario:</b> estudiantes de universidades asociadas (vía app).<br><b>Secundario (paga):</b> universidades.</td>
+    <td><b>Primario:</b> estudiantes universitarios que enseñan o piden ayuda desde el móvil.<br><b>Secundario (paga):</b> universidades vía licencia SaaS.</td>
+    <td>Estudiantes y egresados universitarios interesados en compartir conocimiento entre distintas casas de estudio.</td>
+  </tr>
+  <tr>
+    <td>Estrategias de marketing</td>
+    <td>Venta directa B2B a universidades; marketing digital en redes sociales; programa de embajadores por campus, con foco en descarga de la app.</td>
+    <td>Marketing de contenidos y SEO; modelo viral ("sube un documento para descargar otro") dentro de la app.</td>
+    <td>Venta directa B2B a administraciones universitarias; promoción por canales internos de la universidad.</td>
+    <td>Marketing de campus (pitch competitions, alianzas con facultades) y licenciamiento directo a universidades.</td>
+    <td>Crecimiento orgánico vía comunidad y boca a boca entre estudiantes de distintas universidades.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Perfil de Producto</td>
+    <td>Productos &amp; Servicios</td>
+    <td>Emparejamiento de estudiantes, roles flexibles (tutor/aprendiz), videollamadas integradas (API), chat, banco de quizzes y dashboard analítico, todo desde la app móvil.</td>
+    <td>Repositorio de documentos, Doc Tutor AI, flashcards, quizzes automáticos y descarga offline.</td>
+    <td>Agendamiento, chat, pago dentro de la app y analítica para la universidad.</td>
+    <td>Marketplace de tutorías bajo demanda, mensajería y panel analítico institucional (University Platform).</td>
+    <td>Perfiles de tutor/tutelado, formación de grupos de interés y mensajería comunitaria.</td>
+  </tr>
+  <tr>
+    <td>Precios &amp; Costos</td>
+    <td>Plan gratuito con monetización vía retención del 5% de donaciones; licencia B2B a universidades por el dashboard.</td>
+    <td>Freemium: acceso básico gratuito con límites; premium por suscripción o subiendo documentos.</td>
+    <td>Suscripción/licencia anual pagada por la universidad; gratuito para el estudiante; tutores cobran por hora.</td>
+    <td>Gratuito para el estudiante; licencia SaaS a la universidad en escala según número de usuarios.</td>
+    <td>Gratuito, con monetización aún poco clara para el usuario final.</td>
+  </tr>
+  <tr>
+    <td>Canales de distribución (Web y/o Móvil)</td>
+    <td>Móvil (enfoque principal)</td>
+    <td>Móvil</td>
+    <td>Móvil</td>
+    <td>Móvil</td>
+    <td>Móvil</td>
+  </tr>
+  <tr>
+    <td rowspan="5">Análisis SWOT</td>
+    <td colspan="6"><i>Realice esto para su startup y sus competidores. Sus fortalezas deberían apoyar sus oportunidades y contribuir a lo que ustedes definen como su posible ventaja competitiva.</i></td>
+  </tr>
+  <tr>
+    <td>Fortalezas</td>
+    <td>Registro sin fricción (<code>.edu.pe</code>); donaciones incentivan calidad; validación académica por profesores; modelo B2C y B2B sostenible desde el móvil.</td>
+    <td>Enorme base de usuarios (+30 millones) y contenido; fuerte reconocimiento de marca; app madura y estable.</td>
+    <td>Modelo B2B estable; alta confianza garantizada por la universidad; app con buena reputación.</td>
+    <td>Modelo de negocio casi idéntico al nuestro, ya validado en varias universidades de EE. UU.</td>
+    <td>Alcance interuniversitario ya construido; comunidad activa.</td>
+  </tr>
+  <tr>
+    <td>Debilidades</td>
+    <td>Requiere masa crítica inicial de usuarios; depende de la cooperación universitaria; dependencia de APIs externas de video.</td>
+    <td>Calidad de contenido sin verificar; no ofrece tutoría en vivo dentro de la app; riesgo de uso antiético (fraude).</td>
+    <td>Crecimiento lento (ciclos de venta largos); modelo cerrado, sin networking interuniversitario.</td>
+    <td>Enfocado en el mercado norteamericano; sin componente de validación académica tipo quiz.</td>
+    <td>Modelo de monetización poco claro; funcionalidades de videollamada o pago menos desarrolladas.</td>
+  </tr>
+  <tr>
+    <td>Oportunidades</td>
+    <td>Aumento del aprendizaje móvil; desarrollo de habilidades blandas; escalable a Latinoamérica; universidades invierten en retención.</td>
+    <td>Expandirse a tutorías en vivo desde la app; alianzas con creadores de contenido.</td>
+    <td>Expandirse a mercados internacionales; ofrecer mentoría profesional.</td>
+    <td>Expandirse a Latinoamérica; sumar validación académica.</td>
+    <td>Sumar videollamadas y pagos integrados; expandirse a más países.</td>
+  </tr>
+  <tr>
+    <td>Amenazas</td>
+    <td>Grupos de WhatsApp/Discord; burocracia universitaria y lentitud de adopción; reto de rentabilidad en modelo gratuito.</td>
+    <td>Políticas universitarias estrictas; nuevos competidores con IA.</td>
+    <td>Recortes presupuestarios en universidades; burocracia para adopción; soluciones más flexibles.</td>
+    <td>Nuevos entrantes con modelo similar; dependencia de contratos universitarios.</td>
+    <td>Baja retención si no hay incentivo económico claro.</td>
+  </tr>
+</table>
+
+*(Tabla 3. Análisis competitivo-Landscape (enfoque móvil) - Elaboración propia. Nota: esta tabla presenta una comparación detallada entre SkillSwap, en su versión app móvil, y otras plataformas que también operan como aplicaciones móviles, para consolidar su propuesta única).*
+
+---
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
-*   **Fuerte enfoque "Mobile-First":** A diferencia de uDocz que es principalmente web-based para lectura de PDFs, SkillSwap se enfocará en la inmediatez de la aplicación móvil, permitiendo coordinar y ejecutar la videollamada desde el smartphone.
-*   **Networking Interuniversitario Valido:** Frente a modelos cerrados, Innovify utilizará validación automática por dominios `.edu.pe` para crear una red confiable a nivel nacional.
-*   **Recompensa Económica Ágil:** Integración de SDKs de pago directamente en el dispositivo móvil para facilitar donaciones de un solo toque al finalizar la sesión.
 
+A continuación, se presentan las estrategias y tácticas que Innovify / SkillSwap puede implementar, como **app móvil**, para destacarse frente a competidores que también operan en el canal móvil, capitalizando su modelo único de colaboración interuniversitaria, su sostenibilidad financiera y su rigor académico.
+
+#### Estrategias
+
+* **Diferenciación por Exclusividad y Networking:** A diferencia de Knack (limitado a un solo campus) y de uDocz (intercambio impersonal de documentos), la app de Innovify se posiciona como una red nacional de talento universitario validado, accesible desde cualquier dispositivo móvil. El diferencial no es solo conectar estudiantes, sino garantizar que la enseñanza sea de alta calidad mediante el uso del Banco Oficial de Quizzes creado exclusivamente por Profesores Universitarios.
+* **Construcción de Confianza a través de la Verificación:** A diferencia de la anonimidad de uDocz o de comunidades abiertas como Tutor Campus, la app garantizará la identidad de cada usuario mediante un sistema de validación automática con correos institucionales (`.edu.pe`), directamente en el proceso de registro móvil. Esto nos posicionará como la opción más segura del mercado.
+* **Sostenibilidad mediante un Modelo Mixto:** Al igual que StudyTree, buscaremos un ecosistema económicamente viable desde el primer día. Fomentaremos la retención recompensando a los tutores mediante un sistema de donaciones voluntarias (B2C, reteniendo un 5%) gestionadas desde la app. Por el lado institucional (B2B), comercializaremos el acceso a nuestro Dashboard Analítico.
+* **Modelo de Adopción Enfocado y Escalable:** Para atraer una masa crítica de usuarios de la app, la estrategia será evitar un lanzamiento masivo y, en su lugar, concentrarse en crear un ecosistema denso y funcional en un grupo reducido de universidades para luego escalar.
+* **Accesibilidad y Experiencia de Usuario Móvil Superior:** La app será diseñada para ser radicalmente fácil de usar desde el celular, con una interfaz que permita encontrar ayuda, acceder a videollamadas y realizar pagos/donaciones en la misma pantalla, sin depender de aplicaciones de terceros como Zoom o Meet.
+
+#### Tácticas
+
+* **Alianzas Estratégicas con Universidades:** Establecer convenios formales con las administraciones universitarias ofreciéndoles acceso a nuestro Dashboard Analítico ("Termómetro Académico") desde un panel web complementario a la app móvil, convirtiéndolas en socias estratégicas.
+* **Lanzamiento por Clústeres Estratégicos:** Iniciar operaciones móviles en un grupo selecto de 3-4 universidades con fortalezas académicas complementarias, asegurando oferta y demanda real de conocimiento diverso desde el primer día.
+* **Programa de Miembros Fundadores:** Ofrecer incentivos potentes y exclusivos, como 0% de retención de comisión durante los primeros 3 meses a los primeros 200 tutores validados que se registren desde la app en el clúster inicial.
+* **Implementación del Sistema de Donaciones y Monetización Directa:** Integrar una pasarela de pagos móvil fluida (como Stripe o MercadoPago) que permita a los aprendices donar con un solo toque al finalizar la sesión, haciendo el proceso transparente y sin fricciones.
+* **Marketing de Nicho y Contenido de Valor:** Realizar campañas en TikTok e Instagram mostrando la experiencia de uso de la app y enfocadas en la monetización y cursos de alta dificultad (ej: *"Genera ingresos enseñando Cálculo desde tu celular"* o *"Aprende diseño con un experto de la PUCP, todo desde tu app"*).
+* **Énfasis en el Rigor Académico (Sello de Calidad):** Hacer que el uso de los Quizzes creados por profesores otorgue a los tutores una "Insignia de Calidad" visible en su perfil dentro de la app, complementado con un sistema de calificaciones de 1 a 5 estrellas para construir reputación basada en el mérito.
 ## 2.2. Entrevistas
-*(Nota: Documentar el diseño de las entrevistas, el registro en video y los análisis de características objetivas/subjetivas, enfocando las preguntas en el uso de smartphones, la comodidad de estudiar desde el celular y la disposición a usar pasarelas de pago móviles).*
+
+### 2.2.1. Diseño de entrevistas
+
+**Segmento objetivo #1: Estudiantes que quieran aprender**
+1. Para empezar, cuéntame un poco sobre ti. ¿Qué carrera estudias, en qué ciclo y en qué universidad?
+2. ¿Cómo describirías tu último ciclo académico? ¿Hubo algún curso que te resultara particularmente desafiante?
+3. Fuera de las clases, ¿cómo organizas normalmente tu tiempo de estudio? ¿Prefieres estudiar solo o en grupo?
+4. Cuando te encuentras atascado en un tema o un problema, ¿qué es lo primero que sueles hacer? ¿A quién o a qué recurres?
+5. Piensa en la mejor ayuda que has recibido para un curso. ¿Qué hizo que esa ayuda fuera tan buena? ¿Qué características tenía la persona que te ayudó?
+6. ¿Qué te parecería la idea de recibir ayuda de un estudiante de otra universidad que sea experto en el tema? ¿Qué ventajas crees que podría tener?
+7. Cuéntame sobre alguna vez que necesitaste ayuda urgente para un examen o trabajo y te fue difícil encontrarla. ¿Qué pasó y cómo te sentiste?
+8. ¿Qué es lo más complicado de pedir ayuda a tus propios compañeros de clase? ¿Y a tus profesores?
+9. ¿Has usado herramientas como uDocz, WhatsApp o enlaces de Zoom/Meet para resolver dudas con otros? ¿Qué es lo que más te frustra de tener que usar tantas aplicaciones distintas para coordinar y recibir ayuda?
+10. Actualmente las tutorías particulares suelen tener tarifas fijas altas. ¿Qué opinas de un sistema donde recibas ayuda de un compañero experto y, al finalizar, tengas la opción de enviarle una donación económica voluntaria (con tarjeta) como agradecimiento por su tiempo?
+11. Imagina que tienes dos opciones: recibir ayuda inmediata de alguien que "sabe más o menos" o esperar un poco para coordinar con alguien que "realmente domina" el tema. ¿Cuál prefieres y por qué?
+12. Si existiera una aplicación exclusiva para universitarios (registrados con su correo `.edu.pe`), ¿qué información necesitarías ver en el perfil de un tutor para animarte a contactarlo y confiar en él?
+13. En lugar de que te envíen un enlace externo de Google Meet o Zoom, ¿qué te parecería si la videollamada se realiza directamente dentro de la misma plataforma? ¿Te generaría mayor comodidad o seguridad?
+14. ¿Qué tan útil te resultaría tener un espacio (chat) previo a la videollamada donde puedas adjuntarle tus PDFs, fotos o ejercicios al tutor para que los revise antes de la sesión en vivo?
+
+**Segmento objetivo #2: Estudiantes que quieran enseñar**
+1. Para comenzar, cuéntame un poco sobre ti: ¿qué estudias, en qué ciclo estás y en qué universidad?
+2. ¿En qué cursos o temas sientes que tienes un dominio sólido? ¿Cómo llegaste a desarrollar esa habilidad?
+3. Cuéntame sobre una vez que ayudaste a alguien a entender un tema difícil. ¿Cómo fue esa experiencia?
+4. ¿Qué te motiva a querer enseñar a otros estudiantes, más allá de una compensación económica?
+5. ¿Cómo sueles adaptar tu forma de explicar según el ritmo o estilo de aprendizaje de quien te está escuchando?
+6. ¿Qué herramientas usas actualmente cuando ayudas a otros a distancia? Por ejemplo, WhatsApp, Zoom, Drive u otras.
+7. Imagina que tuvieras que ayudar a un compañero de otra universidad a través de una videollamada integrada directamente en una plataforma. ¿Cómo te sentirías con eso?
+8. ¿Con qué dispositivos accedes normalmente a plataformas digitales para estudiar o comunicarte? ¿Hay alguno que prefieras y por qué?
+9. ¿Qué es lo que más te frustra cuando intentas ayudar a alguien a entender un tema, ya sea en persona o de forma virtual?
+10. ¿Has tenido alguna experiencia negativa al interactuar con personas que no conocías en plataformas digitales o grupos de estudio?
+11. Si alguien te ofreciera una donación voluntaria a cambio de una tutoría, ¿cómo te sentirías al respecto? ¿Te parecería justo, incómodo o motivador?
+12. ¿Qué importancia tiene para ti generar ingresos extra mientras estudias? ¿Tienes alguna experiencia previa haciendo algo así?
+13. ¿Qué tan dispuesto estarías a conectarte con estudiantes de otras universidades que no conoces a través de una plataforma digital?
+14. Si pudieras diseñar la plataforma ideal para enseñar a otros estudiantes universitarios, ¿cómo sería? ¿Qué no podría faltarle?
+
+**Segmento objetivo #3: Coordinador Institucional**
+1. Para comenzar, ¿podría describir brevemente su rol en la universidad y sus principales responsabilidades relacionadas con el alumnado?
+2. Desde su posición, ¿cuáles considera que son los mayores desafíos que enfrentan los estudiantes para tener éxito académico hoy en día?
+3. ¿De qué maneras fomenta actualmente la universidad la colaboración académica entre sus estudiantes?
+4. ¿Qué beneficios u oportunidades cree que podría traer para sus estudiantes una plataforma que les permita colaborar con alumnos verificados de otras universidades del país?
+5. ¿Qué características o políticas debería tener una herramienta de este tipo para que la universidad se sintiera cómoda apoyándola?
+6. ¿Cuál es la principal preocupación de la universidad respecto al uso que los alumnos dan a las herramientas de estudio en línea existentes, como grupos de WhatsApp o repositorios de documentos? (ej. plagio, fraude, seguridad).
+7. Nuestra plataforma propone un sistema donde un coordinador de la universidad valida que el usuario es un alumno activo. ¿Qué dificultades operativas o burocráticas anticipa para implementar un proceso así en su día a día?
+8. ¿Qué riesgos para la reputación de la universidad o la seguridad de los estudiantes le preocuparían más en un sistema que conecta a sus alumnos con "externos", aunque sean de otras universidades?
+9. Actualmente, ¿qué tan simple o complejo es para su equipo verificar el estatus de un alumno (si está matriculado, activo, etc.) para un trámite administrativo común?
+10. ¿Utilizan algún software o plataforma específica para la gestión de la identidad y los datos de los estudiantes?
+11. Imaginemos que le damos acceso a un "Panel de Coordinador". Para que su labor de validación fuera eficiente y segura, ¿qué funciones serían indispensables? (ej. búsqueda por código/DNI, un solo clic para aprobar, historial de validaciones, etc.).
+12. Más allá de solo validar la identidad, ¿qué otro tipo de información o control (anonimizado, por supuesto) le gustaría tener para asegurar que la participación de sus estudiantes es positiva y segura?
+
+---
+
+### 2.2.2. Registro de entrevistas
+
+#### Segmento objetivo 1: Estudiantes que quieran aprender
+
+**Entrevista 1**
+* **Nombres:** Boris
+* **Apellidos:** Alvarado Milan
+* **Edad:** 26 años
+* **Distrito:** Cercado de Lima
+
+<p align="center">
+  <img src="public/assets/images-doc/Entrevista-victor1.png" alt="Entrevista Boris" width="600">
+  <br>
+  <em>Figura 4. YouTube: Entrevista 1: Estudiante-Aprendiz | SkillSwap. Nota: En esta figura se aprecia la entrevista a una persona de segmento estudiante-aprendiz.</em>
+</p>
+
+* **URL:** [https://youtu.be/7ffbEWaAAts](https://youtu.be/7ffbEWaAAts)
+* **Inicio:** 0:03
+* **Duración:** 10 minutos con 10 segundos
+
+**Resumen descriptivo:**
+En esta entrevista, Boris es estudiante de la Universidad Nacional Mayor de San Marcos y comenta que su último ciclo académico (quinto ciclo) fue más exigente en comparación con los anteriores, debido al aumento en la dificultad de los cursos, la presión de los profesores y cierta indiferencia en la enseñanza. Prefiere estudiar en grupo, ya que considera que el aprendizaje se fortalece cuando el conocimiento se comparte entre todos. Cuando se encuentra atascado en algún tema, recurre principalmente a recursos en línea como YouTube o busca materiales relacionados para apoyarse. Valora mucho la ayuda de otros estudiantes, especialmente de aquellos que son dedicados, exigentes consigo mismos y a la vez sociables y empáticos, ya que esto facilita tanto el aprendizaje como la confianza. Respecto a recibir ayuda de estudiantes de otras universidades, considera que podría ser beneficioso si existen similitudes en los contenidos, aunque no siempre está garantizado. Señala que una de las principales dificultades al pedir ayuda es dar el primer paso y luego coordinar horarios con la otra persona. En cuanto a herramientas digitales, menciona que utiliza principalmente WhatsApp, pero le resulta incómodo tener que adaptarse a nuevas plataformas como Discord. Sobre el modelo de tutorías con donación voluntaria, opina que puede funcionar, especialmente en situaciones donde el estudiante necesita ayuda con urgencia. Frente a la elección entre ayuda inmediata o esperar por alguien más capacitado, reconoce ventajas en ambas, aunque valora la tranquilidad de saber que recibirá una ayuda más adecuada, incluso si debe esperar. Finalmente, considera importante que una plataforma de apoyo académico muestre información clara sobre la especialidad y nivel de conocimiento del tutor, y que integre funciones como videollamadas dentro de la misma aplicación y un chat previo para compartir materiales.
+
+**Entrevista 2**
+* **Nombres:** Adrian Moises
+* **Apellidos:** Guevara Romero
+* **Edad:** 20 años
+* **Distrito:** Miraflores
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-ale1.png" alt="Entrevista Adrian" width="600">
+  <br>
+  <em>Figura 5. YouTube: Entrevista 2: Estudiante-Aprendiz | SkillSwap. Nota: En esta figura se aprecia la segunda entrevista al segmento estudiante-aprendiz.</em>
+</p>
+
+* **URL:** [https://www.youtube.com/watch?v=Ci4k50FULHE](https://www.youtube.com/watch?v=Ci4k50FULHE)
+
+
+* **Inicio:** 0:10
+* **Duración:** 9 minutos con 25 segundos
+
+**Resumen descriptivo:**
+En esta segunda entrevista, Adrián es estudiante de Ingeniería de Sistemas en la Universidad de Lima, actualmente en su tercer ciclo, y ha experimentado dificultades de coordinación en cursos como Matemática Discreta. Prefiere estudiar solo por las noches, ya que estudiar en grupo suele generar problemas de organización y comunicación. Cuando se encuentra con dificultades académicas, primero repasa el tema y, si persiste el problema, recurre a tutores particulares; valora especialmente la paciencia y claridad del tutor. Está abierto a recibir ayuda de estudiantes de otras universidades, destacando la ventaja de obtener distintos enfoques y perspectivas sobre un problema. Señala que la disponibilidad horaria de compañeros y profesores es un obstáculo frecuente. Respecto a herramientas digitales, utiliza plataformas como Meet y WhatsApp para sesiones grupales y considera útiles funciones como chat, pizarra virtual y grabación para tutorías. Prefiere la ayuda inmediata en casos urgentes, aunque valora la experiencia del tutor cuando puede planificar con antelación.
+
+**Entrevista 3**
+* **Nombres:** Stephanie
+* **Apellidos:** Romero
+* **Edad:** 19 años
+* **Distrito:** San Miguel
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista3-s1.png" alt="Entrevista Stephanie" width="600">
+  <br>
+  <em>Figura 6. YouTube: Entrevista 3: Estudiante-Aprendiz | SkillSwap. 
+  <br>
+  Nota: En esta figura se aprecia a la tercera persona siendo entrevistada de nuestro segmento estudiante-aprendiz.</em>
+</p>
+
+* **URL:**[https://www.youtube.com/watch?v=RvON7FjKH8g](https://www.youtube.com/watch?v=RvON7FjKH8g)
+
+* **Inicio:** 0:10
+* **Duración:** 9 minutos con 17 segundos
+
+**Resumen descriptivo:**
+En esta tercera entrevista Stefanie estudia Negocios Internacionales en la Universidad de Lima y se encuentra en el sexto ciclo. Considera su último ciclo académico muy demandante, destacando el curso de Inteligencia de Negocios de Big Data como especialmente difícil por la programación involucrada. Prefiere estudiar sola para comprender los temas a su ritmo antes de colaborar en grupo. Cuando enfrenta dificultades, recurre primero a recursos en línea, luego a familiares y, si es necesario, a compañeros que dominen el tema. Valora recibir ayuda de estudiantes de otras universidades, ya que permite contrastar perspectivas y métodos distintos. Señala que el miedo a ser juzgada es un obstáculo al pedir ayuda a compañeros o profesores. Ha utilizado herramientas digitales como Script para complementar sus estudios y considera útiles tutorías pagadas cuando no puede resolver dudas por sí misma. Destaca que prefiere esperar para recibir ayuda de alguien que realmente domine el tema, priorizando la calidad del aprendizaje sobre la inmediatez. Sugiere que una aplicación de tutorías incluya perfiles con especialidades, cursos previos y mini-ejercicios para reforzar lo aprendido.
+
+#### Segmento objetivo #2: Estudiantes que quieran enseñar
+
+**Entrevista 1**
+* **Nombres:** Lucero Tatiana
+* **Apellidos:** Campos
+* **Edad:** 28 años
+* **Distrito:** Tarapoto
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-victor2.png" alt="Entrevista Lucero" width="600">
+  <br>
+  <em>Figura 7. YouTube: Entrevista 1: Estudiante-Tutor | SkillSwap. 
+  <br>
+  Nota: En esta figura se aprecia a la primera persona entrevista de nuestro segmento estudiante-tutor.</em>
+</p>
+
+* **URL:** [https://www.youtube.com/watch?v=fMeHUnvO4rA](https://www.youtube.com/watch?v=fMeHUnvO4rA)
+
+* **Inicio:** 0:00
+* **Duración:** 6 minutos con 32 segundos
+
+**Resumen descriptivo:**
+En esta entrevista, Lucero Campos cursa el octavo ciclo en la Universidad César Vallejo de Tarapoto y muestra especial interés en el área de atención al desarrollo de la primera infancia. Sus compañeros suelen buscarla antes de los exámenes para que les explique temas, lo cual disfruta porque le permite compartir ideas y reforzar su aprendizaje. Se siente motivada a enseñar con el fin de adquirir experiencia y valora que su tiempo sea reconocido. Considera positiva la posibilidad de ayudar a estudiantes de otras universidades, ya que le permitiría ampliar sus ideas y experiencias, aunque reconoce que la falta de interés de los aprendices o no sentirse valorada serían factores desmotivadores. No esperaría una recompensa material por sus tutorías, sino simplemente gratitud. Como apoyo, sugiere herramientas como pizarra virtual, borrador interactivo y un sistema de reputación que permita generar confianza en la plataforma. También resalta la importancia de expresar emociones en las clases para evitar la monotonía y fomentar una interacción más dinámica.
+
+**Entrevista 2**
+* **Nombres:** Abigail
+* **Apellidos:** Carbajal
+* **Edad:** 18 años
+* **Distrito:** Pueblo Libre
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-ale2.png" alt="Entrevista Abigail" width="600">
+  <br>
+  <em>Figura 8. YouTube: Entrevista 2: Estudiante-Tutor | SkillSwap. Nota: En esta figura se aprecia la segunda entrevista de nuestro segundo segmento estudiante-tutor.</em>
+</p>
+
+* **URL:**[https://www.youtube.com/watch?v=zFAWYnoZSzU]( https://www.youtube.com/watch?v=zFAWYnoZSzU)
+* **Inicio:** 0:12
+* **Duración:** 10 minutos con 28 segundos
+
+**Resumen descriptivo:**
+En esta segunda entrevista, Abigail estudia Psicología en la Universidad Peruana Cayetano Heredia y cursa el cuarto ciclo. Se siente especialmente interesada en psicopatología y destaca en este curso, aunque ha brindado apoyo a compañeros principalmente en estadística, usando apuntes y explicaciones adaptadas a sus necesidades. Su motivación principal para enseñar es reforzar su conocimiento, aunque no descarta recibir un pago. Señala que lo más difícil de ser tutor es encontrar la estrategia de enseñanza adecuada para cada persona y que la falta de disposición o interés del aprendiz, la distancia o el tiempo limitado pueden desanimarla. Considera útiles herramientas como pizarras virtuales, agendas, Canvas, Notion o Kahoot para organizar y hacer más didáctica la enseñanza, y resalta que la disposición del estudiante es clave para generar confianza al enseñar a personas de otras universidades.
+
+**Entrevista 3**
+* **Nombres:** Katherine
+* **Apellidos:** Isuiza
+* **Edad:** 20 años
+* **Distrito:** Cercado de Lima
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-victor2-1.png" alt="Entrevista Katherine" width="600">
+  <br>
+  <em>Figura 9. YouTube: Entrevista 3 Segmento Estudiante-Tutor | SkillSwap. Nota: En esta figura se aprecia a la tercera persona entrevistada de nuestro segundo segmento estudiante-tutor.</em>
+</p>
+
+* **URL:** [https://www.youtube.com/watch?v=Otu_waadCj4](https://www.youtube.com/watch?v=Otu_waadCj4)
+* **Inicio:** 0:00
+* **Duración:** 10 minutos con 21 segundos
+
+**Resumen descriptivo:**
+Katherine Tatiana Isuiza Vela es estudiante de Ingeniería Civil en la Universidad Privada del Norte, actualmente cursando el tercer ciclo. Se siente especialmente apasionada y cómoda con los cursos de Topografía y Dibujo Topográfico. Frecuentemente ayuda a sus compañeros, motivada por el deseo de reforzar sus propios conocimientos y practicar lo que ha aprendido. Disfruta la satisfacción de ver que otra persona comprende un tema complejo y valora la oportunidad de intercambiar diferentes métodos de aprendizaje con estudiantes de otras universidades. Considera que lo más difícil de ser tutora es la falta de tiempo y disposición del aprendiz, y se desanima ante la falta de compromiso y la mala organización de horarios. Propone que un sistema de créditos o beneficios universitarios sería una recompensa atractiva, y señala que herramientas como pizarras virtuales y calendarios facilitarían la enseñanza. La confianza para enseñar a un estudiante desconocido dependería de una buena comunicación y de percibir un interés genuino por aprender.
+
+#### Segmento objetivo #3: Coordinador Institucional
+
+**Entrevista 1**
+* **Nombres:** Armando
+* **Apellidos:** Novoa
+* **Edad:** 49 años
+* **Distrito:** San Miguel
+
+---
+<p align="center">
+  <img src="public/assets/images-doc/entre-rafa.png" alt="Entrevista Raúl" width="600">
+
+  <br>
+  <em>Figura 10. YouTube: Entrevista 3 Segmento Coordinador institucional | Innovify: En esta figura se aprecia la cuarta persona entrevistada de nuestro tercer segmento: coordinador institucional.</em>
+</p>
+
+
+* **URL:** [https://youtu.be/YDpJ_S8Ik2g](https://youtu.be/YDpJ_S8Ik2g)
+
+* **Inicio:** 0:00
+* **Duración:** 13 minutos con 54 segundos
+
+---
+
+### Resumen descriptivo
+
+Esta entrevista fue realizada a un docente de Cálculo 2 de la Universidad Peruana de Ciencias Aplicadas (UPC).
+
+De acuerdo con lo conversado, el profesor considera que la propuesta es una muy buena idea y la percibe como fundamental para el desarrollo profesional de los estudiantes. Destaca la importancia de que los alumnos colaboren e intercambien conocimientos, incluso entre diferentes universidades, con el fin de adaptarse a un mercado laboral cada vez más exigente.
+
+Asimismo, mostró cautela en sus declaraciones para no vulnerar su contrato con la universidad, pero enfatizó que las plataformas tecnológicas tienen un gran potencial siempre que se utilicen bajo un marco de ética y respeto a las normas institucionales. Señaló que la educación en valores debe prevalecer sobre la simple restricción del uso de la tecnología.
+
+Finalmente, evidenció interés en la funcionalidad operativa de la propuesta, sugiriendo que la validación y el acceso a la información se gestionen por niveles académicos, con el objetivo de asegurar que el contenido sea adecuado y pertinente para cada etapa del estudiante.
+
+**Entrevista 2 (Parte 1 y 2)**
+* **Nombres:** Jesús
+* **Apellidos:** Hernández
+* **Edad:** 29 años
+* **Distrito:** Cercado de Lima
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-victor3-1.png" alt="Entrevista Jesús" width="600">
+  <br>
+  <em>Figura 11 y 12. YouTube: Entrevista 2 Segmento Coordinador Institucional | SkillSwap. Nota: Entrevista dividida en dos partes.</em>
+</p>
+
+* **URL Parte 1:** [https://youtu.be/oRoAbwVAjxI](https://youtu.be/oRoAbwVAjxI) | **Inicio:** 0:00 | **Duración:** 10m 12s
+* **URL Parte 2:** [https://youtu.be/tWd_sJHLAak](https://youtu.be/tWd_sJHLAak) | **Inicio:** 0:00 | **Duración:** 11m 50s
+
+**Resumen descriptivo:**
+Jesús Hernández, jefe de prácticas, señala que los principales desafíos de los alumnos son la gestión del tiempo, el acceso a información confiable y la dificultad en el trabajo en equipo. Sobre una plataforma interuniversitaria, considera esencial la verificación de alumnos, políticas claras de integridad académica y un sistema de trazabilidad. Destacó que la universidad se preocupa por evitar plagio, fraude académico y suplantación de identidad. Advirtió que la implementación de una plataforma con validación manual podría generar carga laboral y costos, sugiriendo procesos automatizados como reconocimiento facial. Propuso que el panel del coordinador permita buscar y aprobar alumnos fácilmente, acceder a su historial y monitorear interacciones para asegurar una participación segura.
+
+**Entrevista 3**
+* **Nombres:** Raúl
+* **Apellidos:** Pardo
+* **Edad:** 34 años
+* **Distrito:** San Borja
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-david1.png" alt="Entrevista Raúl" width="600">
+  <br>
+  <em>Figura 13. YouTube: Entrevista 3 Segmento Coordinador Institucional | SkillSwap. Nota: En esta figura se aprecia la tercera persona entrevistada de nuestro tercer segmento coordinador institucional.</em>
+</p>
+
+* **URL:** [https://youtu.be/cP_YiYr2VD8](https://youtu.be/cP_YiYr2VD8)
+* **Inicio:** 0:00
+* **Duración:** 10 minutos con 40 segundos
+
+**Resumen descriptivo:**
+El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy buena idea y parte fundamental del estudio universitario que los alumnos compartan opiniones y se ayuden mutuamente. Destacó que las herramientas tecnológicas son productivas para la colaboración siempre que se les dé un buen uso, priorizando el aprendizaje sobre ventajas deshonestas. También mostró cierta preocupación por la carga de los alumnos tutores, ya que siente que brindar ayuda constante podría impactar negativamente en su propio tiempo y productividad, especialmente en alumnos con muchas responsabilidades académicas.
+
+
+### 2.2.3. Análisis de entrevistas
+
+#### Segmento objetivo #1: Estudiantes que quieran aprender
+
+**1. Características objetivas**
+* **Edad:** Estudiantes universitarios, generalmente entre 18 y 24 años (100%).
+* **Carrera:** Diversas carreras universitarias (Enfermería, Ingeniería, Negocios Internacionales) (100%).
+* **Ciclo:** 3° a 6° ciclo (100%).
+* **Experiencia con plataformas:**
+  * Poca experiencia con tutorías online formales (2 de 3).
+  * Uso de herramientas digitales para estudio (Meet, WhatsApp, Script) (100%).
+  * Estudio individual: Prefieren estudiar solos la mayor parte del tiempo (100%).
+
+**2. Características subjetivas**
+* **Preferencias de estudio:**
+  * Estudio individual para concentración y calma ante estrés (100%).
+  * Estudio en horarios específicos: tardes o noches (66%).
+  * Prefieren un lugar sin distracciones (33%).
+* **Dificultades académicas:**
+  * Obstáculos para pedir ayuda a compañeros o profesores: demora de respuestas, falta de disponibilidad, miedo a ser juzgado (100%).
+  * Problemas de coordinación en grupos y comunicación (33%).
+  * Cursos demandantes y prácticos aumentan estrés (66%).
+* **Uso de recursos externos:**
+  * Buscan apoyo en internet y familiares (100%).
+  * Valoran recibir ayuda de estudiantes expertos de otras universidades (100%).
+  * Prioridad en la calidad de aprendizaje sobre la inmediatez de la ayuda (33%).
+* **Herramientas digitales y funcionalidades deseadas:**
+  * Chat, pizarra virtual y grabación de sesiones (100%).
+  * Perfiles con reseñas, especialidades y mini-ejercicios (66%).
+  * Tutorías pagadas si no pueden resolver dudas por sí mismos (33%).
+
+| Característica | % Entrevistados | Fuente / Frase de entrevista |
+| :--- | :--- | :--- |
+| Prefiere estudiar solo | 100% | Prefiere estudiar sola por las tardes/noches. |
+| Valoración ayuda de otros estudiantes | 100% | Valora recibir apoyo de estudiantes expertos de otras universidades. |
+| Obstáculos pedir ayuda | 100% | Demora de respuestas / falta de disponibilidad / miedo a ser juzgada. |
+| Uso de herramientas digitales | 100% | Utiliza plataformas como Meet, WhatsApp, Script. |
+| Funciones deseadas en aplicación | 66% | Perfiles con reseñas, chat, pizarra virtual, mini-ejercicios. |
+| Tutorías pagadas | 33% | Considera útiles tutorías pagadas cuando no puede resolver dudas por sí misma. |
+| Ciclo universitario | 100% | 3° a 6° ciclo de diversas carreras. |
+
+*(Tabla 4. Principales hallazgos de entrevistas a estudiantes universitarios - Elaboración propia. Nota: La tabla resume los comportamientos, percepciones y preferencias identificadas en las entrevistas).*
+
+---
+
+#### Segmento objetivo #2: Estudiantes que quieran enseñar
+
+**1. Características objetivas**
+* **Edad y ciclo:** Estudiantes universitarios de diversos ciclos (100%).
+* **Carrera:** Diversas carreras (Psicología, Educación, Ingeniería Civil) (100%).
+* **Experiencia:** Participan en grupos de estudio y ayudan a compañeros de manera informal antes de los exámenes (100%).
+* **Habilidades digitales:** Mencionan y sugieren el uso de herramientas digitales para tutorías (agenda, pizarra virtual, Canvas, Notion, Kahoot, sistemas de reputación) (100%).
+
+**2. Características subjetivas**
+* **Motivaciones para enseñar:**
+  * Reforzar el propio conocimiento (100%).
+  * Incentivos o recompensas tangibles (pago, créditos universitarios) (67%).
+  * Compartir ideas y adquirir experiencia (67%).
+* **Dificultades percibidas:**
+  * Falta de interés o compromiso del aprendiz (100%).
+  * Encontrar la estrategia de enseñanza adecuada para cada persona (67%).
+  * Tiempo limitado, distancia y mala organización de horarios (67%).
+* **Preferencias y necesidades en la tutoría:**
+  * Necesidad de conocer al estudiante para generar confianza (100%).
+  * Herramientas digitales para organizar y hacer didáctica la enseñanza (100%).
+  * Sistema de recompensas (créditos canjeables o pago) para incentivar la participación (67%).
+
+| Característica | % Entrevistados | Fuente / Frase de entrevista |
+| :--- | :--- | :--- |
+| Motivo principal: reforzar conocimiento | 100% | Su motivación principal para enseñar es reforzar su conocimiento. |
+| Participa en tutorías | 100% | Todos tienen experiencia ayudando a sus compañeros de manera ocasional o regular. |
+| Uso de herramientas digitales | 100% | Herramientas como agenda, pizarra virtual, Canvas, Notion, Kahoot. |
+| Necesidad de generar confianza | 100% | Todas necesitan percibir interés o tener un sistema que valide al otro usuario. |
+| Motivación económica/recompensas | 67% | Sugiere un sistema de recompensas / no descarta recibir un pago. |
+| Dificultad: tiempo y organización | 67% | La mala gestión de horarios, el tiempo limitado y la distancia son barreras importantes. |
+| Dificultad: estrategia de enseñanza | 67% | Consideran un reto encontrar la metodología de enseñanza adecuada para cada alumno. |
+
+*(Tabla 5. Principales hallazgos de entrevistas a estudiantes tutores - Elaboración propia. Nota: La tabla sintetiza las motivaciones, desafíos y necesidades expresadas por los estudiantes que ofrecen tutorías).*
+
+---
+
+#### Segmento objetivo #3: Coordinador Institucional
+
+**1. Características objetivas**
+* **Edad y rol:**
+  * Profesionales entre 29 y 53 años (100%).
+  * Docentes, coordinadores o jefes de práctica (100%).
+* **Ámbito laboral:**
+  * Universidades (100%).
+* **Responsabilidades:**
+  * Supervisión del aprendizaje (100%).
+  * Garantizar integridad académica (100%).
+  * Evaluación del desempeño (100%).
+* **Relación con tecnología:**
+  * Uso de herramientas digitales educativas (100%).
+  * Sistemas de control académico (100%).
+
+**2. Características subjetivas**
+* **Percepción del aprendizaje colaborativo:**
+  * Considerado fundamental (100%).
+  * Positiva colaboración interuniversitaria (100%).
+  * Mejora la preparación profesional (66%).
+* **Preocupaciones:**
+  * Plagio, fraude y suplantación (100%).
+  * Uso indebido de tecnología (100%).
+  * Información poco confiable (100%).
+  * Riesgo reputacional (66%).
+* **Barreras:**
+  * Validación de estudiantes (100%).
+  * Carga operativa (67%).
+  * Costos (67%).
+  * Necesidad de automatización (33%).
+* **Limitaciones del estudiante:**
+  * Falta de tiempo (100%).
+  * Mala gestión del tiempo (100%).
+  * Problemas de trabajo en equipo (66%).
+* **Requisitos de la plataforma:**
+  * Verificación de identidad (100%).
+  * Validación académica (100%).
+  * Políticas claras (100%).
+  * Trazabilidad de interacciones (100%).
+  * Panel de monitoreo (100%).
+* **Condiciones de aceptación:**
+  * Enfoque en aprendizaje (100%).
+  * Marco ético claro (100%).
+  * No afectar rendimiento (66%).
+  * No sobrecargar usuarios (66%).
+
+| Característica | % entrevistados | Insight clave |
+| :--- | :--- | :--- |
+| Aprendizaje colaborativo | 100% | Fundamental |
+| Colaboración interuniversitaria | 100% | Positiva si se controla |
+| Preocupación por fraude | 100% | Riesgo principal |
+| Validación de identidad | 100% | Requisito crítico |
+| Uso responsable de tecnología | 100% | Condición base |
+| Riesgo reputacional | 66% | Preocupación relevante |
+| Problemas de tiempo | 100% | Limita uso |
+| Sistema de monitoreo | 100% | Necesario |
+| Carga operativa | 67% | Barrera |
+| Segmentación académica | 33% | Mejora pertinencia |
+
+*(Tabla 6. Principales hallazgos de entrevistas a coordinadores académicos - Elaboración propia. Nota: Resultados obtenidos en las entrevistas con coordinadores o jefes de práctica).*
+
+---
 
 ## 2.3. Needfinding
-*(Nota: Incluir en esta sección los User Personas actualizados, el User Task Matrix priorizando tareas móviles, el User Journey Mapping As-Is, el Empathy Mapping, el reporte del Big Picture EventStorming y el Ubiquitous Language en inglés).*
+
+Para el proceso de needfinding, se ha planificado la realización de entrevistas a los tres arquetipos de usuarios identificificados: "Estudiantes que quieran aprender", "Estudiantes que quieran enseñar" y el "Coordinador Institucional". El objetivo principal de esta investigación es indagar en las motivaciones, frustraciones y necesidades de los estudiantes universitarios peruanos cuando buscan o desean ofrecer apoyo académico más allá de las fronteras de su propia institución.
+
+A través de este proceso, se busca validar las hipótesis iniciales del proyecto, como la existencia de una demanda latente de colaboración interuniversitaria y la importancia crítica de la seguridad y la confianza en un entorno digital de este tipo. Los hallazgos derivados de las entrevistas permitirán comprender a fondo los problemas que la plataforma debe resolver, como el aislamiento académico y la desconfianza inicial entre pares desconocidos.
+
+### 2.3.1. User Personas
+
+Para iniciar esta sección del documento, el equipo seleccionó las características más relevantes de todas las que ofrece la plataforma UXPressia, diferenciando entre aquellas de carácter global (comunes a los tres segmentos) y las específicas que resultaban más pertinentes para determinados perfiles. Cada integrante compartió sus aportes en los apartados correspondientes, respondiendo preguntas puntuales sobre la persona creada, siempre a partir de los resultados obtenidos y analizados en las entrevistas previas. Finalmente, consensuamos la opción que consideramos más adecuada, adaptándola para que fuese más precisa y representativa del perfil que buscamos. Este proceso no solo permitió refinar la definición de cada segmento, sino también alinear la visión del equipo respecto al usuario objetivo.
+
+**User Persona: Estudiantes que quieran aprender**
+<p align="center">
+  <img src="public/assets/images-doc/user1.jpg" alt="User Persona Aprendiz" width="800">
+  <br>
+  <em>Figura 12. User Persona - Estudiantes que quieran aprender - Elaboración propia.</em>
+</p>
+En esta figura se observa el arquetipo de usuario correspondiente al segmento de estudiantes o "Learners". El perfil de Jazmin Rosas detalla las metas, motivaciones y frustraciones de una estudiante de ingeniería, proporcionando una base clara para orientar el desarrollo hacia soluciones de aprendizaje colaborativo y soporte académico entre pares.
+<br><br>
+
+**User Persona: Estudiantes que quieran enseñar**
+<p align="center">
+  <img src="public/assets/images-doc/user2.jpg" alt="User Persona Tutor" width="800">
+  <br>
+  <em>Figura 14. User Persona - Estudiantes que quieran enseñar - Elaboración propia.</em>
+</p>
+En esta figura se presenta el arquetipo de usuario "Lucía Torres", el cual personifica el segmento de estudiantes con un rol híbrido que actúan simultáneamente como tutores y aprendices. El perfil describe sus antecedentes académicos en ingeniería y sus objetivos de fortalecer habilidades blandas mediante la enseñanza, proporcionando información valiosa sobre los desafíos de gestión del tiempo y la necesidad de herramientas intuitivas para la organización de las sesiones de tutoría.
+<br>
+<br>
+
+**User Persona: Coordinador Institucional**
+<p align="center">
+  <img src="public/assets/images-doc/user3.jpg" alt="User Persona Coordinador" width="800">
+  <br>
+  <em>Figura 15. User Persona - Coordinador Institucional - Elaboración propia.</em>
+</p>
+En la imagen tenemos la caracterización de Renato López, quien representa el segmento administrativo y de moderación del sistema. Su perfil resalta objetivos enfocados en la seguridad, la integridad académica y el monitoreo de comportamientos, definiendo los requerimientos necesarios para las herramientas de gestión institucional de la plataforma.
+<br>
+<br>
+<br>
+
+
+
+**En conjunto**, los arquetipos de usuario presentados permiten comprender de manera clara las necesidades, motivaciones y desafíos de los principales actores dentro del sistema. El perfil de los estudiantes o “Learners” orienta el diseño hacia experiencias de aprendizaje colaborativo y soporte académico efectivo, mientras que el arquetipo del usuario administrativo establece los lineamientos necesarios para garantizar la seguridad, la integridad académica y una adecuada supervisión del comportamiento dentro de la plataforma.
+
+Por otro lado, el perfil híbrido de usuarios que cumplen simultáneamente roles de estudiante y tutor aporta una visión más dinámica del ecosistema, evidenciando la necesidad de herramientas flexibles que faciliten la gestión del tiempo y la organización de sesiones de enseñanza. En conjunto, estos arquetipos permiten alinear el desarrollo del sistema con usuarios reales y diversos, asegurando una solución más centrada en la experiencia, la eficiencia operativa y el equilibrio entre aprendizaje, enseñanza y administración.
+
+<br>
+
+---
+
+### 2.3.2. User Task Matrix
+
+En el User Task Matrix se considera a los tres segmentos evaluando sus tareas clave según frecuencia e importancia. Los aprendices priorizan estudiar independientemente y acceder a recursos de apoyo; los tutores, reforzar su conocimiento y participar en grupos de estudio; y los coordinadores, orientar casos prácticos, gestionar el tiempo y verificar la integridad académica. Todos coinciden en usar herramientas digitales y favorecer la colaboración, aunque cada segmento aplica estas tareas con objetivos distintos.
+
+#### Segmento objetivo #1: Estudiantes que quieran aprender
+
+| Tareas | Boris | Adrian | Stephanie |
+| :--- | :--- | :--- | :--- |
+| **Buscar información de Internet** | Frec: Alta<br>Imp: Alta | Frec: Alta<br>Imp: Alta | Frec: Alta<br>Imp: Alta |
+| **Consultar a familiares o compañeros con experiencia** | Frec: Media<br>Imp: Media-Alta | Frec: Media<br>Imp: Alta | Frec: Media<br>Imp: Media-Alta |
+| **Estudiar independientemente en horarios tranquilos** | Frec: Muy alta<br>Imp: Muy alta | Frec: Muy alta<br>Imp: Muy alta | Frec: Muy alta<br>Imp: Muy alta |
+| **Coordinar con compañeros** | Frec: Media<br>Imp: Alta | Frec: Media<br>Imp: Alta | Frec: Media<br>Imp: Alta |
+| **Acceder a plataformas de tutorías, videos grabados o chats** | Frec: Muy alta<br>Imp: Muy alta | Frec: Alta<br>Imp: Alta | Frec: Muy alta<br>Imp: Muy alta |
+| **Contratar un tutor particular** | Frec: Media<br>Imp: Muy alta | Frec: Media<br>Imp: Muy alta | Frec: Media<br>Imp: Muy alta |
+
+*(Tabla 7. Actividades de aprendizaje y su valoración por los usuarios - Elaboración propia).*
+
+#### Segmento objetivo #2: Estudiantes que quieran enseñar
+
+| Tareas | Lucero | Abigail | Katherine |
+| :--- | :--- | :--- | :--- |
+| **Estudiar y reforzar su conocimiento antes de enseñar** | Frec: Muy alta<br>Imp: Muy alta | Frec: Muy alta<br>Imp: Muy alta | Frec: Muy alta<br>Imp: Muy alta |
+| **Participar en grupos de estudio y colaborar con compañeros** | Frec: Alta<br>Imp: Alta | Frec: Muy alta<br>Imp: Muy alta | Frec: -<br>Imp: Muy alta |
+| **Ayudar a estudiantes de otras universidades** | Frec: Media<br>Imp: Alta | Frec: Alta<br>Imp: Alta | Frec: Media<br>Imp: Alta |
+| **Conocer al estudiante antes de brindar ayuda para generar confianza** | Frec: Media<br>Imp: Alta | Frec: Media<br>Imp: Muy alta | Frec: Media<br>Imp: Alta |
+| **Utilizar herramientas digitales para tutoría** | Frec: Media<br>Imp: Alta | Frec: Alta<br>Imp: Alta | Frec: Media<br>Imp: Alta |
+| **Gestionar motivación y recompensas de la tutoría** | Frec: Baja-Media<br>Imp: Media-Alta | Frec: Baja-Media<br>Imp: Media | Frec: Baja<br>Imp: Media |
+
+*(Tabla 8. Actividades y motivaciones de los estudiantes-tutores – Elaboración propia).*
+
+#### Segmento objetivo #3: Coordinador Institucional
+
+| Tareas | Armando | Jesús | Raúl |
+| :--- | :--- | :--- | :--- |
+| **Guiar a los estudiantes en la aplicación práctica de conceptos mediante casos...** | Frec: Muy alta<br>Imp: Muy alta | Frec: Muy alta<br>Imp: Muy alta | Frec: Alta<br>Imp: Muy alta |
+| **Enseñar a los estudiantes a gestionar el tiempo y organizarse...** | Frec: Media<br>Imp: Alta | Frec: Muy alta<br>Imp: Alta | Frec: Media-Alta<br>Imp: Alta |
+| **Fomentar el trabajo en equipo y habilidades de comunicación** | Frec: Media<br>Imp: Alta | Frec: Alta<br>Imp: Alta | Frec: Alta<br>Imp: Alta |
+| **Garantizar acceso a información confiable y enseñar a evaluarla...** | Frec: Media<br>Imp: Muy alta | Frec: Alta<br>Imp: Muy alta | Frec: Media<br>Imp: Alta |
+| **Verificar alumnos y asegurar integridad académica en la plataforma...** | Frec: Baja-Media<br>Imp: Alta | Frec: Media<br>Imp: Alta | Frec: Alta<br>Imp: Alta |
+| **Implementar herramientas digitales y plazos que faciliten la organización...** | Frec: Media<br>Imp: Alta | Frec: Alta<br>Imp: Alta | Frec: Alta<br>Imp: Muy alta |
+
+*(Tabla 9. Funciones y prioridades de los coordinadores académicos – Elaboración propia).*
+
+**Conclusión:**
+Las tareas más frecuentes e importantes son estudiar de forma independiente y acceder a recursos de apoyo para los aprendices; reforzar conocimiento y participar en grupos de estudio para los tutores; y orientar casos prácticos y verificar integridad académica para los coordinadores. Todos los segmentos coinciden en usar herramientas digitales y favorecer la colaboración, aunque cada grupo las aplica con un enfoque distinto según sus objetivos.
+
+### 2.3.3. User Journey Mapping
+
+En esta sección se presentan los User Journey Maps As-Is de cada User Persona, mostrando el recorrido completo (end-to-end) de los usuarios en la situación actual, sin intervención de la nueva solución, lo que incluye procesos, puntos de dolor y oportunidades.
+
+* **Segmento 1: Estudiantes que quieran aprender.** Inicia con la necesidad de comprender un tema, pasando por dudas, búsquedas de ayuda frustrantes y coordinación complicada, hasta la evaluación del aprendizaje, evidenciando problemas de disponibilidad y confiabilidad de recursos.
+* **Segmento 2: Estudiantes que quieran enseñar.** Comienza con motivación por reforzar su conocimiento y ayudar, pero enfrenta obstáculos en la preparación de material, coordinación con el aprendiz y falta de retroalimentación para mejorar su enseñanza.
+* **Segmento 3: Coordinadores Institucionales.** Inician su recorrido al identificar la necesidad de mantener la calidad académica y fomentar la colaboración. Continúan con la planeación y preparación de estrategias, pero enfrentan complejidades al anticipar errores operativos. Durante la implementación y coordinación, sufren de sobrecarga operativa y riesgos de plagio o fraude, para finalmente en la etapa de supervisión y evaluación, lidiar con limitaciones operativas y la dificultad de medir el impacto real de sus esfuerzos.
+
+#### Segmento #1: Estudiantes que quieran aprender
+<p align="center">
+  <img src="public/assets/images-doc/jur1.jpg" alt="Journey Map Aprendiz" width="800">
+  <br>
+  <em>Figura 16. User Journey Mapping – Estudiantes que quieran aprender - Elaboración propia. Nota: En esta figura se aprecia nuestro primer Journey Mapping de nuestro primer segmento estudiante aprendiz.</em>
+</p>
+<br>
+En esta figura se observa el recorrido del estudiante o aprendiz a través de cinco etapas críticas: descubrimiento, duda, búsqueda, recepción de ayuda y evaluación. El diagrama detalla la curva emocional del usuario, identificando puntos de dolor como la dificultad para coordinar horarios y la falta de claridad en explicaciones, proponiendo soluciones como el uso de tutores verificados y repositorios de sesiones grabadas.
+<br>
+
+#### Segmento #2: Estudiantes que quieran enseñar
+<p align="center">
+  <img src="public/assets/images-doc/jur2.jpg" alt="Journey Map Tutor" width="800">
+  <br>
+  <em>Figura 17. User Journey Mapping – Estudiantes que quieran enseñar - Elaboración propia. Nota: En esta figura se aprecia nuestro segundo Journey Mapping de nuestro segundo segmento estudiante tutor.</em>
+</p>
+<br>
+En la imagen tenemos la visualización de la experiencia desde la perspectiva del tutor. El mapa describe el proceso desde la motivación inicial y la preparación del material hasta el cierre y retroalimentación de la sesión. Se resalta la fluctuación de la experiencia según el compromiso del aprendiz y se proponen ideas de mejora como la gamificación de las sesiones y sistemas de recordatorios automáticos para optimizar la gestión del tiempo.
+<br>
+
+#### Segmento #3: Coordinador Institucional
+<p align="center">
+  <img src="public/assets/images-doc/jur3.jpg" alt="Journey Map Coordinador" width="800">
+  <br>
+  <em>Figura 18. User Journey Mapping - Coordinador Institucional - Elaboración propia. Nota: En esta figura se aprecia nuestro tercer Journey Mapping de nuestro segmento coordinador institucional.</em>
+</p>
+
+En esta figura se detalla el flujo de gestión desde el ángulo administrativo y de calidad académica. El mapa abarca la planeación, implementación y supervisión de las tutorías interuniversitarias, poniendo énfasis en la mitigación de riesgos operativos como el plagio o el fraude. Se proponen herramientas técnicas de control, tales como un "DNI académico" para la validación de alumnos y paneles de control intuitivos para el monitoreo de interacciones.
+<br>
+<br>
+<br>
+
+**Entonces**, los mapas de experiencia presentados permiten comprender de manera integral cómo interactúan los distintos actores con la plataforma a lo largo de sus procesos clave. Desde la perspectiva del estudiante, se evidencia un recorrido marcado por necesidades emocionales y operativas que van desde la incertidumbre inicial hasta la evaluación final, identificando puntos críticos que pueden ser mitigados mediante herramientas de apoyo como tutores verificados y recursos grabados.
+
+Desde el lado del tutor, la experiencia se centra en la preparación, ejecución y retroalimentación de las sesiones, donde la calidad de la interacción depende del nivel de compromiso del aprendiz, proponiéndose mejoras orientadas a la motivación y la optimización del tiempo mediante gamificación y automatización de recordatorios.
+
+Finalmente, la visión administrativa incorpora una capa de control y supervisión orientada a garantizar la calidad académica y la seguridad del sistema, abordando riesgos como el fraude o el plagio mediante mecanismos de validación y paneles de monitoreo. En conjunto, estas perspectivas permiten diseñar una experiencia equilibrada, eficiente y segura para todos los participantes del ecosistema educativo.
+
+<br>
+
+---
+
+### 2.3.4. Empathy Mapping
+
+Para profundizar en el entendimiento de nuestros usuarios finales y diseñar una solución que responda a sus necesidades reales, se desarrollaron mapas de empatía para cada segmento identificado. Esta herramienta permite visualizar el entorno, las percepciones y las motivaciones de los actores clave (aprendiz, tutor y administrador), facilitando la identificación de puntos críticos y oportunidades de valor dentro del ecosistema de SkillSwap.
+<br>
+
+
+#### Segmento #1: Estudiantes que quieran aprender
+<p align="center">
+  <img src="public/assets/images-doc/Empati1.png" alt="Empathy Map Aprendiz" width="800">
+  <br>
+  <em>Figura 19. Empathy Mapping - Estudiantes aprendices - Elaboración propia. Nota: En esta figura se aprecia nuestro Empathy Mapping de nuestro primer segmento estudiante aprendiz.</em>
+</p>
+<br>
+Se observa el mapa de empatía de Valeria, estudiante universitaria que representa al segmento de aprendices. El diagrama detalla su necesidad de encontrar apoyo académico confiable ante una carga académica exigente, identificando como puntos de dolor la ansiedad generada por la falta de confianza en los tutores actuales y la frustración de perder tiempo buscando ayuda poco efectiva.
+
+<br>
+
+#### Segmento #2: Estudiantes que quieran enseñar
+<p align="center">
+  <img src="public/assets/images-doc/Empati2.png" alt="Empathy Map Tutor" width="800">
+  <br>
+  <em>Figura 20. Empathy Mapping - Estudiantes tutores - Elaboración propia. Nota: En esta figura se aprecia nuestro segundo Empathy Mapping de nuestro segmento estudiantes tutores.</em>
+</p>
+<br>
+En esta figura se detalla el mapa de empatía orientado al estudiante con rol de tutor. El análisis subraya su deseo de reafirmar conocimientos mediante la enseñanza y construir un perfil académico/profesional sólido. Se identifican como principales desafíos la falta de reconocimiento formal por su labor de apoyo y la dificultad para equilibrar las tutorías con sus propias responsabilidades de estudio.
+<br>
+
+#### Segmento #3: Coordinador Institucional
+<p align="center">
+  <img src="public/assets/images-doc/Empati3.png" alt="Empathy Map Coordinador" width="800">
+  <br>
+  <em>Figura 21. Empathy Mapping - Coordinador Institucional - Elaboración propia. Nota: En esta figura se aprecia nuestro tercer Empathy Mapping de nuestro segmento coordinador institucional.</em>
+</p>
+
+En la imagen tenemos la caracterización empática de Romeo, representante del segmento institucional y administrativo. El mapa resalta su preocupación por mantener la calidad académica y la integridad institucional, señalando como riesgos principales el fraude o suplantación de identidad, y visualizando como ganancia el acceso a herramientas tecnológicas que agilicen la validación de los participantes.
+<br><br>
+**Entonces**, los mapas de empatía permiten profundizar en las necesidades emocionales, motivaciones y dificultades de los distintos actores del sistema, enriqueciendo la comprensión del diseño centrado en el usuario. En el caso del estudiante con rol de tutor, se evidencia una motivación orientada al refuerzo de conocimientos y al desarrollo de su perfil profesional, aunque enfrenta desafíos relacionados con el reconocimiento de su labor y la gestión del tiempo entre sus responsabilidades académicas y las tutorías.
+
+Por su parte, el perfil institucional destaca una fuerte preocupación por la calidad académica y la seguridad del sistema, priorizando la prevención de riesgos como el fraude y la suplantación, y valorando el uso de herramientas tecnológicas que optimicen los procesos de validación. Finalmente, el estudiante aprendiz refleja una necesidad urgente de apoyo académico confiable, enfrentando emociones como la ansiedad y la frustración debido a experiencias poco efectivas en la búsqueda de ayuda. En conjunto, estos mapas evidencian la importancia de diseñar una plataforma equilibrada que atienda tanto aspectos funcionales como emocionales, asegurando confianza, eficiencia y valor para todos los usuarios.
+
+---
+
+
 
 ## 2.4. Requirements specification
 
