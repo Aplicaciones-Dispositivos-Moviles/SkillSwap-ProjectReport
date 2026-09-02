@@ -1,0 +1,379 @@
+specification {
+  element person {
+    style {
+      shape person
+      color indigo
+    }
+  }
+  element softwareSystem {
+    style {
+      shape browser
+      color primary
+    }
+  }
+  element externalSystem {
+    style {
+      color amber
+    }
+  }
+  element webApp {
+    style {
+      shape browser
+      color blue
+    }
+  }
+  element mobileApp {
+    style {
+      shape mobile
+      color green
+    }
+  }
+  element apiGateway {
+    style {
+      color slate
+    }
+  }
+  element boundedContext {
+    style {
+      color amber
+    }
+  }
+  element database {
+    style {
+      shape cylinder
+      color red
+    }
+  }
+  element controller {
+    style {
+      color blue
+    }
+  }
+  element command {
+    style {
+      color red
+    }
+  }
+  element query {
+    style {
+      color sky
+    }
+  }
+  element repository {
+    style {
+      color amber
+    }
+  }
+  element externalService {
+    style {
+      color indigo
+    }
+  }
+  element contextFacade {
+    style {
+      color indigo
+    }
+  }
+}
+
+model {
+  // --------------------------------------------------------
+  // Person
+  // --------------------------------------------------------
+  learner = person "Estudiante Aprendiz" { description "Busca ayuda académica, reserva tutorías, resuelve quizzes y realiza donaciones." }
+  tutor = person "Estudiante Tutor" { description "Brinda tutorías, asigna quizzes oficiales y recibe donaciones." }
+  professor = person "Profesor Universitario" { description "Crea material oficial, atiende disputas y monitorea la analítica de su facultad." }
+
+  // --------------------------------------------------------
+  // External Systems
+  // --------------------------------------------------------
+  emailService = externalSystem "Modelo externo Email Api" { description "Integración con correos" }
+  paymentGateway = externalSystem "Modelo externo Correo" { description "Procesamiento externo (Legacy/Stripe)" }
+  paymentsService = externalSystem "Payments & Wallet" { description "Modelo externo transaccional" }
+  agoraApi = externalSystem "Agora Video SDK" { description "Integración con videollamadas en tiempo real" }
+  cloudStorage = externalSystem "Cloudinary" { description "Cloud Storage para archivos compartidos en el chat" }
+
+  // --------------------------------------------------------
+  // Innovify System
+  // --------------------------------------------------------
+  innovifySystem = softwareSystem "Innovify Platform" {
+    description "Plataforma central que gestiona reservas, aprendizaje, donaciones B2C y analítica B2B."
+
+    webApp = webApp "Web Application" { description "SPA interactiva para el Coordinador/Profesor (JavaScript/Vite)." }
+    androidApp = mobileApp "Android Native Application" { description "Aplicación móvil nativa (Kotlin/Jetpack Compose)." }
+    flutterApp = mobileApp "Cross-Platform Application" { description "Aplicación móvil multiplataforma (Flutter/Dart)." }
+    apiGateway = apiGateway "Api Gateway" { description "Controlador de tráfico (Spring Cloud Gateway)." }
+
+    identityBC = boundedContext "Identity & Access Bounded Context" {
+      description "Gestión de autenticación y perfiles"
+      identityController = controller "Identity Controller"
+      identityRepository = repository "Identity Repository"
+      identityCommandService = command "Identity CommandService"
+      identityQueryService = query "Identity QueryService"
+      emailExternal = externalService "Email ExternalService"
+      identityContextFacade = contextFacade "Identity ContextFacade"
+    }
+    identityDB = database "Identity Database"
+
+    profileBC = boundedContext "Discovery Bounded Context" {
+      description "Catálogo y búsqueda"
+      discoveryController = controller "Discovery Controller"
+      discoveryRepository = repository "Discovery Repository"
+      discoveryCommandService = command "Discovery CommandService"
+      discoveryQueryService = query "Discovery QueryService"
+      discoveryContextFacade = contextFacade "Discovery ContextFacade"
+    }
+    discoveryDB = database "Discovery Database"
+
+    collaborationBC = boundedContext "Workspace Bounded Context" {
+      description "Chat y videollamadas. La organización de horarios del tutor se maneja exclusivamente por coordinaciones manuales vía chat."
+      collaborationController = controller "Workspace Controller"
+      collaborationRepository = repository "Workspace Repository"
+      collaborationCommandService = command "Workspace CommandService"
+      collaborationQueryService = query "Workspace QueryService"
+      rtcStorageExternal = externalService "RTC & Storage ExternalService"
+      collaborationContextFacade = contextFacade "Workspace ContextFacade"
+    }
+    workplaceDB = database "Workspace Database"
+
+    learningBC = boundedContext "Learning & Assessment Bounded Context" {
+      description "Sesiones y quizzes"
+      learningController = controller "Learning Controller"
+      learningRepository = repository "Learning Repository"
+      learningCommandService = command "Learning CommandService"
+      learningQueryService = query "Learning QueryService"
+      learningContextFacade = contextFacade "Learning ContextFacade"
+    }
+    learningDB = database "Learning Database"
+
+    reputationBC = boundedContext "Reputation Bounded Context" {
+      description "Feedback y ratings"
+      reputationController = controller "Reputation Controller"
+      reputationRepository = repository "Reputation Repository"
+      reputationCommandService = command "Reputation CommandService"
+      reputationQueryService = query "Reputation QueryService"
+      reputationContextFacade = contextFacade "Reputation ContextFacade"
+    }
+    reputationDB = database "Reputation Database"
+
+    moderationBC = boundedContext "Moderation & Disputes Bounded Context" {
+      description "Resolución de disputas"
+      moderationController = controller "Moderation Controller"
+      moderationRepository = repository "Moderation Repository"
+      moderationCommandService = command "Moderation CommandService"
+      moderationQueryService = query "Moderation QueryService"
+      moderationContextFacade = contextFacade "Moderation ContextFacade"
+    }
+    moderationDB = database "Moderation Database"
+
+    billingBC = boundedContext "Payments & Wallet Bounded Context" {
+      description "Pagos y donaciones"
+      billingController = controller "Payments Controller"
+      billingRepository = repository "Payments Repository"
+      billingCommandService = command "Payments CommandService"
+      billingQueryService = query "Payments QueryService"
+      stripeExternal = externalService "Stripe ExternalService"
+      billingContextFacade = contextFacade "Payments ContextFacade"
+    }
+    paymentsDB = database "Payments Database"
+  }
+
+  // --------------------------------------------------------
+  // Relaciones Nivel 1 & 2
+  // --------------------------------------------------------
+  learner -> webApp
+  tutor -> webApp
+  professor -> webApp
+
+  learner -> androidApp "Usa"
+  tutor -> androidApp "Usa"
+  learner -> flutterApp "Usa"
+  tutor -> flutterApp "Usa"
+
+  webApp -> apiGateway
+  androidApp -> apiGateway "Consume API RESTful vía HTTPS"
+  flutterApp -> apiGateway "Consume API RESTful vía HTTPS"
+
+  apiGateway -> identityBC
+  apiGateway -> profileBC
+  apiGateway -> collaborationBC
+  apiGateway -> learningBC
+  apiGateway -> reputationBC
+  apiGateway -> moderationBC
+  apiGateway -> billingBC
+
+  identityBC -> identityDB
+  profileBC -> discoveryDB
+  collaborationBC -> workplaceDB
+  learningBC -> learningDB
+  reputationBC -> reputationDB
+  moderationBC -> moderationDB
+  billingBC -> paymentsDB
+
+  identityBC -> emailService
+  collaborationBC -> agoraApi
+  collaborationBC -> cloudStorage
+  billingBC -> paymentsService
+  billingBC -> emailService
+  billingBC -> paymentGateway
+  moderationBC -> agoraApi
+
+  // --------------------------------------------------------
+  // Relaciones Nivel 3 (Componentes)
+  // --------------------------------------------------------
+  apiGateway -> identityController "Request HTTP a Identity"
+  identityController -> identityCommandService
+  identityController -> identityQueryService
+  identityCommandService -> identityRepository
+  identityQueryService -> identityRepository
+  identityRepository -> identityDB "SQL Transaction"
+
+  apiGateway -> discoveryController "Request HTTP a Discovery"
+  discoveryController -> discoveryCommandService
+  discoveryController -> discoveryQueryService
+  discoveryCommandService -> discoveryRepository
+  discoveryQueryService -> discoveryRepository
+  discoveryRepository -> discoveryDB "Guarda las búsquedas recientes"
+
+  apiGateway -> collaborationController "Request HTTP / WebSocket a Workspace"
+  collaborationController -> collaborationCommandService
+  collaborationController -> collaborationQueryService
+  collaborationCommandService -> collaborationRepository
+  collaborationQueryService -> collaborationRepository
+  collaborationRepository -> workplaceDB "SQL Transaction"
+
+  apiGateway -> learningController "Request HTTP a Learning"
+  learningController -> learningCommandService
+  learningController -> learningQueryService
+  learningCommandService -> learningRepository
+  learningQueryService -> learningRepository
+  learningRepository -> learningDB "Guarda calificaciones del quiz"
+
+  apiGateway -> reputationController "Request HTTP a Reputation"
+  reputationController -> reputationCommandService
+  reputationController -> reputationQueryService
+  reputationCommandService -> reputationRepository
+  reputationQueryService -> reputationRepository
+  reputationRepository -> reputationDB "Guardar calificaciones"
+
+  apiGateway -> moderationController "Se reporta al usuario"
+  moderationController -> moderationCommandService
+  moderationController -> moderationQueryService
+  moderationCommandService -> moderationRepository
+  moderationQueryService -> moderationRepository
+  moderationRepository -> moderationDB "SQL Transaction"
+
+  apiGateway -> billingController "Request HTTP a Payments"
+  billingController -> billingCommandService
+  billingController -> billingQueryService
+  billingCommandService -> billingRepository
+  billingQueryService -> billingRepository
+  billingRepository -> paymentsDB "Guardar transacciones"
+
+  // --------------------------------------------------------
+  // Conexiones con Modelos Externos (Outbound)
+  // --------------------------------------------------------
+  identityCommandService -> emailExternal "Delega envío"
+  emailExternal -> emailService "Enviar correo de validación"
+
+  collaborationCommandService -> rtcStorageExternal "Delega integraciones"
+  rtcStorageExternal -> agoraApi "Generar token de canal"
+  rtcStorageExternal -> cloudStorage "Guardar mensaje y archivos"
+
+  billingCommandService -> stripeExternal "Delega pago"
+  stripeExternal -> paymentsService "Realizar transacción"
+  stripeExternal -> emailService "Enviar notificación"
+
+  // --------------------------------------------------------
+  // Relaciones Inter-Contextos
+  // --------------------------------------------------------
+  identityCommandService -> billingContextFacade "Pedir guardar y actualizar información"
+  identityQueryService -> moderationContextFacade "Pedir sanción"
+  identityQueryService -> billingContextFacade "Dar credenciales de tarjeta"
+  identityCommandService -> discoveryContextFacade "Dar lista de tutores"
+
+  discoveryQueryService -> identityContextFacade "Pedir lista de tutores"
+  discoveryCommandService -> collaborationContextFacade "Tutor seleccionado"
+
+  collaborationCommandService -> learningContextFacade "Profesor Hace Quiz"
+  collaborationQueryService -> learningContextFacade "Pedir Quiz"
+
+  learningQueryService -> reputationContextFacade "Pedir si sesión finalizó"
+
+  reputationCommandService -> learningContextFacade "Sesión terminada"
+  reputationCommandService -> identityContextFacade "Actualizar Perfil con nueva calificación"
+  reputationQueryService -> moderationContextFacade "Pedir si hubo falta en la reseña"
+  reputationQueryService -> billingContextFacade "Pedir información si se donará"
+  reputationCommandService -> billingContextFacade "Donar al tutor"
+  reputationCommandService -> moderationContextFacade "Falta de comportamiento"
+
+  moderationQueryService -> identityContextFacade "Pedir sanción"
+  moderationCommandService -> identityContextFacade "Actualizar perfil tras sanción"
+
+  billingQueryService -> identityContextFacade "Pedir credenciales"
+  
+  identityContextFacade -> identityCommandService
+  identityContextFacade -> identityQueryService
+  discoveryContextFacade -> discoveryCommandService
+  discoveryContextFacade -> discoveryQueryService
+  collaborationContextFacade -> collaborationCommandService
+  collaborationContextFacade -> collaborationQueryService
+  learningContextFacade -> learningCommandService
+  learningContextFacade -> learningQueryService
+  reputationContextFacade -> reputationCommandService
+  reputationContextFacade -> reputationQueryService
+  moderationContextFacade -> moderationCommandService
+  moderationContextFacade -> moderationQueryService
+  billingContextFacade -> billingCommandService
+  billingContextFacade -> billingQueryService
+}
+
+// --------------------------------------------------------
+// Views
+// --------------------------------------------------------
+views {
+  view innovifySystemContext of innovifySystem {
+    title "System Context - Innovify Platform"
+    include *
+  }
+
+  view innovifyContainer of innovifySystem {
+    title "Containers - Innovify Platform"
+    include *
+  }
+
+  view identityComponent of innovifySystem.identityBC {
+    title "Components - Identity & Access"
+    include *
+  }
+
+  view profileComponent of innovifySystem.profileBC {
+    title "Components - Discovery"
+    include *
+  }
+
+  view collaborationComponent of innovifySystem.collaborationBC {
+    title "Components - Workspace"
+    include *
+  }
+
+  view learningComponent of innovifySystem.learningBC {
+    title "Components - Learning & Assessment"
+    include *
+  }
+
+  view reputationComponent of innovifySystem.reputationBC {
+    title "Components - Reputation"
+    include *
+  }
+
+  view moderationComponent of innovifySystem.moderationBC {
+    title "Components - Moderation & Disputes"
+    include *
+  }
+
+  view billingComponent of innovifySystem.billingBC {
+    title "Components - Payments & Wallet"
+    include *
+  }
+}
