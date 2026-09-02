@@ -998,20 +998,12 @@ Es importante resaltar que tanto la aplicación Android nativa como la aplicaci�
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
-El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física de los contenedores de Innovify sobre la infraestructura de hardware y los entornos de ejecución, evidenciando cómo se despliega la solución en un ambiente real.
-
-- **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes Aprendices y Tutores alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y/o la Aplicación Cross-Platform (Flutter), instaladas mediante distribución interna vía **Firebase App Distribution** durante el ciclo de pruebas, y descargables desde el dispositivo físico para la sustentación del curso.
-- **Navegador web del usuario:** Aloja la Landing Page y la Web Application (SPA), servidas de forma estática desde el proveedor de hosting correspondiente (Firebase Hosting / Vercel).
-- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful, desplegado en **Render**, donde se ejecuta la lógica de negocio de los siete Bounded Contexts y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por los cuatro clientes (Landing Page, Web Application, Android Native App, Flutter App).
-- **Servidor de base de datos (Cloud):** Aloja la base de datos relacional en **Render**, separado del servidor de aplicación, comunicándose con este último mediante una conexión segura.
-- **Servicios externos en la nube:** Cloudinary para el almacenamiento de archivos compartidos en el chat del Workspace, y los servicios de terceros documentados como trabajo futuro (Stripe para pagos, WebRTC para videollamadas).
-
-Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móvil y web) y los servidores desplegados en la nube.
+En el diagrama de despliegue se representa cómo los principales componentes de Innovify se distribuyen en el entorno de producción. La Android Native App y la Cross-Platform App (Flutter) se ejecutan en los dispositivos móviles de los usuarios, instaladas mediante Firebase App Distribution, mientras que la Web Application se ejecuta en el navegador del Coordinador/Profesor. El Api Gateway y los siete Bounded Contexts del backend se alojan como un único servicio en Render, comunicándose con una instancia administrada de MySQL también desplegada en Render, que centraliza el almacenamiento persistente de los siete contextos. Adicionalmente, el sistema se integra con servicios externos en la nube: Agora para las videollamadas, Cloudinary para el almacenamiento de archivos del chat, y Stripe como integración de pagos documentada como trabajo futuro. Esta organización permite una arquitectura clara y escalable, separando la capa de acceso (clientes móviles y web), el procesamiento principal del sistema (backend en Render) y el almacenamiento de datos (base de datos MySQL en Render).
 
 <p align="center">
-  <img src="images-doc/deployment-mobile.png" alt="Deployment Diagram - Mobile" width="900">
+  <img src="public/assets/images-doc/deployment-mobile.png" alt="Deployment View: Innovify Platform" width="900">
   <br>
-  <em>Figura XX. C4 Model: Deployment Diagram - Elaboración propia. Nota: Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution, el navegador web, el servidor de aplicación en Render, el servidor de base de datos y los servicios externos (Cloudinary, Stripe, WebRTC).</em>
+  <em>Figura XX. Deployment View: Innovify Platform (#InnovifyDeployment) - Elaboración propia. Nota: Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution, el navegador web, el servidor de aplicación en Render, la instancia única de MySQL en Render y los servicios externos (Agora, Cloudinary, Stripe). Elaborado en Structurizr.</em>
 </p>
 
 ## 2.6. Tactical-Level Domain-Driven Design
