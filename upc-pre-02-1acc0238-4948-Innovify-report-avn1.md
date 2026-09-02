@@ -961,6 +961,7 @@ Detalla la estructura de contenedores:
 **Software Architecture Deployment Diagram:**
 Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de los usuarios (iOS/Android), el Landing Page en un servicio de hosting estático, y el backend junto con la base de datos en una infraestructura Cloud.
 
+
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
 El diagrama de contexto (Context Diagram) bajo el enfoque C4 Model presenta al sistema Innovify (SkillSwap) como una caja central única, mostrando sus interacciones de alto nivel con los actores principales y los sistemas externos de terceros, sin exponer aún detalles de implementación.
@@ -1020,34 +1021,173 @@ Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la s
 
 #### 2.6.1.1. Domain Layer
 
-El Domain Layer de Identity & Access concentra las reglas de negocio relacionadas con la autenticación, autorización y verificación institucional de los usuarios de la plataforma.
+La capa de dominio de Identity & Access encapsula la lógica de negocio central para la gestión de identidades y seguridad, asegurando que las reglas de autenticación, autorización y verificación institucional sean independientes de las tecnologías externas.
 
-- **Aggregate Root:** `User` — id, username, passwordHash, email, role, isVerified, deviceToken, bio. Encapsula las reglas de validación de dominio institucional (`.edu.pe`) y el control de unicidad de username/email.
-- **Value Objects:** `Email` (valida formato y dominio institucional), `Role` (enumeración: Student, Coordinator — el rol de Tutor no es un valor de este enum, sino un perfil adicional (`TutorProfile`) que un usuario Student puede poseer, gestionado en el Bounded Context Discovery), `PasswordHash` (encapsula el hash generado, nunca expone el valor plano), `DeviceToken` (identificador del dispositivo móvil, reservado para una futura integración de notificaciones — pendiente de definir el proveedor/tecnología específica).
-- **Domain Services:** `PasswordHasher` (abstracción para el hashing de contraseñas), `EmailDomainValidator` (valida que el correo pertenezca a un dominio institucional autorizado).
-- **Repository (interface):** `UserRepository` — define los contratos `findByUsername`, `findByEmail`, `existsByEmail`, `save`, sin exponer detalles de persistencia.
+**1. Aggregate Root: User**
+
+Descripción: El agregado `User` actúa como la raíz del modelo y centraliza la información de la cuenta, garantizando que el registro y las credenciales se validen estrictamente antes de persistirse.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único del usuario (autogenerado). |
+| username | Username (VO) | Identificador de texto único utilizado para acceder al sistema. |
+| email | Email (VO) | Correo electrónico validado contra el dominio institucional `.edu.pe`. |
+| passwordHash | PasswordHash (VO) | Representación segura de la contraseña tras pasar por un algoritmo de encriptación. |
+| role | Role (VO) | Rol de la cuenta: `Student` o `Coordinator`. |
+| isVerified | boolean | Indica si la cuenta ha completado la validación institucional. |
+| bio | string | Descripción libre del perfil del usuario. |
+| deviceToken | DeviceToken (VO) | Identificador del dispositivo móvil, reservado para una futura integración de notificaciones — pendiente de definir el proveedor/tecnología específica. |
+
+Métodos
+
+- `User(username, email, password, role)` (Constructor): Inicializa las propiedades del usuario y valida que el correo pertenezca al dominio institucional antes de crear la instancia.
+- `verify()`: Cambia `isVerified` a `true` una vez confirmada la validación institucional.
+- `registerDeviceToken(String token)`: Asocia o actualiza el `deviceToken` del dispositivo móvil desde el cual el usuario inició sesión.
+
+**2. Value Object: Email**
+
+Descripción: Representa un correo electrónico validado, garantizando que solo se acepten direcciones pertenecientes a un dominio institucional autorizado.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | string | Dirección de correo electrónico completa. |
+
+Métodos
+
+- `Email(String value)` (Constructor): Valida el formato del correo y que su dominio corresponda a `.edu.pe`, lanzando una excepción de dominio en caso contrario.
+
+**3. Value Object: Role**
+
+Descripción: Enumeración que restringe los valores válidos para el rol de una cuenta.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | Valor del rol: `Student` o `Coordinator`. Nota: el perfil de Tutor no es un valor de este enum — es un perfil adicional (`TutorProfile`) que un usuario `Student` puede poseer, gestionado en el Bounded Context Discovery. |
+
+**4. Value Object: PasswordHash**
+
+Descripción: Encapsula la representación cifrada de la contraseña, evitando que el valor en texto plano circule fuera de la capa de infraestructura.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | string | Cadena cifrada (hash) de la contraseña. |
+
+**5. Value Object: DeviceToken**
+
+Descripción: Identificador opaco del dispositivo móvil del usuario, reservado como punto de extensión para una futura funcionalidad de notificaciones.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | string | Token del dispositivo, nulo hasta que se defina la tecnología de notificación a integrar. |
+
+**6. Domain Service: PasswordHasher**
+
+Descripción: Define el contrato para el cifrado y verificación de contraseñas, desacoplando el dominio del algoritmo criptográfico concreto.
+
+Métodos
+
+- `hashPassword(String plainPassword)`: Recibe la contraseña en texto plano y la transforma en un hash mediante un algoritmo criptográfico para su almacenamiento seguro.
+- `verifyPassword(String plainPassword, PasswordHash hash)`: Compara una contraseña en texto claro contra un hash almacenado para verificar si coinciden.
+
+**7. Domain Service: EmailDomainValidator**
+
+Descripción: Define el contrato para validar que un correo electrónico pertenezca a un dominio institucional autorizado antes de crear o actualizar un `User`.
+
+Métodos
+
+- `isInstitutionalDomain(Email email)`: Retorna verdadero si el dominio del correo corresponde a `.edu.pe`.
+
+**8. Repository: UserRepository**
+
+Descripción: Interfaz para la persistencia y recuperación de datos del agregado `User`, sin exponer detalles de la tecnología de almacenamiento subyacente.
+
+Métodos
+
+- `findByUsername(String username)`: Recupera un usuario por su nombre de usuario único.
+- `findByEmail(Email email)`: Recupera un usuario por su correo electrónico.
+- `existsByEmail(Email email)`: Verifica la unicidad de un correo antes del registro.
+- `save(User user)`: Persiste un usuario nuevo o actualizado.
+
+En la Domain Layer de Innovify, específicamente dentro del Bounded Context de Identity & Access, se ha definido la gestión de identidades bajo un modelo de Domain-Driven Design (DDD). La clase `User` actúa como el Agregado raíz que centraliza la información de la cuenta y su asociación con el rol correspondiente (Student o Coordinator), garantizando que el acceso y las credenciales se validen estrictamente a través de servicios de dominio como `PasswordHasher` y `EmailDomainValidator`. Finalmente, la recuperación y persistencia de estas identidades se gestiona mediante el repositorio `UserRepository`.
 
 #### 2.6.1.2. Interface Layer
 
-Expone los puntos de entrada del Bounded Context hacia los clientes (Web, Android Nativo, Flutter):
+En la Interface Layer de Innovify, específicamente para el contexto de Identity & Access, se definen los puntos de entrada para la comunicación externa. Esta capa utiliza controladores REST, recursos (DTOs) y ensambladores para desacoplar el modelo de dominio de las representaciones externas, facilitando el registro y la autenticación de los usuarios desde los tres clientes (Web, Android Nativo, Flutter).
 
-- **Controllers:** `AuthenticationController` — expone los endpoints `POST /api/v1/authentication/sign-up` y `POST /api/v1/authentication/sign-in`, consumidos de forma idéntica por los tres clientes.
-- **Resources (DTOs):** `SignUpResource`, `SignInResource` (request), `AuthenticatedUserResource` (response, incluye el token JWT).
+**Resources**
+
+| Nombre | Descripción |
+|---|---|
+| SignUpResource | DTO que encapsula los datos de entrada (username, email, password) para el registro de una nueva cuenta. |
+| SignInResource | DTO que contiene las credenciales necesarias (username, password) para validar el acceso al sistema. |
+| UserResource | DTO de salida que representa la información pública del usuario (id, username, email, role, isVerified) tras una consulta exitosa. |
+| AuthenticatedUserResource | Recurso que devuelve el token JWT generado y la información básica del usuario tras un inicio de sesión correcto. |
+
+**Controllers**
+
+| Nombre | Método HTTP | Ruta / Resource | Descripción |
+|---|---|---|---|
+| AuthenticationController | POST | `/api/v1/authentication/sign-up` (SignUpResource) | Expone el endpoint para crear una nueva cuenta, validando previamente el dominio institucional del correo. |
+| AuthenticationController | POST | `/api/v1/authentication/sign-in` (SignInResource) | Gestiona la autenticación, verificando las credenciales y devolviendo el token de acceso JWT. |
+
+**Transformers / Assemblers**
+
+| Nombre | Descripción |
+|---|---|
+| UserResourceFromEntityAssembler | Convierte la entidad de dominio `User` en un `UserResource` para su envío a través de la API. |
+| SignUpCommandFromResourceAssembler | Transforma los datos recibidos en `SignUpResource` en un `SignUpCommand` procesable por la capa de aplicación. |
+| SignInCommandFromResourceAssembler | Convierte el `SignInResource` en el `SignInCommand` correspondiente para la validación de credenciales. |
+
+Los controladores presentados no contienen reglas de negocio: delegan el procesamiento a la capa de dominio y de aplicación, actuando como una interfaz uniforme entre los tres clientes (Web, Android Nativo, Flutter) y la lógica de autenticación del sistema.
 
 #### 2.6.1.3. Application Layer
 
-Orquesta los casos de uso del Bounded Context sin contener lógica de negocio propia del dominio:
+En la Application Layer de Innovify, para el contexto de Identity & Access, los handlers son los encargados de procesar los comandos, orquestando la lógica necesaria para cumplir con los casos de uso de registro y autenticación, actuando como mediadores entre la Interface Layer y el Domain Layer.
 
-- **Command Services:** `UserCommandService` — implementa `handle(SignUpCommand)` y `handle(SignInCommand)`, coordinando la validación de dominio, la generación de hash de contraseña y la emisión del token JWT.
-- **Command Handlers:** `SignUpCommandHandler`, `SignInCommandHandler`.
+**Handlers**
+
+| Nombre | Descripción | Resumen de Lógica |
+|---|---|---|
+| SignUpCommandHandler | Procesa la creación de nuevas cuentas de usuario. | Valida que el email pertenezca al dominio institucional y no esté en uso, cifra la contraseña mediante `PasswordHasher`, instancia el agregado `User` y lo persiste a través de `UserRepository`. |
+| SignInCommandHandler | Gestiona el proceso de inicio de sesión y autenticación. | Busca al usuario por `username`, verifica la contraseña comparándola con el hash almacenado mediante `PasswordHasher`, y genera un token JWT para la sesión autenticada. |
+
+**Internal DTOs**
+
+| Nombre | Descripción |
+|---|---|
+| UserDto | Objeto que transporta la información pública y operativa del usuario, incluyendo su rol e indicador de verificación. |
+| AuthenticationDto | DTO especializado que encapsula la información básica del usuario junto con el token JWT tras una autenticación exitosa. |
+
+En la Application Layer de Identity & Access, los handlers orquestan el flujo de autenticación asegurando que cada registro sea validado contra el dominio institucional antes de persistirse, y que el inicio de sesión solo emita un token JWT cuando las credenciales sean correctas.
 
 #### 2.6.1.4. Infrastructure Layer
 
-Contiene las implementaciones concretas de acceso a servicios externos:
+En la Infrastructure Layer de Innovify, para el contexto de Identity & Access, se implementan los detalles técnicos y las integraciones necesarias para la persistencia y la seguridad de las identidades.
 
-- **Persistence:** `UserRepositoryAdapter` (implementación de `UserRepository` sobre la base de datos relacional desplegada en Render).
-- **Security:** `JwtTokenGenerator` (generación y validación de tokens JWT), `BCryptPasswordHasher` (implementación concreta de `PasswordHasher`).
-- **Extensión móvil (pendiente):** El campo `deviceToken` en el agregado `User` queda reservado como punto de extensión para una futura funcionalidad de notificaciones dirigida a los clientes móviles (Android Nativo y Flutter); su implementación concreta (proveedor y mecanismo de entrega) se definirá en una iteración posterior del proyecto.
+**Persistence (Repository Implementation)**
+
+| Nombre | Descripción | Tecnologías / Herramientas |
+|---|---|---|
+| UserRepositoryAdapter | Implementación concreta de `UserRepository` que realiza las operaciones CRUD sobre la tabla `users`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+
+**Security Services Implementation**
+
+| Nombre | Descripción | Resumen de Implementación |
+|---|---|---|
+| BCryptPasswordHasher | Implementación técnica de `PasswordHasher` encargada de proteger las contraseñas de los usuarios. | Utiliza el algoritmo BCrypt para generar hashes seguros y validar contraseñas durante el acceso. |
+| JwtTokenGenerator | Servicio responsable de la generación de tokens de seguridad para sesiones autenticadas. | Implementa la generación de tokens JWT, codificando el `userId` y el `role` para la autorización de peticiones en los tres clientes (Web, Android Nativo, Flutter). |
+
+Estos componentes aseguran que la lógica de negocio de Identity & Access se ejecute sobre una infraestructura robusta, con el campo `deviceToken` del agregado `User` quedando reservado como punto de extensión hasta definir la tecnología concreta de notificaciones a integrar.
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -1081,27 +1221,140 @@ Contiene las implementaciones concretas de acceso a servicios externos:
 
 #### 2.6.2.1. Domain Layer
 
-El Domain Layer de Discovery concentra las reglas de negocio relacionadas con la búsqueda y filtrado de tutores disponibles en la plataforma.
+La capa de dominio de Discovery encapsula las reglas de negocio relacionadas con la publicación y búsqueda de perfiles de tutores dentro de la plataforma.
 
-- **Aggregate Root:** `TutorProfile` — id, userId (referencia externa a Identity & Access), university, career, subjects, availability, averageRating (dato derivado, sincronizado desde Reputation).
-- **Value Objects:** `University`, `Career`, `SubjectList` (encapsula la lista de materias que el tutor puede enseñar).
-- **Domain Services:** `TutorSearchCriteria` — encapsula y valida la combinación de filtros de búsqueda (universidad, carrera, materia) aplicados sobre el listado de tutores.
-- **Repository (interface):** `TutorProfileRepository` — define los contratos `findByFilters`, `findById`, `save`, sin exponer detalles de persistencia.
+**1. Aggregate Root: TutorProfile**
+
+Descripción: El agregado `TutorProfile` representa el perfil público de un usuario `Student` que ofrece tutorías, centralizando su información académica y su estado de visibilidad dentro del catálogo de búsqueda.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único del perfil de tutor (autogenerado). |
+| tutorUserId | int | Referencia al usuario `Student` (Identity & Access) que posee este perfil de tutor. |
+| name | string | Nombre visible del tutor en el catálogo. |
+| university | University (VO) | Universidad a la que pertenece el tutor. |
+| career | Career (VO) | Carrera profesional del tutor. |
+| bio | string | Descripción libre del perfil del tutor. |
+| avatarUrl | string | URL de la imagen de perfil del tutor. |
+| experienceYears | int | Años de experiencia declarados por el tutor. |
+| mainSubject | string | Materia principal que enseña el tutor. |
+| rating | double | Promedio de calificación, sincronizado desde el Bounded Context Reputation. |
+| reviewCount | int | Cantidad de reseñas recibidas, sincronizado desde Reputation. |
+| verified | boolean | Indica si el perfil de tutor ha sido validado. |
+| online | boolean | Indica si el tutor se encuentra actualmente disponible. |
+| visible | boolean | Controla si el perfil aparece en los resultados de búsqueda. |
+
+Métodos
+
+- `TutorProfile(tutorUserId, name, university, career, mainSubject)` (Constructor): Crea un nuevo perfil de tutor en estado no verificado y no visible hasta su validación.
+- `updateAvailability(boolean online)`: Actualiza el estado de disponibilidad del tutor en tiempo real.
+- `updateReputation(double rating, int reviewCount)`: Sincroniza el promedio de calificación y el conteo de reseñas recibidos desde Reputation.
+- `toggleVisibility(boolean visible)`: Habilita o deshabilita la aparición del perfil en las búsquedas.
+
+**2. Entity: TutorSkill**
+
+Descripción: Representa una habilidad o materia adicional que el tutor puede enseñar, más allá de su materia principal.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| tutorId | int | Referencia al `TutorProfile` al que pertenece la habilidad. |
+| skill | string | Nombre de la habilidad o materia. |
+
+**3. Value Object: University**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | string | Nombre de la universidad. |
+
+**4. Value Object: Career**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | string | Nombre de la carrera profesional. |
+
+**5. Domain Service: TutorSearchCriteria**
+
+Descripción: Encapsula y valida la combinación de filtros de búsqueda aplicados sobre el catálogo de tutores.
+
+Métodos
+
+- `matches(TutorProfile profile)`: Evalúa si un perfil de tutor cumple con los filtros de universidad, carrera y materia solicitados.
+
+**6. Repository: TutorProfileRepository**
+
+Descripción: Interfaz para la persistencia y recuperación de los perfiles de tutor, sin exponer detalles de la tecnología de almacenamiento subyacente.
+
+Métodos
+
+- `findByFilters(TutorSearchCriteria criteria)`: Recupera los perfiles de tutor visibles que cumplen los criterios de búsqueda.
+- `findById(int id)`: Recupera un perfil de tutor específico.
+- `save(TutorProfile profile)`: Persiste un perfil nuevo o actualizado.
+
+En la Domain Layer de Innovify, dentro del Bounded Context de Discovery, se ha definido el catálogo de tutores bajo un modelo de Domain-Driven Design (DDD). La clase `TutorProfile` actúa como Agregado raíz que centraliza la información académica del tutor, mientras que `TutorSkill` complementa el perfil con las materias adicionales que puede enseñar. La búsqueda se valida a través del Domain Service `TutorSearchCriteria`, y la persistencia se gestiona mediante `TutorProfileRepository`.
 
 #### 2.6.2.2. Interface Layer
 
-- **Controllers:** `DiscoveryController` — expone el endpoint `GET /api/v1/tutors` con soporte de query params para los filtros de universidad, carrera y materia, consumido de forma idéntica por los clientes Web, Android Nativo y Flutter.
-- **Resources (DTOs):** `TutorProfileResource` (response), `TutorSearchFilterResource` (request con los parámetros de búsqueda).
+**Resources**
+
+| Nombre | Descripción |
+|---|---|
+| TutorProfileResource | DTO de salida que representa la información pública de un perfil de tutor (id, name, university, career, mainSubject, rating, reviewCount, online). |
+| TutorSearchFilterResource | DTO de entrada con los parámetros de búsqueda (universidad, carrera, materia). |
+
+**Controllers**
+
+| Nombre | Método HTTP | Ruta / Resource | Descripción |
+|---|---|---|---|
+| DiscoveryController | GET | `/api/v1/tutors` (TutorSearchFilterResource como query params) | Retorna el listado de perfiles de tutor visibles que cumplen los filtros de búsqueda solicitados. |
+| DiscoveryController | GET | `/api/v1/tutors/{tutorId}` | Retorna el detalle de un perfil de tutor específico. |
+
+**Transformers / Assemblers**
+
+| Nombre | Descripción |
+|---|---|
+| TutorProfileResourceFromEntityAssembler | Convierte la entidad de dominio `TutorProfile` en un `TutorProfileResource` para su envío a través de la API. |
+| SearchTutorsQueryFromResourceAssembler | Transforma los parámetros de `TutorSearchFilterResource` en un `SearchTutorsQuery` procesable por la capa de aplicación. |
+
+Estos endpoints son consumidos de forma idéntica por los tres clientes (Web, Android Nativo, Flutter), sin lógica de negocio propia en el controlador.
 
 #### 2.6.2.3. Application Layer
 
-- **Query Services:** `TutorQueryService` — implementa `handle(SearchTutorsQuery)` y `handle(GetTutorByIdQuery)`, orquestando la consulta al repositorio según los criterios de búsqueda recibidos.
-- **Query Handlers:** `SearchTutorsQueryHandler`, `GetTutorByIdQueryHandler`.
+**Handlers**
+
+| Nombre | Descripción | Resumen de Lógica |
+|---|---|---|
+| SearchTutorsQueryHandler | Gestiona la búsqueda de tutores según filtros. | Construye un `TutorSearchCriteria` a partir de los parámetros recibidos y consulta `TutorProfileRepository.findByFilters()`. |
+| GetTutorByIdQueryHandler | Recupera el detalle de un perfil de tutor. | Consulta `TutorProfileRepository.findById()` y transforma el resultado en un DTO. |
+
+**Internal DTOs**
+
+| Nombre | Descripción |
+|---|---|
+| TutorProfileDto | Objeto que transporta la información operativa del perfil de tutor entre las capas de aplicación e interfaz. |
 
 #### 2.6.2.4. Infrastructure Layer
 
-- **Persistence:** `TutorProfileRepositoryAdapter` (implementación de `TutorProfileRepository` sobre la base de datos relacional desplegada en Render).
-- **Integración con Identity & Access:** `IdentityServiceClient` — cliente HTTP que solicita al Bounded Context Identity & Access el directorio de usuarios con rol Tutor, necesario para poblar el listado inicial de perfiles disponibles en Discovery.
+**Persistence (Repository Implementation)**
+
+| Nombre | Descripción | Tecnologías / Herramientas |
+|---|---|---|
+| TutorProfileRepositoryAdapter | Implementación concreta de `TutorProfileRepository`, gestionando las tablas `tutors` y `tutor_skills`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+
+**Integration Services**
+
+| Nombre | Descripción | Resumen de Implementación |
+|---|---|---|
+| IdentityServiceClient | Cliente que solicita al Bounded Context Identity & Access el directorio de usuarios `Student` disponibles para poblar el catálogo inicial de perfiles de tutor. | Consumo HTTP interno hacia el endpoint expuesto por Identity & Access. |
+
+Estos componentes permiten que Discovery mantenga sincronizado su catálogo de tutores con la información de cuentas de Identity & Access y las calificaciones actualizadas desde Reputation, sin acoplar directamente su modelo de persistencia a esos Bounded Contexts.
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -1135,31 +1388,156 @@ El Domain Layer de Discovery concentra las reglas de negocio relacionadas con la
 
 #### 2.6.3.1. Domain Layer
 
-El Domain Layer de Workspace concentra las reglas de negocio del núcleo operativo de la plataforma: la gestión de sesiones de tutoría, la mensajería entre participantes y la coordinación de la videollamada.
+La capa de dominio de Workspace concentra las reglas de negocio del núcleo operativo de la plataforma: la gestión de sesiones de tutoría, la coordinación de la videollamada y la mensajería entre los participantes.
 
-- **Aggregate Root:** `TutoringSession` — id, learnerId, tutorId, status (Requested, Accepted, InProgress, Completed, Cancelled), scheduledAt, agoraChannelName (canal de videollamada asociado a la sesión).
-- **Entities:** `Message` (id, sessionId, senderId, content, attachmentUrl, sentAt).
-- **Value Objects:** `SessionStatus` (enumeración de estados válidos y transiciones permitidas), `AgoraChannelName` (identificador único y determinístico del canal de videollamada, generado a partir del id de la sesión).
-- **Domain Services:** `SessionStateTransitionValidator` — valida que las transiciones de estado de una sesión (por ejemplo, de Accepted a InProgress) cumplan las reglas de negocio establecidas.
-- **Repository (interface):** `TutoringSessionRepository`, `MessageRepository`.
+**1. Aggregate Root: Session**
+
+Descripción: El agregado `Session` representa una sesión de tutoría entre un aprendiz y un tutor, gobernando las transiciones de estado válidas y el canal de videollamada asociado.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único de la sesión (autogenerado). |
+| learnerId | int | Referencia al usuario aprendiz (Identity & Access). |
+| tutorId | int | Referencia al usuario tutor (Identity & Access). |
+| topic | string | Tema o materia de la sesión solicitada. |
+| status | SessionStatus (VO) | Estado actual: `pending`, `scheduled` o `completed`. |
+| scheduledAt | timestamp | Fecha y hora programada de la sesión. |
+| proposedByUserId | int | Usuario que originó la propuesta de sesión. |
+| initialMessage | string | Mensaje inicial enviado al proponer la sesión. |
+| agoraChannelName | AgoraChannelName (VO) | Canal de videollamada Agora asociado a la sesión. |
+
+Métodos
+
+- `Session(learnerId, tutorId, topic, initialMessage)` (Constructor): Crea la sesión en estado `pending` y genera de forma determinística el `agoraChannelName` a partir del identificador de la sesión.
+- `schedule(timestamp scheduledAt)`: Transiciona el estado a `scheduled`, validando que la sesión se encuentre en `pending`.
+- `complete()`: Transiciona el estado a `completed`, habilitando los eventos posteriores hacia Learning & Assessment y Reputation.
+
+**2. Entity: Message**
+
+Descripción: Representa un mensaje intercambiado dentro del chat de una sesión, incluyendo la posibilidad de compartir archivos o un quiz.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único del mensaje. |
+| sessionId | int | Referencia a la sesión a la que pertenece el mensaje. |
+| senderId | int | Usuario que envió el mensaje. |
+| content | string | Contenido textual del mensaje. |
+| fileUrl | string | URL del archivo adjunto, si existe. |
+| fileName | string | Nombre del archivo adjunto. |
+| quizId | int | Referencia opcional a un quiz compartido en el chat. |
+| sentAt | timestamp | Fecha y hora de envío. |
+
+**3. Value Object: SessionStatus**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | Valor del estado: `pending`, `scheduled`, `completed`. |
+
+**4. Value Object: AgoraChannelName**
+
+Descripción: Identificador único y determinístico del canal de videollamada, generado a partir del id de la sesión, utilizado por los clientes móviles para unirse al canal correcto.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | string | Nombre del canal Agora. |
+
+**5. Domain Service: SessionStateTransitionValidator**
+
+Descripción: Valida que las transiciones de estado de una sesión cumplan las reglas de negocio establecidas.
+
+Métodos
+
+- `canTransition(SessionStatus from, SessionStatus to)`: Retorna verdadero si la transición solicitada es válida.
+
+**6. Repository: SessionRepository, MessageRepository**
+
+Métodos
+
+- `findById(int id)`, `save(Session session)` (SessionRepository).
+- `findBySessionId(int sessionId)`, `save(Message message)` (MessageRepository).
+
+En la Domain Layer de Innovify, dentro del Bounded Context de Workspace, el agregado `Session` gobierna el ciclo de vida de una sesión de tutoría, incorporando el Value Object `AgoraChannelName` como punto de integración con el SDK de videollamada de terceros. La entidad `Message` complementa el modelo con la mensajería del chat, validada en sus transiciones por `SessionStateTransitionValidator`.
 
 #### 2.6.3.2. Interface Layer
 
-- **Controllers:** `TutoringSessionController` — expone los endpoints `POST /api/v1/sessions`, `PATCH /api/v1/sessions/{sessionId}/status`, `GET /api/v1/sessions/{sessionId}/messages`, `POST /api/v1/sessions/{sessionId}/messages`.
-- **Resources (DTOs):** `TutoringSessionResource`, `MessageResource`, `AgoraTokenResource` (respuesta con el token temporal de acceso al canal de videollamada).
+**Resources**
+
+| Nombre | Descripción |
+|---|---|
+| SessionResource | DTO de salida que representa una sesión (id, learnerId, tutorId, topic, status, scheduledAt). |
+| MessageResource | DTO de salida que representa un mensaje del chat. |
+| AgoraTokenResource | DTO de respuesta con el token temporal de acceso al canal de videollamada Agora. |
+| RequestSessionResource | DTO de entrada para solicitar una nueva sesión. |
+| SendMessageResource | DTO de entrada para enviar un mensaje al chat. |
+
+**Controllers**
+
+| Nombre | Método HTTP | Ruta / Resource | Descripción |
+|---|---|---|---|
+| SessionController | POST | `/api/v1/sessions` (RequestSessionResource) | Registra una nueva solicitud de sesión de tutoría. |
+| SessionController | PATCH | `/api/v1/sessions/{sessionId}/status` | Actualiza el estado de la sesión (scheduled, completed). |
+| SessionController | GET | `/api/v1/sessions/{sessionId}/agora-token` | Genera y retorna el token de acceso al canal de videollamada. |
+| MessageController | GET | `/api/v1/sessions/{sessionId}/messages` | Retorna el historial de mensajes de una sesión. |
+| MessageController | POST | `/api/v1/sessions/{sessionId}/messages` (SendMessageResource) | Registra un nuevo mensaje en el chat de la sesión. |
+
+**Transformers / Assemblers**
+
+| Nombre | Descripción |
+|---|---|
+| SessionResourceFromEntityAssembler | Convierte `Session` en `SessionResource`. |
+| MessageResourceFromEntityAssembler | Convierte `Message` en `MessageResource`. |
+| RequestSessionCommandFromResourceAssembler | Transforma `RequestSessionResource` en `RequestSessionCommand`. |
 
 #### 2.6.3.3. Application Layer
 
-- **Command Services:** `TutoringSessionCommandService` — implementa `handle(RequestSessionCommand)`, `handle(UpdateSessionStatusCommand)`, `handle(SendMessageCommand)`.
-- **Command Handlers:** `RequestSessionCommandHandler`, `UpdateSessionStatusCommandHandler`, `SendMessageCommandHandler`.
-- **Event Handlers:** `SessionCompletedEventHandler` — al completarse una sesión, publica el evento de dominio que habilita la evaluación en Learning & Assessment y la solicitud de calificación en Reputation.
+**Handlers**
+
+| Nombre | Descripción | Resumen de Lógica |
+|---|---|---|
+| RequestSessionCommandHandler | Procesa la creación de una nueva sesión. | Instancia el agregado `Session` (generando su `agoraChannelName`) y lo persiste mediante `SessionRepository`. |
+| UpdateSessionStatusCommandHandler | Gestiona el cambio de estado de una sesión. | Recupera la sesión, invoca `schedule()` o `complete()` según corresponda, validando la transición con `SessionStateTransitionValidator`. |
+| SendMessageCommandHandler | Procesa el envío de un mensaje. | Valida que la sesión exista, instancia el `Message` y lo persiste mediante `MessageRepository`. |
+| GenerateAgoraTokenQueryHandler | Genera el token de acceso a la videollamada. | Recupera el `agoraChannelName` de la sesión e invoca al adaptador de infraestructura de Agora para generar el token temporal. |
+
+**Event Handlers**
+
+| Nombre | Descripción |
+|---|---|
+| SessionCompletedEventHandler | Al completarse una sesión, publica el evento consumido por Learning & Assessment (habilita el quiz) y Reputation (habilita la solicitud de calificación). |
+
+**Internal DTOs**
+
+| Nombre | Descripción |
+|---|---|
+| SessionDto | Objeto que transporta el estado operativo de una sesión entre capas. |
+| MessageDto | Objeto que transporta el contenido de un mensaje entre capas. |
 
 #### 2.6.3.4. Infrastructure Layer
 
-- **Persistence:** `TutoringSessionRepositoryAdapter`, `MessageRepositoryAdapter` (sobre la base de datos relacional desplegada en Render).
-- **File Storage:** `CloudinaryFileStorageAdapter` — gestiona la carga y obtención de archivos adjuntos compartidos en el chat de la sesión.
-- **Videollamada (Agora):** `AgoraVideoCallAdapter` — encapsula la integración con el SDK de **Agora** (Video Call SDK), generando el token temporal de acceso al canal (`agoraChannelName`) que consumen los clientes Android Nativo (Agora Android SDK) y Flutter (Agora Flutter SDK) para establecer la videollamada en tiempo real entre tutor y aprendiz. Esta integración constituye el **feature de aprendizaje autónomo** del proyecto, al tratarse de un SDK de terceros no abordado en las sesiones del curso, seleccionado por ofrecer una capa gratuita adecuada para el alcance académico y soporte oficial multiplataforma (Android/Flutter/Web).
-- **Almacenamiento Local (recurso interno del dispositivo):** `LocalChatCacheAdapter` — del lado del cliente móvil, cada mensaje recibido (`Message`) y sus archivos adjuntos ya descargados se persisten en una base de datos local embebida (Room en Android Nativo, sqflite/Drift en Flutter, conforme al sílabo del curso), permitiendo que el estudiante o tutor pueda revisar el historial de chat de una sesión, incluyendo los archivos previamente vistos, aun sin conexión a internet. Al recuperar la conectividad, el cliente sincroniza los mensajes pendientes contra el backend.
+**Persistence (Repository Implementation)**
+
+| Nombre | Descripción | Tecnologías / Herramientas |
+|---|---|---|
+| SessionRepositoryAdapter | Implementación concreta de `SessionRepository` sobre la tabla `sessions`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| MessageRepositoryAdapter | Implementación concreta de `MessageRepository` sobre la tabla `messages`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+
+**External / Technical Services Implementation**
+
+| Nombre | Descripción | Resumen de Implementación |
+|---|---|---|
+| CloudinaryFileStorageAdapter | Gestiona la carga y obtención de archivos adjuntos compartidos en el chat de la sesión. | Utiliza la API de Cloudinary para almacenar y servir los archivos referenciados en `Message.fileUrl`. |
+| AgoraVideoCallAdapter | Encapsula la integración con el SDK de **Agora** (Video Call SDK), generando el token temporal de acceso al canal (`agoraChannelName`) consumido por los clientes Android Nativo (Agora Android SDK) y Flutter (Agora Flutter SDK). Constituye el **feature de aprendizaje autónomo** del proyecto. | Comunicación con la API de Agora para la generación de tokens RTC firmados con vigencia temporal. |
+| LocalChatCacheAdapter | Del lado del cliente móvil, persiste los mensajes recibidos y sus archivos ya descargados en una base de datos local embebida, permitiendo revisar el historial de chat sin conexión a internet. | Room (Android Nativo) / sqflite o Drift (Flutter). Sincroniza los mensajes pendientes al recuperar la conectividad. |
+
+En la Infrastructure Layer de Workspace conviven tres integraciones técnicas clave para el alcance móvil del proyecto: Cloudinary para archivos, Agora para videollamada en tiempo real (feature de aprendizaje autónomo) y el caché local de chat (recurso de almacenamiento local del dispositivo), todas desacopladas del Domain Layer mediante adaptadores.
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -1193,28 +1571,135 @@ El Domain Layer de Workspace concentra las reglas de negocio del núcleo operati
 
 #### 2.6.4.1. Domain Layer
 
-El Domain Layer de Learning & Assessment concentra las reglas de negocio relacionadas con la creación de cuestionarios (quizzes) y el registro de resultados de evaluación de los estudiantes.
+La capa de dominio de Learning & Assessment concentra las reglas de negocio relacionadas con la creación de cuestionarios (quizzes) y el registro de los intentos de resolución por parte de los estudiantes.
 
-- **Aggregate Root:** `Quiz` — id, tutorId, sessionId, title, questions (lista de preguntas embebidas).
-- **Aggregate Root:** `QuizAttempt` — id, quizId, learnerId, answers, score, completedAt. El cálculo del puntaje (`score`) se ejecuta como regla de negocio del propio agregado a partir de las respuestas recibidas, garantizando que la calificación no pueda ser manipulada por el cliente.
-- **Entities:** `Question` (id, text, options, correctOptionIndex).
-- **Value Objects:** `Score` (encapsula el puntaje obtenido y su validación de rango 0-100).
-- **Repository (interface):** `QuizRepository`, `QuizAttemptRepository`.
+**1. Aggregate Root: Quiz**
+
+Descripción: El agregado `Quiz` representa un cuestionario creado para evaluar el conocimiento de un curso o materia, compuesto por una lista de preguntas.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único del quiz (autogenerado). |
+| tutorId | int | Usuario creador del quiz. *(Pendiente de confirmar si corresponde al Tutor o al Coordinador según el flujo de negocio final.)* |
+| course | string | Curso o materia al que pertenece el quiz. |
+| title | string | Título del cuestionario. |
+| description | string | Descripción del contenido evaluado. |
+| status | QuizStatus (VO) | Estado del quiz: `draft` o `published`. |
+| questions | List\<Question\> | Lista de preguntas embebidas del cuestionario. |
+| createdAt | timestamp | Fecha de creación del quiz. |
+
+Métodos
+
+- `Quiz(tutorId, course, title, description, questions)` (Constructor): Crea el quiz en estado `draft`.
+- `publish()`: Transiciona el estado a `published`, habilitando el quiz para ser resuelto por los aprendices.
+- `addQuestion(Question question)`: Agrega una nueva pregunta al cuestionario mientras se encuentra en estado `draft`.
+
+**2. Entity: Question**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| questionString | string | Enunciado de la pregunta. |
+| answers | List\<String\> | Lista de 4 posibles respuestas. |
+| correctAnswer | int | Índice (0 a 3) de la respuesta correcta. |
+
+**3. Aggregate Root: QuizAttempt**
+
+Descripción: El agregado `QuizAttempt` representa el intento de un aprendiz al resolver un quiz, calculando su puntaje de forma centralizada en el servidor para evitar manipulación desde el cliente.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único del intento. |
+| quizId | int | Referencia al quiz resuelto. |
+| learnerId | int | Usuario aprendiz que resuelve el quiz. |
+| sessionId | int | Sesión de tutoría asociada al intento. |
+| selectedAnswers | List\<Integer\> | Lista de índices seleccionados por el aprendiz para cada pregunta. |
+| score | Score (VO) | Puntaje obtenido. |
+| total | int | Puntaje máximo posible. |
+| completedAt | timestamp | Fecha y hora de finalización del intento. |
+
+Métodos
+
+- `QuizAttempt(quizId, learnerId, sessionId, selectedAnswers, quiz)` (Constructor): Calcula el `score` comparando `selectedAnswers` contra `correctAnswer` de cada `Question` del `Quiz`, garantizando que la calificación se determine en el propio agregado y no en el cliente.
+
+**4. Value Object: Score**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | int | Puntaje obtenido, validado en el rango 0 al total de preguntas. |
+
+**5. Repository: QuizRepository, QuizAttemptRepository**
+
+Métodos
+
+- `findById(int id)`, `save(Quiz quiz)` (QuizRepository).
+- `findById(int id)`, `save(QuizAttempt attempt)` (QuizAttemptRepository).
+
+En la Domain Layer de Innovify, dentro del Bounded Context de Learning & Assessment, el agregado `Quiz` encapsula la entidad `Question` como parte embebida de su estructura, mientras que `QuizAttempt` centraliza el cálculo del `Score` a partir de las respuestas del aprendiz, garantizando la integridad de la calificación independientemente del cliente (Web, Android Nativo, Flutter) que envíe el intento.
 
 #### 2.6.4.2. Interface Layer
 
-- **Controllers:** `QuizController` — expone los endpoints `POST /api/v1/quizzes`, `GET /api/v1/quizzes/{quizId}`, `POST /api/v1/quiz-attempts`, `GET /api/v1/quiz-attempts/{attemptId}`.
-- **Resources (DTOs):** `QuizResource`, `QuizAttemptResource`, `SubmitQuizAttemptResource` (request con las respuestas del estudiante).
+**Resources**
+
+| Nombre | Descripción |
+|---|---|
+| QuizResource | DTO de salida que representa un quiz junto con sus preguntas. |
+| QuizAttemptResource | DTO de salida que representa el resultado de un intento (score, total). |
+| CreateQuizResource | DTO de entrada para la creación de un nuevo quiz. |
+| SubmitQuizAttemptResource | DTO de entrada con las respuestas seleccionadas por el aprendiz. |
+
+**Controllers**
+
+| Nombre | Método HTTP | Ruta / Resource | Descripción |
+|---|---|---|---|
+| QuizController | POST | `/api/v1/quizzes` (CreateQuizResource) | Crea un nuevo quiz en estado draft. |
+| QuizController | GET | `/api/v1/quizzes/{quizId}` | Retorna el detalle de un quiz. |
+| QuizAttemptController | POST | `/api/v1/quiz-attempts` (SubmitQuizAttemptResource) | Registra un nuevo intento, calculando el puntaje en el servidor. |
+| QuizAttemptController | GET | `/api/v1/quiz-attempts/{attemptId}` | Retorna el resultado de un intento específico. |
+
+**Transformers / Assemblers**
+
+| Nombre | Descripción |
+|---|---|
+| QuizResourceFromEntityAssembler | Convierte `Quiz` en `QuizResource`. |
+| QuizAttemptResourceFromEntityAssembler | Convierte `QuizAttempt` en `QuizAttemptResource`. |
+| SubmitQuizAttemptCommandFromResourceAssembler | Transforma `SubmitQuizAttemptResource` en `SubmitQuizAttemptCommand`. |
 
 #### 2.6.4.3. Application Layer
 
-- **Command Services:** `QuizCommandService` — implementa `handle(CreateQuizCommand)`, `handle(SubmitQuizAttemptCommand)`.
-- **Command Handlers:** `CreateQuizCommandHandler`, `SubmitQuizAttemptCommandHandler` — este último invoca la lógica de cálculo de puntaje del agregado `QuizAttempt` de forma centralizada en el servidor, evitando la duplicación de esta regla de negocio entre los clientes Web, Android Nativo y Flutter.
-- **Query Services:** `QuizQueryService` — implementa `handle(GetQuizByIdQuery)`, `handle(GetAttemptResultQuery)`.
+**Handlers**
+
+| Nombre | Descripción | Resumen de Lógica |
+|---|---|---|
+| CreateQuizCommandHandler | Procesa la creación de un nuevo quiz. | Instancia el agregado `Quiz` con sus preguntas y lo persiste mediante `QuizRepository`. |
+| SubmitQuizAttemptCommandHandler | Procesa el envío de las respuestas de un aprendiz. | Recupera el `Quiz` referenciado, instancia `QuizAttempt` (que calcula el `score` internamente) y lo persiste mediante `QuizAttemptRepository`, evitando la duplicación de esta regla de negocio entre clientes. |
+| GetQuizByIdQueryHandler | Recupera el detalle de un quiz. | Consulta `QuizRepository.findById()`. |
+| GetAttemptResultQueryHandler | Recupera el resultado de un intento. | Consulta `QuizAttemptRepository.findById()`. |
+
+**Internal DTOs**
+
+| Nombre | Descripción |
+|---|---|
+| QuizDto | Objeto que transporta el quiz junto con sus preguntas entre capas. |
+| QuizAttemptDto | Objeto que transporta el resultado de un intento entre capas. |
 
 #### 2.6.4.4. Infrastructure Layer
 
-- **Persistence:** `QuizRepositoryAdapter`, `QuizAttemptRepositoryAdapter` (sobre la base de datos relacional desplegada en Render). La lista de preguntas (`questions`) del agregado `Quiz` se persiste mediante un converter JSON, evitando una tabla relacional adicional para una estructura de solo lectura desde el dominio.
+**Persistence (Repository Implementation)**
+
+| Nombre | Descripción | Tecnologías / Herramientas |
+|---|---|---|
+| QuizRepositoryAdapter | Implementación concreta de `QuizRepository` sobre las tablas `quizzes` y `quiz_questions`. | ORM del stack backend, instancia MySQL desplegada en Render. La lista de preguntas se persiste mediante un converter JSON, evitando una tabla relacional adicional para una estructura de solo lectura desde el dominio. |
+| QuizAttemptRepositoryAdapter | Implementación concreta de `QuizAttemptRepository` sobre la tabla `quiz_attempts`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+
+Estos adaptadores garantizan que el cálculo de puntaje y la estructura de preguntas permanezcan encapsulados en el dominio, sin exponer lógica de calificación hacia los clientes móviles ni web.
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -1248,28 +1733,117 @@ El Domain Layer de Learning & Assessment concentra las reglas de negocio relacio
 
 #### 2.6.5.1. Domain Layer
 
-El Domain Layer de Reputation concentra las reglas de negocio relacionadas con la calificación de tutores tras la finalización de una sesión de tutoría.
+La capa de dominio de Reputation concentra las reglas de negocio relacionadas con la calificación de tutores y aprendices tras la finalización de una sesión de tutoría.
 
-- **Aggregate Root:** `Review` — id, sessionId, learnerId, tutorId, rating, comment, createdAt.
-- **Value Objects:** `Rating` (encapsula el valor numérico y valida su rango permitido, por ejemplo 1 a 5).
-- **Domain Services:** `TutorReputationCalculator` — calcula el promedio de calificaciones de un tutor a partir del conjunto de reviews recibidas.
-- **Repository (interface):** `ReviewRepository` — define los contratos `findByTutorId`, `existsBySessionId` (evita que una misma sesión sea calificada más de una vez), `save`.
+**1. Aggregate Root: Review**
+
+Descripción: El agregado `Review` representa la calificación y comentario emitidos por un participante de una sesión hacia el otro (tutor o aprendiz), garantizando que cada sesión solo pueda ser calificada una vez por cada dirección.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único de la reseña (autogenerado). |
+| reviewerUserId | int | Usuario que emite la calificación. |
+| reviewedTutorId | int | Tutor calificado (nulo si la reseña califica a un aprendiz). |
+| reviewedLearnerId | int | Aprendiz calificado (nulo si la reseña califica a un tutor). |
+| sessionId | int | Sesión de tutoría a la que corresponde la calificación. |
+| rating | Rating (VO) | Valor numérico de la calificación. |
+| comment | string | Comentario opcional del reviewer. |
+| reviewedAt | timestamp | Fecha y hora de la calificación. |
+
+Métodos
+
+- `Review(reviewerUserId, reviewedTutorId, reviewedLearnerId, sessionId, rating, comment)` (Constructor): Valida que la sesión referenciada exista y no haya sido calificada previamente en esa misma dirección antes de crear la instancia.
+
+**2. Value Object: Rating**
+
+Descripción: Encapsula el valor numérico de la calificación y valida su rango permitido.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | int | Valor de la calificación, validado en el rango de 1 a 5. |
+
+Métodos
+
+- `Rating(int value)` (Constructor): Valida que el valor se encuentre dentro del rango permitido, lanzando una excepción de dominio en caso contrario.
+
+**3. Domain Service: TutorReputationCalculator**
+
+Descripción: Calcula el promedio de calificaciones de un tutor a partir del conjunto de reseñas recibidas.
+
+Métodos
+
+- `calculateAverage(List\<Review\> reviews)`: Retorna el promedio de los valores de `Rating` de las reseñas recibidas por un tutor.
+
+**4. Repository: ReviewRepository**
+
+Descripción: Interfaz para la persistencia y recuperación de reseñas.
+
+Métodos
+
+- `findByTutorId(int tutorId)`: Recupera todas las reseñas recibidas por un tutor.
+- `existsBySessionAndDirection(int sessionId, boolean isTutorReview)`: Verifica que la sesión no haya sido calificada previamente en esa dirección.
+- `save(Review review)`: Persiste una nueva reseña.
+
+En la Domain Layer de Innovify, dentro del Bounded Context de Reputation, el agregado `Review` encapsula la regla de unicidad de calificación por sesión y dirección, mientras que el Value Object `Rating` garantiza que solo se acepten valores dentro del rango permitido. El cálculo del promedio de un tutor se delega al Domain Service `TutorReputationCalculator`, manteniendo esa lógica fuera del agregado individual.
 
 #### 2.6.5.2. Interface Layer
 
-- **Controllers:** `ReviewController` — expone los endpoints `POST /api/v1/reviews` y `GET /api/v1/reviews/tutor/{tutorId}`, consumidos de forma idéntica por los clientes Web, Android Nativo y Flutter.
-- **Resources (DTOs):** `ReviewResource`, `CreateReviewResource` (request).
+**Resources**
+
+| Nombre | Descripción |
+|---|---|
+| ReviewResource | DTO de salida que representa una reseña (rating, comment, reviewerUserId, reviewedAt). |
+| CreateReviewResource | DTO de entrada para registrar una nueva calificación. |
+| TutorReputationResource | DTO de salida con el promedio de calificación y el conteo de reseñas de un tutor. |
+
+**Controllers**
+
+| Nombre | Método HTTP | Ruta / Resource | Descripción |
+|---|---|---|---|
+| ReviewController | POST | `/api/v1/reviews` (CreateReviewResource) | Registra una nueva calificación asociada a una sesión completada. |
+| ReviewController | GET | `/api/v1/reviews/tutor/{tutorId}` | Retorna el listado de reseñas y el promedio de calificación de un tutor. |
+
+**Transformers / Assemblers**
+
+| Nombre | Descripción |
+|---|---|
+| ReviewResourceFromEntityAssembler | Convierte `Review` en `ReviewResource`. |
+| CreateReviewCommandFromResourceAssembler | Transforma `CreateReviewResource` en `CreateReviewCommand`. |
 
 #### 2.6.5.3. Application Layer
 
-- **Command Services:** `ReviewCommandService` — implementa `handle(CreateReviewCommand)`, validando que la sesión referenciada exista y esté en estado Completed antes de aceptar la calificación.
-- **Command Handlers:** `CreateReviewCommandHandler`.
-- **Query Services:** `ReviewQueryService` — implementa `handle(GetTutorReviewsQuery)`, exponiendo el promedio calculado y el listado de reviews de un tutor.
+**Handlers**
+
+| Nombre | Descripción | Resumen de Lógica |
+|---|---|---|
+| CreateReviewCommandHandler | Procesa el registro de una nueva calificación. | Valida que la sesión referenciada esté en estado `completed` y que no exista una reseña previa en esa dirección, instancia el agregado `Review` y lo persiste mediante `ReviewRepository`. |
+| GetTutorReviewsQueryHandler | Recupera las reseñas y el promedio de un tutor. | Consulta `ReviewRepository.findByTutorId()` e invoca `TutorReputationCalculator.calculateAverage()` sobre el resultado. |
+
+**Internal DTOs**
+
+| Nombre | Descripción |
+|---|---|
+| ReviewDto | Objeto que transporta el contenido de una reseña entre capas. |
 
 #### 2.6.5.4. Infrastructure Layer
 
-- **Persistence:** `ReviewRepositoryAdapter` (implementación de `ReviewRepository` sobre la base de datos relacional desplegada en Render).
-- **Integración con Discovery:** `TutorProfileNotifierAdapter` — comunica el promedio de calificación actualizado hacia el Bounded Context Discovery, para mantener sincronizado el campo `averageRating` del perfil de tutor mostrado en la búsqueda.
+**Persistence (Repository Implementation)**
+
+| Nombre | Descripción | Tecnologías / Herramientas |
+|---|---|---|
+| ReviewRepositoryAdapter | Implementación concreta de `ReviewRepository` sobre la tabla `reviews`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+
+**Integration Services**
+
+| Nombre | Descripción | Resumen de Implementación |
+|---|---|---|
+| TutorProfileNotifierAdapter | Comunica el promedio de calificación actualizado hacia el Bounded Context Discovery. | Consumo HTTP interno hacia el endpoint de actualización de `TutorProfile.rating` en Discovery, tras cada nueva reseña registrada. |
+
+Estos componentes permiten que Reputation mantenga sincronizado el promedio de calificación mostrado en el catálogo de búsqueda de Discovery, sin acoplar directamente su modelo de persistencia a ese Bounded Context.
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -1304,29 +1878,145 @@ El Domain Layer de Reputation concentra las reglas de negocio relacionadas con l
 
 #### 2.6.6.1. Domain Layer
 
-El Domain Layer de Payments & Wallet concentra las reglas de negocio relacionadas con la billetera virtual de cada usuario y el flujo de donaciones entre estudiantes y tutores.
+La capa de dominio de Payments & Wallet concentra las reglas de negocio relacionadas con la billetera virtual de cada usuario y el flujo de donaciones entre estudiantes y tutores.
 
-- **Aggregate Root:** `Wallet` — id, userId, balance.
-- **Aggregate Root:** `Transaction` — id, fromWalletId, toWalletId, amount, commissionAmount, type (Donation, Withdrawal), status, createdAt. El cálculo de la comisión del 5% se ejecuta como regla de negocio del propio agregado al momento de crear la transacción.
-- **Value Objects:** `Money` (encapsula el monto y la validación de que sea positivo), `CommissionRate` (porcentaje de comisión aplicado, actualmente fijo en 5%).
-- **Repository (interface):** `WalletRepository`, `TransactionRepository`.
+**1. Aggregate Root: Wallet**
+
+Descripción: El agregado `Wallet` representa la billetera virtual de un usuario, manteniendo su saldo disponible.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único de la billetera (autogenerado). |
+| walletOwnerId | int | Usuario propietario de la billetera (único). |
+| balance | decimal(10,2) | Saldo actual disponible. |
+
+Métodos
+
+- `credit(Money amount)`: Incrementa el saldo tras recibir una donación.
+- `debit(Money amount)`: Disminuye el saldo, validando que exista saldo suficiente antes de la operación.
+
+**2. Entity: Transaction**
+
+Descripción: Representa un movimiento realizado desde o hacia una billetera, incluyendo donaciones y otros tipos de operación.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único de la transacción. |
+| walletId | int | Billetera involucrada en el movimiento. |
+| amount | Money (VO) | Monto de la operación. |
+| type | TransactionType (VO) | Tipo de movimiento: `donation`, `deposit`, entre otros. |
+| description | string | Descripción del movimiento. |
+| createdAt | timestamp | Fecha y hora de la transacción. |
+
+Métodos
+
+- `Transaction(walletId, amount, type, description)` (Constructor): Valida que el monto sea positivo antes de crear el registro.
+
+**3. Value Object: Money**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| amount | decimal | Cantidad numérica del movimiento. |
+| currency | string | Código de moneda. |
+
+Métodos
+
+- `Money(decimal amount, String currency)` (Constructor): Valida que el monto no sea negativo.
+
+**4. Value Object: TransactionType**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | Valor del tipo: `donation`, `deposit`, entre otros definidos por el negocio. |
+
+**5. Domain Service: DonationCommissionCalculator**
+
+Descripción: Calcula la comisión de plataforma aplicada sobre una donación antes de acreditarla a la billetera del tutor.
+
+Métodos
+
+- `calculateCommission(Money donationAmount)`: Retorna el monto de comisión (actualmente 5% del monto donado).
+- `calculateNetAmount(Money donationAmount)`: Retorna el monto neto a acreditar al tutor tras descontar la comisión.
+
+**6. Repository: WalletRepository, TransactionRepository**
+
+Métodos
+
+- `findByOwnerId(int userId)`, `save(Wallet wallet)` (WalletRepository).
+- `save(Transaction transaction)`, `findByWalletId(int walletId)` (TransactionRepository).
+
+En la Domain Layer de Innovify, dentro del Bounded Context de Payments & Wallet, el agregado `Wallet` gestiona el saldo de cada usuario, mientras que la entidad `Transaction` registra cada movimiento validado por el Value Object `Money`. El cálculo de la comisión de plataforma se delega al Domain Service `DonationCommissionCalculator`, manteniendo esta regla de negocio desacoplada del agregado.
 
 #### 2.6.6.2. Interface Layer
 
-- **Controllers:** `WalletController` — expone los endpoints `GET /api/v1/wallets/{userId}`, `POST /api/v1/transactions/donate`, `POST /api/v1/transactions/withdraw`.
-- **Resources (DTOs):** `WalletResource`, `TransactionResource`, `DonateRequestResource`, `WithdrawRequestResource`.
+**Resources**
+
+| Nombre | Descripción |
+|---|---|
+| WalletResource | DTO de salida que representa el saldo actual de una billetera. |
+| TransactionResource | DTO de salida que representa un movimiento (amount, type, description, createdAt). |
+| DonateResource | DTO de entrada con el monto y el tutor destinatario de una donación. |
+| WithdrawResource | DTO de entrada con el monto a retirar. |
+
+**Controllers**
+
+| Nombre | Método HTTP | Ruta / Resource | Descripción |
+|---|---|---|---|
+| WalletController | GET | `/api/v1/wallets/{userId}` | Retorna el saldo actual de la billetera de un usuario. |
+| TransactionController | POST | `/api/v1/transactions/donate` (DonateResource) | Registra una donación entre wallets, aplicando la comisión de plataforma. |
+| TransactionController | POST | `/api/v1/transactions/withdraw` (WithdrawResource) | Registra un retiro de fondos de la billetera. |
+
+**Transformers / Assemblers**
+
+| Nombre | Descripción |
+|---|---|
+| WalletResourceFromEntityAssembler | Convierte `Wallet` en `WalletResource`. |
+| TransactionResourceFromEntityAssembler | Convierte `Transaction` en `TransactionResource`. |
+| DonateCommandFromResourceAssembler | Transforma `DonateResource` en `DonateCommand`. |
+
+Del lado del cliente móvil, tanto `donate` como `withdraw` requieren que el usuario complete la verificación mediante la API biométrica nativa del dispositivo (`BiometricPrompt` en Android, `local_auth` en Flutter) antes de que la aplicación invoque estos endpoints; si el dispositivo no cuenta con lector de huella o no tiene huellas registradas, el propio sistema operativo ofrece automáticamente el PIN, patrón o contraseña del dispositivo como mecanismo alternativo de confirmación.
 
 #### 2.6.6.3. Application Layer
 
-- **Command Services:** `WalletCommandService` — implementa `handle(DonateCommand)`, `handle(WithdrawCommand)`, calculando el desglose de comisión y actualizando los saldos de las wallets involucradas de forma transaccional.
-- **Command Handlers:** `DonateCommandHandler`, `WithdrawCommandHandler`.
-- **Query Services:** `WalletQueryService` — implementa `handle(GetWalletBalanceQuery)`.
+**Handlers**
+
+| Nombre | Descripción | Resumen de Lógica |
+|---|---|---|
+| DonateCommandHandler | Procesa una donación entre wallets. | Calcula la comisión mediante `DonationCommissionCalculator`, debita el monto bruto de la billetera del aprendiz, acredita el monto neto a la del tutor y registra ambas `Transaction` de forma transaccional. |
+| WithdrawCommandHandler | Procesa un retiro de fondos. | Valida que la billetera tenga saldo suficiente, ejecuta `debit()` y registra la `Transaction` correspondiente. |
+| GetWalletBalanceQueryHandler | Recupera el saldo actual de una billetera. | Consulta `WalletRepository.findByOwnerId()`. |
+
+**Internal DTOs**
+
+| Nombre | Descripción |
+|---|---|
+| WalletDto | Objeto que transporta el saldo operativo de una billetera entre capas. |
+| TransactionDto | Objeto que transporta el detalle de un movimiento entre capas. |
 
 #### 2.6.6.4. Infrastructure Layer
 
-- **Persistence:** `WalletRepositoryAdapter`, `TransactionRepositoryAdapter` (sobre la base de datos relacional desplegada en Render).
-- **Pasarela de pagos externa (trabajo futuro):** Punto de extensión documentado bajo el patrón Anticorruption Layer hacia Stripe, aún no implementado en el alcance funcional del ciclo actual.
-- **Autenticación Biométrica (recurso interno del dispositivo):** La confirmación de una operación de retiro o donación de fondos requiere, del lado del cliente móvil, la verificación mediante la API biométrica nativa del dispositivo (`BiometricPrompt` en Android, `local_auth` en Flutter) antes de invocar el endpoint correspondiente. Esta verificación recae íntegramente sobre el sistema operativo del dispositivo: si no existe hardware de huella digital disponible o no hay huellas registradas, el propio sistema ofrece automáticamente el PIN, patrón o contraseña del dispositivo como mecanismo alternativo de confirmación, sin requerir lógica adicional en el Bounded Context.
+**Persistence (Repository Implementation)**
+
+| Nombre | Descripción | Tecnologías / Herramientas |
+|---|---|---|
+| WalletRepositoryAdapter | Implementación concreta de `WalletRepository` sobre la tabla `wallets`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| TransactionRepositoryAdapter | Implementación concreta de `TransactionRepository` sobre la tabla `transactions`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+
+**External Services (Trabajo Futuro)**
+
+| Nombre | Descripción | Estado |
+|---|---|---|
+| StripeGatewayAdapter | Punto de extensión bajo el patrón Anticorruption Layer hacia la pasarela de pagos Stripe. | Pendiente de implementación; documentado como trabajo futuro fuera del alcance funcional del ciclo actual. |
+
+Estos componentes garantizan que la lógica de comisión y saldo permanezca encapsulada en el dominio, mientras que la confirmación biométrica (recurso interno del dispositivo) se resuelve íntegramente del lado del cliente móvil antes de invocar los endpoints de transacción.
 
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -1360,30 +2050,138 @@ El Domain Layer de Payments & Wallet concentra las reglas de negocio relacionada
 
 #### 2.6.7.1. Domain Layer
 
-El Domain Layer de Moderation & Disputes concentra las reglas de negocio relacionadas con el reporte de comportamientos inapropiados y la resolución de disputas por parte del Coordinador Institucional.
+La capa de dominio de Moderation & Disputes concentra las reglas de negocio relacionadas con el reporte de comportamientos inapropiados y la resolución de disputas por parte del Coordinador.
 
-- **Aggregate Root:** `Report` — id, sessionId, reportedByUserId, reportedUserId, reason, status (Pending, UnderReview, Resolved, Dismissed), resolution, createdAt, resolvedAt.
-- **Value Objects:** `ReportReason` (enumeración de motivos de reporte válidos), `ReportStatus` (estados y transiciones permitidas).
-- **Domain Services:** `ReportResolutionValidator` — valida que una resolución (por ejemplo, sanción o desestimación) solo pueda aplicarse sobre un reporte en estado UnderReview.
-- **Repository (interface):** `ReportRepository` — define los contratos `findBySessionId`, `findByStatus`, `save`.
+**1. Aggregate Root: Report**
+
+Descripción: El agregado `Report` representa la denuncia de un usuario hacia otro respecto a una sesión de tutoría, gobernando las transiciones de estado hasta su resolución.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único del reporte (autogenerado). |
+| reporterUserId | int | Usuario que presenta el reporte. |
+| reportedUserId | int | Usuario reportado. |
+| reportSessionId | int | Sesión de tutoría referenciada como contexto del reporte. |
+| reason | string | Motivo detallado del reporte. |
+| status | ReportStatus (VO) | Estado del reporte: `pending` o `resolved`. |
+| closed | boolean | Indica si el caso ha sido cerrado formalmente. |
+| reportedAt | timestamp | Fecha y hora de creación del reporte. |
+
+Métodos
+
+- `Report(reporterUserId, reportedUserId, reportSessionId, reason)` (Constructor): Crea el reporte en estado `pending`.
+- `resolve()`: Transiciona el estado a `resolved` y marca `closed` como verdadero, validando que el reporte se encuentre en estado `pending`.
+
+**2. Entity: Sanction**
+
+Descripción: Representa la sanción aplicada a un usuario como resultado de un reporte resuelto.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único de la sanción. |
+| reportId | int | Reporte que originó la sanción. |
+| sanctionedUserId | int | Usuario sancionado. |
+| type | SanctionType (VO) | Tipo de sanción: `warning`, `suspension` o `ban`. |
+| description | string | Motivo detallado de la sanción. |
+| durationDays | int | Duración de la sanción en días, si aplica. |
+
+**3. Value Object: ReportStatus**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | Valor del estado: `pending`, `resolved`. |
+
+**4. Value Object: SanctionType**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | Valor del tipo de sanción: `warning`, `suspension`, `ban`. |
+
+**5. Domain Service: ReportResolutionValidator**
+
+Descripción: Valida que una resolución (sanción o desestimación) solo pueda aplicarse sobre un reporte en estado `pending`.
+
+Métodos
+
+- `canResolve(Report report)`: Retorna verdadero si el reporte se encuentra en estado `pending`.
+
+**6. Repository: ReportRepository, SanctionRepository**
+
+Métodos
+
+- `findBySessionId(int sessionId)`, `findByStatus(ReportStatus status)`, `save(Report report)` (ReportRepository).
+- `save(Sanction sanction)`, `findByUserId(int userId)` (SanctionRepository).
+
+En la Domain Layer de Innovify, dentro del Bounded Context de Moderation & Disputes, el agregado `Report` gobierna el ciclo de vida de una denuncia, mientras que la entidad `Sanction` registra la consecuencia aplicada tras su resolución. Las transiciones de estado se validan mediante `ReportResolutionValidator`, evitando que un reporte ya resuelto pueda modificarse nuevamente.
 
 #### 2.6.7.2. Interface Layer
 
-- **Controllers:** `ReportController` — expone los endpoints `POST /api/v1/reports`, `GET /api/v1/reports`, `PATCH /api/v1/reports/{reportId}/resolve`, consumidos de forma idéntica por los clientes Web, Android Nativo y Flutter.
-- **Resources (DTOs):** `ReportResource`, `CreateReportResource` (request), `ResolveReportResource` (request con la decisión del coordinador).
+**Resources**
+
+| Nombre | Descripción |
+|---|---|
+| ReportResource | DTO de salida que representa un reporte (reason, status, reportedAt). |
+| CreateReportResource | DTO de entrada para registrar un nuevo reporte. |
+| ResolveReportResource | DTO de entrada con la decisión del Coordinador (sanción o desestimación). |
+
+**Controllers**
+
+| Nombre | Método HTTP | Ruta / Resource | Descripción |
+|---|---|---|---|
+| ReportController | POST | `/api/v1/reports` (CreateReportResource) | Registra un nuevo reporte asociado a una sesión de tutoría. |
+| ReportController | GET | `/api/v1/reports` | Retorna el listado de reportes pendientes, consumido por el panel del Coordinador. |
+| ReportController | PATCH | `/api/v1/reports/{reportId}/resolve` (ResolveReportResource) | Aplica la resolución del Coordinador sobre un reporte. |
+| ReportController | GET | `/api/v1/sessions/{sessionId}/messages` | *(Consumido desde Workspace, ver Infrastructure Layer)* Permite al Coordinador revisar el historial de chat de la sesión reportada como evidencia. |
+
+**Transformers / Assemblers**
+
+| Nombre | Descripción |
+|---|---|
+| ReportResourceFromEntityAssembler | Convierte `Report` en `ReportResource`. |
+| CreateReportCommandFromResourceAssembler | Transforma `CreateReportResource` en `CreateReportCommand`. |
 
 #### 2.6.7.3. Application Layer
 
-- **Command Services:** `ReportCommandService` — implementa `handle(CreateReportCommand)`, `handle(ResolveReportCommand)`.
-- **Command Handlers:** `CreateReportCommandHandler`, `ResolveReportCommandHandler` — este último, al aplicar una sanción, dispara los eventos de dominio consumidos por Identity & Access (suspensión de cuenta) y Reputation (ajuste de reputación del usuario sancionado).
-- **Query Services:** `ReportQueryService` — implementa `handle(GetPendingReportsQuery)`, utilizada por el panel del Coordinador para revisar los reportes junto con el historial de chat de la sesión referenciada (obtenido desde Workspace) como evidencia.
+**Handlers**
+
+| Nombre | Descripción | Resumen de Lógica |
+|---|---|---|
+| CreateReportCommandHandler | Procesa el registro de un nuevo reporte. | Valida que la sesión referenciada exista, instancia el agregado `Report` y lo persiste mediante `ReportRepository`. |
+| ResolveReportCommandHandler | Procesa la resolución de un reporte por parte del Coordinador. | Valida la transición con `ReportResolutionValidator`, invoca `resolve()` sobre el agregado y, si corresponde, crea la `Sanction`; dispara los eventos consumidos por Identity & Access (suspensión de cuenta) y Reputation (ajuste de reputación). |
+| GetPendingReportsQueryHandler | Recupera los reportes pendientes para el panel del Coordinador. | Consulta `ReportRepository.findByStatus(pending)`. |
+
+**Internal DTOs**
+
+| Nombre | Descripción |
+|---|---|
+| ReportDto | Objeto que transporta el detalle operativo de un reporte entre capas. |
 
 #### 2.6.7.4. Infrastructure Layer
 
-- **Persistence:** `ReportRepositoryAdapter` (implementación de `ReportRepository` sobre la base de datos relacional desplegada en Render).
-- **Integración con Identity & Access:** `AccountSuspensionNotifierAdapter` — comunica la orden de sanción hacia Identity & Access para suspender la cuenta del usuario reportado.
-- **Integración con Reputation:** `ReputationAdjustmentNotifierAdapter` — comunica el ajuste correspondiente en la reputación del usuario sancionado.
-- **Integración con Workspace:** `SessionMessagesQueryClient` — consulta el historial de mensajes de la sesión reportada, permitiendo al Coordinador revisar el chat como evidencia directa dentro del panel de moderación, sin requerir que el usuario adjunte capturas manuales.
+**Persistence (Repository Implementation)**
+
+| Nombre | Descripción | Tecnologías / Herramientas |
+|---|---|---|
+| ReportRepositoryAdapter | Implementación concreta de `ReportRepository` sobre la tabla `reports`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| SanctionRepositoryAdapter | Implementación concreta de `SanctionRepository` sobre la tabla `sanctions`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+
+**Integration Services**
+
+| Nombre | Descripción |
+|---|---|
+| AccountSuspensionNotifierAdapter | Comunica la orden de sanción hacia Identity & Access para suspender la cuenta del usuario reportado. |
+| ReputationAdjustmentNotifierAdapter | Comunica el ajuste correspondiente en la reputación del usuario sancionado hacia Reputation. |
+| SessionMessagesQueryClient | Consulta el historial de mensajes de la sesión reportada hacia Workspace, permitiendo al Coordinador revisar el chat como evidencia directa dentro del panel de moderación, sin requerir capturas manuales del usuario. |
+
+Estos adaptadores permiten que Moderation & Disputes coordine la sanción entre los Bounded Contexts afectados (Identity & Access y Reputation), y acceda al historial de chat de Workspace como fuente de evidencia, sin duplicar esa información en su propio modelo de persistencia.
 
 #### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -1435,4 +2233,3 @@ En síntesis, el diagrama relacional evidencia una estructura de base de datos c
 
 # Anexos
 *(Nota: Insertar cuadros, matrices extensas de entrevistas o diagramas adicionales requeridos).*
-**probando a er**
