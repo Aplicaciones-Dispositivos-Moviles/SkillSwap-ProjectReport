@@ -103,9 +103,14 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 ## 1.1. Startup Profile
 
 ### 1.1.1. Descripción de la Startup
-**Innovify** es una startup cuyo propósito es reducir la deserción académica conectando a estudiantes universitarios para que compartan conocimientos a través de sesiones de tutoría en una aplicación móvil. La plataforma facilita un aprendizaje sincrónico (videollamadas nativas) y asincrónico (recursos locales e integración en la nube), bajo un modelo B2C (donaciones voluntarias) y B2B (Dashboard Analítico institucional). 
 
-El sistema asegura la identidad mediante correos institucionales (`.edu.pe`) e integra **almacenamiento local** para preferencias de estudio y caché de mensajes, acceso a un **recurso interno del dispositivo** (cámara/micrófono para tutorías en vivo), integración con nuestro **servicio RESTful** de desarrollo interno, y acceso a un **servicio externo de terceros** (SDK para videollamadas o pasarela de pagos). Todo fundamentado bajo una arquitectura orientada al dominio (Domain-Driven Design).
+Innovify es una startup cuyo propósito es reducir la deserción académica universitaria en el Perú, conectando a estudiantes que necesitan apoyo académico con pares que dominan la materia, a través de sesiones de tutoría entre iguales.
+
+El producto principal de la solución es una aplicación móvil nativa y multiplataforma (Android/iOS), que constituye el canal principal de interacción del usuario y sigue el enfoque de Domain-Driven Design definido para toda la solución. La aplicación utiliza almacenamiento local para persistir en el dispositivo las preferencias de estudio del usuario (materias de interés, tutores favoritos) y un caché de los mensajes recientes del chat de tutoría, permitiendo continuidad de uso ante conectividad intermitente. Asimismo, consume recursos internos del teléfono, en particular la cámara y el micrófono, para las sesiones de tutoría por videollamada en tiempo real. Toda la lógica de negocio (identidad, matching de tutores, reputación, pagos/donaciones, moderación) se expone mediante servicios RESTful de desarrollo interno, y se integra con Agora SDK como servicio externo de terceros para el soporte de las videollamadas.
+
+Como componente esencial y diferenciado del alcance, la aplicación incorpora un feature de aprendizaje autónomo, apoyado en la Gemini API como SDK externo para generación de contenido. A partir del material que el Tutor comparte durante o después de una sesión, el sistema genera automáticamente flashcards y mini-quizzes de repaso que el Aprendiz puede resolver por su cuenta cuando no cuenta con un tutor disponible en el momento.
+
+El sistema mantiene la validación de identidad mediante correos institucionales (.edu.pe) y el modelo de negocio híbrido: B2C, mediante donaciones voluntarias entre Aprendiz y Tutor con comisión de la plataforma, y B2B, mediante un Dashboard analítico web dirigido a coordinadores institucionales.
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
@@ -113,10 +118,10 @@ El sistema asegura la identidad mediante correos institucionales (`.edu.pe`) e i
 
 | Foto | Integrante | Carrera | Descripción |
 | :---: | :--- | :--- | :--- |
-| *(Foto)* | **Alberca Saavedra, Víctor Manuel**<br>(U201924127) | Ingeniería de Software | Aporta conocimientos sólidos en arquitectura de software, backend y bases de datos. Contribuye con liderazgo técnico y organización del equipo para la transición al desarrollo móvil. |
-| *(Foto)* | **Becerra Ninahuanca, Luis Angel**<br>(U20231C792) | Ingeniería de Software | Especialista en lógica de negocio, integración de servicios y diseño de interfaces limpias. Aportará al diseño de la aplicación móvil y la Landing Page del modelo de negocio. |
-| *(Foto)* | **Lopez Montalvo, Kevin Edu**<br>(U20241D958) | Ingeniería de Software | Aporta conocimientos en diseño móvil, UX/UI y metodologías ágiles. Se enfocará en la investigación aplicada y la creación de prototipos técnicos móviles. |
-| *(Foto)* | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. Aportará con habilidades de comunicación asertiva y experiencia en levantamiento de requerimientos. |
+| *(Foto)* | **Alberca Saavedra, Víctor Manuel**<br>(U201924127) | Ingeniería de Software | Aporta conocimientos sólidos en arquitectura de software, backend y bases de datos. Lidera la investigación e integración del SDK de videollamadas (Agora) y la adaptación de los Bounded Contexts al entorno móvil. |
+| *(Foto)* | **Becerra Ninahuanca, Luis Angel**<br>(U20231C792) | Ingeniería de Software | Especialista en lógica de negocio, integración de servicios e interfaces limpias. Investiga patrones de diseño UI/UX propios de aplicaciones móviles nativas/multiplataforma y lidera el análisis competitivo enfocado en apps del mismo rubro. |
+| *(Foto)* | **Lopez Montalvo, Kevin Edu**<br>(U20241D958) | Ingeniería de Software | Aporta conocimientos en diseño móvil, UX/UI y metodologías ágiles. Documenta el proceso Lean UX y estructura las User Stories bajo un enfoque Mobile-First. |
+| *(Foto)* | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. Investiga e integra la Gemini API como servicio externo para el feature de aprendizaje autónomo y evalúa el consumo de servicios RESTful desde el cliente móvil. |
 
 </div>
 
@@ -125,42 +130,57 @@ El sistema asegura la identidad mediante correos institucionales (`.edu.pe`) e i
 ## 1.2. Solution Profile
 
 ### 1.2.1. Antecedentes y problemática
+
 En el Perú, el fracaso académico y la deserción universitaria afectan a miles de estudiantes. Según el MINEDU (2021), la tasa de interrupción de estudios en universidades licenciadas llegó a 11.5% en el ciclo 2021-1, siendo Lima una de las regiones más afectadas con 12.4%.
 
-Un problema subyacente y desatendido es el **aislamiento del conocimiento**. Cada universidad funciona como una isla académica. Actualmente, no existe una aplicación móvil formal, segura y multiplataforma que conecte de manera inmediata y verificada a un estudiante que necesita ayuda con un par que domina esa área. Los alumnos se ven limitados a su círculo cercano o a grupos informales en redes sociales que carecen de seguridad institucional, lo que genera fricción al momento de coordinar desde sus smartphones.
+Un problema subyacente es el aislamiento del conocimiento: cada universidad funciona como una isla académica. Hoy no existe una aplicación móvil formal, segura y multiplataforma que conecte de manera inmediata y validada institucionalmente a un estudiante que necesita ayuda con un par que domina esa área, ni que le ofrezca una alternativa de estudio autónomo cuando no hay un tutor disponible en el momento. Los alumnos quedan limitados a su círculo cercano o a grupos informales de WhatsApp/redes sociales, canales que no fueron diseñados para resolver una necesidad urgente desde el celular ni para garantizar la validación del tutor.
 
-*(Nota: En el documento final se expandirá la técnica de las 5W y 2H enfocada en el uso de dispositivos móviles).*
+Para delimitar la problemática se aplicó la técnica 5W + 2H:
+
+| Pregunta | Respuesta |
+| :--- | :--- |
+| Who | Estudiantes universitarios de pregrado en Lima y provincias que necesitan apoyo académico puntual (Aprendices) y estudiantes que dominan una materia y desean monetizar ese conocimiento (Tutores). |
+| What | La ausencia de un canal móvil, inmediato y validado institucionalmente para coordinar tutorías entre pares, y de una alternativa de repaso autónomo cuando no hay tutor disponible. |
+| Where | Universidades privadas y públicas de Lima Metropolitana, con proyección a provincias con alta población universitaria; el uso ocurre desde el propio dispositivo del estudiante. |
+| When | En momentos de necesidad puntual antes de una evaluación, o en tiempos muertos entre clases. |
+| Why | Porque el aislamiento del conocimiento entre universidades y la falta de validación institucional generan fricción, desconfianza y demoras al buscar ayuda por canales informales. |
+| How | Mediante una aplicación móvil nativa/multiplataforma que dispara la interacción a través de notificaciones push, habilita videollamadas integradas y ofrece contenido de repaso generado automáticamente. |
+| How much | Comisión del 5% sobre las donaciones procesadas dentro de la app y suscripción institucional al Dashboard analítico. |
 
 ### 1.2.2. Lean UX Process
 
 #### 1.2.2.1. Lean UX Problem Statements
+
 * The current state of **la educación colaborativa universitaria en Perú** has focused mainly on **estudiantes compartiendo documentos de forma aislada en plataformas web, o coordinando informalmente por WhatsApp sin garantías de calidad ni validación académica**.
-* What existing products/services fail to address is **la necesidad de una conexión inmediata, segura y validada institucionalmente directamente desde los dispositivos móviles, que ofrezca tutorías en tiempo real y recompense económicamente el esfuerzo del tutor**.
-* Our product/service will address this gap by **ofreciendo una aplicación móvil nativa/multiplataforma basada en Domain-Driven Design, que integre videollamadas, chat asíncrono y donaciones, asegurando la identidad mediante correos institucionales (.edu.pe)**.
+* What existing products/services fail to address is **la necesidad de una conexión inmediata, segura y validada institucionalmente directamente desde el dispositivo móvil, que ofrezca tutorías en tiempo real y una alternativa de aprendizaje autónomo cuando no hay un tutor disponible**.
+* Our product/service will address this gap by **ofreciendo una aplicación móvil nativa/multiplataforma basada en Domain-Driven Design, que integre videollamadas, notificaciones push, almacenamiento local y un feature de aprendizaje autónomo apoyado en un SDK externo, asegurando la identidad mediante correos institucionales (.edu.pe)**.
 * Our initial focus will be **estudiantes universitarios de pregrado de Lima y provincias clave, tanto los que buscan mejorar sus notas (Aprendices) como los que desean monetizar sus conocimientos (Tutores) mediante su teléfono**.
-* We'll know we are successful when we see **una adopción continua de la app móvil, evidenciada por un aumento del 40% mensual en tutorías completadas y donaciones procesadas dentro del entorno móvil durante los primeros 6 meses**.
+* We'll know we are successful when we see **una adopción continua de la app móvil, evidenciada por un aumento del 40% mensual en tutorías completadas y en interacciones con el contenido de aprendizaje autónomo dentro del entorno móvil, durante los primeros 6 meses**.
 
 #### 1.2.2.2. Lean UX Assumptions
-*   **Business Assumptions:** Creemos que el cobro del 5% de comisión por donación mediante pasarelas de pago integradas en la app hará que el modelo sea financieramente sostenible.
-*   **Business Outcome Assumptions:** El éxito se medirá por la cantidad de sesiones de videollamada completadas íntegramente en la aplicación móvil, reduciendo la dependencia de enlaces externos.
-*   **User Assumptions:** Nuestros usuarios son "móviles-nativos"; prefieren buscar tutores, coordinar, estudiar y realizar transferencias directamente desde sus smartphones por conveniencia y rapidez.
-*   **User Outcome Assumptions:** Los aprendices mejorarán su rendimiento académico al tener ayuda en su bolsillo; los tutores generarán ingresos y desarrollarán habilidades pedagógicas.
-*   **Feature Assumptions:** El soporte de notificaciones *push*, el acceso a la cámara/micrófono del dispositivo y el almacenamiento local de sesiones recientes son características críticas para la retención del usuario.
+
+* **Business Assumptions:** Creemos que el cobro del 5% de comisión por donación mediante pasarelas de pago integradas en la app hará que el modelo sea financieramente sostenible.
+* **Business Outcome Assumptions:** El éxito se medirá por la cantidad de sesiones de videollamada completadas íntegramente en la aplicación móvil y por la cantidad de sesiones de aprendizaje autónomo completadas, reduciendo la dependencia de enlaces externos.
+* **User Assumptions:** Nuestros usuarios son "móviles-nativos"; prefieren buscar tutores, coordinar, estudiar y realizar transferencias directamente desde sus smartphones por conveniencia y rapidez, esperando una respuesta casi inmediata ante cada notificación.
+* **User Outcome Assumptions:** Los aprendices mejorarán su rendimiento académico al tener ayuda inmediata y material de repaso autónomo en su bolsillo; los tutores generarán ingresos y desarrollarán habilidades pedagógicas.
+* **Feature Assumptions:** El soporte de notificaciones *push*, el acceso a la cámara/micrófono del dispositivo, el almacenamiento local de sesiones recientes y la integración de un SDK externo para el feature de aprendizaje autónomo son características críticas para la retención del usuario.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
+
 * We believe we will achieve **alta adopción, retención y confianza por parte de los usuarios**
-* If **estudiantes universitarios (Aprendices y Tutores)**
-* Attain **una experiencia fluida, rápida y segura para coordinar y realizar clases desde cualquier lugar**
-* With **una aplicación móvil nativa/multiplataforma que integre notificaciones push, videollamadas utilizando APIs de terceros, almacenamiento local para acceso offline parcial y validación automática de identidad (.edu.pe)**.
+* If **estudiantes universitarios (Aprendices y Tutores) reciben ayuda académica con la misma inmediatez que una notificación push**
+* Attain **una experiencia fluida, rápida y segura para coordinar tutorías, estudiar de forma autónoma y realizar clases desde cualquier lugar**
+* With **una aplicación móvil nativa/multiplataforma que integre notificaciones push, videollamadas utilizando APIs de terceros, almacenamiento local para acceso offline parcial, un SDK externo para el feature de aprendizaje autónomo y validación automática de identidad (.edu.pe)**.
 
 #### 1.2.2.4. Lean UX Canvas
+
 *(Nota: Insertar imagen del Lean UX Canvas adaptado a la solución móvil de SkillSwap).*
 
 ## 1.3. Segmentos objetivo
 
-1.  **Estudiantes que quieran aprender (Aprendices):** Universitarios (18-25 años) que enfrentan dificultades académicas. Son altamente dependientes de sus dispositivos móviles para consumir contenido rápido. Buscan ayuda inmediata y verificada sin tener que encender una computadora.
-2.  **Estudiantes que quieran enseñar (Tutores):** Universitarios en ciclos intermedios/avanzados con alto dominio de materias. Buscan monetizar sus conocimientos y valoran la flexibilidad de gestionar sus solicitudes de tutoría, horarios y billetera virtual directamente desde su celular mediante notificaciones en tiempo real.
-3.  **Coordinador Institucional:** Personal universitario (30-55 años) interesado en acceder a un Dashboard (Web) con métricas de rendimiento y prevención de deserción, garantizando la integridad de la red.
+1. Estudiantes que quieran aprender (Aprendices): Universitarios (18-25 años) que enfrentan dificultades académicas. Son altamente dependientes de sus dispositivos móviles para consumir contenido rápido y reaccionan de inmediato ante una notificación push. Buscan ayuda urgente y verificada, o material de repaso autónomo generado a partir de sesiones previas, sin tener que encender una computadora.
+2. Estudiantes que quieran enseñar (Tutores): Universitarios en ciclos intermedios/avanzados con alto dominio de materias específicas. Buscan monetizar su conocimiento aprovechando tiempos libres puntuales, y valoran gestionar solicitudes de tutoría, horarios y billetera virtual mediante notificaciones en tiempo real, directamente desde su celular.
+3. Coordinador Institucional: Personal universitario (30-55 años) interesado en acceder a un Dashboard (Web) con métricas de rendimiento, uso del feature de aprendizaje autónomo y prevención de deserción, garantizando la integridad de la red de tutorías realizadas desde la app móvil.
 
 ---
 
