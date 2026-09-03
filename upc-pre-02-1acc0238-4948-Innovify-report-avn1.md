@@ -108,8 +108,6 @@ Innovify es una startup cuyo propósito es reducir la deserción académica univ
 
 El producto principal de la solución es una aplicación móvil nativa y multiplataforma (Android/iOS), que constituye el canal principal de interacción del usuario y sigue el enfoque de Domain-Driven Design definido para toda la solución. La aplicación utiliza almacenamiento local para persistir en el dispositivo las preferencias de estudio del usuario (materias de interés, tutores favoritos) y un caché de los mensajes recientes del chat de tutoría, permitiendo continuidad de uso ante conectividad intermitente. Asimismo, consume recursos internos del teléfono, en particular la cámara y el micrófono, para las sesiones de tutoría por videollamada en tiempo real. Toda la lógica de negocio (identidad, matching de tutores, reputación, pagos/donaciones, moderación) se expone mediante servicios RESTful de desarrollo interno, y se integra con Agora SDK como servicio externo de terceros para el soporte de las videollamadas.
 
-Como componente esencial y diferenciado del alcance, la aplicación incorpora un feature de aprendizaje autónomo, apoyado en la Gemini API como SDK externo para generación de contenido. A partir del material que el Tutor comparte durante o después de una sesión, el sistema genera automáticamente flashcards y mini-quizzes de repaso que el Aprendiz puede resolver por su cuenta cuando no cuenta con un tutor disponible en el momento.
-
 El sistema mantiene la validación de identidad mediante correos institucionales (.edu.pe) y el modelo de negocio híbrido: B2C, mediante donaciones voluntarias entre Aprendiz y Tutor con comisión de la plataforma, y B2B, mediante un Dashboard analítico web dirigido a coordinadores institucionales.
 
 ### 1.1.2. Perfiles de integrantes del equipo
@@ -121,7 +119,7 @@ El sistema mantiene la validación de identidad mediante correos institucionales
 | *(Foto)* | **Alberca Saavedra, Víctor Manuel**<br>(U201924127) | Ingeniería de Software | Aporta conocimientos sólidos en arquitectura de software, backend y bases de datos. Lidera la investigación e integración del SDK de videollamadas (Agora) y la adaptación de los Bounded Contexts al entorno móvil. |
 | *(Foto)* | **Becerra Ninahuanca, Luis Angel**<br>(U20231C792) | Ingeniería de Software | Especialista en lógica de negocio, integración de servicios e interfaces limpias. Investiga patrones de diseño UI/UX propios de aplicaciones móviles nativas/multiplataforma y lidera el análisis competitivo enfocado en apps del mismo rubro. |
 | *(Foto)* | **Lopez Montalvo, Kevin Edu**<br>(U20241D958) | Ingeniería de Software | Aporta conocimientos en diseño móvil, UX/UI y metodologías ágiles. Documenta el proceso Lean UX y estructura las User Stories bajo un enfoque Mobile-First. |
-| *(Foto)* | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. Investiga e integra la Gemini API como servicio externo para el feature de aprendizaje autónomo y evalúa el consumo de servicios RESTful desde el cliente móvil. |
+| *(Foto)* | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. |
 
 </div>
 
