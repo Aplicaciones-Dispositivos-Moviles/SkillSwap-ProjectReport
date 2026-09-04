@@ -1,0 +1,41 @@
+@startuml ReputationComponent
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+ContainerDb_Ext(mainDB, "Innovify Database", "MySQL 8")
+
+Container_Boundary(reputationBC, "Reputation Bounded Context") {
+    Component(reputationController, "Reputation Controller", "C# Class", "RESTful API Controller")
+    Component(reputationCommandService, "Reputation CommandService", "C# Class", "Lógica de negocio")
+    Component(reputationQueryService, "Reputation QueryService", "C# Class", "Consultas")
+    Component(reputationRepository, "Reputation Repository", "C# Interface", "Interface persistencia")
+    Component(reputationContextFacade, "Reputation ContextFacade", "C# Class", "Punto de entrada interno")
+}
+
+Component_Ext(learningQueryService, "Learning QueryService", "C# Class", "Bounded Context: Learning & Assessment")
+Component_Ext(learningContextFacade, "Learning ContextFacade", "C# Class", "Bounded Context: Learning & Assessment")
+Component_Ext(identityContextFacade, "Identity ContextFacade", "C# Class", "Bounded Context: Identity & Access")
+Component_Ext(moderationContextFacade, "Moderation ContextFacade", "C# Class", "Bounded Context: Moderation & Disputes")
+Component_Ext(billingContextFacade, "Payments ContextFacade", "C# Class", "Bounded Context: Payments & Wallet")
+
+Rel(apiGateway, reputationController, "Request HTTP a Reputation")
+Rel(reputationController, reputationCommandService, "Usa")
+Rel(reputationController, reputationQueryService, "Usa")
+Rel(reputationCommandService, reputationRepository, "Usa")
+Rel(reputationQueryService, reputationRepository, "Usa")
+Rel(reputationRepository, mainDB, "Guardar calificaciones")
+
+Rel(learningQueryService, reputationContextFacade, "Pedir si la sesión ya finalizó")
+Rel(reputationCommandService, learningContextFacade, "Sesión terminada")
+Rel(reputationCommandService, identityContextFacade, "Actualizar perfil del tutor con la nueva calificación")
+Rel(reputationQueryService, moderationContextFacade, "Pedir si hubo alguna falta en la reseña")
+Rel(reputationQueryService, billingContextFacade, "Pedir información si se le donará o no")
+Rel(reputationCommandService, billingContextFacade, "Donar al tutor")
+Rel(reputationCommandService, moderationContextFacade, "Falta de comportamiento en la reseña")
+
+Rel(reputationContextFacade, reputationCommandService, "Delega")
+Rel(reputationContextFacade, reputationQueryService, "Delega")
+
+@enduml

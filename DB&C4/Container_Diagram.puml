@@ -1,0 +1,71 @@
+@startuml InnovifyContainer
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(learner, "Estudiante Aprendiz", "Busca ayuda académica, reserva tutorías, resuelve quizzes y realiza donaciones.")
+Person(tutor, "Estudiante Tutor", "Brinda tutorías, asigna quizzes oficiales y recibe donaciones.")
+Person(professor, "Profesor Universitario", "Crea material oficial, atiende disputas y monitorea la analítica de su facultad.")
+
+System_Boundary(innovifySystem, "Innovify Platform") {
+    Container(landingPage, "Landing Page", "HTML5 / CSS3 / JavaScript", "Sitio web estático que presenta el modelo de negocio de Innovify.")
+    Container(androidApp, "Android Native Application", "Kotlin / Jetpack Compose", "Aplicación móvil nativa para Estudiantes Aprendices y Tutores.")
+    Container(flutterApp, "Cross-Platform Application", "Flutter / Dart (dirigido a Android)", "Aplicación móvil multiplataforma para Estudiantes Aprendices y Tutores.")
+    Container(apiGateway, "Api Gateway", "ASP.NET Core (C#)", "Controlador de tráfico de solicitudes HTTP entrantes.")
+
+    Container(identityBC, "Identity & Access Bounded Context", "C# / ASP.NET Core", "Gestión de autenticación y perfiles")
+    Container(profileBC, "Discovery Bounded Context", "C# / ASP.NET Core", "Catálogo y búsqueda")
+    Container(collaborationBC, "Workspace Bounded Context", "C# / ASP.NET Core", "Chat y videollamadas")
+    Container(learningBC, "Learning & Assessment Bounded Context", "C# / ASP.NET Core", "Sesiones y quizzes")
+    Container(reputationBC, "Reputation Bounded Context", "C# / ASP.NET Core", "Feedback y ratings")
+    Container(moderationBC, "Moderation & Disputes Bounded Context", "C# / ASP.NET Core", "Resolución de disputas")
+    Container(billingBC, "Payments & Wallet Bounded Context", "C# / ASP.NET Core", "Pagos y donaciones")
+
+    ContainerDb(mainDB, "Innovify Database", "MySQL 8", "Base de datos única compartida por los siete Bounded Contexts (skillswap_db)")
+}
+
+System_Ext(emailService, "Email Api", "Integración con correos")
+System_Ext(paymentGateway, "Payment Gateway", "Procesamiento externo (Legacy/Stripe)")
+System_Ext(paymentsService, "Payments & Wallet Externo", "Modelo externo transaccional")
+System_Ext(agoraApi, "Agora Video SDK", "Videollamadas en tiempo real (feature de aprendizaje autónomo)")
+System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para archivos del chat")
+
+Rel(learner, androidApp, "Usa")
+Rel(tutor, androidApp, "Usa")
+Rel(professor, androidApp, "Usa")
+Rel(learner, flutterApp, "Usa")
+Rel(tutor, flutterApp, "Usa")
+Rel(professor, flutterApp, "Usa")
+
+Rel(learner, landingPage, "Visita")
+Rel(tutor, landingPage, "Visita")
+Rel(professor, landingPage, "Visita")
+
+Rel(androidApp, apiGateway, "Consume API RESTful vía HTTPS")
+Rel(flutterApp, apiGateway, "Consume API RESTful vía HTTPS")
+
+Rel(apiGateway, identityBC, "Enruta solicitudes")
+Rel(apiGateway, profileBC, "Enruta solicitudes")
+Rel(apiGateway, collaborationBC, "Enruta solicitudes")
+Rel(apiGateway, learningBC, "Enruta solicitudes")
+Rel(apiGateway, reputationBC, "Enruta solicitudes")
+Rel(apiGateway, moderationBC, "Enruta solicitudes")
+Rel(apiGateway, billingBC, "Enruta solicitudes")
+
+Rel(identityBC, mainDB, "Lee/Escribe")
+Rel(profileBC, mainDB, "Lee/Escribe")
+Rel(collaborationBC, mainDB, "Lee/Escribe")
+Rel(learningBC, mainDB, "Lee/Escribe")
+Rel(reputationBC, mainDB, "Lee/Escribe")
+Rel(moderationBC, mainDB, "Lee/Escribe")
+Rel(billingBC, mainDB, "Lee/Escribe")
+
+Rel(identityBC, emailService, "Envía correo de validación")
+Rel(collaborationBC, agoraApi, "Genera token de videollamada")
+Rel(collaborationBC, cloudStorage, "Guarda mensajes e historial de sesión")
+Rel(billingBC, paymentsService, "Realiza transacción")
+Rel(billingBC, emailService, "Envía notificación de transacción")
+Rel(billingBC, paymentGateway, "Delega pago")
+Rel(moderationBC, agoraApi, "Consulta canal de videollamada")
+
+@enduml
