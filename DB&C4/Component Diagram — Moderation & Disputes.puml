@@ -1,0 +1,41 @@
+@startuml ModerationComponent
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+ContainerDb_Ext(mainDB, "Innovify Database", "MySQL 8")
+System_Ext(agoraApi, "Agora Video SDK", "Consulta de canal de videollamada como evidencia")
+
+Container_Boundary(moderationBC, "Moderation & Disputes Bounded Context") {
+    Component(moderationController, "Moderation Controller", "C# Class", "RESTful API Controller")
+    Component(moderationCommandService, "Moderation CommandService", "C# Class", "Lógica de negocio")
+    Component(moderationQueryService, "Moderation QueryService", "C# Class", "Consultas")
+    Component(moderationRepository, "Moderation Repository", "C# Interface", "Interface persistencia")
+    Component(moderationContextFacade, "Moderation ContextFacade", "C# Class", "Punto de entrada interno")
+}
+
+Component_Ext(identityQueryService, "Identity QueryService", "C# Class", "Bounded Context: Identity & Access")
+Component_Ext(identityContextFacade, "Identity ContextFacade", "C# Class", "Bounded Context: Identity & Access")
+Component_Ext(reputationQueryService, "Reputation QueryService", "C# Class", "Bounded Context: Reputation")
+Component_Ext(reputationCommandService, "Reputation CommandService", "C# Class", "Bounded Context: Reputation")
+
+Rel(apiGateway, moderationController, "Se reporta al usuario")
+Rel(moderationController, moderationCommandService, "Usa")
+Rel(moderationController, moderationQueryService, "Usa")
+Rel(moderationCommandService, moderationRepository, "Usa")
+Rel(moderationQueryService, moderationRepository, "Usa")
+Rel(moderationRepository, mainDB, "SQL Transaction")
+
+Rel(moderationBC, agoraApi, "Consulta canal de videollamada")
+
+Rel(identityQueryService, moderationContextFacade, "Pedir sanción")
+Rel(reputationQueryService, moderationContextFacade, "Pedir si hubo alguna falta en la reseña")
+Rel(reputationCommandService, moderationContextFacade, "Falta de comportamiento en la reseña")
+Rel(moderationQueryService, identityContextFacade, "Pedir sanción")
+Rel(moderationCommandService, identityContextFacade, "Actualizar perfil en caso de haber sanción")
+
+Rel(moderationContextFacade, moderationCommandService, "Delega")
+Rel(moderationContextFacade, moderationQueryService, "Delega")
+
+@enduml

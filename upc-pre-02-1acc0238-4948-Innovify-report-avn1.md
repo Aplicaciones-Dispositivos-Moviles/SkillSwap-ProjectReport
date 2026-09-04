@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images-doc/Logo-Upc.png" alt="Logo UPC" width="150">
+  <img src="public/assets/images-doc/Logo-Upc.png" alt="Logo UPC" width="150">
 </p>
 
 <h3 align="center">Universidad Peruana de Ciencias Aplicadas</h3>
@@ -103,9 +103,12 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 ## 1.1. Startup Profile
 
 ### 1.1.1. Descripción de la Startup
-**Innovify** es una startup cuyo propósito es reducir la deserción académica conectando a estudiantes universitarios para que compartan conocimientos a través de sesiones de tutoría en una aplicación móvil. La plataforma facilita un aprendizaje sincrónico (videollamadas nativas) y asincrónico (recursos locales e integración en la nube), bajo un modelo B2C (donaciones voluntarias) y B2B (Dashboard Analítico institucional). 
 
-El sistema asegura la identidad mediante correos institucionales (`.edu.pe`) e integra **almacenamiento local** para preferencias de estudio y caché de mensajes, acceso a un **recurso interno del dispositivo** (cámara/micrófono para tutorías en vivo), integración con nuestro **servicio RESTful** de desarrollo interno, y acceso a un **servicio externo de terceros** (SDK para videollamadas o pasarela de pagos). Todo fundamentado bajo una arquitectura orientada al dominio (Domain-Driven Design).
+Innovify es una startup cuyo propósito es reducir la deserción académica universitaria en el Perú, conectando a estudiantes que necesitan apoyo académico con pares que dominan la materia, a través de sesiones de tutoría entre iguales.
+
+El producto principal de la solución es una aplicación móvil nativa y multiplataforma (Android/iOS), que constituye el canal principal de interacción del usuario y sigue el enfoque de Domain-Driven Design definido para toda la solución. La aplicación utiliza almacenamiento local para persistir en el dispositivo las preferencias de estudio del usuario (materias de interés, tutores favoritos) y un caché de los mensajes recientes del chat de tutoría, permitiendo continuidad de uso ante conectividad intermitente. Asimismo, consume recursos internos del teléfono, en particular la cámara y el micrófono, para las sesiones de tutoría por videollamada en tiempo real. Toda la lógica de negocio (identidad, matching de tutores, reputación, pagos/donaciones, moderación) se expone mediante servicios RESTful de desarrollo interno, y se integra con Agora SDK como servicio externo de terceros para el soporte de las videollamadas.
+
+El sistema mantiene la validación de identidad mediante correos institucionales (.edu.pe) y el modelo de negocio híbrido: B2C, mediante donaciones voluntarias entre Aprendiz y Tutor con comisión de la plataforma, y B2B, mediante un Dashboard analítico web dirigido a coordinadores institucionales.
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
@@ -113,10 +116,10 @@ El sistema asegura la identidad mediante correos institucionales (`.edu.pe`) e i
 
 | Foto | Integrante | Carrera | Descripción |
 | :---: | :--- | :--- | :--- |
-| *(Foto)* | **Alberca Saavedra, Víctor Manuel**<br>(U201924127) | Ingeniería de Software | Aporta conocimientos sólidos en arquitectura de software, backend y bases de datos. Contribuye con liderazgo técnico y organización del equipo para la transición al desarrollo móvil. |
-| *(Foto)* | **Becerra Ninahuanca, Luis Angel**<br>(U20231C792) | Ingeniería de Software | Especialista en lógica de negocio, integración de servicios y diseño de interfaces limpias. Aportará al diseño de la aplicación móvil y la Landing Page del modelo de negocio. |
-| *(Foto)* | **Lopez Montalvo, Kevin Edu**<br>(U20241D958) | Ingeniería de Software | Aporta conocimientos en diseño móvil, UX/UI y metodologías ágiles. Se enfocará en la investigación aplicada y la creación de prototipos técnicos móviles. |
-| *(Foto)* | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. Aportará con habilidades de comunicación asertiva y experiencia en levantamiento de requerimientos. |
+| *(Foto)* | **Alberca Saavedra, Víctor Manuel**<br>(U201924127) | Ingeniería de Software | Aporta conocimientos sólidos en arquitectura de software, backend y bases de datos. Lidera la investigación e integración del SDK de videollamadas (Agora) y la adaptación de los Bounded Contexts al entorno móvil. |
+| *(Foto)* | **Becerra Ninahuanca, Luis Angel**<br>(U20231C792) | Ingeniería de Software | Especialista en lógica de negocio, integración de servicios e interfaces limpias. Investiga patrones de diseño UI/UX propios de aplicaciones móviles nativas/multiplataforma y lidera el análisis competitivo enfocado en apps del mismo rubro. |
+| *(Foto)* | **Lopez Montalvo, Kevin Edu**<br>(U20241D958) | Ingeniería de Software | Aporta conocimientos en diseño móvil, UX/UI y metodologías ágiles. Documenta el proceso Lean UX y estructura las User Stories bajo un enfoque Mobile-First. |
+| *(Foto)* | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. |
 
 </div>
 
@@ -125,42 +128,57 @@ El sistema asegura la identidad mediante correos institucionales (`.edu.pe`) e i
 ## 1.2. Solution Profile
 
 ### 1.2.1. Antecedentes y problemática
+
 En el Perú, el fracaso académico y la deserción universitaria afectan a miles de estudiantes. Según el MINEDU (2021), la tasa de interrupción de estudios en universidades licenciadas llegó a 11.5% en el ciclo 2021-1, siendo Lima una de las regiones más afectadas con 12.4%.
 
-Un problema subyacente y desatendido es el **aislamiento del conocimiento**. Cada universidad funciona como una isla académica. Actualmente, no existe una aplicación móvil formal, segura y multiplataforma que conecte de manera inmediata y verificada a un estudiante que necesita ayuda con un par que domina esa área. Los alumnos se ven limitados a su círculo cercano o a grupos informales en redes sociales que carecen de seguridad institucional, lo que genera fricción al momento de coordinar desde sus smartphones.
+Un problema subyacente es el aislamiento del conocimiento: cada universidad funciona como una isla académica. Hoy no existe una aplicación móvil formal, segura y multiplataforma que conecte de manera inmediata y validada institucionalmente a un estudiante que necesita ayuda con un par que domina esa área, ni que le ofrezca una alternativa de estudio autónomo cuando no hay un tutor disponible en el momento. Los alumnos quedan limitados a su círculo cercano o a grupos informales de WhatsApp/redes sociales, canales que no fueron diseñados para resolver una necesidad urgente desde el celular ni para garantizar la validación del tutor.
 
-*(Nota: En el documento final se expandirá la técnica de las 5W y 2H enfocada en el uso de dispositivos móviles).*
+Para delimitar la problemática se aplicó la técnica 5W + 2H:
+
+| Pregunta | Respuesta |
+| :--- | :--- |
+| Who | Estudiantes universitarios de pregrado en Lima y provincias que necesitan apoyo académico puntual (Aprendices) y estudiantes que dominan una materia y desean monetizar ese conocimiento (Tutores). |
+| What | La ausencia de un canal móvil, inmediato y validado institucionalmente para coordinar tutorías entre pares, y de una alternativa de repaso autónomo cuando no hay tutor disponible. |
+| Where | Universidades privadas y públicas de Lima Metropolitana, con proyección a provincias con alta población universitaria; el uso ocurre desde el propio dispositivo del estudiante. |
+| When | En momentos de necesidad puntual antes de una evaluación, o en tiempos muertos entre clases. |
+| Why | Porque el aislamiento del conocimiento entre universidades y la falta de validación institucional generan fricción, desconfianza y demoras al buscar ayuda por canales informales. |
+| How | Mediante una aplicación móvil nativa/multiplataforma que dispara la interacción a través de notificaciones push, habilita videollamadas integradas y ofrece contenido de repaso generado automáticamente. |
+| How much | Comisión del 5% sobre las donaciones procesadas dentro de la app y suscripción institucional al Dashboard analítico. |
 
 ### 1.2.2. Lean UX Process
 
 #### 1.2.2.1. Lean UX Problem Statements
+
 * The current state of **la educación colaborativa universitaria en Perú** has focused mainly on **estudiantes compartiendo documentos de forma aislada en plataformas web, o coordinando informalmente por WhatsApp sin garantías de calidad ni validación académica**.
-* What existing products/services fail to address is **la necesidad de una conexión inmediata, segura y validada institucionalmente directamente desde los dispositivos móviles, que ofrezca tutorías en tiempo real y recompense económicamente el esfuerzo del tutor**.
-* Our product/service will address this gap by **ofreciendo una aplicación móvil nativa/multiplataforma basada en Domain-Driven Design, que integre videollamadas, chat asíncrono y donaciones, asegurando la identidad mediante correos institucionales (.edu.pe)**.
+* What existing products/services fail to address is **la necesidad de una conexión inmediata, segura y validada institucionalmente directamente desde el dispositivo móvil, que ofrezca tutorías en tiempo real y una alternativa de aprendizaje autónomo cuando no hay un tutor disponible**.
+* Our product/service will address this gap by **ofreciendo una aplicación móvil nativa/multiplataforma basada en Domain-Driven Design, que integre videollamadas, notificaciones push, almacenamiento local y un feature de aprendizaje autónomo apoyado en un SDK externo, asegurando la identidad mediante correos institucionales (.edu.pe)**.
 * Our initial focus will be **estudiantes universitarios de pregrado de Lima y provincias clave, tanto los que buscan mejorar sus notas (Aprendices) como los que desean monetizar sus conocimientos (Tutores) mediante su teléfono**.
-* We'll know we are successful when we see **una adopción continua de la app móvil, evidenciada por un aumento del 40% mensual en tutorías completadas y donaciones procesadas dentro del entorno móvil durante los primeros 6 meses**.
+* We'll know we are successful when we see **una adopción continua de la app móvil, evidenciada por un aumento del 40% mensual en tutorías completadas y en interacciones con el contenido de aprendizaje autónomo dentro del entorno móvil, durante los primeros 6 meses**.
 
 #### 1.2.2.2. Lean UX Assumptions
-*   **Business Assumptions:** Creemos que el cobro del 5% de comisión por donación mediante pasarelas de pago integradas en la app hará que el modelo sea financieramente sostenible.
-*   **Business Outcome Assumptions:** El éxito se medirá por la cantidad de sesiones de videollamada completadas íntegramente en la aplicación móvil, reduciendo la dependencia de enlaces externos.
-*   **User Assumptions:** Nuestros usuarios son "móviles-nativos"; prefieren buscar tutores, coordinar, estudiar y realizar transferencias directamente desde sus smartphones por conveniencia y rapidez.
-*   **User Outcome Assumptions:** Los aprendices mejorarán su rendimiento académico al tener ayuda en su bolsillo; los tutores generarán ingresos y desarrollarán habilidades pedagógicas.
-*   **Feature Assumptions:** El soporte de notificaciones *push*, el acceso a la cámara/micrófono del dispositivo y el almacenamiento local de sesiones recientes son características críticas para la retención del usuario.
+
+* **Business Assumptions:** Creemos que el cobro del 5% de comisión por donación mediante pasarelas de pago integradas en la app hará que el modelo sea financieramente sostenible.
+* **Business Outcome Assumptions:** El éxito se medirá por la cantidad de sesiones de videollamada completadas íntegramente en la aplicación móvil y por la cantidad de sesiones de aprendizaje autónomo completadas, reduciendo la dependencia de enlaces externos.
+* **User Assumptions:** Nuestros usuarios son "móviles-nativos"; prefieren buscar tutores, coordinar, estudiar y realizar transferencias directamente desde sus smartphones por conveniencia y rapidez, esperando una respuesta casi inmediata ante cada notificación.
+* **User Outcome Assumptions:** Los aprendices mejorarán su rendimiento académico al tener ayuda inmediata y material de repaso autónomo en su bolsillo; los tutores generarán ingresos y desarrollarán habilidades pedagógicas.
+* **Feature Assumptions:** El soporte de notificaciones *push*, el acceso a la cámara/micrófono del dispositivo, el almacenamiento local de sesiones recientes y la integración de un SDK externo para el feature de aprendizaje autónomo son características críticas para la retención del usuario.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
+
 * We believe we will achieve **alta adopción, retención y confianza por parte de los usuarios**
-* If **estudiantes universitarios (Aprendices y Tutores)**
-* Attain **una experiencia fluida, rápida y segura para coordinar y realizar clases desde cualquier lugar**
-* With **una aplicación móvil nativa/multiplataforma que integre notificaciones push, videollamadas utilizando APIs de terceros, almacenamiento local para acceso offline parcial y validación automática de identidad (.edu.pe)**.
+* If **estudiantes universitarios (Aprendices y Tutores) reciben ayuda académica con la misma inmediatez que una notificación push**
+* Attain **una experiencia fluida, rápida y segura para coordinar tutorías, estudiar de forma autónoma y realizar clases desde cualquier lugar**
+* With **una aplicación móvil nativa/multiplataforma que integre notificaciones push, videollamadas utilizando APIs de terceros, almacenamiento local para acceso offline parcial, un SDK externo para el feature de aprendizaje autónomo y validación automática de identidad (.edu.pe)**.
 
 #### 1.2.2.4. Lean UX Canvas
+
 *(Nota: Insertar imagen del Lean UX Canvas adaptado a la solución móvil de SkillSwap).*
 
 ## 1.3. Segmentos objetivo
 
-1.  **Estudiantes que quieran aprender (Aprendices):** Universitarios (18-25 años) que enfrentan dificultades académicas. Son altamente dependientes de sus dispositivos móviles para consumir contenido rápido. Buscan ayuda inmediata y verificada sin tener que encender una computadora.
-2.  **Estudiantes que quieran enseñar (Tutores):** Universitarios en ciclos intermedios/avanzados con alto dominio de materias. Buscan monetizar sus conocimientos y valoran la flexibilidad de gestionar sus solicitudes de tutoría, horarios y billetera virtual directamente desde su celular mediante notificaciones en tiempo real.
-3.  **Coordinador Institucional:** Personal universitario (30-55 años) interesado en acceder a un Dashboard (Web) con métricas de rendimiento y prevención de deserción, garantizando la integridad de la red.
+1. Estudiantes que quieran aprender (Aprendices): Universitarios (18-25 años) que enfrentan dificultades académicas. Son altamente dependientes de sus dispositivos móviles para consumir contenido rápido y reaccionan de inmediato ante una notificación push. Buscan ayuda urgente y verificada, o material de repaso autónomo generado a partir de sesiones previas, sin tener que encender una computadora.
+2. Estudiantes que quieran enseñar (Tutores): Universitarios en ciclos intermedios/avanzados con alto dominio de materias específicas. Buscan monetizar su conocimiento aprovechando tiempos libres puntuales, y valoran gestionar solicitudes de tutoría, horarios y billetera virtual mediante notificaciones en tiempo real, directamente desde su celular.
+3. Coordinador Institucional: Personal universitario (30-55 años) interesado en acceder a un Dashboard (Web) con métricas de rendimiento, uso del feature de aprendizaje autónomo y prevención de deserción, garantizando la integridad de la red de tutorías realizadas desde la app móvil.
 
 ---
 
@@ -971,7 +989,7 @@ El sistema es utilizado por tres actores principales: el **Estudiante Aprendiz**
 A nivel de sistemas externos, Innovify se integra con: la **pasarela de pagos Stripe** (documentada como trabajo futuro para el procesamiento real de comisiones), el **servicio de videollamadas WebRTC** (utilizado durante las sesiones de tutoría dentro del Workspace), y el **servicio de correo electrónico** para el envío de notificaciones institucionales (validación de dominio `.edu.pe`, confirmaciones de sesión, entre otros).
 
 <p align="center">
-  <img src="images-doc/context-mobile.png" alt="System Context Diagram - Mobile" width="800">
+  <img src="images-doc/InnovifySystemContext.svg" alt="System Context Diagram - Mobile" width="800">
   <br>
   <em>Figura XX. C4 Model: Context Diagram - Elaboración propia. Nota: Diagrama de contexto que muestra el sistema Innovify en el centro y sus interacciones directas con los actores principales (Estudiante Aprendiz, Tutor, Coordinador) a través de la aplicación móvil nativa, la aplicación cross-platform y la Web Application, así como con los sistemas externos de terceros (Pasarela de Pagos Stripe, servicio de videollamadas WebRTC, servicio de correo electrónico).</em>
 </p>
@@ -992,7 +1010,7 @@ Los contenedores identificados son los siguientes:
 Es importante resaltar que tanto la aplicación Android nativa como la aplicación Flutter cross-platform consumen el **mismo contrato de API RESTful** documentado con OpenAPI/Swagger, sin requerir endpoints adicionales ni lógica de backend duplicada, evidenciando así el desacoplamiento entre la capa de presentación y la capa de dominio/aplicación del sistema.
 
 <p align="center">
-  <img src="images-doc/container-mobile.png" alt="Container Diagram - Mobile" width="900">
+  <img src="images-doc/InnovifyContainer.svg" alt="Container Diagram - Mobile" width="900">
   <br>
   <em>Figura XX. C4 Model: Container Diagram - Elaboración propia. Nota: Diagrama de contenedores que muestra la Landing Page, la Web Application, la Aplicación Android Nativa, la Aplicación Cross-Platform (Flutter), el backend de Web Services RESTful y la Base de Datos, junto con sus interacciones y el sistema externo Cloudinary utilizado para almacenamiento de archivos.</em>
 </p>
@@ -1001,18 +1019,18 @@ Es importante resaltar que tanto la aplicación Android nativa como la aplicaci�
 
 El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física de los contenedores de Innovify sobre la infraestructura de hardware y los entornos de ejecución, evidenciando cómo se despliega la solución en un ambiente real.
 
-- **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes Aprendices y Tutores alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y/o la Aplicación Cross-Platform (Flutter), instaladas mediante distribución interna vía **Firebase App Distribution** durante el ciclo de pruebas, y descargables desde el dispositivo físico para la sustentación del curso.
-- **Navegador web del usuario:** Aloja la Landing Page y la Web Application (SPA), servidas de forma estática desde el proveedor de hosting correspondiente (Firebase Hosting / Vercel).
-- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful, desplegado en **Render**, donde se ejecuta la lógica de negocio de los siete Bounded Contexts y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por los cuatro clientes (Landing Page, Web Application, Android Native App, Flutter App).
-- **Servidor de base de datos (Cloud):** Aloja la base de datos relacional en **Render**, separado del servidor de aplicación, comunicándose con este último mediante una conexión segura.
-- **Servicios externos en la nube:** Cloudinary para el almacenamiento de archivos compartidos en el chat del Workspace, y los servicios de terceros documentados como trabajo futuro (Stripe para pagos, WebRTC para videollamadas).
+- **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes Aprendices, Tutores y el Profesor alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y la Aplicación Cross-Platform (Flutter, dirigida a Android), instaladas mediante distribución interna vía **Firebase App Distribution** durante el ciclo de pruebas, y descargables desde el dispositivo físico para la sustentación del curso.
+- **Hosting estático:** Aloja la Landing Page, servida de forma estática desde un proveedor de hosting (Firebase Hosting / Vercel), accesible por los tres actores del sistema.
+- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (C# / ASP.NET Core), desplegado en **Render**, donde se ejecuta la lógica de negocio de los siete Bounded Contexts a través de un único Api Gateway, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por los tres clientes (Landing Page, Android Native App, Flutter App).
+- **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de MySQL desplegada en **Render**, compartida por los siete Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
+- **Servicios externos en la nube:** Agora para las videollamadas en tiempo real del Workspace (feature de aprendizaje autónomo), Cloudinary para el almacenamiento de archivos compartidos en el chat, y la pasarela de pagos (Stripe) documentada como trabajo futuro.
 
-Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móvil y web) y los servidores desplegados en la nube.
+Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
 
 <p align="center">
-  <img src="images-doc/deployment-mobile.png" alt="Deployment Diagram - Mobile" width="900">
+  <img src="images-doc/InnovifyDeployment.svg" alt="Deployment Diagram - Mobile" width="900">
   <br>
-  <em>Figura XX. C4 Model: Deployment Diagram - Elaboración propia. Nota: Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution, el navegador web, el servidor de aplicación en Render, el servidor de base de datos y los servicios externos (Cloudinary, Stripe, WebRTC).</em>
+  <em>Figura XX. C4 Model: Deployment Diagram - Elaboración propia. Nota: Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution, el hosting estático de la Landing Page, el servidor de aplicación en Render, la instancia única de MySQL en Render y los servicios externos en la nube (Agora, Cloudinary, Stripe). Elaborado en PlantUML.</em>
 </p>
 
 ## 2.6. Tactical-Level Domain-Driven Design
@@ -1192,7 +1210,7 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
 <p align="center">
-  <img src="images-doc/component-identity-mobile.png" alt="Component Diagram - Identity & Access" width="800">
+  <img src="images-doc/IdentityComponent.svg" alt="Component Diagram - Identity & Access" width="800">
   <br>
   <em>Figura XX. C4 Model: Component Diagram del Bounded Context Identity & Access - Elaboración propia. Nota: Se detalla la segregación entre Controllers, Command Services y los adaptadores de Persistencia, Seguridad (JWT) y Notificaciones Push (Firebase Cloud Messaging), este último como componente de infraestructura adicional requerido para el soporte de clientes móviles.</em>
 </p>
@@ -1359,7 +1377,7 @@ Estos componentes permiten que Discovery mantenga sincronizado su catálogo de t
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
 <p align="center">
-  <img src="images-doc/component-discovery-mobile.png" alt="Component Diagram - Discovery" width="800">
+  <img src="images-doc/DiscoveryComponent.svg" alt="Component Diagram - Discovery" width="800">
   <br>
   <em>Figura XX. C4 Model: Component Diagram del Bounded Context Discovery - Elaboración propia. Nota: Se detalla la segregación entre el Controller, el Query Service y los adaptadores de Persistencia e integración con Identity & Access, evidenciando cómo Discovery solicita el listado de usuarios con rol Tutor para poblar los perfiles de búsqueda.</em>
 </p>
@@ -1542,7 +1560,7 @@ En la Infrastructure Layer de Workspace conviven tres integraciones técnicas cl
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
 <p align="center">
-  <img src="images-doc/component-workspace-mobile.png" alt="Component Diagram - Workspace" width="800">
+  <img src="images-doc/WorkspaceComponent.svg" alt="Component Diagram - Workspace" width="800">
   <br>
   <em>Figura XX. C4 Model: Component Diagram del Bounded Context Workspace - Elaboración propia. Nota: Se detalla la segregación entre Controllers, Command/Event Services, y los adaptadores de Persistencia, Cloudinary (almacenamiento de archivos), Agora (videollamada en tiempo real, feature de aprendizaje autónomo) y el caché local de chat (Room/sqflite), este último habilitando la lectura del historial de mensajes y archivos ya descargados sin conexión a internet.</em>
 </p>
@@ -1704,7 +1722,7 @@ Estos adaptadores garantizan que el cálculo de puntaje y la estructura de pregu
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
 <p align="center">
-  <img src="images-doc/component-learning-mobile.png" alt="Component Diagram - Learning & Assessment" width="800">
+  <img src="images-doc/LearningComponent.svg" alt="Component Diagram - Learning & Assessment" width="800">
   <br>
   <em>Figura XX. C4 Model: Component Diagram del Bounded Context Learning & Assessment - Elaboración propia. Nota: Se detalla la segregación entre Controllers, Command/Query Services y el adaptador de Persistencia, evidenciando que el cálculo del puntaje se centraliza en el servidor para garantizar consistencia entre los distintos clientes.</em>
 </p>
@@ -1848,7 +1866,7 @@ Estos componentes permiten que Reputation mantenga sincronizado el promedio de c
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
 <p align="center">
-  <img src="images-doc/component-reputation-mobile.png" alt="Component Diagram - Reputation" width="800">
+  <img src="images-doc/ReputationComponent.svg" alt="Component Diagram - Reputation" width="800">
   <br>
   <em>Figura XX. C4 Model: Component Diagram del Bounded Context Reputation - Elaboración propia. Nota: Se detalla la segregación entre Controllers, Command/Query Services y los adaptadores de Persistencia e integración con Discovery para la sincronización del promedio de calificación del tutor.</em>
 </p>
@@ -2021,7 +2039,7 @@ Estos componentes garantizan que la lógica de comisión y saldo permanezca enca
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
 <p align="center">
-  <img src="images-doc/component-payments-mobile.png" alt="Component Diagram - Payments & Wallet" width="800">
+  <img src="images-doc/PaymentsComponent.svg" alt="Component Diagram - Payments & Wallet" width="800">
   <br>
   <em>Figura XX. C4 Model: Component Diagram del Bounded Context Payments & Wallet - Elaboración propia. Nota: Se detalla la segregación entre Controllers, Command/Query Services y los adaptadores de Persistencia, evidenciando que la confirmación biométrica (recurso interno del dispositivo) ocurre en el cliente móvil antes de invocar los endpoints de transacción, y que la integración con Stripe queda documentada como Anticorruption Layer para una futura extensión.</em>
 </p>
@@ -2186,7 +2204,7 @@ Estos adaptadores permiten que Moderation & Disputes coordine la sanción entre 
 #### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 
 <p align="center">
-  <img src="images-doc/component-moderation-mobile.png" alt="Component Diagram - Moderation & Disputes" width="800">
+  <img src="images-doc/ModerationComponent.svg" alt="Component Diagram - Moderation & Disputes" width="800">
   <br>
   <em>Figura XX. C4 Model: Component Diagram del Bounded Context Moderation & Disputes - Elaboración propia. Nota: Se detalla la segregación entre Controllers, Command/Query Services y los adaptadores de Persistencia e integración con Identity & Access, Reputation y Workspace, evidenciando cómo el Coordinador accede al historial de chat de la sesión reportada como evidencia para la resolución de la disputa.</em>
 </p>
@@ -2226,7 +2244,7 @@ En síntesis, el diagrama relacional evidencia una estructura de base de datos c
 A continuación se presenta el diagrama de clases UML completo de Innovify (SkillSwap), mostrando la totalidad del modelo de dominio y su segmentación entre los siete Bounded Contexts.
 
 <p align="center">
-  <img src="images-doc/class-diagram-full-mobile.svg" alt="Diagrama de Clases Completo" width="1000">
+  <img src="images-doc/Innovify_ClassDiagram_Mobile.svg" alt="Diagrama de Clases Completo" width="1000">
   <br>
   <em>Figura XX. Diagrama de Clases UML completo de Innovify - Elaboración propia. Nota: Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los siete Bounded Contexts (Identity & Access, Discovery, Workspace, Learning & Assessment, Reputation, Payments & Wallet, Moderation & Disputes), incluyendo los Value Objects incorporados para el soporte de las funcionalidades móviles (DeviceToken en Identity & Access y AgoraChannelName en Workspace). Elaborado en PlantUML.</em>
 </p>
@@ -2241,7 +2259,218 @@ En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, do
 *   La arquitectura basada en Domain-Driven Design provee una estructura robusta para integrar de manera segura los servicios RESTful internos y los SDKs de terceros requeridos para el aprendizaje sincrónico en dispositivos móviles.
 
 # Bibliografía
-*(Nota: Insertar referencias en formato APA 7, asegurando incluir un mínimo de 4 papers académicos Q1/Q2 de los últimos dos años relacionados con educación y desarrollo de aplicaciones móviles).*
+* Davila, R. C., Aguero Corzo, E. del C., Portillo, H., & Quimbita, O. R. (2022). Deserción universitaria de los estudiantes de una universidad peruana. *Universidad y Sociedad, 14*(2), 421-427. [http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S2218-36202022000200421](http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S2218-36202022000200421)
+* Escalante, J., Medina, C., & Vásquez, A. (2023). La deserción universitaria: un problema no resuelto en el Perú. *Hacedor - AIAPÆC, 7*(1), 60-72. [https://doi.org/10.26495/rch.v7i1.2421](https://doi.org/10.26495/rch.v7i1.2421)
+* García-Ortiz, J., López de Castro Machado, C., & Rivero Frutos, L. (2021). Fracaso y abandono universitario: Percepción de los(as) estudiantes de Educación Social de la Universidad de Castilla-La Mancha. *Revista de Educación y Desarrollo Social, 8*(1), 54–73. [https://www.redalyc.org/journal/140/14070424012/html](https://www.redalyc.org/journal/140/14070424012/html)
+* Gobierno del Perú. (2024). *Presupuesto público para el 2024 pone énfasis en educación, salud, atención de emergencias por desastres naturales y seguridad ciudadana*. [https://www.gob.pe/institucion/mef/noticias/868273](https://www.gob.pe/institucion/mef/noticias/868273)
+* GoPeer. *Online tutoring made simple*. Recuperado de [https://gopeer.org/auth](https://gopeer.org/auth)
+* Gutiérrez Pallares, J., Bernal Pérez, M. B., & Gutiérrez Pallares, E. (2024). Habilidades blandas: Pilares fundamentales para la empleabilidad en el siglo XXI. *RILCO DS: Revista de Desarrollo sustentable, Negocios, Emprendimiento y Educación, 6*(58), 65–76. [https://dialnet.unirioja.es/servlet/articulo?codigo=9789998](https://dialnet.unirioja.es/servlet/articulo?codigo=9789998)
+* Instituto de Educación Superior Sabio Nacional Antúnez de Mayolo - TELESUP. (2019, junio). *Reglamento de Bienestar Estudiantil*. [https://isam.edu.pe/pdf/reglamento-de-bienestar-estudiantil.pdf](https://isam.edu.pe/pdf/reglamento-de-bienestar-estudiantil.pdf)
+* Knack. *Peer tutoring for college students*. Recuperado de [https://www.joinknack.com/students](https://www.joinknack.com/students)
+* Ministerio de Educación. (2021, 8 de noviembre). *Tasa de deserción en educación universitaria se redujo a 11.5 %*. Gob.pe. [https://www.gob.pe/institucion/minedu/noticias/552273](https://www.gob.pe/institucion/minedu/noticias/552273)
+* uDocz. *Plataforma de estudio colaborativo*. Recuperado de [https://www.udocz.com/home](https://www.udocz.com/home)
+* Universidad de Piura. (2020, 26 de octubre). *La importancia de las habilidades blandas en la educación*. [https://www.udep.edu.pe/admision/lima/la-importancia-de-las-habilidades-blandas-en-la-educacion](https://www.udep.edu.pe/admision/lima/la-importancia-de-las-habilidades-blandas-en-la-educacion)
+* Villamizar-Loaiza, C. (2021). La legitimidad institucional como fuente de reputación corporativa. *Investigación y Desarrollo, 29*(2), 196–222. [https://www.redalyc.org/journal/268/26871326008/html](https://www.redalyc.org/journal/268/26871326008/html)
 
 # Anexos
-*(Nota: Insertar cuadros, matrices extensas de entrevistas o diagramas adicionales requeridos).*
+
+* **Wireframes (Figma):** [https://www.figma.com/design/l6Z6APfbLoci4YMSaZkILK/Wireframes-camino-feliz?node-id=121-1250&t=91cAQ4Kz2gcFrsPc-1](https://www.figma.com/design/l6Z6APfbLoci4YMSaZkILK/Wireframes-camino-feliz?node-id=121-1250&t=91cAQ4Kz2gcFrsPc-1)
+
+* **Miro:** [https://miro.com/welcomeonboard/K0ozbG1wZXpCVmZ5NTN5NnJnekhrZEZJc3lIdDVqbEtYRWdBY1hhOW5uY1lyYUE3a05hbE9iU3JsNkhFZTVsNExoRXZZNkFvazROOTBSWTYrMVozTEczbHovZEd6MU1XUFNQdEZvWlVKUDBzL3VRTTJFT0p5OXhsaEcrR0dLOEJBS2NFMDFkcUNFSnM0d3FEN050ekl3PT0hdjE=?share_link_id=729861756205 ](https://miro.com/welcomeonboard/K0ozbG1wZXpCVmZ5NTN5NnJnekhrZEZJc3lIdDVqbEtYRWdBY1hhOW5uY1lyYUE3a05hbE9iU3JsNkhFZTVsNExoRXZZNkFvazROOTBSWTYrMVozTEczbHovZEd6MU1XUFNQdEZvWlVKUDBzL3VRTTJFT0p5OXhsaEcrR0dLOEJBS2NFMDFkcUNFSnM0d3FEN050ekl3PT0hdjE=?share_link_id=729861756205 )
+
+* **Enlace del lucidchartd para los bounded context:** [https://lucid.app/lucidspark/5af3ee09-0b57-4a3a-9e9d-a0973c7463ae/edit?viewport_loc=-4867%2C-5483%2C15325%2C7900%2C0_0&invitationId=inv_0faec9a9-417f-47ae-8bde-c6aa100ce397](https://lucid.app/lucidspark/5af3ee09-0b57-4a3a-9e9d-a0973c7463ae/edit?viewport_loc=-4867%2C-5483%2C15325%2C7900%2C0_0&invitationId=inv_0faec9a9-417f-47ae-8bde-c6aa100ce397)
+
+* **Landing Page (GitHub Pages):**
+[https://github.com/Aplicaciones-Dispositivos-Moviles](https://github.com/Aplicaciones-Dispositivos-Moviles)
+
+
+---
+
+### Índice de Tablas
+
+1. Perfiles integrantes de equipo
+2. Lean UX Canvas
+3. Análisis competitivo Landscape
+4. Hallazgos entrevistas estudiantes universitarios
+5. Hallazgos estudiantes tutores
+6. Hallazgos coordinadores académicos
+7. Actividades de aprendizaje y valoración
+8. Actividades y motivaciones de estudiantes-tutores
+9. Funciones y prioridades de coordinadores académicos
+10. Ubiquitous Languages
+11. Epics del proyecto
+12. User Stories del proyecto
+13. Product Backlog
+14. Sistemas de búsqueda de la plataforma
+15. Configuración del entorno de desarrollo de software
+16. Sprint 1
+17. Sprint Planning 1
+18. Aspect Leaders and Collaborators
+19. Sprint Backlog 1
+20. Development Evidence for Sprint Review
+
+
+
+---
+
+###  Índice de Figuras
+
+1. Entrevista 1: Estudiante-Aprendiz
+2. Entrevista 2: Estudiante-Aprendiz
+3. Entrevista 3: Estudiante-Aprendiz
+4. Entrevista 1: Estudiante-Tutor
+5. Entrevista 2: Estudiante-Tutor
+6. Entrevista 3: Estudiante-Tutor
+7. Entrevista 2: Coordinador Institucional (Parte 1)
+8. Entrevista 2: Coordinador Institucional (Parte 2)
+9. Entrevista 3: Coordinador Institucional
+10. Entrevista 4: Coordinador Institucional
+11. User Persona - Estudiantes que quieren aprender
+12. User Persona - Estudiantes que quieren enseñar
+13. User Persona - Coordinador Institucional
+14. User Journey Mapping - Estudiantes que quieren aprender
+15. User Journey Mapping - Estudiantes que quieren enseñar
+16. User Journey Mapping - Coordinador Institucional
+17. Empathy Mapping - Estudiantes aprendices
+18. Empathy Mapping - Estudiantes tutores
+19. Empathy Mapping - Coordinador Institucional
+20. Derivación de requisitos (Event Storming)
+21. Requerimientos de comunicación síncrona
+22. Flujo financiero y KPIs
+23. Gestión de identidad y perfiles
+24. Búsqueda y selección de tutores
+25. Interacción en tiempo real
+26. Procesos de aprendizaje y retroalimentación
+27. Módulos de soporte y administración
+28. Flujo de gestión de usuarios
+29. Flujo de búsqueda de tutores
+30. Espacio de trabajo colaborativo
+31. Ciclo de vida de cuestionarios
+32. Sistema de reputación del tutor
+33. Flujo financiero de la plataforma
+34. Resolución de conflictos
+35. Impact Mapping - Registro de estudiantes
+36. Impact Mapping - Tutorías exitosas
+37. Impact Mapping - Retención y participación
+38. Logo Innovify
+39. Landing page - Página inicio
+40. Paleta de colores
+41. Paleta de colores iOS Mobile
+42. Tipografía iOS Mobile
+43. Campos de texto iOS Mobile
+44. Botones iOS Mobile
+45. Pickers y alertas iOS Mobile
+46. Enlace a redes sociales iOS Mobile
+47. Paleta de colores Android Mobile
+48. Tipografía Android Mobile
+49. Campos de texto Android Mobile
+50. Botones Android Mobile
+51. Pickers y alertas Android Mobile
+52. Enlace a redes sociales Android Mobile
+53. Diagrama de flujo Estudiante aprendiz
+54. Diagrama de flujo Estudiante tutor
+55. Diagrama de flujo Coordinador institucional
+56. Sistema de etiquetado en navegación móvil
+57. Wireframe sección principal Landing Page
+58. Wireframe estructura Landing Page
+59. Wireframe página principal web
+60. Mock-up sección principal Landing Page
+61. Mock-up cuerpo Landing Page
+62. Mock-up Landing Page móvil
+63. Arquitectura de la Landing Page
+64. Colección de wireframes Web
+65. Colección de wireframes Web
+66. Wireflow de búsqueda y solicitud de tutoría
+67. Wireflow de recepción y aceptación de solicitud
+68. Wireflow de calificación de sesión y gestión de favoritos
+69. Wireflow de configuración de perfil y disponibilidad del tutor
+70. Wireflow de búsqueda avanzada con filtros
+71. Wireflow de realización de sesión de tutoría
+72. Wireflow de dashboard y reputación del tutor
+73. Wireflow de monitoreo del coordinador
+74. Wireflow de personalización de la experiencia
+75. Mock-ups de alta fidelidad aplicación móvil
+76. Diseño de componentes Payments & Wallet
+77. Diseño físico Identity & Profile Context
+78. (omitida en fuente original)
+79. Diseño físico Academic & Assessment Context
+80. Diseño físico Monetization Context
+81. Diseño físico Shared Kernel & Infrastructure
+82. Diseño físico Reputation & Gamification
+83. Diseño físico Communication & Notifications
+84. Wireflow búsqueda y solicitud (mobile)
+85. Wireflow recepción y aceptación (tutor)
+86. Wireflow verificación de estudiantes
+87. Wireflow calificación y favoritos
+88. Wireflow configuración de perfil
+89. Wireflow búsqueda avanzada (mobile)
+90. Wireflow sesión de tutoría (mobile)
+91. Wireflow moderación y disputas
+92. C4 Model - Container Diagram
+93. Componentes Workplace Context
+94. Componentes Reputation System Context
+95. Componentes Payments & Wallet
+96. Moderation & Disputes Context
+97. Componentes Learning & Assessment
+98. Estructura Learning & Assessment (repositorio)
+99. Discovery Bounded Context
+100. C4 Model - Component Diagram
+101. Diagrama de clases UML del dominio
+102. Arquitectura DDD (Bounded Contexts)
+103. Base de datos relacional por contextos
+104. Organización del proyecto en GitHub
+105. Gráfico de commits del proyecto
+106. Network graph (Gitflow)
+107. Seguimiento Sprint 1 en Trello
+108. Historial de commits
+109. Página de inicio (landing estática)
+110. Sección “Sobre nosotros”
+111. Formulario de autenticación
+112. Formulario de registro
+113. Sección de equipo
+114. Código fuente index.html
+115. Hoja de estilos CSS
+116. Configuración GitHub Pages
+117. Landing page publicada
+118. Gráfico commits over time
+119. Estadísticas de colaboradores
+120. Listado de commits recientes
+121. Pull Request estructurado
+122. Pull Request con conflictos
+ 
+
+## Anexo A. Enlaces de Acceso a la Solución
+
+| Producto | Descripción | Enlace |
+| :--- | :--- | :--- |
+| **Landing Page** | Sitio web estático de presentación del modelo de negocio Innovify (SkillSwap). | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage.git](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage.git) |
+| **Android Native Application** | Aplicación móvil nativa (Kotlin / Jetpack Compose) donde interactúan Aprendices, Tutores y el Profesor, distribuida vía Firebase App Distribution. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp.git](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp.git) |
+| **Cross-Platform Application (Flutter)** | Aplicación móvil multiplataforma (Flutter / Dart, dirigida a Android), distribuida vía Firebase App Distribution. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter.git](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter.git) |
+| **Backend — Swagger UI** | Documentación interactiva de los Web Services RESTful (ASP.NET Core / C#). | [PENDIENTE] |
+| **Backend — Repositorio** | Código fuente de los Web Services RESTful, organizados por los siete Bounded Contexts. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices.git](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices.git) |
+| **Base de Datos** | Diagrama de base de datos relacional único, compartido por los siete Bounded Contexts (MySQL administrado en Render). Ver detalle en la sección. | [PENDIENTE] |
+| **Video About-the-Team** | Video que resume el proceso de trabajo del equipo a lo largo del ciclo de vida del proyecto. | [PENDIENTE] |
+| **Video About-the-Product** | Video promocional dirigido a visitantes de la Landing Page y usuarios de la plataforma. | [PENDIENTE] |
+
+---
+
+## Anexo B. Videos de Exposiciones
+
+| Entrega | Características del video | Enlace del video |
+| :--- | :--- | :--- |
+| **AV1** | **Nombre del archivo:** upc-pre-202610-1asi0730-12190-Innovify-expo-av1 <br> **Duración:**  |  |
+| **AV2** | **Nombre del archivo:** upc-pre-202610-1asi0730-12190-Innovify-expo-av2 <br> **Duración:**  |  |
+| **TB2** | **Nombre del archivo:** upc-pre-202610-1asi0730-12190-Innovify-expo-tb2 <br> **Duración:** |  |
+
+<div style="page-break-after: always;"></div>
+---
+
+## Anexo C. Videos de la documentación 
+
+| Sección | Características del video | Sobre el contenido | Integración y entrega |
+| :--- | :--- | :--- | :--- |
+| **Validation Interviews** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202610-1asi0730---validation-sprint-<br><br>Formato: .mp4<br><br>Duración: En función a cantidad de entrevistas (considerar edición de 3 a 5 minutos por entrevista). | Consolida sesiones y entrevistas de validación en las que usuarios de los segmentos objetivo interactúen con el landing page y con los prototipos de experiencias web y mobile, manifestando sus observaciones. Para cada entrevista se debe incluir títulos con información del entrevistado, el segmento objetivo y la fecha de la entrevista. | |
+| **About the Product** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202610-1asi0730---aboutthe-product-sprint-<br><br>Formato: .mp4<br><br>Duración: De 1 a 3 minutos. | Orientación promocional, resumiendo el modelo de negocio, las características y beneficios del producto, incluyendo algunas escenas de interacción con el producto y al menos una opinión por cada segmento objetivo. | **Video de Microsoft Stream:** |
+| **About the Team** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202610-1asi0730---aboutthe-team-sprint-<br><br>Formato: .mp4<br><br>Duración: En función al contenido (considerar 5 minutos para la sección de retrospectiva del grupo y 1 minuto por cada testimonio de miembro del equipo). | Video que resume el proceso de trabajo realizado, incluyendo escenas de sesiones de trabajo real del equipo, complementando con narración (voz en off) del proceso. Incluye además el testimonio ante cámara de cada participante describiendo actividades realizadas, logro de outcomes y desarrollo de competencias alcanzados. | **Video de Microsoft Stream:** | |
+
+

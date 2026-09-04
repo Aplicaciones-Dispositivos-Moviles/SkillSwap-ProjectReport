@@ -1,0 +1,53 @@
+@startuml IdentityComponent
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+ContainerDb_Ext(mainDB, "Innovify Database", "MySQL 8")
+System_Ext(emailService, "Email Api")
+
+Container_Boundary(identityBC, "Identity & Access Bounded Context") {
+    Component(identityController, "Identity Controller", "C# Class", "RESTful API Controller")
+    Component(identityCommandService, "Identity CommandService", "C# Class", "Lógica de negocio")
+    Component(identityQueryService, "Identity QueryService", "C# Class", "Consultas")
+    Component(identityRepository, "Identity Repository", "C# Interface", "Interface persistencia")
+    Component(emailExternal, "Email ExternalService", "C# Class", "Integración correo")
+    Component(identityContextFacade, "Identity ContextFacade", "C# Class", "Punto de entrada interno")
+}
+
+Component_Ext(billingContextFacade, "Payments ContextFacade", "C# Class", "Bounded Context: Payments & Wallet")
+Component_Ext(moderationContextFacade, "Moderation ContextFacade", "C# Class", "Bounded Context: Moderation & Disputes")
+Component_Ext(discoveryContextFacade, "Discovery ContextFacade", "C# Class", "Bounded Context: Discovery")
+
+Component_Ext(discoveryQueryService, "Discovery QueryService", "C# Class", "Bounded Context: Discovery")
+Component_Ext(reputationCommandService, "Reputation CommandService", "C# Class", "Bounded Context: Reputation")
+Component_Ext(moderationQueryService, "Moderation QueryService", "C# Class", "Bounded Context: Moderation & Disputes")
+Component_Ext(moderationCommandService, "Moderation CommandService", "C# Class", "Bounded Context: Moderation & Disputes")
+Component_Ext(billingQueryService, "Payments QueryService", "C# Class", "Bounded Context: Payments & Wallet")
+
+Rel(apiGateway, identityController, "Request HTTP a Identity")
+Rel(identityController, identityCommandService, "Usa")
+Rel(identityController, identityQueryService, "Usa")
+Rel(identityCommandService, identityRepository, "Usa")
+Rel(identityQueryService, identityRepository, "Usa")
+Rel(identityRepository, mainDB, "SQL Transaction")
+
+Rel(identityCommandService, emailExternal, "Delega envío")
+Rel(emailExternal, emailService, "Enviar correo de validación")
+
+Rel(identityCommandService, billingContextFacade, "Pedir guardar y actualizar información")
+Rel(identityQueryService, moderationContextFacade, "Pedir sanción")
+Rel(identityQueryService, billingContextFacade, "Dar credenciales de tarjeta")
+Rel(identityCommandService, discoveryContextFacade, "Dar lista de tutores")
+
+Rel(identityContextFacade, identityCommandService, "Delega")
+Rel(identityContextFacade, identityQueryService, "Delega")
+
+Rel(discoveryQueryService, identityContextFacade, "Pedir lista de tutores")
+Rel(reputationCommandService, identityContextFacade, "Actualizar perfil del tutor con la nueva calificación")
+Rel(moderationQueryService, identityContextFacade, "Pedir sanción")
+Rel(moderationCommandService, identityContextFacade, "Actualizar perfil en caso de haber sanción")
+Rel(billingQueryService, identityContextFacade, "Pedir credenciales de tarjeta")
+
+@enduml
