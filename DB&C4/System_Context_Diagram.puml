@@ -1,0 +1,28 @@
+@startuml InnovifySystemContext
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(learner, "Estudiante Aprendiz", "Busca ayuda académica, reserva tutorías, resuelve quizzes y realiza donaciones.")
+Person(tutor, "Estudiante Tutor", "Brinda tutorías, asigna quizzes oficiales y recibe donaciones.")
+Person(professor, "Profesor Universitario", "Crea material oficial, atiende disputas y monitorea la analítica de su facultad.")
+
+System(innovifySystem, "Innovify Platform", "Plataforma central que gestiona reservas, aprendizaje, donaciones B2C y analítica B2B.")
+
+System_Ext(emailService, "Email Api", "Integración con correos")
+System_Ext(paymentGateway, "Payment Gateway", "Procesamiento externo (Legacy/Stripe)")
+System_Ext(paymentsService, "Payments & Wallet Externo", "Modelo externo transaccional")
+System_Ext(agoraApi, "Agora Video SDK", "Integración con videollamadas en tiempo real (feature de aprendizaje autónomo)")
+System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para archivos compartidos en el chat")
+
+Rel(learner, innovifySystem, "Usa (app móvil / landing page)")
+Rel(tutor, innovifySystem, "Usa (app móvil / landing page)")
+Rel(professor, innovifySystem, "Usa (app móvil / landing page)")
+
+Rel(innovifySystem, emailService, "Envía correos de validación y notificaciones")
+Rel(innovifySystem, agoraApi, "Genera token de acceso al canal de videollamada")
+Rel(innovifySystem, cloudStorage, "Guarda mensajes, historial de sesión y archivos")
+Rel(innovifySystem, paymentsService, "Realiza transacciones")
+Rel(innovifySystem, paymentGateway, "Delega pago")
+
+@enduml
