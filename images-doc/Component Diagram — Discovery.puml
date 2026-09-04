@@ -1,0 +1,35 @@
+@startuml DiscoveryComponent
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+ContainerDb_Ext(mainDB, "Innovify Database", "MySQL 8")
+
+Container_Boundary(profileBC, "Discovery Bounded Context") {
+    Component(discoveryController, "Discovery Controller", "C# Class", "RESTful API Controller")
+    Component(discoveryCommandService, "Discovery CommandService", "C# Class", "Lógica de negocio")
+    Component(discoveryQueryService, "Discovery QueryService", "C# Class", "Consultas y Listados")
+    Component(discoveryRepository, "Discovery Repository", "C# Interface", "Interface persistencia")
+    Component(discoveryContextFacade, "Discovery ContextFacade", "C# Class", "Punto de entrada interno")
+}
+
+Component_Ext(identityContextFacade, "Identity ContextFacade", "C# Class", "Bounded Context: Identity & Access")
+Component_Ext(identityCommandService, "Identity CommandService", "C# Class", "Bounded Context: Identity & Access")
+Component_Ext(collaborationContextFacade, "Workspace ContextFacade", "C# Class", "Bounded Context: Workspace")
+
+Rel(apiGateway, discoveryController, "Request HTTP a Discovery")
+Rel(discoveryController, discoveryCommandService, "Usa")
+Rel(discoveryController, discoveryQueryService, "Usa")
+Rel(discoveryCommandService, discoveryRepository, "Usa")
+Rel(discoveryQueryService, discoveryRepository, "Usa")
+Rel(discoveryRepository, mainDB, "Guarda las búsquedas recientes")
+
+Rel(discoveryQueryService, identityContextFacade, "Pedir lista de tutores")
+Rel(discoveryCommandService, collaborationContextFacade, "Tutor seleccionado")
+
+Rel(identityCommandService, discoveryContextFacade, "Dar lista de tutores")
+Rel(discoveryContextFacade, discoveryCommandService, "Delega")
+Rel(discoveryContextFacade, discoveryQueryService, "Delega")
+
+@enduml
