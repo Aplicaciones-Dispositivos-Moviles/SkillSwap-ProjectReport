@@ -1,0 +1,41 @@
+@startuml WorkspaceComponent
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+ContainerDb_Ext(mainDB, "Innovify Database", "MySQL 8")
+System_Ext(agoraApi, "Agora Video SDK", "Videollamadas en tiempo real (feature de aprendizaje autónomo)")
+System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para archivos del chat")
+
+Container_Boundary(collaborationBC, "Workspace Bounded Context") {
+    Component(collaborationController, "Workspace Controller", "C# Class", "RESTful API / WebSockets")
+    Component(collaborationCommandService, "Workspace CommandService", "C# Class", "Lógica de negocio")
+    Component(collaborationQueryService, "Workspace QueryService", "C# Class", "Consultas")
+    Component(collaborationRepository, "Workspace Repository", "C# Interface", "Interface persistencia")
+    Component(rtcStorageExternal, "RTC & Storage ExternalService", "C# Class", "Integración Agora y Cloudinary")
+    Component(collaborationContextFacade, "Workspace ContextFacade", "C# Class", "Punto de entrada interno")
+}
+
+Component_Ext(discoveryCommandService, "Discovery CommandService", "C# Class", "Bounded Context: Discovery")
+Component_Ext(learningContextFacade, "Learning ContextFacade", "C# Class", "Bounded Context: Learning & Assessment")
+
+Rel(apiGateway, collaborationController, "Request HTTP / WebSocket a Workspace")
+Rel(collaborationController, collaborationCommandService, "Usa")
+Rel(collaborationController, collaborationQueryService, "Usa")
+Rel(collaborationCommandService, collaborationRepository, "Usa")
+Rel(collaborationQueryService, collaborationRepository, "Usa")
+Rel(collaborationRepository, mainDB, "SQL Transaction")
+
+Rel(collaborationCommandService, rtcStorageExternal, "Delega integraciones")
+Rel(rtcStorageExternal, agoraApi, "Generar token de acceso al canal de videollamada")
+Rel(rtcStorageExternal, cloudStorage, "Guardar mensaje, historial de sesión y archivos")
+
+Rel(discoveryCommandService, collaborationContextFacade, "Tutor seleccionado")
+Rel(collaborationCommandService, learningContextFacade, "Profesor hace Quiz")
+Rel(collaborationQueryService, learningContextFacade, "Pedir Quiz")
+
+Rel(collaborationContextFacade, collaborationCommandService, "Delega")
+Rel(collaborationContextFacade, collaborationQueryService, "Delega")
+
+@enduml

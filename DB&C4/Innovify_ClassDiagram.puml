@@ -1,0 +1,282 @@
+@startuml Innovify_ClassDiagram_Mobile
+
+skinparam classAttributeIconSize 0
+skinparam packageStyle folder
+left to right direction
+
+package "Shared" {
+    abstract class AbstractDomainAggregateRoot {
+        +id: Long
+        +createdAt: Date
+        +updatedAt: Date
+    }
+}
+
+package "Identity & Access" {
+    class User <<Aggregate Root>> {
+        +username: Username
+        +email: Email
+        +passwordHash: PasswordHash
+        +role: Role
+        +isVerified: Boolean
+        +bio: String
+        +deviceToken: DeviceToken
+        +verify(): void
+        +registerDeviceToken(token: String): void
+    }
+
+    class Username <<Value Object>> {
+        +value: String
+    }
+
+    class Email <<Value Object>> {
+        +value: String
+    }
+
+    class PasswordHash <<Value Object>> {
+        +value: String
+    }
+
+    class DeviceToken <<Value Object>> {
+        +value: String
+    }
+
+    enum Role {
+        STUDENT
+        COORDINATOR
+    }
+
+    User --> Username
+    User --> Email
+    User --> PasswordHash
+    User --> DeviceToken
+    User --> Role
+}
+
+package "Workspace" {
+    class TutoringSession <<Aggregate Root>> {
+        +topic: String
+        +status: SessionStatus
+        +learnerId: LearnerId
+        +tutorId: TutorId
+        +scheduledAt: LocalDateTime
+        +message: String
+        +studentLevel: String
+        +agoraChannelName: String
+        +updateStatus(status: SessionStatus): void
+    }
+
+    class Message <<Entity>> {
+        +id: Long
+        +content: String
+        +senderId: Long
+        +sessionId: SessionId
+        +sentAt: LocalDateTime
+    }
+
+    enum SessionStatus {
+        PENDING
+        SCHEDULED
+        COMPLETED
+        REJECTED
+    }
+
+    class LearnerId <<Value Object>> {
+        +value: Long
+    }
+
+    class TutorId <<Value Object>> {
+        +value: Long
+    }
+
+    class SessionId <<Value Object>> {
+        +value: Long
+    }
+
+    TutoringSession "1" o-- "0..*" Message
+    TutoringSession --> SessionStatus
+    TutoringSession --> LearnerId
+    TutoringSession --> TutorId
+    Message --> SessionId
+}
+
+package "Reputation" {
+    class Review <<Aggregate Root>> {
+        +tutorId: RevieweeId
+        +learnerId: ReviewerId
+        +learnerName: String
+        +rating: Float
+        +comment: String
+        +sessionId: Long
+        +tutorReply: String
+    }
+
+    class RevieweeId <<Value Object>> {
+        +value: Long
+    }
+
+    class ReviewerId <<Value Object>> {
+        +value: Long
+    }
+
+    Review --> RevieweeId
+    Review --> ReviewerId
+}
+
+package "Learning & Assessment" {
+    class Quiz <<Aggregate Root>> {
+        +title: String
+        +course: String
+        +createdBy: Long
+        +tutorId: Long
+        +questions: List<String>
+    }
+
+    class QuizAttempt <<Aggregate Root>> {
+        +quizId: QuizId
+        +learnerId: Long
+        +score: Float
+        +status: AttemptStatus
+        +complete(score: Float): void
+        +abandon(): void
+    }
+
+    enum AttemptStatus {
+        IN_PROGRESS
+        COMPLETED
+        ABANDONED
+    }
+
+    class QuizId <<Value Object>> {
+        +value: Long
+    }
+
+    Quiz "1" o-- "0..*" QuizAttempt
+    QuizAttempt --> AttemptStatus
+    QuizAttempt --> QuizId
+}
+
+package "Discovery" {
+    class Tutor <<Aggregate Root>> {
+        +name: String
+        +university: String
+        +bio: String
+        +rating: Double
+        +skills: List<String>
+        +available: Boolean
+        +avatarUrl: String
+        +specialty: String
+        +portfolioUrl: String
+        +yearsExperience: Integer
+    }
+
+    class TutorId_D <<Value Object>> {
+        +value: Long
+    }
+
+    Tutor --> TutorId_D
+}
+
+package "Moderation & Disputes" {
+    class Report <<Aggregate Root>> {
+        +reporterId: Long
+        +reporterName: String
+        +reportedUserId: Long
+        +reason: String
+        +description: String
+        +status: ReportStatus
+        +sessionId: Long
+        +updateStatus(status: ReportStatus): void
+    }
+
+    enum ReportStatus {
+        PENDING
+        REVIEWED
+        RESOLVED
+    }
+
+    class Sanction <<Entity>> {
+        +userId: Long
+        +type: SanctionType
+        +reason: String
+        +reportId: Long
+        +appliedAt: LocalDateTime
+        +expiresAt: LocalDateTime
+    }
+
+    enum SanctionType {
+        WARNING
+        SUSPENSION
+        BAN
+    }
+
+    Report "1" o-- "0..*" Sanction
+    Report --> ReportStatus
+    Sanction --> SanctionType
+}
+
+package "Payments & Wallet" {
+    class Wallet <<Aggregate Root>> {
+        +tutorId: Long
+        +balance: Double
+        +currency: Currency
+        +bankName: String
+        +accountNumber: String
+        +addFunds(amount: Double): void
+        +withdrawFunds(amount: Double): void
+    }
+
+    class Donation <<Entity>> {
+        +donorId: Long
+        +tutorId: Long
+        +sessionId: Long
+        +amount: Double
+        +netAmount: Double
+        +commission: Double
+        +currency: Currency
+        +status: DonationStatus
+        +complete(): void
+        +fail(): void
+    }
+
+    enum Currency {
+        PEN
+        USD
+        EUR
+    }
+
+    enum DonationStatus {
+        PENDING
+        COMPLETED
+        FAILED
+        REFUNDED
+    }
+
+    Wallet --> Currency
+    Donation --> Currency
+    Donation --> DonationStatus
+}
+
+' --- Herencia hacia el Aggregate Root compartido ---
+User --|> AbstractDomainAggregateRoot
+TutoringSession --|> AbstractDomainAggregateRoot
+Review --|> AbstractDomainAggregateRoot
+Quiz --|> AbstractDomainAggregateRoot
+Tutor --|> AbstractDomainAggregateRoot
+Report --|> AbstractDomainAggregateRoot
+Sanction --|> AbstractDomainAggregateRoot
+Wallet --|> AbstractDomainAggregateRoot
+Donation --|> AbstractDomainAggregateRoot
+
+' --- Enlaces invisibles para forzar layout en 2 filas ---
+"Identity & Access" -[hidden]right- "Workspace"
+"Workspace" -[hidden]right- "Reputation"
+"Reputation" -[hidden]right- "Learning & Assessment"
+
+"Discovery" -[hidden]right- "Moderation & Disputes"
+"Moderation & Disputes" -[hidden]right- "Payments & Wallet"
+"Payments & Wallet" -[hidden]right- "Shared"
+
+"Identity & Access" -[hidden]down- "Discovery"
+
+@enduml

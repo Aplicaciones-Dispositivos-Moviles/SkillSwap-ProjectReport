@@ -1,0 +1,48 @@
+@startuml PaymentsComponent
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+ContainerDb_Ext(mainDB, "Innovify Database", "MySQL 8")
+System_Ext(paymentsService, "Payments & Wallet Externo", "Modelo externo transaccional")
+System_Ext(emailService, "Email Api", "Notificación de transacción")
+System_Ext(paymentGateway, "Payment Gateway", "Procesamiento externo (Legacy/Stripe)")
+
+Container_Boundary(billingBC, "Payments & Wallet Bounded Context") {
+    Component(billingController, "Payments Controller", "C# Class", "RESTful API Controller")
+    Component(billingCommandService, "Payments CommandService", "C# Class", "Lógica de negocio")
+    Component(billingQueryService, "Payments QueryService", "C# Class", "Consultas")
+    Component(billingRepository, "Payments Repository", "C# Interface", "Interface persistencia")
+    Component(stripeExternal, "Stripe ExternalService", "C# Class", "Integración pagos")
+    Component(billingContextFacade, "Payments ContextFacade", "C# Class", "Punto de entrada interno")
+}
+
+Component_Ext(identityCommandService, "Identity CommandService", "C# Class", "Bounded Context: Identity & Access")
+Component_Ext(identityQueryService, "Identity QueryService", "C# Class", "Bounded Context: Identity & Access")
+Component_Ext(identityContextFacade, "Identity ContextFacade", "C# Class", "Bounded Context: Identity & Access")
+Component_Ext(reputationQueryService, "Reputation QueryService", "C# Class", "Bounded Context: Reputation")
+Component_Ext(reputationCommandService, "Reputation CommandService", "C# Class", "Bounded Context: Reputation")
+
+Rel(apiGateway, billingController, "Request HTTP a Payments")
+Rel(billingController, billingCommandService, "Usa")
+Rel(billingController, billingQueryService, "Usa")
+Rel(billingCommandService, billingRepository, "Usa")
+Rel(billingQueryService, billingRepository, "Usa")
+Rel(billingRepository, mainDB, "Guardar todas las transacciones realizadas")
+
+Rel(billingCommandService, stripeExternal, "Delega pago")
+Rel(stripeExternal, paymentsService, "Realizar transacción")
+Rel(stripeExternal, emailService, "Enviar notificación de la transacción realizada")
+Rel(billingBC, paymentGateway, "Delega pago")
+
+Rel(identityCommandService, billingContextFacade, "Pedir guardar y actualizar información")
+Rel(identityQueryService, billingContextFacade, "Dar credenciales de tarjeta")
+Rel(reputationQueryService, billingContextFacade, "Pedir información si se le donará o no")
+Rel(reputationCommandService, billingContextFacade, "Donar al tutor")
+Rel(billingQueryService, identityContextFacade, "Pedir credenciales de tarjeta")
+
+Rel(billingContextFacade, billingCommandService, "Delega")
+Rel(billingContextFacade, billingQueryService, "Delega")
+
+@enduml

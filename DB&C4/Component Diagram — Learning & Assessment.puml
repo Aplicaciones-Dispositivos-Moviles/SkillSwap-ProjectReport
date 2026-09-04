@@ -1,0 +1,37 @@
+@startuml LearningComponent
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+ContainerDb_Ext(mainDB, "Innovify Database", "MySQL 8")
+
+Container_Boundary(learningBC, "Learning & Assessment Bounded Context") {
+    Component(learningController, "Learning Controller", "C# Class", "RESTful API Controller")
+    Component(learningCommandService, "Learning CommandService", "C# Class", "Lógica de negocio")
+    Component(learningQueryService, "Learning QueryService", "C# Class", "Consultas")
+    Component(learningRepository, "Learning Repository", "C# Interface", "Interface persistencia")
+    Component(learningContextFacade, "Learning ContextFacade", "C# Class", "Punto de entrada interno")
+}
+
+Component_Ext(collaborationCommandService, "Workspace CommandService", "C# Class", "Bounded Context: Workspace")
+Component_Ext(collaborationQueryService, "Workspace QueryService", "C# Class", "Bounded Context: Workspace")
+Component_Ext(reputationContextFacade, "Reputation ContextFacade", "C# Class", "Bounded Context: Reputation")
+Component_Ext(reputationCommandService, "Reputation CommandService", "C# Class", "Bounded Context: Reputation")
+
+Rel(apiGateway, learningController, "Request HTTP a Learning")
+Rel(learningController, learningCommandService, "Usa")
+Rel(learningController, learningQueryService, "Usa")
+Rel(learningCommandService, learningRepository, "Usa")
+Rel(learningQueryService, learningRepository, "Usa")
+Rel(learningRepository, mainDB, "Guarda las calificaciones del quiz")
+
+Rel(collaborationCommandService, learningContextFacade, "Profesor hace Quiz")
+Rel(collaborationQueryService, learningContextFacade, "Pedir Quiz")
+Rel(learningQueryService, reputationContextFacade, "Pedir si la sesión ya finalizó")
+Rel(reputationCommandService, learningContextFacade, "Sesión terminada")
+
+Rel(learningContextFacade, learningCommandService, "Delega")
+Rel(learningContextFacade, learningQueryService, "Delega")
+
+@enduml
