@@ -98,87 +98,176 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 
 ---
 
-# Capítulo I: Presentación
+
+# Capítulo I: Introducción
 
 ## 1.1. Startup Profile
 
 ### 1.1.1. Descripción de la Startup
 
-Innovify es una startup cuyo propósito es reducir la deserción académica universitaria en el Perú, conectando a estudiantes que necesitan apoyo académico con pares que dominan la materia, a través de sesiones de tutoría entre iguales.
+Innovify es una startup cuyo propósito es reducir la deserción académica conectando a estudiantes universitarios para que aprendan y enseñen habilidades específicas a través de rutas de certificación guiadas. A diferencia de un esquema de tutorías puntuales y desestructuradas, Innovify organiza el aprendizaje en torno a un objetivo declarado por el propio estudiante: al indicar qué habilidad quiere dominar, la plataforma genera una ruta de aprendizaje compuesta por certificaciones que debe cursar y subir para su validación. Por cada certificado subido, el aprendiz puede rendir un quiz o desarrollar un miniproyecto que demuestre la habilidad adquirida y, si detecta que aún tiene vacíos pese a contar con el certificado, puede solicitar una sesión de refuerzo. Al completar toda la ruta, el aprendiz tiene la opción de demostrar su dominio integral mediante un proyecto avanzado o un examen supervisado. Tanto el refuerzo como esta evaluación final se realizan mediante videollamadas integradas en la misma plataforma.
 
-El producto principal de la solución es una aplicación móvil nativa y multiplataforma (Android/iOS), que constituye el canal principal de interacción del usuario y sigue el enfoque de Domain-Driven Design definido para toda la solución. La aplicación utiliza almacenamiento local para persistir en el dispositivo las preferencias de estudio del usuario (materias de interés, tutores favoritos) y un caché de los mensajes recientes del chat de tutoría, permitiendo continuidad de uso ante conectividad intermitente. Asimismo, consume recursos internos del teléfono, en particular la cámara y el micrófono, para las sesiones de tutoría por videollamada en tiempo real. Toda la lógica de negocio (identidad, matching de tutores, reputación, pagos/donaciones, moderación) se expone mediante servicios RESTful de desarrollo interno, y se integra con Agora SDK como servicio externo de terceros para el soporte de las videollamadas.
+Para poder enseñar, un estudiante debe primero recorrer su propia ruta de certificación y aprobar un examen de ingreso que demuestre que realmente domina la habilidad. Una vez habilitado, el tutor puede brindar sesiones de refuerzo o supervisar exámenes y proyectos avanzados de otros aprendices. Cada intervención validada le otorga SkillCredits, una moneda de reconocimiento que evidencia su nivel de dominio y que puede exhibirse en LinkedIn u otras plataformas profesionales como credencial verificable.
 
-El sistema mantiene la validación de identidad mediante correos institucionales (.edu.pe) y el modelo de negocio híbrido: B2C, mediante donaciones voluntarias entre Aprendiz y Tutor con comisión de la plataforma, y B2B, mediante un Dashboard analítico web dirigido a coordinadores institucionales.
+Innovify opera bajo un modelo de negocio B2C: el aprendiz paga una mensualidad que incluye el acceso a la ruta de certificación, los quizzes y miniproyectos, las sesiones de refuerzo y la supervisión de la evaluación final; el tutor, por su parte, recibe una comisión de la plataforma por cada sesión de refuerzo o supervisión que realiza. Un tercer perfil, el coordinador, actúa como garante de calidad del ecosistema: define plazos de actividad para los tutores, monitorea la satisfacción de los aprendices —una satisfacción baja es indicio de una supervisión deficiente— y puede exigir que un tutor vuelva a rendir su examen de certificación. El coordinador también accede a métricas agregadas de toda la plataforma, como los temas de mayor demanda tanto entre aprendices como entre tutores.
 
-### 1.1.2. Perfiles de integrantes del equipo
+El emparejamiento entre aprendices y tutores no es manual: cada usuario cuenta con un perfil construido a partir de su historial (certificados, resultados de quizzes/miniproyectos, ritmo de avance y temas de interés, en el caso del aprendiz; certificados, examen de ingreso, SkillCredits, satisfacción recibida y sub-temas de mayor dominio, en el caso del tutor), representado como un vector de embeddings de habilidades. Un sistema de recomendación híbrido —que combina coincidencia por contenido (habilidad del aprendiz vs. especialidad del tutor) con filtrado colaborativo (qué tutores funcionaron bien con perfiles similares)— sugiere el mejor tutor disponible para cada refuerzo o supervisión. Esta misma información, agregada a nivel de plataforma, alimenta el ranking de temas más demandados que revisa el coordinador.
 
-<div align="center">
+Todo este ecosistema se mantiene seguro gracias a un proceso de validación automatizada que exige el uso de correos institucionales (.edu.pe, upc.edu.pe, pupc.edu.pe) para garantizar que los usuarios sean estudiantes reales.
 
-| Foto | Integrante | Carrera | Descripción |
-| :---: | :--- | :--- | :--- |
-| *(Foto)* | **Alberca Saavedra, Víctor Manuel**<br>(U201924127) | Ingeniería de Software | Aporta conocimientos sólidos en arquitectura de software, backend y bases de datos. Lidera la investigación e integración del SDK de videollamadas (Agora) y la adaptación de los Bounded Contexts al entorno móvil. |
-| *(Foto)* | **Becerra Ninahuanca, Luis Angel**<br>(U20231C792) | Ingeniería de Software | Especialista en lógica de negocio, integración de servicios e interfaces limpias. Investiga patrones de diseño UI/UX propios de aplicaciones móviles nativas/multiplataforma y lidera el análisis competitivo enfocado en apps del mismo rubro. |
-| *(Foto)* | **Lopez Montalvo, Kevin Edu**<br>(U20241D958) | Ingeniería de Software | Aporta conocimientos en diseño móvil, UX/UI y metodologías ágiles. Documenta el proceso Lean UX y estructura las User Stories bajo un enfoque Mobile-First. |
-| *(Foto)* | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. |
+### Visión
 
-</div>
+Ser la plataforma líder en aprendizaje colaborativo y certificación de habilidades entre estudiantes universitarios a nivel nacional, reconocida por conectar de forma confiable el talento académico disperso entre distintas instituciones y por sostener, mediante inteligencia artificial, un ecosistema de enseñanza entre pares riguroso y económicamente sostenible.
 
-<br>
+### Misión
+
+Facilitar el aprendizaje entre estudiantes universitarios mediante rutas de certificación personalizadas, validación de conocimientos y sesiones de refuerzo o evaluación supervisadas por videollamada. Promovemos la excelencia académica, el desarrollo de habilidades blandas y la recompensa justa al esfuerzo del tutor mediante comisiones y el reconocimiento de sus SkillCredits, dentro de un ecosistema validado institucionalmente por correo universitario y potenciado por el emparejamiento inteligente entre aprendices y tutores.
+
+
+---
 
 ## 1.2. Solution Profile
 
 ### 1.2.1. Antecedentes y problemática
 
-En el Perú, el fracaso académico y la deserción universitaria afectan a miles de estudiantes. Según el MINEDU (2021), la tasa de interrupción de estudios en universidades licenciadas llegó a 11.5% en el ciclo 2021-1, siendo Lima una de las regiones más afectadas con 12.4%.
+En el Perú y en la región, el mercado laboral y académico enfrenta una paradoja: existe un alto volumen de profesionales y estudiantes con múltiples diplomas, pero persiste una brecha significativa en la demostración de habilidades prácticas. Según diversos estudios sobre la empleabilidad y la educación superior, un gran porcentaje de egresados y estudiantes de cursos online (MOOCs) no logran aplicar los conocimientos teóricos en entornos reales.
 
-Un problema subyacente es el aislamiento del conocimiento: cada universidad funciona como una isla académica. Hoy no existe una aplicación móvil formal, segura y multiplataforma que conecte de manera inmediata y validada institucionalmente a un estudiante que necesita ayuda con un par que domina esa área, ni que le ofrezca una alternativa de estudio autónomo cuando no hay un tutor disponible en el momento. Los alumnos quedan limitados a su círculo cercano o a grupos informales de WhatsApp/redes sociales, canales que no fueron diseñados para resolver una necesidad urgente desde el celular ni para garantizar la validación del tutor.
+Diversos análisis asocian este fenómeno a un modelo educativo donde prima la "acumulación de certificados" por encima de la validación real de competencias. A esto se suman factores como la falta de seguimiento personalizado, evaluaciones genéricas que no miden el dominio práctico y la ausencia de mentores calificados que puedan resolver vacíos de conocimiento específicos (Escalante et al., 2023).
 
-Para delimitar la problemática se aplicó la técnica 5W + 2H:
+Si bien estas causas son multifactoriales, nuestra investigación identifica un problema subyacente y desatendido: **la ilusión del conocimiento y la falta de validación práctica**. Actualmente, el ecosistema educativo funciona de manera aislada. Un estudiante puede obtener un certificado en una plataforma "A", pero no existe un puente formal y riguroso que valide si realmente adquirió esa habilidad, ni un sistema que lo conecte inteligentemente con un experto para cubrir sus deficiencias. Los estudiantes se ven limitados a consumir contenido estático sin demostrar su pericia, mientras que los expertos carecen de un espacio validado para enseñar, monetizar su conocimiento y construir una reputación comprobable.
 
-| Pregunta | Respuesta |
-| :--- | :--- |
-| Who | Estudiantes universitarios de pregrado en Lima y provincias que necesitan apoyo académico puntual (Aprendices) y estudiantes que dominan una materia y desean monetizar ese conocimiento (Tutores). |
-| What | La ausencia de un canal móvil, inmediato y validado institucionalmente para coordinar tutorías entre pares, y de una alternativa de repaso autónomo cuando no hay tutor disponible. |
-| Where | Universidades privadas y públicas de Lima Metropolitana, con proyección a provincias con alta población universitaria; el uso ocurre desde el propio dispositivo del estudiante. |
-| When | En momentos de necesidad puntual antes de una evaluación, o en tiempos muertos entre clases. |
-| Why | Porque el aislamiento del conocimiento entre universidades y la falta de validación institucional generan fricción, desconfianza y demoras al buscar ayuda por canales informales. |
-| How | Mediante una aplicación móvil nativa/multiplataforma que dispara la interacción a través de notificaciones push, habilita videollamadas integradas y ofrece contenido de repaso generado automáticamente. |
-| How much | Comisión del 5% sobre las donaciones procesadas dentro de la app y suscripción institucional al Dashboard analítico. |
+Esto no solo impacta negativamente en el desarrollo profesional de los estudiantes, sino también en la capacidad productiva del país por la falta de talento verdaderamente calificado, agravando problemas como el subempleo y la ineficiencia en los procesos de reclutamiento.
 
+Para conocer aún más la problemática usaremos la técnica de las **5W y 2H**:
+
+#### What (¿Qué? / ¿Cuál?)
+* **¿Cuál es el problema?** El problema es la brecha entre la obtención de un certificado y el dominio real de una habilidad. Muchos estudiantes acumulan diplomas sin adquirir las competencias prácticas necesarias, lo que genera frustración, estancamiento profesional y desconfianza en las credenciales académicas.
+* **¿Qué soluciones existen actualmente?** Actualmente existen plataformas de educación online (como Coursera, Udemy o Platzi). Sin embargo, estas se centran en la entrega de contenido y emiten certificados tras evaluaciones básicas, sin una validación rigurosa ni supervisión humana. Con nuestra propuesta de valor buscamos generar un ecosistema impulsado por Inteligencia Artificial que no solo traza rutas de aprendizaje, sino que exige la validación práctica de certificados mediante quizzes, miniproyectos y la supervisión de mentores verificados.
+* **¿Cuál es la relación con el usuario?** El usuario es el eje de un ecosistema de tres roles: el estudiante (que aprende y demuestra habilidades), el mentor (que enseña, supervisa y gana comisiones/SkillCredits) y el coordinador (que audita la calidad del proceso). La relación se basa en la confianza, la transparencia y el mérito demostrado.
+
+#### Why (¿Por qué?)
+* **¿Cuál es la causa principal del problema?** La causa principal es que los modelos de evaluación actuales son pasivos y estandarizados. Ver un video y aprobar un examen de opción múltiple no garantiza el dominio de una competencia. Además, cuando el estudiante se enfrenta a una duda técnica compleja, no cuenta con un sistema inteligente que identifique su punto débil exacto y lo conecte con el mentor adecuado para un refuerzo específico.
+
+#### Who (¿Quién?)
+* **¿Quiénes están involucrados?** Está involucrada la comunidad de aprendizaje continuo: estudiantes universitarios, profesionales en *upskilling/reskilling*, mentores/profesores expertos y coordinadores académicos.
+* **¿A quiénes les sucede el problema?** A personas que invierten tiempo en aprender pero sienten inseguridad sobre sus capacidades prácticas reales, así como a expertos que desean enseñar y rentabilizar sus conocimientos pero no encuentran una plataforma que valide su nivel y les otorgue credibilidad (como los SkillCredits) frente a la industria.
+
+#### When (¿Cuándo?)
+* **¿Cuándo sucede el problema?** Constantemente, pero se hace evidente en momentos críticos: al intentar aplicar lo aprendido en un proyecto real, al enfrentarse a pruebas técnicas en entrevistas laborales o cuando el estudiante se estanca en un tema avanzado por no haber interiorizado los fundamentos.
+* **¿Cuándo el cliente usa el producto?** Cuando un estudiante decide que necesita dominar (no solo estudiar) una habilidad específica; cuando necesita validar un certificado previo; o, en el caso del mentor, cuando dispone de tiempo para supervisar evaluaciones, brindar tutorías y generar ingresos mientras fortalece su perfil profesional.
+
+#### Where (¿Dónde?)
+* **¿Dónde está el usuario cuando usa la plataforma?** En cualquier entorno con conexión a internet propicio para el estudio o el trabajo remoto (salas de estudio, bibliotecas, habitaciones o espacios de *coworking*). Todo ocurre en un entorno 100% digital e integrado.
+* **¿Dónde surge el problema?** En la desconexión entre la educación teórica tradicional (o el e-learning masivo) y las demandas de habilidades prácticas y comprobables del mundo real.
+
+#### How (¿Cómo?)
+* **¿En qué condiciones los clientes usan nuestro producto?** Los estudiantes lo usan con el objetivo claro de certificar sus capacidades mediante retos prácticos y sesiones de refuerzo por videollamada. Los mentores lo utilizan tras haber superado su propia evaluación de ingreso, buscando monetizar su experiencia y obtener credenciales verificables (SkillCredits) para sus redes profesionales.
+* **¿Cómo se enteran de la aplicación?** A través de redes sociales, comunidades de aprendizaje, alianzas con instituciones educativas y, fundamentalmente, a través de plataformas como LinkedIn, donde los mentores y estudiantes exhibirán sus insignias y SkillCredits validados por Innovify.
+
+#### How much (¿Cuánto?)
+* **¿Cuánto le cuesta este problema a la economía, sociedad o institución del Perú actualmente?** La brecha de habilidades (*skills gap*) cuesta millones al año a las empresas en procesos de reclutamiento fallidos, reentrenamiento de personal y baja productividad, afectando directamente la competitividad del mercado laboral peruano y latinoamericano.
+* **¿Cuánto costaría implementar la solución propuesta?**
+  * Desarrollo de la plataforma web (Rutas, Dashboards): S/ 20,000 - S/ 38,000
+  * Integración de modelos de IA (LLMs para rutas y quizzes, Embeddings para matching): S/ 8,000 - S/ 15,000
+  * Integración de videollamadas y pasarela de pagos (Suscripciones/Comisiones): S/ 4,000 - S/ 8,000
+  * Diseño UI/UX enfocado en la validación y supervisión: S/ 4,000 - S/ 8,000
+  * Arquitectura Cloud (Hosting, base de datos de vectores): S/ 3,000 - S/ 6,000
+  * Seguridad, validación de identidades y soporte: S/ 4,000 - S/ 7,000
+
+---
 ### 1.2.2. Lean UX Process
 
 #### 1.2.2.1. Lean UX Problem Statements
+Nuestra plataforma se enfoca en resolver la brecha existente entre la obtención de un certificado académico y la demostración real de una habilidad. En el modelo educativo actual, las plataformas tradicionales (MOOCs, universidades) se centran en la emisión de diplomas tras evaluaciones estandarizadas que no siempre validan la competencia práctica. Buscamos transformar este paradigma pasando de la simple acumulación de certificados a un ecosistema donde el conocimiento se demuestra, se evalúa y se refuerza de manera precisa.
 
-* The current state of **la educación colaborativa universitaria en Perú** has focused mainly on **estudiantes compartiendo documentos de forma aislada en plataformas web, o coordinando informalmente por WhatsApp sin garantías de calidad ni validación académica**.
-* What existing products/services fail to address is **la necesidad de una conexión inmediata, segura y validada institucionalmente directamente desde el dispositivo móvil, que ofrezca tutorías en tiempo real y una alternativa de aprendizaje autónomo cuando no hay un tutor disponible**.
-* Our product/service will address this gap by **ofreciendo una aplicación móvil nativa/multiplataforma basada en Domain-Driven Design, que integre videollamadas, notificaciones push, almacenamiento local y un feature de aprendizaje autónomo apoyado en un SDK externo, asegurando la identidad mediante correos institucionales (.edu.pe)**.
-* Our initial focus will be **estudiantes universitarios de pregrado de Lima y provincias clave, tanto los que buscan mejorar sus notas (Aprendices) como los que desean monetizar sus conocimientos (Tutores) mediante su teléfono**.
-* We'll know we are successful when we see **una adopción continua de la app móvil, evidenciada por un aumento del 40% mensual en tutorías completadas y en interacciones con el contenido de aprendizaje autónomo dentro del entorno móvil, durante los primeros 6 meses**.
+La problemática que abordamos es la "ilusión de conocimiento" y la desconexión entre aprendices y expertos. Muchos estudiantes, tras finalizar un curso, descubren que no pueden aplicar lo aprendido en proyectos reales. Cuando intentan resolver sus dudas, se enfrentan a un aprendizaje solitario o a búsquedas ineficientes, sin un mentor que entienda exactamente cuál es su vacío técnico. Por otro lado, los expertos y profesionales (mentores) carecen de un espacio validado donde puedan demostrar su dominio, enseñar a otros y rentabilizar su experiencia obteniendo credenciales verificables que sirvan para su crecimiento profesional.
+
+Hemos observado que, si bien existe un gran volumen de talento distribuido, este conocimiento no está canalizado eficientemente. El problema central es la inexistencia de un ecosistema inteligente que valide de forma automatizada lo que un estudiante afirma saber, que evalúe sus competencias reales mediante retos prácticos, y que, de ser necesario, lo conecte milimétricamente (mediante Inteligencia Artificial) con el mentor más adecuado para superar sus deficiencias.
+
+A raíz de esta problemática, nuestra propuesta busca responder a la siguiente pregunta: **¿Cómo podríamos crear una plataforma impulsada por Inteligencia Artificial que permita a los estudiantes validar sus habilidades mediante evaluaciones prácticas, conectándolos con mentores certificados para reforzamientos específicos, bajo un modelo sostenible de suscripciones, comisiones y reconocimiento profesional (SkillCredits)?**
 
 #### 1.2.2.2. Lean UX Assumptions
+Para abordar de manera efectiva la brecha de habilidades prácticas, es fundamental partir de una serie de supuestos sobre nuestros usuarios y su comportamiento frente a la educación en línea. El éxito de Innovify depende de qué tan acertadas sean estas hipótesis centradas en la validación del conocimiento y nuestro modelo de negocio B2C/B2B2C.
 
-* **Business Assumptions:** Creemos que el cobro del 5% de comisión por donación mediante pasarelas de pago integradas en la app hará que el modelo sea financieramente sostenible.
-* **Business Outcome Assumptions:** El éxito se medirá por la cantidad de sesiones de videollamada completadas íntegramente en la aplicación móvil y por la cantidad de sesiones de aprendizaje autónomo completadas, reduciendo la dependencia de enlaces externos.
-* **User Assumptions:** Nuestros usuarios son "móviles-nativos"; prefieren buscar tutores, coordinar, estudiar y realizar transferencias directamente desde sus smartphones por conveniencia y rapidez, esperando una respuesta casi inmediata ante cada notificación.
-* **User Outcome Assumptions:** Los aprendices mejorarán su rendimiento académico al tener ayuda inmediata y material de repaso autónomo en su bolsillo; los tutores generarán ingresos y desarrollarán habilidades pedagógicas.
-* **Feature Assumptions:** El soporte de notificaciones *push*, el acceso a la cámara/micrófono del dispositivo, el almacenamiento local de sesiones recientes y la integración de un SDK externo para el feature de aprendizaje autónomo son características críticas para la retención del usuario.
+Suponemos que los estudiantes valoran más la seguridad de dominar una habilidad que la simple obtención de un PDF. Creemos que están dispuestos a pagar una suscripción mensual si esto les garantiza acceso a rutas de aprendizaje estructuradas por IA, evaluaciones que midan su nivel real y la disponibilidad de mentores expertos a un clic de distancia para resolver bloqueos específicos.
+
+Asimismo, identificamos que el principal motivador para los mentores, además de la compensación económica (comisiones), es el reconocimiento profesional. Creemos que el sistema de *SkillCredits* servirá como un incentivo poderoso para que superen el examen de ingreso y brinden tutorías de alta calidad, ya que podrán exhibir estos créditos en plataformas como LinkedIn como prueba irrefutable de su *expertise*.
+
+Nuestra propuesta se distinguirá por la automatización y la inteligencia. Asumimos que la intervención de un Coordinador para auditar la calidad, sumado a un sistema de *matching* por IA que cruza los resultados de las evaluaciones del aprendiz con el historial de éxito del mentor, creará un entorno altamente confiable, estructurado y escalable.
+
+##### Assumptions Worksheet
+
+| Pregunta | Respuesta |
+| :--- | :--- |
+| **¿Quién es el usuario?** | Nuestros usuarios se dividen en tres roles:<br>1. **El Estudiante (Aprendiz):** Persona que busca aprender y demostrar habilidades reales. Sube certificados, rinde quizzes/miniproyectos y solicita reforzamiento si se estanca.<br>2. **El Mentor:** Experto validado (que aprobó un examen de ingreso) motivado por enseñar, ganar comisiones y acumular SkillCredits.<br>3. **El Coordinador:** Perfil administrativo o académico que audita la calidad, evalúa la satisfacción y gestiona reevaluaciones. |
+| **¿Dónde encaja nuestro producto en su trabajo o vida?** | Los estudiantes lo usarán como complemento práctico a sus estudios teóricos o universitarios. Los mentores lo usarán en su tiempo libre como fuente de ingresos extra y construcción de marca personal. |
+| **¿Qué problemas tiene nuestro producto a resolver?** | • **Falta de validación práctica:** Superado mediante quizzes dinámicos y miniproyectos generados por IA.<br>• **Reforzamiento ineficiente:** Superado mediante el *matching* inteligente que conecta el error exacto del alumno con la especialidad del mentor.<br>• **Falta de credibilidad del mentor:** Superado con los exámenes de ingreso y la acumulación pública de SkillCredits. |
+| **¿Cuándo y cómo es nuestro producto usado?** | Se usa al finalizar un curso externo para validar el certificado, durante la preparación para entrevistas técnicas, o cuando un estudiante se queda bloqueado en un tema complejo y necesita ayuda sincrónica. |
+| **¿Qué características son importantes?** | • **Rutas Inteligentes y Evaluación:** IA para procesar certificados y generar quizzes.<br>• **Matching Híbrido:** Algoritmo de recomendación para emparejar aprendices y mentores.<br>• **SkillCredits:** Sistema de gamificación y credenciales profesionales.<br>• **Videollamada y Pagos:** Integrados nativamente para sesiones y cobro de suscripciones/comisiones. |
+| **¿Cómo debe verse nuestro producto y cómo comportarse?** | Debe percibirse como un entorno riguroso, profesional y meritocrático. No es una simple red de ayuda, es un estándar de validación de habilidades (estilo plataforma de certificación técnica). |
+
+##### Definición de Objetivos
+
+**Business outcomes**
+* Reducir la brecha entre la educación teórica y la aplicación práctica de habilidades.
+* Lograr un modelo de negocio recurrente y escalable mediante suscripciones (estudiantes) y retención de comisiones (mentores).
+* Automatizar el emparejamiento de tutorías y la validación de certificados mediante modelos de Machine Learning (LLMs/Embeddings).
+* Consolidar los *SkillCredits* como una credencial reconocida en el mercado laboral.
+* Mantener un alto estándar de calidad mediante el monitoreo de los Coordinadores.
+
+**User outcomes**
+* (Estudiantes) Demostrar dominio real sobre un tema, eliminando el síndrome del impostor.
+* (Estudiantes) Superar bloqueos académicos rápidamente con ayuda focalizada y experta.
+* (Mentores) Rentabilizar su conocimiento técnico de forma flexible y segura.
+* (Mentores) Construir un portafolio de experiencia docente verificable para potenciar su perfil profesional.
+
+**Features**
+* Intérprete de objetivos por IA (NLP) para generar rutas de aprendizaje semánticas.
+* Sistema OCR y de validación de certificados con generación automática de evaluaciones (quizzes/rúbricas).
+* Algoritmo de recomendación (RecSys híbrido) para el *matching* exacto entre el vacío de conocimiento del aprendiz y la fortaleza del mentor.
+* Billetera virtual y sistema de insignias para los *SkillCredits*.
+* Dashboard analítico para el Coordinador (termómetro de calidad, satisfacción y demanda de habilidades).
+* Integración de videollamadas para reforzamientos y evaluaciones supervisadas.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
-* We believe we will achieve **alta adopción, retención y confianza por parte de los usuarios**
-* If **estudiantes universitarios (Aprendices y Tutores) reciben ayuda académica con la misma inmediatez que una notificación push**
-* Attain **una experiencia fluida, rápida y segura para coordinar tutorías, estudiar de forma autónoma y realizar clases desde cualquier lugar**
-* With **una aplicación móvil nativa/multiplataforma que integre notificaciones push, videollamadas utilizando APIs de terceros, almacenamiento local para acceso offline parcial, un SDK externo para el feature de aprendizaje autónomo y validación automática de identidad (.edu.pe)**.
+**Hipótesis de Negocio**
+* Creemos que al implementar un motor de IA para interpretar los objetivos del usuario y armar rutas personalizadas, resultará en una mayor tasa de conversión inicial; sabremos que esto es cierto cuando el 75% de los usuarios nuevos complete la configuración de su primera ruta de aprendizaje en su primer día.
+* Creemos que al operar bajo un modelo de suscripción mensual para aprendices y un sistema de comisiones para mentores, resultará en un ecosistema económicamente sostenible; sabremos que esto es cierto cuando el LTV (Life Time Value) del estudiante supere el costo de adquisición (CAC) en un ratio de 3:1 y logremos un margen operativo positivo en el primer año.
+* Finalmente, creemos que el rol del Coordinador como auditor de calidad resultará en un entorno altamente confiable; sabremos que esto es cierto cuando la tasa de disputas o reevaluaciones solicitadas se mantenga por debajo del 5% del total de evaluaciones realizadas.
+
+**Hipótesis de Usuario**
+* Creemos que al generar evaluaciones prácticas (quizzes o miniproyectos) basadas en los certificados subidos, los estudiantes percibirán un valor real en la validación; sabremos que esto es cierto cuando el 70% de los estudiantes que suben un certificado decidan rendir la prueba práctica voluntariamente.
+* Creemos que al utilizar un *matching* semántico por IA que conecte el patrón de error del estudiante con la especialidad del mentor, resultará en sesiones de refuerzo altamente efectivas; sabremos que esto es cierto cuando el 85% de los estudiantes califique la sesión de refuerzo con 4.5/5 estrellas o más, afirmando haber superado su bloqueo.
+* Creemos que al otorgar *SkillCredits* como reconocimiento al desempeño de los mentores, resultará en una fuerte retención de talento enseñante; sabremos que esto es cierto cuando el 60% de los mentores comparta sus logros (SkillCredits) en redes profesionales como LinkedIn, atrayendo a su vez tráfico orgánico a la plataforma.
 
 #### 1.2.2.4. Lean UX Canvas
 
-*(Nota: Insertar imagen del Lean UX Canvas adaptado a la solución móvil de SkillSwap).*
-
+| LEAN UX CANVAS | |
+| :--- | :--- |
+| **Título:** Innovify Lean UX Canvas | **Fecha:** 10/09/2026 |
+| **Iteración:** 1 | |
+| **1. Problema de negocio**<br>El mercado educativo está saturado de certificados que no demuestran competencias reales. Los estudiantes se estancan al no poder aplicar la teoría y no tienen cómo encontrar mentores específicos para sus deficiencias. Los expertos no tienen una forma estandarizada de certificar su experiencia enseñando. | **5. Solución**<br>Una plataforma impulsada por IA que genera rutas de aprendizaje, valida certificados y evalúa mediante retos prácticos. Si el alumno falla, un algoritmo de *matching* lo conecta con el mentor ideal para una videollamada de refuerzo. Los mentores ganan comisiones y *SkillCredits*, todo supervisado por un Coordinador de calidad. |
+| **2. Resultados comerciales**<br>Se busca lograr ingresos recurrentes (MRR) mediante suscripciones B2C, asegurar escalabilidad automatizando el *matching* y la evaluación con IA, y posicionar los *SkillCredits* como un estándar de la industria. | **6. Hipótesis**<br>• Creemos que la IA generará rutas más precisas que los flujos manuales estáticos.<br>• Creemos que los alumnos pagarán una suscripción por validar sus conocimientos y tener acceso a mentores.<br>• Creemos que exigir un examen de ingreso a los mentores elevará la calidad percibida de la plataforma.<br>• Creemos que los *SkillCredits* incentivarán a los mentores a mantener calificaciones altas.<br>• Creemos que el algoritmo de recomendación reducirá el tiempo de búsqueda de un tutor y mejorará las tasas de éxito académico. |
+| **3. Usuarios y clientes**<br>• **Estudiantes (Aprendices):** Buscan dominar una habilidad, validar certificados y recibir ayuda puntual.<br>• **Mentores:** Expertos que buscan monetizar su conocimiento y ganar prestigio profesional.<br>• **Coordinadores:** Aseguradores de la calidad de la plataforma. | **7. ¿Qué es lo más importante que necesitamos aprender primero?**<br>• ¿Están dispuestos los estudiantes a pagar por "evaluarse y validarse" en lugar de solo consumir contenido?<br>• ¿Los profesionales expertos estarán dispuestos a pasar por un examen de ingreso estricto antes de poder enseñar?<br>• ¿Es técnicamente viable que el LLM extraiga con precisión el temario de un certificado subido en PDF/Imagen? |
+| **4. Beneficios del usuario**<br>El estudiante obtiene un dominio comprobable de habilidades y asistencia quirúrgica cuando se bloquea. El mentor obtiene ingresos y credenciales verificables (*SkillCredits*). El sistema garantiza confianza absoluta en las capacidades de sus usuarios. | **8. ¿Cuál es la menor cantidad de trabajo que necesitamos hacer para aprender la siguiente cosa más importante?**<br>• Entrevistas a estudiantes y profesionales para validar la disposición de pago (suscripción) y el interés en los *SkillCredits*.<br>• Desarrollar un MVP de extracción de texto y validación de PDF usando un LLM para probar la viabilidad técnica antes de construir toda la plataforma. |
+---
 ## 1.3. Segmentos objetivo
 
-1. Estudiantes que quieran aprender (Aprendices): Universitarios (18-25 años) que enfrentan dificultades académicas. Son altamente dependientes de sus dispositivos móviles para consumir contenido rápido y reaccionan de inmediato ante una notificación push. Buscan ayuda urgente y verificada, o material de repaso autónomo generado a partir de sesiones previas, sin tener que encender una computadora.
-2. Estudiantes que quieran enseñar (Tutores): Universitarios en ciclos intermedios/avanzados con alto dominio de materias específicas. Buscan monetizar su conocimiento aprovechando tiempos libres puntuales, y valoran gestionar solicitudes de tutoría, horarios y billetera virtual mediante notificaciones en tiempo real, directamente desde su celular.
-3. Coordinador Institucional: Personal universitario (30-55 años) interesado en acceder a un Dashboard (Web) con métricas de rendimiento, uso del feature de aprendizaje autónomo y prevención de deserción, garantizando la integridad de la red de tutorías realizadas desde la app móvil.
+### Segmento objetivo #1: Personas que quieren aprender (Estudiantes)
+Son individuos proactivos, abarcando desde estudiantes universitarios hasta jóvenes profesionales (generalmente entre 18 y 30 años), que buscan aprender y, fundamentalmente, demostrar competencias reales. Enfrentan la frustración de acumular diplomas o certificados teóricos que no reflejan sus verdaderas capacidades prácticas ante el mercado laboral.
+
+Están dispuestos a pagar una **suscripción mensual** para acceder a una plataforma que estructure su aprendizaje mediante rutas generadas por Inteligencia Artificial, valide sus conocimientos con evaluaciones prácticas (quizzes o miniproyectos) y les brinde soporte exacto cuando se estancan. Según diversos reportes sobre empleabilidad y educación continua, un alto porcentaje de estudiantes de cursos online siente inseguridad al aplicar lo aprendido en escenarios reales. Entre las soluciones más valoradas se encuentra la asistencia quirúrgica: poder conectarse por videollamada con un experto que resuelva su vacío de conocimiento específico sin tener que repasar toda la teoría nuevamente.
+
+### Segmento objetivo #2: Personas que quieren enseñar (Mentores)
+Son estudiantes avanzados, egresados o profesionales (generalmente entre 20 y 35 años) con un dominio técnico comprobable en áreas específicas. Son proactivos y buscan monetizar su experiencia, pero rechazan los esquemas informales. En su lugar, valoran pertenecer a un ecosistema riguroso donde primero deben demostrar su nivel mediante un **examen de ingreso** y rutas de certificación propias.
+
+Buscan generar ingresos recurrentes mediante **comisiones** por las sesiones de refuerzo y supervisiones que realizan. Sin embargo, su incentivo más poderoso es el reconocimiento profesional: por cada interacción exitosa acumulan **SkillCredits**, una moneda de prestigio que certifica su calidad docente y dominio técnico, ideal para ser exhibida en plataformas profesionales como LinkedIn. Esto les permite desarrollar y demostrar habilidades blandas esenciales, como la comunicación y el liderazgo, altamente demandadas por los empleadores actuales.
+
+### Segmento objetivo #3: Supervisores o Coordinadores
+Es personal académico, auditores de calidad o gestores de plataformas digitales, generalmente con experiencia en evaluación educativa o administración de comunidades. Su función central ya no es la simple moderación, sino garantizar la excelencia, calidad y transparencia de todo el ecosistema de Innovify.
+
+Se encargan de auditar las métricas generadas por la plataforma, analizar los índices de satisfacción de los aprendices y evaluar el desempeño de los mentores. Tienen la autoridad para habilitar reevaluaciones si existen dudas sobre el resultado de un estudiante, y definen los periodos de actividad de quienes enseñan. A través de un dashboard avanzado, monitorean las habilidades de mayor demanda para asegurar que la plataforma responda a las necesidades del mercado. Son el pilar fundamental para que Innovify mantenga su legitimidad y sea percibida como un estándar riguroso de validación de habilidades, y no como una simple red de tutorías.
 
 ---
 
