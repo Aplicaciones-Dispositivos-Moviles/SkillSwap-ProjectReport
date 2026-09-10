@@ -124,6 +124,21 @@ Ser la plataforma líder en aprendizaje colaborativo y certificación de habilid
 Facilitar el aprendizaje entre estudiantes universitarios mediante rutas de certificación personalizadas, validación de conocimientos y sesiones de refuerzo o evaluación supervisadas por videollamada. Promovemos la excelencia académica, el desarrollo de habilidades blandas y la recompensa justa al esfuerzo del tutor mediante comisiones y el reconocimiento de sus SkillCredits, dentro de un ecosistema validado institucionalmente por correo universitario y potenciado por el emparejamiento inteligente entre aprendices y tutores.
 
 
+### 1.1.2. Perfiles de integrantes del equipo
+
+<div align="center">
+
+| Foto | Integrante | Carrera | Descripción |
+| :---: | :--- | :--- | :--- |
+| *(Foto)* | **Alberca Saavedra, Víctor Manuel**<br>(U201924127) | Ingeniería de Software | Aporta conocimientos sólidos en arquitectura de software, backend y bases de datos. Lidera la investigación e integración del SDK de videollamadas (Agora) y la adaptación de los Bounded Contexts al entorno móvil. |
+| *(Foto)* | **Becerra Ninahuanca, Luis Angel**<br>(U20231C792) | Ingeniería de Software | Especialista en lógica de negocio, integración de servicios e interfaces limpias. Investiga patrones de diseño UI/UX propios de aplicaciones móviles nativas/multiplataforma y lidera el análisis competitivo enfocado en apps del mismo rubro. |
+| *(Foto)* | **Lopez Montalvo, Kevin Edu**<br>(U20241D958) | Ingeniería de Software | Aporta conocimientos en diseño móvil, UX/UI y metodologías ágiles. Documenta el proceso Lean UX y estructura las User Stories bajo un enfoque Mobile-First. |
+| *(Foto)* | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. |
+
+</div>
+
+<br>
+
 ---
 
 ## 1.2. Solution Profile
