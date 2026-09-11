@@ -1,41 +1,50 @@
-@startuml ModerationComponent
+@startuml ModerationDisputesComponent
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
 LAYOUT_WITH_LEGEND()
 
 Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
-ContainerDb_Ext(mainDB, "Innovify Database", "MySQL 8")
-System_Ext(agoraApi, "Agora Video SDK", "Consulta de canal de videollamada como evidencia")
+ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
 
 Container_Boundary(moderationBC, "Moderation & Disputes Bounded Context") {
-    Component(moderationController, "Moderation Controller", "C# Class", "RESTful API Controller")
+    Component(disputeController, "Dispute Controller", "C# Class", "RESTful API Controller")
     Component(moderationCommandService, "Moderation CommandService", "C# Class", "Lógica de negocio")
     Component(moderationQueryService, "Moderation QueryService", "C# Class", "Consultas")
-    Component(moderationRepository, "Moderation Repository", "C# Interface", "Interface persistencia")
+    Component(disputeRepository, "Dispute Repository", "C# Interface", "Interface persistencia")
+    Component(sanctionRepository, "Sanction Repository", "C# Interface", "Interface persistencia")
+    Component(certificateQueryClient, "Certificate QueryClient", "C# Class", "Consulta evidencia hacia Credential Verification")
+    Component(verificationCaseQueryClient, "VerificationCase QueryClient", "C# Class", "Consulta evidencia hacia Assessment & Peer Review")
     Component(moderationContextFacade, "Moderation ContextFacade", "C# Class", "Punto de entrada interno")
 }
 
-Component_Ext(identityQueryService, "Identity QueryService", "C# Class", "Bounded Context: Identity & Access")
 Component_Ext(identityContextFacade, "Identity ContextFacade", "C# Class", "Bounded Context: Identity & Access")
-Component_Ext(reputationQueryService, "Reputation QueryService", "C# Class", "Bounded Context: Reputation")
-Component_Ext(reputationCommandService, "Reputation CommandService", "C# Class", "Bounded Context: Reputation")
+Component_Ext(reputationContextFacade, "Reputation ContextFacade", "C# Class", "Bounded Context: Reputation")
+Component_Ext(credentialContextFacade, "Certificate ContextFacade", "C# Class", "Bounded Context: Credential Verification")
+Component_Ext(credentialCommandService, "Certificate CommandService", "C# Class", "Bounded Context: Credential Verification")
+Component_Ext(assessmentContextFacade, "Assessment ContextFacade", "C# Class", "Bounded Context: Assessment & Peer Review")
 
-Rel(apiGateway, moderationController, "Se reporta al usuario")
-Rel(moderationController, moderationCommandService, "Usa")
-Rel(moderationController, moderationQueryService, "Usa")
-Rel(moderationCommandService, moderationRepository, "Usa")
-Rel(moderationQueryService, moderationRepository, "Usa")
-Rel(moderationRepository, mainDB, "SQL Transaction")
+Rel(apiGateway, disputeController, "Request HTTP a Moderation & Disputes")
+Rel(disputeController, moderationCommandService, "Usa")
+Rel(disputeController, moderationQueryService, "Usa")
+Rel(moderationCommandService, disputeRepository, "Usa")
+Rel(moderationCommandService, sanctionRepository, "Usa")
+Rel(moderationQueryService, disputeRepository, "Usa")
+Rel(disputeRepository, mainDB, "SQL Transaction")
+Rel(sanctionRepository, mainDB, "SQL Transaction")
 
-Rel(moderationBC, agoraApi, "Consulta canal de videollamada")
+Rel(moderationQueryService, certificateQueryClient, "Delega consulta de evidencia")
+Rel(certificateQueryClient, credentialContextFacade, "Pedir datos OCR y RiskAssessment del certificado")
 
-Rel(identityQueryService, moderationContextFacade, "Pedir sanción")
-Rel(reputationQueryService, moderationContextFacade, "Pedir si hubo alguna falta en la reseña")
-Rel(reputationCommandService, moderationContextFacade, "Falta de comportamiento en la reseña")
-Rel(moderationQueryService, identityContextFacade, "Pedir sanción")
-Rel(moderationCommandService, identityContextFacade, "Actualizar perfil en caso de haber sanción")
+Rel(moderationQueryService, verificationCaseQueryClient, "Delega consulta de evidencia")
+Rel(verificationCaseQueryClient, assessmentContextFacade, "Pedir notas de rúbrica y evidencia del caso")
+
+Rel(moderationCommandService, identityContextFacade, "Actualizar perfil en caso de sanción")
+Rel(moderationCommandService, reputationContextFacade, "Notificar reversión de decisión / sanción aplicada")
+Rel(moderationCommandService, credentialContextFacade, "Enviar resolución del certificado en disputa")
 
 Rel(moderationContextFacade, moderationCommandService, "Delega")
 Rel(moderationContextFacade, moderationQueryService, "Delega")
+
+Rel(credentialCommandService, moderationContextFacade, "Escalar certificado en estado SUSPICIOUS")
 
 @enduml

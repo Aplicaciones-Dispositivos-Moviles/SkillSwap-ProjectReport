@@ -4,38 +4,42 @@
 LAYOUT_WITH_LEGEND()
 
 Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
-ContainerDb_Ext(mainDB, "Innovify Database", "MySQL 8")
+ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
 
 Container_Boundary(reputationBC, "Reputation Bounded Context") {
-    Component(reputationController, "Reputation Controller", "C# Class", "RESTful API Controller")
-    Component(reputationCommandService, "Reputation CommandService", "C# Class", "Lógica de negocio")
+    Component(verifierReliabilityController, "VerifierReliability Controller", "C# Class", "RESTful API Controller")
+    Component(studentEmployabilityController, "StudentEmployability Controller", "C# Class", "RESTful API Controller")
+    Component(reputationCommandService, "Reputation CommandService", "C# Class", "Lógica de negocio: recálculo por eventos")
     Component(reputationQueryService, "Reputation QueryService", "C# Class", "Consultas")
-    Component(reputationRepository, "Reputation Repository", "C# Interface", "Interface persistencia")
+    Component(verifierReliabilityRepository, "VerifierReliability Repository", "C# Interface", "Interface persistencia")
+    Component(studentEmployabilityRepository, "StudentEmployabilityScore Repository", "C# Interface", "Interface persistencia")
+    Component(verifierProfileNotifierExternal, "VerifierProfile NotifierAdapter", "C# Class", "Sincronización con Assessment & Peer Review")
     Component(reputationContextFacade, "Reputation ContextFacade", "C# Class", "Punto de entrada interno")
 }
 
-Component_Ext(learningQueryService, "Learning QueryService", "C# Class", "Bounded Context: Learning & Assessment")
-Component_Ext(learningContextFacade, "Learning ContextFacade", "C# Class", "Bounded Context: Learning & Assessment")
-Component_Ext(identityContextFacade, "Identity ContextFacade", "C# Class", "Bounded Context: Identity & Access")
-Component_Ext(moderationContextFacade, "Moderation ContextFacade", "C# Class", "Bounded Context: Moderation & Disputes")
-Component_Ext(billingContextFacade, "Payments ContextFacade", "C# Class", "Bounded Context: Payments & Wallet")
+Component_Ext(assessmentContextFacade, "Assessment ContextFacade", "C# Class", "Bounded Context: Assessment & Peer Review")
+Component_Ext(assessmentCommandService, "Assessment CommandService", "C# Class", "Bounded Context: Assessment & Peer Review")
+Component_Ext(moderationCommandService, "Moderation CommandService", "C# Class", "Bounded Context: Moderation & Disputes")
 
-Rel(apiGateway, reputationController, "Request HTTP a Reputation")
-Rel(reputationController, reputationCommandService, "Usa")
-Rel(reputationController, reputationQueryService, "Usa")
-Rel(reputationCommandService, reputationRepository, "Usa")
-Rel(reputationQueryService, reputationRepository, "Usa")
-Rel(reputationRepository, mainDB, "Guardar calificaciones")
+Rel(apiGateway, verifierReliabilityController, "Request HTTP a Reputation")
+Rel(apiGateway, studentEmployabilityController, "Request HTTP a Reputation")
+Rel(verifierReliabilityController, reputationQueryService, "Usa")
+Rel(studentEmployabilityController, reputationQueryService, "Usa")
 
-Rel(learningQueryService, reputationContextFacade, "Pedir si la sesión ya finalizó")
-Rel(reputationCommandService, learningContextFacade, "Sesión terminada")
-Rel(reputationCommandService, identityContextFacade, "Actualizar perfil del tutor con la nueva calificación")
-Rel(reputationQueryService, moderationContextFacade, "Pedir si hubo alguna falta en la reseña")
-Rel(reputationQueryService, billingContextFacade, "Pedir información si se le donará o no")
-Rel(reputationCommandService, billingContextFacade, "Donar al tutor")
-Rel(reputationCommandService, moderationContextFacade, "Falta de comportamiento en la reseña")
+Rel(reputationCommandService, verifierReliabilityRepository, "Usa")
+Rel(reputationCommandService, studentEmployabilityRepository, "Usa")
+Rel(reputationQueryService, verifierReliabilityRepository, "Usa")
+Rel(reputationQueryService, studentEmployabilityRepository, "Usa")
+Rel(verifierReliabilityRepository, mainDB, "SQL Transaction")
+Rel(studentEmployabilityRepository, mainDB, "SQL Transaction")
+
+Rel(reputationCommandService, verifierProfileNotifierExternal, "Delega sincronización")
+Rel(verifierProfileNotifierExternal, assessmentContextFacade, "Actualizar VerifierProfile.rating / reviewCount")
 
 Rel(reputationContextFacade, reputationCommandService, "Delega")
 Rel(reputationContextFacade, reputationQueryService, "Delega")
+
+Rel(assessmentCommandService, reputationContextFacade, "Notificar resolución de caso / aprobación automática")
+Rel(moderationCommandService, reputationContextFacade, "Notificar reversión de decisión / sanción aplicada")
 
 @enduml

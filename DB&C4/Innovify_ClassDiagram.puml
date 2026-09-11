@@ -1,4 +1,4 @@
-@startuml Innovify_ClassDiagram_Mobile
+@startuml SkillSwap_ClassDiagram_Mobile
 
 skinparam classAttributeIconSize 0
 skinparam packageStyle folder
@@ -53,155 +53,287 @@ package "Identity & Access" {
     User --> Role
 }
 
-package "Workspace" {
-    class TutoringSession <<Aggregate Root>> {
-        +topic: String
-        +status: SessionStatus
-        +learnerId: LearnerId
-        +tutorId: TutorId
-        +scheduledAt: LocalDateTime
-        +message: String
-        +studentLevel: String
-        +agoraChannelName: String
-        +updateStatus(status: SessionStatus): void
+package "Credential Verification" {
+    class Certificate <<Aggregate Root>> {
+        +ownerId: Long
+        +holderName: String
+        +institutionName: String
+        +courseName: String
+        +issueDate: Date
+        +durationHours: Integer
+        +certificateNumber: String
+        +verificationCode: String
+        +verificationUrl: String
+        +qrPayload: String
+        +ocrText: String
+        +fileHash: String
+        +storageReference: String
+        +status: VerificationStatus
+        +verificationMethod: VerificationMethod
+        +riskAssessment: RiskAssessment
+        +verifiedAt: Date
+        +applyExtractedData(): void
+        +assessRisk(riskAssessment: RiskAssessment): void
+        +resolveDispute(isAuthentic: Boolean): void
     }
 
-    class Message <<Entity>> {
-        +id: Long
-        +content: String
-        +senderId: Long
-        +sessionId: SessionId
-        +sentAt: LocalDateTime
+    class RiskAssessment <<Value Object>> {
+        +score: Integer
+        +level: RiskLevel
     }
 
-    enum SessionStatus {
+    enum RiskLevel {
+        LOW_RISK
+        REVIEW
+        HIGH_RISK
+    }
+
+    enum VerificationStatus {
         PENDING
-        SCHEDULED
-        COMPLETED
+        UNVERIFIED
+        SUSPICIOUS
+        VERIFIED
         REJECTED
     }
 
-    class LearnerId <<Value Object>> {
-        +value: Long
+    enum VerificationMethod {
+        OCR_ONLY
+        QR
+        ISSUER_URL
+        OFFICIAL_REGISTRY
+        MANUAL
     }
 
-    class TutorId <<Value Object>> {
-        +value: Long
-    }
-
-    class SessionId <<Value Object>> {
-        +value: Long
-    }
-
-    TutoringSession "1" o-- "0..*" Message
-    TutoringSession --> SessionStatus
-    TutoringSession --> LearnerId
-    TutoringSession --> TutorId
-    Message --> SessionId
+    Certificate --> RiskAssessment
+    Certificate --> VerificationStatus
+    Certificate --> VerificationMethod
+    RiskAssessment --> RiskLevel
 }
 
-package "Reputation" {
-    class Review <<Aggregate Root>> {
-        +tutorId: RevieweeId
-        +learnerId: ReviewerId
-        +learnerName: String
-        +rating: Float
-        +comment: String
-        +sessionId: Long
-        +tutorReply: String
+package "Learning Path Engine" {
+    class LearningPath <<Aggregate Root>> {
+        +studentId: Long
+        +careerGoal: CareerGoal
+        +status: PathStatus
+        +recalculate(updatedGap: SkillGap): void
+        +completeNode(nodeId: Long): void
     }
 
-    class RevieweeId <<Value Object>> {
-        +value: Long
+    class PathNode <<Entity>> {
+        +skillTag: String
+        +order: Integer
+        +status: NodeStatus
+        +linkedCertificateId: Long
+        +assessmentBlueprintId: Long
     }
 
-    class ReviewerId <<Value Object>> {
-        +value: Long
+    class CareerGoal <<Value Object>> {
+        +rawText: String
+        +mappedSkillTags: List<String>
     }
 
-    Review --> RevieweeId
-    Review --> ReviewerId
-}
-
-package "Learning & Assessment" {
-    class Quiz <<Aggregate Root>> {
-        +title: String
-        +course: String
-        +createdBy: Long
-        +tutorId: Long
-        +questions: List<String>
+    class SkillGap <<Value Object>> {
+        +verifiedSkillTags: List<String>
+        +missingSkillTags: List<String>
     }
 
-    class QuizAttempt <<Aggregate Root>> {
-        +quizId: QuizId
-        +learnerId: Long
-        +score: Float
-        +status: AttemptStatus
-        +complete(score: Float): void
-        +abandon(): void
+    class AssessmentBlueprint <<Aggregate Root>> {
+        +pathNodeId: Long
+        +skillTag: String
+        +generatedAt: Date
     }
 
-    enum AttemptStatus {
-        IN_PROGRESS
+    class Question <<Entity>> {
+        +questionString: String
+        +answers: List<String>
+        +correctAnswer: Integer
+    }
+
+    enum PathStatus {
+        ACTIVE
         COMPLETED
-        ABANDONED
     }
 
-    class QuizId <<Value Object>> {
-        +value: Long
+    enum NodeStatus {
+        LOCKED
+        AVAILABLE
+        COMPLETED
     }
 
-    Quiz "1" o-- "0..*" QuizAttempt
-    QuizAttempt --> AttemptStatus
-    QuizAttempt --> QuizId
+    LearningPath "1" o-- "0..*" PathNode
+    LearningPath --> CareerGoal
+    LearningPath --> PathStatus
+    PathNode --> NodeStatus
+    AssessmentBlueprint "1" o-- "1..*" Question
 }
 
-package "Discovery" {
-    class Tutor <<Aggregate Root>> {
-        +name: String
-        +university: String
-        +bio: String
-        +rating: Double
-        +skills: List<String>
+package "Assessment & Peer Review" {
+    class AssessmentAttempt <<Aggregate Root>> {
+        +blueprintId: Long
+        +studentId: Long
+        +selectedAnswers: List<Integer>
+        +score: Score
+        +passed: Boolean
+        +completedAt: Date
+    }
+
+    class Score <<Value Object>> {
+        +value: Integer
+        +total: Integer
+    }
+
+    class VerifierProfile <<Aggregate Root>> {
+        +verifierUserId: Long
+        +skillTags: List<String>
         +available: Boolean
-        +avatarUrl: String
-        +specialty: String
-        +portfolioUrl: String
-        +yearsExperience: Integer
+        +verified: Boolean
+        +rating: Double
+        +reviewCount: Integer
+        +updateAvailability(available: Boolean): void
+        +addSkillTag(skill: String): void
     }
 
-    class TutorId_D <<Value Object>> {
-        +value: Long
+    class VerificationCase <<Aggregate Root>> {
+        +studentId: Long
+        +verifierId: Long
+        +pathNodeId: Long
+        +skillTag: String
+        +status: CaseStatus
+        +decision: ReviewDecision
+        +rubricNotes: String
+        +evidenceUrl: String
+        +openedAt: Date
+        +resolvedAt: Date
+        +assignVerifier(verifierId: Long): void
+        +attachEvidence(url: String): void
+        +startReview(): void
+        +resolve(decision: ReviewDecision, rubricNotes: String): void
     }
 
-    Tutor --> TutorId_D
-}
-
-package "Moderation & Disputes" {
-    class Report <<Aggregate Root>> {
-        +reporterId: Long
-        +reporterName: String
-        +reportedUserId: Long
-        +reason: String
-        +description: String
-        +status: ReportStatus
-        +sessionId: Long
-        +updateStatus(status: ReportStatus): void
-    }
-
-    enum ReportStatus {
+    enum CaseStatus {
         PENDING
-        REVIEWED
+        ASSIGNED
+        UNDER_REVIEW
         RESOLVED
     }
 
-    class Sanction <<Entity>> {
-        +userId: Long
-        +type: SanctionType
+    enum ReviewDecision {
+        APPROVED
+        REJECTED
+    }
+
+    AssessmentAttempt --> Score
+    VerificationCase --> CaseStatus
+    VerificationCase --> ReviewDecision
+}
+
+package "Reputation" {
+    class VerifierReliability <<Aggregate Root>> {
+        +verifierUserId: Long
+        +resolvedCasesCount: Integer
+        +overturnedDecisionsCount: Integer
+        +sanctionsCount: Integer
+        +score: ReliabilityScore
+        +updatedAt: Date
+        +recordResolution(): void
+        +recordOverturn(): void
+        +applySanction(): void
+    }
+
+    class StudentEmployabilityScore <<Aggregate Root>> {
+        +studentId: Long
+        +verifiedSkillsCount: Integer
+        +score: EmployabilityScore
+        +updatedAt: Date
+        +recordSkillVerified(): void
+    }
+
+    class ReliabilityScore <<Value Object>> {
+        +value: Integer
+    }
+
+    class EmployabilityScore <<Value Object>> {
+        +value: Integer
+    }
+
+    VerifierReliability --> ReliabilityScore
+    StudentEmployabilityScore --> EmployabilityScore
+}
+
+package "Wallet & Incentives" {
+    class Wallet <<Aggregate Root>> {
+        +walletOwnerId: Long
+        +balance: Integer
+        +credit(amount: Credits): void
+        +debit(amount: Credits): void
+    }
+
+    class CreditTransaction <<Entity>> {
+        +walletId: Long
+        +amount: Credits
+        +type: TransactionType
+        +description: String
+        +createdAt: Date
+    }
+
+    class Credits <<Value Object>> {
+        +value: Integer
+    }
+
+    enum TransactionType {
+        EARNED
+        REDEEMED
+    }
+
+    enum RedemptionItem {
+        ADVANCED_PATH_UNLOCK
+        CONTRIBUTION_CERTIFICATE
+    }
+
+    Wallet "1" o-- "0..*" CreditTransaction
+    CreditTransaction --> Credits
+    CreditTransaction --> TransactionType
+}
+
+package "Moderation & Disputes" {
+    class Dispute <<Aggregate Root>> {
+        +sourceType: DisputeSourceType
+        +sourceReferenceId: Long
+        +raisedByUserId: Long
+        +respondentUserId: Long
         +reason: String
-        +reportId: Long
-        +appliedAt: LocalDateTime
-        +expiresAt: LocalDateTime
+        +status: DisputeStatus
+        +outcome: DisputeOutcome
+        +coordinatorNotes: String
+        +raisedAt: Date
+        +resolvedAt: Date
+        +resolve(outcome: DisputeOutcome, coordinatorNotes: String): void
+    }
+
+    class Sanction <<Entity>> {
+        +disputeId: Long
+        +sanctionedUserId: Long
+        +type: SanctionType
+        +description: String
+        +durationDays: Integer
+    }
+
+    enum DisputeSourceType {
+        CERTIFICATE_REVIEW
+        VERIFIER_DECISION_APPEAL
+        USER_REPORT
+    }
+
+    enum DisputeStatus {
+        PENDING
+        RESOLVED
+    }
+
+    enum DisputeOutcome {
+        UPHELD
+        OVERTURNED
+        DISMISSED
+        SANCTIONED
     }
 
     enum SanctionType {
@@ -210,73 +342,37 @@ package "Moderation & Disputes" {
         BAN
     }
 
-    Report "1" o-- "0..*" Sanction
-    Report --> ReportStatus
+    Dispute "1" o-- "0..*" Sanction
+    Dispute --> DisputeSourceType
+    Dispute --> DisputeStatus
+    Dispute --> DisputeOutcome
     Sanction --> SanctionType
-}
-
-package "Payments & Wallet" {
-    class Wallet <<Aggregate Root>> {
-        +tutorId: Long
-        +balance: Double
-        +currency: Currency
-        +bankName: String
-        +accountNumber: String
-        +addFunds(amount: Double): void
-        +withdrawFunds(amount: Double): void
-    }
-
-    class Donation <<Entity>> {
-        +donorId: Long
-        +tutorId: Long
-        +sessionId: Long
-        +amount: Double
-        +netAmount: Double
-        +commission: Double
-        +currency: Currency
-        +status: DonationStatus
-        +complete(): void
-        +fail(): void
-    }
-
-    enum Currency {
-        PEN
-        USD
-        EUR
-    }
-
-    enum DonationStatus {
-        PENDING
-        COMPLETED
-        FAILED
-        REFUNDED
-    }
-
-    Wallet --> Currency
-    Donation --> Currency
-    Donation --> DonationStatus
 }
 
 ' --- Herencia hacia el Aggregate Root compartido ---
 User --|> AbstractDomainAggregateRoot
-TutoringSession --|> AbstractDomainAggregateRoot
-Review --|> AbstractDomainAggregateRoot
-Quiz --|> AbstractDomainAggregateRoot
-Tutor --|> AbstractDomainAggregateRoot
-Report --|> AbstractDomainAggregateRoot
-Sanction --|> AbstractDomainAggregateRoot
+Certificate --|> AbstractDomainAggregateRoot
+LearningPath --|> AbstractDomainAggregateRoot
+AssessmentBlueprint --|> AbstractDomainAggregateRoot
+AssessmentAttempt --|> AbstractDomainAggregateRoot
+VerifierProfile --|> AbstractDomainAggregateRoot
+VerificationCase --|> AbstractDomainAggregateRoot
+VerifierReliability --|> AbstractDomainAggregateRoot
+StudentEmployabilityScore --|> AbstractDomainAggregateRoot
 Wallet --|> AbstractDomainAggregateRoot
-Donation --|> AbstractDomainAggregateRoot
+CreditTransaction --|> AbstractDomainAggregateRoot
+Dispute --|> AbstractDomainAggregateRoot
+Sanction --|> AbstractDomainAggregateRoot
 
 ' --- Enlaces invisibles para forzar layout en 2 filas ---
-"Identity & Access" -[hidden]right- "Workspace"
-"Workspace" -[hidden]right- "Reputation"
-"Reputation" -[hidden]right- "Learning & Assessment"
+"Identity & Access" -[hidden]right- "Credential Verification"
+"Credential Verification" -[hidden]right- "Learning Path Engine"
+"Learning Path Engine" -[hidden]right- "Assessment & Peer Review"
 
-"Discovery" -[hidden]right- "Moderation & Disputes"
-"Moderation & Disputes" -[hidden]right- "Payments & Wallet"
-"Payments & Wallet" -[hidden]right- "Shared"
+"Reputation" -[hidden]right- "Wallet & Incentives"
+"Wallet & Incentives" -[hidden]right- "Moderation & Disputes"
+"Moderation & Disputes" -[hidden]right- "Shared"
 
-"Identity & Access" -[hidden]down- "Discovery"
+"Identity & Access" -[hidden]down- "Reputation"
 
 @enduml
