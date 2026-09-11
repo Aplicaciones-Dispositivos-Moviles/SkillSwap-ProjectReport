@@ -1,0 +1,65 @@
+@startuml AssessmentPeerReviewComponent
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
+System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para evidencia")
+
+Container_Boundary(assessmentBC, "Assessment & Peer Review Bounded Context") {
+    Component(assessmentAttemptController, "AssessmentAttempt Controller", "C# Class", "RESTful API Controller")
+    Component(verificationCaseController, "VerificationCase Controller", "C# Class", "RESTful API Controller")
+    Component(verifierProfileController, "VerifierProfile Controller", "C# Class", "RESTful API Controller")
+    Component(assessmentCommandService, "Assessment CommandService", "C# Class", "Lógica de negocio")
+    Component(assessmentQueryService, "Assessment QueryService", "C# Class", "Consultas")
+    Component(verifierMatcher, "VerifierMatcher", "C# Class", "Algoritmo de asignación de Verificador disponible")
+    Component(attemptRepository, "AssessmentAttempt Repository", "C# Interface", "Interface persistencia")
+    Component(verifierProfileRepository, "VerifierProfile Repository", "C# Interface", "Interface persistencia")
+    Component(caseRepository, "VerificationCase Repository", "C# Interface", "Interface persistencia")
+    Component(evidenceExternal, "Cloudinary ExternalService", "C# Class", "Adaptador de almacenamiento de evidencia")
+    Component(assessmentContextFacade, "Assessment ContextFacade", "C# Class", "Punto de entrada interno")
+}
+
+Component_Ext(pathEngineContextFacade, "PathEngine ContextFacade", "C# Class", "Bounded Context: Learning Path Engine")
+Component_Ext(identityContextFacade, "Identity ContextFacade", "C# Class", "Bounded Context: Identity & Access")
+Component_Ext(reputationContextFacade, "Reputation ContextFacade", "C# Class", "Bounded Context: Reputation")
+Component_Ext(walletContextFacade, "Wallet ContextFacade", "C# Class", "Bounded Context: Wallet & Incentives")
+Component_Ext(moderationQueryService, "Moderation QueryService", "C# Class", "Bounded Context: Moderation & Disputes")
+
+Rel(apiGateway, assessmentAttemptController, "Request HTTP a Assessment & Peer Review")
+Rel(apiGateway, verificationCaseController, "Request HTTP a Assessment & Peer Review")
+Rel(apiGateway, verifierProfileController, "Request HTTP a Assessment & Peer Review")
+
+Rel(assessmentAttemptController, assessmentCommandService, "Usa")
+Rel(assessmentAttemptController, assessmentQueryService, "Usa")
+Rel(verificationCaseController, assessmentCommandService, "Usa")
+Rel(verificationCaseController, assessmentQueryService, "Usa")
+Rel(verifierProfileController, assessmentCommandService, "Usa")
+
+Rel(assessmentCommandService, attemptRepository, "Usa")
+Rel(assessmentCommandService, verifierProfileRepository, "Usa")
+Rel(assessmentCommandService, caseRepository, "Usa")
+Rel(assessmentQueryService, attemptRepository, "Usa")
+Rel(assessmentQueryService, verifierProfileRepository, "Usa")
+Rel(assessmentQueryService, caseRepository, "Usa")
+
+Rel(attemptRepository, mainDB, "SQL Transaction")
+Rel(verifierProfileRepository, mainDB, "SQL Transaction")
+Rel(caseRepository, mainDB, "SQL Transaction")
+
+Rel(assessmentCommandService, verifierMatcher, "Invoca para asignar un Verificador disponible")
+Rel(assessmentCommandService, evidenceExternal, "Delega almacenamiento de la evidencia")
+Rel(evidenceExternal, cloudStorage, "Sube el archivo de evidencia")
+
+Rel(assessmentCommandService, pathEngineContextFacade, "Pedir AssessmentBlueprint con correctAnswer / Notificar nodo completado")
+Rel(assessmentCommandService, reputationContextFacade, "Notificar resultado (Employability Score / confiabilidad del Verificador)")
+Rel(assessmentCommandService, walletContextFacade, "Notificar caso aprobado para acreditar SkillCredits")
+Rel(assessmentQueryService, identityContextFacade, "Pedir datos de usuario de los Verificadores candidatos")
+
+Rel(assessmentContextFacade, assessmentCommandService, "Delega")
+Rel(assessmentContextFacade, assessmentQueryService, "Delega")
+
+Rel(moderationQueryService, assessmentContextFacade, "Pedir datos del VerificationCase escalado (vía ACL propio)")
+
+@enduml
