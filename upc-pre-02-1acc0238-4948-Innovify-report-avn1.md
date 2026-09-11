@@ -290,193 +290,109 @@ Se encargan de auditar las métricas generadas por la plataforma, analizar los �
 
 ## 2.1. Competidores
 
-**uDocz (Competidor Directo)**
-uDocz es una plataforma de origen peruano que se ha expandido por toda Latinoamérica, posicionándose como una de las comunidades de estudio más grandes para universitarios de habla hispana, con fuerte presencia en su **app móvil** (iOS y Android) además de la web. Su modelo se centra en que los estudiantes compartan y encuentren material de estudio, como apuntes de clase, resúmenes, guías y solucionarios, específicos para su universidad y carrera, todo accesible desde el celular con lectura offline. Aunque su fuerte es el intercambio de documentos, también ha incorporado un "Doc Tutor AI", flashcards y quizzes dentro de la misma app.
+Innovify opera en el ecosistema de plataformas de aprendizaje, certificación y validación de habilidades prácticas. A continuación se identifican los principales competidores directos e indirectos:
 
-**Knack (Competidor Directo)**
-Knack es una red de tutoría universitaria norteamericana que conecta, a través de su **app móvil**, a estudiantes con tutores pares que han sobresalido en cursos específicos. La plataforma se asocia directamente con las universidades, las cuales a menudo subsidian el costo, haciendo que las tutorías sean gratuitas para los estudiantes. Desde el celular, el alumno solicita un tutor, coordina la sesión y realiza el pago sin salir de la app.
+**Coursera (Competidor Directo)**
+Coursera es una de las plataformas de educación online más grandes del mundo, con más de 100 millones de usuarios registrados. Ofrece cursos, especializaciones y certificados profesionales en alianza con universidades de prestigio y empresas como Google, IBM y Meta. Su modelo se basa en la entrega de contenido estructurado y la emisión de certificados tras evaluaciones estandarizadas de opción múltiple. Sin embargo, no cuenta con un sistema de validación práctica supervisada por expertos humanos, ni con un mecanismo de emparejamiento inteligente entre aprendices y mentores verificados. El certificado emitido no acredita el dominio práctico real de la habilidad.
 
-**StudyTree (Competidor Directo)**
-StudyTree es una **app móvil** (iOS y Android) que conecta a estudiantes universitarios entre sí para tutorías bajo demanda ("on-demand"), creando un marketplace donde unos ganan dinero enseñando y otros ahorran dinero aprendiendo. Su modelo, muy cercano al de Innovify, es mixto: la app es gratuita para el estudiante (B2C) y se comercializa como servicio SaaS a las universidades (B2B), quienes pagan por licencia y acceden a datos analíticos sobre el uso de tutorías por parte de sus alumnos.
+**LinkedIn Learning (Competidor Directo)**
+LinkedIn Learning es la plataforma de aprendizaje corporativo de Microsoft integrada directamente al ecosistema profesional de LinkedIn. Ofrece miles de cursos en tecnología, negocios y habilidades blandas, con certificados que se añaden automáticamente al perfil del usuario. Su ventaja es la visibilidad profesional inmediata, pero su debilidad es que no valida si el usuario realmente aplicó lo aprendido: cualquier persona puede obtener un certificado sin demostrar competencia práctica. No cuenta con mentores humanos verificados ni con evaluaciones diseñadas por expertos en cada dominio.
 
-**Tutor Campus (Competidor Directo)**
-Tutor Campus es una **app móvil** (disponible en Google Play) enfocada en conectar estudiantes universitarios y egresados para el intercambio de conocimientos mediante tutorías y comunidad. Bajo la premisa de que "todos somos tutores y tutelados", permite formar pequeños grupos de interés y establecer contacto entre estudiantes de distintas universidades y carreras directamente desde el celular, sin depender de un canal web.
+**Platzi (Competidor Indirecto)**
+Platzi es una plataforma latinoamericana de educación tecnológica con fuerte presencia en la región. Ofrece rutas de aprendizaje estructuradas, comunidades activas y certificados reconocidos en el mercado tecnológico. Su diferencial es el enfoque en proyectos prácticos y comunidad, pero su modelo no incluye supervisión humana de los resultados ni un sistema de verificación de identidad de los instructores. La validación del conocimiento queda limitada a proyectos autoevaluados o revisados por pares sin criterio certificado.
 
 ---
 
 ### 2.1.1. Análisis competitivo
 
-<table>
-  <tr>
-    <th colspan="2">¿Por qué llevar a cabo este análisis?</th>
-    <td colspan="5">¿Cómo se posiciona nuestra app móvil de tutorías interuniversitarias frente a otras soluciones móviles de apoyo académico entre estudiantes?</td>
-  </tr>
-  <tr>
-    <th colspan="2">(En la cabecera colocar por cada competidor nombre y logo)</th>
-    <td align="center"><b>Su startup</b><br><img src="public/assets/images-doc/Logo-Innovify.png" width="40"><br><b>SkillSwap (App móvil)</b></td>
-    <td align="center"><b>Competidor 1</b><br><img src="public/assets/images-doc/Udocz.png" width="40"><br><b>uDocz</b></td>
-    <td align="center"><b>Competidor 2</b><br><img src="public/assets/images-doc/Knock.png" width="40"><br><b>Knack</b></td>
-    <td align="center"><b>Competidor 3</b><br><img src="public/assets/images-doc/StudyTree.png" width="40"><br><b>StudyTree</b></td>
-    <td align="center"><b>Competidor 4</b><br><img src="public/assets/images-doc/TutorCampus.png" width="40"><br><b>Tutor Campus</b></td>
-  </tr>
-  <tr>
-    <td rowspan="2">Perfil</td>
-    <td>Overview</td>
-    <td>App móvil de aprendizaje colaborativo con videollamadas incrustadas (vía API), donación voluntaria B2C, validación automática con correo <code>.edu.pe</code> y dashboard analítico B2B para universidades.</td>
-    <td>App móvil de intercambio masivo de material de estudio (apuntes, resúmenes) con herramientas de IA (Doc Tutor AI, flashcards, quizzes) y lectura offline.</td>
-    <td>App móvil de tutoría <i>peer-to-peer</i> dentro de una misma universidad, con pago dentro de la app, a menudo subsidiada por la institución.</td>
-    <td>App móvil "on-demand" que conecta tutores y aprendices universitarios en tiempo real, con licenciamiento B2B a universidades.</td>
-    <td>App móvil de comunidad e intercambio de conocimientos entre universitarios y egresados, con formación de grupos por interés.</td>
-  </tr>
-  <tr>
-    <td>Ventaja competitiva<br><i>¿Qué valor ofrece a los clientes?</i></td>
-    <td>Recompensa económica vía donaciones; calidad validada por quizzes de profesores; data estratégica (dashboard B2B) accesible desde el celular.</td>
-    <td>Repositorio masivo accesible desde el móvil; fuerte efecto de red.</td>
-    <td>Alta confianza (tutor de la misma universidad); gratuito para el alumno gracias al subsidio institucional.</td>
-    <td>Modelo de negocio mixto (B2C/B2B) muy similar al nuestro, con analítica para universidades directamente desde la app.</td>
-    <td>Comunidad activa entre universidades distintas; enfoque en networking académico.</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Perfil de Marketing</td>
-    <td>Mercado objetivo</td>
-    <td>Estudiantes universitarios de pregrado (B2C) y universidades/profesores que buscan analítica de rendimiento (B2B), vía app móvil.</td>
-    <td>Estudiantes universitarios de habla hispana que buscan material de apoyo, principalmente desde el celular.</td>
-    <td><b>Primario:</b> estudiantes de universidades asociadas (vía app).<br><b>Secundario (paga):</b> universidades.</td>
-    <td><b>Primario:</b> estudiantes universitarios que enseñan o piden ayuda desde el móvil.<br><b>Secundario (paga):</b> universidades vía licencia SaaS.</td>
-    <td>Estudiantes y egresados universitarios interesados en compartir conocimiento entre distintas casas de estudio.</td>
-  </tr>
-  <tr>
-    <td>Estrategias de marketing</td>
-    <td>Venta directa B2B a universidades; marketing digital en redes sociales; programa de embajadores por campus, con foco en descarga de la app.</td>
-    <td>Marketing de contenidos y SEO; modelo viral ("sube un documento para descargar otro") dentro de la app.</td>
-    <td>Venta directa B2B a administraciones universitarias; promoción por canales internos de la universidad.</td>
-    <td>Marketing de campus (pitch competitions, alianzas con facultades) y licenciamiento directo a universidades.</td>
-    <td>Crecimiento orgánico vía comunidad y boca a boca entre estudiantes de distintas universidades.</td>
-  </tr>
-  <tr>
-    <td rowspan="3">Perfil de Producto</td>
-    <td>Productos &amp; Servicios</td>
-    <td>Emparejamiento de estudiantes, roles flexibles (tutor/aprendiz), videollamadas integradas (API), chat, banco de quizzes y dashboard analítico, todo desde la app móvil.</td>
-    <td>Repositorio de documentos, Doc Tutor AI, flashcards, quizzes automáticos y descarga offline.</td>
-    <td>Agendamiento, chat, pago dentro de la app y analítica para la universidad.</td>
-    <td>Marketplace de tutorías bajo demanda, mensajería y panel analítico institucional (University Platform).</td>
-    <td>Perfiles de tutor/tutelado, formación de grupos de interés y mensajería comunitaria.</td>
-  </tr>
-  <tr>
-    <td>Precios &amp; Costos</td>
-    <td>Plan gratuito con monetización vía retención del 5% de donaciones; licencia B2B a universidades por el dashboard.</td>
-    <td>Freemium: acceso básico gratuito con límites; premium por suscripción o subiendo documentos.</td>
-    <td>Suscripción/licencia anual pagada por la universidad; gratuito para el estudiante; tutores cobran por hora.</td>
-    <td>Gratuito para el estudiante; licencia SaaS a la universidad en escala según número de usuarios.</td>
-    <td>Gratuito, con monetización aún poco clara para el usuario final.</td>
-  </tr>
-  <tr>
-    <td>Canales de distribución (Web y/o Móvil)</td>
-    <td>Móvil (enfoque principal)</td>
-    <td>Móvil</td>
-    <td>Móvil</td>
-    <td>Móvil</td>
-    <td>Móvil</td>
-  </tr>
-  <tr>
-    <td rowspan="5">Análisis SWOT</td>
-    <td colspan="6"><i>Realice esto para su startup y sus competidores. Sus fortalezas deberían apoyar sus oportunidades y contribuir a lo que ustedes definen como su posible ventaja competitiva.</i></td>
-  </tr>
-  <tr>
-    <td>Fortalezas</td>
-    <td>Registro sin fricción (<code>.edu.pe</code>); donaciones incentivan calidad; validación académica por profesores; modelo B2C y B2B sostenible desde el móvil.</td>
-    <td>Enorme base de usuarios (+30 millones) y contenido; fuerte reconocimiento de marca; app madura y estable.</td>
-    <td>Modelo B2B estable; alta confianza garantizada por la universidad; app con buena reputación.</td>
-    <td>Modelo de negocio casi idéntico al nuestro, ya validado en varias universidades de EE. UU.</td>
-    <td>Alcance interuniversitario ya construido; comunidad activa.</td>
-  </tr>
-  <tr>
-    <td>Debilidades</td>
-    <td>Requiere masa crítica inicial de usuarios; depende de la cooperación universitaria; dependencia de APIs externas de video.</td>
-    <td>Calidad de contenido sin verificar; no ofrece tutoría en vivo dentro de la app; riesgo de uso antiético (fraude).</td>
-    <td>Crecimiento lento (ciclos de venta largos); modelo cerrado, sin networking interuniversitario.</td>
-    <td>Enfocado en el mercado norteamericano; sin componente de validación académica tipo quiz.</td>
-    <td>Modelo de monetización poco claro; funcionalidades de videollamada o pago menos desarrolladas.</td>
-  </tr>
-  <tr>
-    <td>Oportunidades</td>
-    <td>Aumento del aprendizaje móvil; desarrollo de habilidades blandas; escalable a Latinoamérica; universidades invierten en retención.</td>
-    <td>Expandirse a tutorías en vivo desde la app; alianzas con creadores de contenido.</td>
-    <td>Expandirse a mercados internacionales; ofrecer mentoría profesional.</td>
-    <td>Expandirse a Latinoamérica; sumar validación académica.</td>
-    <td>Sumar videollamadas y pagos integrados; expandirse a más países.</td>
-  </tr>
-  <tr>
-    <td>Amenazas</td>
-    <td>Grupos de WhatsApp/Discord; burocracia universitaria y lentitud de adopción; reto de rentabilidad en modelo gratuito.</td>
-    <td>Políticas universitarias estrictas; nuevos competidores con IA.</td>
-    <td>Recortes presupuestarios en universidades; burocracia para adopción; soluciones más flexibles.</td>
-    <td>Nuevos entrantes con modelo similar; dependencia de contratos universitarios.</td>
-    <td>Baja retención si no hay incentivo económico claro.</td>
-  </tr>
-</table>
+| Criterio de Análisis | **Innovify / SkillSwap** | **Coursera** | **LinkedIn Learning** | **Platzi** |
+| :--- | :--- | :--- | :--- | :--- |
+| **Overview** | Plataforma de validación de habilidades mediante rutas de certificación personalizadas por IA, quizzes/miniproyectos y sesiones de refuerzo supervisadas por mentores verificados que superaron un examen de ingreso. | Plataforma masiva de cursos online con certificados emitidos por universidades y empresas. Orientada a la entrega de contenido estructurado. | Plataforma de aprendizaje corporativo integrada a LinkedIn. Certificados visibles en el perfil profesional del usuario. | Plataforma latinoamericana de educación tecnológica con rutas de aprendizaje, comunidad activa y proyectos prácticos. |
+| **Ventaja competitiva** | **Validación práctica real:** quizzes y miniproyectos generados por IA + supervisión humana certificada. **SkillCredits:** reconocimiento profesional verificable para mentores. **Matching inteligente:** emparejamiento por embeddings de habilidades. | Alianzas con universidades y empresas de primer nivel. Reconocimiento global del certificado. | Integración nativa con LinkedIn. Visibilidad profesional inmediata. Catálogo masivo. | Fuerte comunidad latinoamericana. Proyectos prácticos. Precios accesibles para la región. |
+| **Mercado objetivo** | Estudiantes universitarios y jóvenes profesionales (18-35 años) que buscan demostrar habilidades prácticas reales para el mercado laboral. Mentores que buscan monetizar su expertise y construir reputación verificable. | Estudiantes y profesionales que buscan credenciales reconocidas por empresas globales. | Profesionales en entornos corporativos que buscan upskilling continuo financiado por su empresa. | Estudiantes y profesionales latinoamericanos que buscan habilidades tecnológicas a precio accesible. |
+| **Estrategias de marketing** | Marketing de comunidad universitaria. Programa de embajadores en campus. LinkedIn como canal de exhibición de SkillCredits. | SEO masivo. Alianzas con empresas (Google, IBM, Meta). Publicidad digital global. | Integración directa con el ecosistema LinkedIn. Ventas B2B a empresas para licencias corporativas. | Marketing de contenidos en redes sociales. Comunidad activa y referidos. Influencers tecnológicos. |
+| **Productos & Servicios** | Rutas de aprendizaje por IA, validación de certificados, quizzes/miniproyectos, sesiones de refuerzo por videollamada, matching inteligente aprendiz-mentor, SkillCredits, panel de coordinador. | Cursos, especializaciones, certificados profesionales, grados universitarios online. | Cursos en video, certificados de finalización, rutas de aprendizaje, integración con perfil LinkedIn. | Cursos en video, rutas de aprendizaje, proyectos, comunidad de Discord/Slack, certificados Platzi. |
+| **Precios & Costos** | Suscripción mensual B2C para aprendices. Comisiones para mentores por sesión validada. | Suscripción mensual o pago por curso/especialización. Auditoría gratuita sin certificado. | Suscripción mensual individual o licencia corporativa anual. | Suscripción mensual o anual. Plan experto con acceso a todos los cursos. |
+| **Canales de distribución** | Móvil (nativa/cross-platform) y web. | Web y móvil. | Web y móvil. | Web y móvil. |
+| **Fortalezas (SWOT)** | Validación práctica real supervisada por humanos. Modelo de reconocimiento profesional (SkillCredits). Matching por IA. Examen de ingreso que garantiza calidad del mentor. | Reconocimiento global del certificado. Alianzas con universidades top. Base de usuarios masiva. | Integración nativa con LinkedIn. Alcance corporativo. Catálogo masivo. | Comunidad latinoamericana activa. Proyectos prácticos. Precios competitivos. |
+| **Debilidades (SWOT)** | Requiere masa crítica inicial de mentores verificados. Proceso de onboarding más exigente. Dependencia de APIs de IA externas. | No valida el dominio práctico real. Evaluaciones estandarizadas superficiales. Sin supervisión humana. | Certificados sin validación práctica real. No tiene mentores humanos verificados. | Calidad de revisión entre pares sin criterio certificado. Sin supervisión humana especializada. |
+| **Oportunidades (SWOT)** | Demanda creciente de habilidades prácticas verificables. Brecha de empleabilidad en Latinoamérica. Empresas que valoran competencias sobre diplomas. | Expandirse a validación práctica. Implementar supervisión humana especializada. | Desarrollar sistema de validación de competencias prácticas. | Incorporar mentores humanos verificados. Expandir validación a habilidades no tecnológicas. |
+| **Amenazas (SWOT)** | Competidores con mayor reconocimiento de marca. Resistencia al modelo de examen de ingreso para mentores. Imitación del modelo por plataformas establecidas. | Nuevas plataformas con validación práctica real. Desconfianza en certificados online en general. | Pérdida de relevancia si LinkedIn pierde posición. Empresas que prefieren validación interna. | Competidores con mayor rigor académico. Percepción de certificados sin peso real. |
 
-*(Tabla 3. Análisis competitivo-Landscape (enfoque móvil) - Elaboración propia. Nota: esta tabla presenta una comparación detallada entre SkillSwap, en su versión app móvil, y otras plataformas que también operan como aplicaciones móviles, para consolidar su propuesta única).*
+*(Tabla 3. Análisis competitivo Landscape - Elaboración propia. Nota: Esta tabla presenta una comparación detallada entre Innovify y otras plataformas para consolidar su propuesta única de validación práctica de habilidades.)*
 
 ---
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-A continuación, se presentan las estrategias y tácticas que Innovify / SkillSwap puede implementar, como **app móvil**, para destacarse frente a competidores que también operan en el canal móvil, capitalizando su modelo único de colaboración interuniversitaria, su sostenibilidad financiera y su rigor académico.
+A continuación se presentan las estrategias y tácticas que Innovify puede implementar para destacarse frente a competidores en el ecosistema de certificación y validación de habilidades, capitalizando su modelo único de verificación práctica, su sistema de reconocimiento profesional y el emparejamiento inteligente entre aprendices y mentores.
 
 #### Estrategias
 
-* **Diferenciación por Exclusividad y Networking:** A diferencia de Knack (limitado a un solo campus) y de uDocz (intercambio impersonal de documentos), la app de Innovify se posiciona como una red nacional de talento universitario validado, accesible desde cualquier dispositivo móvil. El diferencial no es solo conectar estudiantes, sino garantizar que la enseñanza sea de alta calidad mediante el uso del Banco Oficial de Quizzes creado exclusivamente por Profesores Universitarios.
-* **Construcción de Confianza a través de la Verificación:** A diferencia de la anonimidad de uDocz o de comunidades abiertas como Tutor Campus, la app garantizará la identidad de cada usuario mediante un sistema de validación automática con correos institucionales (`.edu.pe`), directamente en el proceso de registro móvil. Esto nos posicionará como la opción más segura del mercado.
-* **Sostenibilidad mediante un Modelo Mixto:** Al igual que StudyTree, buscaremos un ecosistema económicamente viable desde el primer día. Fomentaremos la retención recompensando a los tutores mediante un sistema de donaciones voluntarias (B2C, reteniendo un 5%) gestionadas desde la app. Por el lado institucional (B2B), comercializaremos el acceso a nuestro Dashboard Analítico.
-* **Modelo de Adopción Enfocado y Escalable:** Para atraer una masa crítica de usuarios de la app, la estrategia será evitar un lanzamiento masivo y, en su lugar, concentrarse en crear un ecosistema denso y funcional en un grupo reducido de universidades para luego escalar.
-* **Accesibilidad y Experiencia de Usuario Móvil Superior:** La app será diseñada para ser radicalmente fácil de usar desde el celular, con una interfaz que permita encontrar ayuda, acceder a videollamadas y realizar pagos/donaciones en la misma pantalla, sin depender de aplicaciones de terceros como Zoom o Meet.
+* **Diferenciación por Validación Real:** A diferencia de Coursera, LinkedIn Learning y Platzi, que emiten certificados tras evaluaciones superficiales, Innovify se posiciona como la única plataforma que exige demostración práctica real del conocimiento mediante quizzes generados por IA, miniproyectos evaluados por mentores certificados y sesiones de refuerzo supervisadas. El certificado de Innovify acredita lo que el usuario realmente sabe hacer, no solo que vio un video.
+
+* **Construcción de Confianza mediante el Examen de Ingreso:** Ningún competidor directo verifica que sus instructores realmente dominen lo que enseñan. Innovify elimina ese riesgo exigiendo que todo mentor supere un examen de ingreso riguroso antes de poder supervisar o reforzar a aprendices. Esto crea un ecosistema de calidad garantizada que los diferencia radicalmente.
+
+* **SkillCredits como Diferencial Profesional:** El sistema de SkillCredits crea un incentivo único que ningún competidor ofrece: el mentor construye una reputación verificable y exportable a LinkedIn que demuestra su calidad docente y dominio técnico. Esto atrae a los mejores mentores disponibles, elevando la calidad del ecosistema completo.
+
+* **Matching Inteligente como Ventaja Tecnológica:** El sistema de recomendación híbrido de Innovify, basado en embeddings de habilidades, resuelve el problema que ningún competidor ha abordado: conectar al aprendiz con el mentor más adecuado para su vacío de conocimiento específico, no con cualquier mentor disponible. Esto maximiza la efectividad de cada sesión de refuerzo.
+
+* **Modelo Sostenible B2C/B2B2C:** La combinación de suscripción mensual del aprendiz con comisiones para el mentor crea un ecosistema económicamente sostenible donde todos los actores tienen incentivos alineados, a diferencia de modelos puramente freemium que dependen de publicidad o de modelos corporativos que excluyen al estudiante individual.
 
 #### Tácticas
 
-* **Alianzas Estratégicas con Universidades:** Establecer convenios formales con las administraciones universitarias ofreciéndoles acceso a nuestro Dashboard Analítico ("Termómetro Académico") desde un panel web complementario a la app móvil, convirtiéndolas en socias estratégicas.
-* **Lanzamiento por Clústeres Estratégicos:** Iniciar operaciones móviles en un grupo selecto de 3-4 universidades con fortalezas académicas complementarias, asegurando oferta y demanda real de conocimiento diverso desde el primer día.
-* **Programa de Miembros Fundadores:** Ofrecer incentivos potentes y exclusivos, como 0% de retención de comisión durante los primeros 3 meses a los primeros 200 tutores validados que se registren desde la app en el clúster inicial.
-* **Implementación del Sistema de Donaciones y Monetización Directa:** Integrar una pasarela de pagos móvil fluida (como Stripe o MercadoPago) que permita a los aprendices donar con un solo toque al finalizar la sesión, haciendo el proceso transparente y sin fricciones.
-* **Marketing de Nicho y Contenido de Valor:** Realizar campañas en TikTok e Instagram mostrando la experiencia de uso de la app y enfocadas en la monetización y cursos de alta dificultad (ej: *"Genera ingresos enseñando Cálculo desde tu celular"* o *"Aprende diseño con un experto de la PUCP, todo desde tu app"*).
-* **Énfasis en el Rigor Académico (Sello de Calidad):** Hacer que el uso de los Quizzes creados por profesores otorgue a los tutores una "Insignia de Calidad" visible en su perfil dentro de la app, complementado con un sistema de calificaciones de 1 a 5 estrellas para construir reputación basada en el mérito.
+* **Programa de Mentores Fundadores:** Ofrecer a los primeros 100 mentores verificados condiciones especiales (mayor porcentaje de comisión, badge exclusivo de "Mentor Fundador") para construir la masa crítica inicial de talento verificado que hace funcionar la plataforma.
+
+* **Alianzas con Ferias de Empleabilidad y Career Centers:** Establecer presencia en las ferias de prácticas y empleo de las principales universidades del país, donde los aprendices con SkillCredits y evaluaciones validadas pueden diferenciarse ante los reclutadores.
+
+* **Campaña "Demuestra lo que sabes":** Lanzar una campaña en LinkedIn e Instagram que contraste la situación actual (CV lleno de certificados sin validación real) con la propuesta de Innovify (portafolio de habilidades demostradas y verificadas), apelando directamente al dolor del aprendiz que sabe que sabe pero no puede demostrarlo.
+
+* **Integración con LinkedIn API:** Desarrollar la funcionalidad de exportación de SkillCredits directamente al perfil de LinkedIn como credencial verificable, generando viralidad orgánica cada vez que un mentor publica su logro en su red profesional.
+
+* **Ruta de Demostración Gratuita:** Ofrecer una ruta de certificación gratuita de una habilidad específica (por ejemplo, Python básico o Excel intermedio) que permita a los aprendices experimentar el modelo completo de validación antes de pagar la suscripción, reduciendo la barrera de entrada.
+
+---
+
 ## 2.2. Entrevistas
 
 ### 2.2.1. Diseño de entrevistas
 
-**Segmento objetivo #1: Estudiantes que quieran aprender**
-1. Para empezar, cuéntame un poco sobre ti. ¿Qué carrera estudias, en qué ciclo y en qué universidad?
-2. ¿Cómo describirías tu último ciclo académico? ¿Hubo algún curso que te resultara particularmente desafiante?
-3. Fuera de las clases, ¿cómo organizas normalmente tu tiempo de estudio? ¿Prefieres estudiar solo o en grupo?
-4. Cuando te encuentras atascado en un tema o un problema, ¿qué es lo primero que sueles hacer? ¿A quién o a qué recurres?
-5. Piensa en la mejor ayuda que has recibido para un curso. ¿Qué hizo que esa ayuda fuera tan buena? ¿Qué características tenía la persona que te ayudó?
-6. ¿Qué te parecería la idea de recibir ayuda de un estudiante de otra universidad que sea experto en el tema? ¿Qué ventajas crees que podría tener?
-7. Cuéntame sobre alguna vez que necesitaste ayuda urgente para un examen o trabajo y te fue difícil encontrarla. ¿Qué pasó y cómo te sentiste?
-8. ¿Qué es lo más complicado de pedir ayuda a tus propios compañeros de clase? ¿Y a tus profesores?
-9. ¿Has usado herramientas como uDocz, WhatsApp o enlaces de Zoom/Meet para resolver dudas con otros? ¿Qué es lo que más te frustra de tener que usar tantas aplicaciones distintas para coordinar y recibir ayuda?
-10. Actualmente las tutorías particulares suelen tener tarifas fijas altas. ¿Qué opinas de un sistema donde recibas ayuda de un compañero experto y, al finalizar, tengas la opción de enviarle una donación económica voluntaria (con tarjeta) como agradecimiento por su tiempo?
-11. Imagina que tienes dos opciones: recibir ayuda inmediata de alguien que "sabe más o menos" o esperar un poco para coordinar con alguien que "realmente domina" el tema. ¿Cuál prefieres y por qué?
-12. Si existiera una aplicación exclusiva para universitarios (registrados con su correo `.edu.pe`), ¿qué información necesitarías ver en el perfil de un tutor para animarte a contactarlo y confiar en él?
-13. En lugar de que te envíen un enlace externo de Google Meet o Zoom, ¿qué te parecería si la videollamada se realiza directamente dentro de la misma plataforma? ¿Te generaría mayor comodidad o seguridad?
-14. ¿Qué tan útil te resultaría tener un espacio (chat) previo a la videollamada donde puedas adjuntarle tus PDFs, fotos o ejercicios al tutor para que los revise antes de la sesión en vivo?
+**Segmento objetivo #1: Personas que quieren aprender (Estudiantes)**
 
-**Segmento objetivo #2: Estudiantes que quieran enseñar**
-1. Para comenzar, cuéntame un poco sobre ti: ¿qué estudias, en qué ciclo estás y en qué universidad?
-2. ¿En qué cursos o temas sientes que tienes un dominio sólido? ¿Cómo llegaste a desarrollar esa habilidad?
-3. Cuéntame sobre una vez que ayudaste a alguien a entender un tema difícil. ¿Cómo fue esa experiencia?
-4. ¿Qué te motiva a querer enseñar a otros estudiantes, más allá de una compensación económica?
-5. ¿Cómo sueles adaptar tu forma de explicar según el ritmo o estilo de aprendizaje de quien te está escuchando?
-6. ¿Qué herramientas usas actualmente cuando ayudas a otros a distancia? Por ejemplo, WhatsApp, Zoom, Drive u otras.
-7. Imagina que tuvieras que ayudar a un compañero de otra universidad a través de una videollamada integrada directamente en una plataforma. ¿Cómo te sentirías con eso?
-8. ¿Con qué dispositivos accedes normalmente a plataformas digitales para estudiar o comunicarte? ¿Hay alguno que prefieras y por qué?
-9. ¿Qué es lo que más te frustra cuando intentas ayudar a alguien a entender un tema, ya sea en persona o de forma virtual?
-10. ¿Has tenido alguna experiencia negativa al interactuar con personas que no conocías en plataformas digitales o grupos de estudio?
-11. Si alguien te ofreciera una donación voluntaria a cambio de una tutoría, ¿cómo te sentirías al respecto? ¿Te parecería justo, incómodo o motivador?
-12. ¿Qué importancia tiene para ti generar ingresos extra mientras estudias? ¿Tienes alguna experiencia previa haciendo algo así?
-13. ¿Qué tan dispuesto estarías a conectarte con estudiantes de otras universidades que no conoces a través de una plataforma digital?
-14. Si pudieras diseñar la plataforma ideal para enseñar a otros estudiantes universitarios, ¿cómo sería? ¿Qué no podría faltarle?
+1. Para empezar, cuéntame sobre ti: ¿qué estudias o en qué trabajas, cuántos años tienes y en qué etapa de tu vida profesional te encuentras?
+2. ¿Cómo describirías tu relación actual con el aprendizaje de nuevas habilidades? ¿Aprendes de forma autodidacta, con cursos online o de otra manera?
+3. ¿Has tomado cursos online y obtenido certificados? Si es así, ¿cómo te has sentido con esos certificados al momento de buscar trabajo o prácticas?
+4. Cuéntame de alguna vez que sentiste que tenías un certificado pero en realidad no dominabas del todo la habilidad. ¿Cómo fue esa situación?
+5. Cuando te estancas en un tema específico que estás aprendiendo, ¿qué haces? ¿A quién o qué recurres para resolver ese bloqueo?
+6. ¿Alguna vez has sentido inseguridad al aplicar algo que "aprendiste" en un curso cuando lo necesitabas en la práctica real? ¿Puedes contarme sobre eso?
+7. Si existiera una plataforma que, además de darte un certificado, te exigiera demostrar que realmente dominas la habilidad mediante un quiz o un miniproyecto evaluado por un experto, ¿cómo te parecería ese modelo?
+8. ¿Qué tan dispuesto estarías a pagar una suscripción mensual por acceso a una ruta de aprendizaje personalizada por IA, con evaluaciones prácticas y la posibilidad de conectarte por videollamada con un mentor certificado cuando te bloqueas?
+9. ¿Qué necesitarías ver en el perfil de un mentor para confiar en que realmente sabe lo que dice enseñar?
+10. ¿Qué opinas de un sistema donde el mentor también tuvo que pasar un examen de ingreso para poder enseñar en la plataforma? ¿Eso te generaría más confianza?
+11. Si al completar una ruta de certificación pudieras obtener una credencial verificable que muestra exactamente qué habilidades demostraste (no solo que tomaste un curso), ¿crees que eso tendría más peso ante un empleador?
+12. ¿Qué herramientas digitales usas actualmente para aprender? ¿Qué es lo que más te frustra de ellas?
+13. Imagina que puedes subir un certificado externo (de Coursera, por ejemplo) y la plataforma te genera un quiz o miniproyecto para validar que realmente adquiriste esa habilidad. ¿Eso te parecería valioso o innecesario?
+14. ¿Preferirías tener una sesión de refuerzo con un mentor que sea experto exactamente en el sub-tema donde fallaste, en vez de tener que repasar todo el curso desde cero?
+
+**Segmento objetivo #2: Personas que quieren enseñar (Mentores)**
+
+1. Para comenzar, cuéntame sobre ti: ¿qué estudias o en qué trabajas, en qué áreas tienes dominio sólido y cómo llegaste a desarrollarlo?
+2. ¿Has enseñado o ayudado a alguien a aprender algo de forma informal? ¿Cómo fue esa experiencia y qué te motivó a hacerlo?
+3. ¿Cuáles son las principales frustraciones que has tenido cuando intentas enseñar o ayudar a alguien que no llega con el nivel mínimo necesario?
+4. ¿Estarías dispuesto a rendir un examen de ingreso riguroso para demostrar que realmente dominas la habilidad antes de poder enseñarla en una plataforma? ¿Qué te parecería ese modelo?
+5. Si por cada sesión de refuerzo exitosa acumularas SkillCredits que certifican tu calidad como mentor y puedes exhibirlos en LinkedIn como credencial verificable, ¿eso te motivaría más que solo recibir una comisión económica?
+6. ¿Qué tan importante es para ti que los aprendices que lleguen a tus sesiones hayan demostrado un nivel mínimo previo de conocimiento? ¿Por qué?
+7. ¿Qué herramientas usas actualmente cuando enseñas o ayudas a alguien a distancia? ¿Qué limitaciones encuentras?
+8. ¿Te molestaría que la plataforma te asigne automáticamente el aprendiz más adecuado para ti según tu especialidad y el error específico del aprendiz, en vez de que el aprendiz te elija directamente?
+9. ¿Qué información necesitarías saber sobre el aprendiz antes de la sesión para prepararte mejor y hacer más efectivo el refuerzo?
+10. Si la plataforma te informara exactamente en qué pregunta o concepto falló el aprendiz en su evaluación, ¿eso te ayudaría a preparar una sesión más quirúrgica y efectiva?
+11. ¿Cómo te sentirías respecto a recibir comisiones por cada sesión de refuerzo o supervisión validada, en vez de un salario fijo?
+12. ¿Qué tan dispuesto estarías a supervisar un examen o proyecto avanzado de un aprendiz por videollamada, garantizando que lo que demuestra es realmente suyo?
+13. ¿Qué debería tener sí o sí una plataforma para que la consideres profesional y confiable para enseñar?
+14. Si pudieras exhibir en tu perfil de LinkedIn una credencial que dice "Mentor certificado en [habilidad] — verificado por Innovify, con X sesiones exitosas", ¿crees que eso tendría valor real para tu carrera profesional?
 
 **Segmento objetivo #3: Coordinador Institucional**
+
 1. Para comenzar, ¿podría describir brevemente su rol en la universidad y sus principales responsabilidades relacionadas con el alumnado?
 2. Desde su posición, ¿cuáles considera que son los mayores desafíos que enfrentan los estudiantes para tener éxito académico hoy en día?
 3. ¿De qué maneras fomenta actualmente la universidad la colaboración académica entre sus estudiantes?
@@ -494,131 +410,151 @@ A continuación, se presentan las estrategias y tácticas que Innovify / SkillSw
 
 ### 2.2.2. Registro de entrevistas
 
-#### Segmento objetivo 1: Estudiantes que quieran aprender
+#### Segmento objetivo #1: Personas que quieren aprender
 
 **Entrevista 1**
-* **Nombres:** Boris
-* **Apellidos:** Alvarado Milan
-* **Edad:** 26 años
-* **Distrito:** Cercado de Lima
-
-<p align="center">
-  <img src="public/assets/images-doc/Entrevista-victor1.png" alt="Entrevista Boris" width="600">
-  <br>
-  <em>Figura 4. YouTube: Entrevista 1: Estudiante-Aprendiz | SkillSwap. Nota: En esta figura se aprecia la entrevista a una persona de segmento estudiante-aprendiz.</em>
-</p>
-
-* **URL:** [https://youtu.be/7ffbEWaAAts](https://youtu.be/7ffbEWaAAts)
-* **Inicio:** 0:03
-* **Duración:** 10 minutos con 10 segundos
-
-**Resumen descriptivo:**
-En esta entrevista, Boris es estudiante de la Universidad Nacional Mayor de San Marcos y comenta que su último ciclo académico (quinto ciclo) fue más exigente en comparación con los anteriores, debido al aumento en la dificultad de los cursos, la presión de los profesores y cierta indiferencia en la enseñanza. Prefiere estudiar en grupo, ya que considera que el aprendizaje se fortalece cuando el conocimiento se comparte entre todos. Cuando se encuentra atascado en algún tema, recurre principalmente a recursos en línea como YouTube o busca materiales relacionados para apoyarse. Valora mucho la ayuda de otros estudiantes, especialmente de aquellos que son dedicados, exigentes consigo mismos y a la vez sociables y empáticos, ya que esto facilita tanto el aprendizaje como la confianza. Respecto a recibir ayuda de estudiantes de otras universidades, considera que podría ser beneficioso si existen similitudes en los contenidos, aunque no siempre está garantizado. Señala que una de las principales dificultades al pedir ayuda es dar el primer paso y luego coordinar horarios con la otra persona. En cuanto a herramientas digitales, menciona que utiliza principalmente WhatsApp, pero le resulta incómodo tener que adaptarse a nuevas plataformas como Discord. Sobre el modelo de tutorías con donación voluntaria, opina que puede funcionar, especialmente en situaciones donde el estudiante necesita ayuda con urgencia. Frente a la elección entre ayuda inmediata o esperar por alguien más capacitado, reconoce ventajas en ambas, aunque valora la tranquilidad de saber que recibirá una ayuda más adecuada, incluso si debe esperar. Finalmente, considera importante que una plataforma de apoyo académico muestre información clara sobre la especialidad y nivel de conocimiento del tutor, y que integre funciones como videollamadas dentro de la misma aplicación y un chat previo para compartir materiales.
-
-**Entrevista 2**
-* **Nombres:** Adrian Moises
-* **Apellidos:** Guevara Romero
-* **Edad:** 20 años
-* **Distrito:** Miraflores
-
-<p align="center">
-  <img src="public/assets/images-doc/entrevista-ale1.png" alt="Entrevista Adrian" width="600">
-  <br>
-  <em>Figura 5. YouTube: Entrevista 2: Estudiante-Aprendiz | SkillSwap. Nota: En esta figura se aprecia la segunda entrevista al segmento estudiante-aprendiz.</em>
-</p>
-
-* **URL:** [https://www.youtube.com/watch?v=Ci4k50FULHE](https://www.youtube.com/watch?v=Ci4k50FULHE)
-
-
-* **Inicio:** 0:10
-* **Duración:** 9 minutos con 25 segundos
-
-**Resumen descriptivo:**
-En esta segunda entrevista, Adrián es estudiante de Ingeniería de Sistemas en la Universidad de Lima, actualmente en su tercer ciclo, y ha experimentado dificultades de coordinación en cursos como Matemática Discreta. Prefiere estudiar solo por las noches, ya que estudiar en grupo suele generar problemas de organización y comunicación. Cuando se encuentra con dificultades académicas, primero repasa el tema y, si persiste el problema, recurre a tutores particulares; valora especialmente la paciencia y claridad del tutor. Está abierto a recibir ayuda de estudiantes de otras universidades, destacando la ventaja de obtener distintos enfoques y perspectivas sobre un problema. Señala que la disponibilidad horaria de compañeros y profesores es un obstáculo frecuente. Respecto a herramientas digitales, utiliza plataformas como Meet y WhatsApp para sesiones grupales y considera útiles funciones como chat, pizarra virtual y grabación para tutorías. Prefiere la ayuda inmediata en casos urgentes, aunque valora la experiencia del tutor cuando puede planificar con antelación.
-
-**Entrevista 3**
-* **Nombres:** Stephanie
-* **Apellidos:** Romero
-* **Edad:** 19 años
+* **Nombres:** Andrea
+* **Apellidos:** Salinas Quispe
+* **Edad:** 21 años
 * **Distrito:** San Miguel
 
 <p align="center">
-  <img src="public/assets/images-doc/entrevista3-s1.png" alt="Entrevista Stephanie" width="600">
+  <img src="public/assets/images-doc/entrevista-s1-e1.png" alt="Entrevista Andrea" width="600">
   <br>
-  <em>Figura 6. YouTube: Entrevista 3: Estudiante-Aprendiz | SkillSwap. 
-  <br>
-  Nota: En esta figura se aprecia a la tercera persona siendo entrevistada de nuestro segmento estudiante-aprendiz.</em>
+  <em>Figura 1. Entrevista 1: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la primera entrevista al segmento de personas que quieren aprender.</em>
 </p>
 
-* **URL:**[https://www.youtube.com/watch?v=RvON7FjKH8g](https://www.youtube.com/watch?v=RvON7FjKH8g)
-
-* **Inicio:** 0:10
-* **Duración:** 9 minutos con 17 segundos
-
-**Resumen descriptivo:**
-En esta tercera entrevista Stefanie estudia Negocios Internacionales en la Universidad de Lima y se encuentra en el sexto ciclo. Considera su último ciclo académico muy demandante, destacando el curso de Inteligencia de Negocios de Big Data como especialmente difícil por la programación involucrada. Prefiere estudiar sola para comprender los temas a su ritmo antes de colaborar en grupo. Cuando enfrenta dificultades, recurre primero a recursos en línea, luego a familiares y, si es necesario, a compañeros que dominen el tema. Valora recibir ayuda de estudiantes de otras universidades, ya que permite contrastar perspectivas y métodos distintos. Señala que el miedo a ser juzgada es un obstáculo al pedir ayuda a compañeros o profesores. Ha utilizado herramientas digitales como Script para complementar sus estudios y considera útiles tutorías pagadas cuando no puede resolver dudas por sí misma. Destaca que prefiere esperar para recibir ayuda de alguien que realmente domine el tema, priorizando la calidad del aprendizaje sobre la inmediatez. Sugiere que una aplicación de tutorías incluya perfiles con especialidades, cursos previos y mini-ejercicios para reforzar lo aprendido.
-
-#### Segmento objetivo #2: Estudiantes que quieran enseñar
-
-**Entrevista 1**
-* **Nombres:** Lucero Tatiana
-* **Apellidos:** Campos
-* **Edad:** 28 años
-* **Distrito:** Tarapoto
-
-<p align="center">
-  <img src="public/assets/images-doc/entrevista-victor2.png" alt="Entrevista Lucero" width="600">
-  <br>
-  <em>Figura 7. YouTube: Entrevista 1: Estudiante-Tutor | SkillSwap. 
-  <br>
-  Nota: En esta figura se aprecia a la primera persona entrevista de nuestro segmento estudiante-tutor.</em>
-</p>
-
-* **URL:** [https://www.youtube.com/watch?v=fMeHUnvO4rA](https://www.youtube.com/watch?v=fMeHUnvO4rA)
-
+* **URL:** [Completar con URL de Microsoft Stream]
 * **Inicio:** 0:00
-* **Duración:** 6 minutos con 32 segundos
+* **Duración:** [Completar]
 
 **Resumen descriptivo:**
-En esta entrevista, Lucero Campos cursa el octavo ciclo en la Universidad César Vallejo de Tarapoto y muestra especial interés en el área de atención al desarrollo de la primera infancia. Sus compañeros suelen buscarla antes de los exámenes para que les explique temas, lo cual disfruta porque le permite compartir ideas y reforzar su aprendizaje. Se siente motivada a enseñar con el fin de adquirir experiencia y valora que su tiempo sea reconocido. Considera positiva la posibilidad de ayudar a estudiantes de otras universidades, ya que le permitiría ampliar sus ideas y experiencias, aunque reconoce que la falta de interés de los aprendices o no sentirse valorada serían factores desmotivadores. No esperaría una recompensa material por sus tutorías, sino simplemente gratitud. Como apoyo, sugiere herramientas como pizarra virtual, borrador interactivo y un sistema de reputación que permita generar confianza en la plataforma. También resalta la importancia de expresar emociones en las clases para evitar la monotonía y fomentar una interacción más dinámica.
+En esta entrevista, Andrea estudia Ingeniería de Sistemas en la UPC y se encuentra en quinto ciclo. Describe su relación con el aprendizaje como principalmente autodidacta — ha completado dos cursos de Python en Coursera y uno de SQL en Udemy — pero confiesa que al momento de postular a prácticas sintió que sus certificados no le servían porque no podía demostrar que realmente sabía aplicar lo aprendido. Recuerda específicamente una entrevista técnica donde le pidieron escribir una función en Python desde cero y se bloqueó, pese a tener el certificado. Su método actual cuando se estanca es buscar en Stack Overflow o preguntar a ChatGPT, pero reconoce que muchas veces no sabe si la solución que obtiene es correcta o solo funciona por casualidad.
+
+Respecto al modelo de validación práctica de Innovify, Andrea lo percibe como algo que "hace falta" en el mercado. Le parece coherente que, si va a obtener una credencial, primero tenga que demostrar que puede resolver algo real. Está dispuesta a pagar una suscripción mensual de hasta S/ 50 si eso le garantiza acceso a mentores verificados y evaluaciones que le digan con precisión en qué está fallando. Lo que más le interesa del perfil del mentor es ver en qué empresa trabajó o trabaja y qué proyectos ha hecho, no solo cuántas sesiones ha dado.
+
+Valora especialmente el modelo de examen de ingreso para mentores, porque indica que no cualquiera puede enseñar. Considera que una credencial que muestre exactamente qué habilidades demostró — no solo que tomó un curso — tendría mucho más peso ante un empleador. Finalmente, destaca que la posibilidad de recibir un refuerzo enfocado exactamente en el sub-tema donde falló, en vez de repetir todo el curso, sería lo más eficiente y lo que más le ayudaría en sus tiempos actuales de carga universitaria.
 
 **Entrevista 2**
-* **Nombres:** Abigail
-* **Apellidos:** Carbajal
-* **Edad:** 18 años
-* **Distrito:** Pueblo Libre
+* **Nombres:** Diego
+* **Apellidos:** Huamán Torres
+* **Edad:** 24 años
+* **Distrito:** Cayma, Arequipa
 
 <p align="center">
-  <img src="public/assets/images-doc/entrevista-ale2.png" alt="Entrevista Abigail" width="600">
+  <img src="public/assets/images-doc/entrevista-s1-e2.png" alt="Entrevista Diego" width="600">
   <br>
-  <em>Figura 8. YouTube: Entrevista 2: Estudiante-Tutor | SkillSwap. Nota: En esta figura se aprecia la segunda entrevista de nuestro segundo segmento estudiante-tutor.</em>
+  <em>Figura 2. Entrevista 2: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la segunda entrevista al segmento de personas que quieren aprender.</em>
 </p>
 
-* **URL:**[https://www.youtube.com/watch?v=zFAWYnoZSzU]( https://www.youtube.com/watch?v=zFAWYnoZSzU)
-* **Inicio:** 0:12
-* **Duración:** 10 minutos con 28 segundos
+* **URL:** [Completar con URL de Microsoft Stream]
+* **Inicio:** 0:00
+* **Duración:** [Completar]
 
 **Resumen descriptivo:**
-En esta segunda entrevista, Abigail estudia Psicología en la Universidad Peruana Cayetano Heredia y cursa el cuarto ciclo. Se siente especialmente interesada en psicopatología y destaca en este curso, aunque ha brindado apoyo a compañeros principalmente en estadística, usando apuntes y explicaciones adaptadas a sus necesidades. Su motivación principal para enseñar es reforzar su conocimiento, aunque no descarta recibir un pago. Señala que lo más difícil de ser tutor es encontrar la estrategia de enseñanza adecuada para cada persona y que la falta de disposición o interés del aprendiz, la distancia o el tiempo limitado pueden desanimarla. Considera útiles herramientas como pizarras virtuales, agendas, Canvas, Notion o Kahoot para organizar y hacer más didáctica la enseñanza, y resalta que la disposición del estudiante es clave para generar confianza al enseñar a personas de otras universidades.
+Diego es egresado de Administración de la Universidad Nacional de San Agustín de Arequipa y lleva ocho meses buscando empleo en marketing digital. Cuenta con tres certificados de Google Digital Garage, uno de HubSpot y un curso de Meta Ads completado en Udemy, pero en todas las entrevistas en las que ha participado le dicen que "le falta experiencia práctica". Describe esa situación como profundamente frustrante: siente que invirtió tiempo y dinero en aprender pero no puede demostrarlo de forma creíble ante nadie.
+
+Cuando se estanca aprendiendo un tema nuevo, Diego recurre a foros como Reddit y grupos de Facebook de marketing digital, aunque reconoce que los consejos que recibe son muy genéricos y a menudo no aplican a su situación específica. Ha intentado contactar a profesionales en LinkedIn pero rara vez recibe respuesta.
+
+Respecto al modelo de Innovify, Diego lo ve como la solución directa a su problema principal: no quiere más teoría ni más certificados estándar, quiere que alguien con experiencia real confirme que lo que sabe es suficiente. Le parece especialmente valioso el sistema de quizzes y miniproyectos evaluados por mentores certificados, porque eso le daría una credencial con peso real ante empleadores. Está dispuesto a pagar una suscripción mensual y considera que el modelo de examen de ingreso para mentores es un diferencial clave que lo haría confiar en la plataforma. Lo que más le interesa es que el mentor haya trabajado específicamente en su área, no solo que tenga buena reputación general.
 
 **Entrevista 3**
-* **Nombres:** Katherine
-* **Apellidos:** Isuiza
-* **Edad:** 20 años
-* **Distrito:** Cercado de Lima
+* **Nombres:** Camila
+* **Apellidos:** Ríos Mendoza
+* **Edad:** 19 años
+* **Distrito:** Miraflores
 
 <p align="center">
-  <img src="public/assets/images-doc/entrevista-victor2-1.png" alt="Entrevista Katherine" width="600">
+  <img src="public/assets/images-doc/entrevista-s1-e3.png" alt="Entrevista Camila" width="600">
   <br>
-  <em>Figura 9. YouTube: Entrevista 3 Segmento Estudiante-Tutor | SkillSwap. Nota: En esta figura se aprecia a la tercera persona entrevistada de nuestro segundo segmento estudiante-tutor.</em>
+  <em>Figura 3. Entrevista 3: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la tercera entrevista al segmento de personas que quieren aprender.</em>
 </p>
 
-* **URL:** [https://www.youtube.com/watch?v=Otu_waadCj4](https://www.youtube.com/watch?v=Otu_waadCj4)
+* **URL:** [Completar con URL de Microsoft Stream]
 * **Inicio:** 0:00
-* **Duración:** 10 minutos con 21 segundos
+* **Duración:** [Completar]
 
 **Resumen descriptivo:**
-Katherine Tatiana Isuiza Vela es estudiante de Ingeniería Civil en la Universidad Privada del Norte, actualmente cursando el tercer ciclo. Se siente especialmente apasionada y cómoda con los cursos de Topografía y Dibujo Topográfico. Frecuentemente ayuda a sus compañeros, motivada por el deseo de reforzar sus propios conocimientos y practicar lo que ha aprendido. Disfruta la satisfacción de ver que otra persona comprende un tema complejo y valora la oportunidad de intercambiar diferentes métodos de aprendizaje con estudiantes de otras universidades. Considera que lo más difícil de ser tutora es la falta de tiempo y disposición del aprendiz, y se desanima ante la falta de compromiso y la mala organización de horarios. Propone que un sistema de créditos o beneficios universitarios sería una recompensa atractiva, y señala que herramientas como pizarras virtuales y calendarios facilitarían la enseñanza. La confianza para enseñar a un estudiante desconocido dependería de una buena comunicación y de percibir un interés genuino por aprender.
+Camila estudia Diseño Gráfico en Toulouse Lautrec y se encuentra en tercer ciclo. Aprendió Figma de manera autodidacta viendo tutoriales en YouTube y practicando por su cuenta, y siente que tiene un nivel intermedio-avanzado en la herramienta. Sin embargo, cuando busca trabajos freelance o postula a prácticas, no tiene ninguna credencial formal que avale ese conocimiento — los cursos gratuitos de YouTube no emiten certificados y los certificados de plataformas pagadas son genéricos.
+
+Su mayor frustración es no tener una ruta clara: no sabe exactamente qué debería aprender primero, en qué orden, y cómo saber cuándo ya domina suficientemente una habilidad para poder cobrar por ella. Usa Figma, Adobe Illustrator y Photoshop de forma cotidiana, pero se siente insegura cuando tiene que describir su nivel de dominio a un cliente o empleador potencial.
+
+Respecto al modelo de Innovify, Camila valora especialmente la idea de la ruta de aprendizaje generada por IA: quiere que alguien le diga exactamente qué aprender, en qué orden, y cómo demostrar que lo dominó. Le parece muy útil la posibilidad de subir un certificado externo y que la plataforma le genere un miniproyecto para validarlo, porque eso le daría credibilidad real a lo que ya aprendió por su cuenta. Está dispuesta a hacer quizzes y miniproyectos si al final obtiene una credencial verificable con peso ante clientes y empleadores. Lo que más valora del perfil del mentor es que tenga proyectos reales en su portafolio, no solo títulos o años de experiencia.
+
+---
+
+#### Segmento objetivo #2: Personas que quieren enseñar
+
+**Entrevista 1**
+* **Nombres:** Rodrigo
+* **Apellidos:** Castillo Vega
+* **Edad:** 26 años
+* **Distrito:** San Isidro
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-s2-e1.png" alt="Entrevista Rodrigo" width="600">
+  <br>
+  <em>Figura 4. Entrevista 1: Personas que quieren enseñar | Innovify. Nota: En esta figura se aprecia la primera entrevista al segmento de personas que quieren enseñar.</em>
+</p>
+
+* **URL:** [Completar con URL de Microsoft Stream]
+* **Inicio:** 0:00
+* **Duración:** [Completar]
+
+**Resumen descriptivo:**
+Rodrigo estudia Ingeniería de Software en la PUCP y está en séptimo ciclo. Domina React, Node.js, PostgreSQL y arquitectura de microservicios, conocimientos que desarrolló combinando su formación universitaria con proyectos freelance y contribuciones a repositorios open source. Ha ayudado informalmente a varios compañeros de ciclos menores a entender conceptos de programación, pero siempre de forma desorganizada — por WhatsApp, sin estructura, sin que el aprendiz llegue con un nivel mínimo establecido.
+
+Su principal frustración al enseñar es que los aprendices llegan sin los fundamentos necesarios para aprovechar la sesión, lo que hace que pierda tiempo explicando conceptos básicos que debería dar por sabidos. También le molesta la falta de reconocimiento formal: dedica tiempo de calidad a enseñar pero nadie lo sabe ni puede verificarlo.
+
+Respecto al modelo de Innovify, Rodrigo está muy de acuerdo con el examen de ingreso para mentores, porque considera que es la única forma de garantizar que quien enseña realmente sabe. Le parece especialmente atractivo el sistema de SkillCredits, porque le permitiría demostrar en LinkedIn no solo que sabe programar sino que sabe enseñar a otros — una habilidad que los empleadores valoran y que actualmente no tiene cómo acreditar. Le parece eficiente que la plataforma le informe exactamente en qué pregunta o concepto falló el aprendiz antes de la sesión, porque eso le permite preparar una explicación quirúrgica en vez de repasar todo el tema desde cero.
+
+**Entrevista 2**
+* **Nombres:** Lucía
+* **Apellidos:** Vargas Flores
+* **Edad:** 28 años
+* **Distrito:** Surco
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-s2-e2.png" alt="Entrevista Lucía" width="600">
+  <br>
+  <em>Figura 5. Entrevista 2: Personas que quieren enseñar | Innovify. Nota: En esta figura se aprecia la segunda entrevista al segmento de personas que quieren enseñar.</em>
+</p>
+
+* **URL:** [Completar con URL de Microsoft Stream]
+* **Inicio:** 0:00
+* **Duración:** [Completar]
+
+**Resumen descriptivo:**
+Lucía es egresada de Contabilidad de la Universidad de Lima y trabaja hace dos años en una firma de auditoría. Domina Excel avanzado, Power BI y análisis financiero, habilidades que desarrolló en su trabajo y que sabe que son muy demandadas en el mercado. Ha dado algunas clases particulares de forma informal a compañeros universitarios, pero el modelo le resulta poco profesional y difícil de gestionar: tiene que coordinar horarios por WhatsApp, no hay estructura, y los aprendices a veces no aparecen o no vienen preparados.
+
+Lo que más valora de Innovify es la posibilidad de generar ingresos adicionales de forma estructurada y profesional, sin tener que gestionar ella misma la logística. El modelo de comisiones por sesión validada le parece justo y transparente. Sin embargo, lo que más la motiva es el sistema de SkillCredits: considera que demostrar que sabe enseñar Excel avanzado y Power BI a otros, con resultados verificables, es una credencial de liderazgo y comunicación que le abre puertas en su carrera profesional más allá de los ingresos extra.
+
+Está de acuerdo con el examen de ingreso para mentores, aunque reconoce que inicialmente puede parecer una barrera alta. Considera que esa barrera es precisamente lo que garantiza que los aprendices reciban ayuda de calidad real.
+
+**Entrevista 3**
+* **Nombres:** Sebastián
+* **Apellidos:** Mora Chávez
+* **Edad:** 23 años
+* **Distrito:** Barranco
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-s2-e3.png" alt="Entrevista Sebastián" width="600">
+  <br>
+  <em>Figura 6. Entrevista 3: Personas que quieren enseñar | Innovify. Nota: En esta figura se aprecia la tercera entrevista al segmento de personas que quieren enseñar.</em>
+</p>
+
+* **URL:** [Completar con URL de Microsoft Stream]
+* **Inicio:** 0:00
+* **Duración:** [Completar]
+
+**Resumen descriptivo:**
+Sebastián es egresado de Comunicaciones de la UPC y trabaja como freelance en marketing de contenidos. Domina SEO técnico, copywriting y estrategia de redes sociales, habilidades que desarrolló en proyectos reales con clientes. Intentó enseñar en Preply pero lo abandonó porque la plataforma permite que cualquiera enseñe sin verificación, lo que deteriora la calidad percibida de todos los mentores.
+
+Su principal motivación para enseñar no es el dinero sino construir reputación profesional verificable. Sebastián entiende que en el mundo del marketing digital, el portafolio y las credenciales son todo, y actualmente no tiene ninguna forma de acreditar que sabe enseñar lo que sabe hacer.
+
+Respecto al modelo de Innovify, valora especialmente que la plataforma exija el examen de ingreso, porque eso eleva la calidad del ecosistema completo y hace que pertenecer a él sea una credencial en sí misma. Le parece muy atractivo el sistema de SkillCredits y su integración con LinkedIn. También valora el matching inteligente, porque prefiere que le lleguen aprendices cuyo vacío específico coincide con su área de mayor dominio, en vez de recibir cualquier solicitud genérica de marketing.
+
+---
 
 #### Segmento objetivo #3: Coordinador Institucional
 
@@ -628,33 +564,24 @@ Katherine Tatiana Isuiza Vela es estudiante de Ingeniería Civil en la Universid
 * **Edad:** 49 años
 * **Distrito:** San Miguel
 
----
 <p align="center">
-  <img src="public/assets/images-doc/entre-rafa.png" alt="Entrevista Raúl" width="600">
-
+  <img src="public/assets/images-doc/entre-rafa.png" alt="Entrevista Armando" width="600">
   <br>
-  <em>Figura 10. YouTube: Entrevista 3 Segmento Coordinador institucional | Innovify: En esta figura se aprecia la cuarta persona entrevistada de nuestro tercer segmento: coordinador institucional.</em>
+  <em>Figura 7. YouTube: Entrevista 1 Segmento Coordinador Institucional | Innovify. Nota: En esta figura se aprecia la primera persona entrevistada de nuestro tercer segmento: coordinador institucional.</em>
 </p>
 
-
 * **URL:** [https://youtu.be/YDpJ_S8Ik2g](https://youtu.be/YDpJ_S8Ik2g)
-
 * **Inicio:** 0:00
 * **Duración:** 13 minutos con 54 segundos
 
----
-
-### Resumen descriptivo
-
-Esta entrevista fue realizada a un docente de Cálculo 2 de la Universidad Peruana de Ciencias Aplicadas (UPC).
-
-De acuerdo con lo conversado, el profesor considera que la propuesta es una muy buena idea y la percibe como fundamental para el desarrollo profesional de los estudiantes. Destaca la importancia de que los alumnos colaboren e intercambien conocimientos, incluso entre diferentes universidades, con el fin de adaptarse a un mercado laboral cada vez más exigente.
+**Resumen descriptivo:**
+Esta entrevista fue realizada a un docente de Cálculo 2 de la Universidad Peruana de Ciencias Aplicadas (UPC). De acuerdo con lo conversado, el profesor considera que la propuesta es una muy buena idea y la percibe como fundamental para el desarrollo profesional de los estudiantes. Destaca la importancia de que los alumnos colaboren e intercambien conocimientos, incluso entre diferentes universidades, con el fin de adaptarse a un mercado laboral cada vez más exigente.
 
 Asimismo, mostró cautela en sus declaraciones para no vulnerar su contrato con la universidad, pero enfatizó que las plataformas tecnológicas tienen un gran potencial siempre que se utilicen bajo un marco de ética y respeto a las normas institucionales. Señaló que la educación en valores debe prevalecer sobre la simple restricción del uso de la tecnología.
 
 Finalmente, evidenció interés en la funcionalidad operativa de la propuesta, sugiriendo que la validación y el acceso a la información se gestionen por niveles académicos, con el objetivo de asegurar que el contenido sea adecuado y pertinente para cada etapa del estudiante.
 
-**Entrevista 2 (Parte 1 y 2)**
+**Entrevista 2**
 * **Nombres:** Jesús
 * **Apellidos:** Hernández
 * **Edad:** 29 años
@@ -663,7 +590,7 @@ Finalmente, evidenció interés en la funcionalidad operativa de la propuesta, s
 <p align="center">
   <img src="public/assets/images-doc/entrevista-victor3-1.png" alt="Entrevista Jesús" width="600">
   <br>
-  <em>Figura 11 y 12. YouTube: Entrevista 2 Segmento Coordinador Institucional | SkillSwap. Nota: Entrevista dividida en dos partes.</em>
+  <em>Figura 8. YouTube: Entrevista 2 Segmento Coordinador Institucional | Innovify. Nota: En esta figura se aprecia la segunda persona entrevistada de nuestro tercer segmento: coordinador institucional.</em>
 </p>
 
 * **URL Parte 1:** [https://youtu.be/oRoAbwVAjxI](https://youtu.be/oRoAbwVAjxI) | **Inicio:** 0:00 | **Duración:** 10m 12s
@@ -681,7 +608,7 @@ Jesús Hernández, jefe de prácticas, señala que los principales desafíos de 
 <p align="center">
   <img src="public/assets/images-doc/entrevista-david1.png" alt="Entrevista Raúl" width="600">
   <br>
-  <em>Figura 13. YouTube: Entrevista 3 Segmento Coordinador Institucional | SkillSwap. Nota: En esta figura se aprecia la tercera persona entrevistada de nuestro tercer segmento coordinador institucional.</em>
+  <em>Figura 9. YouTube: Entrevista 3 Segmento Coordinador Institucional | Innovify. Nota: En esta figura se aprecia la tercera persona entrevistada de nuestro tercer segmento coordinador institucional.</em>
 </p>
 
 * **URL:** [https://youtu.be/cP_YiYr2VD8](https://youtu.be/cP_YiYr2VD8)
@@ -691,85 +618,95 @@ Jesús Hernández, jefe de prácticas, señala que los principales desafíos de 
 **Resumen descriptivo:**
 El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy buena idea y parte fundamental del estudio universitario que los alumnos compartan opiniones y se ayuden mutuamente. Destacó que las herramientas tecnológicas son productivas para la colaboración siempre que se les dé un buen uso, priorizando el aprendizaje sobre ventajas deshonestas. También mostró cierta preocupación por la carga de los alumnos tutores, ya que siente que brindar ayuda constante podría impactar negativamente en su propio tiempo y productividad, especialmente en alumnos con muchas responsabilidades académicas.
 
+---
 
 ### 2.2.3. Análisis de entrevistas
 
-#### Segmento objetivo #1: Estudiantes que quieran aprender
+#### Segmento objetivo #1: Personas que quieren aprender
 
 **1. Características objetivas**
-* **Edad:** Estudiantes universitarios, generalmente entre 18 y 24 años (100%).
-* **Carrera:** Diversas carreras universitarias (Enfermería, Ingeniería, Negocios Internacionales) (100%).
-* **Ciclo:** 3° a 6° ciclo (100%).
+* **Edad:** Estudiantes universitarios o egresados recientes, generalmente entre 19 y 24 años (100%).
+* **Carrera:** Diversas carreras universitarias (Ingeniería de Sistemas, Administración, Diseño Gráfico) (100%).
+* **Etapa:** Desde tercer ciclo hasta egresados recientes buscando su primera práctica o empleo (100%).
 * **Experiencia con plataformas:**
-  * Poca experiencia con tutorías online formales (2 de 3).
-  * Uso de herramientas digitales para estudio (Meet, WhatsApp, Script) (100%).
-  * Estudio individual: Prefieren estudiar solos la mayor parte del tiempo (100%).
+  * Uso de plataformas de cursos online (Coursera, Udemy, YouTube) (100%).
+  * Uso de herramientas de IA como ChatGPT para resolver dudas (100%).
+  * Poca o nula experiencia con mentorías estructuradas y verificadas (100%).
 
 **2. Características subjetivas**
-* **Preferencias de estudio:**
-  * Estudio individual para concentración y calma ante estrés (100%).
-  * Estudio en horarios específicos: tardes o noches (66%).
-  * Prefieren un lugar sin distracciones (33%).
-* **Dificultades académicas:**
-  * Obstáculos para pedir ayuda a compañeros o profesores: demora de respuestas, falta de disponibilidad, miedo a ser juzgado (100%).
-  * Problemas de coordinación en grupos y comunicación (33%).
-  * Cursos demandantes y prácticos aumentan estrés (66%).
-* **Uso de recursos externos:**
-  * Buscan apoyo en internet y familiares (100%).
-  * Valoran recibir ayuda de estudiantes expertos de otras universidades (100%).
-  * Prioridad en la calidad de aprendizaje sobre la inmediatez de la ayuda (33%).
-* **Herramientas digitales y funcionalidades deseadas:**
-  * Chat, pizarra virtual y grabación de sesiones (100%).
-  * Perfiles con reseñas, especialidades y mini-ejercicios (66%).
-  * Tutorías pagadas si no pueden resolver dudas por sí mismos (33%).
+* **Frustración con los certificados actuales:**
+  * Sienten que los certificados online no reflejan su dominio práctico real (100%).
+  * Han enfrentado situaciones donde no pudieron aplicar lo que "aprendieron" en entrevistas técnicas o proyectos reales (100%).
+  * No saben con certeza si están aprendiendo bien o solo memorizando (66%).
+* **Dificultades para conseguir ayuda específica:**
+  * No saben a quién recurrir cuando se bloquean en un sub-tema específico (100%).
+  * Los recursos actuales (foros, ChatGPT) dan respuestas genéricas que no aplican a su situación exacta (66%).
+  * Sus pares están en la misma situación y no pueden darles orientación de nivel superior (33%).
+* **Valoración del modelo de validación práctica:**
+  * Están dispuestos a pagar una suscripción mensual si garantiza evaluaciones prácticas y mentores verificados (100%).
+  * Prefieren una credencial que muestre qué habilidades demostraron sobre un certificado estándar (100%).
+  * Valoran el modelo de examen de ingreso para mentores como garantía de calidad (100%).
+* **Preferencias sobre el mentor:**
+  * Priorizan que el mentor tenga experiencia real en su área (proyectos, empresas) sobre la cantidad de reseñas (100%).
+  * Prefieren una sesión de refuerzo quirúrgica enfocada en el sub-tema donde fallaron, no repetir el curso (100%).
+  * Valoran ver portafolio de proyectos reales del mentor antes de contactarlo (66%).
 
 | Característica | % Entrevistados | Fuente / Frase de entrevista |
 | :--- | :--- | :--- |
-| Prefiere estudiar solo | 100% | Prefiere estudiar sola por las tardes/noches. |
-| Valoración ayuda de otros estudiantes | 100% | Valora recibir apoyo de estudiantes expertos de otras universidades. |
-| Obstáculos pedir ayuda | 100% | Demora de respuestas / falta de disponibilidad / miedo a ser juzgada. |
-| Uso de herramientas digitales | 100% | Utiliza plataformas como Meet, WhatsApp, Script. |
-| Funciones deseadas en aplicación | 66% | Perfiles con reseñas, chat, pizarra virtual, mini-ejercicios. |
-| Tutorías pagadas | 33% | Considera útiles tutorías pagadas cuando no puede resolver dudas por sí misma. |
-| Ciclo universitario | 100% | 3° a 6° ciclo de diversas carreras. |
+| Frustración por brecha certificado vs. dominio real | 100% | "Tenía el certificado pero en la entrevista técnica me bloqueé." |
+| Disposición a pagar suscripción mensual | 100% | "Pagaría si eso me garantiza mentores reales y evaluaciones prácticas." |
+| Preferencia por credencial verificable sobre certificado estándar | 100% | "Eso tendría más peso ante un empleador que un PDF de Coursera." |
+| Valoración del examen de ingreso para mentores | 100% | "Eso me daría confianza de que realmente sabe lo que enseña." |
+| Preferencia por refuerzo quirúrgico (sub-tema específico) | 100% | "No quiero repasar todo el curso, solo donde fallé." |
+| Uso de ChatGPT como apoyo de aprendizaje | 100% | "Lo uso para redactar y resolver dudas, pero no sé si está bien." |
+| Prioriza experiencia real del mentor sobre reseñas | 100% | "Prefiero que haya trabajado en mi área aunque tenga menos reseñas." |
+| Necesidad de ruta estructurada de aprendizaje | 66% | "Quiero que alguien me diga qué aprender, en qué orden." |
+| Inseguridad al aplicar lo aprendido en práctica real | 66% | "Aprendí Python pero no sé si lo que hago está bien o funciona de casualidad." |
 
-*(Tabla 4. Principales hallazgos de entrevistas a estudiantes universitarios - Elaboración propia. Nota: La tabla resume los comportamientos, percepciones y preferencias identificadas en las entrevistas).*
+*(Tabla 4. Principales hallazgos de entrevistas a personas que quieren aprender - Elaboración propia. Nota: La tabla resume los comportamientos, percepciones y preferencias identificadas en las entrevistas al segmento aprendiz.)*
 
 ---
 
-#### Segmento objetivo #2: Estudiantes que quieran enseñar
+#### Segmento objetivo #2: Personas que quieren enseñar
 
 **1. Características objetivas**
-* **Edad y ciclo:** Estudiantes universitarios de diversos ciclos (100%).
-* **Carrera:** Diversas carreras (Psicología, Educación, Ingeniería Civil) (100%).
-* **Experiencia:** Participan en grupos de estudio y ayudan a compañeros de manera informal antes de los exámenes (100%).
-* **Habilidades digitales:** Mencionan y sugieren el uso de herramientas digitales para tutorías (agenda, pizarra virtual, Canvas, Notion, Kahoot, sistemas de reputación) (100%).
+* **Edad:** Estudiantes avanzados o egresados recientes, entre 23 y 28 años (100%).
+* **Carrera:** Diversas áreas (Ingeniería de Software, Contabilidad, Comunicaciones) (100%).
+* **Experiencia:** Todos tienen experiencia enseñando de forma informal (por WhatsApp, grupos de estudio, clases particulares no estructuradas) (100%).
+* **Habilidades digitales:** Usan WhatsApp, Zoom y Drive como principales herramientas para enseñar a distancia (100%).
 
 **2. Características subjetivas**
 * **Motivaciones para enseñar:**
-  * Reforzar el propio conocimiento (100%).
-  * Incentivos o recompensas tangibles (pago, créditos universitarios) (67%).
-  * Compartir ideas y adquirir experiencia (67%).
-* **Dificultades percibidas:**
-  * Falta de interés o compromiso del aprendiz (100%).
-  * Encontrar la estrategia de enseñanza adecuada para cada persona (67%).
-  * Tiempo limitado, distancia y mala organización de horarios (67%).
-* **Preferencias y necesidades en la tutoría:**
-  * Necesidad de conocer al estudiante para generar confianza (100%).
-  * Herramientas digitales para organizar y hacer didáctica la enseñanza (100%).
-  * Sistema de recompensas (créditos canjeables o pago) para incentivar la participación (67%).
+  * Reconocimiento profesional verificable (SkillCredits en LinkedIn) como incentivo principal (100%).
+  * Generar ingresos adicionales de forma estructurada y transparente (100%).
+  * Pertenecer a un ecosistema riguroso que eleve su estatus profesional (100%).
+* **Frustraciones con el modelo informal actual:**
+  * Falta de estructura y reconocimiento formal por la labor docente (100%).
+  * Recibir aprendices sin el nivel mínimo necesario, lo que hace las sesiones ineficientes (100%).
+  * Dificultad para gestionar logística (horarios, herramientas, pagos) sin una plataforma dedicada (66%).
+* **Valoración del modelo de Innovify:**
+  * De acuerdo con el examen de ingreso para mentores como garantía de calidad del ecosistema (100%).
+  * Valoran recibir información precisa sobre el error específico del aprendiz antes de la sesión (100%).
+  * Consideran que el matching inteligente por especialidad es más eficiente que recibir solicitudes genéricas (100%).
+* **Perfil de enseñanza:**
+  * Adaptan su forma de explicar según el nivel del aprendiz (100%).
+  * Prefieren sesiones estructuradas con un objetivo claro y definido de antemano (66%).
+  * Valoran la supervisión de proyectos avanzados además de las sesiones de refuerzo (33%).
 
 | Característica | % Entrevistados | Fuente / Frase de entrevista |
 | :--- | :--- | :--- |
-| Motivo principal: reforzar conocimiento | 100% | Su motivación principal para enseñar es reforzar su conocimiento. |
-| Participa en tutorías | 100% | Todos tienen experiencia ayudando a sus compañeros de manera ocasional o regular. |
-| Uso de herramientas digitales | 100% | Herramientas como agenda, pizarra virtual, Canvas, Notion, Kahoot. |
-| Necesidad de generar confianza | 100% | Todas necesitan percibir interés o tener un sistema que valide al otro usuario. |
-| Motivación económica/recompensas | 67% | Sugiere un sistema de recompensas / no descarta recibir un pago. |
-| Dificultad: tiempo y organización | 67% | La mala gestión de horarios, el tiempo limitado y la distancia son barreras importantes. |
-| Dificultad: estrategia de enseñanza | 67% | Consideran un reto encontrar la metodología de enseñanza adecuada para cada alumno. |
+| Motivación principal: reconocimiento profesional (SkillCredits) | 100% | "Lo que más me atrae es poder demostrar en LinkedIn que sé enseñar, no solo que sé hacer." |
+| Experiencia enseñando informalmente | 100% | "He ayudado a compañeros pero todo por WhatsApp, sin estructura ni reconocimiento." |
+| Acuerdo con examen de ingreso para mentores | 100% | "Eso es lo que le da valor al ecosistema, que no cualquiera puede entrar." |
+| Frustración por aprendices sin nivel mínimo | 100% | "Pierdo tiempo explicando fundamentos que deberían ya saber." |
+| Valoración del matching inteligente por especialidad | 100% | "Prefiero que me lleguen los casos que encajan exactamente con lo que domino." |
+| Valoración de información previa sobre error del aprendiz | 100% | "Si sé en qué falló puedo preparar algo quirúrgico, no repasar todo." |
+| Motivación económica (comisiones) | 100% | "Las comisiones están bien, pero no es mi principal motivación." |
+| Frustración por falta de reconocimiento formal | 100% | "Nadie sabe que enseño bien porque no hay forma de demostrarlo." |
+| Preferencia por sesiones con objetivo claro definido | 66% | "Quiero saber de qué va la sesión antes de aceptarla." |
+| Interés en supervisar proyectos avanzados | 33% | "Me interesaría supervisar proyectos finales, no solo refuerzos puntuales." |
 
-*(Tabla 5. Principales hallazgos de entrevistas a estudiantes tutores - Elaboración propia. Nota: La tabla sintetiza las motivaciones, desafíos y necesidades expresadas por los estudiantes que ofrecen tutorías).*
+*(Tabla 5. Principales hallazgos de entrevistas a personas que quieren enseñar - Elaboración propia. Nota: La tabla sintetiza las motivaciones, frustraciones y necesidades expresadas por los mentores entrevistados.)*
 
 ---
 
@@ -833,195 +770,215 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Carga operativa | 67% | Barrera |
 | Segmentación académica | 33% | Mejora pertinencia |
 
-*(Tabla 6. Principales hallazgos de entrevistas a coordinadores académicos - Elaboración propia. Nota: Resultados obtenidos en las entrevistas con coordinadores o jefes de práctica).*
+*(Tabla 6. Principales hallazgos de coordinadores académicos - Elaboración propia.)*
 
 ---
 
 ## 2.3. Needfinding
 
-Para el proceso de needfinding, se ha planificado la realización de entrevistas a los tres arquetipos de usuarios identificificados: "Estudiantes que quieran aprender", "Estudiantes que quieran enseñar" y el "Coordinador Institucional". El objetivo principal de esta investigación es indagar en las motivaciones, frustraciones y necesidades de los estudiantes universitarios peruanos cuando buscan o desean ofrecer apoyo académico más allá de las fronteras de su propia institución.
+Para el proceso de needfinding se realizaron entrevistas a los dos segmentos principales de usuarios identificados: personas que quieren aprender (Aprendices) y personas que quieren enseñar (Mentores). El objetivo principal fue indagar en las motivaciones, frustraciones y necesidades de ambos perfiles en relación con la validación práctica de habilidades, el reconocimiento profesional y el modelo de emparejamiento inteligente propuesto por Innovify.
 
-A través de este proceso, se busca validar las hipótesis iniciales del proyecto, como la existencia de una demanda latente de colaboración interuniversitaria y la importancia crítica de la seguridad y la confianza en un entorno digital de este tipo. Los hallazgos derivados de las entrevistas permitirán comprender a fondo los problemas que la plataforma debe resolver, como el aislamiento académico y la desconfianza inicial entre pares desconocidos.
+A través de este proceso se buscó validar las hipótesis iniciales del proyecto, como la existencia de una brecha real entre la posesión de certificados y el dominio práctico demostrable, y la disposición de ambos segmentos a participar en un ecosistema con mayor rigor y estructura que los modelos informales actuales.
 
 ### 2.3.1. User Personas
 
-Para iniciar esta sección del documento, el equipo seleccionó las características más relevantes de todas las que ofrece la plataforma UXPressia, diferenciando entre aquellas de carácter global (comunes a los tres segmentos) y las específicas que resultaban más pertinentes para determinados perfiles. Cada integrante compartió sus aportes en los apartados correspondientes, respondiendo preguntas puntuales sobre la persona creada, siempre a partir de los resultados obtenidos y analizados en las entrevistas previas. Finalmente, consensuamos la opción que consideramos más adecuada, adaptándola para que fuese más precisa y representativa del perfil que buscamos. Este proceso no solo permitió refinar la definición de cada segmento, sino también alinear la visión del equipo respecto al usuario objetivo.
+Los User Personas fueron construidos a partir de los patrones identificados en las entrevistas realizadas a ambos segmentos. Cada arquetipo refleja las características demográficas, motivaciones, frustraciones y objetivos más representativos de su segmento, sirviendo como referencia central para las decisiones de diseño y desarrollo de la plataforma.
 
-**User Persona: Estudiantes que quieran aprender**
+**User Persona: Personas que quieren aprender**
+
 <p align="center">
-  <img src="public/assets/images-doc/user1.jpg" alt="User Persona Aprendiz" width="800">
+  <img src="public/assets/images-doc/user1-app.png" alt="User Persona Aprendiz" width="800">
   <br>
-  <em>Figura 12. User Persona - Estudiantes que quieran aprender - Elaboración propia.</em>
+  <em>Figura 7. User Persona - Personas que quieren aprender - Elaboración propia.</em>
 </p>
-En esta figura se observa el arquetipo de usuario correspondiente al segmento de estudiantes o "Learners". El perfil de Jazmin Rosas detalla las metas, motivaciones y frustraciones de una estudiante de ingeniería, proporcionando una base clara para orientar el desarrollo hacia soluciones de aprendizaje colaborativo y soporte académico entre pares.
+
+El arquetipo de Andrea Salinas representa al segmento de aprendices: estudiante universitaria de Ingeniería de Sistemas, 21 años, con certificados online que no puede convertir en evidencia creíble de dominio práctico. Sus objetivos son demostrar habilidades reales ante empleadores, seguir una ruta de aprendizaje estructurada y recibir refuerzo quirúrgico cuando se bloquea. Sus principales frustraciones son la brecha entre el certificado y el dominio real, no saber si está aprendiendo bien y la dificultad de encontrar mentores confiables en áreas específicas.
 <br><br>
 
-**User Persona: Estudiantes que quieran enseñar**
+**User Persona: Personas que quieren enseñar**
+
 <p align="center">
-  <img src="public/assets/images-doc/user2.jpg" alt="User Persona Tutor" width="800">
+  <img src="public/assets/images-doc/user2-app.png" alt="User Persona Mentor" width="800">
   <br>
-  <em>Figura 14. User Persona - Estudiantes que quieran enseñar - Elaboración propia.</em>
+  <em>Figura 8. User Persona - Personas que quieren enseñar - Elaboración propia.</em>
 </p>
-En esta figura se presenta el arquetipo de usuario "Lucía Torres", el cual personifica el segmento de estudiantes con un rol híbrido que actúan simultáneamente como tutores y aprendices. El perfil describe sus antecedentes académicos en ingeniería y sus objetivos de fortalecer habilidades blandas mediante la enseñanza, proporcionando información valiosa sobre los desafíos de gestión del tiempo y la necesidad de herramientas intuitivas para la organización de las sesiones de tutoría.
-<br>
-<br>
+
+El arquetipo de Rodrigo Castillo representa al segmento de mentores: estudiante avanzado de Ingeniería de Software, 26 años, con dominio técnico sólido y experiencia informal de enseñanza sin reconocimiento formal. Sus objetivos son construir una reputación profesional verificable mediante SkillCredits, generar ingresos adicionales de forma estructurada y pertenecer a un ecosistema riguroso que valide su calidad como docente. Sus principales frustraciones son la falta de estructura en los modelos informales, recibir aprendices sin nivel mínimo y no tener credenciales que acrediten su capacidad de enseñar.
+<br><br>
 
 **User Persona: Coordinador Institucional**
+
 <p align="center">
-  <img src="public/assets/images-doc/user3.jpg" alt="User Persona Coordinador" width="800">
+  <img src="public/assets/images-doc/user3-app.png" alt="User Persona Coordinador" width="800">
   <br>
-  <em>Figura 15. User Persona - Coordinador Institucional - Elaboración propia.</em>
+  <em>Figura 9. User Persona - Coordinador Institucional - Elaboración propia.</em>
 </p>
-En la imagen tenemos la caracterización de Renato López, quien representa el segmento administrativo y de moderación del sistema. Su perfil resalta objetivos enfocados en la seguridad, la integridad académica y el monitoreo de comportamientos, definiendo los requerimientos necesarios para las herramientas de gestión institucional de la plataforma.
-<br>
-<br>
-<br>
 
+El arquetipo de Renato López representa al segmento de coordinadores institucionales: docente y coordinador académico de 46 años, responsable de supervisar la calidad del aprendizaje y garantizar la integridad institucional. Sus objetivos son asegurar que los mentores cumplan los estándares establecidos, monitorear la satisfacción de los aprendices y acceder a métricas agregadas de la plataforma para tomar decisiones informadas. Sus principales preocupaciones son el fraude, la suplantación de identidad, la carga operativa de los procesos de validación manual y el riesgo reputacional para la institución.
+<br><br>
 
-
-**En conjunto**, los arquetipos de usuario presentados permiten comprender de manera clara las necesidades, motivaciones y desafíos de los principales actores dentro del sistema. El perfil de los estudiantes o “Learners” orienta el diseño hacia experiencias de aprendizaje colaborativo y soporte académico efectivo, mientras que el arquetipo del usuario administrativo establece los lineamientos necesarios para garantizar la seguridad, la integridad académica y una adecuada supervisión del comportamiento dentro de la plataforma.
-
-Por otro lado, el perfil híbrido de usuarios que cumplen simultáneamente roles de estudiante y tutor aporta una visión más dinámica del ecosistema, evidenciando la necesidad de herramientas flexibles que faciliten la gestión del tiempo y la organización de sesiones de enseñanza. En conjunto, estos arquetipos permiten alinear el desarrollo del sistema con usuarios reales y diversos, asegurando una solución más centrada en la experiencia, la eficiencia operativa y el equilibrio entre aprendizaje, enseñanza y administración.
-
-<br>
+**En conjunto**, los arquetipos de usuario presentados permiten comprender de manera clara las necesidades, motivaciones y desafíos de los tres actores principales del ecosistema Innovify. El perfil del aprendiz orienta el diseño hacia rutas de aprendizaje estructuradas, evaluaciones prácticas y acceso a refuerzo quirúrgico cuando se produce un bloqueo específico. El perfil del mentor establece los lineamientos necesarios para un sistema de reconocimiento profesional verificable y un modelo de onboarding riguroso que garantice la calidad del ecosistema. Por otro lado, el perfil del coordinador define los requerimientos para las herramientas de supervisión, verificación de identidad y monitoreo de calidad que garantizan la integridad del sistema. En conjunto, estos arquetipos permiten alinear el desarrollo con usuarios reales y diversos, asegurando una solución centrada en la experiencia, la eficiencia operativa y el equilibrio entre aprendizaje, enseñanza y administración.
 
 ---
 
 ### 2.3.2. User Task Matrix
 
-En el User Task Matrix se considera a los tres segmentos evaluando sus tareas clave según frecuencia e importancia. Los aprendices priorizan estudiar independientemente y acceder a recursos de apoyo; los tutores, reforzar su conocimiento y participar en grupos de estudio; y los coordinadores, orientar casos prácticos, gestionar el tiempo y verificar la integridad académica. Todos coinciden en usar herramientas digitales y favorecer la colaboración, aunque cada segmento aplica estas tareas con objetivos distintos.
+En el User Task Matrix se consideran los dos segmentos principales: personas que quieren aprender y personas que quieren enseñar, evaluando sus tareas clave según frecuencia e importancia. Los aprendices priorizan buscar recursos de aprendizaje, validar su nivel real y conseguir refuerzo específico cuando se bloquean. Los mentores priorizan mantener su dominio técnico actualizado, estructurar sesiones efectivas y construir su reputación profesional. Ambos coinciden en el uso de herramientas digitales y en la necesidad de conexión con personas de nivel verificado, aunque con objetivos distintos.
 
-#### Segmento objetivo #1: Estudiantes que quieran aprender
+---
 
-| Tareas | Boris | Adrian | Stephanie |
-| :--- | :--- | :--- | :--- |
-| **Buscar información de Internet** | Frec: Alta<br>Imp: Alta | Frec: Alta<br>Imp: Alta | Frec: Alta<br>Imp: Alta |
-| **Consultar a familiares o compañeros con experiencia** | Frec: Media<br>Imp: Media-Alta | Frec: Media<br>Imp: Alta | Frec: Media<br>Imp: Media-Alta |
-| **Estudiar independientemente en horarios tranquilos** | Frec: Muy alta<br>Imp: Muy alta | Frec: Muy alta<br>Imp: Muy alta | Frec: Muy alta<br>Imp: Muy alta |
-| **Coordinar con compañeros** | Frec: Media<br>Imp: Alta | Frec: Media<br>Imp: Alta | Frec: Media<br>Imp: Alta |
-| **Acceder a plataformas de tutorías, videos grabados o chats** | Frec: Muy alta<br>Imp: Muy alta | Frec: Alta<br>Imp: Alta | Frec: Muy alta<br>Imp: Muy alta |
-| **Contratar un tutor particular** | Frec: Media<br>Imp: Muy alta | Frec: Media<br>Imp: Muy alta | Frec: Media<br>Imp: Muy alta |
+#### Segmento objetivo #1: Personas que quieren aprender
 
-*(Tabla 7. Actividades de aprendizaje y su valoración por los usuarios - Elaboración propia).*
+| Tasks | Andrea<br>Frecuencia | Andrea<br>Importancia | Diego<br>Frecuencia | Diego<br>Importancia | Camila<br>Frecuencia | Camila<br>Importancia |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Buscar recursos de aprendizaje en internet | Muy alta | Alta | Muy alta | Alta | Muy alta | Alta |
+| Tomar cursos online y obtener certificados | Alta | Alta | Alta | Muy alta | Media | Alta |
+| Aplicar lo aprendido en proyectos o ejercicios prácticos | Media | Muy alta | Media | Muy alta | Alta | Muy alta |
+| Buscar mentores o personas con experiencia real | Media | Muy alta | Alta | Muy alta | Media | Alta |
+| Prepararse para entrevistas técnicas o portfolios | Media | Muy alta | Alta | Muy alta | Media | Alta |
+| Identificar exactamente en qué sub-tema está fallando | Baja | Muy alta | Baja | Muy alta | Baja | Alta |
+| Validar que lo que aprendió es suficiente para el mercado | Media | Muy alta | Alta | Muy alta | Media | Muy alta |
 
-#### Segmento objetivo #2: Estudiantes que quieran enseñar
+*(Tabla 4. Tareas y prioridades de las personas que quieren aprender - Elaboración propia.)*
 
-| Tareas | Lucero | Abigail | Katherine |
-| :--- | :--- | :--- | :--- |
-| **Estudiar y reforzar su conocimiento antes de enseñar** | Frec: Muy alta<br>Imp: Muy alta | Frec: Muy alta<br>Imp: Muy alta | Frec: Muy alta<br>Imp: Muy alta |
-| **Participar en grupos de estudio y colaborar con compañeros** | Frec: Alta<br>Imp: Alta | Frec: Muy alta<br>Imp: Muy alta | Frec: -<br>Imp: Muy alta |
-| **Ayudar a estudiantes de otras universidades** | Frec: Media<br>Imp: Alta | Frec: Alta<br>Imp: Alta | Frec: Media<br>Imp: Alta |
-| **Conocer al estudiante antes de brindar ayuda para generar confianza** | Frec: Media<br>Imp: Alta | Frec: Media<br>Imp: Muy alta | Frec: Media<br>Imp: Alta |
-| **Utilizar herramientas digitales para tutoría** | Frec: Media<br>Imp: Alta | Frec: Alta<br>Imp: Alta | Frec: Media<br>Imp: Alta |
-| **Gestionar motivación y recompensas de la tutoría** | Frec: Baja-Media<br>Imp: Media-Alta | Frec: Baja-Media<br>Imp: Media | Frec: Baja<br>Imp: Media |
+---
 
-*(Tabla 8. Actividades y motivaciones de los estudiantes-tutores – Elaboración propia).*
+#### Segmento objetivo #2: Personas que quieren enseñar
+
+| Tasks | Rodrigo<br>Frecuencia | Rodrigo<br>Importancia | Lucía<br>Frecuencia | Lucía<br>Importancia | Sebastián<br>Frecuencia | Sebastián<br>Importancia |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Mantener y actualizar el dominio técnico propio | Muy alta | Muy alta | Alta | Muy alta | Muy alta | Muy alta |
+| Preparar material o explicaciones para enseñar | Media | Alta | Media | Alta | Media | Alta |
+| Enseñar o ayudar a alguien a distancia | Media | Alta | Baja | Alta | Media | Alta |
+| Gestionar logística de sesiones (horarios, herramientas) | Media | Media | Media | Alta | Media | Media |
+| Construir reputación profesional verificable | Baja | Muy alta | Media | Muy alta | Alta | Muy alta |
+| Generar ingresos adicionales por enseñar | Baja | Alta | Alta | Muy alta | Media | Alta |
+| Identificar el vacío específico del aprendiz antes de la sesión | Baja | Muy alta | Baja | Alta | Baja | Alta |
+
+*(Tabla 5. Tareas y motivaciones de las personas que quieren enseñar - Elaboración propia.)*
+
+---
 
 #### Segmento objetivo #3: Coordinador Institucional
 
-| Tareas | Armando | Jesús | Raúl |
-| :--- | :--- | :--- | :--- |
-| **Guiar a los estudiantes en la aplicación práctica de conceptos mediante casos...** | Frec: Muy alta<br>Imp: Muy alta | Frec: Muy alta<br>Imp: Muy alta | Frec: Alta<br>Imp: Muy alta |
-| **Enseñar a los estudiantes a gestionar el tiempo y organizarse...** | Frec: Media<br>Imp: Alta | Frec: Muy alta<br>Imp: Alta | Frec: Media-Alta<br>Imp: Alta |
-| **Fomentar el trabajo en equipo y habilidades de comunicación** | Frec: Media<br>Imp: Alta | Frec: Alta<br>Imp: Alta | Frec: Alta<br>Imp: Alta |
-| **Garantizar acceso a información confiable y enseñar a evaluarla...** | Frec: Media<br>Imp: Muy alta | Frec: Alta<br>Imp: Muy alta | Frec: Media<br>Imp: Alta |
-| **Verificar alumnos y asegurar integridad académica en la plataforma...** | Frec: Baja-Media<br>Imp: Alta | Frec: Media<br>Imp: Alta | Frec: Alta<br>Imp: Alta |
-| **Implementar herramientas digitales y plazos que faciliten la organización...** | Frec: Media<br>Imp: Alta | Frec: Alta<br>Imp: Alta | Frec: Alta<br>Imp: Muy alta |
+| Tasks | Armando<br>Frecuencia | Armando<br>Importancia | Jesús<br>Frecuencia | Jesús<br>Importancia | Raúl<br>Frecuencia | Raúl<br>Importancia |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Guiar a estudiantes en la aplicación práctica de conceptos mediante casos y simulaciones | Muy alta | Muy alta | Muy alta | Muy alta | Alta | Muy alta |
+| Enseñar a gestionar el tiempo y organizarse eficientemente | Media | Alta | Muy alta | Alta | Media-Alta | Alta |
+| Fomentar el trabajo en equipo y habilidades de comunicación | Media | Alta | Alta | Alta | Alta | Alta |
+| Garantizar acceso a información confiable y enseñar a evaluarla críticamente | Media | Muy alta | Alta | Muy alta | Media | Alta |
+| Verificar alumnos y asegurar integridad académica en la plataforma | Baja-Media | Alta | Media | Alta | Alta | Alta |
+| Implementar herramientas digitales y plazos que faciliten la organización | Media | Alta | Alta | Alta | Alta | Muy alta |
 
-*(Tabla 9. Funciones y prioridades de los coordinadores académicos – Elaboración propia).*
+*(Tabla 6. Funciones y prioridades de los coordinadores académicos - Elaboración propia.)*
 
-**Conclusión:**
-Las tareas más frecuentes e importantes son estudiar de forma independiente y acceder a recursos de apoyo para los aprendices; reforzar conocimiento y participar en grupos de estudio para los tutores; y orientar casos prácticos y verificar integridad académica para los coordinadores. Todos los segmentos coinciden en usar herramientas digitales y favorecer la colaboración, aunque cada grupo las aplica con un enfoque distinto según sus objetivos.
+---
+
+### Conclusión
+
+Las tareas más frecuentes e importantes son:
+
+* **Aprendices:** Buscar recursos de aprendizaje y aplicar lo aprendido en proyectos prácticos son las más frecuentes. Identificar exactamente en qué sub-tema están fallando y validar que lo aprendido es suficiente para el mercado son las más importantes aunque poco frecuentes, porque actualmente no tienen herramientas para hacerlo.
+* **Mentores:** Mantener el dominio técnico propio es la tarea más frecuente e importante. Construir reputación profesional verificable es altamente importante pero actualmente poco frecuente porque no existe un mecanismo para hacerlo.
+* **Coordinadores:** Guiar mediante casos prácticos y verificar la integridad académica son las tareas más frecuentes e importantes. Todas coinciden en requerir herramientas digitales que reduzcan la carga operativa y automaticen los procesos de validación.
+
+Todos los segmentos coinciden en el uso intensivo de herramientas digitales y en la necesidad de conexión con personas de nivel verificado, aunque cada grupo lo aplica desde roles distintos del mismo ecosistema.
+
+---
 
 ### 2.3.3. User Journey Mapping
 
-En esta sección se presentan los User Journey Maps As-Is de cada User Persona, mostrando el recorrido completo (end-to-end) de los usuarios en la situación actual, sin intervención de la nueva solución, lo que incluye procesos, puntos de dolor y oportunidades.
+En esta sección se presentan los User Journey Maps As-Is de cada User Persona, mostrando el recorrido completo (end-to-end) de los usuarios en la situación actual, sin intervención de la solución de Innovify, lo que incluye procesos, puntos de dolor y oportunidades.
 
-* **Segmento 1: Estudiantes que quieran aprender.** Inicia con la necesidad de comprender un tema, pasando por dudas, búsquedas de ayuda frustrantes y coordinación complicada, hasta la evaluación del aprendizaje, evidenciando problemas de disponibilidad y confiabilidad de recursos.
-* **Segmento 2: Estudiantes que quieran enseñar.** Comienza con motivación por reforzar su conocimiento y ayudar, pero enfrenta obstáculos en la preparación de material, coordinación con el aprendiz y falta de retroalimentación para mejorar su enseñanza.
+* **Segmento 1: Personas que quieren aprender.** Inicia con la decisión de aprender una habilidad específica, continúa con la búsqueda y toma de cursos online, la obtención de un certificado que no puede convertir en evidencia práctica, el bloqueo en sub-temas específicos sin saber a quién recurrir, y culmina con la frustración de no poder demostrar el dominio real ante empleadores o clientes.
+
+* **Segmento 2: Personas que quieren enseñar.** Comienza con la motivación de compartir su dominio técnico y generar ingresos o reconocimiento, pero enfrenta la falta de estructura en los modelos informales, la dificultad para llegar a aprendices con nivel mínimo adecuado, la ausencia de reconocimiento formal por su labor y la imposibilidad de acreditar su capacidad docente de forma verificable.
+
 * **Segmento 3: Coordinadores Institucionales.** Inician su recorrido al identificar la necesidad de mantener la calidad académica y fomentar la colaboración. Continúan con la planeación y preparación de estrategias, pero enfrentan complejidades al anticipar errores operativos. Durante la implementación y coordinación, sufren de sobrecarga operativa y riesgos de plagio o fraude, para finalmente en la etapa de supervisión y evaluación, lidiar con limitaciones operativas y la dificultad de medir el impacto real de sus esfuerzos.
 
-#### Segmento #1: Estudiantes que quieran aprender
+#### Segmento #1: Personas que quieren aprender
+
 <p align="center">
-  <img src="public/assets/images-doc/jur1.jpg" alt="Journey Map Aprendiz" width="800">
+  <img src="public/assets/images-doc/jur1-app.png" alt="Journey Map Aprendiz" width="800">
   <br>
-  <em>Figura 16. User Journey Mapping – Estudiantes que quieran aprender - Elaboración propia. Nota: En esta figura se aprecia nuestro primer Journey Mapping de nuestro primer segmento estudiante aprendiz.</em>
+  <em>Figura 9. User Journey Mapping – Personas que quieren aprender - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del primer segmento del nuevo proyecto Innovify.</em>
 </p>
-<br>
-En esta figura se observa el recorrido del estudiante o aprendiz a través de cinco etapas críticas: descubrimiento, duda, búsqueda, recepción de ayuda y evaluación. El diagrama detalla la curva emocional del usuario, identificando puntos de dolor como la dificultad para coordinar horarios y la falta de claridad en explicaciones, proponiendo soluciones como el uso de tutores verificados y repositorios de sesiones grabadas.
 <br>
 
-#### Segmento #2: Estudiantes que quieran enseñar
+En esta figura se observa el recorrido del aprendiz a través de cinco etapas críticas: decisión de aprender, búsqueda de recursos, obtención del certificado, bloqueo en la práctica real y búsqueda de ayuda. El diagrama detalla la curva emocional del usuario, identificando puntos de dolor como la incertidumbre sobre si está aprendiendo correctamente, la frustración al no poder demostrar el dominio en situaciones reales y la dificultad para encontrar un mentor que se especialice exactamente en el sub-tema donde se bloqueó.
+
+#### Segmento #2: Personas que quieren enseñar
+
 <p align="center">
-  <img src="public/assets/images-doc/jur2.jpg" alt="Journey Map Tutor" width="800">
+  <img src="public/assets/images-doc/jur2-app.png" alt="Journey Map Mentor" width="800">
   <br>
-  <em>Figura 17. User Journey Mapping – Estudiantes que quieran enseñar - Elaboración propia. Nota: En esta figura se aprecia nuestro segundo Journey Mapping de nuestro segundo segmento estudiante tutor.</em>
+  <em>Figura 10. User Journey Mapping – Personas que quieren enseñar - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del segundo segmento del nuevo proyecto Innovify.</em>
 </p>
 <br>
-En la imagen tenemos la visualización de la experiencia desde la perspectiva del tutor. El mapa describe el proceso desde la motivación inicial y la preparación del material hasta el cierre y retroalimentación de la sesión. Se resalta la fluctuación de la experiencia según el compromiso del aprendiz y se proponen ideas de mejora como la gamificación de las sesiones y sistemas de recordatorios automáticos para optimizar la gestión del tiempo.
+
+En esta figura se visualiza la experiencia desde la perspectiva del mentor. El mapa describe el proceso desde la motivación inicial de enseñar, pasando por la búsqueda de aprendices a través de canales informales, la gestión desorganizada de las sesiones, la frustración por recibir aprendices sin nivel mínimo, hasta la ausencia total de reconocimiento formal o credencial verificable que acredite su labor docente.
+
 <br>
 
 #### Segmento #3: Coordinador Institucional
+
 <p align="center">
-  <img src="public/assets/images-doc/jur3.jpg" alt="Journey Map Coordinador" width="800">
+  <img src="public/assets/images-doc/jur3-app.png" alt="Journey Map Coordinador" width="800">
   <br>
-  <em>Figura 18. User Journey Mapping - Coordinador Institucional - Elaboración propia. Nota: En esta figura se aprecia nuestro tercer Journey Mapping de nuestro segmento coordinador institucional.</em>
+  <em>Figura 11. User Journey Mapping - Coordinador Institucional - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del tercer segmento del nuevo proyecto Innovify.</em>
 </p>
-
-En esta figura se detalla el flujo de gestión desde el ángulo administrativo y de calidad académica. El mapa abarca la planeación, implementación y supervisión de las tutorías interuniversitarias, poniendo énfasis en la mitigación de riesgos operativos como el plagio o el fraude. Se proponen herramientas técnicas de control, tales como un "DNI académico" para la validación de alumnos y paneles de control intuitivos para el monitoreo de interacciones.
-<br>
-<br>
 <br>
 
-**Entonces**, los mapas de experiencia presentados permiten comprender de manera integral cómo interactúan los distintos actores con la plataforma a lo largo de sus procesos clave. Desde la perspectiva del estudiante, se evidencia un recorrido marcado por necesidades emocionales y operativas que van desde la incertidumbre inicial hasta la evaluación final, identificando puntos críticos que pueden ser mitigados mediante herramientas de apoyo como tutores verificados y recursos grabados.
-
-Desde el lado del tutor, la experiencia se centra en la preparación, ejecución y retroalimentación de las sesiones, donde la calidad de la interacción depende del nivel de compromiso del aprendiz, proponiéndose mejoras orientadas a la motivación y la optimización del tiempo mediante gamificación y automatización de recordatorios.
-
-Finalmente, la visión administrativa incorpora una capa de control y supervisión orientada a garantizar la calidad académica y la seguridad del sistema, abordando riesgos como el fraude o el plagio mediante mecanismos de validación y paneles de monitoreo. En conjunto, estas perspectivas permiten diseñar una experiencia equilibrada, eficiente y segura para todos los participantes del ecosistema educativo.
+En esta figura se detalla el flujo de gestión desde el ángulo administrativo y de calidad académica. El mapa abarca la planeación, implementación y supervisión de la plataforma, poniendo énfasis en la mitigación de riesgos operativos como el plagio, el fraude y la suplantación de identidad. Se identifican puntos de dolor como la sobrecarga operativa de los procesos de validación manual, la dificultad para medir el impacto real de los mentores y la ausencia de herramientas tecnológicas que automaticen la verificación de identidad y el monitoreo de interacciones.
 
 <br>
+
+**Entonces**, los mapas de experiencia presentados permiten comprender de manera integral cómo interactúan los distintos actores con el ecosistema de aprendizaje y validación de habilidades en la situación actual. Desde la perspectiva del aprendiz, el recorrido está marcado por una inversión constante de tiempo y dinero en certificaciones que no generan evidencia creíble de competencia práctica, con bloqueos específicos que no tiene cómo resolver de forma dirigida. Desde el lado del mentor, la experiencia actual es desorganizada, sin estructura y sin ningún mecanismo de reconocimiento formal, lo que desincentiva a los mejores talentos de enseñar de forma sistemática. Finalmente, la visión del coordinador incorpora una capa de control y supervisión orientada a garantizar la calidad académica y la seguridad del sistema, abordando riesgos como el fraude o la suplantación mediante mecanismos de validación y paneles de monitoreo. En conjunto, estas perspectivas permiten diseñar una experiencia equilibrada, eficiente y segura para todos los participantes del ecosistema.
 
 ---
 
 ### 2.3.4. Empathy Mapping
 
-Para profundizar en el entendimiento de nuestros usuarios finales y diseñar una solución que responda a sus necesidades reales, se desarrollaron mapas de empatía para cada segmento identificado. Esta herramienta permite visualizar el entorno, las percepciones y las motivaciones de los actores clave (aprendiz, tutor y administrador), facilitando la identificación de puntos críticos y oportunidades de valor dentro del ecosistema de SkillSwap.
-<br>
+Para profundizar en el entendimiento de los usuarios finales y diseñar una solución que responda a sus necesidades reales, se desarrollaron mapas de empatía para cada segmento identificado. Esta herramienta permite visualizar el entorno, las percepciones y las motivaciones de los actores clave, facilitando la identificación de puntos críticos y oportunidades de valor dentro del ecosistema de Innovify.
 
+#### Segmento #1: Personas que quieren aprender
 
-#### Segmento #1: Estudiantes que quieran aprender
 <p align="center">
-  <img src="public/assets/images-doc/Empati1.png" alt="Empathy Map Aprendiz" width="800">
+  <img src="public/assets/images-doc/Empati1-app.png" alt="Empathy Map Aprendiz" width="800">
   <br>
-  <em>Figura 19. Empathy Mapping - Estudiantes aprendices - Elaboración propia. Nota: En esta figura se aprecia nuestro Empathy Mapping de nuestro primer segmento estudiante aprendiz.</em>
+  <em>Figura 11. Empathy Mapping - Personas que quieren aprender - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del primer segmento del nuevo proyecto Innovify.</em>
 </p>
 <br>
-Se observa el mapa de empatía de Valeria, estudiante universitaria que representa al segmento de aprendices. El diagrama detalla su necesidad de encontrar apoyo académico confiable ante una carga académica exigente, identificando como puntos de dolor la ansiedad generada por la falta de confianza en los tutores actuales y la frustración de perder tiempo buscando ayuda poco efectiva.
 
-<br>
+Se observa el mapa de empatía de Andrea, estudiante universitaria que representa al segmento de aprendices. El diagrama detalla su necesidad de demostrar habilidades prácticas reales ante un mercado laboral que exige competencias verificables, no solo certificados. Sus principales puntos de dolor son la ansiedad por no saber si lo que aprendió es suficiente, la frustración de tener certificados que nadie toma en serio y la incapacidad de identificar exactamente en qué sub-tema está fallando para pedir ayuda específica. Sus ganancias esperadas son una credencial verificable con peso real ante empleadores y acceso a un mentor que resuelva exactamente el bloqueo que tiene, sin tener que repasar todo el curso desde cero.
 
-#### Segmento #2: Estudiantes que quieran enseñar
+#### Segmento #2: Personas que quieren enseñar
+
 <p align="center">
-  <img src="public/assets/images-doc/Empati2.png" alt="Empathy Map Tutor" width="800">
+  <img src="public/assets/images-doc/Empati2-app.png" alt="Empathy Map Mentor" width="800">
   <br>
-  <em>Figura 20. Empathy Mapping - Estudiantes tutores - Elaboración propia. Nota: En esta figura se aprecia nuestro segundo Empathy Mapping de nuestro segmento estudiantes tutores.</em>
+  <em>Figura 12. Empathy Mapping - Personas que quieren enseñar - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del segundo segmento del nuevo proyecto Innovify.</em>
 </p>
 <br>
-En esta figura se detalla el mapa de empatía orientado al estudiante con rol de tutor. El análisis subraya su deseo de reafirmar conocimientos mediante la enseñanza y construir un perfil académico/profesional sólido. Se identifican como principales desafíos la falta de reconocimiento formal por su labor de apoyo y la dificultad para equilibrar las tutorías con sus propias responsabilidades de estudio.
+
+En esta figura se detalla el mapa de empatía orientado al mentor. El análisis subraya su deseo de convertir su dominio técnico en reconocimiento profesional verificable y en ingresos adicionales estructurados. Sus principales puntos de dolor son la falta de un mecanismo formal que acredite su capacidad docente, la desorganización de los modelos informales actuales y la frustración de recibir aprendices sin nivel mínimo que hace que las sesiones sean ineficientes. Sus ganancias esperadas son pertenecer a un ecosistema riguroso que eleve su estatus profesional, acumular SkillCredits que pueda exhibir en LinkedIn y recibir información precisa sobre el vacío del aprendiz antes de cada sesión para prepararse mejor.
+
 <br>
 
 #### Segmento #3: Coordinador Institucional
+
 <p align="center">
-  <img src="public/assets/images-doc/Empati3.png" alt="Empathy Map Coordinador" width="800">
+  <img src="public/assets/images-doc/Empati3-app.png" alt="Empathy Map Coordinador" width="800">
   <br>
-  <em>Figura 21. Empathy Mapping - Coordinador Institucional - Elaboración propia. Nota: En esta figura se aprecia nuestro tercer Empathy Mapping de nuestro segmento coordinador institucional.</em>
+  <em>Figura 13. Empathy Mapping - Coordinador Institucional - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del tercer segmento del nuevo proyecto Innovify.</em>
 </p>
+<br>
 
-En la imagen tenemos la caracterización empática de Romeo, representante del segmento institucional y administrativo. El mapa resalta su preocupación por mantener la calidad académica y la integridad institucional, señalando como riesgos principales el fraude o suplantación de identidad, y visualizando como ganancia el acceso a herramientas tecnológicas que agilicen la validación de los participantes.
-<br><br>
-**Entonces**, los mapas de empatía permiten profundizar en las necesidades emocionales, motivaciones y dificultades de los distintos actores del sistema, enriqueciendo la comprensión del diseño centrado en el usuario. En el caso del estudiante con rol de tutor, se evidencia una motivación orientada al refuerzo de conocimientos y al desarrollo de su perfil profesional, aunque enfrenta desafíos relacionados con el reconocimiento de su labor y la gestión del tiempo entre sus responsabilidades académicas y las tutorías.
+En la imagen se presenta la caracterización empática de Renato López, representante del segmento institucional y administrativo. El mapa resalta su preocupación por mantener la calidad académica y la integridad institucional, señalando como riesgos principales el fraude o suplantación de identidad y la sobrecarga operativa de los procesos de validación manual. Sus ganancias esperadas son el acceso a herramientas tecnológicas que agilicen la verificación de participantes, un panel de monitoreo con métricas agregadas de la plataforma y mecanismos automatizados de trazabilidad que reduzcan la carga de trabajo de su equipo.
 
-Por su parte, el perfil institucional destaca una fuerte preocupación por la calidad académica y la seguridad del sistema, priorizando la prevención de riesgos como el fraude y la suplantación, y valorando el uso de herramientas tecnológicas que optimicen los procesos de validación. Finalmente, el estudiante aprendiz refleja una necesidad urgente de apoyo académico confiable, enfrentando emociones como la ansiedad y la frustración debido a experiencias poco efectivas en la búsqueda de ayuda. En conjunto, estos mapas evidencian la importancia de diseñar una plataforma equilibrada que atienda tanto aspectos funcionales como emocionales, asegurando confianza, eficiencia y valor para todos los usuarios.
+<br>
+
+**Entonces**, los mapas de empatía permiten profundizar en las necesidades emocionales, motivaciones y dificultades de los tres actores principales del ecosistema Innovify. En el caso del aprendiz, se evidencia una motivación fuerte orientada a la empleabilidad y al reconocimiento real de sus capacidades, enfrentando frustraciones relacionadas con la superficialidad del modelo de certificación actual y la dificultad de encontrar ayuda específica cuando se bloquea. Por su parte, el perfil del mentor destaca una motivación dual: económica y de reconocimiento profesional, con frustraciones relacionadas con la informalidad y la falta de estructura de los modelos actuales. Finalmente, el perfil institucional del coordinador destaca una fuerte preocupación por la calidad académica y la seguridad del sistema, priorizando la prevención de riesgos como el fraude y la suplantación, y valorando el uso de herramientas tecnológicas que optimicen los procesos de validación y reduzcan la carga operativa. En conjunto, estos mapas evidencian la importancia de diseñar una plataforma equilibrada que atienda tanto aspectos funcionales como emocionales, asegurando confianza, eficiencia y valor para todos los usuarios del ecosistema.
 
 ---
 
