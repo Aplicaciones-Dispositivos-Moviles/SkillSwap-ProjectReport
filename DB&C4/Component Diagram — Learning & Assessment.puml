@@ -1,37 +1,54 @@
-@startuml LearningComponent
+@startuml LearningPathEngineComponent
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
 LAYOUT_WITH_LEGEND()
 
 Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
-ContainerDb_Ext(mainDB, "Innovify Database", "MySQL 8")
+ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
+System_Ext(llmApi, "LLM API", "Generación de preguntas por IA")
 
-Container_Boundary(learningBC, "Learning & Assessment Bounded Context") {
-    Component(learningController, "Learning Controller", "C# Class", "RESTful API Controller")
-    Component(learningCommandService, "Learning CommandService", "C# Class", "Lógica de negocio")
-    Component(learningQueryService, "Learning QueryService", "C# Class", "Consultas")
-    Component(learningRepository, "Learning Repository", "C# Interface", "Interface persistencia")
-    Component(learningContextFacade, "Learning ContextFacade", "C# Class", "Punto de entrada interno")
+Container_Boundary(pathEngineBC, "Learning Path Engine Bounded Context") {
+    Component(learningPathController, "LearningPath Controller", "C# Class", "RESTful API Controller")
+    Component(assessmentBlueprintController, "AssessmentBlueprint Controller", "C# Class", "RESTful API Controller")
+    Component(pathEngineCommandService, "PathEngine CommandService", "C# Class", "Lógica de negocio")
+    Component(pathEngineQueryService, "PathEngine QueryService", "C# Class", "Consultas")
+    Component(skillTaxonomyMatcher, "SkillTaxonomy Matcher", "C# Class", "Resuelve CareerGoal contra la taxonomía interna de skills")
+    Component(learningPathRepository, "LearningPath Repository", "C# Interface", "Interface persistencia")
+    Component(assessmentBlueprintRepository, "AssessmentBlueprint Repository", "C# Interface", "Interface persistencia")
+    Component(llmGeneratorExternal, "LlmQuestionGenerator ExternalService", "C# Class", "Adaptador de generación de preguntas")
+    Component(pathEngineContextFacade, "PathEngine ContextFacade", "C# Class", "Punto de entrada interno")
 }
 
-Component_Ext(collaborationCommandService, "Workspace CommandService", "C# Class", "Bounded Context: Workspace")
-Component_Ext(collaborationQueryService, "Workspace QueryService", "C# Class", "Bounded Context: Workspace")
-Component_Ext(reputationContextFacade, "Reputation ContextFacade", "C# Class", "Bounded Context: Reputation")
-Component_Ext(reputationCommandService, "Reputation CommandService", "C# Class", "Bounded Context: Reputation")
+Component_Ext(credentialContextFacade, "Certificate ContextFacade", "C# Class", "Bounded Context: Credential Verification")
+Component_Ext(credentialCommandService, "Certificate CommandService", "C# Class", "Bounded Context: Credential Verification")
 
-Rel(apiGateway, learningController, "Request HTTP a Learning")
-Rel(learningController, learningCommandService, "Usa")
-Rel(learningController, learningQueryService, "Usa")
-Rel(learningCommandService, learningRepository, "Usa")
-Rel(learningQueryService, learningRepository, "Usa")
-Rel(learningRepository, mainDB, "Guarda las calificaciones del quiz")
+Component_Ext(assessmentQueryService, "Assessment QueryService", "C# Class", "Bounded Context: Assessment & Peer Review")
+Component_Ext(assessmentCommandService, "Assessment CommandService", "C# Class", "Bounded Context: Assessment & Peer Review")
 
-Rel(collaborationCommandService, learningContextFacade, "Profesor hace Quiz")
-Rel(collaborationQueryService, learningContextFacade, "Pedir Quiz")
-Rel(learningQueryService, reputationContextFacade, "Pedir si la sesión ya finalizó")
-Rel(reputationCommandService, learningContextFacade, "Sesión terminada")
+Rel(apiGateway, learningPathController, "Request HTTP a Learning Path Engine")
+Rel(apiGateway, assessmentBlueprintController, "Request HTTP a Learning Path Engine")
 
-Rel(learningContextFacade, learningCommandService, "Delega")
-Rel(learningContextFacade, learningQueryService, "Delega")
+Rel(learningPathController, pathEngineCommandService, "Usa")
+Rel(learningPathController, pathEngineQueryService, "Usa")
+Rel(assessmentBlueprintController, pathEngineCommandService, "Usa")
+
+Rel(pathEngineCommandService, learningPathRepository, "Usa")
+Rel(pathEngineCommandService, assessmentBlueprintRepository, "Usa")
+Rel(pathEngineQueryService, learningPathRepository, "Usa")
+Rel(learningPathRepository, mainDB, "SQL Transaction")
+Rel(assessmentBlueprintRepository, mainDB, "SQL Transaction")
+
+Rel(pathEngineCommandService, skillTaxonomyMatcher, "Resuelve el texto libre de la meta contra la taxonomía interna")
+Rel(pathEngineCommandService, llmGeneratorExternal, "Delega generación de preguntas")
+Rel(llmGeneratorExternal, llmApi, "Genera preguntas vía prompt estructurado por skillTag")
+
+Rel(pathEngineCommandService, credentialContextFacade, "Pedir certificados verificados del estudiante")
+
+Rel(pathEngineContextFacade, pathEngineCommandService, "Delega")
+Rel(pathEngineContextFacade, pathEngineQueryService, "Delega")
+
+Rel(credentialCommandService, pathEngineContextFacade, "Notificar certificado verificado (recalcular ruta)")
+Rel(assessmentQueryService, pathEngineContextFacade, "Pedir AssessmentBlueprint del nodo")
+Rel(assessmentCommandService, pathEngineContextFacade, "Notificar nodo demostrado / caso resuelto")
 
 @enduml

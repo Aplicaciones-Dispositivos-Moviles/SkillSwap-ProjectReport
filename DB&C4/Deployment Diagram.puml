@@ -1,15 +1,16 @@
-@startuml InnovifyDeployment
+@startuml SkillSwapDeployment
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
 
 LAYOUT_WITH_LEGEND()
 
 Deployment_Node(userDevice, "Dispositivo Móvil del Usuario", "Android"){
-    Container(androidApp, "Android Native App", "Kotlin / Jetpack Compose", "Cliente móvil nativo usado por Aprendices, Tutores y el Profesor para interactuar con la plataforma.")
+    Container(androidApp, "Android Native App", "Kotlin / Jetpack Compose", "Cliente móvil nativo usado por Estudiantes, Verificadores y el Profesor para interactuar con la plataforma.")
     Container(flutterApp, "Cross-Platform App", "Flutter / Dart (Android)", "Cliente móvil multiplataforma dirigido a Android.")
+    Container(mlKitSdk, "ML Kit SDK", "Firebase On-Device", "Procesa la extracción de datos del certificado directamente en el dispositivo, sin llamada a un servicio en la nube.")
 }
 
 Deployment_Node(staticHosting, "Hosting Estático", "Firebase Hosting / Vercel"){
-    Container(landingPage, "Landing Page", "HTML5 / CSS3 / JavaScript", "Sitio web estático que presenta el modelo de negocio de Innovify.")
+    Container(landingPage, "Landing Page", "HTML5 / CSS3 / JavaScript", "Sitio web estático que presenta el modelo de negocio de SkillSwap.")
 }
 
 Deployment_Node(cloudPlatform, "Render", "Plataforma Cloud"){
@@ -17,15 +18,17 @@ Deployment_Node(cloudPlatform, "Render", "Plataforma Cloud"){
         Container(apiGateway, "Api Gateway + Bounded Contexts", "ASP.NET Core (C#)", "Punto de entrada central que enruta las solicitudes a los siete Bounded Contexts de la lógica de negocio.")
     }
     Deployment_Node(dbServer, "Servidor de Base de Datos Administrado", "Render Managed Database"){
-        ContainerDb(mainDB, "Innovify Database", "MySQL 8", "Instancia única compartida por los siete Bounded Contexts (skillswap_db).")
+        ContainerDb(mainDB, "SkillSwap Database", "MySQL 8", "Instancia única compartida por los siete Bounded Contexts (skillswap_db).")
     }
 }
 
 Deployment_Node(externalCloud, "Servicios Externos en la Nube", "SaaS"){
-    System_Ext(agoraApi, "Agora", "Video Call SDK (feature de aprendizaje autónomo)")
-    System_Ext(cloudStorage, "Cloudinary", "Almacenamiento de archivos del chat")
-    System_Ext(paymentGateway, "Stripe", "Pasarela de pagos (trabajo futuro)")
+    System_Ext(cloudStorage, "Cloudinary", "Almacenamiento de certificados y evidencias de casos")
+    System_Ext(emailService, "Email Api", "Notificaciones institucionales")
 }
+
+Rel(androidApp, mlKitSdk, "Invoca localmente", "SDK call")
+Rel(flutterApp, mlKitSdk, "Invoca localmente", "SDK call")
 
 Rel(androidApp, apiGateway, "Consume API RESTful", "HTTPS")
 Rel(flutterApp, apiGateway, "Consume API RESTful", "HTTPS")
@@ -33,8 +36,7 @@ Rel(landingPage, apiGateway, "Consume API RESTful", "HTTPS")
 
 Rel(apiGateway, mainDB, "Lee/Escribe", "SQL")
 
-Rel(apiGateway, agoraApi, "Genera token de videollamada", "HTTPS")
-Rel(apiGateway, cloudStorage, "Guarda archivos del chat", "HTTPS")
-Rel(apiGateway, paymentGateway, "Procesa pago (futuro)", "HTTPS")
+Rel(apiGateway, cloudStorage, "Guarda certificados y evidencias", "HTTPS")
+Rel(apiGateway, emailService, "Envía notificaciones", "HTTPS")
 
 @enduml

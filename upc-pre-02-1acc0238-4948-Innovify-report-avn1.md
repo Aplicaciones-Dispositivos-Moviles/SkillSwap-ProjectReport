@@ -1051,90 +1051,91 @@ Por su parte, el perfil institucional destaca una fuerte preocupación por la ca
 
 ### 2.5.2. Context Mapping
 
-El Context Mapping de Innovify (SkillSwap) evidencia las relaciones estructurales entre los siete Bounded Contexts que conforman la solución, aplicando los patrones de relación establecidos en Domain-Driven Design para gestionar las dependencias entre equipos y modelos de dominio.
+El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los siete Bounded Contexts que conforman la solución, aplicando los patrones de relación establecidos en Domain-Driven Design para gestionar las dependencias entre equipos y modelos de dominio, bajo el nuevo enfoque de la plataforma centrado en la verificación de habilidades mediante Inteligencia Artificial.
 
-**Identity & Access** actúa como **Upstream** de todo el sistema bajo el patrón **Conformist**: dado que su agregado `User` parte de una base entregada por el docente y expone únicamente `userId` y `role` como datos públicos, el resto de los Bounded Contexts (Discovery, Workspace, Learning & Assessment, Reputation, Payments & Wallet y Moderation & Disputes) se conforman a ese modelo sin negociar cambios, referenciando el identificador de usuario como un dato externo dentro de su propio esquema de persistencia.
+**Identity & Access** actúa como **Upstream** de todo el sistema bajo el patrón **Conformist**: su agregado `User` expone únicamente `userId` y `role` como datos públicos, y el resto de los Bounded Contexts (Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives y Moderation & Disputes) se conforman a ese modelo sin negociar cambios, referenciando el identificador de usuario como un dato externo dentro de su propio esquema de persistencia. Es dentro de este Bounded Context que se distingue el perfil de `Student` del perfil de `Verificador` (vinculado a un Student que ya completó su propia ruta de certificación), sin que ello implique un rol adicional a nivel de autenticación.
 
-**Discovery** mantiene una relación **Customer/Supplier** con **Identity & Access** (consume el directorio de usuarios/tutores) y con **Workspace** (le entrega el perfil del tutor seleccionado para iniciar una sesión).
+**Credential Verification** mantiene una relación **Customer/Supplier** hacia **Learning Path Engine**: únicamente un certificado ya validado (extraído y verificado como legítimo) puede ser consumido como evidencia de una habilidad dentro del cálculo de brechas, por lo que Learning Path Engine actúa como Downstream, consumiendo el modelo de `Certificate` validado sin poder alterar las reglas de extracción o de detección de fraude definidas en el Upstream.
 
-**Workspace**, como núcleo operativo de la plataforma, es **Supplier** de **Learning & Assessment** (la finalización de una sesión habilita el quiz de evaluación) y de **Reputation** (el cierre de sesión dispara la solicitud de calificación al tutor), ambas bajo el patrón **Customer/Supplier**.
+**Learning Path Engine**, como núcleo de negocio (Core Domain) de la plataforma, es **Supplier** de **Assessment & Peer Review** bajo el patrón **Customer/Supplier**: cada `PathNode` de la ruta generada define la especificación de la evaluación (habilidad a demostrar, nivel de exigencia) que Assessment & Peer Review debe ejecutar como Downstream, sin negociar el contenido de dicha especificación.
 
-**Moderation & Disputes** se relaciona como **Customer/Supplier** hacia **Identity & Access** (emite órdenes de sanción sobre la cuenta) y hacia **Reputation** (ajusta la reputación del usuario sancionado tras una disputa resuelta).
+**Assessment & Peer Review**, como ejecutor del flujo de evaluación y revisión humana, es **Supplier** de **Reputation** (la resolución de un `VerificationCase` —aprobado o rechazado, y quién lo revisó— dispara el recálculo de la confiabilidad del Verificador y del Employability Score del estudiante) y de **Wallet & Incentives** (la resolución de un caso por parte de un Verificador dispara la acreditación de SkillCredits), ambas bajo el patrón **Customer/Supplier**.
 
-Finalmente, **Workspace** y **Payments & Wallet** mantienen una relación de **Anticorruption Layer (ACL)** hacia los sistemas externos de terceros (WebRTC/almacenamiento en la nube para videollamadas, y la futura pasarela de pagos Stripe respectivamente), aislando el modelo de dominio interno de los contratos y formatos propios de dichos servicios externos.
+**Moderation & Disputes** se relaciona como **Customer/Supplier** hacia **Identity & Access** (emite órdenes de sanción sobre la cuenta de un usuario que presentó certificados fraudulentos o incurrió en una falta) y hacia **Reputation** (ajusta la reputación del usuario tras una disputa resuelta). Adicionalmente, mantiene una relación de **Anticorruption Layer (ACL)** hacia **Assessment & Peer Review**: en lugar de depender directamente del modelo interno de `VerificationCase`, Moderation & Disputes traduce la información recibida a su propio modelo simplificado de "caso en disputa", evitando acoplarse a cambios futuros en la lógica interna de asignación y revisión de Verificadores.
+
+Finalmente, **Credential Verification** mantiene una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **ML Kit** (Text Recognition / Entity Extraction de Firebase, utilizado on-device para la extracción de datos del certificado), aislando el modelo de dominio interno `Certificate` de los contratos y formatos de respuesta propios del SDK externo.
 
 <p align="center">
   <img src="images-doc/context-mapping.png" alt="Context Mapping" width="900">
   <br>
-  <em>Figura XX. Context Mapping de Innovify - Elaboración propia. Nota: Se muestran las relaciones Conformist, Customer/Supplier y Anticorruption Layer entre los Bounded Contexts Identity & Access, Discovery, Workspace, Learning & Assessment, Reputation, Payments & Wallet y Moderation & Disputes.</em>
+  <em>Figura XX. Context Mapping de SkillSwap - Elaboración propia. Nota: Se muestran las relaciones Conformist, Customer/Supplier y Anticorruption Layer entre los Bounded Contexts Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives y Moderation & Disputes.</em>
 </p>
 
 ### 2.5.3. Software Architecture
+
 **Software Architecture Context Level Diagram:**
-Muestra la interacción de los usuarios (Aprendiz, Tutor, Coordinador) con el sistema central de SkillSwap y los servicios externos de terceros (SDK de videollamadas, Pasarela de Pagos, Servicio de Correos).
+Muestra la interacción de los tres actores (Estudiante, Verificador, Profesor/Coordinador) con el sistema central de SkillSwap y los servicios externos de terceros (extracción de datos de certificados vía ML Kit, almacenamiento de evidencias y servicio de notificaciones).
 
 **Software Architecture Container Level Diagram:**
 Detalla la estructura de contenedores:
-1.  **Mobile Application (Native/Cross-Platform):** La interfaz principal para estudiantes, desarrollada con soporte de almacenamiento local y acceso a hardware.
-2.  **Web Application (Landing Page & Admin Dashboard):** Sitio web estático para la presentación del negocio y panel SPA para los coordinadores.
-3.  **API Gateway / RESTful Web Services:** El backend desarrollado internamente que orquesta la lógica de negocio.
-4.  **Database:** Repositorio central de información.
+1. **Mobile Application (Native/Cross-Platform):** La interfaz principal para los tres actores, desarrollada con soporte de almacenamiento local, acceso a hardware (cámara para captura de certificados, biometría) y consumo del backend RESTful.
+2. **Landing Page:** Sitio web estático para la presentación del modelo de negocio, accesible por los tres actores.
+3. **API Gateway / RESTful Web Services:** El backend desarrollado internamente que orquesta la lógica de negocio de los siete Bounded Contexts.
+4. **Database:** Repositorio central de información, compartido por los siete Bounded Contexts.
 
 **Software Architecture Deployment Diagram:**
-Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de los usuarios (iOS/Android), el Landing Page en un servicio de hosting estático, y el backend junto con la base de datos en una infraestructura Cloud.
-
+Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de los usuarios (Android), el Landing Page en un servicio de hosting estático, y el backend junto con la base de datos en infraestructura Cloud.
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto (Context Diagram) bajo el enfoque C4 Model presenta al sistema Innovify (SkillSwap) como una caja central única, mostrando sus interacciones de alto nivel con los actores principales y los sistemas externos de terceros, sin exponer aún detalles de implementación.
+El diagrama de contexto (Context Diagram) bajo el enfoque C4 Model presenta al sistema SkillSwap como una caja central única, mostrando sus interacciones de alto nivel con los actores principales y los sistemas externos de terceros, sin exponer aún detalles de implementación.
 
-El sistema es utilizado por tres actores principales: el **Estudiante Aprendiz** y el **Tutor**, quienes interactúan principalmente a través de la **aplicación móvil nativa (Android) y cross-platform (Flutter)** desarrollada en este curso, así como a través de la Web Application; y el **Coordinador Institucional**, quien supervisa la plataforma principalmente desde el panel administrativo web.
+El sistema es utilizado por tres actores principales: el **Estudiante**, quien sube sus certificados y demuestra sus habilidades a través de las evaluaciones generadas por la plataforma; el **Verificador** (un perfil vinculado a un Estudiante que ya completó su propia ruta de certificación), quien revisa los casos que la IA no puede resolver con suficiente confianza; y el **Profesor Universitario/Coordinador**, quien supervisa la calidad del proceso de verificación desde la aplicación móvil. Los tres actores interactúan con el sistema a través de la **aplicación móvil nativa (Android) y cross-platform (Flutter)**, así como del Landing Page.
 
-A nivel de sistemas externos, Innovify se integra con: la **pasarela de pagos Stripe** (documentada como trabajo futuro para el procesamiento real de comisiones), el **servicio de videollamadas WebRTC** (utilizado durante las sesiones de tutoría dentro del Workspace), y el **servicio de correo electrónico** para el envío de notificaciones institucionales (validación de dominio `.edu.pe`, confirmaciones de sesión, entre otros).
+A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), utilizado on-device para la extracción de datos de los certificados subidos por el Estudiante (institución, curso, fecha) — esta es la tecnología que satisface el requisito de aprendizaje autónomo del curso; un **servicio de almacenamiento en la nube** para las imágenes de certificados y evidencias adjuntas a un caso de revisión; y un **servicio de correo electrónico** para el envío de notificaciones institucionales (validación de dominio `.edu.pe`, resultado de una evaluación, apertura o resolución de un caso de verificación).
 
 <p align="center">
-  <img src="images-doc/InnovifySystemContext.svg" alt="System Context Diagram - Mobile" width="800">
+  <img src="images-doc/SkillSwapSystemContext.svg" alt="System Context Diagram - Mobile" width="800">
   <br>
-  <em>Figura XX. C4 Model: Context Diagram - Elaboración propia. Nota: Diagrama de contexto que muestra el sistema Innovify en el centro y sus interacciones directas con los actores principales (Estudiante Aprendiz, Tutor, Coordinador) a través de la aplicación móvil nativa, la aplicación cross-platform y la Web Application, así como con los sistemas externos de terceros (Pasarela de Pagos Stripe, servicio de videollamadas WebRTC, servicio de correo electrónico).</em>
+  <em>Figura XX. C4 Model: Context Diagram - Elaboración propia. Nota: Diagrama de contexto que muestra el sistema SkillSwap en el centro y sus interacciones directas con los actores principales (Estudiante, Verificador, Profesor/Coordinador) a través de la aplicación móvil nativa, la aplicación cross-platform y el Landing Page, así como con los sistemas externos de terceros (ML Kit, almacenamiento en la nube y servicio de correo electrónico).</em>
 </p>
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-El diagrama de contenedores (Container Diagram) descompone el sistema Innovify en los bloques de alto nivel que lo conforman, mostrando las principales decisiones tecnológicas y cómo se comunican entre sí. A diferencia del Context Diagram, aquí se detalla la estructura interna del sistema como un conjunto de aplicaciones y almacenes de datos desplegables de forma independiente.
+El diagrama de contenedores (Container Diagram) descompone el sistema SkillSwap en los bloques de alto nivel que lo conforman, mostrando las principales decisiones tecnológicas y cómo se comunican entre sí. A diferencia del Context Diagram, aquí se detalla la estructura interna del sistema como un conjunto de aplicaciones y almacenes de datos desplegables de forma independiente.
 
 Los contenedores identificados son los siguientes:
 
-- **Landing Page (Sitio Web Estático):** Presenta el modelo de negocio de Innovify al público general, implementado con HTML5, CSS3 y JavaScript.
-- **Web Application (SPA):** Aplicación de escritorio dirigida principalmente al Coordinador Institucional para la supervisión de la plataforma, desarrollada en Vue 3.
-- **Android Native Application:** Aplicación móvil nativa dirigida a Estudiantes Aprendices y Tutores, desarrollada en Kotlin con Jetpack Compose, que consume los mismos Web Services RESTful que la Web Application.
-- **Cross-Platform Application (Flutter):** Aplicación móvil multiplataforma (Android e iOS) que replica las funcionalidades core para Estudiantes Aprendices y Tutores, desarrollada en Flutter con Dart, consumiendo igualmente los Web Services RESTful expuestos por el backend.
-- **API / RESTful Web Services:** Backend desarrollado bajo arquitectura RESTful, actuando como Published Language único para los cuatro clientes (Landing Page, Web Application, Android Native App y Flutter App), orquestando la lógica de negocio de los siete Bounded Contexts.
-- **Database:** Repositorio central de persistencia, donde cada Bounded Context mantiene sus propias tablas siguiendo los principios de Domain-Driven Design.
+- **Landing Page (Sitio Web Estático):** Presenta el modelo de negocio de SkillSwap al público general, implementado con HTML5, CSS3 y JavaScript.
+- **Android Native Application:** Aplicación móvil nativa dirigida a los tres actores (Estudiante, Verificador, Profesor/Coordinador), desarrollada en Kotlin con Jetpack Compose, que consume los Web Services RESTful del backend.
+- **Cross-Platform Application (Flutter):** Aplicación móvil dirigida a Android, que replica las funcionalidades core para los tres actores, desarrollada en Flutter con Dart, consumiendo igualmente los Web Services RESTful expuestos por el backend.
+- **API / RESTful Web Services:** Backend desarrollado bajo arquitectura RESTful en C# / ASP.NET Core, actuando como Published Language único para los tres clientes (Landing Page, Android Native App y Flutter App), orquestando la lógica de negocio de los siete Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives y Moderation & Disputes).
+- **Database:** Repositorio central de persistencia (instancia única de MySQL), donde cada Bounded Context mantiene sus propias tablas siguiendo los principios de Domain-Driven Design.
 
 Es importante resaltar que tanto la aplicación Android nativa como la aplicación Flutter cross-platform consumen el **mismo contrato de API RESTful** documentado con OpenAPI/Swagger, sin requerir endpoints adicionales ni lógica de backend duplicada, evidenciando así el desacoplamiento entre la capa de presentación y la capa de dominio/aplicación del sistema.
 
 <p align="center">
-  <img src="images-doc/InnovifyContainer.svg" alt="Container Diagram - Mobile" width="900">
+  <img src="images-doc/SkillSwapContainer.svg" alt="Container Diagram - Mobile" width="900">
   <br>
-  <em>Figura XX. C4 Model: Container Diagram - Elaboración propia. Nota: Diagrama de contenedores que muestra la Landing Page, la Web Application, la Aplicación Android Nativa, la Aplicación Cross-Platform (Flutter), el backend de Web Services RESTful y la Base de Datos, junto con sus interacciones y el sistema externo Cloudinary utilizado para almacenamiento de archivos.</em>
+  <em>Figura XX. C4 Model: Container Diagram - Elaboración propia. Nota: Diagrama de contenedores que muestra el Landing Page, la Aplicación Android Nativa, la Aplicación Cross-Platform (Flutter), el backend de Web Services RESTful y la Base de Datos, junto con sus interacciones y los sistemas externos ML Kit y el servicio de almacenamiento en la nube.</em>
 </p>
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
-El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física de los contenedores de Innovify sobre la infraestructura de hardware y los entornos de ejecución, evidenciando cómo se despliega la solución en un ambiente real.
+El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física de los contenedores de SkillSwap sobre la infraestructura de hardware y los entornos de ejecución, evidenciando cómo se despliega la solución en un ambiente real.
 
-- **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes Aprendices, Tutores y el Profesor alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y la Aplicación Cross-Platform (Flutter, dirigida a Android), instaladas mediante distribución interna vía **Firebase App Distribution** durante el ciclo de pruebas, y descargables desde el dispositivo físico para la sustentación del curso.
-- **Hosting estático:** Aloja la Landing Page, servida de forma estática desde un proveedor de hosting (Firebase Hosting / Vercel), accesible por los tres actores del sistema.
-- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (C# / ASP.NET Core), desplegado en **Render**, donde se ejecuta la lógica de negocio de los siete Bounded Contexts a través de un único Api Gateway, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por los tres clientes (Landing Page, Android Native App, Flutter App).
+- **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes, Verificadores y el Profesor alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y la Aplicación Cross-Platform (Flutter, dirigida a Android), instaladas mediante distribución interna vía **Firebase App Distribution** durante el ciclo de pruebas, y descargables desde el dispositivo físico para la sustentación del curso. En estos dispositivos se ejecuta además **ML Kit** de forma on-device para la extracción de datos de los certificados, sin requerir una llamada a un servicio en la nube para dicho procesamiento.
+- **Hosting estático:** Aloja el Landing Page, servido de forma estática desde un proveedor de hosting (Firebase Hosting / Vercel), accesible por los tres actores del sistema.
+- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (C# / ASP.NET Core), desplegado en **Render**, donde se ejecuta la lógica de negocio de los siete Bounded Contexts a través de un único API Gateway, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por los tres clientes (Landing Page, Android Native App, Flutter App).
 - **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de MySQL desplegada en **Render**, compartida por los siete Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
-- **Servicios externos en la nube:** Agora para las videollamadas en tiempo real del Workspace (feature de aprendizaje autónomo), Cloudinary para el almacenamiento de archivos compartidos en el chat, y la pasarela de pagos (Stripe) documentada como trabajo futuro.
+- **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para las imágenes de certificados y evidencias adjuntas a un caso de verificación, y servicio de correo electrónico para el envío de notificaciones (validación institucional, resultados de evaluación, estado de un caso de revisión).
 
 Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
 
 <p align="center">
-  <img src="images-doc/InnovifyDeployment.svg" alt="Deployment Diagram - Mobile" width="900">
+  <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram - Mobile" width="900">
   <br>
-  <em>Figura XX. C4 Model: Deployment Diagram - Elaboración propia. Nota: Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution, el hosting estático de la Landing Page, el servidor de aplicación en Render, la instancia única de MySQL en Render y los servicios externos en la nube (Agora, Cloudinary, Stripe). Elaborado en PlantUML.</em>
+  <em>Figura XX. C4 Model: Deployment Diagram - Elaboración propia. Nota: Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution y ejecución on-device de ML Kit, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de MySQL en Render y el servicio externo de almacenamiento en la nube. Elaborado en PlantUML.</em>
 </p>
 
 ## 2.6. Tactical-Level Domain-Driven Design
@@ -1190,7 +1191,7 @@ Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| value | enum | Valor del rol: `Student` o `Coordinator`. Nota: el perfil de Tutor no es un valor de este enum — es un perfil adicional (`TutorProfile`) que un usuario `Student` puede poseer, gestionado en el Bounded Context Discovery. |
+| value | enum | Valor del rol: `Student` o `Coordinator`. Nota: el perfil de Verificador no es un valor de este enum — es un perfil adicional (`VerifierProfile`) que un usuario `Student` puede adquirir una vez completada su propia ruta de certificación, gestionado en el Bounded Context Assessment & Peer Review. |
 
 **4. Value Object: PasswordHash**
 
@@ -1240,11 +1241,11 @@ Métodos
 - `existsByEmail(Email email)`: Verifica la unicidad de un correo antes del registro.
 - `save(User user)`: Persiste un usuario nuevo o actualizado.
 
-En la Domain Layer de Innovify, específicamente dentro del Bounded Context de Identity & Access, se ha definido la gestión de identidades bajo un modelo de Domain-Driven Design (DDD). La clase `User` actúa como el Agregado raíz que centraliza la información de la cuenta y su asociación con el rol correspondiente (Student o Coordinator), garantizando que el acceso y las credenciales se validen estrictamente a través de servicios de dominio como `PasswordHasher` y `EmailDomainValidator`. Finalmente, la recuperación y persistencia de estas identidades se gestiona mediante el repositorio `UserRepository`.
+En la Domain Layer de SkillSwap, específicamente dentro del Bounded Context de Identity & Access, se ha definido la gestión de identidades bajo un modelo de Domain-Driven Design (DDD). La clase `User` actúa como el Agregado raíz que centraliza la información de la cuenta y su asociación con el rol correspondiente (Student o Coordinator), garantizando que el acceso y las credenciales se validen estrictamente a través de servicios de dominio como `PasswordHasher` y `EmailDomainValidator`. Finalmente, la recuperación y persistencia de estas identidades se gestiona mediante el repositorio `UserRepository`.
 
 #### 2.6.1.2. Interface Layer
 
-En la Interface Layer de Innovify, específicamente para el contexto de Identity & Access, se definen los puntos de entrada para la comunicación externa. Esta capa utiliza controladores REST, recursos (DTOs) y ensambladores para desacoplar el modelo de dominio de las representaciones externas, facilitando el registro y la autenticación de los usuarios desde los tres clientes (Web, Android Nativo, Flutter).
+En la Interface Layer de SkillSwap, específicamente para el contexto de Identity & Access, se definen los puntos de entrada para la comunicación externa. Esta capa utiliza controladores REST, recursos (DTOs) y ensambladores para desacoplar el modelo de dominio de las representaciones externas, facilitando el registro y la autenticación de los usuarios desde los clientes móviles.
 
 **Resources**
 
@@ -1270,11 +1271,11 @@ En la Interface Layer de Innovify, específicamente para el contexto de Identity
 | SignUpCommandFromResourceAssembler | Transforma los datos recibidos en `SignUpResource` en un `SignUpCommand` procesable por la capa de aplicación. |
 | SignInCommandFromResourceAssembler | Convierte el `SignInResource` en el `SignInCommand` correspondiente para la validación de credenciales. |
 
-Los controladores presentados no contienen reglas de negocio: delegan el procesamiento a la capa de dominio y de aplicación, actuando como una interfaz uniforme entre los tres clientes (Web, Android Nativo, Flutter) y la lógica de autenticación del sistema.
+Los controladores presentados no contienen reglas de negocio: delegan el procesamiento a la capa de dominio y de aplicación, actuando como una interfaz uniforme entre los clientes móviles (Android Nativo, Flutter) y la lógica de autenticación del sistema.
 
 #### 2.6.1.3. Application Layer
 
-En la Application Layer de Innovify, para el contexto de Identity & Access, los handlers son los encargados de procesar los comandos, orquestando la lógica necesaria para cumplir con los casos de uso de registro y autenticación, actuando como mediadores entre la Interface Layer y el Domain Layer.
+En la Application Layer de SkillSwap, para el contexto de Identity & Access, los handlers son los encargados de procesar los comandos, orquestando la lógica necesaria para cumplir con los casos de uso de registro y autenticación, actuando como mediadores entre la Interface Layer y el Domain Layer.
 
 **Handlers**
 
@@ -1294,7 +1295,7 @@ En la Application Layer de Identity & Access, los handlers orquestan el flujo de
 
 #### 2.6.1.4. Infrastructure Layer
 
-En la Infrastructure Layer de Innovify, para el contexto de Identity & Access, se implementan los detalles técnicos y las integraciones necesarias para la persistencia y la seguridad de las identidades.
+En la Infrastructure Layer de SkillSwap, para el contexto de Identity & Access, se implementan los detalles técnicos y las integraciones necesarias para la persistencia y la seguridad de las identidades.
 
 **Persistence (Repository Implementation)**
 
@@ -1307,7 +1308,7 @@ En la Infrastructure Layer de Innovify, para el contexto de Identity & Access, s
 | Nombre | Descripción | Resumen de Implementación |
 |---|---|---|
 | BCryptPasswordHasher | Implementación técnica de `PasswordHasher` encargada de proteger las contraseñas de los usuarios. | Utiliza el algoritmo BCrypt para generar hashes seguros y validar contraseñas durante el acceso. |
-| JwtTokenGenerator | Servicio responsable de la generación de tokens de seguridad para sesiones autenticadas. | Implementa la generación de tokens JWT, codificando el `userId` y el `role` para la autorización de peticiones en los tres clientes (Web, Android Nativo, Flutter). |
+| JwtTokenGenerator | Servicio responsable de la generación de tokens de seguridad para sesiones autenticadas. | Implementa la generación de tokens JWT, codificando el `userId` y el `role` para la autorización de peticiones en los clientes móviles (Android Nativo, Flutter). |
 
 Estos componentes aseguran que la lógica de negocio de Identity & Access se ejecute sobre una infraestructura robusta, con el campo `deviceToken` del agregado `User` quedando reservado como punto de extensión hasta definir la tecnología concreta de notificaciones a integrar.
 
@@ -1316,7 +1317,7 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
 <p align="center">
   <img src="images-doc/IdentityComponent.svg" alt="Component Diagram - Identity & Access" width="800">
   <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Identity & Access - Elaboración propia. Nota: Se detalla la segregación entre Controllers, Command Services y los adaptadores de Persistencia, Seguridad (JWT) y Notificaciones Push (Firebase Cloud Messaging), este último como componente de infraestructura adicional requerido para el soporte de clientes móviles.</em>
+  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Identity & Access - Elaboración propia. Nota: Se detalla la segregación entre el Controller, los Command/Query Services y los adaptadores de Persistencia y Seguridad (JWT), evidenciando las relaciones con los demás Bounded Contexts: la creación de la wallet inicial de SkillCredits en Wallet & Incentives al registrarse, la consulta de estado de sanción hacia Moderation & Disputes, y las solicitudes entrantes de Assessment & Peer Review (lista de Verificadores disponibles), Reputation (actualización de confiabilidad/Employability Score), Moderation & Disputes (datos de la cuenta reportada y actualización tras sanción) y Wallet & Incentives (confirmación de biometría antes de canjear SkillCredits).</em>
 </p>
 
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
@@ -1326,267 +1327,361 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
 <p align="center">
   <img src="images-doc/class-identity-mobile.png" alt="Class Diagram - Identity & Access" width="800">
   <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Identity & Access - Elaboración propia. Nota: Se detalla el agregado User con sus atributos, incluyendo el Value Object DeviceToken agregado para el soporte de notificaciones push en los clientes móviles.</em>
+  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Identity & Access - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
+
+El modelado de clases de Identity & Access pertenece al agregado raíz `User`, junto con sus Value Objects `Username`, `Email`, `PasswordHash` y `DeviceToken`, y la enumeración `Role`, debido a que estos elementos concentran de forma exclusiva la información de cuenta, credenciales y estado de verificación institucional de cada usuario de la plataforma. Se destaca el Value Object `DeviceToken`, incorporado sobre el agregado `User` como punto de extensión para una futura integración de notificaciones push en los clientes móviles nativo y cross-platform.
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
 <p align="center">
   <img src="images-doc/db-identity-mobile.png" alt="Database Diagram - Identity & Access" width="800">
   <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Identity & Access - Elaboración propia. Nota: Se destaca en el esquema el campo device_token, agregado sobre la tabla users para el registro de dispositivos móviles.</em>
+  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Identity & Access - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
+
+El modelado de base de datos de Identity & Access pertenece a la tabla `users`, debido a que es la única tabla que persiste el agregado raíz `User` junto con sus Value Objects embebidos (`username`, `email`, `password_hash`, `role`, `device_token`), sin requerir tablas adicionales — a diferencia de otros Bounded Contexts del proyecto, `User` no compone ninguna entidad hija ni colección propia, por lo que un único registro por usuario es suficiente para representar el agregado completo. Se destaca el campo `device_token`, incorporado sobre la tabla `users` para el soporte de una futura integración de notificaciones push en los clientes móviles.
+
 
 ---
 
-### 2.6.2. Bounded Context: Discovery
+
+### 2.6.2. Bounded Context: Credential Verification
 
 #### 2.6.2.1. Domain Layer
 
-La capa de dominio de Discovery encapsula las reglas de negocio relacionadas con la publicación y búsqueda de perfiles de tutores dentro de la plataforma.
+La capa de dominio de Credential Verification encapsula la lógica de negocio para el registro, extracción de datos y evaluación de riesgo de los certificados subidos por el Estudiante, manteniendo el modelo desacoplado de la tecnología concreta de OCR y de los mecanismos de verificación externos de cada emisor.
 
-**1. Aggregate Root: TutorProfile**
+**1. Aggregate Root: Certificate**
 
-Descripción: El agregado `TutorProfile` representa el perfil público de un usuario `Student` que ofrece tutorías, centralizando su información académica y su estado de visibilidad dentro del catálogo de búsqueda.
+Descripción: El agregado `Certificate` centraliza el documento subido por el Estudiante, los datos extraídos mediante OCR, y el estado de verificación resultante de la evaluación de riesgo. No conoce ni depende de la lógica específica de ningún emisor externo (SUNEDU, Coursera, etc.), dejando esa integración como un punto de extensión documentado pero fuera del alcance implementado del curso.
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| id | int | Identificador único del perfil de tutor (autogenerado). |
-| tutorUserId | int | Referencia al usuario `Student` (Identity & Access) que posee este perfil de tutor. |
-| name | string | Nombre visible del tutor en el catálogo. |
-| university | University (VO) | Universidad a la que pertenece el tutor. |
-| career | Career (VO) | Carrera profesional del tutor. |
-| bio | string | Descripción libre del perfil del tutor. |
-| avatarUrl | string | URL de la imagen de perfil del tutor. |
-| experienceYears | int | Años de experiencia declarados por el tutor. |
-| mainSubject | string | Materia principal que enseña el tutor. |
-| rating | double | Promedio de calificación, sincronizado desde el Bounded Context Reputation. |
-| reviewCount | int | Cantidad de reseñas recibidas, sincronizado desde Reputation. |
-| verified | boolean | Indica si el perfil de tutor ha sido validado. |
-| online | boolean | Indica si el tutor se encuentra actualmente disponible. |
-| visible | boolean | Controla si el perfil aparece en los resultados de búsqueda. |
+| id | int | Identificador único del certificado (autogenerado). |
+| ownerId | int | Referencia al `User` (Estudiante) propietario del certificado, definido en Identity & Access. |
+| holderName | string | Nombre del titular extraído del documento. |
+| institutionName | string | Institución o emisor del certificado. |
+| courseName | string | Nombre del curso, programa o certificación. |
+| issueDate | date | Fecha de emisión del certificado. |
+| durationHours | int (nullable) | Carga horaria, si el documento la incluye. |
+| certificateNumber | string (nullable) | Número o código del certificado, si aparece. |
+| verificationCode | string (nullable) | Código específico de validación, si aparece. |
+| verificationUrl | string (nullable) | URL de verificación oficial, si aparece. |
+| qrPayload | string (nullable) | Contenido decodificado del código QR, si existe. |
+| ocrText | string | Texto completo extraído por OCR, conservado para auditoría y reprocesamiento. |
+| fileHash | string | Hash criptográfico del archivo original, usado para detección de duplicados. |
+| storageReference | string | Referencia al archivo almacenado en el servicio de almacenamiento en la nube. |
+| status | VerificationStatus (VO) | Estado actual del certificado dentro del flujo de verificación. |
+| verificationMethod | VerificationMethod (VO) | Mecanismo mediante el cual se intentó verificar el certificado. |
+| riskAssessment | RiskAssessment (VO) | Resultado de la evaluación de riesgo aplicada al certificado. |
+| createdAt | datetime | Fecha de registro del certificado en la plataforma. |
+| verifiedAt | datetime (nullable) | Fecha en la que el certificado alcanzó un estado definitivo (`VERIFIED` o `REJECTED`). |
 
 Métodos
 
-- `TutorProfile(tutorUserId, name, university, career, mainSubject)` (Constructor): Crea un nuevo perfil de tutor en estado no verificado y no visible hasta su validación.
-- `updateAvailability(boolean online)`: Actualiza el estado de disponibilidad del tutor en tiempo real.
-- `updateReputation(double rating, int reviewCount)`: Sincroniza el promedio de calificación y el conteo de reseñas recibidos desde Reputation.
-- `toggleVisibility(boolean visible)`: Habilita o deshabilita la aparición del perfil en las búsquedas.
+- `Certificate(ownerId, fileHash, storageReference)` (Constructor): Registra el documento subido con estado inicial `PENDING`, antes de que se ejecute la extracción OCR.
+- `applyExtractedData(holderName, institutionName, courseName, issueDate, durationHours, certificateNumber, verificationCode, verificationUrl, qrPayload, ocrText)`: Completa el agregado con los datos obtenidos por el servicio de extracción, una vez procesado el documento.
+- `assessRisk(RiskAssessment riskAssessment)`: Asigna el resultado de la evaluación de riesgo y transiciona el estado del certificado: a `SUSPICIOUS` si el nivel es `HIGH_RISK`, o a `UNVERIFIED` si es `LOW_RISK` o `REVIEW` (a la espera de que el nivel `REVIEW` sea tratado manualmente en una futura iteración).
+- `resolveDispute(boolean isAuthentic)`: Aplica la decisión del Coordinador tras la escalación a Moderation & Disputes, transicionando el certificado a `VERIFIED` o `REJECTED` y registrando `verifiedAt`.
 
-**2. Entity: TutorSkill**
+**2. Value Object: RiskAssessment**
 
-Descripción: Representa una habilidad o materia adicional que el tutor puede enseñar, más allá de su materia principal.
-
-Atributos
-
-| Atributo | Tipo | Descripción |
-|---|---|---|
-| tutorId | int | Referencia al `TutorProfile` al que pertenece la habilidad. |
-| skill | string | Nombre de la habilidad o materia. |
-
-**3. Value Object: University**
+Descripción: Encapsula el resultado explicable (basado en reglas) de la evaluación de riesgo de un certificado, evitando que la lógica de scoring viva dispersa dentro del agregado.
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| value | string | Nombre de la universidad. |
-
-**4. Value Object: Career**
-
-Atributos
-
-| Atributo | Tipo | Descripción |
-|---|---|---|
-| value | string | Nombre de la carrera profesional. |
-
-**5. Domain Service: TutorSearchCriteria**
-
-Descripción: Encapsula y valida la combinación de filtros de búsqueda aplicados sobre el catálogo de tutores.
+| score | int | Puntaje acumulado según las reglas de riesgo aplicadas. |
+| level | enum | Nivel derivado del score: `LOW_RISK` (0–19), `REVIEW` (20–49), `HIGH_RISK` (50+). |
 
 Métodos
 
-- `matches(TutorProfile profile)`: Evalúa si un perfil de tutor cumple con los filtros de universidad, carrera y materia solicitados.
+- `RiskAssessment(int score)` (Constructor): Calcula automáticamente el `level` correspondiente a partir del score recibido.
 
-**6. Repository: TutorProfileRepository**
+**3. Value Object: VerificationStatus**
 
-Descripción: Interfaz para la persistencia y recuperación de los perfiles de tutor, sin exponer detalles de la tecnología de almacenamiento subyacente.
+Descripción: Enumeración que restringe los estados válidos del ciclo de vida de un certificado.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | `PENDING`, `UNVERIFIED`, `SUSPICIOUS`, `VERIFIED`, `REJECTED`. |
+
+**4. Value Object: VerificationMethod**
+
+Descripción: Enumeración que documenta los mecanismos de verificación contemplados en el diseño. Para el alcance implementado en el curso solo se ejecutan `OCR_ONLY` y `MANUAL`; `QR`, `ISSUER_URL` y `OFFICIAL_REGISTRY` quedan documentados como extensión futura, sin lógica de integración activa.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | `OCR_ONLY`, `QR`, `ISSUER_URL`, `OFFICIAL_REGISTRY`, `MANUAL`. |
+
+**5. Domain Service: CertificateExtractionService**
+
+Descripción: Define el contrato para extraer los datos estructurados de un documento de certificado, desacoplando el dominio de la tecnología concreta de OCR (ML Kit).
 
 Métodos
 
-- `findByFilters(TutorSearchCriteria criteria)`: Recupera los perfiles de tutor visibles que cumplen los criterios de búsqueda.
-- `findById(int id)`: Recupera un perfil de tutor específico.
-- `save(TutorProfile profile)`: Persiste un perfil nuevo o actualizado.
+- `extract(byte[] rawDocument)`: Recibe el documento crudo y retorna los campos extraídos (holderName, institutionName, courseName, issueDate, durationHours, certificateNumber, verificationCode, verificationUrl, qrPayload, ocrText) junto con el texto completo reconocido.
 
-En la Domain Layer de Innovify, dentro del Bounded Context de Discovery, se ha definido el catálogo de tutores bajo un modelo de Domain-Driven Design (DDD). La clase `TutorProfile` actúa como Agregado raíz que centraliza la información académica del tutor, mientras que `TutorSkill` complementa el perfil con las materias adicionales que puede enseñar. La búsqueda se valida a través del Domain Service `TutorSearchCriteria`, y la persistencia se gestiona mediante `TutorProfileRepository`.
+**6. Domain Service: CertificateRiskScorer**
+
+Descripción: Define el contrato para calcular el `RiskAssessment` de un certificado a partir de un conjunto explicable de reglas, sin depender de fuentes de verificación externas.
+
+Métodos
+
+- `calculateRisk(boolean duplicateCertificateNumber, boolean duplicateVerificationCode, boolean duplicateFileHash, boolean ocrInconsistencies)`: Aplica las reglas de riesgo (+30 número de certificado duplicado, +30 código de verificación duplicado, +15 inconsistencias detectadas por OCR, +10 archivo idéntico a otro certificado) y retorna el `RiskAssessment` resultante.
+
+**7. Repository: CertificateRepository**
+
+Descripción: Interfaz para la persistencia y recuperación de datos del agregado `Certificate`, incluyendo las consultas necesarias para la detección de duplicados.
+
+Métodos
+
+- `findById(int id)`: Recupera un certificado por su identificador.
+- `findByOwnerId(int ownerId)`: Recupera todos los certificados subidos por un Estudiante.
+- `existsByCertificateNumber(String certificateNumber)`: Verifica si un número de certificado ya fue registrado por otro usuario.
+- `existsByVerificationCode(String verificationCode)`: Verifica si un código de verificación ya fue registrado.
+- `existsByFileHash(String fileHash)`: Verifica si el archivo ya fue registrado previamente.
+- `save(Certificate certificate)`: Persiste un certificado nuevo o actualizado.
+
+En la Domain Layer de SkillSwap, dentro del Bounded Context de Credential Verification, la clase `Certificate` actúa como Agregado raíz que centraliza el documento subido y su estado de verificación, apoyándose en los servicios de dominio `CertificateExtractionService` para la extracción de datos y `CertificateRiskScorer` para la evaluación explicable de riesgo. La separación conceptual entre "qué certificado presentó el usuario" (`Certificate`), "qué mecanismo se usó para intentar verificarlo" (`VerificationMethod`) y "qué señales de riesgo se detectaron" (`RiskAssessment`) permite incorporar en el futuro nuevos verificadores oficiales sin modificar el agregado principal.
 
 #### 2.6.2.2. Interface Layer
+
+En la Interface Layer de SkillSwap, para el contexto de Credential Verification, se definen los puntos de entrada REST que permiten al Estudiante subir certificados y consultar su estado de verificación desde los clientes móviles.
 
 **Resources**
 
 | Nombre | Descripción |
 |---|---|
-| TutorProfileResource | DTO de salida que representa la información pública de un perfil de tutor (id, name, university, career, mainSubject, rating, reviewCount, online). |
-| TutorSearchFilterResource | DTO de entrada con los parámetros de búsqueda (universidad, carrera, materia). |
+| UploadCertificateResource | DTO que encapsula el archivo del certificado (imagen/PDF) y el identificador del propietario para su registro inicial. |
+| CertificateResource | DTO de salida que representa un certificado con sus datos extraídos, estado de verificación y nivel de riesgo. |
+| CertificateListResource | Colección de `CertificateResource` correspondiente a los certificados de un Estudiante. |
 
 **Controllers**
 
 | Nombre | Método HTTP | Ruta / Resource | Descripción |
 |---|---|---|---|
-| DiscoveryController | GET | `/api/v1/tutors` (TutorSearchFilterResource como query params) | Retorna el listado de perfiles de tutor visibles que cumplen los filtros de búsqueda solicitados. |
-| DiscoveryController | GET | `/api/v1/tutors/{tutorId}` | Retorna el detalle de un perfil de tutor específico. |
+| CertificateController | POST | `/api/v1/certificates` (UploadCertificateResource) | Registra un nuevo certificado y dispara su procesamiento (extracción OCR y evaluación de riesgo). |
+| CertificateController | GET | `/api/v1/certificates/{id}` | Consulta el detalle y estado actual de un certificado específico. |
+| CertificateController | GET | `/api/v1/certificates?ownerId={ownerId}` | Lista los certificados subidos por un Estudiante. |
 
 **Transformers / Assemblers**
 
 | Nombre | Descripción |
 |---|---|
-| TutorProfileResourceFromEntityAssembler | Convierte la entidad de dominio `TutorProfile` en un `TutorProfileResource` para su envío a través de la API. |
-| SearchTutorsQueryFromResourceAssembler | Transforma los parámetros de `TutorSearchFilterResource` en un `SearchTutorsQuery` procesable por la capa de aplicación. |
+| CertificateResourceFromEntityAssembler | Convierte la entidad de dominio `Certificate` en un `CertificateResource` para su envío a través de la API. |
+| UploadCertificateCommandFromResourceAssembler | Transforma los datos recibidos en `UploadCertificateResource` en un `UploadCertificateCommand` procesable por la capa de aplicación. |
 
-Estos endpoints son consumidos de forma idéntica por los tres clientes (Web, Android Nativo, Flutter), sin lógica de negocio propia en el controlador.
+Los controladores no contienen reglas de negocio: delegan el procesamiento de extracción y evaluación de riesgo a la capa de aplicación, actuando como interfaz uniforme entre los clientes móviles (Android Nativo, Flutter) y la lógica de verificación de certificados.
 
 #### 2.6.2.3. Application Layer
+
+En la Application Layer de SkillSwap, para el contexto de Credential Verification, los handlers orquestan el flujo completo desde la subida del documento hasta la determinación del estado de verificación, coordinando el servicio de extracción, el repositorio y el motor de riesgo.
 
 **Handlers**
 
 | Nombre | Descripción | Resumen de Lógica |
 |---|---|---|
-| SearchTutorsQueryHandler | Gestiona la búsqueda de tutores según filtros. | Construye un `TutorSearchCriteria` a partir de los parámetros recibidos y consulta `TutorProfileRepository.findByFilters()`. |
-| GetTutorByIdQueryHandler | Recupera el detalle de un perfil de tutor. | Consulta `TutorProfileRepository.findById()` y transforma el resultado en un DTO. |
+| UploadCertificateCommandHandler | Procesa la subida de un nuevo certificado. | Almacena el archivo mediante el servicio de infraestructura de almacenamiento, calcula el `fileHash`, invoca `CertificateExtractionService` para obtener los datos del documento, consulta `CertificateRepository` para detectar duplicados (número de certificado, código de verificación, hash de archivo), invoca `CertificateRiskScorer` con dichos resultados, aplica `assessRisk` sobre el agregado y lo persiste. Si el estado resultante es `SUSPICIOUS`, notifica al Bounded Context Moderation & Disputes para su escalación. |
+| ResolveCertificateDisputeCommandHandler | Aplica la resolución de un certificado escalado. | Recibido el resultado de la revisión del Coordinador desde Moderation & Disputes, invoca `resolveDispute` sobre el agregado y lo persiste con su estado definitivo (`VERIFIED` o `REJECTED`). |
 
 **Internal DTOs**
 
 | Nombre | Descripción |
 |---|---|
-| TutorProfileDto | Objeto que transporta la información operativa del perfil de tutor entre las capas de aplicación e interfaz. |
+| CertificateDto | Objeto que transporta los datos extraídos y el estado operativo del certificado entre capas. |
+| RiskAssessmentDto | DTO que transporta el score y nivel de riesgo calculado, previo a su persistencia como Value Object. |
+
+En la Application Layer de Credential Verification, `UploadCertificateCommandHandler` asegura que ningún certificado quede sin una evaluación de riesgo antes de estar disponible como evidencia de habilidad para Learning Path Engine, y que todo certificado clasificado como `SUSPICIOUS` sea escalado a Moderation & Disputes en lugar de resolverse dentro del propio Bounded Context.
 
 #### 2.6.2.4. Infrastructure Layer
+
+En la Infrastructure Layer de SkillSwap, para el contexto de Credential Verification, se implementan los adaptadores técnicos para la persistencia, la extracción OCR y el almacenamiento de archivos.
 
 **Persistence (Repository Implementation)**
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| TutorProfileRepositoryAdapter | Implementación concreta de `TutorProfileRepository`, gestionando las tablas `tutors` y `tutor_skills`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| CertificateRepositoryAdapter | Implementación concreta de `CertificateRepository` que realiza las operaciones CRUD sobre la tabla `certificates`. | ORM del stack backend, instancia MySQL desplegada en Render. |
 
-**Integration Services**
+**OCR & Storage Services Implementation**
 
 | Nombre | Descripción | Resumen de Implementación |
 |---|---|---|
-| IdentityServiceClient | Cliente que solicita al Bounded Context Identity & Access el directorio de usuarios `Student` disponibles para poblar el catálogo inicial de perfiles de tutor. | Consumo HTTP interno hacia el endpoint expuesto por Identity & Access. |
+| MlKitCertificateExtractor | Implementación técnica de `CertificateExtractionService`. | Ejecuta el reconocimiento de texto (Text Recognition) y, cuando aplica, la decodificación de código QR (Barcode Scanning) de ML Kit, de forma on-device sobre el documento capturado desde la cámara del dispositivo. |
+| CloudinaryStorageAdapter | Servicio responsable de almacenar el archivo original del certificado. | Sube la imagen/PDF a Cloudinary y retorna la referencia (`storageReference`) persistida en el agregado. |
 
-Estos componentes permiten que Discovery mantenga sincronizado su catálogo de tutores con la información de cuentas de Identity & Access y las calificaciones actualizadas desde Reputation, sin acoplar directamente su modelo de persistencia a esos Bounded Contexts.
+Estos componentes aseguran que la lógica de negocio de Credential Verification permanezca independiente de ML Kit y de Cloudinary, de modo que ambos puedan sustituirse en el futuro sin modificar el Domain Layer ni la Application Layer.
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
 <p align="center">
-  <img src="images-doc/DiscoveryComponent.svg" alt="Component Diagram - Discovery" width="800">
+  <img src="images-doc/CredentialVerificationComponent.svg" alt="Component Diagram - Credential Verification" width="800">
   <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Discovery - Elaboración propia. Nota: Se detalla la segregación entre el Controller, el Query Service y los adaptadores de Persistencia e integración con Identity & Access, evidenciando cómo Discovery solicita el listado de usuarios con rol Tutor para poblar los perfiles de búsqueda.</em>
+  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Credential Verification - Elaboración propia. Nota: Se detalla la segregación entre el Controller, el Command/Query Service y los adaptadores de Persistencia, extracción OCR (ML Kit on-device) y almacenamiento de archivos (Cloudinary), evidenciando la escalación de certificados en estado SUSPICIOUS hacia Moderation & Disputes y la solicitud entrante de certificados verificados desde Learning Path Engine.</em>
 </p>
-
-#### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
 <p align="center">
-  <img src="images-doc/class-discovery-mobile.png" alt="Class Diagram - Discovery" width="800">
+  <img src="images-doc/class-credential-verification-mobile.png" alt="Class Diagram - Credential Verification" width="800">
   <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Discovery - Elaboración propia. Nota: Se detalla el agregado TutorProfile con sus atributos, Value Objects (University, Career, SubjectList) y sus relaciones.</em>
+  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Credential Verification - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
+
+El modelado de clases de Credential Verification pertenece al agregado raíz `Certificate`, junto con el Value Object `RiskAssessment` (y su enumeración asociada `RiskLevel`) y las enumeraciones `VerificationStatus` y `VerificationMethod`, debido a que estos elementos concentran de forma exclusiva el documento subido por el Estudiante, los datos extraídos mediante OCR, y el resultado explicable de la evaluación de riesgo — sin depender de la lógica específica de ningún emisor externo (SUNEDU, Coursera, etc.), la cual queda fuera del alcance implementado del curso y documentada únicamente a nivel de `VerificationMethod`.
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
 <p align="center">
-  <img src="images-doc/db-discovery-mobile.png" alt="Database Diagram - Discovery" width="800">
+  <img src="images-doc/db-credential-verification-mobile.png" alt="Database Diagram - Credential Verification" width="800">
   <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Discovery - Elaboración propia.</em>
+  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Credential Verification - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
+
+El modelado de base de datos de Credential Verification pertenece a la tabla `certificates`, debido a que es la única tabla que persiste el agregado raíz `Certificate` junto con los datos extraídos por OCR, el hash del archivo y el resultado de la evaluación de riesgo — al igual que en Identity & Access, no existe ninguna entidad hija ni colección propia dentro de este agregado, por lo que un único registro por certificado es suficiente. Se destacan los campos `ocr_text`, `qr_payload`, `file_hash` y `storage_reference`, incorporados para el soporte de la captura desde cámara y el procesamiento on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto.
+
+
 
 ---
 
-### 2.6.3. Bounded Context: Workspace
+### 2.6.3. Bounded Context: Learning Path Engine
 
 #### 2.6.3.1. Domain Layer
 
-La capa de dominio de Workspace concentra las reglas de negocio del núcleo operativo de la plataforma: la gestión de sesiones de tutoría, la coordinación de la videollamada y la mensajería entre los participantes.
+La capa de dominio de Learning Path Engine concentra el núcleo de negocio de SkillSwap: interpretar la meta declarada por el Estudiante, comparar sus habilidades ya verificadas contra los requisitos de dicha meta, generar la ruta de aprendizaje personalizada, y producir dinámicamente la evaluación correspondiente a cada nodo de la ruta.
 
-**1. Aggregate Root: Session**
+**1. Aggregate Root: LearningPath**
 
-Descripción: El agregado `Session` representa una sesión de tutoría entre un aprendiz y un tutor, gobernando las transiciones de estado válidas y el canal de videollamada asociado.
+Descripción: El agregado `LearningPath` representa la ruta de aprendizaje personalizada de un Estudiante, compuesta por una secuencia ordenada de nodos (`PathNode`) que deben completarse progresivamente hacia la `CareerGoal` declarada.
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| id | int | Identificador único de la sesión (autogenerado). |
-| learnerId | int | Referencia al usuario aprendiz (Identity & Access). |
-| tutorId | int | Referencia al usuario tutor (Identity & Access). |
-| topic | string | Tema o materia de la sesión solicitada. |
-| status | SessionStatus (VO) | Estado actual: `pending`, `scheduled` o `completed`. |
-| scheduledAt | timestamp | Fecha y hora programada de la sesión. |
-| proposedByUserId | int | Usuario que originó la propuesta de sesión. |
-| initialMessage | string | Mensaje inicial enviado al proponer la sesión. |
-| agoraChannelName | AgoraChannelName (VO) | Canal de videollamada Agora asociado a la sesión. |
+| id | int | Identificador único de la ruta (autogenerado). |
+| studentId | int | Usuario con rol `Student`, propietario de la ruta. |
+| careerGoal | CareerGoal (VO) | Meta profesional/habilidad declarada por el estudiante. |
+| nodes | List\<PathNode\> | Secuencia ordenada de nodos que componen la ruta. |
+| status | PathStatus (VO) | Estado general de la ruta: `active` o `completed`. |
+| createdAt | timestamp | Fecha de generación de la ruta. |
+| updatedAt | timestamp | Fecha de la última recalculación de la ruta. |
 
 Métodos
 
-- `Session(learnerId, tutorId, topic, initialMessage)` (Constructor): Crea la sesión en estado `pending` y genera de forma determinística el `agoraChannelName` a partir del identificador de la sesión.
-- `schedule(timestamp scheduledAt)`: Transiciona el estado a `scheduled`, validando que la sesión se encuentre en `pending`.
-- `complete()`: Transiciona el estado a `completed`, habilitando los eventos posteriores hacia Learning & Assessment y Reputation.
+- `LearningPath(studentId, careerGoal, nodes)` (Constructor): Crea la ruta en estado `active` a partir del resultado de `LearningPathBuilder`.
+- `recalculate(SkillGap updatedGap)`: Regenera la secuencia de nodos pendientes cuando el estudiante certifica una nueva habilidad (por ejemplo, al aprobar un `Certificate` en Credential Verification), sin alterar los nodos ya completados.
+- `completeNode(int nodeId)`: Marca un `PathNode` como `completed` y, si era el último nodo pendiente, transiciona la ruta completa a `completed`.
 
-**2. Entity: Message**
+**2. Entity: PathNode**
 
-Descripción: Representa un mensaje intercambiado dentro del chat de una sesión, incluyendo la posibilidad de compartir archivos o un quiz.
-
-Atributos
-
-| Atributo | Tipo | Descripción |
-|---|---|---|
-| id | int | Identificador único del mensaje. |
-| sessionId | int | Referencia a la sesión a la que pertenece el mensaje. |
-| senderId | int | Usuario que envió el mensaje. |
-| content | string | Contenido textual del mensaje. |
-| fileUrl | string | URL del archivo adjunto, si existe. |
-| fileName | string | Nombre del archivo adjunto. |
-| quizId | int | Referencia opcional a un quiz compartido en el chat. |
-| sentAt | timestamp | Fecha y hora de envío. |
-
-**3. Value Object: SessionStatus**
+Descripción: Representa un paso individual dentro de la ruta, correspondiente a una habilidad específica que el estudiante debe demostrar.
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| value | enum | Valor del estado: `pending`, `scheduled`, `completed`. |
+| id | int | Identificador único del nodo. |
+| skillTag | string | Habilidad asociada al nodo, referenciada contra la taxonomía interna de skills. |
+| order | int | Posición del nodo dentro de la secuencia de la ruta. |
+| status | NodeStatus (VO) | Estado del nodo: `locked`, `available`, `completed`. |
+| linkedCertificateId | int (nullable) | Referencia al `Certificate` (Credential Verification) que ya satisface este nodo, si existía previamente. |
+| assessmentBlueprintId | int (nullable) | Referencia al `AssessmentBlueprint` generado para demostrar este nodo, una vez solicitado. |
 
-**4. Value Object: AgoraChannelName**
+**3. Value Object: CareerGoal**
 
-Descripción: Identificador único y determinístico del canal de videollamada, generado a partir del id de la sesión, utilizado por los clientes móviles para unirse al canal correcto.
+Descripción: Encapsula la meta declarada por el estudiante en texto libre junto con su traducción a la taxonomía interna de habilidades.
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| value | string | Nombre del canal Agora. |
-
-**5. Domain Service: SessionStateTransitionValidator**
-
-Descripción: Valida que las transiciones de estado de una sesión cumplan las reglas de negocio establecidas.
+| rawText | string | Texto libre ingresado por el estudiante (ej. "quiero aprender APIs REST con autenticación JWT"). |
+| mappedSkillTags | List\<String\> | Habilidades de la taxonomía interna resueltas a partir del texto libre. |
 
 Métodos
 
-- `canTransition(SessionStatus from, SessionStatus to)`: Retorna verdadero si la transición solicitada es válida.
+- `CareerGoal(String rawText, List<String> mappedSkillTags)` (Constructor): Valida que exista al menos un `skillTag` resuelto; en caso contrario, lanza una excepción de dominio indicando que la meta no pudo interpretarse.
 
-**6. Repository: SessionRepository, MessageRepository**
+**4. Value Object: SkillGap**
+
+Descripción: Representa la diferencia entre las habilidades ya verificadas del estudiante y las requeridas por su `CareerGoal`.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| verifiedSkillTags | List\<String\> | Habilidades que el estudiante ya demostró (vía certificado validado o nodo previamente completado). |
+| missingSkillTags | List\<String\> | Habilidades pendientes de demostrar para alcanzar la `CareerGoal`. |
+
+**5. Aggregate Root: AssessmentBlueprint**
+
+Descripción: El agregado `AssessmentBlueprint` representa la especificación de la evaluación generada dinámicamente por IA para demostrar la habilidad de un `PathNode` específico. Es consumido como Downstream por Assessment & Peer Review para ejecutar el intento del estudiante y calificarlo, sin que dicho Bounded Context conozca cómo se generó el contenido.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único del blueprint. |
+| pathNodeId | int | Nodo de la ruta al que corresponde esta evaluación. |
+| skillTag | string | Habilidad evaluada. |
+| questions | List\<Question\> | Preguntas generadas dinámicamente por IA. |
+| generatedAt | timestamp | Fecha de generación del blueprint. |
 
 Métodos
 
-- `findById(int id)`, `save(Session session)` (SessionRepository).
-- `findBySessionId(int sessionId)`, `save(Message message)` (MessageRepository).
+- `AssessmentBlueprint(pathNodeId, skillTag, questions)` (Constructor): Registra el resultado producido por `QuestionGenerationService` para un nodo específico.
 
-En la Domain Layer de Innovify, dentro del Bounded Context de Workspace, el agregado `Session` gobierna el ciclo de vida de una sesión de tutoría, incorporando el Value Object `AgoraChannelName` como punto de integración con el SDK de videollamada de terceros. La entidad `Message` complementa el modelo con la mensajería del chat, validada en sus transiciones por `SessionStateTransitionValidator`.
+**6. Entity: Question**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| questionString | string | Enunciado de la pregunta generada. |
+| answers | List\<String\> | Lista de 4 posibles respuestas. |
+| correctAnswer | int | Índice (0 a 3) de la respuesta correcta. |
+
+**7. Domain Service: SkillGapAnalyzer**
+
+Descripción: Define el contrato para calcular el `SkillGap` de un estudiante comparando sus habilidades verificadas contra los requisitos de su `CareerGoal`.
+
+Métodos
+
+- `analyze(CareerGoal goal, List<String> verifiedSkillTags)`: Retorna el `SkillGap` resultante.
+
+**8. Domain Service: LearningPathBuilder**
+
+Descripción: Define el contrato para construir la secuencia ordenada de `PathNode` a partir de un `SkillGap`, respetando las dependencias/prerequisitos entre habilidades de la taxonomía interna.
+
+Métodos
+
+- `buildPath(SkillGap gap)`: Retorna la lista ordenada de `PathNode` en estado `locked`/`available` según sus dependencias.
+
+**9. Domain Service: QuestionGenerationService**
+
+Descripción: Define el contrato para generar dinámicamente las preguntas de un `AssessmentBlueprint` a partir de una habilidad declarada, desacoplando el dominio del proveedor concreto de IA generativa.
+
+Métodos
+
+- `generateQuestions(String skillTag)`: Retorna una lista de `Question` generadas para evaluar la habilidad indicada.
+
+**10. Repository: LearningPathRepository, AssessmentBlueprintRepository**
+
+Métodos
+
+- `findByStudentId(int studentId)`, `save(LearningPath path)` (LearningPathRepository).
+- `findByPathNodeId(int pathNodeId)`, `save(AssessmentBlueprint blueprint)` (AssessmentBlueprintRepository).
+
+En la Domain Layer de SkillSwap, dentro del Bounded Context de Learning Path Engine, el agregado `LearningPath` centraliza la ruta personalizada del estudiante apoyándose en `SkillGapAnalyzer` y `LearningPathBuilder` para su construcción y recálculo, mientras que `AssessmentBlueprint` encapsula la generación de contenido evaluativo mediante `QuestionGenerationService`, manteniendo la separación entre "qué ruta necesita el estudiante" y "qué evaluación demuestra cada paso de esa ruta".
 
 #### 2.6.3.2. Interface Layer
 
@@ -1594,29 +1689,26 @@ En la Domain Layer de Innovify, dentro del Bounded Context de Workspace, el agre
 
 | Nombre | Descripción |
 |---|---|
-| SessionResource | DTO de salida que representa una sesión (id, learnerId, tutorId, topic, status, scheduledAt). |
-| MessageResource | DTO de salida que representa un mensaje del chat. |
-| AgoraTokenResource | DTO de respuesta con el token temporal de acceso al canal de videollamada Agora. |
-| RequestSessionResource | DTO de entrada para solicitar una nueva sesión. |
-| SendMessageResource | DTO de entrada para enviar un mensaje al chat. |
+| DeclareGoalResource | DTO de entrada con el texto libre de la meta declarada por el estudiante. |
+| LearningPathResource | DTO de salida que representa la ruta completa con sus nodos y estados. |
+| PathNodeResource | DTO de salida que representa un nodo individual de la ruta. |
+| AssessmentBlueprintResource | DTO de salida que representa las preguntas generadas para un nodo, sin exponer `correctAnswer`. |
 
 **Controllers**
 
 | Nombre | Método HTTP | Ruta / Resource | Descripción |
 |---|---|---|---|
-| SessionController | POST | `/api/v1/sessions` (RequestSessionResource) | Registra una nueva solicitud de sesión de tutoría. |
-| SessionController | PATCH | `/api/v1/sessions/{sessionId}/status` | Actualiza el estado de la sesión (scheduled, completed). |
-| SessionController | GET | `/api/v1/sessions/{sessionId}/agora-token` | Genera y retorna el token de acceso al canal de videollamada. |
-| MessageController | GET | `/api/v1/sessions/{sessionId}/messages` | Retorna el historial de mensajes de una sesión. |
-| MessageController | POST | `/api/v1/sessions/{sessionId}/messages` (SendMessageResource) | Registra un nuevo mensaje en el chat de la sesión. |
+| LearningPathController | POST | `/api/v1/learning-paths` (DeclareGoalResource) | Recibe la meta del estudiante, genera el `SkillGap` inicial y construye la ruta. |
+| LearningPathController | GET | `/api/v1/learning-paths/{studentId}` | Retorna la ruta activa del estudiante con el estado de cada nodo. |
+| AssessmentBlueprintController | POST | `/api/v1/path-nodes/{nodeId}/assessment-blueprint` | Solicita la generación de la evaluación correspondiente a un nodo `available`. |
 
 **Transformers / Assemblers**
 
 | Nombre | Descripción |
 |---|---|
-| SessionResourceFromEntityAssembler | Convierte `Session` en `SessionResource`. |
-| MessageResourceFromEntityAssembler | Convierte `Message` en `MessageResource`. |
-| RequestSessionCommandFromResourceAssembler | Transforma `RequestSessionResource` en `RequestSessionCommand`. |
+| LearningPathResourceFromEntityAssembler | Convierte `LearningPath` en `LearningPathResource`. |
+| AssessmentBlueprintResourceFromEntityAssembler | Convierte `AssessmentBlueprint` en `AssessmentBlueprintResource`, omitiendo `correctAnswer` de cada pregunta. |
+| DeclareGoalCommandFromResourceAssembler | Transforma `DeclareGoalResource` en `DeclareGoalCommand`. |
 
 #### 2.6.3.3. Application Layer
 
@@ -1624,23 +1716,17 @@ En la Domain Layer de Innovify, dentro del Bounded Context de Workspace, el agre
 
 | Nombre | Descripción | Resumen de Lógica |
 |---|---|---|
-| RequestSessionCommandHandler | Procesa la creación de una nueva sesión. | Instancia el agregado `Session` (generando su `agoraChannelName`) y lo persiste mediante `SessionRepository`. |
-| UpdateSessionStatusCommandHandler | Gestiona el cambio de estado de una sesión. | Recupera la sesión, invoca `schedule()` o `complete()` según corresponda, validando la transición con `SessionStateTransitionValidator`. |
-| SendMessageCommandHandler | Procesa el envío de un mensaje. | Valida que la sesión exista, instancia el `Message` y lo persiste mediante `MessageRepository`. |
-| GenerateAgoraTokenQueryHandler | Genera el token de acceso a la videollamada. | Recupera el `agoraChannelName` de la sesión e invoca al adaptador de infraestructura de Agora para generar el token temporal. |
-
-**Event Handlers**
-
-| Nombre | Descripción |
-|---|---|
-| SessionCompletedEventHandler | Al completarse una sesión, publica el evento consumido por Learning & Assessment (habilita el quiz) y Reputation (habilita la solicitud de calificación). |
+| DeclareGoalCommandHandler | Procesa la declaración inicial de la meta del estudiante. | Interpreta el texto libre contra la taxonomía interna de skills, consulta a Credential Verification las habilidades ya respaldadas por certificados válidos, invoca `SkillGapAnalyzer` y `LearningPathBuilder`, instancia `LearningPath` y lo persiste. |
+| RecalculatePathCommandHandler | Procesa la actualización de la ruta tras un evento de certificado verificado. | Recibe el evento desde Credential Verification, recalcula el `SkillGap` y ejecuta `recalculate()` sobre el `LearningPath` correspondiente. |
+| GenerateAssessmentBlueprintCommandHandler | Procesa la solicitud de evaluación para un nodo. | Invoca `QuestionGenerationService` con el `skillTag` del nodo, instancia `AssessmentBlueprint` y lo persiste, dejándolo disponible para que Assessment & Peer Review lo consuma. |
+| GetLearningPathQueryHandler | Recupera la ruta activa de un estudiante. | Consulta `LearningPathRepository.findByStudentId()`. |
 
 **Internal DTOs**
 
 | Nombre | Descripción |
 |---|---|
-| SessionDto | Objeto que transporta el estado operativo de una sesión entre capas. |
-| MessageDto | Objeto que transporta el contenido de un mensaje entre capas. |
+| LearningPathDto | Objeto que transporta la ruta y sus nodos entre capas. |
+| AssessmentBlueprintDto | Objeto que transporta el blueprint generado, incluyendo `correctAnswer` únicamente hacia Assessment & Peer Review (nunca hacia el cliente). |
 
 #### 2.6.3.4. Infrastructure Layer
 
@@ -1648,123 +1734,167 @@ En la Domain Layer de Innovify, dentro del Bounded Context de Workspace, el agre
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| SessionRepositoryAdapter | Implementación concreta de `SessionRepository` sobre la tabla `sessions`. | ORM del stack backend, instancia MySQL desplegada en Render. |
-| MessageRepositoryAdapter | Implementación concreta de `MessageRepository` sobre la tabla `messages`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| LearningPathRepositoryAdapter | Implementación concreta de `LearningPathRepository` sobre las tablas `learning_paths` y `path_nodes`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| AssessmentBlueprintRepositoryAdapter | Implementación concreta de `AssessmentBlueprintRepository` sobre la tabla `assessment_blueprints`. | ORM del stack backend. La lista de preguntas se persiste mediante un converter JSON, siguiendo el mismo criterio que ya aplicaron en el `Quiz` del proyecto base. |
 
-**External / Technical Services Implementation**
+**AI Services Implementation**
 
 | Nombre | Descripción | Resumen de Implementación |
 |---|---|---|
-| CloudinaryFileStorageAdapter | Gestiona la carga y obtención de archivos adjuntos compartidos en el chat de la sesión. | Utiliza la API de Cloudinary para almacenar y servir los archivos referenciados en `Message.fileUrl`. |
-| AgoraVideoCallAdapter | Encapsula la integración con el SDK de **Agora** (Video Call SDK), generando el token temporal de acceso al canal (`agoraChannelName`) consumido por los clientes Android Nativo (Agora Android SDK) y Flutter (Agora Flutter SDK). Constituye el **feature de aprendizaje autónomo** del proyecto. | Comunicación con la API de Agora para la generación de tokens RTC firmados con vigencia temporal. |
-| LocalChatCacheAdapter | Del lado del cliente móvil, persiste los mensajes recibidos y sus archivos ya descargados en una base de datos local embebida, permitiendo revisar el historial de chat sin conexión a internet. | Room (Android Nativo) / sqflite o Drift (Flutter). Sincroniza los mensajes pendientes al recuperar la conectividad. |
+| SkillTaxonomyMatcher | Implementación técnica de la resolución de `CareerGoal.mappedSkillTags`. | Compara el texto libre recibido contra un catálogo interno de skills mediante coincidencia de palabras clave, sin depender de un motor de embeddings/vector search externo. |
+| LlmQuestionGenerator | Implementación técnica de `QuestionGenerationService`. | Invoca una API de IA generativa (LLM) con un prompt estructurado por `skillTag`, solicitando un formato de respuesta JSON con las preguntas, alternativas y respuesta correcta, para su conversión directa en objetos `Question`. |
 
-En la Infrastructure Layer de Workspace conviven tres integraciones técnicas clave para el alcance móvil del proyecto: Cloudinary para archivos, Agora para videollamada en tiempo real (feature de aprendizaje autónomo) y el caché local de chat (recurso de almacenamiento local del dispositivo), todas desacopladas del Domain Layer mediante adaptadores.
+Estos componentes garantizan que el algoritmo de matching de habilidades y el proveedor de IA generativa puedan sustituirse en el futuro (por ejemplo, migrando a un motor de embeddings) sin modificar el Domain Layer ni la Application Layer.
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
 <p align="center">
-  <img src="images-doc/WorkspaceComponent.svg" alt="Component Diagram - Workspace" width="800">
+  <img src="images-doc/LearningPathEngineComponent.svg" alt="Component Diagram - Learning Path Engine" width="800">
   <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Workspace - Elaboración propia. Nota: Se detalla la segregación entre Controllers, Command/Event Services, y los adaptadores de Persistencia, Cloudinary (almacenamiento de archivos), Agora (videollamada en tiempo real, feature de aprendizaje autónomo) y el caché local de chat (Room/sqflite), este último habilitando la lectura del historial de mensajes y archivos ya descargados sin conexión a internet.</em>
+  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Learning Path Engine - Elaboración propia. Nota: Se detalla la segregación entre los Controllers de `LearningPath` y `AssessmentBlueprint`, el Command/Query Service, el componente interno `SkillTaxonomy Matcher` y el adaptador de generación de preguntas mediante una API de IA generativa (LLM), evidenciando la solicitud de certificados verificados hacia Credential Verification, la notificación entrante de certificados verificados desde ese mismo Bounded Context, y las solicitudes entrantes de Assessment & Peer Review (blueprint del nodo y notificación de nodo demostrado).</em>
 </p>
-
-#### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
 <p align="center">
-  <img src="images-doc/class-workspace-mobile.png" alt="Class Diagram - Workspace" width="800">
+  <img src="images-doc/class-learning-path-engine-mobile.png" alt="Class Diagram - Learning Path Engine" width="800">
   <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Workspace - Elaboración propia. Nota: Se detalla el agregado TutoringSession, la entidad Message y el Value Object AgoraChannelName incorporado para la integración con el SDK de videollamadas.</em>
+  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Learning Path Engine - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
+
+El modelado de clases de Learning Path Engine pertenece a los agregados raíz `LearningPath` y `AssessmentBlueprint`, junto con la entidad `PathNode`, los Value Objects `CareerGoal` y `SkillGap`, y la entidad `Question` embebida en `AssessmentBlueprint`, debido a que estos elementos concentran de forma exclusiva el business core de la plataforma: la interpretación de la meta del estudiante, el cálculo de la brecha de habilidad, la secuencia de nodos de la ruta personalizada y el contenido evaluativo generado dinámicamente por IA para cada nodo.
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
 <p align="center">
-  <img src="images-doc/db-workspace-mobile.png" alt="Database Diagram - Workspace" width="800">
+  <img src="images-doc/db-learning-path-engine-mobile.png" alt="Database Diagram - Learning Path Engine" width="800">
   <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Workspace - Elaboración propia. Nota: Se destaca en el esquema el campo agora_channel_name, agregado sobre la tabla tutoring_sessions para el soporte de videollamadas reales.</em>
+  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Learning Path Engine - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
+
+El modelado de base de datos de Learning Path Engine pertenece a las tablas `learning_paths`, `path_nodes` y `assessment_blueprints`, debido a que estas tres tablas persisten de forma normalizada la ruta de aprendizaje del estudiante (`learning_paths`), cada paso individual de dicha ruta con su estado de avance (`path_nodes`), y la evaluación generada dinámicamente por IA para demostrar la habilidad de un nodo específico (`assessment_blueprints`) — una relación uno a muchos en ambos casos, ya que una ruta se compone de varios nodos y cada nodo puede requerir su propio blueprint de evaluación.
 
 ---
 
-### 2.6.4. Bounded Context: Learning & Assessment
+### 2.6.4. Bounded Context: Assessment & Peer Review
 
 #### 2.6.4.1. Domain Layer
 
-La capa de dominio de Learning & Assessment concentra las reglas de negocio relacionadas con la creación de cuestionarios (quizzes) y el registro de los intentos de resolución por parte de los estudiantes.
+La capa de dominio de Assessment & Peer Review concentra las reglas de negocio de la ejecución de la evaluación generada por la IA, y la asignación y resolución de un Verificador cuando dicha evaluación no es aprobada, sin depender de ninguna sesión de comunicación en tiempo real entre los participantes.
 
-**1. Aggregate Root: Quiz**
+**1. Aggregate Root: AssessmentAttempt**
 
-Descripción: El agregado `Quiz` representa un cuestionario creado para evaluar el conocimiento de un curso o materia, compuesto por una lista de preguntas.
-
-Atributos
-
-| Atributo | Tipo | Descripción |
-|---|---|---|
-| id | int | Identificador único del quiz (autogenerado). |
-| tutorId | int | Usuario con rol `Coordinator`, creador del quiz. |
-| course | string | Curso o materia al que pertenece el quiz. |
-| title | string | Título del cuestionario. |
-| description | string | Descripción del contenido evaluado. |
-| status | QuizStatus (VO) | Estado del quiz: `draft` o `published`. |
-| questions | List\<Question\> | Lista de preguntas embebidas del cuestionario. |
-| createdAt | timestamp | Fecha de creación del quiz. |
-
-Métodos
-
-- `Quiz(tutorId, course, title, description, questions)` (Constructor): Crea el quiz en estado `draft`.
-- `publish()`: Transiciona el estado a `published`, habilitando el quiz para ser resuelto por los aprendices.
-- `addQuestion(Question question)`: Agrega una nueva pregunta al cuestionario mientras se encuentra en estado `draft`.
-
-**2. Entity: Question**
+Descripción: El agregado `AssessmentAttempt` representa el intento de un Estudiante al resolver el `AssessmentBlueprint` de un nodo de su ruta, calculando el puntaje de forma centralizada en el servidor para evitar manipulación desde el cliente.
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| questionString | string | Enunciado de la pregunta. |
-| answers | List\<String\> | Lista de 4 posibles respuestas. |
-| correctAnswer | int | Índice (0 a 3) de la respuesta correcta. |
-
-**3. Aggregate Root: QuizAttempt**
-
-Descripción: El agregado `QuizAttempt` representa el intento de un aprendiz al resolver un quiz, calculando su puntaje de forma centralizada en el servidor para evitar manipulación desde el cliente.
-
-Atributos
-
-| Atributo | Tipo | Descripción |
-|---|---|---|
-| id | int | Identificador único del intento. |
-| quizId | int | Referencia al quiz resuelto. |
-| learnerId | int | Usuario aprendiz que resuelve el quiz. |
-| sessionId | int | Sesión de tutoría asociada al intento. |
-| selectedAnswers | List\<Integer\> | Lista de índices seleccionados por el aprendiz para cada pregunta. |
+| id | int | Identificador único del intento (autogenerado). |
+| blueprintId | int | Referencia al `AssessmentBlueprint` (Learning Path Engine) resuelto. |
+| studentId | int | Usuario `Student` que resuelve la evaluación. |
+| selectedAnswers | List\<Integer\> | Índices seleccionados por el estudiante para cada pregunta. |
 | score | Score (VO) | Puntaje obtenido. |
-| total | int | Puntaje máximo posible. |
+| passed | boolean | Indica si el puntaje alcanzó el umbral de aprobación automática. |
 | completedAt | timestamp | Fecha y hora de finalización del intento. |
 
 Métodos
 
-- `QuizAttempt(quizId, learnerId, sessionId, selectedAnswers, quiz)` (Constructor): Calcula el `score` comparando `selectedAnswers` contra `correctAnswer` de cada `Question` del `Quiz`, garantizando que la calificación se determine en el propio agregado y no en el cliente.
+- `AssessmentAttempt(blueprintId, studentId, selectedAnswers, blueprintQuestions)` (Constructor): Calcula el `score` comparando `selectedAnswers` contra `correctAnswer` de cada pregunta del blueprint (recibido desde Learning Path Engine), y determina `passed` según el umbral de aprobación definido para la habilidad.
 
-**4. Value Object: Score**
+**2. Value Object: Score**
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| value | int | Puntaje obtenido, validado en el rango 0 al total de preguntas. |
+| value | int | Puntaje obtenido. |
+| total | int | Puntaje máximo posible. |
 
-**5. Repository: QuizRepository, QuizAttemptRepository**
+**3. Aggregate Root: VerifierProfile**
+
+Descripción: El agregado `VerifierProfile` representa la elegibilidad de un usuario `Student` (que ya completó su propia ruta para una habilidad) para revisar casos de otros estudiantes en esa misma habilidad.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único del perfil de Verificador (autogenerado). |
+| verifierUserId | int | Referencia al usuario `Student` (Identity & Access) que posee este perfil. |
+| skillTags | List\<String\> | Habilidades que el Verificador está habilitado para revisar. |
+| available | boolean | Indica si el Verificador puede recibir nuevos casos asignados. |
+| verified | boolean | Indica si el perfil se mantiene habilitado (puede ser revocado por Moderation & Disputes). |
+| rating | double | Confiabilidad promedio, sincronizada desde Reputation. |
+| reviewCount | int | Cantidad de casos resueltos, sincronizado desde Reputation. |
 
 Métodos
 
-- `findById(int id)`, `save(Quiz quiz)` (QuizRepository).
-- `findById(int id)`, `save(QuizAttempt attempt)` (QuizAttemptRepository).
+- `VerifierProfile(verifierUserId, skillTags)` (Constructor): Crea el perfil en estado `available` y `verified`, habilitado apenas el estudiante certifica la primera habilidad que le permite revisar casos de otros.
+- `updateAvailability(boolean available)`: Actualiza si el Verificador puede recibir nuevos casos.
+- `addSkillTag(String skill)`: Amplía las habilidades que el Verificador puede revisar, al certificar una nueva habilidad en su propia ruta.
+- `updateReputation(double rating, int reviewCount)`: Sincroniza la confiabilidad y el conteo de revisiones desde Reputation.
 
-En la Domain Layer de Innovify, dentro del Bounded Context de Learning & Assessment, el agregado `Quiz` encapsula la entidad `Question` como parte embebida de su estructura, mientras que `QuizAttempt` centraliza el cálculo del `Score` a partir de las respuestas del aprendiz, garantizando la integridad de la calificación independientemente del cliente (Web, Android Nativo, Flutter) que envíe el intento.
+**4. Aggregate Root: VerificationCase**
+
+Descripción: El agregado `VerificationCase` representa el caso abierto cuando un `AssessmentAttempt` no alcanza el umbral de aprobación, gobernando su asignación a un Verificador disponible y la resolución con rúbrica estructurada.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único del caso (autogenerado). |
+| studentId | int | Estudiante cuyo intento generó el caso. |
+| verifierId | int (nullable) | Verificador asignado, nulo hasta la asignación. |
+| pathNodeId | int | Nodo de la ruta (Learning Path Engine) al que corresponde el caso. |
+| skillTag | string | Habilidad en evaluación. |
+| status | CaseStatus (VO) | Estado actual del caso. |
+| decision | ReviewDecision (VO, nullable) | Resultado de la revisión, nulo hasta resolverse. |
+| rubricNotes | string (nullable) | Observaciones del Verificador siguiendo la rúbrica estructurada. |
+| evidenceUrl | string (nullable) | Evidencia adicional (portafolio/proyecto) que el estudiante puede adjuntar para sustentar su caso. |
+| openedAt | timestamp | Fecha de apertura del caso. |
+| resolvedAt | timestamp (nullable) | Fecha de resolución del caso. |
+
+Métodos
+
+- `VerificationCase(studentId, pathNodeId, skillTag)` (Constructor): Crea el caso en estado `PENDING`, inmediatamente después de un `AssessmentAttempt` fallido.
+- `assignVerifier(int verifierId)`: Asigna un Verificador disponible y transiciona el estado a `ASSIGNED`.
+- `attachEvidence(String url)`: Registra evidencia adicional aportada por el estudiante antes o durante la revisión.
+- `startReview()`: Transiciona el estado a `UNDER_REVIEW` cuando el Verificador inicia la evaluación del caso.
+- `resolve(ReviewDecision decision, String rubricNotes)`: Registra la decisión final, transiciona el estado a `RESOLVED` y registra `resolvedAt`.
+
+**5. Value Object: CaseStatus**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | `PENDING`, `ASSIGNED`, `UNDER_REVIEW`, `RESOLVED`. |
+
+**6. Value Object: ReviewDecision**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | `APPROVED`, `REJECTED`. |
+
+**7. Domain Service: VerifierMatcher**
+
+Descripción: Encapsula el algoritmo de asignación de un Verificador disponible a un `VerificationCase`, reemplazando la búsqueda dirigida por el usuario que existía en el modelo de tutorías.
+
+Métodos
+
+- `findAvailableVerifier(String skillTag, List<VerifierProfile> candidates)`: Retorna el `VerifierProfile` disponible con la habilidad requerida y menor carga de casos asignados (`reviewCount`), o nulo si no hay ninguno disponible.
+
+**8. Repository: AssessmentAttemptRepository, VerifierProfileRepository, VerificationCaseRepository**
+
+Métodos
+
+- `findById(int id)`, `save(AssessmentAttempt attempt)` (AssessmentAttemptRepository).
+- `findAvailableBySkillTag(String skillTag)`, `findById(int id)`, `save(VerifierProfile profile)` (VerifierProfileRepository).
+- `findById(int id)`, `findByVerifierId(int verifierId)`, `save(VerificationCase verificationCase)` (VerificationCaseRepository).
+
+En la Domain Layer de SkillSwap, dentro del Bounded Context de Assessment & Peer Review, `AssessmentAttempt` centraliza el cálculo del puntaje sobre el blueprint generado por Learning Path Engine, mientras que `VerificationCase` gobierna el flujo de escalamiento hacia un humano cuando dicho intento no es aprobado, apoyándose en `VerifierMatcher` para la asignación algorítmica de un `VerifierProfile` disponible, sin recurrir a ninguna sesión de comunicación en tiempo real.
 
 #### 2.6.4.2. Interface Layer
 
@@ -1772,27 +1902,33 @@ En la Domain Layer de Innovify, dentro del Bounded Context de Learning & Assessm
 
 | Nombre | Descripción |
 |---|---|
-| QuizResource | DTO de salida que representa un quiz junto con sus preguntas. |
-| QuizAttemptResource | DTO de salida que representa el resultado de un intento (score, total). |
-| CreateQuizResource | DTO de entrada para la creación de un nuevo quiz. |
-| SubmitQuizAttemptResource | DTO de entrada con las respuestas seleccionadas por el aprendiz. |
+| SubmitAssessmentAttemptResource | DTO de entrada con las respuestas seleccionadas por el estudiante. |
+| AssessmentAttemptResource | DTO de salida con el resultado del intento (score, total, passed). |
+| VerificationCaseResource | DTO de salida que representa un caso con su estado, decisión y notas de rúbrica. |
+| ResolveCaseResource | DTO de entrada con la decisión y las notas del Verificador. |
+| AttachEvidenceResource | DTO de entrada con la URL de evidencia adjunta por el estudiante. |
+| VerifierAvailabilityResource | DTO de entrada para actualizar la disponibilidad del Verificador. |
 
 **Controllers**
 
 | Nombre | Método HTTP | Ruta / Resource | Descripción |
 |---|---|---|---|
-| QuizController | POST | `/api/v1/quizzes` (CreateQuizResource) | Crea un nuevo quiz en estado draft. |
-| QuizController | GET | `/api/v1/quizzes/{quizId}` | Retorna el detalle de un quiz. |
-| QuizAttemptController | POST | `/api/v1/quiz-attempts` (SubmitQuizAttemptResource) | Registra un nuevo intento, calculando el puntaje en el servidor. |
-| QuizAttemptController | GET | `/api/v1/quiz-attempts/{attemptId}` | Retorna el resultado de un intento específico. |
+| AssessmentAttemptController | POST | `/api/v1/assessment-attempts` (SubmitAssessmentAttemptResource) | Registra el intento, calcula el puntaje y, si no aprueba, dispara la apertura de un `VerificationCase`. |
+| AssessmentAttemptController | GET | `/api/v1/assessment-attempts/{id}` | Retorna el resultado de un intento específico. |
+| VerificationCaseController | GET | `/api/v1/verification-cases/{id}` | Retorna el detalle de un caso. |
+| VerificationCaseController | GET | `/api/v1/verification-cases?verifierId={id}` | Lista los casos asignados a un Verificador. |
+| VerificationCaseController | PATCH | `/api/v1/verification-cases/{id}/evidence` (AttachEvidenceResource) | Registra evidencia adicional aportada por el estudiante. |
+| VerificationCaseController | PATCH | `/api/v1/verification-cases/{id}/decision` (ResolveCaseResource) | Registra la decisión del Verificador y resuelve el caso. |
+| VerifierProfileController | PATCH | `/api/v1/verifier-profiles/{id}/availability` (VerifierAvailabilityResource) | Actualiza la disponibilidad del Verificador para recibir nuevos casos. |
 
 **Transformers / Assemblers**
 
 | Nombre | Descripción |
 |---|---|
-| QuizResourceFromEntityAssembler | Convierte `Quiz` en `QuizResource`. |
-| QuizAttemptResourceFromEntityAssembler | Convierte `QuizAttempt` en `QuizAttemptResource`. |
-| SubmitQuizAttemptCommandFromResourceAssembler | Transforma `SubmitQuizAttemptResource` en `SubmitQuizAttemptCommand`. |
+| AssessmentAttemptResourceFromEntityAssembler | Convierte `AssessmentAttempt` en `AssessmentAttemptResource`. |
+| VerificationCaseResourceFromEntityAssembler | Convierte `VerificationCase` en `VerificationCaseResource`. |
+| SubmitAssessmentAttemptCommandFromResourceAssembler | Transforma `SubmitAssessmentAttemptResource` en `SubmitAssessmentAttemptCommand`. |
+| ResolveCaseCommandFromResourceAssembler | Transforma `ResolveCaseResource` en `ResolveCaseCommand`. |
 
 #### 2.6.4.3. Application Layer
 
@@ -1800,17 +1936,21 @@ En la Domain Layer de Innovify, dentro del Bounded Context de Learning & Assessm
 
 | Nombre | Descripción | Resumen de Lógica |
 |---|---|---|
-| CreateQuizCommandHandler | Procesa la creación de un nuevo quiz. | Instancia el agregado `Quiz` con sus preguntas y lo persiste mediante `QuizRepository`. |
-| SubmitQuizAttemptCommandHandler | Procesa el envío de las respuestas de un aprendiz. | Recupera el `Quiz` referenciado, instancia `QuizAttempt` (que calcula el `score` internamente) y lo persiste mediante `QuizAttemptRepository`, evitando la duplicación de esta regla de negocio entre clientes. |
-| GetQuizByIdQueryHandler | Recupera el detalle de un quiz. | Consulta `QuizRepository.findById()`. |
-| GetAttemptResultQueryHandler | Recupera el resultado de un intento. | Consulta `QuizAttemptRepository.findById()`. |
+| SubmitAssessmentAttemptCommandHandler | Procesa el envío de respuestas del estudiante. | Solicita a Learning Path Engine (vía Context Facade) el `AssessmentBlueprint` con `correctAnswer` incluido, instancia `AssessmentAttempt` (que calcula el resultado internamente) y lo persiste. Si `passed` es verdadero, notifica a Learning Path Engine para completar el nodo y a Reputation para actualizar el Employability Score del estudiante. Si es falso, delega en `OpenVerificationCaseCommandHandler`. |
+| OpenVerificationCaseCommandHandler | Abre y asigna un nuevo caso tras un intento fallido. | Instancia `VerificationCase`, invoca `VerifierMatcher.findAvailableVerifier()` sobre los perfiles disponibles para el `skillTag`, ejecuta `assignVerifier()` y persiste el caso. |
+| AttachEvidenceCommandHandler | Procesa la evidencia adicional del estudiante. | Recupera el `VerificationCase`, invoca `attachEvidence()` y lo persiste. |
+| ResolveVerificationCaseCommandHandler | Procesa la decisión del Verificador. | Recupera el caso, invoca `resolve()`. Si la decisión es `APPROVED`, notifica a Learning Path Engine para completar el nodo, a Reputation para actualizar la confiabilidad del Verificador y el Employability Score del estudiante, y a Wallet & Incentives para acreditar SkillCredits al Verificador. Si es `REJECTED`, notifica solo a Reputation. |
+| UpdateVerifierAvailabilityCommandHandler | Procesa el cambio de disponibilidad de un Verificador. | Recupera el `VerifierProfile`, invoca `updateAvailability()` y lo persiste. |
+| GetVerificationCaseQueryHandler / GetAssessmentAttemptQueryHandler / ListCasesByVerifierQueryHandler | Recuperan el detalle o listado solicitado. | Consultan el repositorio correspondiente. |
 
 **Internal DTOs**
 
 | Nombre | Descripción |
 |---|---|
-| QuizDto | Objeto que transporta el quiz junto con sus preguntas entre capas. |
-| QuizAttemptDto | Objeto que transporta el resultado de un intento entre capas. |
+| AssessmentAttemptDto | Objeto que transporta el resultado de un intento entre capas. |
+| VerificationCaseDto | Objeto que transporta el estado y decisión de un caso entre capas. |
+
+En la Application Layer de Assessment & Peer Review, `SubmitAssessmentAttemptCommandHandler` asegura que un estudiante nunca avance de nodo sin una evaluación real (automática o por Verificador), y `ResolveVerificationCaseCommandHandler` centraliza el único punto donde la aprobación de un caso dispara los tres eventos hacia Learning Path Engine, Reputation y Wallet & Incentives.
 
 #### 2.6.4.4. Infrastructure Layer
 
@@ -1818,99 +1958,137 @@ En la Domain Layer de Innovify, dentro del Bounded Context de Learning & Assessm
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| QuizRepositoryAdapter | Implementación concreta de `QuizRepository` sobre las tablas `quizzes` y `quiz_questions`. | ORM del stack backend, instancia MySQL desplegada en Render. La lista de preguntas se persiste mediante un converter JSON, evitando una tabla relacional adicional para una estructura de solo lectura desde el dominio. |
-| QuizAttemptRepositoryAdapter | Implementación concreta de `QuizAttemptRepository` sobre la tabla `quiz_attempts`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| AssessmentAttemptRepositoryAdapter | Implementación concreta de `AssessmentAttemptRepository` sobre la tabla `assessment_attempts`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| VerifierProfileRepositoryAdapter | Implementación concreta de `VerifierProfileRepository` sobre la tabla `verifier_profiles`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| VerificationCaseRepositoryAdapter | Implementación concreta de `VerificationCaseRepository` sobre la tabla `verification_cases`. | ORM del stack backend, instancia MySQL desplegada en Render. |
 
-Estos adaptadores garantizan que el cálculo de puntaje y la estructura de preguntas permanezcan encapsulados en el dominio, sin exponer lógica de calificación hacia los clientes móviles ni web.
+**Integration Services**
+
+| Nombre | Descripción | Resumen de Implementación |
+|---|---|---|
+| CloudinaryEvidenceAdapter | Gestiona el almacenamiento del archivo de evidencia opcional adjuntado por el estudiante. | Reutiliza el mismo servicio Cloudinary ya integrado en Credential Verification, evitando duplicar la integración técnica. |
+
+Estos componentes garantizan que ni la asignación de Verificador ni la calificación del intento dependan de infraestructura de comunicación en tiempo real, reduciendo la superficie técnica del Bounded Context frente al Workspace del modelo de tutorías original.
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
 <p align="center">
-  <img src="images-doc/LearningComponent.svg" alt="Component Diagram - Learning & Assessment" width="800">
+  <img src="images-doc/AssessmentPeerReviewComponent.svg" alt="Component Diagram - Assessment & Peer Review" width="800">
   <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Learning & Assessment - Elaboración propia. Nota: Se detalla la segregación entre Controllers, Command/Query Services y el adaptador de Persistencia, evidenciando que el cálculo del puntaje se centraliza en el servidor para garantizar consistencia entre los distintos clientes.</em>
+  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Assessment & Peer Review - Elaboración propia. Nota: Se detalla la segregación entre los Controllers de `AssessmentAttempt`, `VerificationCase` y `VerifierProfile`, el Command/Query Service, el componente interno `VerifierMatcher` y el adaptador de almacenamiento de evidencia (Cloudinary), evidenciando la solicitud del blueprint hacia Learning Path Engine, las notificaciones hacia Reputation y Wallet & Incentives, la consulta de datos de usuario hacia Identity & Access, y la consulta entrante desde Moderation & Disputes sobre un caso escalado.</em>
 </p>
-
-#### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
 <p align="center">
-  <img src="images-doc/class-learning-mobile.png" alt="Class Diagram - Learning & Assessment" width="800">
+  <img src="images-doc/class-assessment-peer-review-mobile.png" alt="Class Diagram - Assessment & Peer Review" width="800">
   <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Learning & Assessment - Elaboración propia. Nota: Se detalla el agregado Quiz con su entidad Question embebida, y el agregado QuizAttempt con el Value Object Score.</em>
+  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Assessment & Peer Review - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
+
+El modelado de clases de Assessment & Peer Review pertenece a los agregados raíz `AssessmentAttempt`, `VerifierProfile` y `VerificationCase`, junto con el Value Object `Score`, debido a que estos elementos concentran de forma exclusiva la ejecución del intento del estudiante sobre la evaluación generada por la IA, la elegibilidad de un Estudiante como Verificador de otros, y el flujo de escalamiento hacia revisión humana cuando dicho intento no es aprobado — sin depender de ninguna sesión de comunicación en tiempo real, a diferencia del modelo de tutorías original.
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
 <p align="center">
-  <img src="images-doc/db-learning-mobile.png" alt="Database Diagram - Learning & Assessment" width="800">
+  <img src="images-doc/db-assessment-peer-review-mobile.png" alt="Database Diagram - Assessment & Peer Review" width="800">
   <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Learning & Assessment - Elaboración propia.</em>
+  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Assessment & Peer Review - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
 
+El modelado de base de datos de Assessment & Peer Review pertenece a las tablas `assessment_attempts`, `verifier_profiles` y `verification_cases`, debido a que estas tres tablas persisten de forma independiente los tres agregados raíz del Bounded Context: el intento y resultado de una evaluación (`assessment_attempts`), la elegibilidad y disponibilidad de un Verificador (`verifier_profiles`), y el caso abierto cuando un intento no es aprobado, incluyendo su asignación y resolución con rúbrica estructurada (`verification_cases`). Se destaca el campo `evidence_url` en `verification_cases`, que reemplaza por completo la infraestructura de videollamada y chat en tiempo real del modelo de tutorías original.
+
 ---
+
 
 ### 2.6.5. Bounded Context: Reputation
 
 #### 2.6.5.1. Domain Layer
 
-La capa de dominio de Reputation concentra las reglas de negocio relacionadas con la calificación de tutores y aprendices tras la finalización de una sesión de tutoría.
+La capa de dominio de Reputation concentra las reglas de negocio relacionadas con la confiabilidad del Verificador y el nivel de empleabilidad demostrado del Estudiante, calculadas ambas a partir de eventos internos del sistema — sin que ningún usuario califique directamente a otro, a diferencia del modelo de tutorías original.
 
-**1. Aggregate Root: Review**
+**1. Aggregate Root: VerifierReliability**
 
-Descripción: El agregado `Review` representa la calificación y comentario emitidos por un participante de una sesión hacia el otro (tutor o aprendiz), garantizando que cada sesión solo pueda ser calificada una vez por cada dirección.
-
-Atributos
-
-| Atributo | Tipo | Descripción |
-|---|---|---|
-| id | int | Identificador único de la reseña (autogenerado). |
-| reviewerUserId | int | Usuario que emite la calificación. |
-| reviewedTutorId | int | Tutor calificado (nulo si la reseña califica a un aprendiz). |
-| reviewedLearnerId | int | Aprendiz calificado (nulo si la reseña califica a un tutor). |
-| sessionId | int | Sesión de tutoría a la que corresponde la calificación. |
-| rating | Rating (VO) | Valor numérico de la calificación. |
-| comment | string | Comentario opcional del reviewer. |
-| reviewedAt | timestamp | Fecha y hora de la calificación. |
-
-Métodos
-
-- `Review(reviewerUserId, reviewedTutorId, reviewedLearnerId, sessionId, rating, comment)` (Constructor): Valida que la sesión referenciada exista y no haya sido calificada previamente en esa misma dirección antes de crear la instancia.
-
-**2. Value Object: Rating**
-
-Descripción: Encapsula el valor numérico de la calificación y valida su rango permitido.
+Descripción: El agregado `VerifierReliability` representa la confiabilidad acumulada de un Verificador, calculada de forma explicable a partir de los casos que resolvió, las veces que su decisión fue revertida por Moderation & Disputes, y las sanciones aplicadas sobre su cuenta.
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| value | int | Valor de la calificación, validado en el rango de 1 a 5. |
+| id | int | Identificador único del registro de confiabilidad (autogenerado). |
+| verifierUserId | int | Referencia al usuario `Student` (Identity & Access) con perfil de Verificador. |
+| resolvedCasesCount | int | Cantidad total de `VerificationCase` resueltos por el Verificador. |
+| overturnedDecisionsCount | int | Cantidad de decisiones revertidas por Moderation & Disputes tras una disputa. |
+| sanctionsCount | int | Cantidad de sanciones aplicadas sobre la cuenta del Verificador. |
+| score | ReliabilityScore (VO) | Puntaje de confiabilidad vigente. |
+| updatedAt | timestamp | Fecha del último recálculo. |
 
 Métodos
 
-- `Rating(int value)` (Constructor): Valida que el valor se encuentre dentro del rango permitido, lanzando una excepción de dominio en caso contrario.
+- `VerifierReliability(verifierUserId)` (Constructor): Inicializa los contadores en cero y el `score` en el valor base máximo.
+- `recordResolution()`: Incrementa `resolvedCasesCount` y recalcula el `score` mediante `VerifierReliabilityCalculator`.
+- `recordOverturn()`: Incrementa `overturnedDecisionsCount` y recalcula el `score`, aplicando la penalización correspondiente.
+- `applySanction()`: Incrementa `sanctionsCount` y recalcula el `score`, aplicando la penalización más severa del modelo.
 
-**3. Domain Service: TutorReputationCalculator**
+**2. Aggregate Root: StudentEmployabilityScore**
 
-Descripción: Calcula el promedio de calificaciones de un tutor a partir del conjunto de reseñas recibidas.
+Descripción: El agregado `StudentEmployabilityScore` representa el nivel de empleabilidad demostrado de un Estudiante, calculado a partir de la cantidad de habilidades que ha logrado certificar (ya sea por aprobación automática de la IA o por revisión de un Verificador).
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único del registro (autogenerado). |
+| studentId | int | Referencia al usuario `Student` (Identity & Access). |
+| verifiedSkillsCount | int | Cantidad de habilidades certificadas hasta el momento. |
+| score | EmployabilityScore (VO) | Puntaje de empleabilidad vigente. |
+| updatedAt | timestamp | Fecha del último recálculo. |
 
 Métodos
 
-- `calculateAverage(List\<Review\> reviews)`: Retorna el promedio de los valores de `Rating` de las reseñas recibidas por un tutor.
+- `StudentEmployabilityScore(studentId)` (Constructor): Inicializa `verifiedSkillsCount` en cero y el `score` correspondiente.
+- `recordSkillVerified()`: Incrementa `verifiedSkillsCount` y recalcula el `score` mediante `EmployabilityScoreCalculator`.
 
-**4. Repository: ReviewRepository**
+**3. Value Object: ReliabilityScore**
 
-Descripción: Interfaz para la persistencia y recuperación de reseñas.
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | int | Puntaje de confiabilidad, en el rango de 0 a 100. |
+
+**4. Value Object: EmployabilityScore**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | int | Puntaje de empleabilidad, proporcional a la cantidad de habilidades certificadas. |
+
+**5. Domain Service: VerifierReliabilityCalculator**
+
+Descripción: Calcula el `ReliabilityScore` de un Verificador mediante un conjunto explicable de reglas, evitando una fórmula opaca difícil de sustentar.
 
 Métodos
 
-- `findByTutorId(int tutorId)`: Recupera todas las reseñas recibidas por un tutor.
-- `existsBySessionAndDirection(int sessionId, boolean isTutorReview)`: Verifica que la sesión no haya sido calificada previamente en esa dirección.
-- `save(Review review)`: Persiste una nueva reseña.
+- `calculate(int resolvedCasesCount, int overturnedDecisionsCount, int sanctionsCount)`: Retorna el `ReliabilityScore` resultante, partiendo de un puntaje base de 100 y descontando 15 puntos por cada decisión revertida y 25 puntos por cada sanción, sin bajar de 0.
 
-En la Domain Layer de Innovify, dentro del Bounded Context de Reputation, el agregado `Review` encapsula la regla de unicidad de calificación por sesión y dirección, mientras que el Value Object `Rating` garantiza que solo se acepten valores dentro del rango permitido. El cálculo del promedio de un tutor se delega al Domain Service `TutorReputationCalculator`, manteniendo esa lógica fuera del agregado individual.
+**6. Domain Service: EmployabilityScoreCalculator**
+
+Descripción: Calcula el `EmployabilityScore` de un Estudiante a partir de la cantidad de habilidades certificadas.
+
+Métodos
+
+- `calculate(int verifiedSkillsCount)`: Retorna el `EmployabilityScore` resultante, proporcional a `verifiedSkillsCount`.
+
+**7. Repository: VerifierReliabilityRepository, StudentEmployabilityScoreRepository**
+
+Métodos
+
+- `findByVerifierUserId(int verifierUserId)`, `save(VerifierReliability reliability)` (VerifierReliabilityRepository).
+- `findByStudentId(int studentId)`, `save(StudentEmployabilityScore score)` (StudentEmployabilityScoreRepository).
+
+En la Domain Layer de SkillSwap, dentro del Bounded Context de Reputation, `VerifierReliability` y `StudentEmployabilityScore` centralizan el recálculo explicable de sus respectivos puntajes mediante `VerifierReliabilityCalculator` y `EmployabilityScoreCalculator`, apoyándose exclusivamente en eventos internos generados por Assessment & Peer Review y Moderation & Disputes, sin exponer ningún endpoint donde un usuario califique directamente a otro.
 
 #### 2.6.5.2. Interface Layer
 
@@ -1918,23 +2096,24 @@ En la Domain Layer de Innovify, dentro del Bounded Context de Reputation, el agr
 
 | Nombre | Descripción |
 |---|---|
-| ReviewResource | DTO de salida que representa una reseña (rating, comment, reviewerUserId, reviewedAt). |
-| CreateReviewResource | DTO de entrada para registrar una nueva calificación. |
-| TutorReputationResource | DTO de salida con el promedio de calificación y el conteo de reseñas de un tutor. |
+| VerifierReliabilityResource | DTO de salida con el puntaje de confiabilidad y los contadores de un Verificador. |
+| StudentEmployabilityResource | DTO de salida con el puntaje de empleabilidad y la cantidad de habilidades certificadas de un Estudiante. |
 
 **Controllers**
 
 | Nombre | Método HTTP | Ruta / Resource | Descripción |
 |---|---|---|---|
-| ReviewController | POST | `/api/v1/reviews` (CreateReviewResource) | Registra una nueva calificación asociada a una sesión completada. |
-| ReviewController | GET | `/api/v1/reviews/tutor/{tutorId}` | Retorna el listado de reseñas y el promedio de calificación de un tutor. |
+| VerifierReliabilityController | GET | `/api/v1/verifier-reliability/{verifierUserId}` | Retorna el puntaje de confiabilidad vigente de un Verificador. |
+| StudentEmployabilityController | GET | `/api/v1/student-employability/{studentId}` | Retorna el puntaje de empleabilidad vigente de un Estudiante. |
 
 **Transformers / Assemblers**
 
 | Nombre | Descripción |
 |---|---|
-| ReviewResourceFromEntityAssembler | Convierte `Review` en `ReviewResource`. |
-| CreateReviewCommandFromResourceAssembler | Transforma `CreateReviewResource` en `CreateReviewCommand`. |
+| VerifierReliabilityResourceFromEntityAssembler | Convierte `VerifierReliability` en `VerifierReliabilityResource`. |
+| StudentEmployabilityResourceFromEntityAssembler | Convierte `StudentEmployabilityScore` en `StudentEmployabilityResource`. |
+
+A diferencia del BC de tutorías original, Reputation no expone ningún endpoint de creación consumido directamente por el cliente: ambos agregados se actualizan exclusivamente mediante los eventos descritos en la Application Layer.
 
 #### 2.6.5.3. Application Layer
 
@@ -1942,14 +2121,20 @@ En la Domain Layer de Innovify, dentro del Bounded Context de Reputation, el agr
 
 | Nombre | Descripción | Resumen de Lógica |
 |---|---|---|
-| CreateReviewCommandHandler | Procesa el registro de una nueva calificación. | Valida que la sesión referenciada esté en estado `completed` y que no exista una reseña previa en esa dirección, instancia el agregado `Review` y lo persiste mediante `ReviewRepository`. |
-| GetTutorReviewsQueryHandler | Recupera las reseñas y el promedio de un tutor. | Consulta `ReviewRepository.findByTutorId()` e invoca `TutorReputationCalculator.calculateAverage()` sobre el resultado. |
+| RecordCaseResolutionEventHandler | Procesa la resolución de un `VerificationCase` por un Verificador. | Recibe el evento desde Assessment & Peer Review, invoca `recordResolution()` sobre el `VerifierReliability` del Verificador; si la decisión fue `APPROVED`, invoca además `recordSkillVerified()` sobre el `StudentEmployabilityScore` del Estudiante. |
+| RecordAutomaticApprovalEventHandler | Procesa la aprobación automática de un `AssessmentAttempt` sin intervención de un Verificador. | Recibe el evento desde Assessment & Peer Review, invoca `recordSkillVerified()` sobre el `StudentEmployabilityScore` del Estudiante. |
+| RecordDisputeOverturnEventHandler | Procesa la reversión de una decisión de un Verificador. | Recibe el evento desde Moderation & Disputes, invoca `recordOverturn()` sobre el `VerifierReliability` correspondiente. |
+| RecordSanctionEventHandler | Procesa una sanción aplicada sobre una cuenta. | Recibe el evento desde Moderation & Disputes; si la cuenta sancionada posee un `VerifierReliability`, invoca `applySanction()`. |
+| GetVerifierReliabilityQueryHandler / GetStudentEmployabilityQueryHandler | Recuperan el puntaje vigente solicitado. | Consultan el repositorio correspondiente. |
 
 **Internal DTOs**
 
 | Nombre | Descripción |
 |---|---|
-| ReviewDto | Objeto que transporta el contenido de una reseña entre capas. |
+| VerifierReliabilityDto | Objeto que transporta el puntaje de confiabilidad entre capas. |
+| StudentEmployabilityDto | Objeto que transporta el puntaje de empleabilidad entre capas. |
+
+En la Application Layer de Reputation, los cuatro event handlers aseguran que tanto la confiabilidad del Verificador como la empleabilidad del Estudiante permanezcan sincronizadas con cada evento relevante ocurrido en Assessment & Peer Review y Moderation & Disputes, sin que Reputation dependa de una acción explícita del usuario final.
 
 #### 2.6.5.4. Infrastructure Layer
 
@@ -1957,54 +2142,57 @@ En la Domain Layer de Innovify, dentro del Bounded Context de Reputation, el agr
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| ReviewRepositoryAdapter | Implementación concreta de `ReviewRepository` sobre la tabla `reviews`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| VerifierReliabilityRepositoryAdapter | Implementación concreta de `VerifierReliabilityRepository` sobre la tabla `verifier_reliabilities`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| StudentEmployabilityScoreRepositoryAdapter | Implementación concreta de `StudentEmployabilityScoreRepository` sobre la tabla `student_employability_scores`. | ORM del stack backend, instancia MySQL desplegada en Render. |
 
 **Integration Services**
 
 | Nombre | Descripción | Resumen de Implementación |
 |---|---|---|
-| TutorProfileNotifierAdapter | Comunica el promedio de calificación actualizado hacia el Bounded Context Discovery. | Consumo HTTP interno hacia el endpoint de actualización de `TutorProfile.rating` en Discovery, tras cada nueva reseña registrada. |
+| VerifierProfileNotifierAdapter | Comunica el `ReliabilityScore` actualizado hacia el Bounded Context Assessment & Peer Review. | Consumo HTTP interno hacia el endpoint de actualización de `VerifierProfile.rating` / `reviewCount` en Assessment & Peer Review, tras cada recálculo de `VerifierReliability`. |
 
-Estos componentes permiten que Reputation mantenga sincronizado el promedio de calificación mostrado en el catálogo de búsqueda de Discovery, sin acoplar directamente su modelo de persistencia a ese Bounded Context.
+Este adaptador permite que Assessment & Peer Review mantenga sincronizado el `rating` y `reviewCount` de cada `VerifierProfile` con el puntaje calculado en Reputation, sin acoplar directamente el modelo de persistencia de ambos Bounded Contexts.
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
 <p align="center">
   <img src="images-doc/ReputationComponent.svg" alt="Component Diagram - Reputation" width="800">
   <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Reputation - Elaboración propia. Nota: Se detalla la segregación entre Controllers, Command/Query Services y los adaptadores de Persistencia e integración con Discovery para la sincronización del promedio de calificación del tutor.</em>
+  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Reputation - Elaboración propia. Nota: Se detalla la segregación entre los Controllers de solo lectura (`VerifierReliability`, `StudentEmployability`), el Command/Query Service y el adaptador de sincronización hacia Assessment & Peer Review, evidenciando que toda escritura ocurre exclusivamente mediante eventos entrantes de Assessment & Peer Review (resolución de caso/aprobación automática) y de Moderation & Disputes (reversión de decisión/sanción aplicada), sin ningún endpoint de creación consumido directamente por el cliente.</em>
 </p>
-
-#### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
 <p align="center">
   <img src="images-doc/class-reputation-mobile.png" alt="Class Diagram - Reputation" width="800">
   <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Reputation - Elaboración propia. Nota: Se detalla el agregado Review y el Value Object Rating con sus reglas de validación.</em>
+  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Reputation - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
+
+El modelado de clases de Reputation pertenece a los agregados raíz `VerifierReliability` y `StudentEmployabilityScore`, junto con los Value Objects `ReliabilityScore` y `EmployabilityScore`, debido a que estos elementos concentran de forma exclusiva el recálculo explicable de la confiabilidad de un Verificador y del nivel de empleabilidad demostrado de un Estudiante, calculados ambos a partir de eventos internos del sistema — sin que ningún usuario califique directamente a otro, a diferencia del modelo de tutorías original.
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
 <p align="center">
   <img src="images-doc/db-reputation-mobile.png" alt="Database Diagram - Reputation" width="800">
   <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Reputation - Elaboración propia.</em>
+  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Reputation - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
+
+El modelado de base de datos de Reputation pertenece a las tablas `verifier_reliabilities` y `student_employability_scores`, debido a que estas dos tablas persisten de forma independiente los dos agregados raíz del Bounded Context, cada uno con su propio puntaje y contadores recalculados por evento — sin una tabla intermedia de reseñas o calificaciones directas, ya que ese concepto no existe en el nuevo modelo.
 
 
 ---
 
-### 2.6.6. Bounded Context: Payments & Wallet
+### 2.6.6. Bounded Context: Wallet & Incentives
 
 #### 2.6.6.1. Domain Layer
 
-La capa de dominio de Payments & Wallet concentra las reglas de negocio relacionadas con la billetera virtual de cada usuario y el flujo de donaciones entre estudiantes y tutores.
+La capa de dominio de Wallet & Incentives concentra las reglas de negocio de la billetera de SkillCredits — créditos internos no monetarios — que un Verificador acumula al resolver casos de verificación, y que cualquier usuario puede canjear por beneficios dentro de la plataforma. A diferencia del modelo de tutorías original, no existe transferencia de dinero real entre usuarios ni comisión de plataforma.
 
 **1. Aggregate Root: Wallet**
 
-Descripción: El agregado `Wallet` representa la billetera virtual de un usuario, manteniendo su saldo disponible.
+Descripción: El agregado `Wallet` representa la billetera de SkillCredits de un usuario, manteniendo su saldo disponible.
 
 Atributos
 
@@ -2012,16 +2200,17 @@ Atributos
 |---|---|---|
 | id | int | Identificador único de la billetera (autogenerado). |
 | walletOwnerId | int | Usuario propietario de la billetera (único). |
-| balance | decimal(10,2) | Saldo actual disponible. |
+| balance | int | Saldo actual disponible, en SkillCredits. |
 
 Métodos
 
-- `credit(Money amount)`: Incrementa el saldo tras recibir una donación.
-- `debit(Money amount)`: Disminuye el saldo, validando que exista saldo suficiente antes de la operación.
+- `Wallet(walletOwnerId)` (Constructor): Crea la billetera con saldo inicial en cero, invocada al momento del registro del usuario en Identity & Access.
+- `credit(Credits amount)`: Incrementa el saldo tras la acreditación de créditos ganados.
+- `debit(Credits amount)`: Disminuye el saldo, validando que exista saldo suficiente antes del canje.
 
-**2. Entity: Transaction**
+**2. Entity: CreditTransaction**
 
-Descripción: Representa un movimiento realizado desde o hacia una billetera, incluyendo donaciones y otros tipos de operación.
+Descripción: Representa un movimiento realizado sobre una billetera, ya sea la acreditación de créditos ganados o el canje de créditos por un beneficio.
 
 Atributos
 
@@ -2029,27 +2218,26 @@ Atributos
 |---|---|---|
 | id | int | Identificador único de la transacción. |
 | walletId | int | Billetera involucrada en el movimiento. |
-| amount | Money (VO) | Monto de la operación. |
-| type | TransactionType (VO) | Tipo de movimiento: `donation`, `deposit`, entre otros. |
-| description | string | Descripción del movimiento. |
+| amount | Credits (VO) | Cantidad de créditos del movimiento. |
+| type | TransactionType (VO) | Tipo de movimiento: `EARNED` o `REDEEMED`. |
+| description | string | Descripción del movimiento (ej. "Caso de verificación resuelto", "Canje: certificado de contribución"). |
 | createdAt | timestamp | Fecha y hora de la transacción. |
 
 Métodos
 
-- `Transaction(walletId, amount, type, description)` (Constructor): Valida que el monto sea positivo antes de crear el registro.
+- `CreditTransaction(walletId, amount, type, description)` (Constructor): Valida que el monto sea positivo antes de crear el registro.
 
-**3. Value Object: Money**
+**3. Value Object: Credits**
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| amount | decimal | Cantidad numérica del movimiento. |
-| currency | string | Código de moneda. |
+| value | int | Cantidad de SkillCredits del movimiento, validada como no negativa. |
 
 Métodos
 
-- `Money(decimal amount, String currency)` (Constructor): Valida que el monto no sea negativo.
+- `Credits(int value)` (Constructor): Valida que el valor no sea negativo, lanzando una excepción de dominio en caso contrario.
 
 **4. Value Object: TransactionType**
 
@@ -2057,25 +2245,34 @@ Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| value | enum | Valor del tipo: `donation`, `deposit`, entre otros definidos por el negocio. |
+| value | enum | `EARNED` (créditos ganados por resolver un caso) o `REDEEMED` (créditos canjeados por un beneficio). |
 
-**5. Domain Service: DonationCommissionCalculator**
+**5. Value Object: RedemptionItem**
 
-Descripción: Calcula la comisión de plataforma aplicada sobre una donación antes de acreditarla a la billetera del tutor.
+Descripción: Enumeración de los beneficios que un usuario puede canjear con sus SkillCredits.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | `ADVANCED_PATH_UNLOCK` (desbloqueo de un nodo avanzado de la ruta), `CONTRIBUTION_CERTIFICATE` (certificado de contribución exportable, ej. para LinkedIn). |
+
+**6. Domain Service: RedemptionPricing**
+
+Descripción: Define el costo en SkillCredits de cada `RedemptionItem`, desacoplando el precio de canje del agregado `Wallet`.
 
 Métodos
 
-- `calculateCommission(Money donationAmount)`: Retorna el monto de comisión (actualmente 5% del monto donado).
-- `calculateNetAmount(Money donationAmount)`: Retorna el monto neto a acreditar al tutor tras descontar la comisión.
+- `calculateCost(RedemptionItem item)`: Retorna la cantidad de `Credits` requerida para canjear el beneficio indicado.
 
-**6. Repository: WalletRepository, TransactionRepository**
+**7. Repository: WalletRepository, CreditTransactionRepository**
 
 Métodos
 
 - `findByOwnerId(int userId)`, `save(Wallet wallet)` (WalletRepository).
-- `save(Transaction transaction)`, `findByWalletId(int walletId)` (TransactionRepository).
+- `save(CreditTransaction transaction)`, `findByWalletId(int walletId)` (CreditTransactionRepository).
 
-En la Domain Layer de Innovify, dentro del Bounded Context de Payments & Wallet, el agregado `Wallet` gestiona el saldo de cada usuario, mientras que la entidad `Transaction` registra cada movimiento validado por el Value Object `Money`. El cálculo de la comisión de plataforma se delega al Domain Service `DonationCommissionCalculator`, manteniendo esta regla de negocio desacoplada del agregado.
+En la Domain Layer de SkillSwap, dentro del Bounded Context de Wallet & Incentives, el agregado `Wallet` gestiona el saldo de SkillCredits de cada usuario, mientras que la entidad `CreditTransaction` registra cada movimiento validado por el Value Object `Credits`. El costo de cada beneficio canjeable se delega al Domain Service `RedemptionPricing`, manteniendo esta regla de negocio desacoplada del agregado — sin que exista, en ningún punto del dominio, un concepto de moneda real ni de comisión de plataforma.
 
 #### 2.6.6.2. Interface Layer
 
@@ -2083,28 +2280,27 @@ En la Domain Layer de Innovify, dentro del Bounded Context de Payments & Wallet,
 
 | Nombre | Descripción |
 |---|---|
-| WalletResource | DTO de salida que representa el saldo actual de una billetera. |
-| TransactionResource | DTO de salida que representa un movimiento (amount, type, description, createdAt). |
-| DonateResource | DTO de entrada con el monto y el tutor destinatario de una donación. |
-| WithdrawResource | DTO de entrada con el monto a retirar. |
+| WalletResource | DTO de salida que representa el saldo actual de SkillCredits de una billetera. |
+| CreditTransactionResource | DTO de salida que representa un movimiento (amount, type, description, createdAt). |
+| RedeemResource | DTO de entrada con el `RedemptionItem` que el usuario desea canjear. |
 
 **Controllers**
 
 | Nombre | Método HTTP | Ruta / Resource | Descripción |
 |---|---|---|---|
-| WalletController | GET | `/api/v1/wallets/{userId}` | Retorna el saldo actual de la billetera de un usuario. |
-| TransactionController | POST | `/api/v1/transactions/donate` (DonateResource) | Registra una donación entre wallets, aplicando la comisión de plataforma. |
-| TransactionController | POST | `/api/v1/transactions/withdraw` (WithdrawResource) | Registra un retiro de fondos de la billetera. |
+| WalletController | GET | `/api/v1/wallets/{userId}` | Retorna el saldo actual de SkillCredits de un usuario. |
+| WalletController | GET | `/api/v1/wallets/{userId}/transactions` | Retorna el historial de movimientos de la billetera. |
+| CreditTransactionController | POST | `/api/v1/credit-transactions/redeem` (RedeemResource) | Registra el canje de un `RedemptionItem`, descontando el costo correspondiente del saldo. |
 
 **Transformers / Assemblers**
 
 | Nombre | Descripción |
 |---|---|
 | WalletResourceFromEntityAssembler | Convierte `Wallet` en `WalletResource`. |
-| TransactionResourceFromEntityAssembler | Convierte `Transaction` en `TransactionResource`. |
-| DonateCommandFromResourceAssembler | Transforma `DonateResource` en `DonateCommand`. |
+| CreditTransactionResourceFromEntityAssembler | Convierte `CreditTransaction` en `CreditTransactionResource`. |
+| RedeemCommandFromResourceAssembler | Transforma `RedeemResource` en `RedeemCommand`. |
 
-Del lado del cliente móvil, tanto `donate` como `withdraw` requieren que el usuario complete la verificación mediante la API biométrica nativa del dispositivo (`BiometricPrompt` en Android, `local_auth` en Flutter) antes de que la aplicación invoque estos endpoints; si el dispositivo no cuenta con lector de huella o no tiene huellas registradas, el propio sistema operativo ofrece automáticamente el PIN, patrón o contraseña del dispositivo como mecanismo alternativo de confirmación.
+Del lado del cliente móvil, el endpoint de canje (`redeem`) requiere que el usuario complete la verificación mediante la API biométrica nativa del dispositivo (`BiometricPrompt` en Android, `local_auth` en Flutter) antes de que la aplicación invoque el endpoint; si el dispositivo no cuenta con lector de huella o no tiene huellas registradas, el propio sistema operativo ofrece automáticamente el PIN, patrón o contraseña del dispositivo como mecanismo alternativo de confirmación. A diferencia del modelo original, no existe endpoint de creación de billetera consumido por el cliente: `Wallet` se crea automáticamente al registrarse el usuario en Identity & Access.
 
 #### 2.6.6.3. Application Layer
 
@@ -2112,16 +2308,19 @@ Del lado del cliente móvil, tanto `donate` como `withdraw` requieren que el usu
 
 | Nombre | Descripción | Resumen de Lógica |
 |---|---|---|
-| DonateCommandHandler | Procesa una donación entre wallets. | Calcula la comisión mediante `DonationCommissionCalculator`, debita el monto bruto de la billetera del aprendiz, acredita el monto neto a la del tutor y registra ambas `Transaction` de forma transaccional. |
-| WithdrawCommandHandler | Procesa un retiro de fondos. | Valida que la billetera tenga saldo suficiente, ejecuta `debit()` y registra la `Transaction` correspondiente. |
-| GetWalletBalanceQueryHandler | Recupera el saldo actual de una billetera. | Consulta `WalletRepository.findByOwnerId()`. |
+| CreateWalletCommandHandler | Procesa la creación de la billetera inicial. | Recibe el evento desde Identity & Access tras el registro de un nuevo usuario, instancia `Wallet` con saldo en cero y lo persiste. |
+| CreditVerifierCommandHandler | Procesa la acreditación de créditos ganados. | Recibe el evento desde Assessment & Peer Review tras la resolución `APPROVED` de un `VerificationCase`, ejecuta `credit()` sobre el `Wallet` del Verificador y registra la `CreditTransaction` de tipo `EARNED`. |
+| RedeemCommandHandler | Procesa el canje de un beneficio. | Calcula el costo mediante `RedemptionPricing`, valida saldo suficiente, ejecuta `debit()` sobre el `Wallet` y registra la `CreditTransaction` de tipo `REDEEMED`. |
+| GetWalletBalanceQueryHandler / GetWalletTransactionsQueryHandler | Recuperan el saldo o historial solicitado. | Consultan el repositorio correspondiente. |
 
 **Internal DTOs**
 
 | Nombre | Descripción |
 |---|---|
 | WalletDto | Objeto que transporta el saldo operativo de una billetera entre capas. |
-| TransactionDto | Objeto que transporta el detalle de un movimiento entre capas. |
+| CreditTransactionDto | Objeto que transporta el detalle de un movimiento entre capas. |
+
+En la Application Layer de Wallet & Incentives, `CreditVerifierCommandHandler` es el único punto donde se acreditan créditos, y depende exclusivamente de un evento de Assessment & Peer Review — nunca de una acción directa de otro usuario, eliminando así el flujo de donación P2P y su comisión asociada que existían en el modelo de tutorías.
 
 #### 2.6.6.4. Infrastructure Layer
 
@@ -2130,41 +2329,37 @@ Del lado del cliente móvil, tanto `donate` como `withdraw` requieren que el usu
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
 | WalletRepositoryAdapter | Implementación concreta de `WalletRepository` sobre la tabla `wallets`. | ORM del stack backend, instancia MySQL desplegada en Render. |
-| TransactionRepositoryAdapter | Implementación concreta de `TransactionRepository` sobre la tabla `transactions`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| CreditTransactionRepositoryAdapter | Implementación concreta de `CreditTransactionRepository` sobre la tabla `credit_transactions`. | ORM del stack backend, instancia MySQL desplegada en Render. |
 
-**External Services (Trabajo Futuro)**
-
-| Nombre | Descripción | Estado |
-|---|---|---|
-| StripeGatewayAdapter | Punto de extensión bajo el patrón Anticorruption Layer hacia la pasarela de pagos Stripe. | Pendiente de implementación; documentado como trabajo futuro fuera del alcance funcional del ciclo actual. |
-
-Estos componentes garantizan que la lógica de comisión y saldo permanezca encapsulada en el dominio, mientras que la confirmación biométrica (recurso interno del dispositivo) se resuelve íntegramente del lado del cliente móvil antes de invocar los endpoints de transacción.
+Este Bounded Context no incluye integraciones con pasarelas de pago externas ni siquiera como trabajo futuro: al ser SkillCredits un mecanismo puramente interno y no monetario, no existe punto de extensión hacia Stripe u otro proveedor equivalente, a diferencia de Credential Verification, donde sí se documentaron mecanismos de verificación oficial pendientes de integración.
 
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
 <p align="center">
-  <img src="images-doc/PaymentsComponent.svg" alt="Component Diagram - Payments & Wallet" width="800">
+  <img src="images-doc/WalletIncentivesComponent.svg" alt="Component Diagram - Wallet & Incentives" width="800">
   <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Payments & Wallet - Elaboración propia. Nota: Se detalla la segregación entre Controllers, Command/Query Services y los adaptadores de Persistencia, evidenciando que la confirmación biométrica (recurso interno del dispositivo) ocurre en el cliente móvil antes de invocar los endpoints de transacción, y que la integración con Stripe queda documentada como Anticorruption Layer para una futura extensión.</em>
+  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Wallet & Incentives - Elaboración propia. Nota: Se detalla la segregación entre los Controllers de `Wallet` y `CreditTransaction`, el Command/Query Service y el Repository, evidenciando la creación de la billetera inicial solicitada por Identity & Access al registrarse, la acreditación de SkillCredits notificada por Assessment & Peer Review tras un caso aprobado, y la confirmación de biometría consultada hacia Identity & Access antes de un canje — sin ninguna integración con pasarelas de pago externas.</em>
 </p>
-
-#### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
 <p align="center">
-  <img src="images-doc/class-payments-mobile.png" alt="Class Diagram - Payments & Wallet" width="800">
+  <img src="images-doc/class-wallet-incentives-mobile.png" alt="Class Diagram - Wallet & Incentives" width="800">
   <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Payments & Wallet - Elaboración propia. Nota: Se detalla el agregado Wallet, el agregado Transaction y los Value Objects Money y CommissionRate.</em>
+  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Wallet & Incentives - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
+
+El modelado de clases de Wallet & Incentives pertenece al agregado raíz `Wallet`, junto con la entidad `CreditTransaction` y el Value Object `Credits`, debido a que estos elementos concentran de forma exclusiva el saldo de SkillCredits de cada usuario y el historial de movimientos — créditos ganados al resolver un caso de verificación, o canjeados por un beneficio — sin que exista, en ningún punto del dominio, un concepto de moneda real ni de comisión de plataforma.
 
 ##### 2.6.6.6.2. Bounded Context Database Design Diagram
 
 <p align="center">
-  <img src="images-doc/db-payments-mobile.png" alt="Database Diagram - Payments & Wallet" width="800">
+  <img src="images-doc/db-wallet-incentives-mobile.png" alt="Database Diagram - Wallet & Incentives" width="800">
   <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Payments & Wallet - Elaboración propia.</em>
+  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Wallet & Incentives - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
+
+El modelado de base de datos de Wallet & Incentives pertenece a las tablas `wallets` y `credit_transactions`, debido a que la primera persiste el saldo vigente de SkillCredits de cada usuario y la segunda registra, en una relación uno a muchos, cada movimiento asociado a dicha billetera — sin ninguna tabla de credenciales de tarjeta ni de integración con una pasarela de pago externa, a diferencia del modelo de tutorías original.
 
 ---
 
@@ -2172,77 +2367,97 @@ Estos componentes garantizan que la lógica de comisión y saldo permanezca enca
 
 #### 2.6.7.1. Domain Layer
 
-La capa de dominio de Moderation & Disputes concentra las reglas de negocio relacionadas con el reporte de comportamientos inapropiados y la resolución de disputas por parte del Coordinador.
+La capa de dominio de Moderation & Disputes concentra las reglas de negocio de la escalación final ante el Coordinador. A diferencia del modelo de tutorías original —donde solo existía un tipo de denuncia asociada a una sesión de chat—, este Bounded Context ahora generaliza **tres orígenes distintos de escalación**: un certificado marcado como `SUSPICIOUS` por Credential Verification, una apelación de un Estudiante sobre la decisión de un Verificador, y un reporte directo de mal comportamiento entre usuarios.
 
-**1. Aggregate Root: Report**
+**1. Aggregate Root: Dispute**
 
-Descripción: El agregado `Report` representa la denuncia de un usuario hacia otro respecto a una sesión de tutoría, gobernando las transiciones de estado hasta su resolución.
+Descripción: El agregado `Dispute` representa cualquier caso que requiere la decisión final del Coordinador, gobernando su ciclo de vida sin importar si fue originado por el sistema (escalación automática) o por un usuario (reporte o apelación).
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| id | int | Identificador único del reporte (autogenerado). |
-| reporterUserId | int | Usuario que presenta el reporte. |
-| reportedUserId | int | Usuario reportado. |
-| reportSessionId | int | Sesión de tutoría referenciada como contexto del reporte. |
-| reason | string | Motivo detallado del reporte. |
-| status | ReportStatus (VO) | Estado del reporte: `pending` o `resolved`. |
-| closed | boolean | Indica si el caso ha sido cerrado formalmente. |
-| reportedAt | timestamp | Fecha y hora de creación del reporte. |
+| id | int | Identificador único del caso (autogenerado). |
+| sourceType | DisputeSourceType (VO) | Origen de la escalación: `CERTIFICATE_REVIEW`, `VERIFIER_DECISION_APPEAL` o `USER_REPORT`. |
+| sourceReferenceId | int | Identificador del `Certificate` o `VerificationCase` referenciado, según el `sourceType`. |
+| raisedByUserId | int (nullable) | Usuario que originó el caso; nulo cuando la escalación es automática (`CERTIFICATE_REVIEW`). |
+| respondentUserId | int (nullable) | Usuario cuya conducta, certificado o decisión está siendo cuestionada. |
+| reason | string | Motivo detallado del caso. |
+| status | DisputeStatus (VO) | Estado actual: `PENDING` o `RESOLVED`. |
+| outcome | DisputeOutcome (VO, nullable) | Resultado de la resolución, nulo hasta que el Coordinador decide. |
+| coordinatorNotes | string (nullable) | Observaciones del Coordinador al resolver. |
+| raisedAt | timestamp | Fecha de apertura del caso. |
+| resolvedAt | timestamp (nullable) | Fecha de resolución del caso. |
 
 Métodos
 
-- `Report(reporterUserId, reportedUserId, reportSessionId, reason)` (Constructor): Crea el reporte en estado `pending`.
-- `resolve()`: Transiciona el estado a `resolved` y marca `closed` como verdadero, validando que el reporte se encuentre en estado `pending`.
+- `Dispute(sourceType, sourceReferenceId, raisedByUserId, respondentUserId, reason)` (Constructor): Crea el caso en estado `PENDING`.
+- `resolve(DisputeOutcome outcome, String coordinatorNotes)`: Valida mediante `DisputeResolutionValidator` que el `outcome` sea coherente con el `sourceType` del caso, transiciona el estado a `RESOLVED` y registra `resolvedAt`.
 
 **2. Entity: Sanction**
 
-Descripción: Representa la sanción aplicada a un usuario como resultado de un reporte resuelto.
+Descripción: Representa la sanción aplicada a un usuario como resultado de un `Dispute` resuelto con `outcome = SANCTIONED`.
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
 | id | int | Identificador único de la sanción. |
-| reportId | int | Reporte que originó la sanción. |
+| disputeId | int | Caso que originó la sanción. |
 | sanctionedUserId | int | Usuario sancionado. |
-| type | SanctionType (VO) | Tipo de sanción: `warning`, `suspension` o `ban`. |
+| type | SanctionType (VO) | Tipo de sanción: `WARNING`, `SUSPENSION` o `BAN`. |
 | description | string | Motivo detallado de la sanción. |
-| durationDays | int | Duración de la sanción en días, si aplica. |
+| durationDays | int (nullable) | Duración de la sanción en días, si aplica. |
 
-**3. Value Object: ReportStatus**
-
-Atributos
-
-| Atributo | Tipo | Descripción |
-|---|---|---|
-| value | enum | Valor del estado: `pending`, `resolved`. |
-
-**4. Value Object: SanctionType**
+**3. Value Object: DisputeSourceType**
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| value | enum | Valor del tipo de sanción: `warning`, `suspension`, `ban`. |
+| value | enum | `CERTIFICATE_REVIEW`, `VERIFIER_DECISION_APPEAL`, `USER_REPORT`. |
 
-**5. Domain Service: ReportResolutionValidator**
+**4. Value Object: DisputeStatus**
 
-Descripción: Valida que una resolución (sanción o desestimación) solo pueda aplicarse sobre un reporte en estado `pending`.
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | `PENDING`, `RESOLVED`. |
+
+**5. Value Object: DisputeOutcome**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | `UPHELD` (se confirma la decisión/certificado original), `OVERTURNED` (se revierte la decisión del Verificador), `DISMISSED` (el reporte no amerita sanción), `SANCTIONED` (el reporte amerita sanción). |
+
+**6. Value Object: SanctionType**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | `WARNING`, `SUSPENSION`, `BAN`. |
+
+**7. Domain Service: DisputeResolutionValidator**
+
+Descripción: Valida que un caso solo pueda resolverse estando en estado `PENDING`, y que el `outcome` aplicado sea coherente con su `sourceType` (por ejemplo, un `CERTIFICATE_REVIEW` no puede resolverse con `SANCTIONED`, ya que ese outcome es exclusivo de `USER_REPORT`).
 
 Métodos
 
-- `canResolve(Report report)`: Retorna verdadero si el reporte se encuentra en estado `pending`.
+- `canResolve(Dispute dispute)`: Retorna verdadero si el caso se encuentra en estado `PENDING`.
+- `isValidOutcome(DisputeSourceType sourceType, DisputeOutcome outcome)`: Retorna verdadero si la combinación es coherente según las reglas de negocio.
 
-**6. Repository: ReportRepository, SanctionRepository**
+**8. Repository: DisputeRepository, SanctionRepository**
 
 Métodos
 
-- `findBySessionId(int sessionId)`, `findByStatus(ReportStatus status)`, `save(Report report)` (ReportRepository).
+- `findById(int id)`, `findByStatus(DisputeStatus status)`, `save(Dispute dispute)` (DisputeRepository).
 - `save(Sanction sanction)`, `findByUserId(int userId)` (SanctionRepository).
 
-En la Domain Layer de Innovify, dentro del Bounded Context de Moderation & Disputes, el agregado `Report` gobierna el ciclo de vida de una denuncia, mientras que la entidad `Sanction` registra la consecuencia aplicada tras su resolución. Las transiciones de estado se validan mediante `ReportResolutionValidator`, evitando que un reporte ya resuelto pueda modificarse nuevamente.
+En la Domain Layer de SkillSwap, dentro del Bounded Context de Moderation & Disputes, el agregado `Dispute` generaliza los tres orígenes de escalación posibles bajo un único modelo, evitando que Moderation dependa directamente de los modelos internos de `Certificate` o `VerificationCase` — exactamente el rol de Anticorruption Layer que se definió en el Context Mapping. Las transiciones se validan mediante `DisputeResolutionValidator`, y la entidad `Sanction` registra la consecuencia únicamente cuando el origen fue un reporte de usuario.
 
 #### 2.6.7.2. Interface Layer
 
@@ -2250,25 +2465,28 @@ En la Domain Layer de Innovify, dentro del Bounded Context de Moderation & Dispu
 
 | Nombre | Descripción |
 |---|---|
-| ReportResource | DTO de salida que representa un reporte (reason, status, reportedAt). |
-| CreateReportResource | DTO de entrada para registrar un nuevo reporte. |
-| ResolveReportResource | DTO de entrada con la decisión del Coordinador (sanción o desestimación). |
+| DisputeResource | DTO de salida que representa un caso (sourceType, reason, status, outcome). |
+| CreateUserReportResource | DTO de entrada para que un usuario reporte una conducta inapropiada. |
+| ResolveDisputeResource | DTO de entrada con la decisión del Coordinador (`outcome`, `coordinatorNotes`). |
 
 **Controllers**
 
 | Nombre | Método HTTP | Ruta / Resource | Descripción |
 |---|---|---|---|
-| ReportController | POST | `/api/v1/reports` (CreateReportResource) | Registra un nuevo reporte asociado a una sesión de tutoría. |
-| ReportController | GET | `/api/v1/reports` | Retorna el listado de reportes pendientes, consumido por el panel del Coordinador. |
-| ReportController | PATCH | `/api/v1/reports/{reportId}/resolve` (ResolveReportResource) | Aplica la resolución del Coordinador sobre un reporte. |
-| ReportController | GET | `/api/v1/sessions/{sessionId}/messages` | *(Consumido desde Workspace, ver Infrastructure Layer)* Permite al Coordinador revisar el historial de chat de la sesión reportada como evidencia. |
+| DisputeController | POST | `/api/v1/disputes/reports` (CreateUserReportResource) | Registra un nuevo reporte de usuario (`sourceType = USER_REPORT`). Los casos de `CERTIFICATE_REVIEW` y `VERIFIER_DECISION_APPEAL` se crean internamente vía eventos, no por este endpoint. |
+| DisputeController | GET | `/api/v1/disputes?status=pending` | Retorna el listado de casos pendientes, consumido por el panel del Coordinador. |
+| DisputeController | GET | `/api/v1/disputes/{disputeId}/evidence` | *(Ver Infrastructure Layer)* Retorna la evidencia asociada al caso: datos OCR/riesgo del certificado, o notas de rúbrica/evidencia del `VerificationCase`, según el `sourceType`. |
+| DisputeController | PATCH | `/api/v1/disputes/{disputeId}/resolve` (ResolveDisputeResource) | Aplica la resolución del Coordinador sobre un caso. |
 
 **Transformers / Assemblers**
 
 | Nombre | Descripción |
 |---|---|
-| ReportResourceFromEntityAssembler | Convierte `Report` en `ReportResource`. |
-| CreateReportCommandFromResourceAssembler | Transforma `CreateReportResource` en `CreateReportCommand`. |
+| DisputeResourceFromEntityAssembler | Convierte `Dispute` en `DisputeResource`. |
+| CreateUserReportCommandFromResourceAssembler | Transforma `CreateUserReportResource` en `CreateUserReportCommand`. |
+| ResolveDisputeCommandFromResourceAssembler | Transforma `ResolveDisputeResource` en `ResolveDisputeCommand`. |
+
+A diferencia del modelo original, ya no existe el endpoint `/api/v1/sessions/{sessionId}/messages` para revisar el historial de chat como evidencia — no hay sesión ni chat en el nuevo modelo. En su lugar, el endpoint de evidencia consulta directamente al Bounded Context de origen (Credential Verification o Assessment & Peer Review) según corresponda.
 
 #### 2.6.7.3. Application Layer
 
@@ -2276,15 +2494,21 @@ En la Domain Layer de Innovify, dentro del Bounded Context de Moderation & Dispu
 
 | Nombre | Descripción | Resumen de Lógica |
 |---|---|---|
-| CreateReportCommandHandler | Procesa el registro de un nuevo reporte. | Valida que la sesión referenciada exista, instancia el agregado `Report` y lo persiste mediante `ReportRepository`. |
-| ResolveReportCommandHandler | Procesa la resolución de un reporte por parte del Coordinador. | Valida la transición con `ReportResolutionValidator`, invoca `resolve()` sobre el agregado y, si corresponde, crea la `Sanction`; dispara los eventos consumidos por Identity & Access (suspensión de cuenta) y Reputation (ajuste de reputación). |
-| GetPendingReportsQueryHandler | Recupera los reportes pendientes para el panel del Coordinador. | Consulta `ReportRepository.findByStatus(pending)`. |
+| CreateUserReportCommandHandler | Procesa un reporte directo de un usuario. | Instancia `Dispute` con `sourceType = USER_REPORT` y lo persiste mediante `DisputeRepository`. |
+| EscalateCertificateReviewCommandHandler | Procesa la escalación automática de un certificado `SUSPICIOUS`. | Recibe el evento desde Credential Verification, instancia `Dispute` con `sourceType = CERTIFICATE_REVIEW` (`raisedByUserId = null`) y lo persiste. |
+| EscalateVerifierDecisionAppealCommandHandler | Procesa la apelación de un Estudiante sobre una decisión `REJECTED` de un `VerificationCase`. | Instancia `Dispute` con `sourceType = VERIFIER_DECISION_APPEAL` y lo persiste. |
+| ResolveDisputeCommandHandler | Procesa la resolución del Coordinador. | Valida con `DisputeResolutionValidator`, invoca `resolve()` sobre el agregado y despacha el efecto correspondiente según `sourceType`: si es `CERTIFICATE_REVIEW`, notifica a Credential Verification (`resolveDispute`); si es `VERIFIER_DECISION_APPEAL` con `outcome = OVERTURNED`, notifica a Reputation (reversión de decisión); si es `USER_REPORT` con `outcome = SANCTIONED`, crea la `Sanction` y notifica a Identity & Access (suspensión de cuenta) y a Reputation (sanción aplicada). |
+| GetPendingDisputesQueryHandler | Recupera los casos pendientes para el panel del Coordinador. | Consulta `DisputeRepository.findByStatus(PENDING)`. |
+| GetDisputeEvidenceQueryHandler | Recupera la evidencia asociada a un caso. | Según el `sourceType`, consulta a Credential Verification (datos del certificado) o a Assessment & Peer Review (rúbrica/evidencia del caso) mediante los adaptadores de integración. |
 
 **Internal DTOs**
 
 | Nombre | Descripción |
 |---|---|
-| ReportDto | Objeto que transporta el detalle operativo de un reporte entre capas. |
+| DisputeDto | Objeto que transporta el detalle operativo de un caso entre capas. |
+| DisputeEvidenceDto | Objeto que transporta la evidencia obtenida del Bounded Context de origen. |
+
+En la Application Layer de Moderation & Disputes, `ResolveDisputeCommandHandler` es el único punto donde una decisión del Coordinador se traduce en efectos concretos sobre los demás Bounded Contexts, y lo hace de forma distinta según el origen del caso — evitando que Identity & Access, Reputation, Credential Verification o Assessment & Peer Review necesiten conocer la existencia de `Dispute` como concepto.
 
 #### 2.6.7.4. Infrastructure Layer
 
@@ -2292,68 +2516,71 @@ En la Domain Layer de Innovify, dentro del Bounded Context de Moderation & Dispu
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| ReportRepositoryAdapter | Implementación concreta de `ReportRepository` sobre la tabla `reports`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| DisputeRepositoryAdapter | Implementación concreta de `DisputeRepository` sobre la tabla `disputes`. | ORM del stack backend, instancia MySQL desplegada en Render. |
 | SanctionRepositoryAdapter | Implementación concreta de `SanctionRepository` sobre la tabla `sanctions`. | ORM del stack backend, instancia MySQL desplegada en Render. |
 
 **Integration Services**
 
 | Nombre | Descripción |
 |---|---|
-| AccountSuspensionNotifierAdapter | Comunica la orden de sanción hacia Identity & Access para suspender la cuenta del usuario reportado. |
-| ReputationAdjustmentNotifierAdapter | Comunica el ajuste correspondiente en la reputación del usuario sancionado hacia Reputation. |
-| SessionMessagesQueryClient | Consulta el historial de mensajes de la sesión reportada hacia Workspace, permitiendo al Coordinador revisar el chat como evidencia directa dentro del panel de moderación, sin requerir capturas manuales del usuario. |
+| AccountSuspensionNotifierAdapter | Comunica la orden de sanción hacia Identity & Access para suspender la cuenta del usuario sancionado. |
+| ReputationAdjustmentNotifierAdapter | Comunica hacia Reputation la reversión de una decisión de Verificador o la sanción aplicada, consumido por `RecordDisputeOverturnEventHandler` / `RecordSanctionEventHandler`. |
+| CertificateQueryClient | Consulta hacia Credential Verification los datos OCR y el `RiskAssessment` del certificado en disputa, y envía la resolución final (`resolveDispute`) una vez decidida. |
+| VerificationCaseQueryClient | Consulta hacia Assessment & Peer Review las notas de rúbrica y la evidencia adjuntada del `VerificationCase` apelado, como fuente de evidencia para el Coordinador. |
 
-Estos adaptadores permiten que Moderation & Disputes coordine la sanción entre los Bounded Contexts afectados (Identity & Access y Reputation), y acceda al historial de chat de Workspace como fuente de evidencia, sin duplicar esa información en su propio modelo de persistencia.
+Estos adaptadores permiten que Moderation & Disputes coordine la resolución entre los cuatro Bounded Contexts afectados (Identity & Access, Reputation, Credential Verification y Assessment & Peer Review) sin duplicar en su propio modelo de persistencia la información de certificados, casos de verificación o cuentas.
 
 #### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 
 <p align="center">
-  <img src="images-doc/ModerationComponent.svg" alt="Component Diagram - Moderation & Disputes" width="800">
+  <img src="images-doc/ModerationDisputesComponent.svg" alt="Component Diagram - Moderation & Disputes" width="800">
   <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Moderation & Disputes - Elaboración propia. Nota: Se detalla la segregación entre Controllers, Command/Query Services y los adaptadores de Persistencia e integración con Identity & Access, Reputation y Workspace, evidenciando cómo el Coordinador accede al historial de chat de la sesión reportada como evidencia para la resolución de la disputa.</em>
+  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Moderation & Disputes - Elaboración propia. Nota: Se detalla la segregación entre el Controller, el Command/Query Service y los adaptadores de consulta de evidencia hacia Credential Verification y Assessment & Peer Review, evidenciando la escalación automática de certificados en estado SUSPICIOUS, y las notificaciones salientes hacia Identity & Access (suspensión de cuenta) y Reputation (reversión de decisión/sanción aplicada) tras la resolución del Coordinador.</em>
 </p>
-
-#### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
 
 <p align="center">
-  <img src="images-doc/class-moderation-mobile.png" alt="Class Diagram - Moderation & Disputes" width="800">
+  <img src="images-doc/class-moderation-disputes-mobile.png" alt="Class Diagram - Moderation & Disputes" width="800">
   <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Moderation & Disputes - Elaboración propia. Nota: Se detalla el agregado Report y los Value Objects ReportReason y ReportStatus.</em>
+  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Moderation & Disputes - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
+
+El modelado de clases de Moderation & Disputes pertenece al agregado raíz `Dispute`, junto con la entidad `Sanction`, debido a que estos elementos generalizan bajo un único modelo los tres orígenes de escalación posibles hacia el Coordinador (certificado sospechoso, apelación de una decisión de Verificador, o reporte directo de usuario), evitando que Moderation dependa directamente de los modelos internos de `Certificate` o `VerificationCase` — el rol de Anticorruption Layer definido en el Context Mapping.
 
 ##### 2.6.7.6.2. Bounded Context Database Design Diagram
 
 <p align="center">
-  <img src="images-doc/db-moderation-mobile.png" alt="Database Diagram - Moderation & Disputes" width="800">
+  <img src="images-doc/db-moderation-disputes-mobile.png" alt="Database Diagram - Moderation & Disputes" width="800">
   <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Moderation & Disputes - Elaboración propia.</em>
+  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Moderation & Disputes - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
+
+El modelado de base de datos de Moderation & Disputes pertenece a las tablas `disputes` y `sanctions`, debido a que la primera persiste, en un único modelo unificado, cualquier caso que requiera la decisión final del Coordinador —identificado mediante `source_type` y `source_reference_id`—, y la segunda registra, en una relación uno a muchos, la sanción aplicada únicamente cuando el origen del caso fue un reporte de usuario resuelto con el outcome `SANCTIONED`.
 
 ---
 
-A continuación se presenta el diagrama relacional completo de Innovify (SkillSwap), mostrando la totalidad de las tablas y sus relaciones entre los siete Bounded Contexts.
+A continuación se presenta el diagrama relacional completo de SkillSwap, mostrando la totalidad de las tablas y sus relaciones entre los siete Bounded Contexts.
 
 <p align="center">
   <img src="images-doc/db-full-mobile.svg" alt="Diagrama de Base de Datos Completo" width="1000">
   <br>
-  <em>Figura XX. Diagrama de Base de Datos completo de Innovify - Elaboración propia. Nota: Se muestra la totalidad de las tablas correspondientes a los siete Bounded Contexts (Identity & Access, Discovery, Workspace, Learning & Assessment, Reputation, Payments & Wallet, Moderation & Disputes), incluyendo los campos device_token y agora_channel_name incorporados sobre las tablas users y sessions respectivamente para el soporte de las funcionalidades móviles. Elaborado en dbdiagram.io.</em>
+  <em>Figura XX. Diagrama de Base de Datos completo de SkillSwap - Elaboración propia. Nota: Se muestra la totalidad de las tablas correspondientes a los siete Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Moderation & Disputes), incluyendo el campo device_token sobre la tabla users para el soporte de notificaciones push, y los campos file_hash, storage_reference, ocr_text y qr_payload incorporados sobre la tabla certificates para el soporte de la captura desde cámara y la extracción on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto. Elaborado en dbdiagram.io.</em>
 </p>
 
-En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos MySQL (`skillswap_db`) aloja de forma organizada las tablas de los siete Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `sessions` y `messages` en Workspace) y bajo acoplamiento entre ellos, referenciándose únicamente a través del identificador de usuario (`users.id`) como dato compartido. La incorporación de los campos `device_token` y `agora_channel_name` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, sin alterar la estructura ni las relaciones ya validadas en la versión web de la plataforma.
+En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos MySQL (`skillswap_db`) aloja de forma organizada las tablas de los siete Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `assessment_attempts` y `verification_cases` en Assessment & Peer Review) y bajo acoplamiento entre ellos, referenciándose únicamente a través del identificador de usuario (`users.id`) como dato compartido. La incorporación del campo `device_token` y de los campos de extracción sobre `certificates` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, sin alterar la estructura ni las relaciones ya validadas en la versión web de la plataforma.
 
 
 
-A continuación se presenta el diagrama de clases UML completo de Innovify (SkillSwap), mostrando la totalidad del modelo de dominio y su segmentación entre los siete Bounded Contexts.
+A continuación se presenta el diagrama de clases UML completo de SkillSwap, mostrando la totalidad del modelo de dominio y su segmentación entre los siete Bounded Contexts.
 
 <p align="center">
-  <img src="images-doc/Innovify_ClassDiagram_Mobile.svg" alt="Diagrama de Clases Completo" width="1000">
+  <img src="images-doc/SkillSwap_ClassDiagram_Mobile.svg" alt="Diagrama de Clases Completo" width="1000">
   <br>
-  <em>Figura XX. Diagrama de Clases UML completo de Innovify - Elaboración propia. Nota: Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los siete Bounded Contexts (Identity & Access, Discovery, Workspace, Learning & Assessment, Reputation, Payments & Wallet, Moderation & Disputes), incluyendo los Value Objects incorporados para el soporte de las funcionalidades móviles (DeviceToken en Identity & Access y AgoraChannelName en Workspace). Elaborado en PlantUML.</em>
+  <em>Figura XX. Diagrama de Clases UML completo de SkillSwap - Elaboración propia. Nota: Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los siete Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Moderation & Disputes), incluyendo el Value Object `DeviceToken` en Identity & Access y los atributos de extracción OCR (`ocrText`, `qrPayload`, `fileHash`) en `Certificate` (Credential Verification), incorporados para el soporte de las funcionalidades propias de los clientes móviles. Elaborado en PlantUML.</em>
 </p>
 
-En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `TutoringSession`, `Quiz`, `Tutor`, `Review`, `Report`, `Wallet`, `Donation`) heredando de un `AbstractDomainAggregateRoot` compartido, manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos. La incorporación de los Value Objects `DeviceToken` en Identity & Access y el atributo `agoraChannelName` en `TutoringSession` (Workspace) demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, sin alterar la estructura ni las relaciones ya validadas en la versión web de la plataforma.
+En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `Certificate`, `LearningPath`, `AssessmentBlueprint`, `AssessmentAttempt`, `VerifierProfile`, `VerificationCase`, `VerifierReliability`, `StudentEmployabilityScore`, `Wallet`, `Dispute`) heredando de un `AbstractDomainAggregateRoot` compartido, manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos — toda referencia cruzada se resuelve mediante un identificador simple (`Long`). La incorporación del Value Object `DeviceToken` en Identity & Access y de los atributos de extracción de `Certificate` en Credential Verification demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, en particular la captura desde cámara y el procesamiento on-device mediante ML Kit que constituye el feature de aprendizaje autónomo del proyecto.
 
 ---
 
