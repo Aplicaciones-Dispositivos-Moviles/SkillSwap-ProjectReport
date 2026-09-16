@@ -1,0 +1,74 @@
+@startuml SkillSwapContextMapping
+
+skinparam backgroundColor transparent
+skinparam rectangle {
+    RoundCorner 12
+    BorderColor #333333
+    FontStyle bold
+}
+
+skinparam rectangle<<upstream>> {
+    BackgroundColor #4A90D9
+    FontColor white
+    BorderColor #2C5F8A
+}
+
+skinparam rectangle<<downstream>> {
+    BackgroundColor #ECECEC
+    FontColor #333333
+    BorderColor #999999
+}
+
+skinparam rectangle<<external>> {
+    BackgroundColor #8C8C8C
+    FontColor white
+    BorderColor #5C5C5C
+}
+
+' ===== Fila superior =====
+rectangle "Credential\nVerification" as CV <<upstream>>
+rectangle "Learning Path\nEngine" as LPE <<upstream>>
+rectangle "Assessment &\nPeer Review" as APR <<upstream>>
+rectangle "ML Kit" as MLK <<external>>
+
+' ===== Fila media =====
+rectangle "Identity & Access" as IAM <<upstream>>
+rectangle "Reputation" as REP <<downstream>>
+
+' ===== Fila inferior =====
+rectangle "Moderation &\nDisputes" as MOD <<upstream>>
+rectangle "Wallet &\nIncentives" as WAL <<downstream>>
+
+' ===== Layout: forzar filas con enlaces invisibles =====
+CV -[hidden]right-> LPE
+LPE -[hidden]right-> APR
+IAM -[hidden]right-> REP
+MOD -[hidden]right-> WAL
+CV -[hidden]down-> IAM
+IAM -[hidden]down-> MOD
+
+' ===== Relaciones reales =====
+
+' Fila superior
+CV -right-> LPE : [Customer/Supplier]
+LPE -right-> APR : [Customer/Supplier]
+CV ..> MLK : [Anticorruption\nLayer]
+
+' Identity & Access como Upstream/Conformist hacia todos
+IAM -up-> CV : [Conformist]
+IAM -up-> LPE : [Conformist]
+IAM -up-> APR : [Conformist]
+IAM -right-> REP : [Conformist]
+IAM -down-> WAL : [Conformist]
+IAM -left-> MOD : [Conformist]
+
+' Assessment & Peer Review hacia Reputation y Wallet
+APR -down-> REP : [Customer/Supplier]
+APR -down-> WAL : [Customer/Supplier]
+
+' Moderation & Disputes
+MOD -up-> IAM : [Customer/Supplier]
+MOD -right-> REP : [Customer/Supplier]
+MOD ..> APR : [Anticorruption\nLayer]
+
+@enduml
