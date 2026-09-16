@@ -105,23 +105,23 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 
 ### 1.1.1. Descripción de la Startup
 
-Innovify es una startup cuyo propósito es reducir la deserción académica conectando a estudiantes universitarios para que aprendan y enseñen habilidades específicas a través de rutas de certificación guiadas. A diferencia de un esquema de tutorías puntuales y desestructuradas, Innovify organiza el aprendizaje en torno a un objetivo declarado por el propio estudiante: al indicar qué habilidad quiere dominar, la plataforma genera una ruta de aprendizaje compuesta por certificaciones que debe cursar y subir para su validación. Por cada certificado subido, el aprendiz puede rendir un quiz o desarrollar un miniproyecto que demuestre la habilidad adquirida y, si detecta que aún tiene vacíos pese a contar con el certificado, puede solicitar una sesión de refuerzo. Al completar toda la ruta, el aprendiz tiene la opción de demostrar su dominio integral mediante un proyecto avanzado o un examen supervisado. Tanto el refuerzo como esta evaluación final se realizan mediante videollamadas integradas en la misma plataforma.
+Innovify es una startup cuyo propósito es reducir la deserción académica conectando a estudiantes universitarios para que aprendan y validen habilidades específicas a través de rutas de certificación guiadas. A diferencia de un esquema de tutorías puntuales y desestructuradas, Innovify organiza el aprendizaje en torno a un objetivo declarado por el propio estudiante: al indicar qué habilidad quiere dominar, la plataforma genera una ruta de aprendizaje compuesta por certificaciones que debe cursar y subir para su validación. Por cada certificado subido, el aprendiz puede rendir un quiz o desarrollar un miniproyecto que demuestre la habilidad adquirida y, si el intento no logra demostrarla, el caso se escala a un Verificador, quien revisa puntualmente su proyecto o portafolio frente a una rúbrica estructurada. Al completar toda la ruta, el aprendiz tiene la opción de demostrar su dominio integral mediante un proyecto avanzado o un examen supervisado. Es únicamente en esta instancia final donde se emplea una videollamada, integrada en la misma plataforma, con el fin de constatar en tiempo real que la demostración es genuina —no como un espacio de enseñanza.
 
-Para poder enseñar, un estudiante debe primero recorrer su propia ruta de certificación y aprobar un examen de ingreso que demuestre que realmente domina la habilidad. Una vez habilitado, el tutor puede brindar sesiones de refuerzo o supervisar exámenes y proyectos avanzados de otros aprendices. Cada intervención validada le otorga SkillCredits, una moneda de reconocimiento que evidencia su nivel de dominio y que puede exhibirse en LinkedIn u otras plataformas profesionales como credencial verificable.
+Para poder verificar, un estudiante debe primero recorrer su propia ruta de certificación y aprobar un examen de ingreso que demuestre que realmente domina la habilidad. Una vez habilitado, el Verificador puede revisar casos puntuales o supervisar exámenes y proyectos avanzados de otros aprendices. Cada intervención validada le otorga SkillCredits, una moneda de reconocimiento que evidencia su nivel de dominio y que puede exhibirse en LinkedIn u otras plataformas profesionales como credencial verificable.
 
-Innovify opera bajo un modelo de negocio B2C: el aprendiz paga una mensualidad que incluye el acceso a la ruta de certificación, los quizzes y miniproyectos, las sesiones de refuerzo y la supervisión de la evaluación final; el tutor, por su parte, recibe una comisión de la plataforma por cada sesión de refuerzo o supervisión que realiza. Un tercer perfil, el coordinador, actúa como garante de calidad del ecosistema: define plazos de actividad para los tutores, monitorea la satisfacción de los aprendices —una satisfacción baja es indicio de una supervisión deficiente— y puede exigir que un tutor vuelva a rendir su examen de certificación. El coordinador también accede a métricas agregadas de toda la plataforma, como los temas de mayor demanda tanto entre aprendices como entre tutores.
+Innovify opera bajo un modelo de negocio B2C: el aprendiz paga una mensualidad que incluye el acceso a la ruta de certificación, los quizzes y miniproyectos, y la supervisión de la evaluación final; el Verificador, por su parte, gana SkillCredits por cada caso que resuelve, los cuales también pueden adquirirse directamente en una tienda dentro de la plataforma y canjearse por beneficios propios del ecosistema, sin que exista una comisión pagada directamente entre usuarios. Un tercer perfil, el coordinador, actúa como garante de calidad del ecosistema: define plazos de actividad para los Verificadores, monitorea la confiabilidad de sus decisiones —una baja confiabilidad es indicio de una revisión deficiente— y puede exigir que un Verificador vuelva a rendir su examen de certificación. El coordinador también accede a métricas agregadas de toda la plataforma, como los temas de mayor demanda tanto entre aprendices como entre Verificadores.
 
-El emparejamiento entre aprendices y tutores no es manual: cada usuario cuenta con un perfil construido a partir de su historial (certificados, resultados de quizzes/miniproyectos, ritmo de avance y temas de interés, en el caso del aprendiz; certificados, examen de ingreso, SkillCredits, satisfacción recibida y sub-temas de mayor dominio, en el caso del tutor), representado como un vector de embeddings de habilidades. Un sistema de recomendación híbrido —que combina coincidencia por contenido (habilidad del aprendiz vs. especialidad del tutor) con filtrado colaborativo (qué tutores funcionaron bien con perfiles similares)— sugiere el mejor tutor disponible para cada refuerzo o supervisión. Esta misma información, agregada a nivel de plataforma, alimenta el ranking de temas más demandados que revisa el coordinador.
+El emparejamiento entre aprendices y Verificadores no es manual: cada usuario cuenta con un perfil construido a partir de su historial (certificados, resultados de quizzes/miniproyectos, ritmo de avance y temas de interés, en el caso del aprendiz; certificados, examen de ingreso, SkillCredits, confiabilidad recibida y sub-temas de mayor dominio, en el caso del Verificador), representado como un vector de embeddings de habilidades. Un sistema de recomendación híbrido —que combina coincidencia por contenido (habilidad del aprendiz vs. especialidad del Verificador) con filtrado colaborativo (qué Verificadores funcionaron bien con perfiles similares)— sugiere el mejor Verificador disponible para cada caso. Esta misma información, agregada a nivel de plataforma, alimenta el ranking de temas más demandados que revisa el coordinador.
 
 Todo este ecosistema se mantiene seguro gracias a un proceso de validación automatizada que exige el uso de correos institucionales (.edu.pe, upc.edu.pe, pupc.edu.pe) para garantizar que los usuarios sean estudiantes reales.
 
 ### Visión
 
-Ser la plataforma líder en aprendizaje colaborativo y certificación de habilidades entre estudiantes universitarios a nivel nacional, reconocida por conectar de forma confiable el talento académico disperso entre distintas instituciones y por sostener, mediante inteligencia artificial, un ecosistema de enseñanza entre pares riguroso y económicamente sostenible.
+Ser la plataforma líder en validación de habilidades y certificación práctica entre estudiantes universitarios a nivel nacional, reconocida por conectar de forma confiable el talento académico disperso entre distintas instituciones y por sostener, mediante inteligencia artificial, un ecosistema de verificación entre pares riguroso y económicamente sostenible.
 
 ### Misión
 
-Facilitar el aprendizaje entre estudiantes universitarios mediante rutas de certificación personalizadas, validación de conocimientos y sesiones de refuerzo o evaluación supervisadas por videollamada. Promovemos la excelencia académica, el desarrollo de habilidades blandas y la recompensa justa al esfuerzo del tutor mediante comisiones y el reconocimiento de sus SkillCredits, dentro de un ecosistema validado institucionalmente por correo universitario y potenciado por el emparejamiento inteligente entre aprendices y tutores.
+Facilitar la validación de habilidades entre estudiantes universitarios mediante rutas de certificación personalizadas, evaluaciones generadas por IA y revisión de pares para casos puntuales, con una demostración final supervisada por videollamada. Promovemos la excelencia académica, el desarrollo de habilidades blandas y el reconocimiento justo al esfuerzo del Verificador mediante SkillCredits, dentro de un ecosistema validado institucionalmente por correo universitario y potenciado por el emparejamiento inteligente entre aprendices y Verificadores.
 
 
 ### 1.1.2. Perfiles de integrantes del equipo
@@ -130,7 +130,7 @@ Facilitar el aprendizaje entre estudiantes universitarios mediante rutas de cert
 
 | Foto | Integrante | Carrera | Descripción |
 | :---: | :--- | :--- | :--- |
-| *(Foto)* | **Alberca Saavedra, Víctor Manuel**<br>(U201924127) | Ingeniería de Software | Aporta conocimientos sólidos en arquitectura de software, backend y bases de datos. Lidera la investigación e integración del SDK de videollamadas (Agora) y la adaptación de los Bounded Contexts al entorno móvil. |
+| <img src="public/assets/images-doc/image-perfil-victor.png" width="100"> | **Alberca Saavedra, Víctor Manuel**<br>(U201924127) | Ingeniería de Software | Aporta conocimientos sólidos en arquitectura de software, backend y bases de datos. Lidera la investigación e integración del SDK de reconocimiento de texto (ML Kit) y la adaptación de los Bounded Contexts al entorno móvil. |
 | *(Foto)* | **Becerra Ninahuanca, Luis Angel**<br>(U20231C792) | Ingeniería de Software | Especialista en lógica de negocio, integración de servicios e interfaces limpias. Investiga patrones de diseño UI/UX propios de aplicaciones móviles nativas/multiplataforma y lidera el análisis competitivo enfocado en apps del mismo rubro. |
 | *(Foto)* | **Lopez Montalvo, Kevin Edu**<br>(U20241D958) | Ingeniería de Software | Aporta conocimientos en diseño móvil, UX/UI y metodologías ágiles. Documenta el proceso Lean UX y estructura las User Stories bajo un enfoque Mobile-First. |
 | *(Foto)* | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. |
@@ -147,9 +147,9 @@ Facilitar el aprendizaje entre estudiantes universitarios mediante rutas de cert
 
 En el Perú y en la región, el mercado laboral y académico enfrenta una paradoja: existe un alto volumen de profesionales y estudiantes con múltiples diplomas, pero persiste una brecha significativa en la demostración de habilidades prácticas. Según diversos estudios sobre la empleabilidad y la educación superior, un gran porcentaje de egresados y estudiantes de cursos online (MOOCs) no logran aplicar los conocimientos teóricos en entornos reales.
 
-Diversos análisis asocian este fenómeno a un modelo educativo donde prima la "acumulación de certificados" por encima de la validación real de competencias. A esto se suman factores como la falta de seguimiento personalizado, evaluaciones genéricas que no miden el dominio práctico y la ausencia de mentores calificados que puedan resolver vacíos de conocimiento específicos (Escalante et al., 2023).
+Diversos análisis asocian este fenómeno a un modelo educativo donde prima la "acumulación de certificados" por encima de la validación real de competencias. A esto se suman factores como la falta de seguimiento personalizado, evaluaciones genéricas que no miden el dominio práctico y la ausencia de un mecanismo de verificación que pueda resolver dudas puntuales sobre un caso específico (Escalante et al., 2023).
 
-Si bien estas causas son multifactoriales, nuestra investigación identifica un problema subyacente y desatendido: **la ilusión del conocimiento y la falta de validación práctica**. Actualmente, el ecosistema educativo funciona de manera aislada. Un estudiante puede obtener un certificado en una plataforma "A", pero no existe un puente formal y riguroso que valide si realmente adquirió esa habilidad, ni un sistema que lo conecte inteligentemente con un experto para cubrir sus deficiencias. Los estudiantes se ven limitados a consumir contenido estático sin demostrar su pericia, mientras que los expertos carecen de un espacio validado para enseñar, monetizar su conocimiento y construir una reputación comprobable.
+Si bien estas causas son multifactoriales, nuestra investigación identifica un problema subyacente y desatendido: **la ilusión del conocimiento y la falta de validación práctica**. Actualmente, el ecosistema educativo funciona de manera aislada. Un estudiante puede obtener un certificado en una plataforma "A", pero no existe un puente formal y riguroso que valide si realmente adquirió esa habilidad, ni un sistema que conecte inteligentemente ese certificado con una evaluación real de dominio. Los estudiantes se ven limitados a consumir contenido estático sin demostrar su pericia, mientras que quienes ya dominan una habilidad carecen de un espacio validado donde ejercer esa revisión y construir una reputación comprobable.
 
 Esto no solo impacta negativamente en el desarrollo profesional de los estudiantes, sino también en la capacidad productiva del país por la falta de talento verdaderamente calificado, agravando problemas como el subempleo y la ineficiencia en los procesos de reclutamiento.
 
@@ -157,35 +157,35 @@ Para conocer aún más la problemática usaremos la técnica de las **5W y 2H**:
 
 #### What (¿Qué? / ¿Cuál?)
 * **¿Cuál es el problema?** El problema es la brecha entre la obtención de un certificado y el dominio real de una habilidad. Muchos estudiantes acumulan diplomas sin adquirir las competencias prácticas necesarias, lo que genera frustración, estancamiento profesional y desconfianza en las credenciales académicas.
-* **¿Qué soluciones existen actualmente?** Actualmente existen plataformas de educación online (como Coursera, Udemy o Platzi). Sin embargo, estas se centran en la entrega de contenido y emiten certificados tras evaluaciones básicas, sin una validación rigurosa ni supervisión humana. Con nuestra propuesta de valor buscamos generar un ecosistema impulsado por Inteligencia Artificial que no solo traza rutas de aprendizaje, sino que exige la validación práctica de certificados mediante quizzes, miniproyectos y la supervisión de mentores verificados.
-* **¿Cuál es la relación con el usuario?** El usuario es el eje de un ecosistema de tres roles: el estudiante (que aprende y demuestra habilidades), el mentor (que enseña, supervisa y gana comisiones/SkillCredits) y el coordinador (que audita la calidad del proceso). La relación se basa en la confianza, la transparencia y el mérito demostrado.
+* **¿Qué soluciones existen actualmente?** Actualmente existen plataformas de educación online (como Coursera, Udemy o Platzi). Sin embargo, estas se centran en la entrega de contenido y emiten certificados tras evaluaciones básicas, sin una validación rigurosa ni supervisión humana. Con nuestra propuesta de valor buscamos generar un ecosistema impulsado por Inteligencia Artificial que no solo traza rutas de aprendizaje, sino que exige la validación práctica de certificados mediante quizzes, miniproyectos y la revisión de Verificadores certificados.
+* **¿Cuál es la relación con el usuario?** El usuario es el eje de un ecosistema de tres roles: el estudiante (que aprende y demuestra habilidades), el Verificador (que revisa casos puntuales y gana SkillCredits) y el coordinador (que audita la calidad del proceso). La relación se basa en la confianza, la transparencia y el mérito demostrado.
 
 #### Why (¿Por qué?)
-* **¿Cuál es la causa principal del problema?** La causa principal es que los modelos de evaluación actuales son pasivos y estandarizados. Ver un video y aprobar un examen de opción múltiple no garantiza el dominio de una competencia. Además, cuando el estudiante se enfrenta a una duda técnica compleja, no cuenta con un sistema inteligente que identifique su punto débil exacto y lo conecte con el mentor adecuado para un refuerzo específico.
+* **¿Cuál es la causa principal del problema?** La causa principal es que los modelos de evaluación actuales son pasivos y estandarizados. Ver un video y aprobar un examen de opción múltiple no garantiza el dominio de una competencia. Además, cuando el intento de un estudiante no logra demostrar dicho dominio, no cuenta con un sistema inteligente que identifique su punto débil exacto y lo conecte con el Verificador adecuado para una revisión específica de su caso.
 
 #### Who (¿Quién?)
-* **¿Quiénes están involucrados?** Está involucrada la comunidad de aprendizaje continuo: estudiantes universitarios, profesionales en *upskilling/reskilling*, mentores/profesores expertos y coordinadores académicos.
-* **¿A quiénes les sucede el problema?** A personas que invierten tiempo en aprender pero sienten inseguridad sobre sus capacidades prácticas reales, así como a expertos que desean enseñar y rentabilizar sus conocimientos pero no encuentran una plataforma que valide su nivel y les otorgue credibilidad (como los SkillCredits) frente a la industria.
+* **¿Quiénes están involucrados?** Está involucrada la comunidad de aprendizaje continuo: estudiantes universitarios, profesionales en *upskilling/reskilling*, Verificadores certificados y coordinadores académicos.
+* **¿A quiénes les sucede el problema?** A personas que invierten tiempo en aprender pero sienten inseguridad sobre sus capacidades prácticas reales, así como a quienes ya dominan una habilidad y desean revisar el trabajo de otros pero no encuentran una plataforma que valide su nivel y les otorgue credibilidad (como los SkillCredits) frente a la industria.
 
 #### When (¿Cuándo?)
 * **¿Cuándo sucede el problema?** Constantemente, pero se hace evidente en momentos críticos: al intentar aplicar lo aprendido en un proyecto real, al enfrentarse a pruebas técnicas en entrevistas laborales o cuando el estudiante se estanca en un tema avanzado por no haber interiorizado los fundamentos.
-* **¿Cuándo el cliente usa el producto?** Cuando un estudiante decide que necesita dominar (no solo estudiar) una habilidad específica; cuando necesita validar un certificado previo; o, en el caso del mentor, cuando dispone de tiempo para supervisar evaluaciones, brindar tutorías y generar ingresos mientras fortalece su perfil profesional.
+* **¿Cuándo el cliente usa el producto?** Cuando un estudiante decide que necesita dominar (no solo estudiar) una habilidad específica; cuando necesita validar un certificado previo; o, en el caso del Verificador, cuando dispone de tiempo para revisar casos puntuales y fortalecer su perfil profesional.
 
 #### Where (¿Dónde?)
 * **¿Dónde está el usuario cuando usa la plataforma?** En cualquier entorno con conexión a internet propicio para el estudio o el trabajo remoto (salas de estudio, bibliotecas, habitaciones o espacios de *coworking*). Todo ocurre en un entorno 100% digital e integrado.
 * **¿Dónde surge el problema?** En la desconexión entre la educación teórica tradicional (o el e-learning masivo) y las demandas de habilidades prácticas y comprobables del mundo real.
 
 #### How (¿Cómo?)
-* **¿En qué condiciones los clientes usan nuestro producto?** Los estudiantes lo usan con el objetivo claro de certificar sus capacidades mediante retos prácticos y sesiones de refuerzo por videollamada. Los mentores lo utilizan tras haber superado su propia evaluación de ingreso, buscando monetizar su experiencia y obtener credenciales verificables (SkillCredits) para sus redes profesionales.
-* **¿Cómo se enteran de la aplicación?** A través de redes sociales, comunidades de aprendizaje, alianzas con instituciones educativas y, fundamentalmente, a través de plataformas como LinkedIn, donde los mentores y estudiantes exhibirán sus insignias y SkillCredits validados por Innovify.
+* **¿En qué condiciones los clientes usan nuestro producto?** Los estudiantes lo usan con el objetivo claro de certificar sus capacidades mediante retos prácticos y, en la instancia final de su ruta, una demostración supervisada por videollamada. Los Verificadores lo utilizan tras haber certificado su propia habilidad, buscando construir credenciales verificables (SkillCredits) para sus redes profesionales.
+* **¿Cómo se enteran de la aplicación?** A través de redes sociales, comunidades de aprendizaje, alianzas con instituciones educativas y, fundamentalmente, a través de plataformas como LinkedIn, donde los estudiantes y Verificadores exhibirán sus insignias y SkillCredits validados por Innovify.
 
 #### How much (¿Cuánto?)
 * **¿Cuánto le cuesta este problema a la economía, sociedad o institución del Perú actualmente?** La brecha de habilidades (*skills gap*) cuesta millones al año a las empresas en procesos de reclutamiento fallidos, reentrenamiento de personal y baja productividad, afectando directamente la competitividad del mercado laboral peruano y latinoamericano.
 * **¿Cuánto costaría implementar la solución propuesta?**
   * Desarrollo de la plataforma web (Rutas, Dashboards): S/ 20,000 - S/ 38,000
   * Integración de modelos de IA (LLMs para rutas y quizzes, Embeddings para matching): S/ 8,000 - S/ 15,000
-  * Integración de videollamadas y pasarela de pagos (Suscripciones/Comisiones): S/ 4,000 - S/ 8,000
-  * Diseño UI/UX enfocado en la validación y supervisión: S/ 4,000 - S/ 8,000
+  * Integración de videollamadas (demostración final) y pasarela de pagos (suscripciones y tienda de SkillCredits): S/ 4,000 - S/ 8,000
+  * Diseño UI/UX enfocado en la validación y verificación: S/ 4,000 - S/ 8,000
   * Arquitectura Cloud (Hosting, base de datos de vectores): S/ 3,000 - S/ 6,000
   * Seguridad, validación de identidades y soporte: S/ 4,000 - S/ 7,000
 
@@ -193,68 +193,71 @@ Para conocer aún más la problemática usaremos la técnica de las **5W y 2H**:
 ### 1.2.2. Lean UX Process
 
 #### 1.2.2.1. Lean UX Problem Statements
-Nuestra plataforma se enfoca en resolver la brecha existente entre la obtención de un certificado académico y la demostración real de una habilidad. En el modelo educativo actual, las plataformas tradicionales (MOOCs, universidades) se centran en la emisión de diplomas tras evaluaciones estandarizadas que no siempre validan la competencia práctica. Buscamos transformar este paradigma pasando de la simple acumulación de certificados a un ecosistema donde el conocimiento se demuestra, se evalúa y se refuerza de manera precisa.
 
-La problemática que abordamos es la "ilusión de conocimiento" y la desconexión entre aprendices y expertos. Muchos estudiantes, tras finalizar un curso, descubren que no pueden aplicar lo aprendido en proyectos reales. Cuando intentan resolver sus dudas, se enfrentan a un aprendizaje solitario o a búsquedas ineficientes, sin un mentor que entienda exactamente cuál es su vacío técnico. Por otro lado, los expertos y profesionales (mentores) carecen de un espacio validado donde puedan demostrar su dominio, enseñar a otros y rentabilizar su experiencia obteniendo credenciales verificables que sirvan para su crecimiento profesional.
+Nuestra plataforma se enfoca en resolver la brecha existente entre la obtención de un certificado académico y la demostración real de una habilidad. En el modelo educativo actual, las plataformas tradicionales (MOOCs, universidades) se centran en la emisión de diplomas tras evaluaciones estandarizadas que no siempre validan la competencia práctica, dejando al estudiante sin una forma confiable de comprobar —ante sí mismo o ante terceros— que realmente domina lo que dice saber.
 
-Hemos observado que, si bien existe un gran volumen de talento distribuido, este conocimiento no está canalizado eficientemente. El problema central es la inexistencia de un ecosistema inteligente que valide de forma automatizada lo que un estudiante afirma saber, que evalúe sus competencias reales mediante retos prácticos, y que, de ser necesario, lo conecte milimétricamente (mediante Inteligencia Artificial) con el mentor más adecuado para superar sus deficiencias.
+La problemática que abordamos es la "ilusión de conocimiento" en el ámbito universitario y laboral peruano. Según estudios sobre empleabilidad y educación continua, un porcentaje significativo de egresados y estudiantes de cursos en línea no logra transferir el conocimiento teórico a un entorno práctico (Escalante et al., 2023), lo que se traduce en procesos de reclutamiento fallidos y en una desconfianza creciente hacia las credenciales académicas por parte de las empresas. Muchos estudiantes, tras finalizar un curso, descubren que no pueden aplicar lo aprendido en proyectos reales, y no cuentan con un mecanismo que les indique con precisión en qué parte de su aprendizaje está el vacío.
 
-A raíz de esta problemática, nuestra propuesta busca responder a la siguiente pregunta: **¿Cómo podríamos crear una plataforma impulsada por Inteligencia Artificial que permita a los estudiantes validar sus habilidades mediante evaluaciones prácticas, conectándolos con mentores certificados para reforzamientos específicos, bajo un modelo sostenible de suscripciones, comisiones y reconocimiento profesional (SkillCredits)?**
+Hemos observado que, si bien existe un gran volumen de talento distribuido entre los estudiantes universitarios, este conocimiento no está siendo validado ni aprovechado eficientemente: no existe un ecosistema que confirme de forma rigurosa lo que un estudiante afirma saber, más allá de la palabra del propio certificado. Quienes ya dominan una habilidad, por su parte, tampoco tienen un espacio validado donde ejercer esa experiencia y construir, en torno a ella, una reputación comprobable.
+
+A raíz de esta problemática, nuestra propuesta busca responder a la siguiente pregunta: **¿Cómo podríamos ayudar a los estudiantes universitarios a demostrar, de forma confiable y verificable, que realmente dominan una habilidad, más allá del certificado que la respalda?**
 
 #### 1.2.2.2. Lean UX Assumptions
-Para abordar de manera efectiva la brecha de habilidades prácticas, es fundamental partir de una serie de supuestos sobre nuestros usuarios y su comportamiento frente a la educación en línea. El éxito de Innovify depende de qué tan acertadas sean estas hipótesis centradas en la validación del conocimiento y nuestro modelo de negocio B2C/B2B2C.
 
-Suponemos que los estudiantes valoran más la seguridad de dominar una habilidad que la simple obtención de un PDF. Creemos que están dispuestos a pagar una suscripción mensual si esto les garantiza acceso a rutas de aprendizaje estructuradas por IA, evaluaciones que midan su nivel real y la disponibilidad de mentores expertos a un clic de distancia para resolver bloqueos específicos.
+Para abordar de manera efectiva la brecha entre la obtención de un certificado y el dominio real de una habilidad, es fundamental partir de una serie de supuestos sobre nuestros usuarios y su comportamiento frente a la validación de conocimientos. El éxito de Innovify depende de qué tan acertadas sean estas hipótesis centradas en la confianza del usuario y en nuestro modelo de negocio.
 
-Asimismo, identificamos que el principal motivador para los mentores, además de la compensación económica (comisiones), es el reconocimiento profesional. Creemos que el sistema de *SkillCredits* servirá como un incentivo poderoso para que superen el examen de ingreso y brinden tutorías de alta calidad, ya que podrán exhibir estos créditos en plataformas como LinkedIn como prueba irrefutable de su *expertise*.
+Nuestro análisis del entorno universitario peruano revela que los estudiantes enfrentan inseguridad respecto a sus capacidades prácticas reales. Suponemos que existe un vacío entre lo que un estudiante certifica y lo que realmente domina, y que muchos valoran activamente contar con una forma objetiva de comprobarlo. Creemos que los estudiantes están dispuestos a pagar una mensualidad si esto les garantiza acceso a rutas de aprendizaje estructuradas por IA, evaluaciones que midan su nivel real, y la posibilidad de escalar su caso a un Verificador cuando la evaluación automática no sea suficiente.
 
-Nuestra propuesta se distinguirá por la automatización y la inteligencia. Asumimos que la intervención de un Coordinador para auditar la calidad, sumado a un sistema de *matching* por IA que cruza los resultados de las evaluaciones del aprendiz con el historial de éxito del mentor, creará un entorno altamente confiable, estructurado y escalable.
+Asimismo, identificamos que el principal motivador para actuar como Verificador es el reconocimiento profesional, más que un ingreso monetario directo. Creemos que el sistema de *SkillCredits* —ganables al resolver casos, o adquiribles en una tienda dentro de la plataforma— servirá como un incentivo suficiente para que los Verificadores se mantengan activos, ya que podrán exhibir estos créditos en plataformas como LinkedIn como prueba de su experiencia.
+
+Nuestra propuesta se distinguirá por la automatización y el rigor. Asumimos que la combinación de una evaluación generada por IA como primer filtro, una revisión humana estructurada como respaldo, y la intervención de un Coordinador para auditar la calidad del proceso, creará un entorno altamente confiable, estructurado y escalable, sin depender de un modelo de comisiones entre usuarios.
 
 ##### Assumptions Worksheet
 
 | Pregunta | Respuesta |
 | :--- | :--- |
-| **¿Quién es el usuario?** | Nuestros usuarios se dividen en tres roles:<br>1. **El Estudiante (Aprendiz):** Persona que busca aprender y demostrar habilidades reales. Sube certificados, rinde quizzes/miniproyectos y solicita reforzamiento si se estanca.<br>2. **El Mentor:** Experto validado (que aprobó un examen de ingreso) motivado por enseñar, ganar comisiones y acumular SkillCredits.<br>3. **El Coordinador:** Perfil administrativo o académico que audita la calidad, evalúa la satisfacción y gestiona reevaluaciones. |
-| **¿Dónde encaja nuestro producto en su trabajo o vida?** | Los estudiantes lo usarán como complemento práctico a sus estudios teóricos o universitarios. Los mentores lo usarán en su tiempo libre como fuente de ingresos extra y construcción de marca personal. |
-| **¿Qué problemas tiene nuestro producto a resolver?** | • **Falta de validación práctica:** Superado mediante quizzes dinámicos y miniproyectos generados por IA.<br>• **Reforzamiento ineficiente:** Superado mediante el *matching* inteligente que conecta el error exacto del alumno con la especialidad del mentor.<br>• **Falta de credibilidad del mentor:** Superado con los exámenes de ingreso y la acumulación pública de SkillCredits. |
-| **¿Cuándo y cómo es nuestro producto usado?** | Se usa al finalizar un curso externo para validar el certificado, durante la preparación para entrevistas técnicas, o cuando un estudiante se queda bloqueado en un tema complejo y necesita ayuda sincrónica. |
-| **¿Qué características son importantes?** | • **Rutas Inteligentes y Evaluación:** IA para procesar certificados y generar quizzes.<br>• **Matching Híbrido:** Algoritmo de recomendación para emparejar aprendices y mentores.<br>• **SkillCredits:** Sistema de gamificación y credenciales profesionales.<br>• **Videollamada y Pagos:** Integrados nativamente para sesiones y cobro de suscripciones/comisiones. |
-| **¿Cómo debe verse nuestro producto y cómo comportarse?** | Debe percibirse como un entorno riguroso, profesional y meritocrático. No es una simple red de ayuda, es un estándar de validación de habilidades (estilo plataforma de certificación técnica). |
+| **¿Quién es el usuario?** | Nuestros usuarios se dividen en tres roles:<br>1. **El Estudiante:** Persona que busca aprender y demostrar habilidades reales. Sube certificados, rinde quizzes/miniproyectos y, si no logra demostrar la habilidad, su caso se escala a un Verificador.<br>2. **El Verificador:** Estudiante que ya certificó una habilidad y revisa casos puntuales de otros, motivado por el reconocimiento profesional y los SkillCredits.<br>3. **El Coordinador:** Perfil académico que audita la calidad del proceso de verificación, evalúa la confiabilidad de los Verificadores y gestiona reevaluaciones. |
+| **¿Dónde encaja nuestro producto en su trabajo o vida?** | Los estudiantes lo usarán como complemento práctico a sus estudios teóricos o universitarios, y como preparación previa a procesos de selección laboral. Los Verificadores lo usarán en su tiempo libre para fortalecer su perfil profesional. |
+| **¿Qué problemas tiene nuestro producto a resolver?** | • **Falta de validación práctica:** Superado mediante quizzes dinámicos y miniproyectos generados por IA.<br>• **Escalamiento ineficiente cuando la IA no basta:** Superado mediante la asignación automática de un Verificador disponible que domine la habilidad en cuestión.<br>• **Falta de credibilidad del certificado:** Superado con la extracción y validación automática del documento, y la acumulación pública de SkillCredits del Verificador. |
+| **¿Cuándo y cómo es nuestro producto usado?** | Se usa al finalizar un curso externo para validar el certificado, durante la preparación para entrevistas técnicas, o cuando un estudiante necesita demostrar de forma supervisada el dominio integral de su ruta. |
+| **¿Qué características son importantes?** | • **Rutas Inteligentes y Evaluación:** IA para procesar certificados y generar quizzes.<br>• **Asignación automática de Verificador:** Algoritmo que conecta un caso pendiente con un Verificador disponible.<br>• **SkillCredits:** Sistema de reconocimiento y credenciales profesionales, con tienda de canje dentro de la plataforma.<br>• **Videollamada:** Integrada únicamente para la demostración final supervisada, no para sesiones de enseñanza. |
+| **¿Cómo debe verse nuestro producto y cómo comportarse?** | Debe percibirse como un entorno riguroso, profesional y meritocrático. No es una red de ayuda o tutorías, es un estándar de validación de habilidades (estilo plataforma de certificación técnica). |
 
 ##### Definición de Objetivos
 
 **Business outcomes**
-* Reducir la brecha entre la educación teórica y la aplicación práctica de habilidades.
-* Lograr un modelo de negocio recurrente y escalable mediante suscripciones (estudiantes) y retención de comisiones (mentores).
-* Automatizar el emparejamiento de tutorías y la validación de certificados mediante modelos de Machine Learning (LLMs/Embeddings).
+* Reducir la brecha entre la educación teórica y la demostración práctica de habilidades.
+* Lograr un modelo de negocio recurrente y escalable mediante la mensualidad de los estudiantes y la venta de SkillCredits en la tienda de la plataforma.
+* Automatizar la validación de certificados y la asignación de Verificadores mediante modelos de Inteligencia Artificial.
 * Consolidar los *SkillCredits* como una credencial reconocida en el mercado laboral.
 * Mantener un alto estándar de calidad mediante el monitoreo de los Coordinadores.
 
 **User outcomes**
 * (Estudiantes) Demostrar dominio real sobre un tema, eliminando el síndrome del impostor.
-* (Estudiantes) Superar bloqueos académicos rápidamente con ayuda focalizada y experta.
-* (Mentores) Rentabilizar su conocimiento técnico de forma flexible y segura.
-* (Mentores) Construir un portafolio de experiencia docente verificable para potenciar su perfil profesional.
+* (Estudiantes) Superar bloqueos académicos rápidamente con una revisión puntual y experta.
+* (Verificadores) Construir un portafolio de experiencia de revisión verificable para potenciar su perfil profesional.
+* (Verificadores) Obtener reconocimiento (SkillCredits) sin depender de un ingreso económico directo por revisar casos de otros.
 
 **Features**
 * Intérprete de objetivos por IA (NLP) para generar rutas de aprendizaje semánticas.
 * Sistema OCR y de validación de certificados con generación automática de evaluaciones (quizzes/rúbricas).
-* Algoritmo de recomendación (RecSys híbrido) para el *matching* exacto entre el vacío de conocimiento del aprendiz y la fortaleza del mentor.
-* Billetera virtual y sistema de insignias para los *SkillCredits*.
-* Dashboard analítico para el Coordinador (termómetro de calidad, satisfacción y demanda de habilidades).
-* Integración de videollamadas para reforzamientos y evaluaciones supervisadas.
+* Algoritmo de asignación automática de Verificador disponible para cada caso pendiente.
+* Billetera virtual, tienda y sistema de insignias para los *SkillCredits*.
+* Dashboard analítico para el Coordinador (confiabilidad de Verificadores, disputas, demanda de habilidades).
+* Videollamada integrada exclusivamente para la demostración final supervisada de la ruta.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
 **Hipótesis de Negocio**
-* Creemos que al implementar un motor de IA para interpretar los objetivos del usuario y armar rutas personalizadas, resultará en una mayor tasa de conversión inicial; sabremos que esto es cierto cuando el 75% de los usuarios nuevos complete la configuración de su primera ruta de aprendizaje en su primer día.
-* Creemos que al operar bajo un modelo de suscripción mensual para aprendices y un sistema de comisiones para mentores, resultará en un ecosistema económicamente sostenible; sabremos que esto es cierto cuando el LTV (Life Time Value) del estudiante supere el costo de adquisición (CAC) en un ratio de 3:1 y logremos un margen operativo positivo en el primer año.
-* Finalmente, creemos que el rol del Coordinador como auditor de calidad resultará en un entorno altamente confiable; sabremos que esto es cierto cuando la tasa de disputas o reevaluaciones solicitadas se mantenga por debajo del 5% del total de evaluaciones realizadas.
+* Creemos que al implementar un sistema de registro y verificación automática exclusiva con correos institucionales (".edu.pe") para todos los estudiantes, resultará en una superación de la barrera de desconfianza inicial y un ingreso más ágil sin validación manual, lo que facilitará la adopción de la plataforma; sabremos que esto es cierto cuando el 90% de los nuevos usuarios complete su registro en las primeras 24 horas y la tasa de reportes por cuentas falsas o suplantación sea cercana a 0%.
+* Creemos que al operar bajo un modelo de mensualidad para los estudiantes complementado con la venta de SkillCredits en una tienda dentro de la plataforma, resultará en un modelo de negocio sostenible sin depender de comisiones entre usuarios; sabremos que esto es cierto cuando el LTV (Life Time Value) del estudiante supere el costo de adquisición (CAC) en un ratio de 3:1 y la tienda de SkillCredits genere al menos el 20% del ingreso mensual total.
+* Finalmente, creemos que al generar evaluaciones prácticas (quizzes o miniproyectos) mediante IA como primer filtro, y escalar a un Verificador solo cuando sea necesario, resultará en un proceso de verificación riguroso pero eficiente; sabremos que esto es cierto cuando menos del 30% de los intentos requiera intervención de un Verificador, y la tasa de disputas o reevaluaciones solicitadas se mantenga por debajo del 5% del total de evaluaciones realizadas.
 
 **Hipótesis de Usuario**
 * Creemos que al generar evaluaciones prácticas (quizzes o miniproyectos) basadas en los certificados subidos, los estudiantes percibirán un valor real en la validación; sabremos que esto es cierto cuando el 70% de los estudiantes que suben un certificado decidan rendir la prueba práctica voluntariamente.
-* Creemos que al utilizar un *matching* semántico por IA que conecte el patrón de error del estudiante con la especialidad del mentor, resultará en sesiones de refuerzo altamente efectivas; sabremos que esto es cierto cuando el 85% de los estudiantes califique la sesión de refuerzo con 4.5/5 estrellas o más, afirmando haber superado su bloqueo.
-* Creemos que al otorgar *SkillCredits* como reconocimiento al desempeño de los mentores, resultará en una fuerte retención de talento enseñante; sabremos que esto es cierto cuando el 60% de los mentores comparta sus logros (SkillCredits) en redes profesionales como LinkedIn, atrayendo a su vez tráfico orgánico a la plataforma.
+* Creemos que al asignar automáticamente un Verificador disponible que domina la habilidad en cuestión cuando la evaluación automática no sea suficiente, los estudiantes percibirán una resolución rápida y confiable de su caso; sabremos que esto es cierto cuando el 85% de los casos escalados se resuelvan en menos de 48 horas y el estudiante califique la revisión con 4.5/5 o más.
+* Creemos que al ofrecer una demostración final supervisada por videollamada únicamente al completar toda la ruta, los estudiantes percibirán mayor rigurosidad y valor en su certificación final, sin sentir que la plataforma depende de sesiones de enseñanza; sabremos que esto es cierto cuando el 80% de los estudiantes que completan su ruta opte por realizar dicha demostración.
+* Creemos que al otorgar *SkillCredits* como reconocimiento al desempeño de los Verificadores, resultará en una fuerte retención de participación sin necesidad de un incentivo económico directo; sabremos que esto es cierto cuando el 60% de los Verificadores activos comparta sus logros (SkillCredits) en redes profesionales como LinkedIn, atrayendo a su vez tráfico orgánico a la plataforma.
 
 #### 1.2.2.4. Lean UX Canvas
 
@@ -262,27 +265,40 @@ Nuestra propuesta se distinguirá por la automatización y la inteligencia. Asum
 | :--- | :--- |
 | **Título:** Innovify Lean UX Canvas | **Fecha:** 10/09/2026 |
 | **Iteración:** 1 | |
-| **1. Problema de negocio**<br>El mercado educativo está saturado de certificados que no demuestran competencias reales. Los estudiantes se estancan al no poder aplicar la teoría y no tienen cómo encontrar mentores específicos para sus deficiencias. Los expertos no tienen una forma estandarizada de certificar su experiencia enseñando. | **5. Solución**<br>Una plataforma impulsada por IA que genera rutas de aprendizaje, valida certificados y evalúa mediante retos prácticos. Si el alumno falla, un algoritmo de *matching* lo conecta con el mentor ideal para una videollamada de refuerzo. Los mentores ganan comisiones y *SkillCredits*, todo supervisado por un Coordinador de calidad. |
-| **2. Resultados comerciales**<br>Se busca lograr ingresos recurrentes (MRR) mediante suscripciones B2C, asegurar escalabilidad automatizando el *matching* y la evaluación con IA, y posicionar los *SkillCredits* como un estándar de la industria. | **6. Hipótesis**<br>• Creemos que la IA generará rutas más precisas que los flujos manuales estáticos.<br>• Creemos que los alumnos pagarán una suscripción por validar sus conocimientos y tener acceso a mentores.<br>• Creemos que exigir un examen de ingreso a los mentores elevará la calidad percibida de la plataforma.<br>• Creemos que los *SkillCredits* incentivarán a los mentores a mantener calificaciones altas.<br>• Creemos que el algoritmo de recomendación reducirá el tiempo de búsqueda de un tutor y mejorará las tasas de éxito académico. |
-| **3. Usuarios y clientes**<br>• **Estudiantes (Aprendices):** Buscan dominar una habilidad, validar certificados y recibir ayuda puntual.<br>• **Mentores:** Expertos que buscan monetizar su conocimiento y ganar prestigio profesional.<br>• **Coordinadores:** Aseguradores de la calidad de la plataforma. | **7. ¿Qué es lo más importante que necesitamos aprender primero?**<br>• ¿Están dispuestos los estudiantes a pagar por "evaluarse y validarse" en lugar de solo consumir contenido?<br>• ¿Los profesionales expertos estarán dispuestos a pasar por un examen de ingreso estricto antes de poder enseñar?<br>• ¿Es técnicamente viable que el LLM extraiga con precisión el temario de un certificado subido en PDF/Imagen? |
-| **4. Beneficios del usuario**<br>El estudiante obtiene un dominio comprobable de habilidades y asistencia quirúrgica cuando se bloquea. El mentor obtiene ingresos y credenciales verificables (*SkillCredits*). El sistema garantiza confianza absoluta en las capacidades de sus usuarios. | **8. ¿Cuál es la menor cantidad de trabajo que necesitamos hacer para aprender la siguiente cosa más importante?**<br>• Entrevistas a estudiantes y profesionales para validar la disposición de pago (suscripción) y el interés en los *SkillCredits*.<br>• Desarrollar un MVP de extracción de texto y validación de PDF usando un LLM para probar la viabilidad técnica antes de construir toda la plataforma. |
+| **1. Problema de negocio**<br>El mercado educativo está saturado de certificados que no demuestran competencias reales. Los estudiantes se estancan al no poder aplicar la teoría y no tienen cómo validar de forma objetiva lo que dicen saber. Quienes ya dominan una habilidad tampoco tienen un espacio estandarizado donde ejercer esa experiencia y construir una reputación comprobable. | **5. Solución**<br>Una plataforma impulsada por IA que genera rutas de aprendizaje, valida certificados y evalúa mediante retos prácticos generados dinámicamente. Si el intento no logra demostrar el dominio, un algoritmo asigna automáticamente el caso a un Verificador disponible que ya certificó esa habilidad, quien lo revisa frente a una rúbrica estructurada. Los Verificadores ganan SkillCredits, canjeables en una tienda interna, todo supervisado por un Coordinador de calidad. |
+| **2. Resultados comerciales**<br>Se busca lograr ingresos recurrentes (MRR) mediante la mensualidad de los estudiantes, complementados con la venta de SkillCredits en la tienda interna; asegurar escalabilidad automatizando la validación y la asignación de Verificadores con IA; y posicionar los *SkillCredits* como un estándar de la industria. | **6. Hipótesis**<br>• Creemos que la IA generará evaluaciones más precisas que los flujos manuales estáticos.<br>• Creemos que los estudiantes pagarán una mensualidad por validar sus conocimientos y tener acceso al proceso de verificación.<br>• Creemos que exigir una ruta de certificación propia a los Verificadores elevará la calidad percibida de sus revisiones.<br>• Creemos que los *SkillCredits* incentivarán a los Verificadores a mantenerse activos sin necesidad de un pago directo.<br>• Creemos que el algoritmo de asignación reducirá el tiempo de resolución de un caso y mejorará las tasas de éxito en la certificación. |
+| **3. Usuarios y clientes**<br>• **Estudiantes:** Buscan dominar una habilidad, validar certificados y recibir una revisión puntual cuando la IA no basta.<br>• **Verificadores:** Estudiantes que ya certificaron una habilidad y buscan reconocimiento profesional revisando casos de otros.<br>• **Coordinadores:** Aseguradores de la calidad del proceso de verificación. | **7. ¿Qué es lo más importante que necesitamos aprender primero?**<br>• ¿Están dispuestos los estudiantes a pagar por "evaluarse y validarse" en lugar de solo consumir contenido?<br>• ¿Los estudiantes que ya dominan una habilidad estarán dispuestos a revisar casos de otros a cambio de SkillCredits, sin un pago monetario directo?<br>• ¿Es técnicamente viable que la IA extraiga con precisión el temario de un certificado subido en PDF/Imagen y genere una evaluación coherente a partir de él? |
+| **4. Beneficios del usuario**<br>El estudiante obtiene un dominio comprobable de habilidades y una revisión puntual cuando se estanca. El Verificador obtiene reconocimiento y credenciales verificables (*SkillCredits*), sin depender de un ingreso monetario directo. El sistema garantiza confianza en las capacidades certificadas de sus usuarios. | **8. ¿Cuál es la menor cantidad de trabajo que necesitamos hacer para aprender la siguiente cosa más importante?**<br>• Entrevistas a estudiantes para validar la disposición de pago (mensualidad) y el interés en los *SkillCredits* como incentivo no monetario.<br>• Desarrollar un MVP de extracción de texto y validación de certificados usando un LLM para probar la viabilidad técnica antes de construir toda la plataforma. |
+
 ---
+
 ## 1.3. Segmentos objetivo
 
-### Segmento objetivo #1: Personas que quieren aprender (Estudiantes)
+### 1. Segmento: Personas que quieren aprender (Estudiantes)
+
 Son individuos proactivos, abarcando desde estudiantes universitarios hasta jóvenes profesionales (generalmente entre 18 y 30 años), que buscan aprender y, fundamentalmente, demostrar competencias reales. Enfrentan la frustración de acumular diplomas o certificados teóricos que no reflejan sus verdaderas capacidades prácticas ante el mercado laboral.
 
-Están dispuestos a pagar una **suscripción mensual** para acceder a una plataforma que estructure su aprendizaje mediante rutas generadas por Inteligencia Artificial, valide sus conocimientos con evaluaciones prácticas (quizzes o miniproyectos) y les brinde soporte exacto cuando se estancan. Según diversos reportes sobre empleabilidad y educación continua, un alto porcentaje de estudiantes de cursos online siente inseguridad al aplicar lo aprendido en escenarios reales. Entre las soluciones más valoradas se encuentra la asistencia quirúrgica: poder conectarse por videollamada con un experto que resuelva su vacío de conocimiento específico sin tener que repasar toda la teoría nuevamente.
+Están dispuestos a pagar una **suscripción mensual** para acceder a una plataforma que estructure su aprendizaje mediante rutas generadas por Inteligencia Artificial, valide sus conocimientos con evaluaciones prácticas (quizzes o miniproyectos) y les brinde una revisión puntual cuando se estancan. Según diversos reportes sobre empleabilidad y educación continua, un alto porcentaje de estudiantes de cursos online siente inseguridad al aplicar lo aprendido en escenarios reales. Entre las soluciones más valoradas se encuentra la revisión quirúrgica de su caso: que un Verificador que ya domina la habilidad evalúe puntualmente su proyecto o portafolio cuando la evaluación automática no logra confirmar su dominio, sin necesidad de repasar toda la teoría nuevamente ni depender de una sesión de enseñanza en vivo.
 
-### Segmento objetivo #2: Personas que quieren enseñar (Mentores)
-Son estudiantes avanzados, egresados o profesionales (generalmente entre 20 y 35 años) con un dominio técnico comprobable en áreas específicas. Son proactivos y buscan monetizar su experiencia, pero rechazan los esquemas informales. En su lugar, valoran pertenecer a un ecosistema riguroso donde primero deben demostrar su nivel mediante un **examen de ingreso** y rutas de certificación propias.
+### 2. Segmento: Personas que validan el conocimiento
 
-Buscan generar ingresos recurrentes mediante **comisiones** por las sesiones de refuerzo y supervisiones que realizan. Sin embargo, su incentivo más poderoso es el reconocimiento profesional: por cada interacción exitosa acumulan **SkillCredits**, una moneda de prestigio que certifica su calidad docente y dominio técnico, ideal para ser exhibida en plataformas profesionales como LinkedIn. Esto les permite desarrollar y demostrar habilidades blandas esenciales, como la comunicación y el liderazgo, altamente demandadas por los empleadores actuales.
+Este segmento agrupa a las personas que sostienen la confiabilidad de las habilidades verificadas dentro de la plataforma: por un lado, **Verificadores** (estudiantes que ya certificaron una habilidad y revisan casos puntuales de otros), y por otro, **Coordinadores académicos** (profesores universitarios que supervisan que ese proceso de verificación sea correcto). Ambos operan en dos niveles distintos de una misma cadena de confianza: el Verificador resuelve el caso individual, el Coordinador garantiza que esos casos se estén resolviendo bien.
 
-### Segmento objetivo #3: Supervisores o Coordinadores
-Es personal académico, auditores de calidad o gestores de plataformas digitales, generalmente con experiencia en evaluación educativa o administración de comunidades. Su función central ya no es la simple moderación, sino garantizar la excelencia, calidad y transparencia de todo el ecosistema de Innovify.
+**Nivel 1 — Verificador (revisión caso por caso)**
 
-Se encargan de auditar las métricas generadas por la plataforma, analizar los índices de satisfacción de los aprendices y evaluar el desempeño de los mentores. Tienen la autoridad para habilitar reevaluaciones si existen dudas sobre el resultado de un estudiante, y definen los periodos de actividad de quienes enseñan. A través de un dashboard avanzado, monitorean las habilidades de mayor demanda para asegurar que la plataforma responda a las necesidades del mercado. Son el pilar fundamental para que Innovify mantenga su legitimidad y sea percibida como un estándar riguroso de validación de habilidades, y no como una simple red de tutorías.
+Para comenzar a verificar, la persona primero deberá completar su propia *ruta de certificaciones*, en la cual tendrá que demostrar —mediante certificados validados y evaluaciones aprobadas por la IA— que posee los conocimientos necesarios sobre la habilidad que desea verificar en otros.
+
+Una vez que cumpla estos requisitos, quedará habilitada como Verificador para esa habilidad específica, y podrá comenzar a participar en la *revisión de casos de verificación puntuales*, evaluando el proyecto o portafolio que el estudiante presenta como evidencia frente a una rúbrica estructurada.
+
+Por cada caso revisado y resuelto, el Verificador podrá obtener *SkillCredits*, un sistema de reconocimiento interno de la plataforma —no monetario— que representa su experiencia y participación, y que también sirve para *demostrar profesionalmente su experiencia* (ej. publicación en LinkedIn) o canjearse por beneficios dentro de la propia plataforma.
+
+**Nivel 2 — Coordinador (supervisión del sistema de verificación)**
+
+El Coordinador necesita visibilidad real sobre el nivel de dominio de habilidades de sus estudiantes, más allá de la nota de un curso o un certificado presentado — y a la vez necesita asegurar que los Verificadores estén resolviendo los casos correctamente, ya que la métrica que consume solo tiene valor si el proceso detrás es confiable.
+
+Por eso, el Coordinador puede revisar indicadores de *confiabilidad de los Verificadores* (decisiones revertidas, sanciones), resolver disputas cuando un certificado resulta sospechoso o un estudiante apela una decisión, y habilitar una *reevaluación o nuevo intento* cuando corresponda. A cambio, obtiene acceso a *métricas generales de la plataforma*: habilidades más solicitadas, certificaciones más frecuentes, áreas con mayor tasa de fallo, y qué Verificadores tienen mejor desempeño — data que solo es útil porque el propio Coordinador garantiza su integridad.
+
+En conjunto, este segmento es el que sostiene la credibilidad de todo lo que un estudiante certifica en la plataforma: el Verificador la sostiene caso por caso, el Coordinador la sostiene a nivel de sistema.
 
 ---
 
@@ -374,24 +390,26 @@ A continuación se presentan las estrategias y tácticas que Innovify puede impl
 13. Imagina que puedes subir un certificado externo (de Coursera, por ejemplo) y la plataforma te genera un quiz o miniproyecto para validar que realmente adquiriste esa habilidad. ¿Eso te parecería valioso o innecesario?
 14. ¿Preferirías tener una sesión de refuerzo con un mentor que sea experto exactamente en el sub-tema donde fallaste, en vez de tener que repasar todo el curso desde cero?
 
-**Segmento objetivo #2: Personas que quieren enseñar (Mentores)**
+**Segmento objetivo #2: Personas que validan el conocimiento**
+
+*Nivel 1 — Verificador*
 
 1. Para comenzar, cuéntame sobre ti: ¿qué estudias o en qué trabajas, en qué áreas tienes dominio sólido y cómo llegaste a desarrollarlo?
 2. ¿Has enseñado o ayudado a alguien a aprender algo de forma informal? ¿Cómo fue esa experiencia y qué te motivó a hacerlo?
-3. ¿Cuáles son las principales frustraciones que has tenido cuando intentas enseñar o ayudar a alguien que no llega con el nivel mínimo necesario?
-4. ¿Estarías dispuesto a rendir un examen de ingreso riguroso para demostrar que realmente dominas la habilidad antes de poder enseñarla en una plataforma? ¿Qué te parecería ese modelo?
-5. Si por cada sesión de refuerzo exitosa acumularas SkillCredits que certifican tu calidad como mentor y puedes exhibirlos en LinkedIn como credencial verificable, ¿eso te motivaría más que solo recibir una comisión económica?
-6. ¿Qué tan importante es para ti que los aprendices que lleguen a tus sesiones hayan demostrado un nivel mínimo previo de conocimiento? ¿Por qué?
-7. ¿Qué herramientas usas actualmente cuando enseñas o ayudas a alguien a distancia? ¿Qué limitaciones encuentras?
-8. ¿Te molestaría que la plataforma te asigne automáticamente el aprendiz más adecuado para ti según tu especialidad y el error específico del aprendiz, en vez de que el aprendiz te elija directamente?
-9. ¿Qué información necesitarías saber sobre el aprendiz antes de la sesión para prepararte mejor y hacer más efectivo el refuerzo?
-10. Si la plataforma te informara exactamente en qué pregunta o concepto falló el aprendiz en su evaluación, ¿eso te ayudaría a preparar una sesión más quirúrgica y efectiva?
-11. ¿Cómo te sentirías respecto a recibir comisiones por cada sesión de refuerzo o supervisión validada, en vez de un salario fijo?
-12. ¿Qué tan dispuesto estarías a supervisar un examen o proyecto avanzado de un aprendiz por videollamada, garantizando que lo que demuestra es realmente suyo?
-13. ¿Qué debería tener sí o sí una plataforma para que la consideres profesional y confiable para enseñar?
-14. Si pudieras exhibir en tu perfil de LinkedIn una credencial que dice "Mentor certificado en [habilidad] — verificado por Innovify, con X sesiones exitosas", ¿crees que eso tendría valor real para tu carrera profesional?
+3. ¿Cuáles son las principales frustraciones que has tenido cuando intentas ayudar a alguien que no llega con el nivel mínimo necesario?
+4. ¿Estarías dispuesto a demostrar previamente, mediante tu propia ruta de certificación, que realmente dominas la habilidad antes de poder revisar a otros en la plataforma? ¿Qué te parecería ese modelo?
+5. Si por cada caso resuelto acumularas SkillCredits que certifican tu nivel y puedes exhibirlos en LinkedIn como credencial verificable, ¿eso te motivaría más que recibir una compensación económica directa?
+6. ¿Qué tan importante es para ti que la persona que revisas haya demostrado un nivel mínimo previo de conocimiento? ¿Por qué?
+7. ¿Qué herramientas usas actualmente cuando ayudas a alguien a distancia? ¿Qué limitaciones encuentras?
+8. ¿Te molestaría que la plataforma te asigne automáticamente el caso más adecuado para ti según tu especialidad y el error específico detectado, en vez de elegir tú directamente a quién ayudar?
+9. ¿Qué información necesitarías saber sobre el caso antes de revisarlo, para hacer tu evaluación más efectiva?
+10. Si la plataforma te informara exactamente en qué pregunta o concepto falló la persona en su evaluación automática, ¿eso te ayudaría a revisar el caso de forma más quirúrgica y efectiva?
+11. ¿Cómo te sentirías respecto a recibir un reconocimiento (SkillCredits) por cada caso resuelto y validado, en vez de un pago económico directo?
+12. ¿Qué tan dispuesto estarías a supervisar por videollamada la demostración final de un proyecto avanzado, garantizando que lo que se presenta es realmente propio de esa persona?
+13. ¿Qué debería tener sí o sí una plataforma para que la consideres profesional y confiable para ejercer este rol?
+14. Si pudieras exhibir en tu perfil de LinkedIn una credencial que dice "Verificador certificado en [habilidad], con X casos resueltos", ¿crees que eso tendría valor real para tu carrera profesional?
 
-**Segmento objetivo #3: Coordinador Institucional**
+*Nivel 2 — Coordinador*
 
 1. Para comenzar, ¿podría describir brevemente su rol en la universidad y sus principales responsabilidades relacionadas con el alumnado?
 2. Desde su posición, ¿cuáles considera que son los mayores desafíos que enfrentan los estudiantes para tener éxito académico hoy en día?
@@ -483,7 +501,9 @@ Respecto al modelo de Innovify, Camila valora especialmente la idea de la ruta d
 
 ---
 
-#### Segmento objetivo #2: Personas que quieren enseñar
+#### Segmento objetivo #2: Personas que validan el conocimiento
+
+*Nivel 1 — Verificador*
 
 **Entrevista 1**
 * **Nombres:** Rodrigo
@@ -494,7 +514,7 @@ Respecto al modelo de Innovify, Camila valora especialmente la idea de la ruta d
 <p align="center">
   <img src="public/assets/images-doc/entrevista-s2-e1.png" alt="Entrevista Rodrigo" width="600">
   <br>
-  <em>Figura 4. Entrevista 1: Personas que quieren enseñar | Innovify. Nota: En esta figura se aprecia la primera entrevista al segmento de personas que quieren enseñar.</em>
+  <em>Figura 4. Entrevista 1: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la primera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
 
 * **URL:** [Completar con URL de Microsoft Stream]
@@ -502,11 +522,11 @@ Respecto al modelo de Innovify, Camila valora especialmente la idea de la ruta d
 * **Duración:** [Completar]
 
 **Resumen descriptivo:**
-Rodrigo estudia Ingeniería de Software en la PUCP y está en séptimo ciclo. Domina React, Node.js, PostgreSQL y arquitectura de microservicios, conocimientos que desarrolló combinando su formación universitaria con proyectos freelance y contribuciones a repositorios open source. Ha ayudado informalmente a varios compañeros de ciclos menores a entender conceptos de programación, pero siempre de forma desorganizada — por WhatsApp, sin estructura, sin que el aprendiz llegue con un nivel mínimo establecido.
+Rodrigo estudia Ingeniería de Software en la PUCP y está en séptimo ciclo. Domina React, Node.js, PostgreSQL y arquitectura de microservicios, conocimientos que desarrolló combinando su formación universitaria con proyectos freelance y contribuciones a repositorios open source. Ha ayudado informalmente a varios compañeros de ciclos menores a resolver dudas puntuales de programación, pero siempre de forma desorganizada — por WhatsApp, sin estructura, sin que la persona llegue con un nivel mínimo establecido.
 
-Su principal frustración al enseñar es que los aprendices llegan sin los fundamentos necesarios para aprovechar la sesión, lo que hace que pierda tiempo explicando conceptos básicos que debería dar por sabidos. También le molesta la falta de reconocimiento formal: dedica tiempo de calidad a enseñar pero nadie lo sabe ni puede verificarlo.
+Su principal frustración al ayudar a otros es que llegan sin los fundamentos necesarios para aprovechar la revisión, lo que hace que pierda tiempo explicando conceptos básicos que debería dar por sabidos. También le molesta la falta de reconocimiento formal: dedica tiempo de calidad a revisar el trabajo de otros pero nadie lo sabe ni puede verificarlo.
 
-Respecto al modelo de Innovify, Rodrigo está muy de acuerdo con el examen de ingreso para mentores, porque considera que es la única forma de garantizar que quien enseña realmente sabe. Le parece especialmente atractivo el sistema de SkillCredits, porque le permitiría demostrar en LinkedIn no solo que sabe programar sino que sabe enseñar a otros — una habilidad que los empleadores valoran y que actualmente no tiene cómo acreditar. Le parece eficiente que la plataforma le informe exactamente en qué pregunta o concepto falló el aprendiz antes de la sesión, porque eso le permite preparar una explicación quirúrgica en vez de repasar todo el tema desde cero.
+Respecto al modelo de Innovify, Rodrigo está muy de acuerdo con que el Verificador deba haber certificado previamente su propia ruta, porque considera que es la única forma de garantizar que quien revisa realmente sabe. Le parece especialmente atractivo el sistema de SkillCredits, porque le permitiría demostrar en LinkedIn no solo que sabe programar sino que sabe evaluar a otros — una habilidad que los empleadores valoran y que actualmente no tiene cómo acreditar. Le parece eficiente que la plataforma le informe exactamente en qué pregunta o concepto falló el estudiante en su evaluación automática antes de asignarle el caso, porque eso le permite emitir una revisión quirúrgica en vez de repasar todo el proyecto desde cero.
 
 **Entrevista 2**
 * **Nombres:** Lucía
@@ -517,7 +537,7 @@ Respecto al modelo de Innovify, Rodrigo está muy de acuerdo con el examen de in
 <p align="center">
   <img src="public/assets/images-doc/entrevista-s2-e2.png" alt="Entrevista Lucía" width="600">
   <br>
-  <em>Figura 5. Entrevista 2: Personas que quieren enseñar | Innovify. Nota: En esta figura se aprecia la segunda entrevista al segmento de personas que quieren enseñar.</em>
+  <em>Figura 5. Entrevista 2: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la segunda entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
 
 * **URL:** [Completar con URL de Microsoft Stream]
@@ -525,11 +545,11 @@ Respecto al modelo de Innovify, Rodrigo está muy de acuerdo con el examen de in
 * **Duración:** [Completar]
 
 **Resumen descriptivo:**
-Lucía es egresada de Contabilidad de la Universidad de Lima y trabaja hace dos años en una firma de auditoría. Domina Excel avanzado, Power BI y análisis financiero, habilidades que desarrolló en su trabajo y que sabe que son muy demandadas en el mercado. Ha dado algunas clases particulares de forma informal a compañeros universitarios, pero el modelo le resulta poco profesional y difícil de gestionar: tiene que coordinar horarios por WhatsApp, no hay estructura, y los aprendices a veces no aparecen o no vienen preparados.
+Lucía es egresada de Contabilidad de la Universidad de Lima y trabaja hace dos años en una firma de auditoría. Domina Excel avanzado, Power BI y análisis financiero, habilidades que desarrolló en su trabajo y que sabe que son muy demandadas en el mercado. Ha ayudado informalmente a compañeros universitarios con estas herramientas, pero el modelo le resulta poco profesional y difícil de gestionar: tiene que coordinar por WhatsApp, no hay estructura, y las personas a veces no vienen preparadas.
 
-Lo que más valora de Innovify es la posibilidad de generar ingresos adicionales de forma estructurada y profesional, sin tener que gestionar ella misma la logística. El modelo de comisiones por sesión validada le parece justo y transparente. Sin embargo, lo que más la motiva es el sistema de SkillCredits: considera que demostrar que sabe enseñar Excel avanzado y Power BI a otros, con resultados verificables, es una credencial de liderazgo y comunicación que le abre puertas en su carrera profesional más allá de los ingresos extra.
+*Nota: al momento de la entrevista, el modelo de negocio contemplaba una compensación económica directa por cada revisión, por lo que parte de su respuesta original refleja esa expectativa. El hallazgo que sí se mantiene vigente es que su motivación más fuerte no era el dinero en sí, sino el reconocimiento profesional verificable: considera que demostrar que sabe evaluar Excel avanzado y Power BI a otros, con resultados verificables, es una credencial de liderazgo y comunicación que le abre puertas en su carrera profesional.*
 
-Está de acuerdo con el examen de ingreso para mentores, aunque reconoce que inicialmente puede parecer una barrera alta. Considera que esa barrera es precisamente lo que garantiza que los aprendices reciban ayuda de calidad real.
+Está de acuerdo con que el Verificador demuestre primero su propio dominio antes de revisar a otros, aunque reconoce que inicialmente puede parecer una barrera alta. Considera que esa barrera es precisamente lo que garantiza que los estudiantes reciban una revisión de calidad real.
 
 **Entrevista 3**
 * **Nombres:** Sebastián
@@ -540,7 +560,7 @@ Está de acuerdo con el examen de ingreso para mentores, aunque reconoce que ini
 <p align="center">
   <img src="public/assets/images-doc/entrevista-s2-e3.png" alt="Entrevista Sebastián" width="600">
   <br>
-  <em>Figura 6. Entrevista 3: Personas que quieren enseñar | Innovify. Nota: En esta figura se aprecia la tercera entrevista al segmento de personas que quieren enseñar.</em>
+  <em>Figura 6. Entrevista 3: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
 
 * **URL:** [Completar con URL de Microsoft Stream]
@@ -548,15 +568,15 @@ Está de acuerdo con el examen de ingreso para mentores, aunque reconoce que ini
 * **Duración:** [Completar]
 
 **Resumen descriptivo:**
-Sebastián es egresado de Comunicaciones de la UPC y trabaja como freelance en marketing de contenidos. Domina SEO técnico, copywriting y estrategia de redes sociales, habilidades que desarrolló en proyectos reales con clientes. Intentó enseñar en Preply pero lo abandonó porque la plataforma permite que cualquiera enseñe sin verificación, lo que deteriora la calidad percibida de todos los mentores.
+Sebastián es egresado de Comunicaciones de la UPC y trabaja como freelance en marketing de contenidos. Domina SEO técnico, copywriting y estrategia de redes sociales, habilidades que desarrolló en proyectos reales con clientes. Intentó enseñar en Preply pero lo abandonó porque la plataforma permite que cualquiera enseñe sin verificación, lo que deteriora la calidad percibida de todos los que ofrecen ayuda ahí.
 
-Su principal motivación para enseñar no es el dinero sino construir reputación profesional verificable. Sebastián entiende que en el mundo del marketing digital, el portafolio y las credenciales son todo, y actualmente no tiene ninguna forma de acreditar que sabe enseñar lo que sabe hacer.
+Su principal motivación no es el dinero sino construir reputación profesional verificable. Sebastián entiende que en el mundo del marketing digital, el portafolio y las credenciales son todo, y actualmente no tiene ninguna forma de acreditar que sabe evaluar el trabajo de otros con criterio.
 
-Respecto al modelo de Innovify, valora especialmente que la plataforma exija el examen de ingreso, porque eso eleva la calidad del ecosistema completo y hace que pertenecer a él sea una credencial en sí misma. Le parece muy atractivo el sistema de SkillCredits y su integración con LinkedIn. También valora el matching inteligente, porque prefiere que le lleguen aprendices cuyo vacío específico coincide con su área de mayor dominio, en vez de recibir cualquier solicitud genérica de marketing.
+Respecto al modelo de Innovify, valora especialmente que la plataforma exija que el Verificador haya certificado su propia ruta antes de revisar a otros, porque eso eleva la calidad del ecosistema completo y hace que pertenecer a él sea una credencial en sí misma. Le parece muy atractivo el sistema de SkillCredits y su integración con LinkedIn. También valora la asignación automática de casos, porque prefiere que le lleguen estudiantes cuyo vacío específico coincide con su área de mayor dominio, en vez de recibir cualquier solicitud genérica de marketing.
 
 ---
 
-#### Segmento objetivo #3: Coordinador Institucional
+*Nivel 2 — Coordinador*
 
 **Entrevista 1**
 * **Nombres:** Armando
@@ -567,7 +587,7 @@ Respecto al modelo de Innovify, valora especialmente que la plataforma exija el 
 <p align="center">
   <img src="public/assets/images-doc/entre-rafa.png" alt="Entrevista Armando" width="600">
   <br>
-  <em>Figura 7. YouTube: Entrevista 1 Segmento Coordinador Institucional | Innovify. Nota: En esta figura se aprecia la primera persona entrevistada de nuestro tercer segmento: coordinador institucional.</em>
+  <em>Figura 7. YouTube: Entrevista 1 Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la primera persona entrevistada del nivel de Coordinador.</em>
 </p>
 
 * **URL:** [https://youtu.be/YDpJ_S8Ik2g](https://youtu.be/YDpJ_S8Ik2g)
@@ -575,7 +595,7 @@ Respecto al modelo de Innovify, valora especialmente que la plataforma exija el 
 * **Duración:** 13 minutos con 54 segundos
 
 **Resumen descriptivo:**
-Esta entrevista fue realizada a un docente de Cálculo 2 de la Universidad Peruana de Ciencias Aplicadas (UPC). De acuerdo con lo conversado, el profesor considera que la propuesta es una muy buena idea y la percibe como fundamental para el desarrollo profesional de los estudiantes. Destaca la importancia de que los alumnos colaboren e intercambien conocimientos, incluso entre diferentes universidades, con el fin de adaptarse a un mercado laboral cada vez más exigente.
+Esta entrevista fue realizada a un docente de Cálculo 2 de la Universidad Peruana de Ciencias Aplicadas (UPC). De acuerdo con lo conversado, el profesor considera que la propuesta es una muy buena idea y la percibe como fundamental para el desarrollo profesional de los estudiantes. Destaca la importancia de que los alumnos puedan validar sus conocimientos y demostrar habilidades reales, incluso frente a estudiantes de otras universidades, con el fin de adaptarse a un mercado laboral cada vez más exigente.
 
 Asimismo, mostró cautela en sus declaraciones para no vulnerar su contrato con la universidad, pero enfatizó que las plataformas tecnológicas tienen un gran potencial siempre que se utilicen bajo un marco de ética y respeto a las normas institucionales. Señaló que la educación en valores debe prevalecer sobre la simple restricción del uso de la tecnología.
 
@@ -590,14 +610,14 @@ Finalmente, evidenció interés en la funcionalidad operativa de la propuesta, s
 <p align="center">
   <img src="public/assets/images-doc/entrevista-victor3-1.png" alt="Entrevista Jesús" width="600">
   <br>
-  <em>Figura 8. YouTube: Entrevista 2 Segmento Coordinador Institucional | Innovify. Nota: En esta figura se aprecia la segunda persona entrevistada de nuestro tercer segmento: coordinador institucional.</em>
+  <em>Figura 8. YouTube: Entrevista 2 Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la segunda persona entrevistada del nivel de Coordinador.</em>
 </p>
 
 * **URL Parte 1:** [https://youtu.be/oRoAbwVAjxI](https://youtu.be/oRoAbwVAjxI) | **Inicio:** 0:00 | **Duración:** 10m 12s
 * **URL Parte 2:** [https://youtu.be/tWd_sJHLAak](https://youtu.be/tWd_sJHLAak) | **Inicio:** 0:00 | **Duración:** 11m 50s
 
 **Resumen descriptivo:**
-Jesús Hernández, jefe de prácticas, señala que los principales desafíos de los alumnos son la gestión del tiempo, el acceso a información confiable y la dificultad en el trabajo en equipo. Sobre una plataforma interuniversitaria, considera esencial la verificación de alumnos, políticas claras de integridad académica y un sistema de trazabilidad. Destacó que la universidad se preocupa por evitar plagio, fraude académico y suplantación de identidad. Advirtió que la implementación de una plataforma con validación manual podría generar carga laboral y costos, sugiriendo procesos automatizados como reconocimiento facial. Propuso que el panel del coordinador permita buscar y aprobar alumnos fácilmente, acceder a su historial y monitorear interacciones para asegurar una participación segura.
+Jesús Hernández, jefe de prácticas, señala que los principales desafíos de los alumnos son la gestión del tiempo, el acceso a información confiable y la dificultad en el trabajo en equipo. Sobre una plataforma interuniversitaria de validación de habilidades, considera esencial la verificación de alumnos, políticas claras de integridad académica y un sistema de trazabilidad. Destacó que la universidad se preocupa por evitar plagio, fraude académico y certificados falsos. Advirtió que la implementación de una plataforma con validación manual podría generar carga laboral y costos, sugiriendo procesos automatizados como reconocimiento facial. Propuso que el panel del Coordinador permita buscar y resolver casos fácilmente, acceder al historial de un Verificador y monitorear la confiabilidad de sus decisiones para asegurar una participación segura.
 
 **Entrevista 3**
 * **Nombres:** Raúl
@@ -608,7 +628,7 @@ Jesús Hernández, jefe de prácticas, señala que los principales desafíos de 
 <p align="center">
   <img src="public/assets/images-doc/entrevista-david1.png" alt="Entrevista Raúl" width="600">
   <br>
-  <em>Figura 9. YouTube: Entrevista 3 Segmento Coordinador Institucional | Innovify. Nota: En esta figura se aprecia la tercera persona entrevistada de nuestro tercer segmento coordinador institucional.</em>
+  <em>Figura 9. YouTube: Entrevista 3 Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la tercera persona entrevistada del nivel de Coordinador.</em>
 </p>
 
 * **URL:** [https://youtu.be/cP_YiYr2VD8](https://youtu.be/cP_YiYr2VD8)
@@ -616,7 +636,7 @@ Jesús Hernández, jefe de prácticas, señala que los principales desafíos de 
 * **Duración:** 10 minutos con 40 segundos
 
 **Resumen descriptivo:**
-El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy buena idea y parte fundamental del estudio universitario que los alumnos compartan opiniones y se ayuden mutuamente. Destacó que las herramientas tecnológicas son productivas para la colaboración siempre que se les dé un buen uso, priorizando el aprendizaje sobre ventajas deshonestas. También mostró cierta preocupación por la carga de los alumnos tutores, ya que siente que brindar ayuda constante podría impactar negativamente en su propio tiempo y productividad, especialmente en alumnos con muchas responsabilidades académicas.
+El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy buena idea y parte fundamental del desarrollo académico que los estudiantes validen mutuamente sus conocimientos. Destacó que las herramientas tecnológicas son productivas para este fin siempre que se les dé un buen uso, priorizando el aprendizaje sobre ventajas deshonestas. También mostró cierta preocupación por la carga que representa para un Verificador revisar casos constantemente, ya que siente que podría impactar negativamente en su propio tiempo y productividad, especialmente en estudiantes con muchas responsabilidades académicas.
 
 ---
 
@@ -667,50 +687,52 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 
 ---
 
-#### Segmento objetivo #2: Personas que quieren enseñar
+#### Segmento objetivo #2: Personas que validan el conocimiento
+
+*Nivel 1 — Verificador*
 
 **1. Características objetivas**
 * **Edad:** Estudiantes avanzados o egresados recientes, entre 23 y 28 años (100%).
 * **Carrera:** Diversas áreas (Ingeniería de Software, Contabilidad, Comunicaciones) (100%).
-* **Experiencia:** Todos tienen experiencia enseñando de forma informal (por WhatsApp, grupos de estudio, clases particulares no estructuradas) (100%).
-* **Habilidades digitales:** Usan WhatsApp, Zoom y Drive como principales herramientas para enseñar a distancia (100%).
+* **Experiencia:** Todos tienen experiencia ayudando a otros de forma informal (por WhatsApp, grupos de estudio, asesorías no estructuradas) (100%).
+* **Habilidades digitales:** Usan WhatsApp, Zoom y Drive como principales herramientas para ayudar a distancia (100%).
 
 **2. Características subjetivas**
-* **Motivaciones para enseñar:**
+* **Motivaciones para actuar como Verificador:**
   * Reconocimiento profesional verificable (SkillCredits en LinkedIn) como incentivo principal (100%).
-  * Generar ingresos adicionales de forma estructurada y transparente (100%).
+  * Ser reconocidos de forma estructurada y transparente por su participación (100%).
   * Pertenecer a un ecosistema riguroso que eleve su estatus profesional (100%).
 * **Frustraciones con el modelo informal actual:**
-  * Falta de estructura y reconocimiento formal por la labor docente (100%).
-  * Recibir aprendices sin el nivel mínimo necesario, lo que hace las sesiones ineficientes (100%).
-  * Dificultad para gestionar logística (horarios, herramientas, pagos) sin una plataforma dedicada (66%).
+  * Falta de estructura y reconocimiento formal por ayudar a otros (100%).
+  * Recibir personas sin el nivel mínimo necesario, lo que hace las revisiones ineficientes (100%).
+  * Dificultad para gestionar logística (horarios, herramientas) sin una plataforma dedicada (66%).
 * **Valoración del modelo de Innovify:**
-  * De acuerdo con el examen de ingreso para mentores como garantía de calidad del ecosistema (100%).
-  * Valoran recibir información precisa sobre el error específico del aprendiz antes de la sesión (100%).
-  * Consideran que el matching inteligente por especialidad es más eficiente que recibir solicitudes genéricas (100%).
-* **Perfil de enseñanza:**
-  * Adaptan su forma de explicar según el nivel del aprendiz (100%).
-  * Prefieren sesiones estructuradas con un objetivo claro y definido de antemano (66%).
-  * Valoran la supervisión de proyectos avanzados además de las sesiones de refuerzo (33%).
+  * De acuerdo con que el Verificador certifique previamente su propia ruta como garantía de calidad del ecosistema (100%).
+  * Valoran recibir información precisa sobre el error específico del estudiante antes de asignarles el caso (100%).
+  * Consideran que la asignación automática por especialidad es más eficiente que recibir solicitudes genéricas (100%).
+* **Perfil al validar:**
+  * Adaptan su forma de explicar según el nivel de la persona (100%).
+  * Prefieren casos con un objetivo claro y definido de antemano (66%).
+  * Valoran la supervisión de proyectos avanzados además de la revisión de casos puntuales (33%).
 
 | Característica | % Entrevistados | Fuente / Frase de entrevista |
 | :--- | :--- | :--- |
 | Motivación principal: reconocimiento profesional (SkillCredits) | 100% | "Lo que más me atrae es poder demostrar en LinkedIn que sé enseñar, no solo que sé hacer." |
-| Experiencia enseñando informalmente | 100% | "He ayudado a compañeros pero todo por WhatsApp, sin estructura ni reconocimiento." |
-| Acuerdo con examen de ingreso para mentores | 100% | "Eso es lo que le da valor al ecosistema, que no cualquiera puede entrar." |
-| Frustración por aprendices sin nivel mínimo | 100% | "Pierdo tiempo explicando fundamentos que deberían ya saber." |
-| Valoración del matching inteligente por especialidad | 100% | "Prefiero que me lleguen los casos que encajan exactamente con lo que domino." |
-| Valoración de información previa sobre error del aprendiz | 100% | "Si sé en qué falló puedo preparar algo quirúrgico, no repasar todo." |
-| Motivación económica (comisiones) | 100% | "Las comisiones están bien, pero no es mi principal motivación." |
+| Experiencia ayudando informalmente | 100% | "He ayudado a compañeros pero todo por WhatsApp, sin estructura ni reconocimiento." |
+| Acuerdo con la certificación previa exigida al Verificador | 100% | "Eso es lo que le da valor al ecosistema, que no cualquiera puede entrar." |
+| Frustración por personas sin nivel mínimo | 100% | "Pierdo tiempo explicando fundamentos que deberían ya saber." |
+| Valoración de la asignación inteligente por especialidad | 100% | "Prefiero que me lleguen los casos que encajan exactamente con lo que domino." |
+| Valoración de información previa sobre el error del estudiante | 100% | "Si sé en qué falló puedo preparar algo quirúrgico, no repasar todo." |
+| Motivación económica como secundaria | 100% | "Las comisiones están bien, pero no es mi principal motivación." |
 | Frustración por falta de reconocimiento formal | 100% | "Nadie sabe que enseño bien porque no hay forma de demostrarlo." |
-| Preferencia por sesiones con objetivo claro definido | 66% | "Quiero saber de qué va la sesión antes de aceptarla." |
+| Preferencia por casos con objetivo claro definido | 66% | "Quiero saber de qué va la sesión antes de aceptarla." |
 | Interés en supervisar proyectos avanzados | 33% | "Me interesaría supervisar proyectos finales, no solo refuerzos puntuales." |
 
-*(Tabla 5. Principales hallazgos de entrevistas a personas que quieren enseñar - Elaboración propia. Nota: La tabla sintetiza las motivaciones, frustraciones y necesidades expresadas por los mentores entrevistados.)*
+*(Tabla 5. Principales hallazgos de entrevistas al nivel de Verificador - Elaboración propia. Nota: La tabla sintetiza las motivaciones, frustraciones y necesidades expresadas por los Verificadores entrevistados. Las citas se conservan tal como fueron registradas durante la entrevista original.)*
 
 ---
 
-#### Segmento objetivo #3: Coordinador Institucional
+*Nivel 2 — Coordinador*
 
 **1. Características objetivas**
 * **Edad y rol:**
@@ -727,8 +749,8 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
   * Sistemas de control académico (100%).
 
 **2. Características subjetivas**
-* **Percepción del aprendizaje colaborativo:**
-  * Considerado fundamental (100%).
+* **Percepción de la validación de habilidades entre pares:**
+  * Considerada fundamental (100%).
   * Positiva colaboración interuniversitaria (100%).
   * Mejora la preparación profesional (66%).
 * **Preocupaciones:**
@@ -759,7 +781,7 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 
 | Característica | % entrevistados | Insight clave |
 | :--- | :--- | :--- |
-| Aprendizaje colaborativo | 100% | Fundamental |
+| Validación de habilidades entre pares | 100% | Fundamental |
 | Colaboración interuniversitaria | 100% | Positiva si se controla |
 | Preocupación por fraude | 100% | Riesgo principal |
 | Validación de identidad | 100% | Requisito crítico |
@@ -770,60 +792,57 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Carga operativa | 67% | Barrera |
 | Segmentación académica | 33% | Mejora pertinencia |
 
-*(Tabla 6. Principales hallazgos de coordinadores académicos - Elaboración propia.)*
+*(Tabla 6. Principales hallazgos del nivel de Coordinador - Elaboración propia.)*
 
 ---
 
-## 2.3. Needfinding
-
-Para el proceso de needfinding se realizaron entrevistas a los dos segmentos principales de usuarios identificados: personas que quieren aprender (Aprendices) y personas que quieren enseñar (Mentores). El objetivo principal fue indagar en las motivaciones, frustraciones y necesidades de ambos perfiles en relación con la validación práctica de habilidades, el reconocimiento profesional y el modelo de emparejamiento inteligente propuesto por Innovify.
-
-A través de este proceso se buscó validar las hipótesis iniciales del proyecto, como la existencia de una brecha real entre la posesión de certificados y el dominio práctico demostrable, y la disposición de ambos segmentos a participar en un ecosistema con mayor rigor y estructura que los modelos informales actuales.
 
 ### 2.3.1. User Personas
 
-Los User Personas fueron construidos a partir de los patrones identificados en las entrevistas realizadas a ambos segmentos. Cada arquetipo refleja las características demográficas, motivaciones, frustraciones y objetivos más representativos de su segmento, sirviendo como referencia central para las decisiones de diseño y desarrollo de la plataforma.
+Los User Personas fueron construidos a partir de los patrones identificados en las entrevistas realizadas a los segmentos objetivo. Cada arquetipo refleja las características demográficas, motivaciones, frustraciones y objetivos más representativos de su segmento, sirviendo como referencia central para las decisiones de diseño y desarrollo de la plataforma. Dado que el Segmento 2 (Personas que validan el conocimiento) agrupa dos niveles de participación —Verificador y Coordinador—, se presenta una ficha de persona para cada uno.
 
-**User Persona: Personas que quieren aprender**
+**Segmento 1 — Personas que quieren aprender**
 
 <p align="center">
-  <img src="public/assets/images-doc/user1-app.png" alt="User Persona Aprendiz" width="800">
+  <img src="public/assets/images-doc/user1-app.png" alt="User Persona Estudiante" width="800">
   <br>
   <em>Figura 7. User Persona - Personas que quieren aprender - Elaboración propia.</em>
 </p>
 
-El arquetipo de Andrea Salinas representa al segmento de aprendices: estudiante universitaria de Ingeniería de Sistemas, 21 años, con certificados online que no puede convertir en evidencia creíble de dominio práctico. Sus objetivos son demostrar habilidades reales ante empleadores, seguir una ruta de aprendizaje estructurada y recibir refuerzo quirúrgico cuando se bloquea. Sus principales frustraciones son la brecha entre el certificado y el dominio real, no saber si está aprendiendo bien y la dificultad de encontrar mentores confiables en áreas específicas.
+El arquetipo de Andrea Salinas representa al segmento de estudiantes: estudiante universitaria de Ingeniería de Sistemas, 21 años, con certificados online que no puede convertir en evidencia creíble de dominio práctico. Sus objetivos son demostrar habilidades reales ante empleadores, seguir una ruta de aprendizaje estructurada por IA y recibir una revisión puntual de un Verificador cuando la evaluación automática no logra confirmar su dominio. Sus principales frustraciones son la brecha entre el certificado y el dominio real, no saber si está aprendiendo bien, y la dificultad de encontrar una forma confiable de validar sus conocimientos en áreas específicas.
 <br><br>
 
-**User Persona: Personas que quieren enseñar**
+**Segmento 2 — Personas que validan el conocimiento**
+
+*Nivel 1 — Verificador*
 
 <p align="center">
-  <img src="public/assets/images-doc/user2-app.png" alt="User Persona Mentor" width="800">
+  <img src="public/assets/images-doc/user2-app.png" alt="User Persona Verificador" width="800">
   <br>
-  <em>Figura 8. User Persona - Personas que quieren enseñar - Elaboración propia.</em>
+  <em>Figura 8. User Persona - Verificador - Elaboración propia.</em>
 </p>
 
-El arquetipo de Rodrigo Castillo representa al segmento de mentores: estudiante avanzado de Ingeniería de Software, 26 años, con dominio técnico sólido y experiencia informal de enseñanza sin reconocimiento formal. Sus objetivos son construir una reputación profesional verificable mediante SkillCredits, generar ingresos adicionales de forma estructurada y pertenecer a un ecosistema riguroso que valide su calidad como docente. Sus principales frustraciones son la falta de estructura en los modelos informales, recibir aprendices sin nivel mínimo y no tener credenciales que acrediten su capacidad de enseñar.
+El arquetipo de Rodrigo Castillo representa al nivel de Verificador dentro del segmento: estudiante avanzado de Ingeniería de Software, 26 años, con dominio técnico sólido y experiencia informal ayudando a otros sin reconocimiento formal. Sus objetivos son construir una reputación profesional verificable mediante SkillCredits, obtener casos que encajen con su especialidad mediante la asignación automática de la plataforma, y pertenecer a un ecosistema riguroso que valide su nivel de dominio. Sus principales frustraciones son la falta de estructura en los modelos informales, recibir casos fuera de su área de dominio, y no tener credenciales que acrediten su capacidad de revisión.
 <br><br>
 
-**User Persona: Coordinador Institucional**
+*Nivel 2 — Coordinador*
 
 <p align="center">
   <img src="public/assets/images-doc/user3-app.png" alt="User Persona Coordinador" width="800">
   <br>
-  <em>Figura 9. User Persona - Coordinador Institucional - Elaboración propia.</em>
+  <em>Figura 9. User Persona - Coordinador - Elaboración propia.</em>
 </p>
 
-El arquetipo de Renato López representa al segmento de coordinadores institucionales: docente y coordinador académico de 46 años, responsable de supervisar la calidad del aprendizaje y garantizar la integridad institucional. Sus objetivos son asegurar que los mentores cumplan los estándares establecidos, monitorear la satisfacción de los aprendices y acceder a métricas agregadas de la plataforma para tomar decisiones informadas. Sus principales preocupaciones son el fraude, la suplantación de identidad, la carga operativa de los procesos de validación manual y el riesgo reputacional para la institución.
+El arquetipo de Renato López representa al nivel de Coordinador dentro del segmento: docente y coordinador académico de 46 años, responsable de supervisar la calidad del proceso de verificación y garantizar la integridad institucional. Sus objetivos son asegurar que los Verificadores mantengan una confiabilidad alta, resolver disputas sobre certificados sospechosos o decisiones apeladas, y acceder a métricas agregadas de la plataforma para tomar decisiones informadas. Sus principales preocupaciones son el fraude, la suplantación de identidad, la carga operativa de los procesos de validación manual y el riesgo reputacional para la institución.
 <br><br>
 
-**En conjunto**, los arquetipos de usuario presentados permiten comprender de manera clara las necesidades, motivaciones y desafíos de los tres actores principales del ecosistema Innovify. El perfil del aprendiz orienta el diseño hacia rutas de aprendizaje estructuradas, evaluaciones prácticas y acceso a refuerzo quirúrgico cuando se produce un bloqueo específico. El perfil del mentor establece los lineamientos necesarios para un sistema de reconocimiento profesional verificable y un modelo de onboarding riguroso que garantice la calidad del ecosistema. Por otro lado, el perfil del coordinador define los requerimientos para las herramientas de supervisión, verificación de identidad y monitoreo de calidad que garantizan la integridad del sistema. En conjunto, estos arquetipos permiten alinear el desarrollo con usuarios reales y diversos, asegurando una solución centrada en la experiencia, la eficiencia operativa y el equilibrio entre aprendizaje, enseñanza y administración.
+**En conjunto**, los arquetipos de usuario presentados permiten comprender de manera clara las necesidades, motivaciones y desafíos de los dos segmentos objetivo de Innovify. El perfil del Estudiante orienta el diseño hacia rutas de aprendizaje estructuradas, evaluaciones prácticas generadas por IA y acceso a una revisión puntual cuando se produce un bloqueo específico. Dentro del segmento que valida el conocimiento, el perfil del Verificador establece los lineamientos necesarios para un sistema de reconocimiento profesional verificable y una asignación automática de casos que garantice la calidad del ecosistema, mientras que el perfil del Coordinador define los requerimientos para las herramientas de supervisión, resolución de disputas y monitoreo de calidad que garantizan la integridad del sistema. En conjunto, estos arquetipos permiten alinear el desarrollo con usuarios reales y diversos, asegurando una solución centrada en la experiencia, la eficiencia operativa y el equilibrio entre aprendizaje, verificación y supervisión.
 
 ---
 
 ### 2.3.2. User Task Matrix
 
-En el User Task Matrix se consideran los dos segmentos principales: personas que quieren aprender y personas que quieren enseñar, evaluando sus tareas clave según frecuencia e importancia. Los aprendices priorizan buscar recursos de aprendizaje, validar su nivel real y conseguir refuerzo específico cuando se bloquean. Los mentores priorizan mantener su dominio técnico actualizado, estructurar sesiones efectivas y construir su reputación profesional. Ambos coinciden en el uso de herramientas digitales y en la necesidad de conexión con personas de nivel verificado, aunque con objetivos distintos.
+En el User Task Matrix se consideran los dos segmentos objetivo: personas que quieren aprender y personas que validan el conocimiento (con sus dos niveles, Verificador y Coordinador), evaluando sus tareas clave según frecuencia e importancia. Los estudiantes priorizan buscar recursos de aprendizaje, validar su nivel real y obtener una revisión puntual cuando se bloquean. Los Verificadores priorizan mantener su dominio técnico actualizado, revisar casos de forma efectiva y construir su reputación profesional, mientras que los Coordinadores priorizan garantizar la integridad académica y supervisar la calidad del proceso de verificación. Todos coinciden en el uso de herramientas digitales y en la necesidad de conexión con personas de nivel verificado, aunque con objetivos distintos según su rol.
 
 ---
 
@@ -834,7 +853,7 @@ En el User Task Matrix se consideran los dos segmentos principales: personas que
 | Buscar recursos de aprendizaje en internet | Muy alta | Alta | Muy alta | Alta | Muy alta | Alta |
 | Tomar cursos online y obtener certificados | Alta | Alta | Alta | Muy alta | Media | Alta |
 | Aplicar lo aprendido en proyectos o ejercicios prácticos | Media | Muy alta | Media | Muy alta | Alta | Muy alta |
-| Buscar mentores o personas con experiencia real | Media | Muy alta | Alta | Muy alta | Media | Alta |
+| Validar sus conocimientos mediante evaluaciones prácticas | Media | Muy alta | Alta | Muy alta | Media | Alta |
 | Prepararse para entrevistas técnicas o portfolios | Media | Muy alta | Alta | Muy alta | Media | Alta |
 | Identificar exactamente en qué sub-tema está fallando | Baja | Muy alta | Baja | Muy alta | Baja | Alta |
 | Validar que lo que aprendió es suficiente para el mercado | Media | Muy alta | Alta | Muy alta | Media | Muy alta |
@@ -843,23 +862,23 @@ En el User Task Matrix se consideran los dos segmentos principales: personas que
 
 ---
 
-#### Segmento objetivo #2: Personas que quieren enseñar
+#### Segmento objetivo #2: Personas que validan el conocimiento
+
+*Nivel 1 — Verificador*
 
 | Tasks | Rodrigo<br>Frecuencia | Rodrigo<br>Importancia | Lucía<br>Frecuencia | Lucía<br>Importancia | Sebastián<br>Frecuencia | Sebastián<br>Importancia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Mantener y actualizar el dominio técnico propio | Muy alta | Muy alta | Alta | Muy alta | Muy alta | Muy alta |
-| Preparar material o explicaciones para enseñar | Media | Alta | Media | Alta | Media | Alta |
-| Enseñar o ayudar a alguien a distancia | Media | Alta | Baja | Alta | Media | Alta |
-| Gestionar logística de sesiones (horarios, herramientas) | Media | Media | Media | Alta | Media | Media |
+| Preparar la revisión o explicación de un caso | Media | Alta | Media | Alta | Media | Alta |
+| Ayudar o revisar el trabajo de alguien a distancia | Media | Alta | Baja | Alta | Media | Alta |
+| Gestionar logística de la revisión (horarios, herramientas) | Media | Media | Media | Alta | Media | Media |
 | Construir reputación profesional verificable | Baja | Muy alta | Media | Muy alta | Alta | Muy alta |
-| Generar ingresos adicionales por enseñar | Baja | Alta | Alta | Muy alta | Media | Alta |
-| Identificar el vacío específico del aprendiz antes de la sesión | Baja | Muy alta | Baja | Alta | Baja | Alta |
+| Obtener SkillCredits por casos resueltos | Baja | Alta | Alta | Muy alta | Media | Alta |
+| Identificar el vacío específico del estudiante antes del caso | Baja | Muy alta | Baja | Alta | Baja | Alta |
 
-*(Tabla 5. Tareas y motivaciones de las personas que quieren enseñar - Elaboración propia.)*
+*(Tabla 5. Tareas y motivaciones del nivel de Verificador - Elaboración propia.)*
 
----
-
-#### Segmento objetivo #3: Coordinador Institucional
+*Nivel 2 — Coordinador*
 
 | Tasks | Armando<br>Frecuencia | Armando<br>Importancia | Jesús<br>Frecuencia | Jesús<br>Importancia | Raúl<br>Frecuencia | Raúl<br>Importancia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -867,10 +886,10 @@ En el User Task Matrix se consideran los dos segmentos principales: personas que
 | Enseñar a gestionar el tiempo y organizarse eficientemente | Media | Alta | Muy alta | Alta | Media-Alta | Alta |
 | Fomentar el trabajo en equipo y habilidades de comunicación | Media | Alta | Alta | Alta | Alta | Alta |
 | Garantizar acceso a información confiable y enseñar a evaluarla críticamente | Media | Muy alta | Alta | Muy alta | Media | Alta |
-| Verificar alumnos y asegurar integridad académica en la plataforma | Baja-Media | Alta | Media | Alta | Alta | Alta |
+| Verificar certificados y resolver disputas sobre decisiones de Verificadores | Baja-Media | Alta | Media | Alta | Alta | Alta |
 | Implementar herramientas digitales y plazos que faciliten la organización | Media | Alta | Alta | Alta | Alta | Muy alta |
 
-*(Tabla 6. Funciones y prioridades de los coordinadores académicos - Elaboración propia.)*
+*(Tabla 6. Funciones y prioridades del nivel de Coordinador - Elaboración propia.)*
 
 ---
 
@@ -878,9 +897,9 @@ En el User Task Matrix se consideran los dos segmentos principales: personas que
 
 Las tareas más frecuentes e importantes son:
 
-* **Aprendices:** Buscar recursos de aprendizaje y aplicar lo aprendido en proyectos prácticos son las más frecuentes. Identificar exactamente en qué sub-tema están fallando y validar que lo aprendido es suficiente para el mercado son las más importantes aunque poco frecuentes, porque actualmente no tienen herramientas para hacerlo.
-* **Mentores:** Mantener el dominio técnico propio es la tarea más frecuente e importante. Construir reputación profesional verificable es altamente importante pero actualmente poco frecuente porque no existe un mecanismo para hacerlo.
-* **Coordinadores:** Guiar mediante casos prácticos y verificar la integridad académica son las tareas más frecuentes e importantes. Todas coinciden en requerir herramientas digitales que reduzcan la carga operativa y automaticen los procesos de validación.
+* **Estudiantes:** Buscar recursos de aprendizaje y aplicar lo aprendido en proyectos prácticos son las más frecuentes. Identificar exactamente en qué sub-tema están fallando y validar que lo aprendido es suficiente para el mercado son las más importantes aunque poco frecuentes, porque actualmente no tienen herramientas para hacerlo.
+* **Verificadores:** Mantener el dominio técnico propio es la tarea más frecuente e importante. Construir reputación profesional verificable es altamente importante pero actualmente poco frecuente porque no existe un mecanismo para hacerlo.
+* **Coordinadores:** Guiar mediante casos prácticos y verificar la integridad académica son las tareas más frecuentes e importantes. Todos coinciden en requerir herramientas digitales que reduzcan la carga operativa y automaticen los procesos de validación.
 
 Todos los segmentos coinciden en el uso intensivo de herramientas digitales y en la necesidad de conexión con personas de nivel verificado, aunque cada grupo lo aplica desde roles distintos del mismo ecosistema.
 
@@ -892,48 +911,48 @@ En esta sección se presentan los User Journey Maps As-Is de cada User Persona, 
 
 * **Segmento 1: Personas que quieren aprender.** Inicia con la decisión de aprender una habilidad específica, continúa con la búsqueda y toma de cursos online, la obtención de un certificado que no puede convertir en evidencia práctica, el bloqueo en sub-temas específicos sin saber a quién recurrir, y culmina con la frustración de no poder demostrar el dominio real ante empleadores o clientes.
 
-* **Segmento 2: Personas que quieren enseñar.** Comienza con la motivación de compartir su dominio técnico y generar ingresos o reconocimiento, pero enfrenta la falta de estructura en los modelos informales, la dificultad para llegar a aprendices con nivel mínimo adecuado, la ausencia de reconocimiento formal por su labor y la imposibilidad de acreditar su capacidad docente de forma verificable.
+* **Segmento 2, Nivel 1 — Verificador.** Comienza con la motivación de compartir su dominio técnico y ganar reconocimiento profesional, pero enfrenta la falta de estructura en los modelos informales, la dificultad para llegar a personas con nivel mínimo adecuado, la ausencia de reconocimiento formal por su labor y la imposibilidad de acreditar su capacidad de evaluación de forma verificable.
 
-* **Segmento 3: Coordinadores Institucionales.** Inician su recorrido al identificar la necesidad de mantener la calidad académica y fomentar la colaboración. Continúan con la planeación y preparación de estrategias, pero enfrentan complejidades al anticipar errores operativos. Durante la implementación y coordinación, sufren de sobrecarga operativa y riesgos de plagio o fraude, para finalmente en la etapa de supervisión y evaluación, lidiar con limitaciones operativas y la dificultad de medir el impacto real de sus esfuerzos.
+* **Segmento 2, Nivel 2 — Coordinador.** Inicia su recorrido al identificar la necesidad de mantener la calidad académica y garantizar la integridad del proceso de verificación. Continúa con la planeación y preparación de estrategias, pero enfrenta complejidades al anticipar errores operativos. Durante la implementación y coordinación, sufre de sobrecarga operativa y riesgos de fraude o certificados falsos, para finalmente en la etapa de supervisión y evaluación, lidiar con limitaciones operativas y la dificultad de medir el impacto real de sus esfuerzos.
 
 #### Segmento #1: Personas que quieren aprender
 
 <p align="center">
-  <img src="public/assets/images-doc/jur1-app.png" alt="Journey Map Aprendiz" width="800">
+  <img src="public/assets/images-doc/jur1-app.png" alt="Journey Map Estudiante" width="800">
   <br>
   <em>Figura 9. User Journey Mapping – Personas que quieren aprender - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del primer segmento del nuevo proyecto Innovify.</em>
 </p>
 <br>
 
-En esta figura se observa el recorrido del aprendiz a través de cinco etapas críticas: decisión de aprender, búsqueda de recursos, obtención del certificado, bloqueo en la práctica real y búsqueda de ayuda. El diagrama detalla la curva emocional del usuario, identificando puntos de dolor como la incertidumbre sobre si está aprendiendo correctamente, la frustración al no poder demostrar el dominio en situaciones reales y la dificultad para encontrar un mentor que se especialice exactamente en el sub-tema donde se bloqueó.
+En esta figura se observa el recorrido del estudiante a través de cinco etapas críticas: decisión de aprender, búsqueda de recursos, obtención del certificado, bloqueo en la práctica real y búsqueda de validación. El diagrama detalla la curva emocional del usuario, identificando puntos de dolor como la incertidumbre sobre si está aprendiendo correctamente, la frustración al no poder demostrar el dominio en situaciones reales y la dificultad para encontrar una forma confiable de validar exactamente el sub-tema donde se bloqueó.
 
-#### Segmento #2: Personas que quieren enseñar
+#### Segmento #2, Nivel 1: Verificador
 
 <p align="center">
-  <img src="public/assets/images-doc/jur2-app.png" alt="Journey Map Mentor" width="800">
+  <img src="public/assets/images-doc/jur2-app.png" alt="Journey Map Verificador" width="800">
   <br>
-  <em>Figura 10. User Journey Mapping – Personas que quieren enseñar - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del segundo segmento del nuevo proyecto Innovify.</em>
+  <em>Figura 10. User Journey Mapping – Nivel Verificador - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del nivel de Verificador dentro del segundo segmento del nuevo proyecto Innovify.</em>
 </p>
 <br>
 
-En esta figura se visualiza la experiencia desde la perspectiva del mentor. El mapa describe el proceso desde la motivación inicial de enseñar, pasando por la búsqueda de aprendices a través de canales informales, la gestión desorganizada de las sesiones, la frustración por recibir aprendices sin nivel mínimo, hasta la ausencia total de reconocimiento formal o credencial verificable que acredite su labor docente.
+En esta figura se visualiza la experiencia desde la perspectiva del Verificador. El mapa describe el proceso desde la motivación inicial de ayudar a otros, pasando por la gestión informal y desorganizada de esa ayuda, la frustración por recibir personas sin nivel mínimo, hasta la ausencia total de reconocimiento formal o credencial verificable que acredite su capacidad de evaluación.
 
 <br>
 
-#### Segmento #3: Coordinador Institucional
+#### Segmento #2, Nivel 2: Coordinador
 
 <p align="center">
   <img src="public/assets/images-doc/jur3-app.png" alt="Journey Map Coordinador" width="800">
   <br>
-  <em>Figura 11. User Journey Mapping - Coordinador Institucional - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del tercer segmento del nuevo proyecto Innovify.</em>
+  <em>Figura 11. User Journey Mapping - Nivel Coordinador - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del nivel de Coordinador dentro del segundo segmento del nuevo proyecto Innovify.</em>
 </p>
 <br>
 
-En esta figura se detalla el flujo de gestión desde el ángulo administrativo y de calidad académica. El mapa abarca la planeación, implementación y supervisión de la plataforma, poniendo énfasis en la mitigación de riesgos operativos como el plagio, el fraude y la suplantación de identidad. Se identifican puntos de dolor como la sobrecarga operativa de los procesos de validación manual, la dificultad para medir el impacto real de los mentores y la ausencia de herramientas tecnológicas que automaticen la verificación de identidad y el monitoreo de interacciones.
+En esta figura se detalla el flujo de gestión desde el ángulo académico y de calidad institucional. El mapa abarca la planeación, implementación y supervisión del proceso de verificación, poniendo énfasis en la mitigación de riesgos operativos como el fraude y los certificados falsos. Se identifican puntos de dolor como la sobrecarga operativa de los procesos de validación manual, la dificultad para medir el impacto real de los Verificadores y la ausencia de herramientas tecnológicas que automaticen la verificación de certificados y el monitoreo de casos.
 
 <br>
 
-**Entonces**, los mapas de experiencia presentados permiten comprender de manera integral cómo interactúan los distintos actores con el ecosistema de aprendizaje y validación de habilidades en la situación actual. Desde la perspectiva del aprendiz, el recorrido está marcado por una inversión constante de tiempo y dinero en certificaciones que no generan evidencia creíble de competencia práctica, con bloqueos específicos que no tiene cómo resolver de forma dirigida. Desde el lado del mentor, la experiencia actual es desorganizada, sin estructura y sin ningún mecanismo de reconocimiento formal, lo que desincentiva a los mejores talentos de enseñar de forma sistemática. Finalmente, la visión del coordinador incorpora una capa de control y supervisión orientada a garantizar la calidad académica y la seguridad del sistema, abordando riesgos como el fraude o la suplantación mediante mecanismos de validación y paneles de monitoreo. En conjunto, estas perspectivas permiten diseñar una experiencia equilibrada, eficiente y segura para todos los participantes del ecosistema.
+**Entonces**, los mapas de experiencia presentados permiten comprender de manera integral cómo interactúan los distintos actores con el ecosistema de aprendizaje y validación de habilidades en la situación actual. Desde la perspectiva del estudiante, el recorrido está marcado por una inversión constante de tiempo y dinero en certificaciones que no generan evidencia creíble de competencia práctica, con bloqueos específicos que no tiene cómo resolver de forma dirigida. Desde el lado del Verificador, la experiencia actual es desorganizada, sin estructura y sin ningún mecanismo de reconocimiento formal, lo que desincentiva a los mejores talentos de validar el conocimiento de otros de forma sistemática. Finalmente, la visión del Coordinador incorpora una capa de control y supervisión orientada a garantizar la calidad académica y la seguridad del sistema, abordando riesgos como el fraude o los certificados falsos mediante mecanismos de validación y paneles de monitoreo. En conjunto, estas perspectivas permiten diseñar una experiencia equilibrada, eficiente y segura para todos los participantes del ecosistema.
 
 ---
 
@@ -944,41 +963,41 @@ Para profundizar en el entendimiento de los usuarios finales y diseñar una solu
 #### Segmento #1: Personas que quieren aprender
 
 <p align="center">
-  <img src="public/assets/images-doc/Empati1-app.png" alt="Empathy Map Aprendiz" width="800">
+  <img src="public/assets/images-doc/Empati1-app.png" alt="Empathy Map Estudiante" width="800">
   <br>
   <em>Figura 11. Empathy Mapping - Personas que quieren aprender - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del primer segmento del nuevo proyecto Innovify.</em>
 </p>
 <br>
 
-Se observa el mapa de empatía de Andrea, estudiante universitaria que representa al segmento de aprendices. El diagrama detalla su necesidad de demostrar habilidades prácticas reales ante un mercado laboral que exige competencias verificables, no solo certificados. Sus principales puntos de dolor son la ansiedad por no saber si lo que aprendió es suficiente, la frustración de tener certificados que nadie toma en serio y la incapacidad de identificar exactamente en qué sub-tema está fallando para pedir ayuda específica. Sus ganancias esperadas son una credencial verificable con peso real ante empleadores y acceso a un mentor que resuelva exactamente el bloqueo que tiene, sin tener que repasar todo el curso desde cero.
+Se observa el mapa de empatía de Andrea, estudiante universitaria que representa al segmento de estudiantes. El diagrama detalla su necesidad de demostrar habilidades prácticas reales ante un mercado laboral que exige competencias verificables, no solo certificados. Sus principales puntos de dolor son la ansiedad por no saber si lo que aprendió es suficiente, la frustración de tener certificados que nadie toma en serio y la incapacidad de identificar exactamente en qué sub-tema está fallando para pedir una revisión específica. Sus ganancias esperadas son una credencial verificable con peso real ante empleadores y acceso a un Verificador que resuelva exactamente el bloqueo que tiene, sin tener que repasar todo el curso desde cero.
 
-#### Segmento #2: Personas que quieren enseñar
+#### Segmento #2, Nivel 1: Verificador
 
 <p align="center">
-  <img src="public/assets/images-doc/Empati2-app.png" alt="Empathy Map Mentor" width="800">
+  <img src="public/assets/images-doc/Empati2-app.png" alt="Empathy Map Verificador" width="800">
   <br>
-  <em>Figura 12. Empathy Mapping - Personas que quieren enseñar - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del segundo segmento del nuevo proyecto Innovify.</em>
+  <em>Figura 12. Empathy Mapping - Nivel Verificador - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del nivel de Verificador dentro del segundo segmento del nuevo proyecto Innovify.</em>
 </p>
 <br>
 
-En esta figura se detalla el mapa de empatía orientado al mentor. El análisis subraya su deseo de convertir su dominio técnico en reconocimiento profesional verificable y en ingresos adicionales estructurados. Sus principales puntos de dolor son la falta de un mecanismo formal que acredite su capacidad docente, la desorganización de los modelos informales actuales y la frustración de recibir aprendices sin nivel mínimo que hace que las sesiones sean ineficientes. Sus ganancias esperadas son pertenecer a un ecosistema riguroso que eleve su estatus profesional, acumular SkillCredits que pueda exhibir en LinkedIn y recibir información precisa sobre el vacío del aprendiz antes de cada sesión para prepararse mejor.
+En esta figura se detalla el mapa de empatía orientado al Verificador. El análisis subraya su deseo de convertir su dominio técnico en reconocimiento profesional verificable. Sus principales puntos de dolor son la falta de un mecanismo formal que acredite su capacidad de evaluación, la desorganización de los modelos informales actuales y la frustración de recibir personas sin nivel mínimo que hace que las revisiones sean ineficientes. Sus ganancias esperadas son pertenecer a un ecosistema riguroso que eleve su estatus profesional, acumular SkillCredits que pueda exhibir en LinkedIn y recibir información precisa sobre el vacío del estudiante antes de cada caso para prepararse mejor.
 
 <br>
 
-#### Segmento #3: Coordinador Institucional
+#### Segmento #2, Nivel 2: Coordinador
 
 <p align="center">
   <img src="public/assets/images-doc/Empati3-app.png" alt="Empathy Map Coordinador" width="800">
   <br>
-  <em>Figura 13. Empathy Mapping - Coordinador Institucional - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del tercer segmento del nuevo proyecto Innovify.</em>
+  <em>Figura 13. Empathy Mapping - Nivel Coordinador - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del nivel de Coordinador dentro del segundo segmento del nuevo proyecto Innovify.</em>
 </p>
 <br>
 
-En la imagen se presenta la caracterización empática de Renato López, representante del segmento institucional y administrativo. El mapa resalta su preocupación por mantener la calidad académica y la integridad institucional, señalando como riesgos principales el fraude o suplantación de identidad y la sobrecarga operativa de los procesos de validación manual. Sus ganancias esperadas son el acceso a herramientas tecnológicas que agilicen la verificación de participantes, un panel de monitoreo con métricas agregadas de la plataforma y mecanismos automatizados de trazabilidad que reduzcan la carga de trabajo de su equipo.
+En la imagen se presenta la caracterización empática de Renato López, representante del nivel de Coordinador. El mapa resalta su preocupación por mantener la calidad académica y la integridad institucional, señalando como riesgos principales el fraude o los certificados falsos y la sobrecarga operativa de los procesos de validación manual. Sus ganancias esperadas son el acceso a herramientas tecnológicas que agilicen la verificación de certificados, un panel de monitoreo con métricas agregadas de la plataforma y mecanismos automatizados de trazabilidad que reduzcan la carga de trabajo de su equipo.
 
 <br>
 
-**Entonces**, los mapas de empatía permiten profundizar en las necesidades emocionales, motivaciones y dificultades de los tres actores principales del ecosistema Innovify. En el caso del aprendiz, se evidencia una motivación fuerte orientada a la empleabilidad y al reconocimiento real de sus capacidades, enfrentando frustraciones relacionadas con la superficialidad del modelo de certificación actual y la dificultad de encontrar ayuda específica cuando se bloquea. Por su parte, el perfil del mentor destaca una motivación dual: económica y de reconocimiento profesional, con frustraciones relacionadas con la informalidad y la falta de estructura de los modelos actuales. Finalmente, el perfil institucional del coordinador destaca una fuerte preocupación por la calidad académica y la seguridad del sistema, priorizando la prevención de riesgos como el fraude y la suplantación, y valorando el uso de herramientas tecnológicas que optimicen los procesos de validación y reduzcan la carga operativa. En conjunto, estos mapas evidencian la importancia de diseñar una plataforma equilibrada que atienda tanto aspectos funcionales como emocionales, asegurando confianza, eficiencia y valor para todos los usuarios del ecosistema.
+**Entonces**, los mapas de empatía permiten profundizar en las necesidades emocionales, motivaciones y dificultades de los dos segmentos objetivo de Innovify. En el caso del estudiante, se evidencia una motivación fuerte orientada a la empleabilidad y al reconocimiento real de sus capacidades, enfrentando frustraciones relacionadas con la superficialidad del modelo de certificación actual y la dificultad de encontrar una validación específica cuando se bloquea. Dentro del segmento que valida el conocimiento, el perfil del Verificador destaca una motivación centrada en el reconocimiento profesional, con frustraciones relacionadas con la informalidad y la falta de estructura de los modelos actuales; mientras que el perfil del Coordinador destaca una fuerte preocupación por la calidad académica y la seguridad del sistema, priorizando la prevención de riesgos como el fraude y los certificados falsos, y valorando el uso de herramientas tecnológicas que optimicen los procesos de validación y reduzcan la carga operativa. En conjunto, estos mapas evidencian la importancia de diseñar una plataforma equilibrada que atienda tanto aspectos funcionales como emocionales, asegurando confianza, eficiencia y valor para todos los usuarios del ecosistema.
 
 ---
 
