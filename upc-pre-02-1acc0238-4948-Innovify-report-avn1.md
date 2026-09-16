@@ -1042,7 +1042,7 @@ El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los
 Finalmente, **Credential Verification** mantiene una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **ML Kit** (Text Recognition / Entity Extraction de Firebase, utilizado on-device para la extracción de datos del certificado), aislando el modelo de dominio interno `Certificate` de los contratos y formatos de respuesta propios del SDK externo.
 
 <p align="center">
-  <img src="images-doc/context-mapping.png" alt="Context Mapping" width="900">
+  <img src="images-doc/context-mapping.svg" alt="Context Mapping" width="900">
   <br>
   <em>Figura XX. Context Mapping de SkillSwap - Elaboración propia. Nota: Se muestran las relaciones Conformist, Customer/Supplier y Anticorruption Layer entre los Bounded Contexts Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives y Moderation & Disputes.</em>
 </p>
@@ -2561,9 +2561,26 @@ En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, do
 ---
 
 # Conclusiones
-*   La adaptación del modelo de negocio de SkillSwap hacia una aplicación móvil nativa/multiplataforma responde directamente a la necesidad de inmediatez y accesibilidad de los estudiantes universitarios.
-*   La investigación confirma que la integración de herramientas de videollamada y pasarelas de pago dentro de la misma aplicación, junto con el almacenamiento local, reducirá la fricción actual de usar herramientas fragmentadas.
-*   La arquitectura basada en Domain-Driven Design provee una estructura robusta para integrar de manera segura los servicios RESTful internos y los SDKs de terceros requeridos para el aprendizaje sincrónico en dispositivos móviles.
+
+**Sobre el pivote del proyecto y lo que aprendimos de él**
+
+Uno de los aprendizajes más grandes del ciclo no vino del código, sino de una decisión de negocio. Nuestra idea original de SkillSwap giraba en torno a tutorías entre estudiantes de distintas universidades, con donaciones voluntarias y comisión de plataforma. Cuando el docente publicó el anexo de temas excluidos y "tutorías en línea" apareció ahí, tuvimos que replantear el core del producto ya iniciado el ciclo, no desde cero. Lo que nos salvó gran parte del trabajo fue haber construido la arquitectura de forma modular desde el principio: de los 7 Bounded Contexts originales, 4 se mantuvieron prácticamente intactos (Identity & Access, Reputation, Payments & Wallet, Moderation & Disputes) y solo tuvimos que rediseñar el core (Discovery, Workspace y Learning & Assessment se fusionaron y se dividieron en los nuevos Credential Verification, Learning Path Engine y Assessment & Peer Review). El aprendizaje concreto: diseñar con límites de contexto bien definidos no solo ayuda a repartir trabajo en equipo, también protege el proyecto cuando el negocio cambia a mitad de camino.
+
+**Sobre decidir conscientemente qué no implementar**
+
+Al diseñar Credential Verification, la propuesta inicial contemplaba verificar certificados contra fuentes oficiales como SUNEDU o Coursera. Nos dimos cuenta a tiempo de que esas integraciones no son viables en un ciclo académico —no existen APIs públicas para eso, y hacerlo por scraping no era una opción seria— así que documentamos esos mecanismos en el modelo (`VerificationMethod`) pero solo implementamos los dos que sí eran alcanzables: extracción OCR on-device y revisión manual por un par. Lo mismo pasó con el matching entre estudiante y Verificador: la idea original hablaba de un sistema de recomendación híbrido con embeddings de habilidades, y terminamos simplificándolo a una asignación por disponibilidad y carga de casos. Aprendimos que reconocer a tiempo la diferencia entre "lo que el producto podría tener" y "lo que el equipo puede sostener en 15 semanas" evita quedar con funcionalidades a medio implementar al final del ciclo.
+
+**Sobre reutilizar investigación real en vez de descartarla**
+
+Cuando tuvimos que reestructurar el segmento de "personas que quieren enseñar", nuestra primera reacción fue pensar que había que volver a grabar entrevistas desde cero. En vez de eso, revisamos las 6 entrevistas ya grabadas (3 de mentores, 3 de coordinadores) y nos dimos cuenta de que los hallazgos reales seguían siendo válidos bajo la nueva propuesta: por ejemplo, más de un entrevistado ya nos había dicho que su motivación principal no era el dinero sino el reconocimiento profesional, lo cual terminó siendo exactamente el fundamento de SkillCredits. Reetiquetar en vez de regrabar nos permitió mantener el rigor de la investigación de campo sin perder semanas de trabajo ya hecho.
+
+**Sobre el proceso Lean UX en contraste con el diseño técnico**
+
+Contrastar el Problem Statement con nuestro propio diseño de arquitectura nos obligó a revisar más de una vez si el texto seguía describiendo el problema o ya se había colado la solución —un error común que el propio docente del ciclo pasado ya nos había advertido. Ese ida y vuelta constante entre Capítulo I y Capítulo II terminó siendo, en la práctica, la forma más efectiva de detectar inconsistencias: cualquier mención a "comisión", "videollamada de enseñanza" o "mentor" en el texto de negocio era una señal inmediata de que ese párrafo todavía no reflejaba el modelo que ya habíamos cerrado en el diseño técnico.
+
+**Sobre [completar: despliegue, integración de servicios, sprint]**
+
+*Esta sección la dejo como plantilla para que ustedes la completen con lo que realmente vivieron en el desarrollo — no tengo visibilidad de esa parte de tu equipo (por ejemplo, algún problema real con Render/MySQL, con la integración de ML Kit en Android/Flutter, o algo que decidieron simplificar sobre la marcha durante los Sprints). Sigue el mismo tono: qué pasó, por qué pasó, qué aprendieron, cómo lo habrían hecho distinto si lo supieran desde el inicio — como en el ejemplo que me pasaste sobre la base de datos de Aiven suspendiéndose por inactividad.*
 
 # Bibliografía
 * Davila, R. C., Aguero Corzo, E. del C., Portillo, H., & Quimbita, O. R. (2022). Deserción universitaria de los estudiantes de una universidad peruana. *Universidad y Sociedad, 14*(2), 421-427. [http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S2218-36202022000200421](http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S2218-36202022000200421)
