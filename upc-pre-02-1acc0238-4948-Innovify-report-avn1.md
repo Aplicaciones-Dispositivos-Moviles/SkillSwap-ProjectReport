@@ -400,6 +400,7 @@ Actualmente, ¿qué tan simple o complejo es para su equipo verificar el estatus
 Imaginemos que le damos acceso a un "Panel de Coordinador". Para que su labor de validación fuera eficiente y segura, ¿qué funciones serían indispensables? (ej. búsqueda por código/DNI, un solo clic para aprobar, historial de validaciones, etc.).
 Más allá de solo validar la identidad, ¿qué otro tipo de información o control (anonimizado, por supuesto) le gustaría tener para asegurar que la participación de sus estudiantes es positiva y segura?
 2.2.2. Registro de entrevistas
+
 Segmento objetivo #1: Personas que quieren aprender
 
 Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataforma que valida habilidades prácticas mediante rutas de aprendizaje generadas por IA y revisión de casos por Verificadores certificados. Para este segmento entrevistamos a estudiantes universitarios y egresados recientes que buscan aprender y demostrar competencias reales ante el mercado laboral, con el objetivo de identificar sus principales frustraciones, hábitos de aprendizaje y percepción sobre un sistema de validación supervisado por pares certificados.
@@ -410,16 +411,22 @@ Nombres: Mireya
 Apellidos: Perales Rodríguez
 Edad: 21 años
 Distrito: San Miguel
-<p align="center"> <img src="public/assets/images-doc/entrevista-s1-e1.png" alt="Entrevista Mireya" width="600"> <br> <em>Figura 1. Entrevista 1: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la primera entrevista al segmento de personas que quieren aprender.</em> </p>
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-s1-e1.png" alt="Entrevista Mireya" width="600">
+  <br>
+  <em>Figura 1. Entrevista 1: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la primera entrevista al segmento de personas que quieren aprender.</em>
+</p>
+
 URL: [Completar con URL de Microsoft Stream]
 Inicio: 0:00
 Duración: [Completar]
 
 Resumen descriptivo: En esta entrevista, Mireya estudia Ingeniería de Sistemas en la UPC y se encuentra en quinto ciclo. Describe su relación con el aprendizaje como principalmente autodidacta — ha completado dos cursos de Python en Coursera y uno de SQL en Udemy — pero confiesa que al momento de postular a prácticas sintió que sus certificados no le servían porque no podía demostrar que realmente sabía aplicar lo aprendido. Recuerda específicamente una entrevista técnica donde le pidieron escribir una función en Python desde cero y se bloqueó, pese a tener el certificado. Su método actual cuando se estanca es buscar en Stack Overflow o preguntar a ChatGPT, pero reconoce que muchas veces no sabe si la solución que obtiene es correcta o solo funciona por casualidad.
 
-Respecto al modelo de validación práctica de Innovify, Andrea lo percibe como algo que "hace falta" en el mercado. Le parece coherente que, si va a obtener una credencial, primero tenga que demostrar que puede resolver algo real. Está dispuesta a pagar una suscripción mensual de hasta S/ 50 si eso le garantiza acceso a mentores verificados y evaluaciones que le digan con precisión en qué está fallando. Lo que más le interesa del perfil del mentor es ver en qué empresa trabajó o trabaja y qué proyectos ha hecho, no solo cuántas sesiones ha dado.
+Respecto al modelo de validación práctica de Innovify, Mireya lo percibe como algo que "hace falta" en el mercado. Le parece coherente que, si va a obtener una credencial, primero tenga que demostrar que puede resolver algo real. Está dispuesta a pagar una suscripción mensual de hasta S/ 50 si eso le garantiza acceso a Verificadores certificados y evaluaciones que le digan con precisión en qué está fallando. Lo que más le interesa del perfil del Verificador es ver en qué empresa trabajó o trabaja y qué proyectos ha hecho, no solo cuántos casos ha resuelto.
 
-Valora especialmente el modelo de examen de ingreso para mentores, porque indica que no cualquiera puede enseñar. Considera que una credencial que muestre exactamente qué habilidades demostró — no solo que tomó un curso — tendría mucho más peso ante un empleador. Finalmente, destaca que la posibilidad de recibir un refuerzo enfocado exactamente en el sub-tema donde falló, en vez de repetir todo el curso, sería lo más eficiente y lo que más le ayudaría en sus tiempos actuales de carga universitaria.
+Valora especialmente el modelo de examen de ingreso para Verificadores, porque indica que no cualquiera puede revisar el trabajo de otros. Considera que una credencial que muestre exactamente qué habilidades demostró — no solo que tomó un curso — tendría mucho más peso ante un empleador. Finalmente, destaca que la posibilidad de recibir una revisión enfocada exactamente en el sub-tema donde falló, en vez de repetir todo el curso, sería lo más eficiente y lo que más le ayudaría en sus tiempos actuales de carga universitaria.
 
 Entrevista 2
 
@@ -427,7 +434,13 @@ Nombres: Mathias
 Apellidos: Véliz
 Edad: 24 años
 Distrito: Cayma, Arequipa
-<p align="center"> <img src="public/assets/images-doc/entrevista-s1-e2.png" alt="Entrevista Mathias" width="600"> <br> <em>Figura 2. Entrevista 2: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la segunda entrevista al segmento de personas que quieren aprender.</em> </p>
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-s1-e2.png" alt="Entrevista Mathias" width="600">
+  <br>
+  <em>Figura 2. Entrevista 2: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la segunda entrevista al segmento de personas que quieren aprender.</em>
+</p>
+
 URL: https://www.youtube.com/watch?v=xt02A76wXNQ
 Inicio: 0:00
 Duración: [Completar]
@@ -436,7 +449,7 @@ Resumen descriptivo: Mathias es egresado de Administración de la Universidad Na
 
 Cuando se estanca aprendiendo un tema nuevo, Mathias recurre a foros como Reddit y grupos de Facebook de marketing digital, aunque reconoce que los consejos que recibe son muy genéricos y a menudo no aplican a su situación específica. Ha intentado contactar a profesionales en LinkedIn pero rara vez recibe respuesta.
 
-Respecto al modelo de Innovify, Mathias lo ve como la solución directa a su problema principal: no quiere más teoría ni más certificados estándar, quiere que alguien con experiencia real confirme que lo que sabe es suficiente. Le parece especialmente valioso el sistema de quizzes y miniproyectos evaluados por mentores certificados, porque eso le daría una credencial con peso real ante empleadores. Mathias está dispuesto a pagar una suscripción mensual y considera que el modelo de examen de ingreso para mentores es un diferencial clave que lo haría confiar en la plataforma. Lo que más le interesa es que el mentor haya trabajado específicamente en su área, no solo que tenga buena reputación general.
+Respecto al modelo de Innovify, Mathias lo ve como la solución directa a su problema principal: no quiere más teoría ni más certificados estándar, quiere que alguien con experiencia real confirme que lo que sabe es suficiente. Le parece especialmente valioso el sistema de quizzes y miniproyectos evaluados por Verificadores certificados, porque eso le daría una credencial con peso real ante empleadores. Está dispuesto a pagar una suscripción mensual y considera que el modelo de examen de ingreso para Verificadores es un diferencial clave que lo haría confiar en la plataforma.
 
 Entrevista 3
 
@@ -444,7 +457,13 @@ Nombres: Carlos
 Apellidos: Rojas Valverde
 Edad: 19 años
 Distrito: Miraflores
-<p align="center"> <img src="public/assets/images-doc/entrevista-s1-e3.png" alt="Entrevista Carlos" width="600"> <br> <em>Figura 3. Entrevista 3: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la tercera entrevista al segmento de personas que quieren aprender.</em> </p>
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-s1-e3.png" alt="Entrevista Carlos" width="600">
+  <br>
+  <em>Figura 3. Entrevista 3: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la tercera entrevista al segmento de personas que quieren aprender.</em>
+</p>
+
 URL: https://www.youtube.com/watch?v=wcjn0ionQ-8
 Inicio: 0:00
 Duración: [Completar]
@@ -453,7 +472,7 @@ Resumen descriptivo: Carlos estudia Diseño Gráfico en Toulouse Lautrec y se en
 
 Su mayor frustración es no tener una ruta clara: no sabe exactamente qué debería aprender primero, en qué orden, y cómo saber cuándo ya domina suficientemente una habilidad para poder cobrar por ella. Usa Figma, Adobe Illustrator y Photoshop de forma cotidiana, pero se siente inseguro cuando tiene que describir su nivel de dominio a un cliente o empleador potencial.
 
-Respecto al modelo de Innovify, Carlos valora especialmente la idea de la ruta de aprendizaje generada por IA: quiere que alguien le diga exactamente qué aprender, en qué orden, y cómo demostrar que lo dominó. Le parece muy útil la posibilidad de subir un certificado externo y que la plataforma le genere un miniproyecto para validarlo, porque eso le daría credibilidad real a lo que ya aprendió por su cuenta. Carlos está dispuesto a hacer quizzes y miniproyectos si al final obtiene una credencial verificable con peso ante clientes y empleadores. Lo que más valora del perfil del Verificador es que tenga proyectos reales en su portafolio, no solo títulos o años de experiencia.
+Respecto al modelo de Innovify, Carlos valora especialmente la idea de la ruta de aprendizaje generada por IA: quiere que alguien le diga exactamente qué aprender, en qué orden, y cómo demostrar que lo dominó. Le parece muy útil la posibilidad de subir un certificado externo y que la plataforma le genere un miniproyecto para validarlo, porque eso le daría credibilidad real a lo que ya aprendió por su cuenta. Está dispuesto a hacer quizzes y miniproyectos si al final obtiene una credencial verificable con peso ante clientes y empleadores. Lo que más valora del perfil del Verificador es que tenga proyectos reales en su portafolio, no solo títulos o años de experiencia.
 
 Segmento objetivo #2: Personas que validan el conocimiento
 
@@ -467,7 +486,13 @@ Nombres: Marco
 Apellidos: Guerrero Rodríguez
 Edad: 26 años
 Distrito: San Isidro
-<p align="center"> <img src="public/assets/images-doc/entrevista-s2-e1.png" alt="Entrevista Marco" width="600"> <br> <em>Figura 4. Entrevista 1: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la primera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em> </p>
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-s2-e1.png" alt="Entrevista Marco" width="600">
+  <br>
+  <em>Figura 4. Entrevista 1: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la primera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
+</p>
+
 URL: https://www.youtube.com/watch?v=n53WUVagpE4
 Inicio: 0:00
 Duración: [Completar]
@@ -484,7 +509,13 @@ Nombres: Mariana
 Apellidos: Herrera
 Edad: 28 años
 Distrito: Surco
-<p align="center"> <img src="public/assets/images-doc/entrevista-s2-e2.png" alt="Entrevista Mariana" width="600"> <br> <em>Figura 5. Entrevista 2: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la segunda entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em> </p>
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-s2-e2.png" alt="Entrevista Mariana" width="600">
+  <br>
+  <em>Figura 5. Entrevista 2: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la segunda entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
+</p>
+
 URL: https://www.youtube.com/watch?v=h8Uh3w6U1qE
 Inicio: 0:00
 Duración: [Completar]
@@ -493,7 +524,7 @@ Resumen descriptivo: Mariana es egresada de Contabilidad de la Universidad de Li
 
 Nota: al momento de la entrevista, el modelo de negocio contemplaba una compensación económica directa por cada revisión, por lo que parte de su respuesta original refleja esa expectativa. El hallazgo que sí se mantiene vigente es que su motivación más fuerte no era el dinero en sí, sino el reconocimiento profesional verificable: considera que demostrar que sabe evaluar Excel avanzado y Power BI a otros, con resultados verificables, es una credencial de liderazgo y comunicación que le abre puertas en su carrera profesional.
 
-Mariana está de acuerdo con que el Verificador demuestre primero su propio dominio antes de revisar a otros, aunque reconoce que inicialmente puede parecer una barrera alta. Considera que esa barrera es precisamente lo que garantiza que los estudiantes reciban una revisión de calidad real.
+Está de acuerdo con que el Verificador demuestre primero su propio dominio antes de revisar a otros, aunque reconoce que inicialmente puede parecer una barrera alta. Considera que esa barrera es precisamente lo que garantiza que los estudiantes reciban una revisión de calidad real.
 
 Entrevista 3
 
@@ -501,7 +532,13 @@ Nombres: Sebastián
 Apellidos: Mora Chávez
 Edad: 23 años
 Distrito: Barranco
-<p align="center"> <img src="public/assets/images-doc/entrevista-s2-e3.png" alt="Entrevista Sebastián" width="600"> <br> <em>Figura 6. Entrevista 3: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em> </p>
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-s2-e3.png" alt="Entrevista Sebastián" width="600">
+  <br>
+  <em>Figura 6. Entrevista 3: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
+</p>
+
 URL: [Completar con URL de Microsoft Stream]
 Inicio: 0:00
 Duración: [Completar]
@@ -522,7 +559,13 @@ Nombres: Armando
 Apellidos: Novoa
 Edad: 49 años
 Distrito: San Miguel
-<p align="center"> <img src="public/assets/images-doc/entre-rafa.png" alt="Entrevista Armando" width="600"> <br> <em>Figura 7. YouTube: Entrevista 1 Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la primera persona entrevistada del nivel de Coordinador.</em> </p>
+
+<p align="center">
+  <img src="public/assets/images-doc/entre-rafa.png" alt="Entrevista Armando" width="600">
+  <br>
+  <em>Figura 7. Entrevista 1: Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la primera entrevista al nivel de Coordinador.</em>
+</p>
+
 URL: https://youtu.be/YDpJ_S8Ik2g
 Inicio: 0:00
 Duración: 13 minutos con 54 segundos
@@ -539,7 +582,13 @@ Nombres: Jesús
 Apellidos: Hernández
 Edad: 29 años
 Distrito: Cercado de Lima
-<p align="center"> <img src="public/assets/images-doc/entrevista-victor3-1.png" alt="Entrevista Jesús" width="600"> <br> <em>Figura 8. YouTube: Entrevista 2 Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la segunda persona entrevistada del nivel de Coordinador.</em> </p>
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-victor3-1.png" alt="Entrevista Jesús" width="600">
+  <br>
+  <em>Figura 8. Entrevista 2: Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la segunda entrevista al nivel de Coordinador.</em>
+</p>
+
 URL Parte 1: https://youtu.be/oRoAbwVAjxI | Inicio: 0:00 | Duración: 10m 12s
 URL Parte 2: https://youtu.be/tWd_sJHLAak | Inicio: 0:00 | Duración: 11m 50s
 
@@ -551,7 +600,13 @@ Nombres: Raúl
 Apellidos: Pardo
 Edad: 34 años
 Distrito: San Borja
-<p align="center"> <img src="public/assets/images-doc/entrevista-david1.png" alt="Entrevista Raúl" width="600"> <br> <em>Figura 9. YouTube: Entrevista 3 Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la tercera persona entrevistada del nivel de Coordinador.</em> </p>
+
+<p align="center">
+  <img src="public/assets/images-doc/entrevista-david1.png" alt="Entrevista Raúl" width="600">
+  <br>
+  <em>Figura 9. Entrevista 3: Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Coordinador.</em>
+</p>
+
 URL: https://youtu.be/cP_YiYr2VD8
 Inicio: 0:00
 Duración: 10 minutos con 40 segundos
@@ -559,20 +614,19 @@ Duración: 10 minutos con 40 segundos
 Resumen descriptivo: El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy buena idea y parte fundamental del desarrollo académico que los estudiantes validen mutuamente sus conocimientos. Destacó que las herramientas tecnológicas son productivas para este fin siempre que se les dé un buen uso, priorizando el aprendizaje sobre ventajas deshonestas. También mostró cierta preocupación por la carga que representa para un Verificador revisar casos constantemente, ya que siente que podría impactar negativamente en su propio tiempo y productividad, especialmente en estudiantes con muchas responsabilidades académicas.
 
 2.2.3. Análisis de entrevistas
+
 Segmento objetivo #1: Personas que quieren aprender
 
 1. Características objetivas
-
 Edad: Estudiantes universitarios o egresados recientes, generalmente entre 19 y 24 años (100%).
 Carrera: Diversas carreras universitarias (Ingeniería de Sistemas, Administración, Diseño Gráfico) (100%).
 Etapa: Desde tercer ciclo hasta egresados recientes buscando su primera práctica o empleo (100%).
 Experiencia con plataformas:
 Uso de plataformas de cursos online (Coursera, Udemy, YouTube) (100%).
 Uso de herramientas de IA como ChatGPT para resolver dudas (100%).
-Poca o nula experiencia con mentorías estructuradas y verificadas (100%).
+Poca o nula experiencia con validación práctica supervisada por pares certificados (100%).
 
 2. Características subjetivas
-
 Frustración con los certificados actuales:
 Sienten que los certificados online no reflejan su dominio práctico real (100%).
 Han enfrentado situaciones donde no pudieron aplicar lo que "aprendieron" en entrevistas técnicas o proyectos reales (100%).
@@ -582,39 +636,39 @@ No saben a quién recurrir cuando se bloquean en un sub-tema específico (100%).
 Los recursos actuales (foros, ChatGPT) dan respuestas genéricas que no aplican a su situación exacta (66%).
 Sus pares están en la misma situación y no pueden darles orientación de nivel superior (33%).
 Valoración del modelo de validación práctica:
-Están dispuestos a pagar una suscripción mensual si garantiza evaluaciones prácticas y mentores verificados (100%).
+Están dispuestos a pagar una suscripción mensual si garantiza evaluaciones prácticas y Verificadores certificados (100%).
 Prefieren una credencial que muestre qué habilidades demostraron sobre un certificado estándar (100%).
-Valoran el modelo de examen de ingreso para mentores como garantía de calidad (100%).
-Preferencias sobre el mentor:
-Priorizan que el mentor tenga experiencia real en su área (proyectos, empresas) sobre la cantidad de reseñas (100%).
-Prefieren una sesión de refuerzo quirúrgica enfocada en el sub-tema donde fallaron, no repetir el curso (100%).
-Valoran ver portafolio de proyectos reales del mentor antes de contactarlo (66%).
-Característica	% Entrevistados	Fuente / Frase de entrevista
-Frustración por brecha certificado vs. dominio real	100%	"Tenía el certificado pero en la entrevista técnica me bloqueé."
-Disposición a pagar suscripción mensual	100%	"Pagaría si eso me garantiza mentores reales y evaluaciones prácticas."
-Preferencia por credencial verificable sobre certificado estándar	100%	"Eso tendría más peso ante un empleador que un PDF de Coursera."
-Valoración del examen de ingreso para mentores	100%	"Eso me daría confianza de que realmente sabe lo que enseña."
-Preferencia por refuerzo quirúrgico (sub-tema específico)	100%	"No quiero repasar todo el curso, solo donde fallé."
-Uso de ChatGPT como apoyo de aprendizaje	100%	"Lo uso para redactar y resolver dudas, pero no sé si está bien."
-Prioriza experiencia real del mentor sobre reseñas	100%	"Prefiero que haya trabajado en mi área aunque tenga menos reseñas."
-Necesidad de ruta estructurada de aprendizaje	66%	"Quiero que alguien me diga qué aprender, en qué orden."
-Inseguridad al aplicar lo aprendido en práctica real	66%	"Aprendí Python pero no sé si lo que hago está bien o funciona de casualidad."
+Valoran el modelo de examen de ingreso para Verificadores como garantía de calidad (100%).
+Preferencias sobre el Verificador:
+Priorizan que el Verificador tenga experiencia real en su área (proyectos, empresas) sobre la cantidad de casos resueltos (100%).
+Prefieren una revisión enfocada en el sub-tema donde fallaron, no repetir el curso completo (100%).
+Valoran ver portafolio de proyectos reales del Verificador antes de que les sea asignado (66%).
 
-(Tabla 4. Principales hallazgos de entrevistas a personas que quieren aprender - Elaboración propia. Nota: La tabla resume los comportamientos, percepciones y preferencias identificadas en las entrevistas al segmento aprendiz.)
+| Característica | % Entrevistados | Fuente / Frase de entrevista |
+|:---|:---|:---|
+| Frustración por brecha certificado vs. dominio real | 100% | "Tenía el certificado pero en la entrevista técnica me bloqueé." |
+| Disposición a pagar suscripción mensual | 100% | "Pagaría si eso me garantiza Verificadores reales y evaluaciones prácticas." |
+| Preferencia por credencial verificable sobre certificado estándar | 100% | "Eso tendría más peso ante un empleador que un PDF de Coursera." |
+| Valoración del examen de ingreso para Verificadores | 100% | "Eso me daría confianza de que realmente sabe lo que evalúa." |
+| Preferencia por revisión quirúrgica (sub-tema específico) | 100% | "No quiero repasar todo el curso, solo donde fallé." |
+| Uso de ChatGPT como apoyo de aprendizaje | 100% | "Lo uso para resolver dudas, pero no sé si la respuesta está bien." |
+| Prioriza experiencia real del Verificador sobre cantidad de casos | 100% | "Prefiero que haya trabajado en mi área aunque tenga menos casos resueltos." |
+| Necesidad de ruta estructurada de aprendizaje | 66% | "Quiero que alguien me diga qué aprender, en qué orden." |
+| Inseguridad al aplicar lo aprendido en práctica real | 66% | "Aprendí Python pero no sé si lo que hago está bien o funciona de casualidad." |
+
+(Tabla 4. Principales hallazgos de entrevistas a personas que quieren aprender - Elaboración propia.)
 
 Segmento objetivo #2: Personas que validan el conocimiento
 
 Nivel 1 — Verificador
 
 1. Características objetivas
-
 Edad: Estudiantes avanzados o egresados recientes, entre 23 y 28 años (100%).
 Carrera: Diversas áreas (Ingeniería de Software, Contabilidad, Comunicaciones) (100%).
 Experiencia: Todos tienen experiencia ayudando a otros de forma informal (por WhatsApp, grupos de estudio, asesorías no estructuradas) (100%).
 Habilidades digitales: Usan WhatsApp, Zoom y Drive como principales herramientas para ayudar a distancia (100%).
 
 2. Características subjetivas
-
 Motivaciones para actuar como Verificador:
 Reconocimiento profesional verificable (SkillCredits en LinkedIn) como incentivo principal (100%).
 Ser reconocidos de forma estructurada y transparente por su participación (100%).
@@ -624,236 +678,225 @@ Falta de estructura y reconocimiento formal por ayudar a otros (100%).
 Recibir personas sin el nivel mínimo necesario, lo que hace las revisiones ineficientes (100%).
 Dificultad para gestionar logística (horarios, herramientas) sin una plataforma dedicada (66%).
 Valoración del modelo de Innovify:
-De acuerdo con que el Verificador certifique previamente su propia ruta como garantía de calidad del ecosistema (100%).
+De acuerdo con que el Verificador certifique previamente su propia ruta como garantía de calidad (100%).
 Valoran recibir información precisa sobre el error específico del estudiante antes de asignarles el caso (100%).
 Consideran que la asignación automática por especialidad es más eficiente que recibir solicitudes genéricas (100%).
-Perfil al validar:
-Adaptan su forma de explicar según el nivel de la persona (100%).
-Prefieren casos con un objetivo claro y definido de antemano (66%).
-Valoran la supervisión de proyectos avanzados además de la revisión de casos puntuales (33%).
-Característica	% Entrevistados	Fuente / Frase de entrevista
-Motivación principal: reconocimiento profesional (SkillCredits)	100%	"Lo que más me atrae es poder demostrar en LinkedIn que sé enseñar, no solo que sé hacer."
-Experiencia ayudando informalmente	100%	"He ayudado a compañeros pero todo por WhatsApp, sin estructura ni reconocimiento."
-Acuerdo con la certificación previa exigida al Verificador	100%	"Eso es lo que le da valor al ecosistema, que no cualquiera puede entrar."
-Frustración por personas sin nivel mínimo	100%	"Pierdo tiempo explicando fundamentos que deberían ya saber."
-Valoración de la asignación inteligente por especialidad	100%	"Prefiero que me lleguen los casos que encajan exactamente con lo que domino."
-Valoración de información previa sobre el error del estudiante	100%	"Si sé en qué falló puedo preparar algo quirúrgico, no repasar todo."
-Motivación económica como secundaria	100%	"Las comisiones están bien, pero no es mi principal motivación."
-Frustración por falta de reconocimiento formal	100%	"Nadie sabe que enseño bien porque no hay forma de demostrarlo."
-Preferencia por casos con objetivo claro definido	66%	"Quiero saber de qué va la sesión antes de aceptarla."
-Interés en supervisar proyectos avanzados	33%	"Me interesaría supervisar proyectos finales, no solo refuerzos puntuales."
 
-(Tabla 5. Principales hallazgos de entrevistas al nivel de Verificador - Elaboración propia. Nota: La tabla sintetiza las motivaciones, frustraciones y necesidades expresadas por los Verificadores entrevistados. Las citas se conservan tal como fueron registradas durante la entrevista original.)
+| Característica | % Entrevistados | Fuente / Frase de entrevista |
+|:---|:---|:---|
+| Motivación principal: reconocimiento profesional (SkillCredits) | 100% | "Lo que más me atrae es poder demostrar en LinkedIn que sé evaluar, no solo que sé hacer." |
+| Experiencia ayudando informalmente | 100% | "He ayudado a compañeros pero todo por WhatsApp, sin estructura ni reconocimiento." |
+| Acuerdo con la certificación previa exigida al Verificador | 100% | "Eso es lo que le da valor al ecosistema, que no cualquiera puede entrar." |
+| Frustración por personas sin nivel mínimo | 100% | "Pierdo tiempo explicando fundamentos que deberían ya saber." |
+| Valoración de la asignación inteligente por especialidad | 100% | "Prefiero que me lleguen los casos que encajan exactamente con lo que domino." |
+| Valoración de información previa sobre el error del estudiante | 100% | "Si sé en qué falló puedo preparar algo quirúrgico, no repasar todo." |
+| Motivación económica como secundaria | 100% | "Los SkillCredits me motivan más que una comisión directa." |
+| Frustración por falta de reconocimiento formal | 100% | "Nadie sabe que reviso bien porque no hay forma de demostrarlo." |
+| Preferencia por casos con objetivo claro definido | 66% | "Quiero saber de qué va el caso antes de aceptarlo." |
+| Interés en supervisar proyectos avanzados | 33% | "Me interesaría supervisar proyectos finales, no solo revisiones puntuales." |
+
+(Tabla 5. Principales hallazgos de entrevistas al nivel de Verificador - Elaboración propia.)
 
 Nivel 2 — Coordinador
 
 1. Características objetivas
-
-Edad y rol:
-Profesionales entre 29 y 53 años (100%).
-Docentes, coordinadores o jefes de práctica (100%).
-Ámbito laboral:
-Universidades (100%).
-Responsabilidades:
-Supervisión del aprendizaje (100%).
-Garantizar integridad académica (100%).
-Evaluación del desempeño (100%).
-Relación con tecnología:
-Uso de herramientas digitales educativas (100%).
-Sistemas de control académico (100%).
+Edad y rol: Profesionales entre 29 y 53 años (100%). Docentes, coordinadores o jefes de práctica (100%).
+Ámbito laboral: Universidades (100%).
+Responsabilidades: Supervisión del aprendizaje (100%). Garantizar integridad académica (100%). Evaluación del desempeño (100%).
+Relación con tecnología: Uso de herramientas digitales educativas (100%). Sistemas de control académico (100%).
 
 2. Características subjetivas
+Percepción de la validación de habilidades entre pares: Considerada fundamental (100%). Positiva colaboración interuniversitaria (100%). Mejora la preparación profesional (66%).
+Preocupaciones: Plagio, fraude y suplantación (100%). Uso indebido de tecnología (100%). Información poco confiable (100%). Riesgo reputacional (66%).
+Barreras: Validación de estudiantes (100%). Carga operativa (67%). Costos (67%). Necesidad de automatización (33%).
+Requisitos de la plataforma: Verificación de identidad (100%). Validación académica (100%). Políticas claras (100%). Trazabilidad de interacciones (100%). Panel de monitoreo (100%).
 
-Percepción de la validación de habilidades entre pares:
-Considerada fundamental (100%).
-Positiva colaboración interuniversitaria (100%).
-Mejora la preparación profesional (66%).
-Preocupaciones:
-Plagio, fraude y suplantación (100%).
-Uso indebido de tecnología (100%).
-Información poco confiable (100%).
-Riesgo reputacional (66%).
-Barreras:
-Validación de estudiantes (100%).
-Carga operativa (67%).
-Costos (67%).
-Necesidad de automatización (33%).
-Limitaciones del estudiante:
-Falta de tiempo (100%).
-Mala gestión del tiempo (100%).
-Problemas de trabajo en equipo (66%).
-Requisitos de la plataforma:
-Verificación de identidad (100%).
-Validación académica (100%).
-Políticas claras (100%).
-Trazabilidad de interacciones (100%).
-Panel de monitoreo (100%).
-Condiciones de aceptación:
-Enfoque en aprendizaje (100%).
-Marco ético claro (100%).
-No afectar rendimiento (66%).
-No sobrecargar usuarios (66%).
-Característica	% entrevistados	Insight clave
-Validación de habilidades entre pares	100%	Fundamental
-Colaboración interuniversitaria	100%	Positiva si se controla
-Preocupación por fraude	100%	Riesgo principal
-Validación de identidad	100%	Requisito crítico
-Uso responsable de tecnología	100%	Condición base
-Riesgo reputacional	66%	Preocupación relevante
-Problemas de tiempo	100%	Limita uso
-Sistema de monitoreo	100%	Necesario
-Carga operativa	67%	Barrera
-Segmentación académica	33%	Mejora pertinencia
+| Característica | % entrevistados | Insight clave |
+|:---|:---|:---|
+| Validación de habilidades entre pares | 100% | Fundamental |
+| Colaboración interuniversitaria | 100% | Positiva si se controla |
+| Preocupación por fraude | 100% | Riesgo principal |
+| Validación de identidad | 100% | Requisito crítico |
+| Uso responsable de tecnología | 100% | Condición base |
+| Riesgo reputacional | 66% | Preocupación relevante |
+| Problemas de tiempo | 100% | Limita uso |
+| Sistema de monitoreo | 100% | Necesario |
+| Carga operativa | 67% | Barrera |
+| Segmentación académica | 33% | Mejora pertinencia |
 
 (Tabla 6. Principales hallazgos del nivel de Coordinador - Elaboración propia.)
 
+2.3. Needfinding
+
+Para el proceso de needfinding se realizaron entrevistas a los dos segmentos principales de usuarios identificados: personas que quieren aprender (Estudiantes) y personas que validan el conocimiento (Verificador y Coordinador). El objetivo principal fue indagar en las motivaciones, frustraciones y necesidades de todos los perfiles en relación con la validación práctica de habilidades y el reconocimiento profesional.
+
 2.3.1. User Personas
 
-Los User Personas fueron construidos a partir de los patrones identificados en las entrevistas realizadas a los segmentos objetivo. Cada arquetipo refleja las características demográficas, motivaciones, frustraciones y objetivos más representativos de su segmento, sirviendo como referencia central para las decisiones de diseño y desarrollo de la plataforma. Dado que el Segmento 2 (Personas que validan el conocimiento) agrupa dos niveles de participación —Verificador y Coordinador—, se presenta una ficha de persona para cada uno.
+Los User Personas fueron construidos a partir de los patrones identificados en las entrevistas realizadas a los segmentos objetivo. Cada arquetipo refleja las características demográficas, motivaciones, frustraciones y objetivos más representativos de su segmento, sirviendo como referencia central para las decisiones de diseño y desarrollo de la plataforma. Dado que el Segmento 2 agrupa dos niveles —Verificador y Coordinador—, se presenta una ficha de persona para cada uno.
 
 Segmento 1 — Personas que quieren aprender
 
-<p align="center"> <img src="public/assets/images-doc/user1-app.png" alt="User Persona Estudiante" width="800"> <br> <em>Figura 7. User Persona - Personas que quieren aprender - Elaboración propia.</em> </p>
+<p align="center">
+  <img src="public/assets/images-doc/user1-app.png" alt="User Persona Estudiante" width="800">
+  <br>
+  <em>Figura 7. User Persona - Personas que quieren aprender - Elaboración propia.</em>
+</p>
 
-El arquetipo de Valeria Ramos representa al segmento de estudiantes: estudiante universitaria de 22 años, con certificados online que no puede convertir en evidencia creíble de dominio práctico. Sus objetivos son demostrar habilidades reales ante empleadores, seguir una ruta de aprendizaje estructurada por IA y recibir una revisión puntual de un Verificador cuando la evaluación automática no logra confirmar su dominio. Sus principales frustraciones son la brecha entre el certificado y el dominio real, no saber si está aprendiendo bien, y la dificultad de encontrar una forma confiable de validar sus conocimientos en áreas específicas. <br><br>
+El arquetipo de Valeria Ramos representa al segmento de estudiantes: estudiante universitaria de 22 años, con certificados online que no puede convertir en evidencia creíble de dominio práctico ante el mercado laboral. Sus objetivos son demostrar habilidades reales ante empleadores, seguir una ruta de aprendizaje estructurada por IA y recibir una revisión puntual de un Verificador cuando la evaluación automática no logra confirmar su dominio. Sus principales frustraciones son la brecha entre el certificado y el dominio real, no saber si está aprendiendo correctamente, y la dificultad de encontrar una forma confiable de validar sus conocimientos en áreas específicas.
 
 Segmento 2 — Personas que validan el conocimiento
 
 Nivel 1 — Verificador
 
-<p align="center"> <img src="public/assets/images-doc/user2-app.png" alt="User Persona Verificador" width="800"> <br> <em>Figura 8. User Persona - Verificador - Elaboración propia.</em> </p>
+<p align="center">
+  <img src="public/assets/images-doc/user2-app.png" alt="User Persona Verificador" width="800">
+  <br>
+  <em>Figura 8. User Persona - Verificador - Elaboración propia.</em>
+</p>
 
-El arquetipo de Carlos Mendoza representa al nivel de Verificador dentro del segmento: estudiante avanzado de 25 años, con dominio técnico sólido y experiencia informal ayudando a otros sin reconocimiento formal. Sus objetivos son construir una reputación profesional verificable mediante SkillCredits, obtener casos que encajen con su especialidad mediante la asignación automática de la plataforma, y pertenecer a un ecosistema riguroso que valide su nivel de dominio. Sus principales frustraciones son la falta de estructura en los modelos informales, recibir casos fuera de su área de dominio, y no tener credenciales que acrediten su capacidad de revisión. <br><br>
+El arquetipo de Carlos Mendoza representa al nivel de Verificador dentro del segmento: estudiante avanzado de 25 años, con dominio técnico sólido y experiencia informal ayudando a otros sin reconocimiento formal. Sus objetivos son construir una reputación profesional verificable mediante SkillCredits, obtener casos que encajen con su especialidad mediante la asignación automática de la plataforma, y pertenecer a un ecosistema riguroso que valide su nivel de dominio. Sus principales frustraciones son la falta de estructura en los modelos informales, recibir casos fuera de su área de dominio, y no tener credenciales que acrediten su capacidad de revisión.
 
 Nivel 2 — Coordinador
 
-<p align="center"> <img src="public/assets/images-doc/user3-app.png" alt="User Persona Coordinador" width="800"> <br> <em>Figura 9. User Persona - Coordinador - Elaboración propia.</em> </p>
+<p align="center">
+  <img src="public/assets/images-doc/user3-app.png" alt="User Persona Coordinador" width="800">
+  <br>
+  <em>Figura 9. User Persona - Coordinador - Elaboración propia.</em>
+</p>
 
-El arquetipo de Jorge Ríos representa al nivel de Coordinador dentro del segmento: docente y coordinador académico de 47 años, responsable de supervisar la calidad del proceso de verificación y garantizar la integridad institucional. Sus objetivos son asegurar que los Verificadores mantengan una confiabilidad alta, resolver disputas sobre certificados sospechosos o decisiones apeladas, y acceder a métricas agregadas de la plataforma para tomar decisiones informadas. Sus principales preocupaciones son el fraude, la suplantación de identidad, la carga operativa de los procesos de validación manual y el riesgo reputacional para la institución. <br><br>
+El arquetipo de Jorge Ríos representa al nivel de Coordinador dentro del segmento: docente y coordinador académico de 47 años, responsable de supervisar la calidad del proceso de verificación y garantizar la integridad institucional. Sus objetivos son asegurar que los Verificadores mantengan una confiabilidad alta, resolver disputas sobre certificados sospechosos o decisiones apeladas, y acceder a métricas agregadas de la plataforma para tomar decisiones informadas. Sus principales preocupaciones son el fraude, la suplantación de identidad, la carga operativa de los procesos de validación manual y el riesgo reputacional para la institución.
 
-En conjunto, los arquetipos de usuario presentados permiten comprender de manera clara las necesidades, motivaciones y desafíos de los dos segmentos objetivo de Innovify. El perfil del Estudiante orienta el diseño hacia rutas de aprendizaje estructuradas, evaluaciones prácticas generadas por IA y acceso a una revisión puntual cuando se produce un bloqueo específico. Dentro del segmento que valida el conocimiento, el perfil del Verificador establece los lineamientos necesarios para un sistema de reconocimiento profesional verificable y una asignación automática de casos que garantice la calidad del ecosistema, mientras que el perfil del Coordinador define los requerimientos para las herramientas de supervisión, resolución de disputas y monitoreo de calidad que garantizan la integridad del sistema. En conjunto, estos arquetipos permiten alinear el desarrollo con usuarios reales y diversos, asegurando una solución centrada en la experiencia, la eficiencia operativa y el equilibrio entre aprendizaje, verificación y supervisión.
+En conjunto, los arquetipos de usuario presentados permiten comprender de manera clara las necesidades, motivaciones y desafíos de los dos segmentos objetivo de Innovify. El perfil del Estudiante orienta el diseño hacia rutas de aprendizaje estructuradas, evaluaciones prácticas generadas por IA y acceso a una revisión puntual cuando se produce un bloqueo específico. Dentro del segmento que valida el conocimiento, el perfil del Verificador establece los lineamientos necesarios para un sistema de reconocimiento profesional verificable y una asignación automática de casos que garantice la calidad del ecosistema, mientras que el perfil del Coordinador define los requerimientos para las herramientas de supervisión, resolución de disputas y monitoreo de calidad. En conjunto, estos arquetipos permiten alinear el desarrollo con usuarios reales y diversos, asegurando una solución centrada en la experiencia, la eficiencia operativa y el equilibrio entre aprendizaje, verificación y supervisión.
 
 2.3.2. User Task Matrix
 
-En el User Task Matrix se consideran los dos segmentos objetivo: personas que quieren aprender y personas que validan el conocimiento (con sus dos niveles, Verificador y Coordinador), evaluando sus tareas clave según frecuencia e importancia. Los estudiantes priorizan buscar recursos de aprendizaje, validar su nivel real y obtener una revisión puntual cuando se bloquean. Los Verificadores priorizan mantener su dominio técnico actualizado, revisar casos de forma efectiva y construir su reputación profesional, mientras que los Coordinadores priorizan garantizar la integridad académica y supervisar la calidad del proceso de verificación. Todos coinciden en el uso de herramientas digitales y en la necesidad de conexión con personas de nivel verificado, aunque con objetivos distintos según su rol.
+En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus tareas clave según frecuencia e importancia. Los estudiantes priorizan buscar recursos de aprendizaje, validar su nivel real y obtener una revisión puntual cuando se bloquean. Los Verificadores priorizan mantener su dominio técnico actualizado y construir su reputación profesional, mientras que los Coordinadores priorizan garantizar la integridad académica y supervisar la calidad del proceso de verificación.
 
 Segmento objetivo #1: Personas que quieren aprender
-Tasks	Mireya
-Frecuencia	Mireya
-Importancia	Mathias
-Frecuencia	Mathias
-Importancia	Carlos
-Frecuencia	Carlos
-Importancia
-Buscar recursos de aprendizaje en internet	Muy alta	Alta	Muy alta	Alta	Muy alta	Alta
-Tomar cursos online y obtener certificados	Alta	Alta	Alta	Muy alta	Media	Alta
-Aplicar lo aprendido en proyectos o ejercicios prácticos	Media	Muy alta	Media	Muy alta	Alta	Muy alta
-Validar sus conocimientos mediante evaluaciones prácticas	Media	Muy alta	Alta	Muy alta	Media	Alta
-Prepararse para entrevistas técnicas o portfolios	Media	Muy alta	Alta	Muy alta	Media	Alta
-Identificar exactamente en qué sub-tema está fallando	Baja	Muy alta	Baja	Muy alta	Baja	Alta
-Validar que lo que aprendió es suficiente para el mercado	Media	Muy alta	Alta	Muy alta	Media	Muy alta
 
-(Tabla 4. Tareas y prioridades de las personas que quieren aprender - Elaboración propia.)
+| Tasks | Mireya Frecuencia | Mireya Importancia | Mathias Frecuencia | Mathias Importancia | Carlos Frecuencia | Carlos Importancia |
+|:---|:---|:---|:---|:---|:---|:---|
+| Buscar recursos de aprendizaje en internet | Muy alta | Alta | Muy alta | Alta | Muy alta | Alta |
+| Tomar cursos online y obtener certificados | Alta | Alta | Alta | Muy alta | Media | Alta |
+| Aplicar lo aprendido en proyectos o ejercicios prácticos | Media | Muy alta | Media | Muy alta | Alta | Muy alta |
+| Validar sus conocimientos mediante evaluaciones prácticas | Media | Muy alta | Alta | Muy alta | Media | Alta |
+| Prepararse para entrevistas técnicas o portfolios | Media | Muy alta | Alta | Muy alta | Media | Alta |
+| Identificar exactamente en qué sub-tema está fallando | Baja | Muy alta | Baja | Muy alta | Baja | Alta |
+| Validar que lo que aprendió es suficiente para el mercado | Media | Muy alta | Alta | Muy alta | Media | Muy alta |
+
+(Tabla 7. Tareas y prioridades de las personas que quieren aprender - Elaboración propia.)
 
 Segmento objetivo #2: Personas que validan el conocimiento
 
 Nivel 1 — Verificador
 
-Tasks	Marco
-Frecuencia	Marco
-Importancia	Lucía
-Frecuencia	Lucía
-Importancia	Sebastián
-Frecuencia	Sebastián
-Importancia
-Mantener y actualizar el dominio técnico propio	Muy alta	Muy alta	Alta	Muy alta	Muy alta	Muy alta
-Preparar la revisión o explicación de un caso	Media	Alta	Media	Alta	Media	Alta
-Ayudar o revisar el trabajo de alguien a distancia	Media	Alta	Baja	Alta	Media	Alta
-Gestionar logística de la revisión (horarios, herramientas)	Media	Media	Media	Alta	Media	Media
-Construir reputación profesional verificable	Baja	Muy alta	Media	Muy alta	Alta	Muy alta
-Obtener SkillCredits por casos resueltos	Baja	Alta	Alta	Muy alta	Media	Alta
-Identificar el vacío específico del estudiante antes del caso	Baja	Muy alta	Baja	Alta	Baja	Alta
+| Tasks | Marco Frecuencia | Marco Importancia | Mariana Frecuencia | Mariana Importancia | Sebastián Frecuencia | Sebastián Importancia |
+|:---|:---|:---|:---|:---|:---|:---|
+| Mantener y actualizar el dominio técnico propio | Muy alta | Muy alta | Alta | Muy alta | Muy alta | Muy alta |
+| Preparar la revisión o explicación de un caso | Media | Alta | Media | Alta | Media | Alta |
+| Ayudar o revisar el trabajo de alguien a distancia | Media | Alta | Baja | Alta | Media | Alta |
+| Gestionar logística de la revisión (horarios, herramientas) | Media | Media | Media | Alta | Media | Media |
+| Construir reputación profesional verificable | Baja | Muy alta | Media | Muy alta | Alta | Muy alta |
+| Obtener SkillCredits por casos resueltos | Baja | Alta | Alta | Muy alta | Media | Alta |
+| Identificar el vacío específico del estudiante antes del caso | Baja | Muy alta | Baja | Alta | Baja | Alta |
 
-(Tabla 5. Tareas y motivaciones del nivel de Verificador - Elaboración propia.)
+(Tabla 8. Tareas y motivaciones del nivel de Verificador - Elaboración propia.)
 
 Nivel 2 — Coordinador
 
-Tasks	Armando
-Frecuencia	Armando
-Importancia	Jesús
-Frecuencia	Jesús
-Importancia	Raúl
-Frecuencia	Raúl
-Importancia
-Guiar a estudiantes en la aplicación práctica de conceptos mediante casos y simulaciones	Muy alta	Muy alta	Muy alta	Muy alta	Alta	Muy alta
-Enseñar a gestionar el tiempo y organizarse eficientemente	Media	Alta	Muy alta	Alta	Media-Alta	Alta
-Fomentar el trabajo en equipo y habilidades de comunicación	Media	Alta	Alta	Alta	Alta	Alta
-Garantizar acceso a información confiable y enseñar a evaluarla críticamente	Media	Muy alta	Alta	Muy alta	Media	Alta
-Verificar certificados y resolver disputas sobre decisiones de Verificadores	Baja-Media	Alta	Media	Alta	Alta	Alta
-Implementar herramientas digitales y plazos que faciliten la organización	Media	Alta	Alta	Alta	Alta	Muy alta
+| Tasks | Armando Frecuencia | Armando Importancia | Jesús Frecuencia | Jesús Importancia | Raúl Frecuencia | Raúl Importancia |
+|:---|:---|:---|:---|:---|:---|:---|
+| Guiar a estudiantes en la aplicación práctica de conceptos | Muy alta | Muy alta | Muy alta | Muy alta | Alta | Muy alta |
+| Enseñar a gestionar el tiempo y organizarse eficientemente | Media | Alta | Muy alta | Alta | Media-Alta | Alta |
+| Fomentar el trabajo en equipo y habilidades de comunicación | Media | Alta | Alta | Alta | Alta | Alta |
+| Garantizar acceso a información confiable | Media | Muy alta | Alta | Muy alta | Media | Alta |
+| Verificar certificados y resolver disputas sobre decisiones de Verificadores | Baja-Media | Alta | Media | Alta | Alta | Alta |
+| Implementar herramientas digitales que faciliten la organización | Media | Alta | Alta | Alta | Alta | Muy alta |
 
-(Tabla 6. Funciones y prioridades del nivel de Coordinador - Elaboración propia.)
-
-Conclusión
+(Tabla 9. Funciones y prioridades del nivel de Coordinador - Elaboración propia.)
 
 Las tareas más frecuentes e importantes son:
-
 Estudiantes: Buscar recursos de aprendizaje y aplicar lo aprendido en proyectos prácticos son las más frecuentes. Identificar exactamente en qué sub-tema están fallando y validar que lo aprendido es suficiente para el mercado son las más importantes aunque poco frecuentes, porque actualmente no tienen herramientas para hacerlo.
 Verificadores: Mantener el dominio técnico propio es la tarea más frecuente e importante. Construir reputación profesional verificable es altamente importante pero actualmente poco frecuente porque no existe un mecanismo para hacerlo.
 Coordinadores: Guiar mediante casos prácticos y verificar la integridad académica son las tareas más frecuentes e importantes. Todos coinciden en requerir herramientas digitales que reduzcan la carga operativa y automaticen los procesos de validación.
 
-Todos los segmentos coinciden en el uso intensivo de herramientas digitales y en la necesidad de conexión con personas de nivel verificado, aunque cada grupo lo aplica desde roles distintos del mismo ecosistema.
-
 2.3.3. User Journey Mapping
 
-En esta sección se presentan los User Journey Maps As-Is de cada User Persona, mostrando el recorrido completo (end-to-end) de los usuarios en la situación actual, sin intervención de la solución de Innovify, lo que incluye procesos, puntos de dolor y oportunidades.
+En esta sección se presentan los User Journey Maps As-Is de cada User Persona, mostrando el recorrido completo de los usuarios en la situación actual, sin intervención de la solución de Innovify.
 
-Segmento 1: Personas que quieren aprender. Inicia con la decisión de aprender una habilidad específica, continúa con la búsqueda y toma de cursos online, la obtención de un certificado que no puede convertir en evidencia práctica, el bloqueo en sub-temas específicos sin saber a quién recurrir, y culmina con la frustración de no poder demostrar el dominio real ante empleadores o clientes.
-Segmento 2, Nivel 1 — Verificador. Comienza con la motivación de compartir su dominio técnico y ganar reconocimiento profesional, pero enfrenta la falta de estructura en los modelos informales, la dificultad para llegar a personas con nivel mínimo adecuado, la ausencia de reconocimiento formal por su labor y la imposibilidad de acreditar su capacidad de evaluación de forma verificable.
-Segmento 2, Nivel 2 — Coordinador. Inicia su recorrido al identificar la necesidad de mantener la calidad académica y garantizar la integridad del proceso de verificación. Continúa con la planeación y preparación de estrategias, pero enfrenta complejidades al anticipar errores operativos. Durante la implementación y coordinación, sufre de sobrecarga operativa y riesgos de fraude o certificados falsos, para finalmente en la etapa de supervisión y evaluación, lidiar con limitaciones operativas y la dificultad de medir el impacto real de sus esfuerzos.
+Segmento 1 — Personas que quieren aprender: Inicia con la decisión de aprender una habilidad específica, continúa con la búsqueda y toma de cursos online, la obtención de un certificado que no puede convertir en evidencia práctica, el bloqueo en sub-temas específicos sin saber a quién recurrir, y culmina con la frustración de no poder demostrar el dominio real ante empleadores o clientes.
+
+Segmento 2, Nivel 1 — Verificador: Comienza con la motivación de compartir su dominio técnico y ganar reconocimiento profesional, pero enfrenta la falta de estructura en los modelos informales, la dificultad para llegar a personas con nivel mínimo adecuado, la ausencia de reconocimiento formal por su labor y la imposibilidad de acreditar su capacidad de evaluación de forma verificable.
+
+Segmento 2, Nivel 2 — Coordinador: Inicia su recorrido al identificar la necesidad de mantener la calidad académica y garantizar la integridad del proceso de verificación. Enfrenta complejidades al anticipar errores operativos, sufre de sobrecarga operativa y riesgos de fraude o certificados falsos, y finalmente lidia con limitaciones operativas y la dificultad de medir el impacto real de sus esfuerzos.
+
 Segmento #1: Personas que quieren aprender
-<p align="center"> <img src="public/assets/images-doc/jur1-app.png" alt="Journey Map Estudiante" width="800"> <br> <em>Figura 9. User Journey Mapping – Personas que quieren aprender - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del primer segmento del nuevo proyecto Innovify.</em> </p> <br>
 
-En esta figura se observa el recorrido de Valeria a través de cinco etapas críticas: decisión de aprender, búsqueda de recursos, obtención del certificado, bloqueo en la práctica real y búsqueda de validación. El diagrama detalla la curva emocional del usuario, identificando puntos de dolor como la incertidumbre sobre si está aprendiendo correctamente, la frustración al no poder demostrar el dominio en situaciones reales y la dificultad para encontrar una forma confiable de validar exactamente el sub-tema donde se bloqueó.
+<p align="center">
+  <img src="public/assets/images-doc/jur1-app.png" alt="Journey Map Estudiante" width="800">
+  <br>
+  <em>Figura 10. User Journey Mapping – Personas que quieren aprender - Elaboración propia.</em>
+</p>
+
+En esta figura se observa el recorrido de Valeria a través de cinco etapas críticas: decisión de aprender, búsqueda de recursos, obtención del certificado, bloqueo en la práctica real y búsqueda de validación. El diagrama detalla la curva emocional del arquetipo, identificando puntos de dolor como la incertidumbre sobre si está aprendiendo correctamente, la frustración al no poder demostrar el dominio en situaciones reales y la dificultad para encontrar una forma confiable de validar exactamente el sub-tema donde se bloqueó.
 
 Segmento #2, Nivel 1: Verificador
-<p align="center"> <img src="public/assets/images-doc/jur2-app.png" alt="Journey Map Verificador" width="800"> <br> <em>Figura 10. User Journey Mapping – Nivel Verificador - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del nivel de Verificador dentro del segundo segmento del nuevo proyecto Innovify.</em> </p> <br>
+
+<p align="center">
+  <img src="public/assets/images-doc/jur2-app.png" alt="Journey Map Verificador" width="800">
+  <br>
+  <em>Figura 11. User Journey Mapping – Nivel Verificador - Elaboración propia.</em>
+</p>
 
 En esta figura se visualiza la experiencia de Carlos desde la perspectiva del Verificador. El mapa describe el proceso desde la motivación inicial de ayudar a otros, pasando por la gestión informal y desorganizada de esa ayuda, la frustración por recibir personas sin nivel mínimo, hasta la ausencia total de reconocimiento formal o credencial verificable que acredite su capacidad de evaluación.
 
-<br>
 Segmento #2, Nivel 2: Coordinador
-<p align="center"> <img src="public/assets/images-doc/jur3-app.png" alt="Journey Map Coordinador" width="800"> <br> <em>Figura 11. User Journey Mapping - Nivel Coordinador - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del nivel de Coordinador dentro del segundo segmento del nuevo proyecto Innovify.</em> </p> <br>
 
-En esta figura se detalla el flujo de gestión de Jorge desde el ángulo académico y de calidad institucional. El mapa abarca la planeación, implementación y supervisión del proceso de verificación, poniendo énfasis en la mitigación de riesgos operativos como el fraude y los certificados falsos. Se identifican puntos de dolor como la sobrecarga operativa de los procesos de validación manual, la dificultad para medir el impacto real de los Verificadores y la ausencia de herramientas tecnológicas que automaticen la verificación de certificados y el monitoreo de casos.
+<p align="center">
+  <img src="public/assets/images-doc/jur3-app.png" alt="Journey Map Coordinador" width="800">
+  <br>
+  <em>Figura 12. User Journey Mapping – Nivel Coordinador - Elaboración propia.</em>
+</p>
 
-<br>
+En esta figura se detalla el flujo de gestión de Jorge desde el ángulo académico y de calidad institucional. El mapa abarca la planeación, implementación y supervisión del proceso de verificación, poniendo énfasis en la mitigación de riesgos operativos como el fraude y los certificados falsos. Se identifican puntos de dolor como la sobrecarga operativa de los procesos de validación manual y la ausencia de herramientas tecnológicas que automaticen la verificación de certificados y el monitoreo de casos.
 
-Entonces, los mapas de experiencia presentados permiten comprender de manera integral cómo interactúan los distintos actores con el ecosistema de aprendizaje y validación de habilidades en la situación actual. Desde la perspectiva del estudiante, el recorrido está marcado por una inversión constante de tiempo y dinero en certificaciones que no generan evidencia creíble de competencia práctica, con bloqueos específicos que no tiene cómo resolver de forma dirigida. Desde el lado del Verificador, la experiencia actual es desorganizada, sin estructura y sin ningún mecanismo de reconocimiento formal, lo que desincentiva a los mejores talentos de validar el conocimiento de otros de forma sistemática. Finalmente, la visión del Coordinador incorpora una capa de control y supervisión orientada a garantizar la calidad académica y la seguridad del sistema, abordando riesgos como el fraude o los certificados falsos mediante mecanismos de validación y paneles de monitoreo. En conjunto, estas perspectivas permiten diseñar una experiencia equilibrada, eficiente y segura para todos los participantes del ecosistema.
+Entonces, los mapas de experiencia permiten comprender cómo interactúan los distintos actores con el ecosistema en la situación actual. Desde la perspectiva del estudiante, el recorrido está marcado por una inversión constante de tiempo y dinero en certificaciones que no generan evidencia creíble de competencia práctica. Desde el lado del Verificador, la experiencia actual es desorganizada y sin reconocimiento formal. Finalmente, la visión del Coordinador incorpora una capa de control y supervisión orientada a garantizar la calidad académica y la seguridad del sistema. En conjunto, estas perspectivas permiten diseñar una experiencia equilibrada, eficiente y segura para todos los participantes del ecosistema.
 
 2.3.4. Empathy Mapping
 
-Para profundizar en el entendimiento de los usuarios finales y diseñar una solución que responda a sus necesidades reales, se desarrollaron mapas de empatía para cada segmento identificado. Esta herramienta permite visualizar el entorno, las percepciones y las motivaciones de los actores clave, facilitando la identificación de puntos críticos y oportunidades de valor dentro del ecosistema de Innovify.
+Para profundizar en el entendimiento de los usuarios finales y diseñar una solución que responda a sus necesidades reales, se desarrollaron mapas de empatía para cada segmento identificado.
 
 Segmento #1: Personas que quieren aprender
-<p align="center"> <img src="public/assets/images-doc/Empati1-app.png" alt="Empathy Map Estudiante" width="800"> <br> <em>Figura 11. Empathy Mapping - Personas que quieren aprender - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del primer segmento del nuevo proyecto Innovify.</em> </p> <br>
 
-Se observa el mapa de empatía de Valeria, arquetipo que representa al segmento de estudiantes. El diagrama detalla su necesidad de demostrar habilidades prácticas reales ante un mercado laboral que exige competencias verificables, no solo certificados. Sus principales puntos de dolor son la ansiedad por no saber si lo que aprendió es suficiente, la frustración de tener certificados que nadie toma en serio y la incapacidad de identificar exactamente en qué sub-tema está fallando para pedir una revisión específica. Sus ganancias esperadas son una credencial verificable con peso real ante empleadores y acceso a un Verificador que resuelva exactamente el bloqueo que tiene, sin tener que repasar todo el curso desde cero.
+<p align="center">
+  <img src="public/assets/images-doc/Empati1-app.png" alt="Empathy Map Estudiante" width="800">
+  <br>
+  <em>Figura 13. Empathy Mapping - Personas que quieren aprender - Elaboración propia.</em>
+</p>
+
+Se observa el mapa de empatía de Valeria, arquetipo que representa al segmento de estudiantes. Sus principales puntos de dolor son la ansiedad por no saber si lo que aprendió es suficiente, la frustración de tener certificados que nadie toma en serio y la incapacidad de identificar exactamente en qué sub-tema está fallando para pedir una revisión específica. Sus ganancias esperadas son una credencial verificable con peso real ante empleadores y acceso a un Verificador que resuelva exactamente el bloqueo que tiene, sin tener que repasar todo el curso desde cero.
 
 Segmento #2, Nivel 1: Verificador
-<p align="center"> <img src="public/assets/images-doc/Empati2-app.png" alt="Empathy Map Verificador" width="800"> <br> <em>Figura 12. Empathy Mapping - Nivel Verificador - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del nivel de Verificador dentro del segundo segmento del nuevo proyecto Innovify.</em> </p> <br>
 
-En esta figura se detalla el mapa de empatía orientado al Verificador. El análisis subraya su deseo de convertir su dominio técnico en reconocimiento profesional verificable. Sus principales puntos de dolor son la falta de un mecanismo formal que acredite su capacidad de evaluación, la desorganización de los modelos informales actuales y la frustración de recibir personas sin nivel mínimo que hace que las revisiones sean ineficientes. Sus ganancias esperadas son pertenecer a un ecosistema riguroso que eleve su estatus profesional, acumular SkillCredits que pueda exhibir en LinkedIn y recibir información precisa sobre el vacío del estudiante antes de cada caso para prepararse mejor.
+<p align="center">
+  <img src="public/assets/images-doc/Empati2-app.png" alt="Empathy Map Verificador" width="800">
+  <br>
+  <em>Figura 14. Empathy Mapping - Nivel Verificador - Elaboración propia.</em>
+</p>
 
-<br>
+En esta figura se detalla el mapa de empatía de Carlos, arquetipo del nivel de Verificador. Sus principales puntos de dolor son la falta de un mecanismo formal que acredite su capacidad de evaluación, la desorganización de los modelos informales actuales y la frustración de recibir personas sin nivel mínimo que hace que las revisiones sean ineficientes. Sus ganancias esperadas son pertenecer a un ecosistema riguroso que eleve su estatus profesional, acumular SkillCredits que pueda exhibir en LinkedIn y recibir información precisa sobre el vacío del estudiante antes de cada caso.
+
 Segmento #2, Nivel 2: Coordinador
-<p align="center"> <img src="public/assets/images-doc/Empati3-app.png" alt="Empathy Map Coordinador" width="800"> <br> <em>Figura 13. Empathy Mapping - Nivel Coordinador - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del nivel de Coordinador dentro del segundo segmento del nuevo proyecto Innovify.</em> </p> <br>
 
-En la imagen se presenta la caracterización empática de Jorge, arquetipo del nivel de Coordinador, . El mapa resalta su preocupación por mantener la calidad académica y la integridad institucional, señalando como riesgos principales el fraude o los certificados falsos y la sobrecarga operativa de los procesos de validación manual. Sus ganancias esperadas son el acceso a herramientas tecnológicas que agilicen la verificación de certificados, un panel de monitoreo con métricas agregadas de la plataforma y mecanismos automatizados de trazabilidad que reduzcan la carga de trabajo de su equipo.
+<p align="center">
+  <img src="public/assets/images-doc/Empati3-app.png" alt="Empathy Map Coordinador" width="800">
+  <br>
+  <em>Figura 15. Empathy Mapping - Nivel Coordinador - Elaboración propia.</em>
+</p>
 
-<br>
+En la imagen se presenta la caracterización empática de Jorge, arquetipo del nivel de Coordinador. El mapa resalta su preocupación por mantener la calidad académica y la integridad institucional, señalando como riesgos principales el fraude o los certificados falsos y la sobrecarga operativa de los procesos de validación manual. Sus ganancias esperadas son el acceso a herramientas tecnológicas que agilicen la verificación de certificados, un panel de monitoreo con métricas agregadas y mecanismos automatizados de trazabilidad que reduzcan la carga de trabajo de su equipo.
 
-Entonces, los mapas de empatía permiten profundizar en las necesidades emocionales, motivaciones y dificultades de los dos segmentos objetivo de Innovify. En el caso del estudiante, se evidencia una motivación fuerte orientada a la empleabilidad y al reconocimiento real de sus capacidades, enfrentando frustraciones relacionadas con la superficialidad del modelo de certificación actual y la dificultad de encontrar una validación específica cuando se bloquea. Dentro del segmento que valida el conocimiento, el perfil del Verificador destaca una motivación centrada en el reconocimiento profesional, con frustraciones relacionadas con la informalidad y la falta de estructura de los modelos actuales; mientras que el perfil del Coordinador destaca una fuerte preocupación por la calidad académica y la seguridad del sistema, priorizando la prevención de riesgos como el fraude y los certificados falsos, y valorando el uso de herramientas tecnológicas que optimicen los procesos de validación y reduzcan la carga operativa. En conjunto, estos mapas evidencian la importancia de diseñar una plataforma equilibrada que atienda tanto aspectos funcionales como emocionales, asegurando confianza, eficiencia y valor para todos los usuarios del ecosistema.
+Entonces, los mapas de empatía permiten profundizar en las necesidades emocionales, motivaciones y dificultades de los dos segmentos objetivo de Innovify. En el caso del estudiante, se evidencia una motivación fuerte orientada a la empleabilidad y al reconocimiento real de sus capacidades. El Verificador destaca una motivación centrada en el reconocimiento profesional, con frustraciones relacionadas con la informalidad y la falta de estructura de los modelos actuales. El Coordinador destaca una fuerte preocupación por la calidad académica y la seguridad del sistema. En conjunto, estos mapas evidencian la importancia de diseñar una plataforma equilibrada que atienda tanto aspectos funcionales como emocionales, asegurando confianza, eficiencia y valor para todos los usuarios del ecosistema.
 ---
 
 
