@@ -19,14 +19,16 @@ System_Boundary(skillSwapSystem, "SkillSwap Platform") {
     Container(assessmentBC, "Assessment & Peer Review Bounded Context", "C# / ASP.NET Core", "Intentos de evaluación, asignación y revisión de Verificador")
     Container(reputationBC, "Reputation Bounded Context", "C# / ASP.NET Core", "Confiabilidad del Verificador y Employability Score")
     Container(walletBC, "Wallet & Incentives Bounded Context", "C# / ASP.NET Core", "Balance y transferencias de SkillCredits")
+    Container(subscriptionBC, "Subscription & Billing Bounded Context", "C# / ASP.NET Core", "Suscripción mensual")
     Container(moderationBC, "Moderation & Disputes Bounded Context", "C# / ASP.NET Core", "Resolución de disputas y sanciones")
 
-    ContainerDb(mainDB, "SkillSwap Database", "MySQL 8", "Base de datos única compartida por los siete Bounded Contexts (skillswap_db)")
+    ContainerDb(mainDB, "SkillSwap Database", "MySQL 8", "Base de datos única compartida por los ocho Bounded Contexts (skillswap_db)")
 }
 
 System_Ext(emailService, "Email Api", "Integración con correos institucionales")
 System_Ext(mlKitService, "ML Kit (Firebase)", "SDK on-device de OCR/Entity Extraction")
 System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para certificados y evidencias")
+System_Ext(stripeApi, "Stripe", "Procesamiento de pagos")
 
 Rel(student, androidApp, "Usa")
 Rel(verifier, androidApp, "Usa")
@@ -48,6 +50,7 @@ Rel(apiGateway, pathEngineBC, "Enruta solicitudes")
 Rel(apiGateway, assessmentBC, "Enruta solicitudes")
 Rel(apiGateway, reputationBC, "Enruta solicitudes")
 Rel(apiGateway, walletBC, "Enruta solicitudes")
+Rel(apiGateway, subscriptionBC, "Enruta solicitudes")
 Rel(apiGateway, moderationBC, "Enruta solicitudes")
 
 Rel(identityBC, mainDB, "Lee/Escribe")
@@ -56,6 +59,7 @@ Rel(pathEngineBC, mainDB, "Lee/Escribe")
 Rel(assessmentBC, mainDB, "Lee/Escribe")
 Rel(reputationBC, mainDB, "Lee/Escribe")
 Rel(walletBC, mainDB, "Lee/Escribe")
+Rel(subscriptionBC, mainDB, "Lee/Escribe")
 Rel(moderationBC, mainDB, "Lee/Escribe")
 
 Rel(identityBC, emailService, "Envía correo de validación")
@@ -63,5 +67,7 @@ Rel(credentialBC, mlKitService, "Extrae datos del certificado (OCR on-device)")
 Rel(credentialBC, cloudStorage, "Guarda la imagen del certificado")
 Rel(assessmentBC, cloudStorage, "Guarda evidencias adjuntas a un caso de verificación")
 Rel(moderationBC, emailService, "Envía notificación de sanción o resolución de disputa")
+Rel(subscriptionBC, stripeApi, "Procesa el cobro de la suscripción")
+
 
 @enduml

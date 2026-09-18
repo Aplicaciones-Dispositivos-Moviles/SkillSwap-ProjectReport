@@ -295,6 +295,57 @@ package "Wallet & Incentives" {
     CreditTransaction --> TransactionType
 }
 
+package "Subscription & Billing" {
+    class Subscription <<Aggregate Root>> {
+        +studentId: Long
+        +plan: SubscriptionPlan
+        +status: SubscriptionStatus
+        +startedAt: Date
+        +renewsAt: Date
+        +cancelledAt: Date
+        +renew(): void
+        +cancel(): void
+        +expire(): void
+    }
+
+    class SubscriptionPlan <<Value Object>> {
+        +name: String
+        +price: Money
+    }
+
+    class Money <<Value Object>> {
+        +amount: Decimal
+        +currency: String
+    }
+
+    enum SubscriptionStatus {
+        ACTIVE
+        EXPIRED
+        CANCELLED
+    }
+
+    Subscription --> SubscriptionPlan
+    Subscription --> SubscriptionStatus
+    SubscriptionPlan --> Money
+}
+
+' --- Herencia hacia el Aggregate Root compartido ---
+User --|> AbstractDomainAggregateRoot
+Certificate --|> AbstractDomainAggregateRoot
+LearningPath --|> AbstractDomainAggregateRoot
+AssessmentBlueprint --|> AbstractDomainAggregateRoot
+AssessmentAttempt --|> AbstractDomainAggregateRoot
+VerifierProfile --|> AbstractDomainAggregateRoot
+VerificationCase --|> AbstractDomainAggregateRoot
+VerifierReliability --|> AbstractDomainAggregateRoot
+StudentEmployabilityScore --|> AbstractDomainAggregateRoot
+Wallet --|> AbstractDomainAggregateRoot
+CreditTransaction --|> AbstractDomainAggregateRoot
+Dispute --|> AbstractDomainAggregateRoot
+Sanction --|> AbstractDomainAggregateRoot
+Subscription --|> AbstractDomainAggregateRoot
+CreditPurchase --|> AbstractDomainAggregateRoot
+
 package "Moderation & Disputes" {
     class Dispute <<Aggregate Root>> {
         +sourceType: DisputeSourceType
@@ -349,29 +400,14 @@ package "Moderation & Disputes" {
     Sanction --> SanctionType
 }
 
-' --- Herencia hacia el Aggregate Root compartido ---
-User --|> AbstractDomainAggregateRoot
-Certificate --|> AbstractDomainAggregateRoot
-LearningPath --|> AbstractDomainAggregateRoot
-AssessmentBlueprint --|> AbstractDomainAggregateRoot
-AssessmentAttempt --|> AbstractDomainAggregateRoot
-VerifierProfile --|> AbstractDomainAggregateRoot
-VerificationCase --|> AbstractDomainAggregateRoot
-VerifierReliability --|> AbstractDomainAggregateRoot
-StudentEmployabilityScore --|> AbstractDomainAggregateRoot
-Wallet --|> AbstractDomainAggregateRoot
-CreditTransaction --|> AbstractDomainAggregateRoot
-Dispute --|> AbstractDomainAggregateRoot
-Sanction --|> AbstractDomainAggregateRoot
-
 ' --- Enlaces invisibles para forzar layout en 2 filas ---
 "Identity & Access" -[hidden]right- "Credential Verification"
 "Credential Verification" -[hidden]right- "Learning Path Engine"
 "Learning Path Engine" -[hidden]right- "Assessment & Peer Review"
 
 "Reputation" -[hidden]right- "Wallet & Incentives"
-"Wallet & Incentives" -[hidden]right- "Moderation & Disputes"
-"Moderation & Disputes" -[hidden]right- "Shared"
+"Wallet & Incentives" -[hidden]right- "Subscription & Billing"
+"Subscription & Billing" -[hidden]right- "Moderation & Disputes"
 
 "Identity & Access" -[hidden]down- "Reputation"
 

@@ -96,6 +96,7 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 *   **Becerra Ninahuanca Luis Angel:** Obtener una certificación en integración de servicios Cloud para aplicaciones móviles en los próximos 6 meses, mejorando la seguridad y reduciendo la latencia en el consumo de APIs.
 *   **Lopez Montalvo Kevin Edu:** Dominar herramientas de testing automatizado para aplicaciones multiplataforma (ej. Appium) antes de culminar la carrera, logrando automatizar el 80% de los flujos críticos de la aplicación.
 *   **Komatsu Dueñas, David:** Desarrollar habilidades de liderazgo técnico gestionando al menos 2 proyectos de software open source orientados a móviles en GitHub durante el próximo año, implementando GitFlow y CI/CD de forma efectiva.
+*   **Sulca Sánchez, Piero:** Dominar el desarrollo de aplicaciones móviles multiplataforma con Flutter antes de marzo de 2027, logrando publicar al menos una aplicación funcional en Google Play Store con cobertura de pruebas automatizadas superior al 70%.
 
 ---
 
@@ -132,9 +133,9 @@ Facilitar que estudiantes universitarios y jóvenes profesionales demuestren el 
 | Foto | Integrante | Carrera | Descripción |
 | :---: | :--- | :--- | :--- |
 | <img src="public/assets/images-doc/image-perfil-victor.png" width="100"> | **Alberca Saavedra, Víctor Manuel**<br>(U201924127) | Ingeniería de Software | Aporta conocimientos sólidos en arquitectura de software, backend y bases de datos. Lidera la investigación e integración del SDK de reconocimiento de texto (ML Kit) y la adaptación de los Bounded Contexts al entorno móvil. |
-| *(Foto)* | **Becerra Ninahuanca, Luis Angel**<br>(U20231C792) | Ingeniería de Software | Especialista en lógica de negocio, integración de servicios e interfaces limpias. Investiga patrones de diseño UI/UX propios de aplicaciones móviles nativas/multiplataforma y lidera el análisis competitivo enfocado en apps del mismo rubro. |
-| *(Foto)* | **Lopez Montalvo, Kevin Edu**<br>(U20241D958) | Ingeniería de Software | Aporta conocimientos en diseño móvil, UX/UI y metodologías ágiles. Documenta el proceso Lean UX y estructura las User Stories bajo un enfoque Mobile-First. |
-| *(Foto)* | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. |
+| <img src="public/assets/images-doc/image-perfil-luis.png" width="100"> | **Becerra Ninahuanca, Luis Angel**<br>(U20231C792) | Ingeniería de Software | Especialista en lógica de negocio, integración de servicios e interfaces limpias. Investiga patrones de diseño UI/UX propios de aplicaciones móviles nativas/multiplataforma y lidera el análisis competitivo enfocado en apps del mismo rubro. |
+| <img src="public/assets/images-doc/image-perfil-kevin.png" width="100"> | **Lopez Montalvo, Kevin Edu**<br>(U20241D958) | Ingeniería de Software | Aporta conocimientos en diseño móvil, UX/UI y metodologías ágiles. Documenta el proceso Lean UX y estructura las User Stories bajo un enfoque Mobile-First. |
+| <img src="public/assets/images-doc/image-perfil-david.png" width="100"> | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. Lidera el modelado de flujos de mensajes entre Bounded Contexts y el diseño de diagramas de arquitectura. |
 | <img src="public/assets/images-doc/image-perfil-piero.jpg" width="100" alt="Fotografía de Piero Angel Sulca Sanchez"> | **Sulca Sanchez, Piero Angel**<br>(U202423711) | Ingeniería de Software | Cuenta con experiencia en desarrollo web y trabajo en equipos pequeños. Se especializa en frontend y muestra interés por el diseño creativo de interfaces, especialmente en experiencias 3D, animaciones y productos digitales diferenciados. Aporta conocimientos en levantamiento de requerimientos, diseño de interfaces, desarrollo web con React y TypeScript, y diseño de bases de datos, además de organización y colaboración en equipo. |
 
 </div>
@@ -325,13 +326,17 @@ mediante un panel de indicadores de confiabilidad, decisiones e historial de cas
 
 #### 1.2.2.4. Lean UX Canvas
 
-<p align="center">
-  <img src="public/assets/images-doc/lean-ux-canvas.png" alt="Lean UX Canvas de Innovify" width="700">
-  <br>
-  <em>Lean UX Canvas (v2) | Innovify. Nota: En esta figura se presenta el Lean UX Canvas elaborado por el equipo, donde se relacionan el problema de negocio, los resultados comerciales esperados, los segmentos de usuarios, los beneficios que estos obtienen, las soluciones propuestas, las hipótesis formuladas y los experimentos definidos para validarlas.</em>
-</p>
+| LEAN UX CANVAS | |
+| :--- | :--- |
+| **Título:** Innovify Lean UX Canvas | **Fecha:** 10/09/2026 |
+| **Iteración:** 1 | |
+| **1. Problema de negocio**<br><br>**Desde la perspectiva del Estudiante:** Los estudiantes universitarios acumulan certificados de cursos online sin poder demostrar que realmente dominan la habilidad en situaciones prácticas. Cuando se enfrentan a una entrevista técnica o a un proyecto real, descubren que el certificado no refleja su dominio efectivo. No saben con precisión en qué punto de su aprendizaje está el vacío, ni tienen a quién recurrir para una revisión específica de su caso.<br><br>**Desde la perspectiva del Verificador:** Quienes ya dominan una habilidad no tienen un espacio estructurado y confiable donde ejercer esa experiencia para revisar el trabajo de otros. Los modelos informales (WhatsApp, Discord) carecen de estructura, reconocimiento formal y garantía de que la persona que llega tiene el nivel mínimo para aprovechar la revisión.<br><br>**Desde la perspectiva del Coordinador:** Los coordinadores académicos no tienen visibilidad real sobre el dominio práctico de habilidades de sus estudiantes más allá de una nota o un certificado presentado, ni herramientas para auditar la calidad del proceso de revisión entre pares de forma sistemática. | **5. Solución**<br>Una plataforma impulsada por IA que genera rutas de aprendizaje, valida certificados y evalúa mediante retos prácticos generados dinámicamente. Si el intento no logra demostrar el dominio, un algoritmo asigna automáticamente el caso a un Verificador disponible que ya certificó esa habilidad, quien lo revisa frente a una rúbrica estructurada. Los Verificadores ganan SkillCredits, canjeables en una tienda interna, todo supervisado por un Coordinador de calidad. |
+| **2. Resultados comerciales**<br>Se busca lograr ingresos recurrentes (MRR) mediante la mensualidad de los estudiantes, complementados con la venta de SkillCredits en la tienda interna; asegurar escalabilidad automatizando la validación y la asignación de Verificadores con IA; y posicionar los *SkillCredits* como un estándar de la industria. | **6. Hipótesis**<br>• Creemos que la IA generará evaluaciones más precisas que los flujos manuales estáticos.<br>• Creemos que los estudiantes pagarán una mensualidad por validar sus conocimientos y tener acceso al proceso de verificación.<br>• Creemos que exigir una ruta de certificación propia a los Verificadores elevará la calidad percibida de sus revisiones.<br>• Creemos que los *SkillCredits* incentivarán a los Verificadores a mantenerse activos sin necesidad de un pago directo.<br>• Creemos que el algoritmo de asignación reducirá el tiempo de resolución de un caso y mejorará las tasas de éxito en la certificación. |
+| **3. Usuarios y clientes**<br>• **Estudiantes:** Buscan dominar una habilidad, validar certificados y recibir una revisión puntual cuando la IA no basta.<br>• **Verificadores:** Estudiantes que ya certificaron una habilidad y buscan reconocimiento profesional revisando casos de otros.<br>• **Coordinadores:** Aseguradores de la calidad del proceso de verificación. | **7. ¿Qué es lo más importante que necesitamos aprender primero?**<br>• ¿Están dispuestos los estudiantes a pagar por "evaluarse y validarse" en lugar de solo consumir contenido?<br>• ¿Los estudiantes que ya dominan una habilidad estarán dispuestos a revisar casos de otros a cambio de SkillCredits, sin un pago monetario directo?<br>• ¿Es técnicamente viable que la IA extraiga con precisión el temario de un certificado subido en PDF/Imagen y genere una evaluación coherente a partir de él? |
+| **4. Beneficios del usuario**<br>El estudiante obtiene un dominio comprobable de habilidades y una revisión puntual cuando se estanca. El Verificador obtiene reconocimiento y credenciales verificables (*SkillCredits*), sin depender de un ingreso monetario directo. El sistema garantiza confianza en las capacidades certificadas de sus usuarios. | **8. ¿Cuál es la menor cantidad de trabajo que necesitamos hacer para aprender la siguiente cosa más importante?**<br>• Entrevistas a estudiantes para validar la disposición de pago (mensualidad) y el interés en los *SkillCredits* como incentivo no monetario.<br>• Desarrollar un MVP de extracción de texto y validación de certificados usando un LLM para probar la viabilidad técnica antes de construir toda la plataforma. |
 
 ---
+
 
 ## 1.3. Segmentos objetivo
 
@@ -393,6 +398,7 @@ Platzi es una plataforma latinoamericana de educación tecnológica con fuerte p
 ---
  
 ### 2.1.1. Análisis competitivo
+ 
  
 | Criterio de Análisis | **Innovify / SkillSwap** | **Coursera** | **LinkedIn Learning** | **Platzi** |
 | :--- | :--- | :--- | :--- | :--- |
@@ -470,6 +476,7 @@ A continuación se presentan las estrategias y tácticas que Innovify puede impl
 12. ¿Qué tan dispuesto estarías a supervisar por videollamada la demostración final de un proyecto avanzado, garantizando que lo que se presenta es realmente propio de esa persona?
 13. ¿Qué debería tener sí o sí una plataforma para que la consideres profesional y confiable para ejercer este rol?
 14. Si pudieras exhibir en tu perfil de LinkedIn una credencial que dice "Verificador certificado en [habilidad], con X casos resueltos", ¿crees que eso tendría valor real para tu carrera profesional?
+
 *Nivel 2 — Coordinador*
  
 1. Para comenzar, ¿podría describir brevemente su rol en la universidad y sus principales responsabilidades relacionadas con el alumnado?
@@ -502,15 +509,16 @@ Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataf
   <br>
   <em>Figura 1. Entrevista 1: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la primera entrevista al segmento de personas que quieren aprender.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=7TT_t2KaSyI
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=TdVTVb2Cj1s<br>**Inicio:** 0:00<br>**Duración:** 6:28 minutos
+ 
 **Resumen descriptivo:**
-En esta entrevista, Mireya estudia Ingeniería de Sistemas en la UPC y se encuentra en quinto ciclo. Describe su relación con el aprendizaje como principalmente autodidacta — ha completado dos cursos de Python en Coursera y uno de SQL en Udemy — pero confiesa que al momento de postular a prácticas sintió que sus certificados no le servían porque no podía demostrar que realmente sabía aplicar lo aprendido. Recuerda específicamente una entrevista técnica donde le pidieron escribir una función en Python desde cero y se bloqueó, pese a tener el certificado. Su método actual cuando se estanca es buscar en Stack Overflow o preguntar a ChatGPT, pero reconoce que muchas veces no sabe si la solución que obtiene es correcta o solo funciona por casualidad.
+En esta entrevista, Mireya estudia Ingeniería de Gestión Empresarial en la UPC y se encuentra en quinto ciclo. Recientemente consiguió sus primeras prácticas profesionales en el área de gestión en una empresa de consumo masivo. Describe su proceso de preparación como bastante autodidacta y de prueba y error: actualizó su CV múltiples veces usando plantillas de Canva, comparó con los de compañeras que ya habían practicado, y se preparó para entrevistas viendo videos de YouTube. Sin embargo, reconoce que siempre sintió que le faltaba alguien que le dijera si lo estaba haciendo bien.
  
-Respecto al modelo de validación práctica de Innovify, Mireya lo percibe como algo que "hace falta" en el mercado. Le parece coherente que, si va a obtener una credencial, primero tenga que demostrar que puede resolver algo real. Está dispuesta a pagar una suscripción mensual de hasta S/ 50 si eso le garantiza acceso a Verificadores certificados y evaluaciones que le digan con precisión en qué está fallando. Lo que más le interesa del perfil del Verificador es ver en qué empresa trabajó o trabaja y qué proyectos ha hecho, no solo cuántos casos ha resuelto.
+Cuando tuvo la suerte de que una prima con experiencia laboral le revisara el CV por WhatsApp, notó la diferencia inmediatamente: le señaló que estaba incluyendo información poco relevante y que debía resaltar resultados concretos. Mireya destaca que avanzó rápido con esa ayuda, pero reconoce que fue suerte que su prima tuviera tiempo esa semana. Su mayor dificultad es no saber a quién más pedirle ese tipo de orientación, ya que sus compañeros de clase están en la misma situación que ella.
  
-Valora especialmente el modelo de examen de ingreso para Verificadores, porque indica que no cualquiera puede revisar el trabajo de otros. Considera que una credencial que muestre exactamente qué habilidades demostró — no solo que tomó un curso — tendría mucho más peso ante un empleador. Finalmente, destaca que la posibilidad de recibir una revisión enfocada exactamente en el sub-tema donde falló, en vez de repetir todo el curso, sería lo más eficiente y lo que más le ayudaría en sus tiempos actuales de carga universitaria.
+Respecto al uso de herramientas digitales, usa Canva para el diseño del CV, ChatGPT para redactar mejor sus experiencias y LinkedIn para buscar ofertas y contactar reclutadores, aunque casi nunca recibe respuesta. Considera que la IA funciona bien como primer filtro antes de llegar a una persona, pero no reemplaza la orientación personalizada.
+ 
+Sobre el perfil del Verificador, Mireya es muy clara: prioriza que tenga experiencia real en su área — en qué empresa trabajó, cuánto tiempo lleva en el rubro y si estudió algo similar a su carrera — por encima de la cantidad de reseñas. Respecto al modelo de Innovify, valora especialmente la posibilidad de que la plataforma asigne automáticamente un mentor con conocimiento específico de su carrera, porque considera que buscar ayuda por su cuenta es lento y no siempre aplica a su situación. Está dispuesta a dar una donación voluntaria por la sesión si esta es realmente útil. Finalmente, prefiere que la videollamada esté integrada dentro de la misma plataforma, porque los links externos de Zoom se pierden en el chat y reducen el compromiso de ambas partes.
  
 **Entrevista 2**
 * **Nombres:** Mathias
@@ -522,9 +530,8 @@ Valora especialmente el modelo de examen de ingreso para Verificadores, porque i
   <br>
   <em>Figura 2. Entrevista 2: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la segunda entrevista al segmento de personas que quieren aprender.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=xt02A76wXNQ
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=xt02A76wXNQ<br>**Inicio:** 0:00<br>**Duración:** 7:58 minutos
+ 
 **Resumen descriptivo:**
 Mathias es egresado de Administración de la Universidad Nacional de San Agustín de Arequipa y lleva ocho meses buscando empleo en marketing digital. Cuenta con tres certificados de Google Digital Garage, uno de HubSpot y un curso de Meta Ads completado en Udemy, pero en todas las entrevistas en las que ha participado le dicen que "le falta experiencia práctica". Describe esa situación como profundamente frustrante: siente que invirtió tiempo y dinero en aprender pero no puede demostrarlo de forma creíble ante nadie.
  
@@ -542,9 +549,8 @@ Respecto al modelo de Innovify, Mathias lo ve como la solución directa a su pro
   <br>
   <em>Figura 3. Entrevista 3: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la tercera entrevista al segmento de personas que quieren aprender.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=wcjn0ionQ-8
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=wcjn0ionQ-8<br>**Inicio:** 0:00<br>**Duración:** 6:53 minutos
+ 
 **Resumen descriptivo:**
 Carlos estudia Diseño Gráfico en Toulouse Lautrec y se encuentra en tercer ciclo. Aprendió Figma de manera autodidacta viendo tutoriales en YouTube y practicando por su cuenta, y siente que tiene un nivel intermedio-avanzado en la herramienta. Sin embargo, cuando busca trabajos freelance o postula a prácticas, no tiene ninguna credencial formal que avale ese conocimiento — los cursos gratuitos de YouTube no emiten certificados y los certificados de plataformas pagadas son genéricos.
  
@@ -570,9 +576,8 @@ Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataf
   <br>
   <em>Figura 4. Entrevista 1: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la primera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=n53WUVagpE4
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=n53WUVagpE4<br>**Inicio:** 0:00<br>**Duración:** 7:53 minutos
+ 
 **Resumen descriptivo:**
 Marco estudia Ingeniería de Software en la PUCP y está en séptimo ciclo. Domina React, Node.js, PostgreSQL y arquitectura de microservicios, conocimientos que desarrolló combinando su formación universitaria con proyectos freelance y contribuciones a repositorios open source. Ha ayudado informalmente a varios compañeros de ciclos menores a resolver dudas puntuales de programación, pero siempre de forma desorganizada — por WhatsApp, sin estructura, sin que la persona llegue con un nivel mínimo establecido.
  
@@ -590,9 +595,8 @@ Respecto al modelo de Innovify, Marco está muy de acuerdo con que el Verificado
   <br>
   <em>Figura 5. Entrevista 2: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la segunda entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=h8Uh3w6U1qE
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=h8Uh3w6U1qE<br>**Inicio:** 0:00<br>**Duración:** 5:29 minutos
+ 
 **Resumen descriptivo:**
 Mariana es egresada de Contabilidad de la Universidad de Lima y trabaja hace dos años en una firma de auditoría. Domina Excel avanzado, Power BI y análisis financiero, habilidades que desarrolló en su trabajo y que sabe que son muy demandadas en el mercado. Ha ayudado informalmente a compañeros universitarios con estas herramientas, pero el modelo le resulta poco profesional y difícil de gestionar: tiene que coordinar por WhatsApp, no hay estructura, y las personas a veces no vienen preparadas.
  
@@ -610,9 +614,8 @@ Mariana está de acuerdo con que el Verificador demuestre primero su propio domi
   <br>
   <em>Figura 6. Entrevista 3: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
-* **URL:** [Completar con URL de Microsoft Stream]
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** <br>**Inicio:** 0:00<br>**Duración:** 6:53 minutos
+ 
 **Resumen descriptivo:**
 Sebastián es egresado de Comunicaciones de la UPC y trabaja como freelance en marketing de contenidos. Domina SEO técnico, copywriting y estrategia de redes sociales, habilidades que desarrolló en proyectos reales con clientes. Intentó enseñar en Preply pero lo abandonó porque la plataforma permite que cualquiera enseñe sin verificación, lo que deteriora la calidad percibida de todos los que ofrecen ayuda ahí.
  
@@ -636,9 +639,8 @@ Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataf
   <br>
   <em>Figura 7. Entrevista 1: Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la primera entrevista al nivel de Coordinador.</em>
 </p>
-* **URL:** https://youtu.be/YDpJ_S8Ik2g
-* **Inicio:** 0:00
-* **Duración:** 13 minutos con 54 segundos
+**URL:** https://youtu.be/YDpJ_S8Ik2g<br>**Inicio:** 0:00<br>**Duración:** 13 minutos con 54 segundos
+ 
 **Resumen descriptivo:**
 Esta entrevista fue realizada a un docente de Cálculo 2 de la Universidad Peruana de Ciencias Aplicadas (UPC). De acuerdo con lo conversado, el profesor considera que la propuesta es una muy buena idea y la percibe como fundamental para el desarrollo profesional de los estudiantes. Destaca la importancia de que los alumnos puedan validar sus conocimientos y demostrar habilidades reales, incluso frente a estudiantes de otras universidades, con el fin de adaptarse a un mercado laboral cada vez más exigente.
  
@@ -671,18 +673,17 @@ Jesús Hernández, jefe de prácticas, señala que los principales desafíos de 
   <br>
   <em>Figura 9. Entrevista 3: Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Coordinador.</em>
 </p>
-* **URL:** https://youtu.be/cP_YiYr2VD8
-* **Inicio:** 0:00
-* **Duración:** 10 minutos con 40 segundos
+**URL:** https://youtu.be/cP_YiYr2VD8<br>**Inicio:** 0:00<br>**Duración:** 10 minutos con 40 segundos
+ 
 **Resumen descriptivo:**
 El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy buena idea y parte fundamental del desarrollo académico que los estudiantes validen mutuamente sus conocimientos. Destacó que las herramientas tecnológicas son productivas para este fin siempre que se les dé un buen uso, priorizando el aprendizaje sobre ventajas deshonestas. También mostró cierta preocupación por la carga que representa para un Verificador revisar casos constantemente, ya que siente que podría impactar negativamente en su propio tiempo y productividad, especialmente en estudiantes con muchas responsabilidades académicas.
  
 ---
  
 ### 2.2.3. Análisis de entrevistas
- 
+
 #### Segmento objetivo #1: Personas que quieren aprender
- 
+
 **1. Características objetivas**
 * **Edad:** Estudiantes universitarios o egresados recientes, generalmente entre 19 y 24 años (100%).
 * **Carrera:** Diversas carreras universitarias (Ingeniería de Sistemas, Administración, Diseño Gráfico) (100%).
@@ -691,6 +692,7 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
   * Uso de plataformas de cursos online (Coursera, Udemy, YouTube) (100%).
   * Uso de herramientas de IA como ChatGPT para resolver dudas (100%).
   * Poca o nula experiencia con validación práctica supervisada por pares certificados (100%).
+
 **2. Características subjetivas**
 * **Frustración con los certificados actuales:**
   * Sienten que los certificados online no reflejan su dominio práctico real (100%).
@@ -708,6 +710,9 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
   * Priorizan que el Verificador tenga experiencia real en su área (proyectos, empresas) sobre la cantidad de casos resueltos (100%).
   * Prefieren una revisión enfocada en el sub-tema donde fallaron, no repetir el curso completo (100%).
   * Valoran ver portafolio de proyectos reales del Verificador antes de que les sea asignado (66%).
+
+&nbsp;
+
 | Característica | % Entrevistados | Fuente / Frase de entrevista |
 | :--- | :--- | :--- |
 | Frustración por brecha certificado vs. dominio real | 100% | "Tenía el certificado pero en la entrevista técnica me bloqueé." |
@@ -719,20 +724,21 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Prioriza experiencia real del Verificador sobre cantidad de casos | 100% | "Prefiero que haya trabajado en mi área aunque tenga menos casos resueltos." |
 | Necesidad de ruta estructurada de aprendizaje | 66% | "Quiero que alguien me diga qué aprender, en qué orden." |
 | Inseguridad al aplicar lo aprendido en práctica real | 66% | "Aprendí Python pero no sé si lo que hago está bien o funciona de casualidad." |
- 
+
 *(Tabla 4. Principales hallazgos de entrevistas a personas que quieren aprender - Elaboración propia.)*
- 
+
 ---
- 
+
 #### Segmento objetivo #2: Personas que validan el conocimiento
- 
+
 *Nivel 1 — Verificador*
- 
+
 **1. Características objetivas**
 * **Edad:** Estudiantes avanzados o egresados recientes, entre 23 y 28 años (100%).
 * **Carrera:** Diversas áreas (Ingeniería de Software, Contabilidad, Comunicaciones) (100%).
 * **Experiencia:** Todos tienen experiencia ayudando a otros de forma informal sin reconocimiento formal (100%).
 * **Habilidades digitales:** Usan WhatsApp, Zoom y Drive como principales herramientas para ayudar a distancia (100%).
+
 **2. Características subjetivas**
 * **Motivaciones para actuar como Verificador:**
   * Reconocimiento profesional verificable (SkillCredits en LinkedIn) como incentivo principal (100%).
@@ -745,6 +751,9 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
   * De acuerdo con que el Verificador certifique previamente su propia ruta como garantía de calidad (100%).
   * Valoran recibir información precisa sobre el error específico del estudiante antes del caso (100%).
   * Consideran que la asignación automática por especialidad es más eficiente que recibir solicitudes genéricas (100%).
+
+&nbsp;
+
 | Característica | % Entrevistados | Fuente / Frase de entrevista |
 | :--- | :--- | :--- |
 | Motivación principal: reconocimiento profesional (SkillCredits) | 100% | "Lo que más me atrae es poder demostrar en LinkedIn que sé evaluar, no solo que sé hacer." |
@@ -757,23 +766,27 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Frustración por falta de reconocimiento formal | 100% | "Nadie sabe que reviso bien porque no hay forma de demostrarlo." |
 | Preferencia por casos con objetivo claro definido | 66% | "Quiero saber de qué va el caso antes de aceptarlo." |
 | Interés en supervisar proyectos avanzados | 33% | "Me interesaría supervisar proyectos finales, no solo revisiones puntuales." |
- 
+
 *(Tabla 5. Principales hallazgos de entrevistas al nivel de Verificador - Elaboración propia.)*
- 
+
 ---
- 
+
 *Nivel 2 — Coordinador*
- 
+
 **1. Características objetivas**
 * **Edad y rol:** Profesionales entre 29 y 53 años (100%). Docentes, coordinadores o jefes de práctica (100%).
 * **Ámbito laboral:** Universidades (100%).
 * **Responsabilidades:** Supervisión del aprendizaje (100%). Garantizar integridad académica (100%). Evaluación del desempeño (100%).
 * **Relación con tecnología:** Uso de herramientas digitales educativas (100%). Sistemas de control académico (100%).
+
 **2. Características subjetivas**
 * **Percepción de la validación de habilidades entre pares:** Considerada fundamental (100%). Positiva colaboración interuniversitaria (100%). Mejora la preparación profesional (66%).
 * **Preocupaciones:** Plagio, fraude y suplantación (100%). Uso indebido de tecnología (100%). Información poco confiable (100%). Riesgo reputacional (66%).
 * **Barreras:** Validación de estudiantes (100%). Carga operativa (67%). Costos (67%). Necesidad de automatización (33%).
 * **Requisitos de la plataforma:** Verificación de identidad (100%). Validación académica (100%). Políticas claras (100%). Trazabilidad de interacciones (100%). Panel de monitoreo (100%).
+
+&nbsp;
+
 | Característica | % entrevistados | Insight clave |
 | :--- | :--- | :--- |
 | Validación de habilidades entre pares | 100% | Fundamental |
@@ -786,9 +799,9 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Sistema de monitoreo | 100% | Necesario |
 | Carga operativa | 67% | Barrera |
 | Segmentación académica | 33% | Mejora pertinencia |
- 
+
 *(Tabla 6. Principales hallazgos del nivel de Coordinador - Elaboración propia.)*
- 
+
 ---
  
 ## 2.3. Needfinding
@@ -838,6 +851,7 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
  
 #### Segmento objetivo #1: Personas que quieren aprender
  
+ 
 | Tasks | Mireya<br>Frecuencia | Mireya<br>Importancia | Mathias<br>Frecuencia | Mathias<br>Importancia | Carlos<br>Frecuencia | Carlos<br>Importancia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Buscar recursos de aprendizaje en internet | Muy alta | Alta | Muy alta | Alta | Muy alta | Alta |
@@ -854,6 +868,7 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
  
 *Nivel 1 — Verificador*
  
+ 
 | Tasks | Marco<br>Frecuencia | Marco<br>Importancia | Mariana<br>Frecuencia | Mariana<br>Importancia | Sebastián<br>Frecuencia | Sebastián<br>Importancia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Mantener y actualizar el dominio técnico propio | Muy alta | Muy alta | Alta | Muy alta | Muy alta | Muy alta |
@@ -867,6 +882,7 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
 *(Tabla 8. Tareas y motivaciones del nivel de Verificador - Elaboración propia.)*
  
 *Nivel 2 — Coordinador*
+ 
  
 | Tasks | Armando<br>Frecuencia | Armando<br>Importancia | Jesús<br>Frecuencia | Jesús<br>Importancia | Raúl<br>Frecuencia | Raúl<br>Importancia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -960,10 +976,63 @@ En la imagen se presenta la caracterización empática de Jorge, arquetipo del n
  
 **Entonces**, los mapas de empatía permiten profundizar en las necesidades emocionales, motivaciones y dificultades de los dos segmentos objetivo de Innovify. En el caso del estudiante, se evidencia una motivación fuerte orientada a la empleabilidad y al reconocimiento real de sus capacidades, enfrentando frustraciones relacionadas con la superficialidad del modelo de certificación actual y la dificultad de encontrar una validación específica cuando se bloquea. Dentro del segmento que valida el conocimiento, el perfil del Verificador destaca una motivación centrada en el reconocimiento profesional, con frustraciones relacionadas con la informalidad y la falta de estructura de los modelos actuales; mientras que el perfil del Coordinador destaca una fuerte preocupación por la calidad académica y la seguridad del sistema, priorizando la prevención de riesgos como el fraude y los certificados falsos, y valorando el uso de herramientas tecnológicas que optimicen los procesos de validación y reduzcan la carga operativa. En conjunto, estos mapas evidencian la importancia de diseñar una plataforma equilibrada que atienda tanto aspectos funcionales como emocionales, asegurando confianza, eficiencia y valor para todos los usuarios del ecosistema.
 
+### 2.3.5. As-Is Scenario Mapping
+
+En esta sección se presentan los As-Is Scenario Maps elaborados con la herramienta Miro para cada segmento objetivo, describiendo el recorrido actual del usuario sin la intervención de la solución de Innovify. El objetivo es identificar los puntos de dolor y las oportunidades de mejora en el flujo actual de cada actor.
+
+**Segmento #1: Personas que quieren aprender**
+
+<p align="center">
+  <img src="public/assets/images-doc/asis1-app.png" alt="As-Is Scenario Map Estudiante" width="800">
+  <br>
+  <em>Figura 16. As-Is Scenario Mapping – Personas que quieren aprender - Elaboración propia. Nota: Elaborado con la herramienta Miro.</em>
+</p>
+
+En el mapa se observa que Valeria comienza identificando una habilidad que quiere dominar, pero sin saber por dónde empezar elige un curso de forma intuitiva. Obtiene el certificado sintiéndose lista, pero cuando intenta aplicarlo en una entrevista real se bloquea y descubre que el certificado no refleja su dominio práctico. Al buscar ayuda solo encuentra respuestas genéricas en foros o ChatGPT que no resuelven su bloqueo específico. El principal punto de dolor es la brecha entre tener el certificado y poder demostrarlo en la práctica real.
+
+&nbsp;
+
+**Segmento #2: Personas que validan el conocimiento**
+
+<p align="center">
+  <img src="public/assets/images-doc/asis2-app.png" alt="As-Is Scenario Map Verificador" width="800">
+  <br>
+  <em>Figura 17. As-Is Scenario Mapping – Personas que validan el conocimiento - Elaboración propia. Nota: Elaborado con la herramienta Miro.</em>
+</p>
+
+En el mapa se observa que Carlos quiere ayudar a otros con su habilidad pero no encuentra un modelo profesional que lo respalde. Coordina por WhatsApp con personas que llegan sin el nivel mínimo, hace la revisión por Zoom sin ninguna rúbrica ni criterio estructurado, y al terminar no tiene ninguna evidencia formal de lo que hizo. El principal punto de dolor es la ausencia de reconocimiento y estructura: dedica tiempo de calidad a revisar el trabajo de otros pero nadie puede verificarlo.
+
 ---
 
 ## 2.4. Requirements specification
 
+To-Be Scenario Mapping
+
+En esta sección se presentan los To-Be Scenario Maps elaborados con la herramienta Miro para cada segmento objetivo, describiendo el recorrido ideal del usuario con la solución de Innovify implementada. El objetivo es evidenciar cómo la plataforma transforma cada punto de dolor del As-Is en una experiencia fluida, confiable y motivadora.
+
+**Segmento #1: Personas que quieren aprender**
+
+<p align="center">
+  <img src="public/assets/images-doc/tobe1-app.png" alt="To-Be Scenario Map Estudiante" width="800">
+  <br>
+  <em>Figura 18. To-Be Scenario Mapping – Personas que quieren aprender - Elaboración propia. Nota: Elaborado con la herramienta Miro.</em>
+</p>
+
+En el mapa se observa que con Innovify, Valeria se registra con su correo institucional y la IA le genera una ruta de aprendizaje clara desde el inicio. Sube sus certificados, rinde evaluaciones prácticas personalizadas y cuando falla una, un Verificador que ya sabe exactamente en qué punto se bloqueó la revisa de forma quirúrgica. Al completar la ruta obtiene una credencial verificable que muestra exactamente qué habilidades demostró, no solo que tomó un curso, con peso real ante cualquier empleador.
+
+&nbsp;
+
+**Segmento #2: Personas que validan el conocimiento**
+
+<p align="center">
+  <img src="public/assets/images-doc/tobe2-app.png" alt="To-Be Scenario Map Verificador" width="800">
+  <br>
+  <em>Figura 19. To-Be Scenario Mapping – Personas que validan el conocimiento - Elaboración propia. Nota: Elaborado con la herramienta Miro.</em>
+</p>
+
+En el mapa se observa que con Innovify, Carlos primero certifica su propia ruta y supera el examen de ingreso, lo que garantiza que quien revisa realmente sabe. Recibe casos asignados automáticamente con información precisa del punto donde falló el estudiante, los revisa frente a una rúbrica estructurada y acumula SkillCredits verificables por cada caso resuelto. Estos SkillCredits los exporta a LinkedIn como credencial profesional, transformando su labor de revisión en reconocimiento real y verificable.
+
+---
 ### 2.4.1. User Stories
 *(Nota: Adaptar la tabla de User Stories previa para incluir los requisitos del curso: persistencia local, acceso a hardware, consumo de API propia y SDK externo).*
 
@@ -986,9 +1055,9 @@ En la imagen se presenta la caracterización empática de Jorge, arquetipo del n
 
 ### 2.5.2. Context Mapping
 
-El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los siete Bounded Contexts que conforman la solución, aplicando los patrones de relación establecidos en Domain-Driven Design para gestionar las dependencias entre equipos y modelos de dominio, bajo el nuevo enfoque de la plataforma centrado en la verificación de habilidades mediante Inteligencia Artificial.
+El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los ocho Bounded Contexts que conforman la solución, aplicando los patrones de relación establecidos en Domain-Driven Design para gestionar las dependencias entre equipos y modelos de dominio, bajo el nuevo enfoque de la plataforma centrado en la verificación de habilidades mediante Inteligencia Artificial.
 
-**Identity & Access** actúa como **Upstream** de todo el sistema bajo el patrón **Conformist**: su agregado `User` expone únicamente `userId` y `role` como datos públicos, y el resto de los Bounded Contexts (Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives y Moderation & Disputes) se conforman a ese modelo sin negociar cambios, referenciando el identificador de usuario como un dato externo dentro de su propio esquema de persistencia. Es dentro de este Bounded Context que se distingue el perfil de `Student` del perfil de `Verificador` (vinculado a un Student que ya completó su propia ruta de certificación), sin que ello implique un rol adicional a nivel de autenticación.
+**Identity & Access** actúa como **Upstream** de todo el sistema bajo el patrón **Conformist**: su agregado `User` expone únicamente `userId` y `role` como datos públicos, y el resto de los Bounded Contexts (Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Subscription & Billing y Moderation & Disputes) se conforman a ese modelo sin negociar cambios, referenciando el identificador de usuario como un dato externo dentro de su propio esquema de persistencia. Es dentro de este Bounded Context que se distingue el perfil de `Student` del perfil de `Verificador` (vinculado a un Student que ya completó su propia ruta de certificación), sin que ello implique un rol adicional a nivel de autenticación.
 
 **Credential Verification** mantiene una relación **Customer/Supplier** hacia **Learning Path Engine**: únicamente un certificado ya validado (extraído y verificado como legítimo) puede ser consumido como evidencia de una habilidad dentro del cálculo de brechas, por lo que Learning Path Engine actúa como Downstream, consumiendo el modelo de `Certificate` validado sin poder alterar las reglas de extracción o de detección de fraude definidas en el Upstream.
 
@@ -996,27 +1065,29 @@ El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los
 
 **Assessment & Peer Review**, como ejecutor del flujo de evaluación y revisión humana, es **Supplier** de **Reputation** (la resolución de un `VerificationCase` —aprobado o rechazado, y quién lo revisó— dispara el recálculo de la confiabilidad del Verificador y del Employability Score del estudiante) y de **Wallet & Incentives** (la resolución de un caso por parte de un Verificador dispara la acreditación de SkillCredits), ambas bajo el patrón **Customer/Supplier**.
 
+**Subscription & Billing** opera de forma independiente al resto de los Bounded Contexts de negocio, sin ninguna relación Customer/Supplier hacia Wallet & Incentives: gestiona únicamente el acceso recurrente del Estudiante a la plataforma mediante la suscripción mensual, sin intervenir en el balance ni la acreditación de SkillCredits, que permanecen como un sistema de reconocimiento estrictamente no monetario y no adquirible. Este Bounded Context mantiene una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **Stripe**, aislando el modelo de dominio interno `Subscription` de los contratos, eventos (webhooks) y formatos propios de la API de pagos.
+
 **Moderation & Disputes** se relaciona como **Customer/Supplier** hacia **Identity & Access** (emite órdenes de sanción sobre la cuenta de un usuario que presentó certificados fraudulentos o incurrió en una falta) y hacia **Reputation** (ajusta la reputación del usuario tras una disputa resuelta). Adicionalmente, mantiene una relación de **Anticorruption Layer (ACL)** hacia **Assessment & Peer Review**: en lugar de depender directamente del modelo interno de `VerificationCase`, Moderation & Disputes traduce la información recibida a su propio modelo simplificado de "caso en disputa", evitando acoplarse a cambios futuros en la lógica interna de asignación y revisión de Verificadores.
 
 Finalmente, **Credential Verification** mantiene una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **ML Kit** (Text Recognition / Entity Extraction de Firebase, utilizado on-device para la extracción de datos del certificado), aislando el modelo de dominio interno `Certificate` de los contratos y formatos de respuesta propios del SDK externo.
 
 <p align="center">
-  <img src="images-doc/context-mapping.svg" alt="Context Mapping" width="900">
+  <img src="images-doc/context-mapping.png" alt="Context Mapping" width="900">
   <br>
-  <em>Figura XX. Context Mapping de SkillSwap - Elaboración propia. Nota: Se muestran las relaciones Conformist, Customer/Supplier y Anticorruption Layer entre los Bounded Contexts Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives y Moderation & Disputes.</em>
+  <em>Figura XX. Context Mapping de SkillSwap - Elaboración propia. Nota: Se muestran las relaciones Conformist, Customer/Supplier y Anticorruption Layer entre los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Subscription & Billing y Moderation & Disputes) y los sistemas externos ML Kit y Stripe.</em>
 </p>
 
 ### 2.5.3. Software Architecture
 
 **Software Architecture Context Level Diagram:**
-Muestra la interacción de los tres actores (Estudiante, Verificador, Profesor/Coordinador) con el sistema central de SkillSwap y los servicios externos de terceros (extracción de datos de certificados vía ML Kit, almacenamiento de evidencias y servicio de notificaciones).
+Muestra la interacción de los tres actores (Estudiante, Verificador, Profesor/Coordinador) con el sistema central de SkillSwap y los servicios externos de terceros (extracción de datos de certificados vía ML Kit, procesamiento de pagos vía Stripe, almacenamiento de evidencias y servicio de notificaciones).
 
 **Software Architecture Container Level Diagram:**
 Detalla la estructura de contenedores:
 1. **Mobile Application (Native/Cross-Platform):** La interfaz principal para los tres actores, desarrollada con soporte de almacenamiento local, acceso a hardware (cámara para captura de certificados, biometría) y consumo del backend RESTful.
 2. **Landing Page:** Sitio web estático para la presentación del modelo de negocio, accesible por los tres actores.
-3. **API Gateway / RESTful Web Services:** El backend desarrollado internamente que orquesta la lógica de negocio de los siete Bounded Contexts.
-4. **Database:** Repositorio central de información, compartido por los siete Bounded Contexts.
+3. **API Gateway / RESTful Web Services:** El backend desarrollado internamente que orquesta la lógica de negocio de los ocho Bounded Contexts.
+4. **Database:** Repositorio central de información, compartido por los ocho Bounded Contexts.
 
 **Software Architecture Deployment Diagram:**
 Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de los usuarios (Android), el Landing Page en un servicio de hosting estático, y el backend junto con la base de datos en infraestructura Cloud.
@@ -1025,14 +1096,14 @@ Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de
 
 El diagrama de contexto (Context Diagram) bajo el enfoque C4 Model presenta al sistema SkillSwap como una caja central única, mostrando sus interacciones de alto nivel con los actores principales y los sistemas externos de terceros, sin exponer aún detalles de implementación.
 
-El sistema es utilizado por tres actores principales: el **Estudiante**, quien sube sus certificados y demuestra sus habilidades a través de las evaluaciones generadas por la plataforma; el **Verificador** (un perfil vinculado a un Estudiante que ya completó su propia ruta de certificación), quien revisa los casos que la IA no puede resolver con suficiente confianza; y el **Profesor Universitario/Coordinador**, quien supervisa la calidad del proceso de verificación desde la aplicación móvil. Los tres actores interactúan con el sistema a través de la **aplicación móvil nativa (Android) y cross-platform (Flutter)**, así como del Landing Page.
+El sistema es utilizado por tres actores principales: el **Estudiante**, quien sube sus certificados, demuestra sus habilidades a través de las evaluaciones generadas por la plataforma y accede a la plataforma mediante una suscripción mensual; el **Verificador** (un perfil vinculado a un Estudiante que ya completó su propia ruta de certificación), quien revisa los casos que la IA no puede resolver con suficiente confianza; y el **Profesor Universitario/Coordinador**, quien supervisa la calidad del proceso de verificación desde la aplicación móvil. Los tres actores interactúan con el sistema a través de la **aplicación móvil nativa (Android) y cross-platform (Flutter)**, así como del Landing Page.
 
-A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), utilizado on-device para la extracción de datos de los certificados subidos por el Estudiante (institución, curso, fecha) — esta es la tecnología que satisface el requisito de aprendizaje autónomo del curso; un **servicio de almacenamiento en la nube** para las imágenes de certificados y evidencias adjuntas a un caso de revisión; y un **servicio de correo electrónico** para el envío de notificaciones institucionales (validación de dominio `.edu.pe`, resultado de una evaluación, apertura o resolución de un caso de verificación).
+A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), utilizado on-device para la extracción de datos de los certificados subidos por el Estudiante (institución, curso, fecha) — esta es la tecnología que satisface el requisito de aprendizaje autónomo del curso; **Stripe**, utilizado para el procesamiento del cobro recurrente de la suscripción mensual y la compra de paquetes de SkillCredits en la tienda interna; un **servicio de almacenamiento en la nube** para las imágenes de certificados y evidencias adjuntas a un caso de revisión; y un **servicio de correo electrónico** para el envío de notificaciones institucionales (validación de dominio `.edu.pe`, resultado de una evaluación, apertura o resolución de un caso de verificación).
 
 <p align="center">
   <img src="images-doc/SkillSwapSystemContext.svg" alt="System Context Diagram - Mobile" width="800">
   <br>
-  <em>Figura XX. C4 Model: Context Diagram - Elaboración propia. Nota: Diagrama de contexto que muestra el sistema SkillSwap en el centro y sus interacciones directas con los actores principales (Estudiante, Verificador, Profesor/Coordinador) a través de la aplicación móvil nativa, la aplicación cross-platform y el Landing Page, así como con los sistemas externos de terceros (ML Kit, almacenamiento en la nube y servicio de correo electrónico).</em>
+  <em>Figura XX. C4 Model: Context Diagram - Elaboración propia. Nota: Diagrama de contexto que muestra el sistema SkillSwap en el centro y sus interacciones directas con los actores principales (Estudiante, Verificador, Profesor/Coordinador) a través de la aplicación móvil nativa, la aplicación cross-platform y el Landing Page, así como con los sistemas externos de terceros (ML Kit, Stripe, almacenamiento en la nube y servicio de correo electrónico).</em>
 </p>
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
@@ -1044,7 +1115,7 @@ Los contenedores identificados son los siguientes:
 - **Landing Page (Sitio Web Estático):** Presenta el modelo de negocio de SkillSwap al público general, implementado con HTML5, CSS3 y JavaScript.
 - **Android Native Application:** Aplicación móvil nativa dirigida a los tres actores (Estudiante, Verificador, Profesor/Coordinador), desarrollada en Kotlin con Jetpack Compose, que consume los Web Services RESTful del backend.
 - **Cross-Platform Application (Flutter):** Aplicación móvil dirigida a Android, que replica las funcionalidades core para los tres actores, desarrollada en Flutter con Dart, consumiendo igualmente los Web Services RESTful expuestos por el backend.
-- **API / RESTful Web Services:** Backend desarrollado bajo arquitectura RESTful en C# / ASP.NET Core, actuando como Published Language único para los tres clientes (Landing Page, Android Native App y Flutter App), orquestando la lógica de negocio de los siete Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives y Moderation & Disputes).
+- **API / RESTful Web Services:** Backend desarrollado bajo arquitectura RESTful en C# / ASP.NET Core, actuando como Published Language único para los tres clientes (Landing Page, Android Native App y Flutter App), orquestando la lógica de negocio de los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Subscription & Billing y Moderation & Disputes).
 - **Database:** Repositorio central de persistencia (instancia única de MySQL), donde cada Bounded Context mantiene sus propias tablas siguiendo los principios de Domain-Driven Design.
 
 Es importante resaltar que tanto la aplicación Android nativa como la aplicación Flutter cross-platform consumen el **mismo contrato de API RESTful** documentado con OpenAPI/Swagger, sin requerir endpoints adicionales ni lógica de backend duplicada, evidenciando así el desacoplamiento entre la capa de presentación y la capa de dominio/aplicación del sistema.
@@ -1052,7 +1123,7 @@ Es importante resaltar que tanto la aplicación Android nativa como la aplicaci�
 <p align="center">
   <img src="images-doc/SkillSwapContainer.svg" alt="Container Diagram - Mobile" width="900">
   <br>
-  <em>Figura XX. C4 Model: Container Diagram - Elaboración propia. Nota: Diagrama de contenedores que muestra el Landing Page, la Aplicación Android Nativa, la Aplicación Cross-Platform (Flutter), el backend de Web Services RESTful y la Base de Datos, junto con sus interacciones y los sistemas externos ML Kit y el servicio de almacenamiento en la nube.</em>
+  <em>Figura XX. C4 Model: Container Diagram - Elaboración propia. Nota: Diagrama de contenedores que muestra el Landing Page, la Aplicación Android Nativa, la Aplicación Cross-Platform (Flutter), el backend de Web Services RESTful y la Base de Datos, junto con sus interacciones y los sistemas externos ML Kit, Stripe y el servicio de almacenamiento en la nube.</em>
 </p>
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
@@ -1061,16 +1132,16 @@ El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física 
 
 - **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes, Verificadores y el Profesor alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y la Aplicación Cross-Platform (Flutter, dirigida a Android), instaladas mediante distribución interna vía **Firebase App Distribution** durante el ciclo de pruebas, y descargables desde el dispositivo físico para la sustentación del curso. En estos dispositivos se ejecuta además **ML Kit** de forma on-device para la extracción de datos de los certificados, sin requerir una llamada a un servicio en la nube para dicho procesamiento.
 - **Hosting estático:** Aloja el Landing Page, servido de forma estática desde un proveedor de hosting (Firebase Hosting / Vercel), accesible por los tres actores del sistema.
-- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (C# / ASP.NET Core), desplegado en **Render**, donde se ejecuta la lógica de negocio de los siete Bounded Contexts a través de un único API Gateway, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por los tres clientes (Landing Page, Android Native App, Flutter App).
-- **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de MySQL desplegada en **Render**, compartida por los siete Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
-- **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para las imágenes de certificados y evidencias adjuntas a un caso de verificación, y servicio de correo electrónico para el envío de notificaciones (validación institucional, resultados de evaluación, estado de un caso de revisión).
+- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (C# / ASP.NET Core), desplegado en **Render**, donde se ejecuta la lógica de negocio de los ocho Bounded Contexts a través de un único API Gateway, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por los tres clientes (Landing Page, Android Native App, Flutter App).
+- **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de MySQL desplegada en **Render**, compartida por los ocho Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
+- **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para las imágenes de certificados y evidencias adjuntas a un caso de verificación, servicio de correo electrónico para el envío de notificaciones (validación institucional, resultados de evaluación, estado de un caso de revisión), y **Stripe** para el procesamiento del cobro recurrente de la suscripción mensual.
 
 Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
 
 <p align="center">
   <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram - Mobile" width="900">
   <br>
-  <em>Figura XX. C4 Model: Deployment Diagram - Elaboración propia. Nota: Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution y ejecución on-device de ML Kit, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de MySQL en Render y el servicio externo de almacenamiento en la nube. Elaborado en PlantUML.</em>
+  <em>Figura XX. C4 Model: Deployment Diagram - Elaboración propia. Nota: Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution y ejecución on-device de ML Kit, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de MySQL en Render y los servicios externos de almacenamiento en la nube y Stripe. Elaborado en PlantUML.</em>
 </p>
 
 ## 2.6. Tactical-Level Domain-Driven Design
@@ -2495,29 +2566,202 @@ El modelado de base de datos de Moderation & Disputes pertenece a las tablas `di
 
 ---
 
-A continuación se presenta el diagrama relacional completo de SkillSwap, mostrando la totalidad de las tablas y sus relaciones entre los siete Bounded Contexts.
+### 2.6.8. Bounded Context: Subscription & Billing
+
+#### 2.6.8.1. Domain Layer
+
+La capa de dominio de Subscription & Billing concentra las reglas de negocio del cobro recurrente de la suscripción mensual del Estudiante, manteniendo el modelo desacoplado de la pasarela de pago concreta (Stripe) mediante un contrato de dominio propio.
+
+**1. Aggregate Root: Subscription**
+
+Descripción: El agregado `Subscription` representa el acceso recurrente de un Estudiante a la plataforma, gobernando las transiciones de estado de su ciclo de facturación mensual.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único de la suscripción (autogenerado). |
+| studentId | int | Referencia al usuario `Student` (Identity & Access) propietario de la suscripción. |
+| plan | SubscriptionPlan (VO) | Plan contratado, incluyendo su nombre y precio. |
+| status | SubscriptionStatus (VO) | Estado actual del ciclo de facturación. |
+| startedAt | timestamp | Fecha de inicio de la suscripción. |
+| renewsAt | timestamp | Fecha en la que corresponde el próximo cobro. |
+| cancelledAt | timestamp (nullable) | Fecha en la que el Estudiante canceló la suscripción, si aplica. |
+
+Métodos
+
+- `Subscription(studentId, plan)` (Constructor): Crea la suscripción en estado `ACTIVE`, calculando `renewsAt` a partir de la fecha actual y la periodicidad del plan.
+- `renew(Date newRenewsAt)`: Confirma el cobro del ciclo actual y actualiza `renewsAt` al siguiente período, manteniendo el estado en `ACTIVE`.
+- `cancel()`: Transiciona el estado a `CANCELLED` y registra `cancelledAt`, sin revocar el acceso hasta que finalice el período ya pagado.
+- `expire()`: Transiciona el estado a `EXPIRED` cuando un cobro de renovación falla y no se resuelve dentro del período de gracia.
+
+**2. Value Object: SubscriptionPlan**
+
+Descripción: Encapsula el nombre y el precio del plan contratado por el Estudiante.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| name | string | Nombre comercial del plan (ej. "Plan Mensual"). |
+| price | Money (VO) | Precio periódico del plan. |
+
+**3. Value Object: Money**
+
+Descripción: Encapsula un monto monetario junto con su moneda, evitando operaciones aritméticas ambiguas entre distintas divisas.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| amount | decimal | Cantidad numérica del monto. |
+| currency | string | Código de moneda (ej. `PEN`). |
+
+Métodos
+
+- `Money(decimal amount, String currency)` (Constructor): Valida que el monto no sea negativo.
+
+**4. Value Object: SubscriptionStatus**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | `ACTIVE`, `EXPIRED`, `CANCELLED`. |
+
+**5. Domain Service: PaymentGateway**
+
+Descripción: Define el contrato para procesar un cobro contra una pasarela de pago externa, desacoplando el dominio de la tecnología concreta (Stripe) y permitiendo sustituirla o simularla sin modificar el resto del Bounded Context.
+
+Métodos
+
+- `charge(Money amount, String paymentMethodToken)`: Procesa el cobro del monto indicado contra el método de pago del usuario y retorna el resultado de la transacción (éxito/fallo, identificador externo del cargo).
+
+**6. Repository: SubscriptionRepository**
+
+Métodos
+
+- `findByStudentId(int studentId)`: Recupera la suscripción vigente de un Estudiante.
+- `save(Subscription subscription)`: Persiste una suscripción nueva o actualizada.
+
+En la Domain Layer de SkillSwap, dentro del Bounded Context de Subscription & Billing, el agregado `Subscription` centraliza el ciclo de vida del cobro recurrente, apoyándose en el Domain Service `PaymentGateway` para desacoplar el dominio del proveedor concreto de pagos, y en el Value Object `Money` para representar montos en moneda real de forma segura.
+
+#### 2.6.8.2. Interface Layer
+
+**Resources**
+
+| Nombre | Descripción |
+|---|---|
+| CreateSubscriptionResource | DTO de entrada con el plan elegido y el token del método de pago. |
+| SubscriptionResource | DTO de salida que representa la suscripción vigente (plan, estado, próxima renovación). |
+
+**Controllers**
+
+| Nombre | Método HTTP | Ruta / Resource | Descripción |
+|---|---|---|---|
+| SubscriptionController | POST | `/api/v1/subscriptions` (CreateSubscriptionResource) | Crea la suscripción del Estudiante y procesa el primer cobro. |
+| SubscriptionController | GET | `/api/v1/subscriptions/{studentId}` | Retorna el estado vigente de la suscripción. |
+| SubscriptionController | PATCH | `/api/v1/subscriptions/{id}/cancel` | Cancela la suscripción, efectiva al finalizar el período ya pagado. |
+
+**Transformers / Assemblers**
+
+| Nombre | Descripción |
+|---|---|
+| SubscriptionResourceFromEntityAssembler | Convierte `Subscription` en `SubscriptionResource`. |
+| CreateSubscriptionCommandFromResourceAssembler | Transforma `CreateSubscriptionResource` en `CreateSubscriptionCommand`. |
+
+Los controladores no procesan directamente el token del método de pago: lo delegan sin inspeccionarlo a la capa de aplicación, que a su vez lo pasa al adaptador de infraestructura de Stripe, evitando que datos sensibles de pago circulen por el dominio.
+
+#### 2.6.8.3. Application Layer
+
+**Handlers**
+
+| Nombre | Descripción | Resumen de Lógica |
+|---|---|---|
+| CreateSubscriptionCommandHandler | Procesa la creación de una nueva suscripción. | Invoca `PaymentGateway.charge()` con el precio del plan; si el cobro es exitoso, instancia `Subscription` en estado `ACTIVE` y la persiste. |
+| CancelSubscriptionCommandHandler | Procesa la cancelación de una suscripción. | Recupera la `Subscription`, invoca `cancel()` y la persiste. |
+| RenewSubscriptionCommandHandler | Procesa la renovación periódica de una suscripción. | Disparado por el webhook de Stripe al confirmarse el cobro recurrente; invoca `renew()` sobre la `Subscription` correspondiente. |
+| GetSubscriptionQueryHandler | Recupera el detalle de la suscripción vigente. | Consulta `SubscriptionRepository.findByStudentId()`. |
+
+**Internal DTOs**
+
+| Nombre | Descripción |
+|---|---|
+| SubscriptionDto | Objeto que transporta el estado operativo de la suscripción entre capas. |
+
+En la Application Layer de Subscription & Billing, `RenewSubscriptionCommandHandler` asegura que el acceso del Estudiante se mantenga sincronizado con el estado real del cobro recurrente en la pasarela de pago, sin que este Bounded Context intervenga en ningún momento sobre el balance de SkillCredits del usuario.
+
+#### 2.6.8.4. Infrastructure Layer
+
+**Persistence (Repository Implementation)**
+
+| Nombre | Descripción | Tecnologías / Herramientas |
+|---|---|---|
+| SubscriptionRepositoryAdapter | Implementación concreta de `SubscriptionRepository` sobre la tabla `subscriptions`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+
+**Payment Services Implementation**
+
+| Nombre | Descripción | Resumen de Implementación |
+|---|---|---|
+| StripePaymentGatewayAdapter | Implementación técnica de `PaymentGateway` mediante la API de Stripe. | Procesa cobros vía Stripe Payment Intents y verifica la firma de los webhooks entrantes para confirmar cobros recurrentes de forma asíncrona. |
+
+*Nota de alcance:* si la integración real con Stripe (incluyendo el manejo de webhooks) no resulta viable dentro de los tiempos del ciclo, el equipo documentará esta limitación de la misma forma en que ya se hizo con los niveles de verificación no implementados en Credential Verification — sustituyendo `StripePaymentGatewayAdapter` por una implementación simulada (`SimulatedPaymentGatewayAdapter`) que respeta el mismo contrato `PaymentGateway`, sin alterar el Domain Layer ni la Application Layer.
+
+#### 2.6.8.5. Bounded Context Software Architecture Component Level Diagrams
+
+<p align="center">
+  <img src="images-doc/SubscriptionBillingComponent.svg" alt="Component Diagram - Subscription & Billing" width="800">
+  <br>
+  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Subscription & Billing - Elaboración propia. Nota: Se detalla la segregación entre el Controller, el Command/Query Service y el adaptador de cobro hacia Stripe, evidenciando el manejo asíncrono de la confirmación de pagos mediante un Webhook Handler. Este Bounded Context opera de forma completamente independiente de Wallet & Incentives.</em>
+</p>
+
+##### 2.6.8.6.1. Bounded Context Domain Layer Class Diagrams
+
+<p align="center">
+  <img src="images-doc/class-subscription-billing-mobile.png" alt="Class Diagram - Subscription & Billing" width="800">
+  <br>
+  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Subscription & Billing - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
+</p>
+
+El modelado de clases de Subscription & Billing pertenece únicamente al agregado raíz `Subscription`, junto con los Value Objects `SubscriptionPlan` y `Money`, debido a que este Bounded Context gestiona exclusivamente el ciclo de vida del cobro recurrente de la mensualidad, desacoplado del proveedor concreto de pagos mediante el Domain Service `PaymentGateway`, definido en el Context Mapping como el límite de Anticorruption Layer hacia Stripe.
+
+##### 2.6.8.6.2. Bounded Context Database Design Diagram
+
+<p align="center">
+  <img src="images-doc/db-subscription-billing-mobile.png" alt="Database Diagram - Subscription & Billing" width="800">
+  <br>
+  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Subscription & Billing - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
+</p>
+
+El modelado de base de datos de Subscription & Billing pertenece a la tabla `subscriptions`, debido a que es la única tabla que persiste el agregado raíz `Subscription`, incluyendo el plan contratado aplanado en columnas simples (`plan_name`, `plan_price`, `plan_currency`) — al igual que en Identity & Access y Credential Verification, no existe ninguna entidad hija ni colección propia, por lo que un único registro por suscripción es suficiente. No se persiste el método de pago ni datos sensibles de tarjeta, delegados por completo a Stripe.
+
+
+---
+
+A continuación se presenta el diagrama relacional completo de SkillSwap, mostrando la totalidad de las tablas y sus relaciones entre los ocho Bounded Contexts.
 
 <p align="center">
   <img src="images-doc/db-full-mobile.svg" alt="Diagrama de Base de Datos Completo" width="1000">
   <br>
-  <em>Figura XX. Diagrama de Base de Datos completo de SkillSwap - Elaboración propia. Nota: Se muestra la totalidad de las tablas correspondientes a los siete Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Moderation & Disputes), incluyendo el campo device_token sobre la tabla users para el soporte de notificaciones push, y los campos file_hash, storage_reference, ocr_text y qr_payload incorporados sobre la tabla certificates para el soporte de la captura desde cámara y la extracción on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto. Elaborado en dbdiagram.io.</em>
+  <em>Figura XX. Diagrama de Base de Datos completo de SkillSwap - Elaboración propia. Nota: Se muestra la totalidad de las tablas correspondientes a los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el campo device_token sobre la tabla users para el soporte de notificaciones push, los campos file_hash, storage_reference, ocr_text y qr_payload incorporados sobre la tabla certificates para el soporte de la captura desde cámara y la extracción on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto, y la tabla subscriptions incorporada para el soporte del cobro recurrente de la suscripción mensual. Elaborado en dbdiagram.io.</em>
 </p>
 
-En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos MySQL (`skillswap_db`) aloja de forma organizada las tablas de los siete Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `assessment_attempts` y `verification_cases` en Assessment & Peer Review) y bajo acoplamiento entre ellos, referenciándose únicamente a través del identificador de usuario (`users.id`) como dato compartido. La incorporación del campo `device_token` y de los campos de extracción sobre `certificates` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, sin alterar la estructura ni las relaciones ya validadas en la versión web de la plataforma.
+En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos MySQL (`skillswap_db`) aloja de forma organizada las tablas de los ocho Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `assessment_attempts` y `verification_cases` en Assessment & Peer Review) y bajo acoplamiento entre ellos, referenciándose únicamente a través del identificador de usuario (`users.id`) como dato compartido. La incorporación del campo `device_token` y de los campos de extracción sobre `certificates` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, mientras que la tabla `subscriptions` evidencia el modelo de negocio de acceso recurrente (mensualidad), completamente independiente del sistema interno no monetario de SkillCredits, que solo se gana mediante participación como Verificador y no admite ninguna forma de adquisición directa.
 
 
 
-A continuación se presenta el diagrama de clases UML completo de SkillSwap, mostrando la totalidad del modelo de dominio y su segmentación entre los siete Bounded Contexts.
+A continuación se presenta el diagrama de clases UML completo de SkillSwap, mostrando la totalidad del modelo de dominio y su segmentación entre los ocho Bounded Contexts.
 
 <p align="center">
   <img src="images-doc/SkillSwap_ClassDiagram_Mobile.svg" alt="Diagrama de Clases Completo" width="1000">
   <br>
-  <em>Figura XX. Diagrama de Clases UML completo de SkillSwap - Elaboración propia. Nota: Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los siete Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Moderation & Disputes), incluyendo el Value Object `DeviceToken` en Identity & Access y los atributos de extracción OCR (`ocrText`, `qrPayload`, `fileHash`) en `Certificate` (Credential Verification), incorporados para el soporte de las funcionalidades propias de los clientes móviles. Elaborado en PlantUML.</em>
+  <em>Figura XX. Diagrama de Clases UML completo de SkillSwap - Elaboración propia. Nota: Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el Value Object `DeviceToken` en Identity & Access, los atributos de extracción OCR (`ocrText`, `qrPayload`, `fileHash`) en `Certificate` (Credential Verification), y el agregado `Subscription` (Subscription & Billing) incorporado para el soporte del cobro recurrente de la mensualidad. Elaborado en PlantUML.</em>
 </p>
 
-En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `Certificate`, `LearningPath`, `AssessmentBlueprint`, `AssessmentAttempt`, `VerifierProfile`, `VerificationCase`, `VerifierReliability`, `StudentEmployabilityScore`, `Wallet`, `Dispute`) heredando de un `AbstractDomainAggregateRoot` compartido, manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos — toda referencia cruzada se resuelve mediante un identificador simple (`Long`). La incorporación del Value Object `DeviceToken` en Identity & Access y de los atributos de extracción de `Certificate` en Credential Verification demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, en particular la captura desde cámara y el procesamiento on-device mediante ML Kit que constituye el feature de aprendizaje autónomo del proyecto.
+En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `Certificate`, `LearningPath`, `AssessmentBlueprint`, `AssessmentAttempt`, `VerifierProfile`, `VerificationCase`, `VerifierReliability`, `StudentEmployabilityScore`, `Wallet`, `Subscription`, `Dispute`) heredando de un `AbstractDomainAggregateRoot` compartido, manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos — toda referencia cruzada se resuelve mediante un identificador simple (`Long`). La incorporación del Value Object `DeviceToken` en Identity & Access y de los atributos de extracción de `Certificate` en Credential Verification demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, en particular la captura desde cámara y el procesamiento on-device mediante ML Kit que constituye el feature de aprendizaje autónomo del proyecto. Por su parte, el agregado `Subscription` en Subscription & Billing, junto con los Value Objects `SubscriptionPlan` y `Money`, evidencia el desacoplamiento entre el cobro recurrente al Estudiante y el sistema interno no monetario de SkillCredits en Wallet & Incentives, ambos Bounded Contexts operando de forma completamente independiente entre sí y desacoplados del proveedor concreto de pagos (Stripe) mediante el Domain Service `PaymentGateway`.
 
 ---
+
 
 # Conclusiones
 
@@ -2559,6 +2803,8 @@ Contrastar el Problem Statement con nuestro propio diseño de arquitectura nos o
 
 * **Landing Page (GitHub Pages):**
 [https://github.com/Aplicaciones-Dispositivos-Moviles](https://github.com/Aplicaciones-Dispositivos-Moviles)
+
+link: [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/)
 
 
 ---
