@@ -894,7 +894,7 @@ En la imagen se presenta la caracterización empática de Jorge, arquetipo del n
 
 ### 2.4.1. User Stories
 
-En esta sección se especifican los requisitos funcionales y técnicos de SkillSwap, aplicación móvil nativa y multiplataforma, mediante User Stories agrupadas en Epics. Las historias se redactaron a partir de los hallazgos de las entrevistas, los User Personas, el User Task Matrix y los Journey Maps de los dos segmentos objetivo: **personas que quieren aprender (Estudiantes)** y **personas que validan el conocimiento (Verificadores y Coordinadores)**. En total se definen **50 historias**: 40 User Stories orientadas a los usuarios finales y 10 Technical Stories, redactadas con el rol *Developer*, que describen los servicios RESTful que consume la aplicación móvil.
+En esta sección se especifican los requisitos funcionales y técnicos de SkillSwap, aplicación móvil nativa y multiplataforma, mediante User Stories agrupadas en Epics. Las historias se redactaron a partir de los hallazgos de las entrevistas, los User Personas, el User Task Matrix y los Journey Maps de los dos segmentos objetivo: **personas que quieren aprender (Estudiantes)** y **personas que validan el conocimiento (Verificadores y Coordinadores)**, además de los visitantes de la Landing Page. En total se definen **55 historias**: 45 User Stories orientadas a los usuarios finales y 10 Technical Stories, redactadas con el rol *Developer*, que describen los servicios RESTful que consume la aplicación móvil.
 
 #### Epics
 
@@ -908,6 +908,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
 | EP06 | Demostración final supervisada | Como estudiante, quiero demostrar el dominio integral de mi ruta completada mediante un proyecto avanzado o examen supervisado por videollamada, para obtener una validación final con mayor rigor. |
 | EP07 | SkillCredits y reconocimiento profesional | Como Verificador, quiero acumular, consultar, canjear y exhibir mis SkillCredits, para que mi labor de verificación se convierta en una credencial profesional verificable. |
 | EP08 | Supervisión y calidad del Coordinador | Como Coordinador, quiero resolver disputas, habilitar reevaluaciones, controlar la actividad y confiabilidad de los Verificadores y consultar métricas de la plataforma, para garantizar la integridad de todo el proceso de verificación. |
+| EP09 | Landing Page | Como visitante, quiero conocer la propuesta de valor, los planes y la forma de participar en SkillSwap desde un sitio web público, para decidir si descargo la aplicación y me registro. |
 
 *(Tabla 11. Epics del proyecto - Elaboración propia.)*
 
@@ -1311,6 +1312,56 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><td colspan="4">Como Coordinador, quiero consultar métricas agregadas de estudiantes y Verificadores, para tomar decisiones informadas sobre la calidad y la demanda de habilidades.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
   <tr><td colspan="4"><strong>Escenario 1: Métricas de demanda</strong><br><strong>Dado que</strong> existen rutas registradas en la plataforma<br><strong>Cuando</strong> el Coordinador consulta las métricas de demanda<br><strong>Entonces</strong> el sistema retorna las habilidades más solicitadas y las certificaciones más frecuentes en el periodo seleccionado<br><br><strong>Escenario 2: Métricas de dificultad</strong><br><strong>Dado que</strong> existen intentos de evaluación registrados<br><strong>Cuando</strong> el Coordinador consulta las métricas de dificultad<br><strong>Entonces</strong> el sistema retorna las habilidades y sub-temas con mayor tasa de desaprobación<br><br><strong>Escenario 3: Métricas de Verificadores</strong><br><strong>Dado que</strong> existen casos resueltos<br><strong>Cuando</strong> el Coordinador consulta el desempeño de los Verificadores<br><strong>Entonces</strong> el sistema retorna los Verificadores ordenados por confiabilidad<br><strong>Y</strong> el tiempo promedio de resolución de cada uno</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US41</td><td>Visitante</td><td>Alta</td><td>EP09</td></tr>
+  <tr><th>Title</th><td colspan="3">Propuesta de valor para estudiantes</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como visitante, quiero conocer cómo SkillSwap me ayuda a demostrar mis habilidades más allá de un certificado, para decidir si la plataforma responde a mi necesidad.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Acceso a la propuesta de valor</strong><br><strong>Dado que</strong> el visitante accede a la landing page<br><strong>Cuando</strong> consulta la información dirigida a estudiantes<br><strong>Entonces</strong> el sitio presenta la propuesta de valor: rutas generadas por IA, validación de certificados, evaluaciones prácticas y verificación por pares<br><br><strong>Escenario 2: Explicación del proceso</strong><br><strong>Dado que</strong> el visitante consulta la información dirigida a estudiantes<br><strong>Cuando</strong> revisa el funcionamiento de la plataforma<br><strong>Entonces</strong> el sitio describe en orden los pasos: declarar la meta, subir certificados, rendir evaluaciones y obtener la validación final</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US42</td><td>Visitante</td><td>Media</td><td>EP09</td></tr>
+  <tr><th>Title</th><td colspan="3">Información para futuros Verificadores</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como visitante, quiero conocer los requisitos y beneficios de ser Verificador, para saber cómo participar y qué reconocimiento puedo obtener.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Requisitos para ser Verificador</strong><br><strong>Dado que</strong> el visitante accede a la landing page<br><strong>Cuando</strong> consulta la información dirigida a Verificadores<br><strong>Entonces</strong> el sitio presenta los requisitos de habilitación: completar la ruta de certificación y aprobar el examen de ingreso<br><br><strong>Escenario 2: Beneficios del Verificador</strong><br><strong>Dado que</strong> el visitante consulta la información dirigida a Verificadores<br><strong>Cuando</strong> revisa los beneficios<br><strong>Entonces</strong> el sitio explica qué son los SkillCredits, cómo se obtienen y cómo se comparten como credencial verificable</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US43</td><td>Visitante</td><td>Alta</td><td>EP09</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de planes y precios</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como visitante, quiero conocer el precio y los beneficios del plan mensual, para evaluar si la suscripción se ajusta a mi presupuesto.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta del plan mensual</strong><br><strong>Dado que</strong> el visitante accede a la landing page<br><strong>Cuando</strong> consulta los planes<br><strong>Entonces</strong> el sitio presenta el precio mensual en soles y los beneficios incluidos en la suscripción<br><br><strong>Escenario 2: Condiciones de la suscripción</strong><br><strong>Dado que</strong> el visitante consulta los planes<br><strong>Cuando</strong> revisa las condiciones<br><strong>Entonces</strong> el sitio informa que la suscripción se gestiona mediante Google Play y puede cancelarse en cualquier momento</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US44</td><td>Visitante</td><td>Alta</td><td>EP09</td></tr>
+  <tr><th>Title</th><td colspan="3">Descarga de la aplicación</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como visitante, quiero acceder a la descarga de la aplicación desde la landing page, para instalarla en mi dispositivo sin buscarla manualmente.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Redirección a la tienda</strong><br><strong>Dado que</strong> el visitante accede a la landing page desde cualquier dispositivo<br><strong>Cuando</strong> solicita descargar la aplicación<br><strong>Entonces</strong> el sitio lo redirige a la ficha de SkillSwap en Google Play<br><br><strong>Escenario 2: Requisito de correo institucional</strong><br><strong>Dado que</strong> el visitante solicita descargar la aplicación<br><strong>Cuando</strong> el sitio presenta la información de registro<br><strong>Entonces</strong> el sitio informa que el registro requiere un correo institucional con dominio .edu.pe</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US45</td><td>Visitante</td><td>Media</td><td>EP09</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de preguntas frecuentes</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como visitante, quiero consultar las preguntas frecuentes sobre la plataforma, para resolver mis dudas antes de registrarme.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta de preguntas frecuentes</strong><br><strong>Dado que</strong> el visitante accede a la landing page<br><strong>Cuando</strong> consulta las preguntas frecuentes<br><strong>Entonces</strong> el sitio presenta respuestas sobre la validación de certificados, el rol del Verificador, los SkillCredits y la suscripción<br><br><strong>Escenario 2: Sitio adaptable</strong><br><strong>Dado que</strong> el visitante accede a la landing page desde un dispositivo móvil<br><strong>Cuando</strong> el sitio se carga<br><strong>Entonces</strong> el contenido se adapta al tamaño del dispositivo y permanece legible sin desplazamiento horizontal</td></tr>
 </table>
 
 <table>
