@@ -395,59 +395,76 @@ La revisión estructurada de cada caso es la que permite mantener un registro ve
 # Capítulo II: Requirements Development and Software Solution Design
  
 ## 2.1. Competidores
- 
-Innovify opera en el ecosistema de plataformas de aprendizaje, certificación y validación de habilidades prácticas. A continuación se identifican los principales competidores directos e indirectos:
- 
-**Coursera (Competidor Directo)**
-Coursera es una de las plataformas de educación online más grandes del mundo, con más de 100 millones de usuarios registrados. Ofrece cursos, especializaciones y certificados profesionales en alianza con universidades de prestigio y empresas como Google, IBM y Meta. Su modelo se basa en la entrega de contenido estructurado y la emisión de certificados tras evaluaciones estandarizadas de opción múltiple. Sin embargo, no cuenta con un sistema de validación práctica supervisada por pares verificados, ni con un mecanismo de emparejamiento inteligente entre estudiantes y Verificadores. El certificado emitido no acredita el dominio práctico real de la habilidad.
- 
-**LinkedIn Learning (Competidor Directo)**
-LinkedIn Learning es la plataforma de aprendizaje corporativo de Microsoft integrada directamente al ecosistema profesional de LinkedIn. Ofrece miles de cursos en tecnología, negocios y habilidades blandas, con certificados que se añaden automáticamente al perfil del usuario. Su ventaja es la visibilidad profesional inmediata, pero su debilidad es que no valida si el usuario realmente aplicó lo aprendido: cualquier persona puede obtener un certificado sin demostrar competencia práctica. No cuenta con Verificadores humanos certificados ni con evaluaciones diseñadas por IA para cada dominio.
- 
+
+Innovify opera en el ecosistema de plataformas de orientación profesional y validación práctica de habilidades. A diferencia de plataformas de cursos online que enseñan contenido directamente, SkillSwap no enseña — orienta al estudiante sobre qué certificados conseguir y en qué orden según su meta profesional, y valida que realmente los dominó antes de avanzar. A continuación se identifican los principales competidores directos e indirectos:
+
+**Google Career Certificates (Competidor Directo)**
+Google Career Certificates crea rutas de aprendizaje estructuradas hacia roles laborales específicos (analista de datos, desarrollador UX, técnico de soporte IT, entre otros), combinando contenido propio con una validación al final de la ruta. Es el competidor más cercano porque comparte el mismo modelo de orientación hacia una meta profesional. Su diferencia con SkillSwap es que Google enseña el contenido dentro de su plataforma, mientras que SkillSwap no enseña nada — orienta al estudiante a conseguir sus certificados donde prefiera y luego valida que realmente los dominó mediante evaluaciones prácticas y revisión de Verificadores certificados.
+
+**Roadmap.sh (Competidor Directo)**
+Roadmap.sh es una plataforma de código abierto que genera rutas de aprendizaje visuales hacia roles tecnológicos específicos (frontend developer, DevOps engineer, data scientist, etc.). Su propuesta de orientar al estudiante sobre qué aprender y en qué orden es idéntica a la de SkillSwap. Su debilidad crítica es que no tiene ningún mecanismo de validación: el estudiante puede marcar un tema como aprendido sin ninguna evidencia real. SkillSwap cierra ese vacío exigiendo un quiz o miniproyecto generado por IA por cada paso de la ruta, con revisión de un Verificador certificado cuando la evaluación automática no basta.
+
 **Platzi (Competidor Indirecto)**
-Platzi es una plataforma latinoamericana de educación tecnológica con fuerte presencia en la región. Ofrece rutas de aprendizaje estructuradas, comunidades activas y certificados reconocidos en el mercado tecnológico. Su diferencial es el enfoque en proyectos prácticos y comunidad, pero su modelo no incluye supervisión de pares certificados ni un sistema de verificación de identidad de los instructores. La validación del conocimiento queda limitada a proyectos autoevaluados o revisados por pares sin criterio certificado.
- 
+Platzi es una plataforma latinoamericana de educación tecnológica con cursos propios y rutas estructuradas hacia carreras específicas. A diferencia de SkillSwap, Platzi enseña el contenido directamente. Su debilidad es que la validación queda limitada a proyectos autoevaluados o revisados por pares sin criterio certificado. El estudiante de SkillSwap puede haber aprendido en Platzi y traer ese certificado a SkillSwap para demostrar que realmente lo dominó.
+
+**Coursera (Competidor Indirecto)**
+Coursera ofrece especializaciones y rutas de certificación profesional en alianza con universidades de prestigio. A diferencia de SkillSwap, Coursera enseña el contenido y emite certificados tras evaluaciones estandarizadas de opción múltiple, sin validación práctica real ni revisión humana certificada. El estudiante de SkillSwap puede usar sus certificados de Coursera como punto de partida y luego validar en SkillSwap que el dominio es real.
+
 ---
- 
+
 ### 2.1.1. Análisis competitivo
- 
- 
-| Criterio de Análisis | **Innovify / SkillSwap** | **Coursera** | **LinkedIn Learning** | **Platzi** |
+
+| Criterio de Análisis | **Innovify / SkillSwap** | **Google Career Certificates** | **Roadmap.sh** | **Platzi** |
 | :--- | :--- | :--- | :--- | :--- |
-| **Overview** | Plataforma de validación de habilidades mediante rutas de certificación personalizadas por IA, quizzes/miniproyectos generados dinámicamente y revisión de casos puntuales por Verificadores que ya certificaron su propia ruta y superaron un examen de ingreso. | Plataforma masiva de cursos online con certificados emitidos por universidades y empresas. Orientada a la entrega de contenido estructurado. | Plataforma de aprendizaje corporativo integrada a LinkedIn. Certificados visibles en el perfil profesional del usuario. | Plataforma latinoamericana de educación tecnológica con rutas de aprendizaje, comunidad activa y proyectos prácticos. |
-| **Ventaja competitiva** | **Validación práctica real:** quizzes y miniproyectos generados por IA + revisión humana certificada. **SkillCredits:** reconocimiento profesional verificable para Verificadores. **Matching inteligente:** emparejamiento por embeddings de habilidades. | Alianzas con universidades y empresas de primer nivel. Reconocimiento global del certificado. | Integración nativa con LinkedIn. Visibilidad profesional inmediata. Catálogo masivo. | Fuerte comunidad latinoamericana. Proyectos prácticos. Precios accesibles para la región. |
-| **Mercado objetivo** | Estudiantes universitarios y jóvenes profesionales (18-35 años) que buscan demostrar habilidades prácticas reales para el mercado laboral. Verificadores que buscan reconocimiento profesional y construir reputación verificable. | Estudiantes y profesionales que buscan credenciales reconocidas por empresas globales. | Profesionales en entornos corporativos que buscan upskilling continuo financiado por su empresa. | Estudiantes y profesionales latinoamericanos que buscan habilidades tecnológicas a precio accesible. |
-| **Estrategias de marketing** | Marketing de comunidad universitaria. Programa de embajadores en campus. LinkedIn como canal de exhibición de SkillCredits. | SEO masivo. Alianzas con empresas (Google, IBM, Meta). Publicidad digital global. | Integración directa con el ecosistema LinkedIn. Ventas B2B a empresas para licencias corporativas. | Marketing de contenidos en redes sociales. Comunidad activa y referidos. Influencers tecnológicos. |
-| **Productos & Servicios** | Rutas de aprendizaje por IA, validación de certificados, quizzes/miniproyectos, revisión de casos por Verificadores, certificado de ruta respaldado por el historial de verificación, matching inteligente estudiante-Verificador, SkillCredits, panel de coordinador. | Cursos, especializaciones, certificados profesionales, grados universitarios online. | Cursos en video, certificados de finalización, rutas de aprendizaje, integración con perfil LinkedIn. | Cursos en video, rutas de aprendizaje, proyectos, comunidad de Discord/Slack, certificados Platzi. |
-| **Precios & Costos** | Suscripción mensual B2C para estudiantes como única fuente de ingreso. SkillCredits ganables por los Verificadores al resolver casos, no adquiribles con dinero. | Suscripción mensual o pago por curso/especialización. Auditoría gratuita sin certificado. | Suscripción mensual individual o licencia corporativa anual. | Suscripción mensual o anual. Plan experto con acceso a todos los cursos. |
-| **Canales de distribución** | Móvil (nativa/cross-platform) y web. | Web y móvil. | Web y móvil. | Web y móvil. |
-| **Fortalezas (SWOT)** | Validación práctica real supervisada por pares certificados. Modelo de reconocimiento profesional (SkillCredits). Matching por IA. Examen de ingreso que garantiza calidad del Verificador. | Reconocimiento global del certificado. Alianzas con universidades top. Base de usuarios masiva. | Integración nativa con LinkedIn. Alcance corporativo. Catálogo masivo. | Comunidad latinoamericana activa. Proyectos prácticos. Precios competitivos. |
-| **Debilidades (SWOT)** | Requiere masa crítica inicial de Verificadores certificados. Proceso de onboarding más exigente. Dependencia de APIs de IA externas. | No valida el dominio práctico real. Evaluaciones estandarizadas superficiales. Sin supervisión humana. | Certificados sin validación práctica real. No tiene Verificadores humanos certificados. | Calidad de revisión entre pares sin criterio certificado. Sin supervisión humana especializada. |
-| **Oportunidades (SWOT)** | Demanda creciente de habilidades prácticas verificables. Brecha de empleabilidad en Latinoamérica. Empresas que valoran competencias sobre diplomas. | Expandirse a validación práctica. Implementar supervisión humana especializada. | Desarrollar sistema de validación de competencias prácticas. | Incorporar revisión humana certificada. Expandir validación a habilidades no tecnológicas. |
-| **Amenazas (SWOT)** | Competidores con mayor reconocimiento de marca. Resistencia al modelo de examen de ingreso para Verificadores. Imitación del modelo por plataformas establecidas. | Nuevas plataformas con validación práctica real. Desconfianza en certificados online en general. | Pérdida de relevancia si LinkedIn pierde posición. Empresas que prefieren validación interna. | Competidores con mayor rigor académico. Percepción de certificados sin peso real. |
- 
-*(Tabla 3. Análisis competitivo Landscape - Elaboración propia. Nota: Esta tabla presenta una comparación detallada entre Innovify y otras plataformas para consolidar su propuesta única de validación práctica de habilidades.)*
- 
+| **Overview** | Plataforma que orienta al estudiante sobre qué certificados conseguir y en qué orden según su meta profesional, y valida mediante quizzes/miniproyectos generados por IA y revisión de Verificadores certificados que realmente dominó cada paso de la ruta. | Rutas de aprendizaje hacia roles laborales específicos con contenido propio de Google. Emite certificados reconocidos por empresas como Google, IBM y Meta. | Rutas de aprendizaje visuales de código abierto para roles tecnológicos. No enseña ni valida — solo orienta qué aprender y en qué orden. | Plataforma de educación tecnológica latinoamericana con cursos propios y rutas hacia carreras específicas. Comunidad activa y certificados reconocidos en la región. |
+| **¿Enseña contenido?** | No. El estudiante aprende donde prefiera (Coursera, freeCodeCamp, YouTube, Platzi). | Sí. Todo el contenido está dentro de la plataforma. | No. Solo orienta. Sin contenido ni validación propios. | Sí. Todo el contenido está dentro de la plataforma. |
+| **¿Valida el dominio práctico?** | Sí. Quiz/miniproyecto por IA por cada paso + revisión de Verificador si falla + video de demostración final al completar la ruta. | Parcialmente. Evaluaciones automáticas dentro del curso. Sin revisión humana externa certificada. | No. El estudiante se autoevalúa marcando temas como aprendidos. | Parcialmente. Proyectos prácticos autoevaluados o revisados por pares sin criterio certificado. |
+| **¿Quién valida?** | Verificador: estudiante que ya certificó esa habilidad y superó un examen de ingreso. | Sistema automático del curso. | Nadie. | El propio estudiante o pares sin criterio certificado. |
+| **Reconocimiento para el validador** | SkillCredits no monetarios y no comprables, exhibibles en LinkedIn como evidencia de experiencia de revisión técnica. | No aplica. | No aplica. | No aplica. |
+| **Supervisión institucional** | Coordinador (profesor) que resuelve disputas, revisa certificados sospechosos y accede a métricas agregadas del proceso. | No tiene. | No tiene. | No tiene. |
+| **Ventaja competitiva** | No compite con plataformas de cursos — las complementa. Validación humana certificada. SkillCredits como diferencial para Verificadores. Supervisión institucional real. | Respaldo de marca Google. Certificados reconocidos directamente por empleadores. | Comunidad abierta y gratuita. Referente visual para rutas tecnológicas. | Comunidad latinoamericana fuerte. Precios accesibles. Rutas estructuradas en español. |
+| **Mercado objetivo** | Estudiantes universitarios y jóvenes profesionales (18-35 años) que ya aprenden por su cuenta y necesitan validar lo que saben de forma creíble ante el mercado laboral. | Personas sin título universitario que buscan ingresar al mercado tech con respaldo de Google. | Desarrolladores y estudiantes de tecnología que buscan orientación sobre qué aprender a continuación. | Estudiantes y profesionales latinoamericanos que buscan aprender tecnología en español a precio accesible. |
+| **Estrategias de marketing** | Campaña "Ya aprendiste, ahora demuéstralo". Programa de Verificadores Fundadores. LinkedIn como canal de exhibición de SkillCredits. | Alianzas directas con empresas (Google, IBM, Meta). Publicidad digital global. | Comunidad open source y referidos. Sponsorships en newsletters tech. | Marketing de contenidos en redes sociales. Comunidad activa y referidos. Influencers tecnológicos. |
+| **Productos & Servicios** | Rutas de validación por IA, quizzes/miniproyectos generados dinámicamente, revisión de casos por Verificadores certificados, video de demostración final, SkillCredits, panel de Coordinador con métricas agregadas. | Cursos propios, especializaciones, certificados profesionales reconocidos por empresas globales. | Rutas de aprendizaje visuales interactivas por rol tecnológico. Completamente gratuito. | Cursos en video, rutas de aprendizaje, proyectos prácticos, comunidad activa, certificados Platzi. |
+| **Precios & Costos** | Suscripción mensual B2C para estudiantes como única fuente de ingreso. SkillCredits no monetarios y no comprables para Verificadores. | Suscripción mensual o pago por certificado. | Gratuito (open source). Ingresos por sponsorships y versión pro. | Suscripción mensual o anual. |
+| **Canales de distribución** | App móvil nativa (Android/Kotlin) y cross-platform (Flutter). | Web y móvil. | Web. | Web y móvil. |
+| **Fortalezas (SWOT)** | No compite con plataformas de cursos — las complementa. Validación humana certificada con criterio. SkillCredits como diferencial único para Verificadores. Supervisión institucional que garantiza la calidad del proceso. | Respaldo de Google. Alta empleabilidad demostrada. Contenido actualizado por la industria. | Gratuito y de código abierto. Comunidad global. Referente visual de rutas tech. | Comunidad latinoamericana activa. Contenido en español. Precio competitivo. |
+| **Debilidades (SWOT)** | Requiere masa crítica inicial de Verificadores certificados. Sin contenido propio — depende de que el estudiante consiga sus certificados por fuera. | No valida que el dominio sea aplicable fuera del entorno del curso. Sin revisión humana externa. | Sin validación de ningún tipo. El progreso es completamente autoreportado. | Revisión entre pares sin criterio certificado. Sin supervisión institucional. |
+| **Oportunidades (SWOT)** | Posicionarse como la capa de validación sobre cualquier plataforma de cursos existente. Alianzas con universidades para el rol de Coordinador. Demanda creciente de habilidades prácticas verificables en el mercado laboral latinoamericano. | Añadir una capa de validación práctica externa con revisión humana. | Incorporar validación real del progreso marcado por el usuario. | Incorporar revisión humana certificada y supervisión institucional para elevar la calidad. |
+| **Amenazas (SWOT)** | Google o LinkedIn podrían lanzar una capa de validación similar. Resistencia al modelo de examen de ingreso para Verificadores. | Nuevas plataformas de validación que complementen su ecosistema. | Plataformas que copien el modelo de rutas y añadan validación real. | Competidores con mayor rigor en la revisión entre pares. |
+
+*(Tabla 3. Análisis competitivo Landscape — Elaboración propia. Nota: Esta tabla presenta una comparación detallada entre SkillSwap y las plataformas más cercanas en propuesta de valor, evidenciando que SkillSwap no compite con plataformas de cursos sino que actúa como capa de validación sobre ellas.)*
+
 ---
- 
+
 ### 2.1.2. Estrategias y tácticas frente a competidores
- 
-A continuación se presentan las estrategias y tácticas que Innovify puede implementar para destacarse frente a competidores en el ecosistema de certificación y validación de habilidades, capitalizando su modelo único de verificación práctica, su sistema de reconocimiento profesional y el emparejamiento inteligente entre estudiantes y Verificadores.
- 
+
+A continuación se presentan las estrategias y tácticas que Innovify puede implementar para diferenciarse en el ecosistema de validación de habilidades prácticas, capitalizando su posición única como capa de validación sobre el ecosistema de aprendizaje existente, su sistema de reconocimiento profesional para Verificadores mediante SkillCredits y la supervisión institucional que el Coordinador garantiza sobre todo el proceso.
+
 #### Estrategias
- 
-* **Diferenciación por Validación Real:** A diferencia de Coursera, LinkedIn Learning y Platzi, que emiten certificados tras evaluaciones superficiales, Innovify se posiciona como la única plataforma que exige demostración práctica real del conocimiento mediante quizzes generados por IA, miniproyectos evaluados por Verificadores certificados. El certificado de Innovify acredita lo que el usuario realmente sabe hacer, no solo que vio un video.
-* **Construcción de Confianza mediante el Examen de Ingreso:** Ningún competidor directo verifica que sus revisores realmente dominen lo que evalúan. Innovify elimina ese riesgo exigiendo que todo Verificador certifique previamente su propia ruta y supere un examen de ingreso riguroso antes de poder revisar casos de otros. Esto crea un ecosistema de calidad garantizada que los diferencia radicalmente.
-* **SkillCredits como Diferencial Profesional:** El sistema de SkillCredits crea un incentivo único que ningún competidor ofrece: el Verificador construye una reputación verificable y exportable a LinkedIn que demuestra su calidad de evaluación y dominio técnico. Esto atrae a los mejores Verificadores disponibles, elevando la calidad del ecosistema completo.
-* **Matching Inteligente como Ventaja Tecnológica:** El sistema de recomendación híbrido de Innovify, basado en embeddings de habilidades, resuelve el problema que ningún competidor ha abordado: conectar al estudiante con el Verificador más adecuado para su vacío de conocimiento específico, no con cualquier Verificador disponible. Esto maximiza la efectividad de cada revisión de caso.
-* **Modelo Sostenible B2C por Suscripción:** La suscripción mensual del estudiante como única fuente de ingreso crea un ecosistema económicamente sostenible y predecible, sin depender de comisiones entre usuarios ni de la venta de reconocimiento, a diferencia de modelos puramente freemium que dependen de publicidad o de modelos corporativos que excluyen al estudiante individual.
+
+* **Complementar en vez de competir:** SkillSwap no reemplaza las plataformas de cursos existentes — las complementa. El estudiante aprende donde prefiera (Coursera, freeCodeCamp, YouTube, Platzi) y usa SkillSwap para demostrar que realmente dominó lo que aprendió. Esto elimina la fricción de cambiar de plataforma y posiciona a SkillSwap como una capa de validación universal sobre cualquier fuente de aprendizaje.
+
+* **Validación humana certificada como diferencial irreemplazable:** Roadmap.sh orienta pero no valida. Platzi valida sin criterio certificado. Google Career Certificates valida dentro del curso pero sin revisión humana externa. SkillSwap es el único modelo donde quien valida también demostró previamente que domina lo que evalúa, mediante una ruta propia y un examen de ingreso. Esa barrera de calidad no puede copiarse fácilmente porque requiere construir una comunidad de Verificadores certificados.
+
+* **SkillCredits como incentivo que ningún competidor tiene:** Ninguno de los competidores identificados ofrece reconocimiento profesional verificable para quien valida. Los SkillCredits de SkillSwap son no monetarios, no comprables y exportables a LinkedIn — acreditan experiencia de revisión técnica que los empleadores valoran y que actualmente no existe en el mercado.
+
+* **Supervisión institucional como garantía de calidad del ecosistema:** Ningún competidor tiene un Coordinador institucional que resuelva disputas, revise certificados sospechosos y acceda a métricas reales del proceso. Esa capa de supervisión hace que los datos que consume el Coordinador valgan algo — sin ella, serían métricas sin respaldo real.
+
+* **Modelo sostenible B2C por suscripción:** La suscripción mensual del estudiante como única fuente de ingreso crea un modelo predecible y sostenible sin depender de comisiones entre usuarios ni de la venta de reconocimiento, a diferencia de modelos puramente freemium que dependen de publicidad o de modelos corporativos que excluyen al estudiante individual.
+
 #### Tácticas
- 
+
 * **Programa de Verificadores Fundadores:** Ofrecer a los primeros 100 Verificadores certificados condiciones especiales (mayor acumulación de SkillCredits por caso resuelto, badge exclusivo de "Verificador Fundador") para construir la masa crítica inicial de talento verificado que hace funcionar la plataforma.
-* **Alianzas con Ferias de Empleabilidad y Career Centers:** Establecer presencia en las ferias de prácticas y empleo de las principales universidades del país, donde los estudiantes con SkillCredits y evaluaciones validadas pueden diferenciarse ante los reclutadores.
-* **Campaña "Demuestra lo que sabes":** Lanzar una campaña en LinkedIn e Instagram que contraste la situación actual (CV lleno de certificados sin validación real) con la propuesta de Innovify (portafolio de habilidades demostradas y verificadas), apelando directamente al dolor del estudiante que sabe que sabe pero no puede demostrarlo.
-* **Integración con LinkedIn API:** Desarrollar la funcionalidad de exportación de SkillCredits directamente al perfil de LinkedIn como credencial verificable, generando viralidad orgánica cada vez que un Verificador publica su logro en su red profesional.
-* **Ruta de Demostración Gratuita:** Ofrecer una ruta de certificación gratuita de una habilidad específica (por ejemplo, Python básico o Excel intermedio) que permita a los estudiantes experimentar el modelo completo de validación antes de pagar la suscripción, reduciendo la barrera de entrada.
+
+* **Alianzas con plataformas de cursos como fuentes de certificados:** Contactar a Platzi, Coursera y freeCodeCamp para que sus certificados sean reconocidos automáticamente por el sistema OCR de SkillSwap, reduciendo la fricción de subida y validando la procedencia del documento sin intervención manual.
+
+* **Campaña "Ya aprendiste, ahora demuéstralo":** Dirigida a estudiantes que ya tienen certificados de Coursera, Platzi o Google Career Certificates pero sienten que esos certificados no tienen peso real ante empleadores. El mensaje central: SkillSwap no les pide que vuelvan a aprender — les pide que demuestren lo que ya saben.
+
+* **Alianzas con universidades para el rol de Coordinador:** Acercarse a docentes y coordinadores académicos de universidades peruanas para que adopten el rol de Coordinador dentro de SkillSwap, dándole respaldo institucional al proceso de verificación y generando confianza en empleadores sobre la credibilidad de las evaluaciones.
+
+* **Integración con LinkedIn para SkillCredits:** Desarrollar la funcionalidad de exportación de SkillCredits directamente al perfil de LinkedIn como credencial verificable, generando viralidad orgánica cada vez que un Verificador publica su logro en su red profesional.
+
 ---
  
 ## 2.2. Entrevistas
@@ -486,6 +503,7 @@ A continuación se presentan las estrategias y tácticas que Innovify puede impl
 12. ¿Qué tan dispuesto estarías a supervisar por videollamada la demostración final de un proyecto avanzado, garantizando que lo que se presenta es realmente propio de esa persona?
 13. ¿Qué debería tener sí o sí una plataforma para que la consideres profesional y confiable para ejercer este rol?
 14. Si pudieras exhibir en tu perfil de LinkedIn una credencial que dice "Verificador certificado en [habilidad], con X casos resueltos", ¿crees que eso tendría valor real para tu carrera profesional?
+
 ### 2.2.2. Registro de entrevistas
  
 #### Segmento objetivo #1: Personas que quieren aprender
@@ -937,6 +955,7 @@ En el mapa se observa que con Innovify, Valeria se registra con su correo instit
 En el mapa se observa que con Innovify, Carlos primero certifica su propia ruta y supera el examen de ingreso, lo que garantiza que quien revisa realmente sabe. Recibe casos asignados automáticamente con información precisa del punto donde falló el estudiante, los revisa frente a una rúbrica estructurada y acumula SkillCredits verificables por cada caso resuelto. Estos SkillCredits los exporta a LinkedIn como credencial profesional, transformando su labor de revisión en reconocimiento real y verificable.
 
 ---
+
 ### 2.4.1. User Stories
 
 En esta sección se especifican los requisitos funcionales y técnicos de SkillSwap, aplicación móvil nativa y multiplataforma, mediante User Stories agrupadas en Epics. Las historias se redactaron a partir de los hallazgos de las entrevistas, los User Personas, el User Task Matrix y los Journey Maps de los dos segmentos objetivo: **personas que quieren aprender (Estudiantes)** y **personas que validan el conocimiento (Verificadores y Coordinadores)**, además de los visitantes de la Landing Page. En total se definen **55 historias**: 45 User Stories orientadas a los usuarios finales y 10 Technical Stories, redactadas con el rol *Developer*, que describen los servicios RESTful que consume la aplicación móvil.
