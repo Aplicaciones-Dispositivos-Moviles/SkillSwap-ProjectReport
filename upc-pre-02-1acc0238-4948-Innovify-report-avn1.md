@@ -310,16 +310,15 @@ En conjunto, este segmento es el que sostiene la credibilidad de todo lo que un 
  
 ## 2.1. Competidores
  
-Innovify opera en el ecosistema de plataformas de aprendizaje, certificación y validación de habilidades prácticas. A continuación se identifican los principales competidores directos e indirectos:
- 
-**Coursera (Competidor Directo)**
-Coursera es una de las plataformas de educación online más grandes del mundo, con más de 100 millones de usuarios registrados. Ofrece cursos, especializaciones y certificados profesionales en alianza con universidades de prestigio y empresas como Google, IBM y Meta. Su modelo se basa en la entrega de contenido estructurado y la emisión de certificados tras evaluaciones estandarizadas de opción múltiple. Sin embargo, no cuenta con un sistema de validación práctica supervisada por pares verificados, ni con un mecanismo de emparejamiento inteligente entre estudiantes y Verificadores. El certificado emitido no acredita el dominio práctico real de la habilidad.
- 
-**LinkedIn Learning (Competidor Directo)**
-LinkedIn Learning es la plataforma de aprendizaje corporativo de Microsoft integrada directamente al ecosistema profesional de LinkedIn. Ofrece miles de cursos en tecnología, negocios y habilidades blandas, con certificados que se añaden automáticamente al perfil del usuario. Su ventaja es la visibilidad profesional inmediata, pero su debilidad es que no valida si el usuario realmente aplicó lo aprendido: cualquier persona puede obtener un certificado sin demostrar competencia práctica. No cuenta con Verificadores humanos certificados ni con evaluaciones diseñadas por IA para cada dominio.
- 
-**Platzi (Competidor Indirecto)**
-Platzi es una plataforma latinoamericana de educación tecnológica con fuerte presencia en la región. Ofrece rutas de aprendizaje estructuradas, comunidades activas y certificados reconocidos en el mercado tecnológico. Su diferencial es el enfoque en proyectos prácticos y comunidad, pero su modelo no incluye supervisión de pares certificados ni un sistema de verificación de identidad de los instructores. La validación del conocimiento queda limitada a proyectos autoevaluados o revisados por pares sin criterio certificado.
+Innovify opera en el ecosistema de plataformas de orientación profesional y validación práctica de habilidades. A diferencia de plataformas de cursos online que enseñan contenido directamente, SkillSwap no enseña — orienta al estudiante sobre qué certificados conseguir y en qué orden según su meta profesional, y valida que realmente los dominó antes de avanzar. A continuación se identifican los principales competidores directos e indirectos:
+
+Google Career Certificates (Competidor Directo) Google Career Certificates crea rutas de aprendizaje estructuradas hacia roles laborales específicos (analista de datos, desarrollador UX, técnico de soporte IT, entre otros), combinando contenido propio con una validación al final de la ruta. Es el competidor más cercano porque comparte el mismo modelo de orientación hacia una meta profesional. Su diferencia con SkillSwap es que Google enseña el contenido dentro de su plataforma, mientras que SkillSwap no enseña nada — orienta al estudiante a conseguir sus certificados donde prefiera y luego valida que realmente los dominó mediante evaluaciones prácticas y revisión de Verificadores certificados.
+
+Roadmap.sh (Competidor Directo) Roadmap.sh es una plataforma de código abierto que genera rutas de aprendizaje visuales hacia roles tecnológicos específicos (frontend developer, DevOps engineer, data scientist, etc.). Su propuesta de orientar al estudiante sobre qué aprender y en qué orden es idéntica a la de SkillSwap. Su debilidad crítica es que no tiene ningún mecanismo de validación: el estudiante puede marcar un tema como aprendido sin ninguna evidencia real. SkillSwap cierra ese vacío exigiendo un quiz o miniproyecto generado por IA por cada paso de la ruta, con revisión de un Verificador certificado cuando la evaluación automática no basta.
+
+Platzi (Competidor Indirecto) Platzi es una plataforma latinoamericana de educación tecnológica con cursos propios y rutas estructuradas hacia carreras específicas. A diferencia de SkillSwap, Platzi enseña el contenido directamente. Su debilidad es que la validación queda limitada a proyectos autoevaluados o revisados por pares sin criterio certificado. El estudiante de SkillSwap puede haber aprendido en Platzi y traer ese certificado a SkillSwap para demostrar que realmente lo dominó.
+
+Coursera (Competidor Indirecto) Coursera ofrece especializaciones y rutas de certificación profesional en alianza con universidades de prestigio. A diferencia de SkillSwap, Coursera enseña el contenido y emite certificados tras evaluaciones estandarizadas de opción múltiple, sin validación práctica real ni revisión humana certificada. El estudiante de SkillSwap puede usar sus certificados de Coursera como punto de partida y luego validar en SkillSwap que el dominio es real.
  
 ---
  
