@@ -1807,6 +1807,198 @@ En la fase de demostración final, certificación y nuevo Verificador hay tres e
 
 *Nota.* Las líneas verticales marcan el inicio de la demostración final, la emisión de la certificación y la habilitación del Estudiante como Verificador. Elaboración propia.
 
+**Paso 5. Commands**
+
+En el quinto paso se identificaron los comandos, es decir, las decisiones que producen cada evento. Cada comando se registró en un post-it azul a la izquierda del evento que dispara, con el actor que lo ejecuta en un post-it amarillo encima. En este paso solo se incluyen los comandos que ejecuta una persona; los que ejecuta el sistema se incorporan en el paso siguiente, junto con las políticas. El modelo tiene dos actores, el Estudiante y el Verificador. Moderación no aparece como actor, porque opera desde un panel externo a la aplicación.
+
+En la fase de registro, suscripción y certificados, todos los comandos los ejecuta el Estudiante: registrarse, verificar su correo, iniciar sesión, declarar su objetivo y subir certificados, además de iniciar o cancelar la suscripción premium. La suscripción vencida y la suscripción cancelada son desenlaces independientes: la primera se produce cuando falla el cobro y la segunda, cuando el Estudiante lo decide.
+
+**Figura 34**
+
+*EventStorming, paso 5: Commands (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-05a-registro.png" alt="EventStorming paso 5: Commands, registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Comandos, en azul, y actores, en amarillo, del registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la evaluación de los nodos, el Estudiante envía los intentos de quiz, los entregables y sus reenvíos, y puede calificar la revisión recibida o reportar la decisión. El único comando del Verificador en esta fase es calificar el entregable: el Verificador no decide si el entregable se aprueba, sino que registra la calificación de cada criterio de la rúbrica.
+
+**Figura 35**
+
+*EventStorming, paso 5: Commands (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-05b-evaluacion.png" alt="EventStorming paso 5: Commands, evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Comandos, en azul, y actores, en amarillo, de la evaluación de los nodos de quiz y de los nodos prácticos. Elaboración propia.
+
+En la fase final, el Estudiante envía la demostración final y puede reportar su calificación, y el Verificador la califica con la rúbrica. Los comandos para solicitar y rendir el examen de ingreso los ejecuta el Estudiante, aunque aparecen en el carril del Verificador, porque todavía no está habilitado como tal. Una vez habilitado, el Verificador actualiza su disponibilidad.
+
+**Figura 36**
+
+*EventStorming, paso 5: Commands (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-05c-certificacion.png" alt="EventStorming paso 5: Commands, demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Comandos, en azul, y actores, en amarillo, de la demostración final, la emisión de la certificación y la habilitación de un Verificador. Elaboración propia.
+
+**Paso 6. Policies**
+
+En el sexto paso se agregaron las políticas, que representan las reacciones automáticas del sistema: cuando ocurre un evento, el sistema ejecuta un comando sin que intervenga una persona. Cada política se registró en un post-it morado sobre el comando que ejecuta. Con este paso aparecen en el tablero los comandos del sistema, que completan la cadena entre los eventos.
+
+En la primera fase, las políticas envían el correo de verificación cuando el Estudiante se registra, asignan el plan gratuito cuando verifica su correo y generan la ruta de certificación cuando declara un objetivo. Cada certificado subido pasa por una cadena automática: se extraen sus datos, se evalúa el riesgo documental y, según el resultado, se registra o se escala a Moderación. En la suscripción, el cobro se ejecuta al inicio de cada periodo mensual y, si el pago se rechaza, la suscripción vence.
+
+**Figura 37**
+
+*EventStorming, paso 6: Policies (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-06a-registro.png" alt="EventStorming paso 6: Policies, registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Políticas, en morado, y comandos del sistema del registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la evaluación se concentran las reglas de negocio del modelo. El quiz se genera con preguntas nuevas al iniciar el nodo o al terminar el periodo de espera, y al agotar los intentos comienza la espera. Al enviar un entregable se abre un caso, siempre que el plan tenga escalamientos disponibles; al abrir el caso se asigna un Verificador y, si vence el plazo, el caso se reasigna. La política central es el cálculo de la aprobación: cuando el Verificador califica el entregable, el sistema calcula el resultado contra el umbral de la rúbrica y, si no lo alcanza, devuelve los criterios no cumplidos. Cada calificación acredita SkillCredits al Verificador, apruebe o rechace, y recalcula su confiabilidad; cuando el total de SkillCredits cruza un umbral, se otorga el rango correspondiente.
+
+**Figura 38**
+
+*EventStorming, paso 6: Policies (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-06b-evaluacion.png" alt="EventStorming paso 6: Policies, evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Políticas, en morado, y comandos del sistema de la evaluación de los nodos. Elaboración propia.
+
+En la fase final, completar todos los nodos completa la ruta y habilita la demostración final. La aprobación de la demostración también la calcula el sistema a partir de la calificación del Verificador y, cuando se aprueba, se emite la certificación. Si el Estudiante reporta la calificación, se asigna un segundo revisor. Por último, aprobar el examen de ingreso habilita al Verificador para esa habilidad.
+
+**Figura 39**
+
+*EventStorming, paso 6: Policies (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-06c-certificacion.png" alt="EventStorming paso 6: Policies, demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Políticas, en morado, y comandos del sistema de la demostración final, la emisión de la certificación y la habilitación de un Verificador. Elaboración propia.
+
+**Paso 7. Read Models**
+
+En el séptimo paso se identificaron los read models, es decir, la información que cada actor consulta antes de ejecutar un comando. Cada read model se registró en un post-it verde junto al comando que apoya.
+
+En la primera fase, el Estudiante consulta su plan y sus límites antes de declarar un objetivo o de pasar a premium, el estado de sus certificados antes de subir uno nuevo y el estado de su suscripción antes de cancelarla.
+
+**Figura 40**
+
+*EventStorming, paso 7: Read Models (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-07a-registro.png" alt="EventStorming paso 7: Read Models, registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Read models, en verde, que consulta el Estudiante durante el registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la evaluación, el Estudiante consulta el quiz, el enunciado práctico con su rúbrica y los criterios no cumplidos antes de reenviar un entregable o de reportar una decisión. Antes de calificar una revisión, consulta el perfil público del Verificador. El Verificador, por su parte, trabaja sobre su cola de casos con plazos y sobre el formulario de la rúbrica.
+
+**Figura 41**
+
+*EventStorming, paso 7: Read Models (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-07b-evaluacion.png" alt="EventStorming paso 7: Read Models, evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Read models, en verde, que consultan el Estudiante y el Verificador durante la evaluación de los nodos. Elaboración propia.
+
+En la fase final, el Estudiante consulta el enunciado y la rúbrica de la demostración antes de enviarla, y su elegibilidad antes de solicitar el examen de ingreso. El Verificador califica la demostración sobre el formulario de la rúbrica.
+
+**Figura 42**
+
+*EventStorming, paso 7: Read Models (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-07c-certificacion.png" alt="EventStorming paso 7: Read Models, demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Read models, en verde, de la demostración final y la solicitud del examen de ingreso. Elaboración propia.
+
+**Paso 8. External Systems**
+
+En el octavo paso se incorporaron los sistemas externos, representados con post-its rojos. Algunos reciben órdenes del sistema, otros son notificados cuando ocurre un evento y uno de ellos, el panel de moderación, ejecuta comandos sobre el sistema.
+
+En la primera fase intervienen el servicio de correo, que envía la verificación; el LLM, que genera la ruta de certificación; Cloudinary, que almacena los certificados; ML Kit, que extrae sus datos mediante OCR en el dispositivo, y la pasarela de pago, que ejecuta el cobro de la suscripción. Como pasarela se consideró Culqi o Mercado Pago, porque Stripe no opera en Perú. El panel de moderación aparece como el sistema que resuelve la revisión de un certificado sospechoso.
+
+**Figura 43**
+
+*EventStorming, paso 8: External Systems (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-08a-registro.png" alt="EventStorming paso 8: External Systems, registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Sistemas externos, en rojo, que intervienen en el registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la evaluación, el LLM genera las preguntas de cada intento, los enunciados prácticos y el enunciado nuevo cuando un nodo se reactiva. Cloudinary almacena los entregables y el servicio de correo notifica los criterios no cumplidos. El panel de moderación, externo a la aplicación, ejecuta la resolución de disputas y la aplicación de sanciones, apoyándose en una vista de reportes, disputas y confiabilidad.
+
+**Figura 44**
+
+*EventStorming, paso 8: External Systems (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-08b-evaluacion.png" alt="EventStorming paso 8: External Systems, evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Sistemas externos, en rojo, que intervienen en la evaluación de los nodos y en la moderación. Elaboración propia.
+
+En la fase final, Cloudinary almacena la demostración final y el servicio de correo notifica tanto los criterios no cumplidos como la emisión de la certificación.
+
+**Figura 45**
+
+*EventStorming, paso 8: External Systems (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-08c-certificacion.png" alt="EventStorming paso 8: External Systems, demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Sistemas externos, en rojo, que intervienen en la demostración final y la emisión de la certificación. Elaboración propia.
+
+**Paso 9. Aggregates**
+
+En el noveno paso, los comandos y los eventos se agruparon en agregados, es decir, en los objetos del dominio que reciben los comandos, protegen las reglas de negocio y producen los eventos. Se identificaron 12 agregados. En la figura, cada agregado aparece como un post-it alto de color amarillo pálido, con los comandos que recibe a la izquierda, los eventos que produce a la derecha y su regla principal debajo.
+
+Los agregados con más responsabilidad son VerificationCase, que concentra la revisión humana de los entregables y de la demostración final, incluidas la asignación, el plazo, el cálculo de la aprobación y las reentregas, y LearningPath, que gestiona la ruta y el avance de sus nodos. Certificate se mantiene separado de la ruta, porque registrar un certificado no completa ningún nodo, y SkillCertification se modeló como un agregado propio, porque solo puede emitirse con la ruta completada y la demostración final aprobada. Wallet refleja que los SkillCredits solo se ganan revisando y que no se compran ni se canjean.
+
+**Figura 46**
+
+*EventStorming, paso 9: Aggregates*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-09-agregados.png" alt="EventStorming paso 9: agregados de SkillSwap con sus comandos y eventos" width="900">
+</p>
+
+*Nota.* Agregados de SkillSwap, en amarillo pálido, con los comandos que reciben, los eventos que producen y la regla principal de cada uno. Elaboración propia.
+
+**Paso 10. Bounded Contexts**
+
+En el último paso, los agregados se agruparon en bounded contexts candidatos, según la cercanía de su funcionalidad y las políticas que los conectan. Se obtuvieron ocho contextos. Dos se consideran core, porque contienen la propuesta de valor de SkillSwap: Learning Path Engine, que convierte el objetivo del Estudiante en una ruta de certificación, y Assessment & Peer Review, que verifica el dominio de cada habilidad mediante la revisión con rúbrica. Credential Verification, Reputation, Recognition & Incentives y Moderation & Disputes son contextos de soporte, mientras que Identity & Access y Subscription & Billing son genéricos.
+
+Las flechas moradas representan las políticas que conectan los contextos, y las flechas punteadas, las consultas. Assessment & Peer Review es el contexto con más relaciones: consulta a Subscription & Billing los escalamientos, la espera y el plazo que corresponden al plan, y notifica a Learning Path Engine, Reputation y Recognition & Incentives cada vez que se califica o se aprueba una entrega. Moderation & Disputes recibe los certificados sospechosos y, cuando revierte una decisión, notifica a Reputation y a Assessment & Peer Review.
+
+**Figura 47**
+
+*EventStorming, paso 10: Bounded Contexts*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-10-bounded-contexts.png" alt="EventStorming paso 10: bounded contexts candidatos de SkillSwap" width="900">
+</p>
+
+*Nota.* Bounded contexts candidatos de SkillSwap, delimitados con línea punteada. Los contextos core tienen borde grueso; las flechas moradas representan políticas y las punteadas, consultas. Elaboración propia.
+
 ### 2.5.2. Context Mapping
 
 El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los ocho Bounded Contexts que conforman la solución, aplicando los patrones de relación establecidos en Domain-Driven Design para gestionar las dependencias entre equipos y modelos de dominio, bajo el nuevo enfoque de la plataforma centrado en la verificación de habilidades mediante Inteligencia Artificial.
@@ -1825,7 +2017,7 @@ El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los
 
 Finalmente, **Credential Verification** mantiene una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **ML Kit** (Text Recognition / Entity Extraction de Firebase, utilizado on-device para la extracción de datos del certificado), aislando el modelo de dominio interno `Certificate` de los contratos y formatos de respuesta propios del SDK externo.
 
-**Figura 34**
+**Figura 48**
 
 *Context Mapping de SkillSwap*
 
@@ -1858,7 +2050,7 @@ El sistema es utilizado por tres actores principales: el **Estudiante**, quien s
 
 A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), utilizado on-device para la extracción de datos de los certificados subidos por el Estudiante (institución, curso, fecha) — esta es la tecnología que satisface el requisito de aprendizaje autónomo del curso; **Stripe**, utilizado para el procesamiento del cobro recurrente de la suscripción mensual y la compra de paquetes de SkillCredits en la tienda interna; un **servicio de almacenamiento en la nube** para las imágenes de certificados y evidencias adjuntas a un caso de revisión; y un **servicio de correo electrónico** para el envío de notificaciones institucionales (validación de dominio `.edu.pe`, resultado de una evaluación, apertura o resolución de un caso de verificación).
 
-**Figura 35**
+**Figura 49**
 
 *C4 Model: Context Diagram*
 
@@ -1882,7 +2074,7 @@ Los contenedores identificados son los siguientes:
 
 Es importante resaltar que tanto la aplicación Android nativa como la aplicación Flutter cross-platform consumen el **mismo contrato de API RESTful** documentado con OpenAPI/Swagger, sin requerir endpoints adicionales ni lógica de backend duplicada, evidenciando así el desacoplamiento entre la capa de presentación y la capa de dominio/aplicación del sistema.
 
-**Figura 36**
+**Figura 50**
 
 *C4 Model: Container Diagram*
 
@@ -1904,7 +2096,7 @@ El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física 
 
 Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
 
-**Figura 37**
+**Figura 51**
 
 *C4 Model: Deployment Diagram*
 
@@ -2090,7 +2282,7 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 38**
+**Figura 52**
 
 *C4 Model: Component Diagram del Bounded Context Identity & Access*
 
@@ -2104,7 +2296,7 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
 
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 39**
+**Figura 53**
 
 *Diagrama de Clases UML del Domain Layer de Identity & Access*
 
@@ -2118,7 +2310,7 @@ El modelado de clases de Identity & Access pertenece al agregado raíz `User`, j
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
-**Figura 40**
+**Figura 54**
 
 *Diagrama de Base de Datos del Bounded Context Identity & Access*
 
@@ -2311,7 +2503,7 @@ Estos componentes aseguran que la lógica de negocio de Credential Verification 
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 41**
+**Figura 55**
 
 *C4 Model: Component Diagram del Bounded Context Credential Verification*
 
@@ -2323,7 +2515,7 @@ Estos componentes aseguran que la lógica de negocio de Credential Verification 
 
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 42**
+**Figura 56**
 
 *Diagrama de Clases UML del Domain Layer de Credential Verification*
 
@@ -2337,7 +2529,7 @@ El modelado de clases de Credential Verification pertenece al agregado raíz `Ce
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-**Figura 43**
+**Figura 57**
 
 *Diagrama de Base de Datos del Bounded Context Credential Verification*
 
@@ -2547,7 +2739,7 @@ Estos componentes garantizan que el algoritmo de matching de habilidades y el pr
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 44**
+**Figura 58**
 
 *C4 Model: Component Diagram del Bounded Context Learning Path Engine*
 
@@ -2559,7 +2751,7 @@ Estos componentes garantizan que el algoritmo de matching de habilidades y el pr
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 45**
+**Figura 59**
 
 *Diagrama de Clases UML del Domain Layer de Learning Path Engine*
 
@@ -2573,7 +2765,7 @@ El modelado de clases de Learning Path Engine pertenece a los agregados raíz `L
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-**Figura 46**
+**Figura 60**
 
 *Diagrama de Base de Datos del Bounded Context Learning Path Engine*
 
@@ -2783,7 +2975,7 @@ Estos componentes garantizan que ni la asignación de Verificador ni la califica
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 47**
+**Figura 61**
 
 *C4 Model: Component Diagram del Bounded Context Assessment & Peer Review*
 
@@ -2795,7 +2987,7 @@ Estos componentes garantizan que ni la asignación de Verificador ni la califica
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 48**
+**Figura 62**
 
 *Diagrama de Clases UML del Domain Layer de Assessment & Peer Review*
 
@@ -2809,7 +3001,7 @@ El modelado de clases de Assessment & Peer Review pertenece a los agregados raí
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-**Figura 49**
+**Figura 63**
 
 *Diagrama de Base de Datos del Bounded Context Assessment & Peer Review*
 
@@ -2978,7 +3170,7 @@ Este adaptador permite que Assessment & Peer Review mantenga sincronizado el `ra
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 50**
+**Figura 64**
 
 *C4 Model: Component Diagram del Bounded Context Reputation*
 
@@ -2990,7 +3182,7 @@ Este adaptador permite que Assessment & Peer Review mantenga sincronizado el `ra
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 51**
+**Figura 65**
 
 *Diagrama de Clases UML del Domain Layer de Reputation*
 
@@ -3004,7 +3196,7 @@ El modelado de clases de Reputation pertenece a los agregados raíz `VerifierRel
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-**Figura 52**
+**Figura 66**
 
 *Diagrama de Base de Datos del Bounded Context Reputation*
 
@@ -3170,7 +3362,7 @@ Este Bounded Context no incluye integraciones con pasarelas de pago externas ni 
 
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 53**
+**Figura 67**
 
 *C4 Model: Component Diagram del Bounded Context Recognition & Incentives*
 
@@ -3182,7 +3374,7 @@ Este Bounded Context no incluye integraciones con pasarelas de pago externas ni 
 
 ##### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 54**
+**Figura 68**
 
 *Diagrama de Clases UML del Domain Layer de Recognition & Incentives*
 
@@ -3196,7 +3388,7 @@ El modelado de clases de Recognition & Incentives pertenece al agregado raíz `W
 
 ##### 2.6.6.6.2. Bounded Context Database Design Diagram
 
-**Figura 55**
+**Figura 69**
 
 *Diagrama de Base de Datos del Bounded Context Recognition & Incentives*
 
@@ -3379,7 +3571,7 @@ Estos adaptadores permiten que Moderation & Disputes coordine la resolución ent
 
 #### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 56**
+**Figura 70**
 
 *C4 Model: Component Diagram del Bounded Context Moderation & Disputes*
 
@@ -3391,7 +3583,7 @@ Estos adaptadores permiten que Moderation & Disputes coordine la resolución ent
 
 ##### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 57**
+**Figura 71**
 
 *Diagrama de Clases UML del Domain Layer de Moderation & Disputes*
 
@@ -3405,7 +3597,7 @@ El modelado de clases de Moderation & Disputes pertenece al agregado raíz `Disp
 
 ##### 2.6.7.6.2. Bounded Context Database Design Diagram
 
-**Figura 58**
+**Figura 72**
 
 *Diagrama de Base de Datos del Bounded Context Moderation & Disputes*
 
@@ -3562,7 +3754,7 @@ En la Application Layer de Subscription & Billing, `RenewSubscriptionCommandHand
 
 #### 2.6.8.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 59**
+**Figura 73**
 
 *C4 Model: Component Diagram del Bounded Context Subscription & Billing*
 
@@ -3574,7 +3766,7 @@ En la Application Layer de Subscription & Billing, `RenewSubscriptionCommandHand
 
 ##### 2.6.8.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 60**
+**Figura 74**
 
 *Diagrama de Clases UML del Domain Layer de Subscription & Billing*
 
@@ -3588,7 +3780,7 @@ El modelado de clases de Subscription & Billing pertenece únicamente al agregad
 
 ##### 2.6.8.6.2. Bounded Context Database Design Diagram
 
-**Figura 61**
+**Figura 75**
 
 *Diagrama de Base de Datos del Bounded Context Subscription & Billing*
 
@@ -3605,7 +3797,7 @@ El modelado de base de datos de Subscription & Billing pertenece a la tabla `sub
 
 A continuación se presenta el diagrama relacional completo de SkillSwap, mostrando la totalidad de las tablas y sus relaciones entre los ocho Bounded Contexts.
 
-**Figura 62**
+**Figura 76**
 
 *Diagrama de Base de Datos completo de SkillSwap*
 
@@ -3620,7 +3812,7 @@ En síntesis, el diagrama relacional evidencia una estructura de base de datos c
 
 A continuación se presenta el diagrama de clases UML completo de SkillSwap, mostrando la totalidad del modelo de dominio y su segmentación entre los ocho Bounded Contexts.
 
-**Figura 63**
+**Figura 77**
 
 *Diagrama de Clases UML completo de SkillSwap*
 
@@ -3742,36 +3934,50 @@ Figura 30. *EventStorming, paso 3: Pain Points (demostración final, certificaci
 Figura 31. *EventStorming, paso 4: Pivotal Points (registro, suscripción y certificados)*<br>
 Figura 32. *EventStorming, paso 4: Pivotal Points (evaluación de los nodos)*<br>
 Figura 33. *EventStorming, paso 4: Pivotal Points (demostración final, certificación y nuevo Verificador)*<br>
-Figura 34. *Context Mapping de SkillSwap*<br>
-Figura 35. *C4 Model: Context Diagram*<br>
-Figura 36. *C4 Model: Container Diagram*<br>
-Figura 37. *C4 Model: Deployment Diagram*<br>
-Figura 38. *C4 Model: Component Diagram del Bounded Context Identity & Access*<br>
-Figura 39. *Diagrama de Clases UML del Domain Layer de Identity & Access*<br>
-Figura 40. *Diagrama de Base de Datos del Bounded Context Identity & Access*<br>
-Figura 41. *C4 Model: Component Diagram del Bounded Context Credential Verification*<br>
-Figura 42. *Diagrama de Clases UML del Domain Layer de Credential Verification*<br>
-Figura 43. *Diagrama de Base de Datos del Bounded Context Credential Verification*<br>
-Figura 44. *C4 Model: Component Diagram del Bounded Context Learning Path Engine*<br>
-Figura 45. *Diagrama de Clases UML del Domain Layer de Learning Path Engine*<br>
-Figura 46. *Diagrama de Base de Datos del Bounded Context Learning Path Engine*<br>
-Figura 47. *C4 Model: Component Diagram del Bounded Context Assessment & Peer Review*<br>
-Figura 48. *Diagrama de Clases UML del Domain Layer de Assessment & Peer Review*<br>
-Figura 49. *Diagrama de Base de Datos del Bounded Context Assessment & Peer Review*<br>
-Figura 50. *C4 Model: Component Diagram del Bounded Context Reputation*<br>
-Figura 51. *Diagrama de Clases UML del Domain Layer de Reputation*<br>
-Figura 52. *Diagrama de Base de Datos del Bounded Context Reputation*<br>
-Figura 53. *C4 Model: Component Diagram del Bounded Context Recognition & Incentives*<br>
-Figura 54. *Diagrama de Clases UML del Domain Layer de Recognition & Incentives*<br>
-Figura 55. *Diagrama de Base de Datos del Bounded Context Recognition & Incentives*<br>
-Figura 56. *C4 Model: Component Diagram del Bounded Context Moderation & Disputes*<br>
-Figura 57. *Diagrama de Clases UML del Domain Layer de Moderation & Disputes*<br>
-Figura 58. *Diagrama de Base de Datos del Bounded Context Moderation & Disputes*<br>
-Figura 59. *C4 Model: Component Diagram del Bounded Context Subscription & Billing*<br>
-Figura 60. *Diagrama de Clases UML del Domain Layer de Subscription & Billing*<br>
-Figura 61. *Diagrama de Base de Datos del Bounded Context Subscription & Billing*<br>
-Figura 62. *Diagrama de Base de Datos completo de SkillSwap*<br>
-Figura 63. *Diagrama de Clases UML completo de SkillSwap*<br>
+Figura 34. *EventStorming, paso 5: Commands (registro, suscripción y certificados)*<br>
+Figura 35. *EventStorming, paso 5: Commands (evaluación de los nodos)*<br>
+Figura 36. *EventStorming, paso 5: Commands (demostración final, certificación y nuevo Verificador)*<br>
+Figura 37. *EventStorming, paso 6: Policies (registro, suscripción y certificados)*<br>
+Figura 38. *EventStorming, paso 6: Policies (evaluación de los nodos)*<br>
+Figura 39. *EventStorming, paso 6: Policies (demostración final, certificación y nuevo Verificador)*<br>
+Figura 40. *EventStorming, paso 7: Read Models (registro, suscripción y certificados)*<br>
+Figura 41. *EventStorming, paso 7: Read Models (evaluación de los nodos)*<br>
+Figura 42. *EventStorming, paso 7: Read Models (demostración final, certificación y nuevo Verificador)*<br>
+Figura 43. *EventStorming, paso 8: External Systems (registro, suscripción y certificados)*<br>
+Figura 44. *EventStorming, paso 8: External Systems (evaluación de los nodos)*<br>
+Figura 45. *EventStorming, paso 8: External Systems (demostración final, certificación y nuevo Verificador)*<br>
+Figura 46. *EventStorming, paso 9: Aggregates*<br>
+Figura 47. *EventStorming, paso 10: Bounded Contexts*<br>
+Figura 48. *Context Mapping de SkillSwap*<br>
+Figura 49. *C4 Model: Context Diagram*<br>
+Figura 50. *C4 Model: Container Diagram*<br>
+Figura 51. *C4 Model: Deployment Diagram*<br>
+Figura 52. *C4 Model: Component Diagram del Bounded Context Identity & Access*<br>
+Figura 53. *Diagrama de Clases UML del Domain Layer de Identity & Access*<br>
+Figura 54. *Diagrama de Base de Datos del Bounded Context Identity & Access*<br>
+Figura 55. *C4 Model: Component Diagram del Bounded Context Credential Verification*<br>
+Figura 56. *Diagrama de Clases UML del Domain Layer de Credential Verification*<br>
+Figura 57. *Diagrama de Base de Datos del Bounded Context Credential Verification*<br>
+Figura 58. *C4 Model: Component Diagram del Bounded Context Learning Path Engine*<br>
+Figura 59. *Diagrama de Clases UML del Domain Layer de Learning Path Engine*<br>
+Figura 60. *Diagrama de Base de Datos del Bounded Context Learning Path Engine*<br>
+Figura 61. *C4 Model: Component Diagram del Bounded Context Assessment & Peer Review*<br>
+Figura 62. *Diagrama de Clases UML del Domain Layer de Assessment & Peer Review*<br>
+Figura 63. *Diagrama de Base de Datos del Bounded Context Assessment & Peer Review*<br>
+Figura 64. *C4 Model: Component Diagram del Bounded Context Reputation*<br>
+Figura 65. *Diagrama de Clases UML del Domain Layer de Reputation*<br>
+Figura 66. *Diagrama de Base de Datos del Bounded Context Reputation*<br>
+Figura 67. *C4 Model: Component Diagram del Bounded Context Recognition & Incentives*<br>
+Figura 68. *Diagrama de Clases UML del Domain Layer de Recognition & Incentives*<br>
+Figura 69. *Diagrama de Base de Datos del Bounded Context Recognition & Incentives*<br>
+Figura 70. *C4 Model: Component Diagram del Bounded Context Moderation & Disputes*<br>
+Figura 71. *Diagrama de Clases UML del Domain Layer de Moderation & Disputes*<br>
+Figura 72. *Diagrama de Base de Datos del Bounded Context Moderation & Disputes*<br>
+Figura 73. *C4 Model: Component Diagram del Bounded Context Subscription & Billing*<br>
+Figura 74. *Diagrama de Clases UML del Domain Layer de Subscription & Billing*<br>
+Figura 75. *Diagrama de Base de Datos del Bounded Context Subscription & Billing*<br>
+Figura 76. *Diagrama de Base de Datos completo de SkillSwap*<br>
+Figura 77. *Diagrama de Clases UML completo de SkillSwap*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
