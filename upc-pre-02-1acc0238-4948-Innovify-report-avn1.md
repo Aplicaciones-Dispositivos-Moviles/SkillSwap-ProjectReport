@@ -399,6 +399,7 @@ A continuación se presentan las estrategias y tácticas que Innovify puede impl
 12. ¿Qué tan dispuesto estarías a supervisar por videollamada la demostración final de un proyecto avanzado, garantizando que lo que se presenta es realmente propio de esa persona?
 13. ¿Qué debería tener sí o sí una plataforma para que la consideres profesional y confiable para ejercer este rol?
 14. Si pudieras exhibir en tu perfil de LinkedIn una credencial que dice "Verificador certificado en [habilidad], con X casos resueltos", ¿crees que eso tendría valor real para tu carrera profesional?
+
 *Nivel 2 — Coordinador*
  
 1. Para comenzar, ¿podría describir brevemente su rol en la universidad y sus principales responsabilidades relacionadas con el alumnado?
@@ -603,9 +604,9 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 ---
  
 ### 2.2.3. Análisis de entrevistas
- 
+
 #### Segmento objetivo #1: Personas que quieren aprender
- 
+
 **1. Características objetivas**
 * **Edad:** Estudiantes universitarios o egresados recientes, generalmente entre 19 y 24 años (100%).
 * **Carrera:** Diversas carreras universitarias (Ingeniería de Sistemas, Administración, Diseño Gráfico) (100%).
@@ -614,6 +615,7 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
   * Uso de plataformas de cursos online (Coursera, Udemy, YouTube) (100%).
   * Uso de herramientas de IA como ChatGPT para resolver dudas (100%).
   * Poca o nula experiencia con validación práctica supervisada por pares certificados (100%).
+
 **2. Características subjetivas**
 * **Frustración con los certificados actuales:**
   * Sienten que los certificados online no reflejan su dominio práctico real (100%).
@@ -631,6 +633,9 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
   * Priorizan que el Verificador tenga experiencia real en su área (proyectos, empresas) sobre la cantidad de casos resueltos (100%).
   * Prefieren una revisión enfocada en el sub-tema donde fallaron, no repetir el curso completo (100%).
   * Valoran ver portafolio de proyectos reales del Verificador antes de que les sea asignado (66%).
+
+&nbsp;
+
 | Característica | % Entrevistados | Fuente / Frase de entrevista |
 | :--- | :--- | :--- |
 | Frustración por brecha certificado vs. dominio real | 100% | "Tenía el certificado pero en la entrevista técnica me bloqueé." |
@@ -642,20 +647,21 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Prioriza experiencia real del Verificador sobre cantidad de casos | 100% | "Prefiero que haya trabajado en mi área aunque tenga menos casos resueltos." |
 | Necesidad de ruta estructurada de aprendizaje | 66% | "Quiero que alguien me diga qué aprender, en qué orden." |
 | Inseguridad al aplicar lo aprendido en práctica real | 66% | "Aprendí Python pero no sé si lo que hago está bien o funciona de casualidad." |
- 
+
 *(Tabla 4. Principales hallazgos de entrevistas a personas que quieren aprender - Elaboración propia.)*
- 
+
 ---
- 
+
 #### Segmento objetivo #2: Personas que validan el conocimiento
- 
+
 *Nivel 1 — Verificador*
- 
+
 **1. Características objetivas**
 * **Edad:** Estudiantes avanzados o egresados recientes, entre 23 y 28 años (100%).
 * **Carrera:** Diversas áreas (Ingeniería de Software, Contabilidad, Comunicaciones) (100%).
 * **Experiencia:** Todos tienen experiencia ayudando a otros de forma informal sin reconocimiento formal (100%).
 * **Habilidades digitales:** Usan WhatsApp, Zoom y Drive como principales herramientas para ayudar a distancia (100%).
+
 **2. Características subjetivas**
 * **Motivaciones para actuar como Verificador:**
   * Reconocimiento profesional verificable (SkillCredits en LinkedIn) como incentivo principal (100%).
@@ -668,6 +674,9 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
   * De acuerdo con que el Verificador certifique previamente su propia ruta como garantía de calidad (100%).
   * Valoran recibir información precisa sobre el error específico del estudiante antes del caso (100%).
   * Consideran que la asignación automática por especialidad es más eficiente que recibir solicitudes genéricas (100%).
+
+&nbsp;
+
 | Característica | % Entrevistados | Fuente / Frase de entrevista |
 | :--- | :--- | :--- |
 | Motivación principal: reconocimiento profesional (SkillCredits) | 100% | "Lo que más me atrae es poder demostrar en LinkedIn que sé evaluar, no solo que sé hacer." |
@@ -680,23 +689,27 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Frustración por falta de reconocimiento formal | 100% | "Nadie sabe que reviso bien porque no hay forma de demostrarlo." |
 | Preferencia por casos con objetivo claro definido | 66% | "Quiero saber de qué va el caso antes de aceptarlo." |
 | Interés en supervisar proyectos avanzados | 33% | "Me interesaría supervisar proyectos finales, no solo revisiones puntuales." |
- 
+
 *(Tabla 5. Principales hallazgos de entrevistas al nivel de Verificador - Elaboración propia.)*
- 
+
 ---
- 
+
 *Nivel 2 — Coordinador*
- 
+
 **1. Características objetivas**
 * **Edad y rol:** Profesionales entre 29 y 53 años (100%). Docentes, coordinadores o jefes de práctica (100%).
 * **Ámbito laboral:** Universidades (100%).
 * **Responsabilidades:** Supervisión del aprendizaje (100%). Garantizar integridad académica (100%). Evaluación del desempeño (100%).
 * **Relación con tecnología:** Uso de herramientas digitales educativas (100%). Sistemas de control académico (100%).
+
 **2. Características subjetivas**
 * **Percepción de la validación de habilidades entre pares:** Considerada fundamental (100%). Positiva colaboración interuniversitaria (100%). Mejora la preparación profesional (66%).
 * **Preocupaciones:** Plagio, fraude y suplantación (100%). Uso indebido de tecnología (100%). Información poco confiable (100%). Riesgo reputacional (66%).
 * **Barreras:** Validación de estudiantes (100%). Carga operativa (67%). Costos (67%). Necesidad de automatización (33%).
 * **Requisitos de la plataforma:** Verificación de identidad (100%). Validación académica (100%). Políticas claras (100%). Trazabilidad de interacciones (100%). Panel de monitoreo (100%).
+
+&nbsp;
+
 | Característica | % entrevistados | Insight clave |
 | :--- | :--- | :--- |
 | Validación de habilidades entre pares | 100% | Fundamental |
@@ -709,9 +722,9 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Sistema de monitoreo | 100% | Necesario |
 | Carga operativa | 67% | Barrera |
 | Segmentación académica | 33% | Mejora pertinencia |
- 
+
 *(Tabla 6. Principales hallazgos del nivel de Coordinador - Elaboración propia.)*
- 
+
 ---
  
 ## 2.3. Needfinding
