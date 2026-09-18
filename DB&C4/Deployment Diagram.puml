@@ -15,16 +15,17 @@ Deployment_Node(staticHosting, "Hosting Estático", "Firebase Hosting / Vercel")
 
 Deployment_Node(cloudPlatform, "Render", "Plataforma Cloud"){
     Deployment_Node(backendRuntime, "Backend Runtime", "Docker Container"){
-        Container(apiGateway, "Api Gateway + Bounded Contexts", "ASP.NET Core (C#)", "Punto de entrada central que enruta las solicitudes a los siete Bounded Contexts de la lógica de negocio.")
+        Container(apiGateway, "Api Gateway + Bounded Contexts", "ASP.NET Core (C#)", "Punto de entrada central que enruta las solicitudes a los ocho Bounded Contexts de la lógica de negocio.")
     }
     Deployment_Node(dbServer, "Servidor de Base de Datos Administrado", "Render Managed Database"){
-        ContainerDb(mainDB, "SkillSwap Database", "MySQL 8", "Instancia única compartida por los siete Bounded Contexts (skillswap_db).")
+        ContainerDb(mainDB, "SkillSwap Database", "MySQL 8", "Instancia única compartida por los ocho Bounded Contexts (skillswap_db).")
     }
 }
 
 Deployment_Node(externalCloud, "Servicios Externos en la Nube", "SaaS"){
     System_Ext(cloudStorage, "Cloudinary", "Almacenamiento de certificados y evidencias de casos")
     System_Ext(emailService, "Email Api", "Notificaciones institucionales")
+    System_Ext(stripeApi, "Stripe", "Procesamiento de la suscripción")
 }
 
 Rel(androidApp, mlKitSdk, "Invoca localmente", "SDK call")
@@ -38,5 +39,6 @@ Rel(apiGateway, mainDB, "Lee/Escribe", "SQL")
 
 Rel(apiGateway, cloudStorage, "Guarda certificados y evidencias", "HTTPS")
 Rel(apiGateway, emailService, "Envía notificaciones", "HTTPS")
+Rel(apiGateway, stripeApi, "Procesa pagos", "HTTPS")
 
 @enduml

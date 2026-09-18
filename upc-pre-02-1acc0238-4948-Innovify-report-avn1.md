@@ -33,9 +33,9 @@ SkillSwap
 | :--- | :--- |
 | U201924127 | Alberca Saavedra, Víctor Manuel |
 | U20231C792 | Becerra Ninahuanca, Luis Angel |
-| U20241D958 | Lopez Montalvo, Kevin Edu |
 | U201724692 | Komatsu Dueñas, David |
-| U202423711 | Piero Sulca Sánchez |
+| U20241D958 | Lopez Montalvo, Kevin Edu |
+| U202423711 | Sulca Sanchez, Piero Angel |
 
 </div>
 
@@ -55,7 +55,7 @@ Septiembre 2026
 
 | Versión | Fecha | Autor | Descripción de modificación |
 | :--- | :--- | :--- | :--- |
-| **v.01.Avn1** | 10/09/2026 | Alberca Saavedra, Víctor Manuel<br>Becerra Ninahuanca, Luis Angel<br>Lopez Montalvo, Kevin Edu<br>Komatsu Dueñas, David<br>Piero Sulca Sánchez | Se agregaron los siguientes tópicos:<br><br>**Student Outcome**<br>**Objetivos SMART**<br><br>**Capítulo I: Presentación**<br>1.1. Startup Profile<br>1.1.1. Descripción de la Startup<br>1.1.2. Perfiles de integrantes del equipo<br>1.2. Solution Profile<br>1.2.1. Antecedentes y problemática<br>1.2.2. Lean UX Process<br>1.2.2.1. Lean UX Problem Statements<br>1.2.2.2. Lean UX Assumptions<br>1.2.2.3. Lean UX Hypothesis Statements<br>1.2.2.4. Lean UX Canvas<br>1.3. Segmentos objetivo<br><br>**Capítulo II: Requirements Development and Software Solution Design**<br>2.1. Competidores<br>2.1.1. Análisis competitivo<br>2.1.2. Estrategias y tácticas frente a competidores<br>2.2. Entrevistas<br>2.2.1. Diseño de entrevistas<br>2.2.2. Registro de entrevistas<br>2.2.3. Análisis de entrevistas<br>2.3. Needfinding<br>2.3.1. User Personas<br>2.3.2. User Task Matrix<br>2.3.3. User Journey Mapping<br>2.3.4. Empathy Mapping<br>2.3.5. Big Picture EventStorming<br>2.3.6. Ubiquitous Language<br>2.4. Requirements specification<br>2.4.1. User Stories<br>2.4.2. Impact Mapping<br>2.4.3. Product Backlog<br>2.5. Strategic-Level Domain-Driven Design<br>2.5.1. EventStorming<br>2.5.1.1. Candidate Context Discovery<br>2.5.1.2. Domain Message Flows Modeling<br>2.5.1.3. Bounded Context Canvases<br>2.5.2. Context Mapping<br>2.5.3. Software Architecture<br>2.5.3.1. Software Architecture Context Level Diagrams<br>2.5.3.2. Software Architecture Container Level Diagrams<br>2.5.3.3. Software Architecture Deployment Diagrams<br>2.6. Tactical-Level Domain-Driven Design (los 7 Bounded Contexts: Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Moderation & Disputes)<br>2.6.x.1. Domain Layer<br>2.6.x.2. Interface Layer<br>2.6.x.3. Application Layer<br>2.6.x.4. Infrastructure Layer<br>2.6.x.5. Bounded Context Software Architecture Component Level Diagrams<br>2.6.x.6. Bounded Context Software Architecture Code Level Diagrams<br>2.6.x.6.1. Bounded Context Domain Layer Class Diagrams<br>2.6.x.6.2. Bounded Context Database Design Diagram<br><br>**Conclusiones**<br>**Bibliografía** |
+| **v.01.Avn1** | 10/09/2026 | Alberca Saavedra, Víctor Manuel<br>Becerra Ninahuanca, Luis Angel<br>Lopez Montalvo, Kevin Edu<br>Komatsu Dueñas, David<br>Piero Sulca Sánchez | Se agregaron los siguientes tópicos:<br><br>**Student Outcome**<br>**Objetivos SMART**<br><br>**Capítulo I: Presentación**<br>1.1. Startup Profile<br>1.1.1. Descripción de la Startup<br>1.1.2. Perfiles de integrantes del equipo<br>1.2. Solution Profile<br>1.2.1. Antecedentes y problemática<br>1.2.2. Lean UX Process<br>1.2.2.1. Lean UX Problem Statements<br>1.2.2.2. Lean UX Assumptions<br>1.2.2.3. Lean UX Hypothesis Statements<br>1.2.2.4. Lean UX Canvas<br>1.3. Segmentos objetivo<br><br>**Capítulo II: Requirements Development and Software Solution Design**<br>2.1. Competidores<br>2.1.1. Análisis competitivo<br>2.1.2. Estrategias y tácticas frente a competidores<br>2.2. Entrevistas<br>2.2.1. Diseño de entrevistas<br>2.2.2. Registro de entrevistas<br>2.2.3. Análisis de entrevistas<br>2.3. Needfinding<br>2.3.1. User Personas<br>2.3.2. User Task Matrix<br>2.3.3. User Journey Mapping<br>2.3.4. Empathy Mapping<br>2.3.5. Big Picture EventStorming<br>2.3.6. Ubiquitous Language<br>2.4. Requirements specification<br>2.4.1. User Stories<br>2.4.2. Impact Mapping<br>2.4.3. Product Backlog<br>2.5. Strategic-Level Domain-Driven Design<br>2.5.1. EventStorming<br>2.5.1.1. Candidate Context Discovery<br>2.5.1.2. Domain Message Flows Modeling<br>2.5.1.3. Bounded Context Canvases<br>2.5.2. Context Mapping<br>2.5.3. Software Architecture<br>2.5.3.1. Software Architecture Context Level Diagrams<br>2.5.3.2. Software Architecture Container Level Diagrams<br>2.5.3.3. Software Architecture Deployment Diagrams<br>2.6. Tactical-Level Domain-Driven Design (los 7 Bounded Contexts: Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Moderation & Disputes)<br>2.6.x.1. Domain Layer<br>2.6.x.2. Interface Layer<br>2.6.x.3. Application Layer<br>2.6.x.4. Infrastructure Layer<br>2.6.x.5. Bounded Context Software Architecture Component Level Diagrams<br>2.6.x.6. Bounded Context Software Architecture Code Level Diagrams<br>2.6.x.6.1. Bounded Context Domain Layer Class Diagrams<br>2.6.x.6.2. Bounded Context Database Design Diagram<br><br>**Conclusiones**<br>**Bibliografía** |
 
 <div style="page-break-after: always;"></div>
 
@@ -70,9 +70,29 @@ En esta sección se indica el URL del repositorio utilizado para la elaboración
 
 ### AV1
 
-Durante el desarrollo de la entrega AV1, el equipo distribuyó la elaboración del informe asignando capítulos y secciones específicas a cada integrante según sus áreas de responsabilidad. Cada miembro realizó sus aportes directamente en el repositorio de GitHub mediante commits en ramas individuales, siguiendo la convención de Conventional Commits y GitFlow. Todos los integrantes participaron activamente en la redacción de secciones del informe en formato Markdown, asegurando coherencia y calidad en el contenido entregado.
+Durante el desarrollo de la entrega AV1, el equipo distribuyó la elaboración del informe asignando capítulos y secciones específicas a cada integrante según sus áreas de responsabilidad. Cada miembro realizó sus aportes directamente en el repositorio de GitHub mediante commits en ramas individuales, siguiendo la convención de Conventional Commits y GitFlow, integrando los cambios mediante Pull Requests hacia la rama `develop`. Todos los integrantes participaron activamente en la redacción de secciones del informe en formato Markdown, asegurando coherencia y calidad en el contenido entregado.
 
-*(Nota: Insertar aquí las capturas de los analíticos de colaboración, branches y commits de GitHub correspondientes al avance 1).*
+A continuación, se presentan las capturas de los analíticos de colaboración del repositorio del informe:
+
+**Figura 1**
+
+*Gráfico de contribuciones al repositorio del Project Report durante AV1*
+
+<p align="center">
+  <img src="public/assets/images-doc/PR1.png" alt="Analíticos de colaboración - Project Report" width="800">
+</p>
+
+*Nota.* Se evidencia la participación de todos los integrantes del equipo mediante commits realizados en el período correspondiente. Elaboración propia.
+
+**Figura 2**
+
+*Historial de commits en el repositorio del Project Report*
+
+<p align="center">
+  <img src="public/assets/images-doc/PR2.png" alt="Historial de commits - Project Report" width="800">
+</p>
+
+*Nota.* Se evidencian los aportes individuales de cada integrante con sus respectivos mensajes bajo la convención Conventional Commits. Elaboración propia.
 
 ---
 
@@ -89,7 +109,6 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 <div style="page-break-after: always;"></div>
 
 
-
 ## Objetivos SMART
 
 *   **Alberca Saavedra Víctor Manuel:** Completar un curso de especialización en arquitecturas móviles (Kotlin/Swift) para diciembre de 2026, logrando aplicar al menos 3 patrones de diseño avanzados en proyectos personales.
@@ -101,29 +120,29 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 ---
 
 
-# Capítulo I: Introducción
+# Capítulo I: Presentación
 
 ## 1.1. Startup Profile
 
 ### 1.1.1. Descripción de la Startup
 
-Innovify es una startup cuyo propósito es reducir la deserción académica conectando a estudiantes universitarios para que aprendan y validen habilidades específicas a través de rutas de certificación guiadas. A diferencia de un esquema de tutorías puntuales y desestructuradas, Innovify organiza el aprendizaje en torno a un objetivo declarado por el propio estudiante: al indicar qué habilidad quiere dominar, la plataforma genera una ruta de aprendizaje compuesta por certificaciones que debe cursar y subir para su validación. Por cada certificado subido, el aprendiz puede rendir un quiz o desarrollar un miniproyecto que demuestre la habilidad adquirida y, si el intento no logra demostrarla, el caso se escala a un Verificador, quien revisa puntualmente su proyecto o portafolio frente a una rúbrica estructurada. Al completar toda la ruta, el aprendiz tiene la opción de demostrar su dominio integral mediante un proyecto avanzado o un examen supervisado. Es únicamente en esta instancia final donde se emplea una videollamada, integrada en la misma plataforma, con el fin de constatar en tiempo real que la demostración es genuina —no como un espacio de enseñanza.
+Innovify es una startup tecnológica del sector educativo que desarrolla soluciones orientadas a la validación de habilidades. Su producto, SkillSwap, es una plataforma móvil dirigida principalmente a estudiantes universitarios y jóvenes profesionales que necesitan complementar sus credenciales con una demostración de que pueden aplicar las habilidades declaradas. La propuesta busca reducir la brecha entre completar una actividad formativa y demostrar el dominio práctico de los conocimientos adquiridos.
 
-Para poder verificar, un estudiante debe primero recorrer su propia ruta de certificación y aprobar un examen de ingreso que demuestre que realmente domina la habilidad. Una vez habilitado, el Verificador puede revisar casos puntuales o supervisar exámenes y proyectos avanzados de otros aprendices. Cada intervención validada le otorga SkillCredits, una moneda de reconocimiento que evidencia su nivel de dominio y que puede exhibirse en LinkedIn u otras plataformas profesionales como credencial verificable.
+SkillSwap organiza la experiencia a partir del objetivo declarado por el Estudiante y lo relaciona con una taxonomía de habilidades para proponer una ruta de certificación, compuesta por nodos que se evalúan mediante un *quiz* o un miniproyecto; toda ruta incluye un mínimo de nodos con entrega práctica. El Estudiante puede incorporar certificados externos, cuyos datos se extraen mediante reconocimiento óptico de caracteres con ML Kit para facilitar su registro y análisis de riesgo documental. Esta extracción no demuestra por sí misma el dominio de la habilidad: la comprobación se realiza mediante esas evaluaciones aplicadas, cuya generación puede ser asistida por inteligencia artificial. Cuando la evaluación automática no resulta suficiente, el caso se asigna a un Verificador habilitado, quien califica el entregable criterio por criterio con una rúbrica estructurada; la aprobación se calcula a partir de esos puntajes y, si no se alcanza, el Estudiante recibe los criterios que no cumplió para corregir su entrega. Al completar la ruta, el Estudiante presenta una demostración final asíncrona que también califica un Verificador habilitado, de modo que ninguna certificación se emite sin que una persona haya evaluado su trabajo. La certificación queda respaldada por el historial de evaluaciones y revisiones realizadas en la plataforma.
 
-Innovify opera bajo un modelo de negocio B2C: el aprendiz paga una mensualidad que incluye el acceso a la ruta de certificación, los quizzes y miniproyectos, y la supervisión de la evaluación final; el Verificador, por su parte, gana SkillCredits por cada caso que resuelve, los cuales también pueden adquirirse directamente en una tienda dentro de la plataforma y canjearse por beneficios propios del ecosistema, sin que exista una comisión pagada directamente entre usuarios. Un tercer perfil, el coordinador, actúa como garante de calidad del ecosistema: define plazos de actividad para los Verificadores, monitorea la confiabilidad de sus decisiones —una baja confiabilidad es indicio de una revisión deficiente— y puede exigir que un Verificador vuelva a rendir su examen de certificación. El coordinador también accede a métricas agregadas de toda la plataforma, como los temas de mayor demanda tanto entre aprendices como entre Verificadores.
+Para revisar casos de otros usuarios, el Estudiante debe completar previamente su propia ruta de certificación y aprobar un examen de ingreso relacionado con la habilidad que desea verificar. Una vez habilitado, puede participar como Verificador y recibir SkillCredits por cada intervención validada. Los SkillCredits constituyen unidades de reconocimiento no monetarias asociadas a su participación y experiencia como Verificador; no pueden comprarse ni canjearse, y se acumulan como reputación: al alcanzar ciertos umbrales, el Verificador obtiene rangos visibles en su perfil profesional.
 
-El emparejamiento entre aprendices y Verificadores no es manual: cada usuario cuenta con un perfil construido a partir de su historial (certificados, resultados de quizzes/miniproyectos, ritmo de avance y temas de interés, en el caso del aprendiz; certificados, examen de ingreso, SkillCredits, confiabilidad recibida y sub-temas de mayor dominio, en el caso del Verificador), representado como un vector de embeddings de habilidades. Un sistema de recomendación híbrido —que combina coincidencia por contenido (habilidad del aprendiz vs. especialidad del Verificador) con filtrado colaborativo (qué Verificadores funcionaron bien con perfiles similares)— sugiere el mejor Verificador disponible para cada caso. Esta misma información, agregada a nivel de plataforma, alimenta el ranking de temas más demandados que revisa el coordinador.
+Innovify plantea para SkillSwap un modelo de negocio B2C basado en una suscripción mensual pagada por los Estudiantes. Esta suscripción brinda acceso a las rutas de certificación, las evaluaciones y la supervisión del proceso de validación. No existen pagos directos ni comisiones entre Estudiantes y Verificadores. Además, la plataforma incorpora una capa de moderación interna, responsable de monitorear la confiabilidad de las revisiones, gestionar situaciones que requieran reevaluación y consultar métricas generales sobre la actividad del ecosistema.
 
-Todo este ecosistema se mantiene seguro gracias a un proceso de validación automatizada que exige el uso de correos institucionales (.edu.pe, upc.edu.pe, pupc.edu.pe) para garantizar que los usuarios sean estudiantes reales.
+La asignación de casos se realiza automáticamente considerando la habilidad requerida, el historial y la disponibilidad de los Verificadores. Asimismo, SkillSwap incorpora mecanismos de confianza como la verificación del correo electrónico, el historial auditable de las evaluaciones y la habilitación de Verificadores a partir de las certificaciones obtenidas dentro de la plataforma. Estos mecanismos buscan reducir la dependencia de declaraciones no comprobadas y favorecer un proceso de validación consistente.
 
 ### Visión
 
-Ser la plataforma líder en validación de habilidades y certificación práctica entre estudiantes universitarios a nivel nacional, reconocida por conectar de forma confiable el talento académico disperso entre distintas instituciones y por sostener, mediante inteligencia artificial, un ecosistema de verificación entre pares riguroso y económicamente sostenible.
+Ser una plataforma de referencia en la validación práctica de habilidades, reconocida por ofrecer a estudiantes universitarios y jóvenes profesionales un proceso confiable, trazable y sostenible de certificación y verificación entre pares.
 
 ### Misión
 
-Facilitar la validación de habilidades entre estudiantes universitarios mediante rutas de certificación personalizadas, evaluaciones generadas por IA y revisión de pares para casos puntuales, con una demostración final supervisada por videollamada. Promovemos la excelencia académica, el desarrollo de habilidades blandas y el reconocimiento justo al esfuerzo del Verificador mediante SkillCredits, dentro de un ecosistema validado institucionalmente por correo universitario y potenciado por el emparejamiento inteligente entre aprendices y Verificadores.
+Facilitar que estudiantes universitarios y jóvenes profesionales demuestren el dominio práctico de sus habilidades mediante rutas de certificación, evaluaciones aplicadas apoyadas por tecnología y revisiones estructuradas entre pares. Innovify reconoce la contribución de los Verificadores mediante SkillCredits y mantiene mecanismos de moderación para supervisar la confiabilidad y el seguimiento del proceso de validación.
 
 
 ### 1.1.2. Perfiles de integrantes del equipo
@@ -136,7 +155,7 @@ Facilitar la validación de habilidades entre estudiantes universitarios mediant
 | <img src="public/assets/images-doc/image-perfil-luis.png" width="100"> | **Becerra Ninahuanca, Luis Angel**<br>(U20231C792) | Ingeniería de Software | Especialista en lógica de negocio, integración de servicios e interfaces limpias. Investiga patrones de diseño UI/UX propios de aplicaciones móviles nativas/multiplataforma y lidera el análisis competitivo enfocado en apps del mismo rubro. |
 | <img src="public/assets/images-doc/image-perfil-kevin.png" width="100"> | **Lopez Montalvo, Kevin Edu**<br>(U20241D958) | Ingeniería de Software | Aporta conocimientos en diseño móvil, UX/UI y metodologías ágiles. Documenta el proceso Lean UX y estructura las User Stories bajo un enfoque Mobile-First. |
 | <img src="public/assets/images-doc/image-perfil-david.png" width="100"> | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. Lidera el modelado de flujos de mensajes entre Bounded Contexts y el diseño de diagramas de arquitectura. |
-| *(Foto)* | **Sulca Sánchez, Piero**<br>(U202423711) | Ingeniería de Software | Aporta conocimientos en desarrollo móvil multiplataforma y pruebas de software. Contribuye en la implementación de componentes de la capa de presentación y en la elaboración de User Stories orientadas a la experiencia del usuario final. |
+| <img src="public/assets/images-doc/image-perfil-piero.jpg" width="100" alt="Fotografía de Piero Angel Sulca Sanchez"> | **Sulca Sanchez, Piero Angel**<br>(U202423711) | Ingeniería de Software | Cuenta con experiencia en desarrollo web y trabajo en equipos pequeños. Se especializa en frontend y muestra interés por el diseño creativo de interfaces, especialmente en experiencias 3D, animaciones y productos digitales diferenciados. Aporta conocimientos en levantamiento de requerimientos, diseño de interfaces, desarrollo web con React y TypeScript, y diseño de bases de datos, además de organización y colaboración en equipo. |
 
 </div>
 
@@ -148,183 +167,253 @@ Facilitar la validación de habilidades entre estudiantes universitarios mediant
 
 ### 1.2.1. Antecedentes y problemática
 
-En el Perú y en la región, el mercado laboral y académico enfrenta una paradoja: existe un alto volumen de profesionales y estudiantes con múltiples diplomas, pero persiste una brecha significativa en la demostración de habilidades prácticas. Según diversos estudios sobre la empleabilidad y la educación superior, un gran porcentaje de egresados y estudiantes de cursos online (MOOCs) no logran aplicar los conocimientos teóricos en entornos reales.
+En el mercado laboral peruano existe una brecha entre las habilidades requeridas por las organizaciones y las que encuentran entre los postulantes. La Encuesta de Habilidades al Trabajo 2017-2018 señala que el 47% de las empresas con vacantes tuvo dificultades para cubrirlas y que el 76% de las vacantes difíciles de cubrir se relacionó con la falta de habilidades de los candidatos (Novella et al., 2019). Estas cifras establecen el contexto de una brecha de habilidades que exige mecanismos más claros para demostrar las capacidades de los postulantes.
 
-Diversos análisis asocian este fenómeno a un modelo educativo donde prima la "acumulación de certificados" por encima de la validación real de competencias. A esto se suman factores como la falta de seguimiento personalizado, evaluaciones genéricas que no miden el dominio práctico y la ausencia de un mecanismo de verificación que pueda resolver dudas puntuales sobre un caso específico (Escalante et al., 2023).
+Paralelamente, el aprendizaje en línea y la obtención de credenciales digitales continúan expandiéndose. Coursera registra 1,7 millones de estudiantes peruanos en su plataforma y reporta un crecimiento interanual del 33% en las inscripciones a Certificados Profesionales en el país (Coursera, 2025). Un certificado de finalización acredita que una persona completó una actividad conforme a los criterios de su emisor; sin embargo, considerado de manera aislada, no necesariamente ofrece una demostración suficiente y verificable de cómo aplica la habilidad en un contexto práctico. En este sentido, los enfoques de contratación basados en habilidades proponen complementar las calificaciones y credenciales con mecanismos que permitan identificar y demostrar competencias específicas (Organisation for Economic Co-operation and Development [OECD], 2024).
 
-Si bien estas causas son multifactoriales, nuestra investigación identifica un problema subyacente y desatendido: **la ilusión del conocimiento y la falta de validación práctica**. Actualmente, el ecosistema educativo funciona de manera aislada. Un estudiante puede obtener un certificado en una plataforma "A", pero no existe un puente formal y riguroso que valide si realmente adquirió esa habilidad, ni un sistema que conecte inteligentemente ese certificado con una evaluación real de dominio. Los estudiantes se ven limitados a consumir contenido estático sin demostrar su pericia, mientras que quienes ya dominan una habilidad carecen de un espacio validado donde ejercer esa revisión y construir una reputación comprobable.
+A partir de este contexto, el problema identificado es la dificultad que enfrentan los Estudiantes para complementar sus certificados con un proceso que evalúe la aplicación práctica de las habilidades declaradas. La dispersión de certificados, proyectos y resultados agrava el seguimiento, pero no constituye la causa principal: el vacío central es la falta de una comprobación directa del desempeño y de criterios claros para determinar el dominio. Sin esa evaluación, el propio Estudiante puede desconocer qué aspectos necesita reforzar hasta enfrentarse a una tarea aplicada. Asimismo, los Verificadores necesitan un entorno estructurado para revisar entregables y registrar sus contribuciones, mientras que la plataforma requiere mecanismos para supervisar la confiabilidad de esas decisiones.
 
-Esto no solo impacta negativamente en el desarrollo profesional de los estudiantes, sino también en la capacidad productiva del país por la falta de talento verdaderamente calificado, agravando problemas como el subempleo y la ineficiencia en los procesos de reclutamiento.
+Esta situación dificulta que los Estudiantes reconozcan sus brechas antes de aplicar una habilidad y respalden sus credenciales con pruebas de desempeño comparables. También impide que terceros comprendan el proceso seguido para determinar el dominio. La oportunidad consiste, por tanto, en complementar la formación existente con un proceso de validación que articule credenciales, evaluaciones aplicadas, revisiones humanas y decisiones documentadas.
 
-Para conocer aún más la problemática usaremos la técnica de las **5W y 2H**:
+El contexto tecnológico favorece el planteamiento de una solución móvil: el 95,4% de los hogares peruanos cuenta con telefonía móvil, mientras que el 37,8% dispone de una computadora; además, el 89,0% de los usuarios de internet accede al servicio mediante un teléfono celular (Instituto Nacional de Estadística e Informática [INEI], 2025). Estas cifras respaldan la elección del canal móvil para acercar el proceso de validación a los segmentos objetivo.
+
+Para analizar los antecedentes y delimitar la problemática, se aplica la técnica de las **5W y 2H**: *What*, *Why*, *Who*, *When*, *Where*, *How* y *How much*. Esta técnica permite identificar el problema, sus causas, los actores involucrados, las circunstancias en las que se manifiesta, su alcance y sus principales efectos.
 
 #### What (¿Qué? / ¿Cuál?)
-* **¿Cuál es el problema?** El problema es la brecha entre la obtención de un certificado y el dominio real de una habilidad. Muchos estudiantes acumulan diplomas sin adquirir las competencias prácticas necesarias, lo que genera frustración, estancamiento profesional y desconfianza en las credenciales académicas.
-* **¿Qué soluciones existen actualmente?** Actualmente existen plataformas de educación online (como Coursera, Udemy o Platzi). Sin embargo, estas se centran en la entrega de contenido y emiten certificados tras evaluaciones básicas, sin una validación rigurosa ni supervisión humana. Con nuestra propuesta de valor buscamos generar un ecosistema impulsado por Inteligencia Artificial que no solo traza rutas de aprendizaje, sino que exige la validación práctica de certificados mediante quizzes, miniproyectos y la revisión de Verificadores certificados.
-* **¿Cuál es la relación con el usuario?** El usuario es el eje de un ecosistema de tres roles: el estudiante (que aprende y demuestra habilidades), el Verificador (que revisa casos puntuales y gana SkillCredits) y el coordinador (que audita la calidad del proceso). La relación se basa en la confianza, la transparencia y el mérito demostrado.
+* **¿Cuál es el problema?** Los Estudiantes que obtienen certificados de finalización no siempre cuentan con un proceso complementario que les permita comprobar, mediante una tarea aplicada y un resultado verificable, que pueden utilizar las habilidades declaradas.
+* **¿Qué alternativas existen actualmente?** Las plataformas de educación en línea permiten adquirir conocimientos y obtener credenciales; los portafolios permiten exhibir proyectos; y las redes profesionales permiten comunicar logros. En las alternativas analizadas, estos mecanismos no se articulan en un mismo proceso que relacione una credencial externa con una evaluación práctica, una eventual revisión por un par habilitado y la supervisión de la confiabilidad de la decisión.
+* **¿Qué efectos produce el problema?** El Estudiante puede desconocer qué aspectos necesita reforzar hasta enfrentarse a una tarea real y debe complementar su credencial con demostraciones preparadas bajo criterios diversos. Por ello, un tercero no siempre puede reconstruir cómo se determinó el dominio de la habilidad. A su vez, la labor del Verificador puede quedar sin un registro que respalde su experiencia y la plataforma puede carecer de indicadores para supervisar la calidad de las decisiones.
 
 #### Why (¿Por qué?)
-* **¿Cuál es la causa principal del problema?** La causa principal es que los modelos de evaluación actuales son pasivos y estandarizados. Ver un video y aprobar un examen de opción múltiple no garantiza el dominio de una competencia. Además, cuando el intento de un estudiante no logra demostrar dicho dominio, no cuenta con un sistema inteligente que identifique su punto débil exacto y lo conecte con el Verificador adecuado para una revisión específica de su caso.
+* **¿Por qué ocurre el problema?** Una credencial de finalización registra el cumplimiento de los criterios definidos por su emisor. Cuando estos criterios se limitan a completar contenidos o aprobar una evaluación estandarizada centrada en reconocer o recordar información, no se observa el desempeño de la persona ante una tarea aplicada a un caso real. Por ello, relacionar mejor los documentos existentes no resuelve por sí solo la insuficiencia: es necesario comprobar la aplicación de la habilidad mediante criterios explícitos y dejar constancia de la decisión.
 
 #### Who (¿Quién?)
-* **¿Quiénes están involucrados?** Está involucrada la comunidad de aprendizaje continuo: estudiantes universitarios, profesionales en *upskilling/reskilling*, Verificadores certificados y coordinadores académicos.
-* **¿A quiénes les sucede el problema?** A personas que invierten tiempo en aprender pero sienten inseguridad sobre sus capacidades prácticas reales, así como a quienes ya dominan una habilidad y desean revisar el trabajo de otros pero no encuentran una plataforma que valide su nivel y les otorgue credibilidad (como los SkillCredits) frente a la industria.
+* **¿Quiénes son los principales afectados?** Los Estudiantes universitarios y jóvenes profesionales que necesitan demostrar las habilidades adquiridas mediante cursos, certificaciones, proyectos o aprendizaje autónomo.
+* **¿Qué otros actores están involucrados?** También intervienen los Verificadores con experiencia suficiente para revisar los entregables de sus pares, cuya calidad debe ser supervisada para sostener la confiabilidad del proceso.
 
 #### When (¿Cuándo?)
-* **¿Cuándo sucede el problema?** Constantemente, pero se hace evidente en momentos críticos: al intentar aplicar lo aprendido en un proyecto real, al enfrentarse a pruebas técnicas en entrevistas laborales o cuando el estudiante se estanca en un tema avanzado por no haber interiorizado los fundamentos.
-* **¿Cuándo el cliente usa el producto?** Cuando un estudiante decide que necesita dominar (no solo estudiar) una habilidad específica; cuando necesita validar un certificado previo; o, en el caso del Verificador, cuando dispone de tiempo para revisar casos puntuales y fortalecer su perfil profesional.
+* **¿Cuándo se manifiesta el problema?** Se hace visible después de obtener una credencial, al postular a prácticas o empleos y cuando el Estudiante necesita demostrar la aplicación de una habilidad ante una tarea o proyecto concreto.
+* **¿Cuándo vuelve a presentarse?** Puede repetirse cada vez que el Estudiante incorpora una nueva habilidad o presenta una credencial ante un contexto que exige evidencia adicional de aplicación práctica.
 
 #### Where (¿Dónde?)
-* **¿Dónde está el usuario cuando usa la plataforma?** En cualquier entorno con conexión a internet propicio para el estudio o el trabajo remoto (salas de estudio, bibliotecas, habitaciones o espacios de *coworking*). Todo ocurre en un entorno 100% digital e integrado.
-* **¿Dónde surge el problema?** En la desconexión entre la educación teórica tradicional (o el e-learning masivo) y las demandas de habilidades prácticas y comprobables del mundo real.
+* **¿En qué ámbitos se manifiesta?** En la educación universitaria, las plataformas de aprendizaje en línea, los procesos de formación autónoma y las etapas de incorporación al mercado laboral.
+* **¿Dónde se produce la desconexión?** En la transición entre el espacio que emite la credencial y el contexto donde el Estudiante debe demostrar que puede aplicar la habilidad adquirida.
 
 #### How (¿Cómo?)
-* **¿En qué condiciones los clientes usan nuestro producto?** Los estudiantes lo usan con el objetivo claro de certificar sus capacidades mediante retos prácticos y, en la instancia final de su ruta, una demostración supervisada por videollamada. Los Verificadores lo utilizan tras haber certificado su propia habilidad, buscando construir credenciales verificables (SkillCredits) para sus redes profesionales.
-* **¿Cómo se enteran de la aplicación?** A través de redes sociales, comunidades de aprendizaje, alianzas con instituciones educativas y, fundamentalmente, a través de plataformas como LinkedIn, donde los estudiantes y Verificadores exhibirán sus insignias y SkillCredits validados por Innovify.
+* **¿Cómo se manifiesta actualmente?** El Estudiante puede presentar el certificado, sus proyectos y los resultados de evaluaciones previas, pero estos elementos no siempre comparten criterios ni permiten reconstruir mediante un registro verificable cómo se comprobó el dominio. En consecuencia, cada receptor debe interpretarlos por separado y el Estudiante carece de retroalimentación precisa sobre los aspectos que necesita reforzar.
+* **¿Cómo puede abordarse?** Mediante una experiencia móvil que relacione las credenciales con pruebas aplicadas a la habilidad y, cuando sea necesario, con revisiones realizadas por Verificadores habilitados mediante rúbricas estructuradas y sujetas a una moderación posterior.
 
 #### How much (¿Cuánto?)
-* **¿Cuánto le cuesta este problema a la economía, sociedad o institución del Perú actualmente?** La brecha de habilidades (*skills gap*) cuesta millones al año a las empresas en procesos de reclutamiento fallidos, reentrenamiento de personal y baja productividad, afectando directamente la competitividad del mercado laboral peruano y latinoamericano.
-* **¿Cuánto costaría implementar la solución propuesta?**
-  * Desarrollo de la plataforma web (Rutas, Dashboards): S/ 20,000 - S/ 38,000
-  * Integración de modelos de IA (LLMs para rutas y quizzes, Embeddings para matching): S/ 8,000 - S/ 15,000
-  * Integración de videollamadas (demostración final) y pasarela de pagos (suscripciones y tienda de SkillCredits): S/ 4,000 - S/ 8,000
-  * Diseño UI/UX enfocado en la validación y verificación: S/ 4,000 - S/ 8,000
-  * Arquitectura Cloud (Hosting, base de datos de vectores): S/ 3,000 - S/ 6,000
-  * Seguridad, validación de identidades y soporte: S/ 4,000 - S/ 7,000
+* **¿Qué magnitud tiene la brecha de habilidades en el Perú?** El 47% de las empresas con vacantes tuvo dificultades para cubrirlas y el 76% de las vacantes difíciles de cubrir se relacionó con la falta de habilidades de los candidatos (Novella et al., 2019). Estas cifras dimensionan la necesidad de hacer visibles y comprobables las capacidades de los postulantes.
+* **¿Qué alcance tiene el aprendizaje en línea entre usuarios peruanos?** En Coursera se registran 1,7 millones de estudiantes peruanos, equivalentes al 7% de la fuerza laboral del país, y un crecimiento interanual del 33% en las inscripciones a Certificados Profesionales (Coursera, 2025).
+* **¿Qué alcance tiene la inadecuación ocupacional?** Rivas Cossio (2023) reporta una tasa de inadecuación ocupacional del 68,6% entre los jóvenes profesionales analizados en Lima Metropolitana, lo que evidencia dificultades de correspondencia entre formación y empleo dentro de esa población.
+* **¿Qué importancia tiene la brecha para las organizaciones?** A nivel global, el 63% de los empleadores identifica las brechas de habilidades como una de las principales barreras para transformar sus negocios durante el periodo 2025-2030 (World Economic Forum, 2025).
+
+#### Objetivo de la solución
+
+Desarrollar una plataforma móvil que permita a Estudiantes universitarios y jóvenes profesionales complementar sus certificados con pruebas aplicadas, revisiones calificadas mediante rúbrica y una demostración final, todas provistas de un registro auditable, para demostrar el dominio práctico de sus habilidades. Asimismo, la solución organizará el proceso mediante rutas de certificación, reconocerá la participación de los Verificadores y ofrecerá mecanismos de calificación y reporte que permitan moderar el desempeño de los Verificadores.
+
+#### Restricciones del alcance
+
+* SkillSwap complementa la formación obtenida en universidades, plataformas educativas y otros medios; no reemplaza esas fuentes ni imparte cursos o tutorías.
+* La plataforma evalúa entregables dentro de su propio proceso, pero no garantiza la contratación laboral del Estudiante ni sustituye los procedimientos de selección de las organizaciones.
+* La extracción de datos mediante OCR facilita el registro y el análisis de riesgo documental, pero no equivale a una comprobación oficial ante la entidad emisora; las integraciones con registros externos quedan fuera del alcance implementado.
+* La confiabilidad de la revisión entre pares depende de la disponibilidad de Verificadores previamente habilitados para cada habilidad.
+* La inteligencia artificial generativa se utiliza como apoyo para producir contenido evaluativo, pero los resultados del proceso deben mantenerse sujetos a las reglas de validación y supervisión de la plataforma.
+* El desarrollo se limita a las funcionalidades e integraciones seleccionadas para el periodo académico.
 
 ---
 ### 1.2.2. Lean UX Process
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-Nuestra plataforma se enfoca en resolver la brecha existente entre la obtención de un certificado académico y la demostración real de una habilidad. En el modelo educativo actual, las plataformas tradicionales (MOOCs, universidades) se centran en la emisión de diplomas tras evaluaciones estandarizadas que no siempre validan la competencia práctica, dejando al estudiante sin una forma confiable de comprobar —ante sí mismo o ante terceros— que realmente domina lo que dice saber.
+El estado actual de la formación en línea y la certificación de habilidades en el Perú se ha enfocado principalmente en facilitar que estudiantes universitarios y jóvenes profesionales completen actividades formativas y obtengan credenciales emitidas por distintas instituciones y plataformas. La expansión de este flujo se refleja en el crecimiento de las inscripciones a Certificados Profesionales entre los usuarios peruanos de Coursera (Coursera, 2025), mientras que las dificultades para encontrar las habilidades requeridas en los postulantes evidencian una brecha persistente en el mercado laboral peruano (Novella et al., 2019). Esta situación afecta a los actores del proyecto de la siguiente manera:
 
-La problemática que abordamos es la "ilusión de conocimiento" en el ámbito universitario y laboral peruano. Según estudios sobre empleabilidad y educación continua, un porcentaje significativo de egresados y estudiantes de cursos en línea no logra transferir el conocimiento teórico a un entorno práctico (Escalante et al., 2023), lo que se traduce en procesos de reclutamiento fallidos y en una desconfianza creciente hacia las credenciales académicas por parte de las empresas. Muchos estudiantes, tras finalizar un curso, descubren que no pueden aplicar lo aprendido en proyectos reales, y no cuentan con un mecanismo que les indique con precisión en qué parte de su aprendizaje está el vacío.
+* **Personas que quieren aprender — Estudiante:** necesita comprobar cómo aplica la habilidad adquirida, identificar los aspectos que debe reforzar y respaldar sus certificados mediante resultados verificables.
+* **Personas que validan el conocimiento — Verificador:** necesita criterios estructurados para revisar los entregables de otros Estudiantes y un registro que reconozca la experiencia adquirida mediante esas revisiones.
 
-Hemos observado que, si bien existe un gran volumen de talento distribuido entre los estudiantes universitarios, este conocimiento no está siendo validado ni aprovechado eficientemente: no existe un ecosistema que confirme de forma rigurosa lo que un estudiante afirma saber, más allá de la palabra del propio certificado. Quienes ya dominan una habilidad, por su parte, tampoco tienen un espacio validado donde ejercer esa experiencia y construir, en torno a ella, una reputación comprobable.
+Lo que los productos y servicios analizados no logran resolver de manera integrada es la validación práctica complementaria de una credencial previamente obtenida. Un certificado de finalización informa que una persona cumplió los criterios de su emisor, pero no necesariamente muestra cómo se desempeña ante un caso concreto. Las alternativas analizadas atienden por separado el aprendizaje, la presentación de proyectos o la comunicación de logros; la brecha consiste en articular la credencial con una prueba aplicada, una eventual revisión humana estructurada y la supervisión de la confiabilidad de la decisión. Esta necesidad es coherente con los enfoques basados en habilidades, que proponen complementar las calificaciones y credenciales con demostraciones de competencias específicas (OECD, 2024).
 
-A raíz de esta problemática, nuestra propuesta busca responder a la siguiente pregunta: **¿Cómo podríamos ayudar a los estudiantes universitarios a demostrar, de forma confiable y verificable, que realmente dominan una habilidad, más allá del certificado que la respalda?**
+Nuestro producto abordará esta brecha mediante una experiencia móvil en la que el Estudiante definirá un objetivo y seguirá una ruta de certificación relacionada con las habilidades requeridas, que incluirá un mínimo de nodos con entrega práctica. El reconocimiento óptico de caracteres facilitará el registro y análisis documental de los certificados, mientras que la inteligencia artificial generativa apoyará la creación de evaluaciones adaptadas a cada habilidad. Cuando la evaluación automática no resulte suficiente, el caso se asignará a un Verificador habilitado que calificará el entregable criterio por criterio con una rúbrica estructurada, y si no alcanza el umbral de aprobación el Estudiante recibirá los criterios que no cumplió. Al completar la ruta, una demostración final asíncrona, también calificada por un Verificador, garantizará que ninguna certificación se emita sin revisión humana. A su vez, el Estudiante podrá calificar la revisión recibida y reportar la decisión que considere incorrecta, de modo que el desempeño de cada Verificador quede a la vista y las revisiones deficientes se detecten a tiempo.
+
+Nuestro foco inicial serán las personas que quieren aprender: Estudiantes universitarios y jóvenes profesionales de 18 a 30 años de Lima Metropolitana que utilizan recursos de formación en línea y necesitan presentar demostraciones prácticas con un registro verificable al incorporarse al mercado laboral.
+
+Sabremos que tendremos éxito cuando, durante la validación del producto, al menos el 70% de los Estudiantes que registre un certificado complete la evaluación práctica asociada, al menos el 85% de los casos escalados sea resuelto por un Verificador en un plazo máximo de 48 horas y menos del 3% de las decisiones emitidas por los Verificadores sea posteriormente revertido en la moderación.
 
 #### 1.2.2.2. Lean UX Assumptions
 
-Para abordar de manera efectiva la brecha entre la obtención de un certificado y el dominio real de una habilidad, es fundamental partir de una serie de supuestos sobre nuestros usuarios y su comportamiento frente a la validación de conocimientos. El éxito de Innovify depende de qué tan acertadas sean estas hipótesis centradas en la confianza del usuario y en nuestro modelo de negocio.
+##### Business Assumptions
 
-Nuestro análisis del entorno universitario peruano revela que los estudiantes enfrentan inseguridad respecto a sus capacidades prácticas reales. Suponemos que existe un vacío entre lo que un estudiante certifica y lo que realmente domina, y que muchos valoran activamente contar con una forma objetiva de comprobarlo. Creemos que los estudiantes están dispuestos a pagar una mensualidad si esto les garantiza acceso a rutas de aprendizaje estructuradas por IA, evaluaciones que midan su nivel real, y la posibilidad de escalar su caso a un Verificador cuando la evaluación automática no sea suficiente.
+* Creemos que existe un mercado de Estudiantes universitarios y jóvenes profesionales dispuesto a pagar una suscripción por complementar sus credenciales con un proceso de validación práctica.
+* Creemos que la suscripción mensual de los Estudiantes puede sostener el modelo B2C como única fuente de ingresos, sin comisiones entre usuarios ni venta de SkillCredits.
+* Creemos que el reconocimiento obtenido mediante SkillCredits y un historial de revisiones será suficiente para atraer y mantener Verificadores activos sin ofrecerles una retribución monetaria directa.
+* Creemos que la evaluación automática resolverá una proporción suficiente de intentos para mantener sostenible la carga de revisión humana conforme aumente el número de Estudiantes.
+* Creemos que el equipo cuenta con las capacidades técnicas para integrar extracción de datos mediante OCR e inteligencia artificial generativa dentro de una aplicación móvil.
+* Creemos que los Estudiantes elegirán SkillSwap frente a alternativas centradas únicamente en formación, exhibición de credenciales o portafolios, porque integra evaluación aplicada, revisión por Verificadores habilitados y moderación de la calidad de esas revisiones en un mismo proceso.
 
-Asimismo, identificamos que el principal motivador para actuar como Verificador es el reconocimiento profesional, más que un ingreso monetario directo. Creemos que el sistema de *SkillCredits* —ganables al resolver casos, o adquiribles en una tienda dentro de la plataforma— servirá como un incentivo suficiente para que los Verificadores se mantengan activos, ya que podrán exhibir estos créditos en plataformas como LinkedIn como prueba de su experiencia.
+##### Business Outcome Assumptions
 
-Nuestra propuesta se distinguirá por la automatización y el rigor. Asumimos que la combinación de una evaluación generada por IA como primer filtro, una revisión humana estructurada como respaldo, y la intervención de un Coordinador para auditar la calidad del proceso, creará un entorno altamente confiable, estructurado y escalable, sin depender de un modelo de comisiones entre usuarios.
+* Creemos que la adopción será sostenible cuando la tasa de renovación mensual de la suscripción se mantenga por encima del 80%.
+* Creemos que el modelo será rentable cuando el valor del ciclo de vida del Estudiante (LTV) supere el costo de adquisición de clientes (CAC) en una relación de 3 a 1.
+* Creemos que la incorporación de credenciales será fluida cuando al menos el 85% de los Estudiantes que inicie la carga de un certificado complete el registro sin abandonarlo.
+* Creemos que el proceso generará participación cuando al menos el 70% de los Estudiantes que registre un certificado complete la evaluación práctica asociada.
+* Creemos que la operación será escalable cuando menos del 30% de los intentos de evaluación requiera la intervención de un Verificador.
+* Creemos que la atención será oportuna cuando al menos el 85% de los casos escalados sea resuelto por un Verificador en un plazo máximo de 48 horas.
+* Creemos que el sistema de reconocimiento será sostenible cuando al menos el 60% de los Verificadores habilitados resuelva un caso durante cada mes de actividad.
+* Creemos que la calidad del proceso será confiable cuando menos del 3% de las decisiones emitidas por Verificadores sea revertida en la moderación.
+* Creemos que la supervisión será oportuna cuando al menos el 90% de los reportes recibidos sea atendido en un plazo máximo de 72 horas.
 
-##### Assumptions Worksheet
+##### User Assumptions
 
-| Pregunta | Respuesta |
-| :--- | :--- |
-| **¿Quién es el usuario?** | Nuestros usuarios se dividen en tres roles:<br>1. **El Estudiante:** Persona que busca aprender y demostrar habilidades reales. Sube certificados, rinde quizzes/miniproyectos y, si no logra demostrar la habilidad, su caso se escala a un Verificador.<br>2. **El Verificador:** Estudiante que ya certificó una habilidad y revisa casos puntuales de otros, motivado por el reconocimiento profesional y los SkillCredits.<br>3. **El Coordinador:** Perfil académico que audita la calidad del proceso de verificación, evalúa la confiabilidad de los Verificadores y gestiona reevaluaciones. |
-| **¿Dónde encaja nuestro producto en su trabajo o vida?** | Los estudiantes lo usarán como complemento práctico a sus estudios teóricos o universitarios, y como preparación previa a procesos de selección laboral. Los Verificadores lo usarán en su tiempo libre para fortalecer su perfil profesional. |
-| **¿Qué problemas tiene nuestro producto a resolver?** | • **Falta de validación práctica:** Superado mediante quizzes dinámicos y miniproyectos generados por IA.<br>• **Escalamiento ineficiente cuando la IA no basta:** Superado mediante la asignación automática de un Verificador disponible que domine la habilidad en cuestión.<br>• **Falta de credibilidad del certificado:** Superado con la extracción y validación automática del documento, y la acumulación pública de SkillCredits del Verificador. |
-| **¿Cuándo y cómo es nuestro producto usado?** | Se usa al finalizar un curso externo para validar el certificado, durante la preparación para entrevistas técnicas, o cuando un estudiante necesita demostrar de forma supervisada el dominio integral de su ruta. |
-| **¿Qué características son importantes?** | • **Rutas Inteligentes y Evaluación:** IA para procesar certificados y generar quizzes.<br>• **Asignación automática de Verificador:** Algoritmo que conecta un caso pendiente con un Verificador disponible.<br>• **SkillCredits:** Sistema de reconocimiento y credenciales profesionales, con tienda de canje dentro de la plataforma.<br>• **Videollamada:** Integrada únicamente para la demostración final supervisada, no para sesiones de enseñanza. |
-| **¿Cómo debe verse nuestro producto y cómo comportarse?** | Debe percibirse como un entorno riguroso, profesional y meritocrático. No es una red de ayuda o tutorías, es un estándar de validación de habilidades (estilo plataforma de certificación técnica). |
+* Creemos que el usuario principal es un Estudiante universitario o joven profesional de 18 a 30 años de Lima Metropolitana que utiliza recursos de formación en línea y necesita demostrar la aplicación práctica de sus habilidades.
+* Creemos que el Verificador es un Estudiante avanzado o joven profesional que ya demostró una habilidad y está dispuesto a revisar entregables de otros usuarios a cambio de reconocimiento profesional.
+* Creemos que la confiabilidad del proceso exige moderar el desempeño de los Verificadores, de modo que las revisiones deficientes se detecten y se corrijan antes de afectar la credibilidad de las certificaciones emitidas.
+* Creemos que un Estudiante puede convertirse en Verificador para una habilidad específica sin abandonar su participación como aprendiz en otras rutas.
 
-##### Definición de Objetivos
+##### User Outcome and Benefit Assumptions
 
-**Business outcomes**
-* Reducir la brecha entre la educación teórica y la demostración práctica de habilidades.
-* Lograr un modelo de negocio recurrente y escalable mediante la mensualidad de los estudiantes y la venta de SkillCredits en la tienda de la plataforma.
-* Automatizar la validación de certificados y la asignación de Verificadores mediante modelos de Inteligencia Artificial.
-* Consolidar los *SkillCredits* como una credencial reconocida en el mercado laboral.
-* Mantener un alto estándar de calidad mediante el monitoreo de los Coordinadores.
+* Creemos que el Estudiante obtiene valor cuando una ruta le muestra qué habilidades debe demostrar para alcanzar el objetivo declarado.
+* Creemos que el Estudiante reduce esfuerzo y errores cuando puede incorporar un certificado sin transcribir manualmente todos sus datos.
+* Creemos que el Estudiante obtiene valor cuando una evaluación aplicada le permite comprobar su desempeño e identificar los aspectos que debe reforzar.
+* Creemos que el Estudiante confía más en una revisión cuando el Verificador ha demostrado previamente la misma habilidad y ha aprobado un examen de ingreso.
+* Creemos que el futuro Verificador obtiene valor cuando puede acreditar formalmente que está habilitado para revisar una habilidad específica.
+* Creemos que el Estudiante obtiene valor cuando recibe una revisión pertinente y oportuna si la evaluación automática no resulta suficiente.
+* Creemos que el Estudiante obtiene valor cuando puede calificar la revisión recibida y reportar la decisión que considere incorrecta, y ve reflejado ese desempeño en el perfil del Verificador.
+* Creemos que el Verificador obtiene valor al construir una reputación comprobable mediante SkillCredits y un historial de casos resueltos.
 
-**User outcomes**
-* (Estudiantes) Demostrar dominio real sobre un tema, eliminando el síndrome del impostor.
-* (Estudiantes) Superar bloqueos académicos rápidamente con una revisión puntual y experta.
-* (Verificadores) Construir un portafolio de experiencia de revisión verificable para potenciar su perfil profesional.
-* (Verificadores) Obtener reconocimiento (SkillCredits) sin depender de un ingreso económico directo por revisar casos de otros.
+##### Feature Assumptions
 
-**Features**
-* Intérprete de objetivos por IA (NLP) para generar rutas de aprendizaje semánticas.
-* Sistema OCR y de validación de certificados con generación automática de evaluaciones (quizzes/rúbricas).
-* Algoritmo de asignación automática de Verificador disponible para cada caso pendiente.
-* Billetera virtual, tienda y sistema de insignias para los *SkillCredits*.
-* Dashboard analítico para el Coordinador (confiabilidad de Verificadores, disputas, demanda de habilidades).
-* Videollamada integrada exclusivamente para la demostración final supervisada de la ruta.
+* Creemos que una ruta de certificación estructurada a partir del objetivo del Estudiante y de una taxonomía de habilidades ordenará las capacidades que debe demostrar.
+* Creemos que la extracción mediante OCR recuperará los campos requeridos en al menos el 90% de los certificados cargados, reducirá el esfuerzo de registro y producirá un historial documental auditable.
+* Creemos que los *quizzes* y miniproyectos adaptados a cada habilidad, con contenido evaluativo apoyado por inteligencia artificial generativa, permitirán observar el desempeño del Estudiante.
+* Creemos que exigir al futuro Verificador completar su propia ruta y aprobar un examen de ingreso permitirá habilitarlo únicamente para las habilidades que haya demostrado.
+* Creemos que la asignación automática basada en la habilidad requerida, el historial y la disponibilidad reducirá el tiempo necesario para obtener una revisión pertinente.
+* Creemos que los SkillCredits y el historial de casos resueltos mantendrán activo al Verificador sin necesidad de un pago directo.
+* Creemos que permitir al Estudiante calificar la revisión recibida y reportar la decisión que considere incorrecta hará visible el desempeño de cada Verificador dentro de la aplicación y sostendrá la calidad de las revisiones.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
-**Hipótesis de Negocio**
-* Creemos que al implementar un sistema de registro y verificación automática exclusiva con correos institucionales (".edu.pe") para todos los estudiantes, resultará en una superación de la barrera de desconfianza inicial y un ingreso más ágil sin validación manual, lo que facilitará la adopción de la plataforma; sabremos que esto es cierto cuando el 90% de los nuevos usuarios complete su registro en las primeras 24 horas y la tasa de reportes por cuentas falsas o suplantación sea cercana a 0%.
-* Creemos que al operar bajo un modelo de mensualidad para los estudiantes complementado con la venta de SkillCredits en una tienda dentro de la plataforma, resultará en un modelo de negocio sostenible sin depender de comisiones entre usuarios; sabremos que esto es cierto cuando el LTV (Life Time Value) del estudiante supere el costo de adquisición (CAC) en un ratio de 3:1 y la tienda de SkillCredits genere al menos el 20% del ingreso mensual total.
-* Finalmente, creemos que al generar evaluaciones prácticas (quizzes o miniproyectos) mediante IA como primer filtro, y escalar a un Verificador solo cuando sea necesario, resultará en un proceso de verificación riguroso pero eficiente; sabremos que esto es cierto cuando menos del 30% de los intentos requiera intervención de un Verificador, y la tasa de disputas o reevaluaciones solicitadas se mantenga por debajo del 5% del total de evaluaciones realizadas.
+**Hipótesis 1: Ruta estructurada por objetivo y taxonomía de habilidades**
 
-**Hipótesis de Usuario**
-* Creemos que al generar evaluaciones prácticas (quizzes o miniproyectos) basadas en los certificados subidos, los estudiantes percibirán un valor real en la validación; sabremos que esto es cierto cuando el 70% de los estudiantes que suben un certificado decidan rendir la prueba práctica voluntariamente.
-* Creemos que al asignar automáticamente un Verificador disponible que domina la habilidad en cuestión cuando la evaluación automática no sea suficiente, los estudiantes percibirán una resolución rápida y confiable de su caso; sabremos que esto es cierto cuando el 85% de los casos escalados se resuelvan en menos de 48 horas y el estudiante califique la revisión con 4.5/5 o más.
-* Creemos que al ofrecer una demostración final supervisada por videollamada únicamente al completar toda la ruta, los estudiantes percibirán mayor rigurosidad y valor en su certificación final, sin sentir que la plataforma depende de sesiones de enseñanza; sabremos que esto es cierto cuando el 80% de los estudiantes que completan su ruta opte por realizar dicha demostración.
-* Creemos que al otorgar *SkillCredits* como reconocimiento al desempeño de los Verificadores, resultará en una fuerte retención de participación sin necesidad de un incentivo económico directo; sabremos que esto es cierto cuando el 60% de los Verificadores activos comparta sus logros (SkillCredits) en redes profesionales como LinkedIn, atrayendo a su vez tráfico orgánico a la plataforma.
+Creemos que alcanzaremos una tasa de renovación mensual superior al 80%<br>
+si los Estudiantes universitarios y jóvenes profesionales de 18 a 30 años<br>
+logran reconocer qué habilidades deben demostrar para alcanzar su objetivo<br>
+mediante una ruta de certificación estructurada a partir del objetivo declarado y de una taxonomía de habilidades.
+
+**Hipótesis 2: Registro asistido del certificado mediante OCR**
+
+Creemos que lograremos que al menos el 85% de los Estudiantes que inicie la carga de un certificado complete el registro sin abandonarlo<br>
+si los Estudiantes que incorporan una credencial externa<br>
+logran reducir el esfuerzo y los errores asociados con el registro manual<br>
+mediante la extracción de datos del certificado con OCR.
+
+**Hipótesis 3: Evaluación aplicada a la habilidad**
+
+Creemos que lograremos que menos del 30% de los intentos de evaluación requiera la intervención de un Verificador<br>
+si los Estudiantes que necesitan demostrar una habilidad<br>
+logran comprobar su desempeño e identificar los aspectos que deben reforzar<br>
+mediante *quizzes* y miniproyectos adaptados a la habilidad, con contenido evaluativo apoyado por inteligencia artificial generativa.
+
+**Hipótesis 4: Habilitación del Verificador**
+
+Creemos que lograremos que menos del 3% de las decisiones de los Verificadores sea revertida en la moderación<br>
+si los Estudiantes que aspiran a actuar como Verificadores<br>
+logran acreditar formalmente que están preparados para revisar una habilidad específica<br>
+mediante la exigencia de que el futuro Verificador complete su propia ruta y apruebe un examen de ingreso.
+
+**Hipótesis 5: Asignación automática de Verificador**
+
+Creemos que lograremos que al menos el 85% de los casos escalados sea resuelto en un plazo máximo de 48 horas<br>
+si los Estudiantes cuya evaluación automática no resulte suficiente<br>
+logran recibir una revisión pertinente y oportuna<br>
+mediante la asignación automática basada en la habilidad requerida, el historial y la disponibilidad de los Verificadores.
+
+**Hipótesis 6: SkillCredits e historial de revisiones**
+
+Creemos que lograremos que al menos el 60% de los Verificadores habilitados resuelva un caso durante cada mes de actividad sin recibir un pago directo<br>
+si los Verificadores<br>
+logran construir una reputación comprobable por sus contribuciones<br>
+mediante SkillCredits y un historial de casos resueltos.
+
+**Hipótesis 7: Calificación y reporte de la revisión**
+
+Creemos que lograremos que al menos el 90% de los reportes recibidos sea atendido en un plazo máximo de 72 horas<br>
+si los Estudiantes que reciben una revisión<br>
+logran calificarla y reportar la decisión que consideren incorrecta<br>
+mediante un sistema de calificación y reporte reflejado en el perfil del Verificador.
 
 #### 1.2.2.4. Lean UX Canvas
 
-| LEAN UX CANVAS | |
-| :--- | :--- |
-| **Título:** Innovify Lean UX Canvas | **Fecha:** 10/09/2026 |
-| **Iteración:** 1 | |
-| **1. Problema de negocio**<br><br>**Desde la perspectiva del Estudiante:** Los estudiantes universitarios acumulan certificados de cursos online sin poder demostrar que realmente dominan la habilidad en situaciones prácticas. Cuando se enfrentan a una entrevista técnica o a un proyecto real, descubren que el certificado no refleja su dominio efectivo. No saben con precisión en qué punto de su aprendizaje está el vacío, ni tienen a quién recurrir para una revisión específica de su caso.<br><br>**Desde la perspectiva del Verificador:** Quienes ya dominan una habilidad no tienen un espacio estructurado y confiable donde ejercer esa experiencia para revisar el trabajo de otros. Los modelos informales (WhatsApp, Discord) carecen de estructura, reconocimiento formal y garantía de que la persona que llega tiene el nivel mínimo para aprovechar la revisión.<br><br>**Desde la perspectiva del Coordinador:** Los coordinadores académicos no tienen visibilidad real sobre el dominio práctico de habilidades de sus estudiantes más allá de una nota o un certificado presentado, ni herramientas para auditar la calidad del proceso de revisión entre pares de forma sistemática. | **5. Solución**<br>Una plataforma impulsada por IA que genera rutas de aprendizaje, valida certificados y evalúa mediante retos prácticos generados dinámicamente. Si el intento no logra demostrar el dominio, un algoritmo asigna automáticamente el caso a un Verificador disponible que ya certificó esa habilidad, quien lo revisa frente a una rúbrica estructurada. Los Verificadores ganan SkillCredits, canjeables en una tienda interna, todo supervisado por un Coordinador de calidad. |
-| **2. Resultados comerciales**<br>Se busca lograr ingresos recurrentes (MRR) mediante la mensualidad de los estudiantes, complementados con la venta de SkillCredits en la tienda interna; asegurar escalabilidad automatizando la validación y la asignación de Verificadores con IA; y posicionar los *SkillCredits* como un estándar de la industria. | **6. Hipótesis**<br>• Creemos que la IA generará evaluaciones más precisas que los flujos manuales estáticos.<br>• Creemos que los estudiantes pagarán una mensualidad por validar sus conocimientos y tener acceso al proceso de verificación.<br>• Creemos que exigir una ruta de certificación propia a los Verificadores elevará la calidad percibida de sus revisiones.<br>• Creemos que los *SkillCredits* incentivarán a los Verificadores a mantenerse activos sin necesidad de un pago directo.<br>• Creemos que el algoritmo de asignación reducirá el tiempo de resolución de un caso y mejorará las tasas de éxito en la certificación. |
-| **3. Usuarios y clientes**<br>• **Estudiantes:** Buscan dominar una habilidad, validar certificados y recibir una revisión puntual cuando la IA no basta.<br>• **Verificadores:** Estudiantes que ya certificaron una habilidad y buscan reconocimiento profesional revisando casos de otros.<br>• **Coordinadores:** Aseguradores de la calidad del proceso de verificación. | **7. ¿Qué es lo más importante que necesitamos aprender primero?**<br>• ¿Están dispuestos los estudiantes a pagar por "evaluarse y validarse" en lugar de solo consumir contenido?<br>• ¿Los estudiantes que ya dominan una habilidad estarán dispuestos a revisar casos de otros a cambio de SkillCredits, sin un pago monetario directo?<br>• ¿Es técnicamente viable que la IA extraiga con precisión el temario de un certificado subido en PDF/Imagen y genere una evaluación coherente a partir de él? |
-| **4. Beneficios del usuario**<br>El estudiante obtiene un dominio comprobable de habilidades y una revisión puntual cuando se estanca. El Verificador obtiene reconocimiento y credenciales verificables (*SkillCredits*), sin depender de un ingreso monetario directo. El sistema garantiza confianza en las capacidades certificadas de sus usuarios. | **8. ¿Cuál es la menor cantidad de trabajo que necesitamos hacer para aprender la siguiente cosa más importante?**<br>• Entrevistas a estudiantes para validar la disposición de pago (mensualidad) y el interés en los *SkillCredits* como incentivo no monetario.<br>• Desarrollar un MVP de extracción de texto y validación de certificados usando un LLM para probar la viabilidad técnica antes de construir toda la plataforma. |
+**Figura 3**
+
+*Lean UX Canvas (v2)*
+
+<p align="center">
+  <img src="public/assets/images-doc/lean-ux-canvas.png" alt="Lean UX Canvas de Innovify" width="700">
+</p>
+
+*Nota.* En esta figura se presenta el Lean UX Canvas elaborado por el equipo, donde se relacionan el problema de negocio, los resultados comerciales esperados, los segmentos de usuarios, los beneficios que estos obtienen, las soluciones propuestas, las hipótesis formuladas y los experimentos definidos para validarlas. Elaboración propia.
 
 ---
 
-
 ## 1.3. Segmentos objetivo
 
-### 1. Segmento: Personas que quieren aprender (Estudiantes)
+### 1. Segmento: Personas que quieren aprender
 
-Son individuos proactivos, abarcando desde estudiantes universitarios hasta jóvenes profesionales (generalmente entre 18 y 30 años), que buscan aprender y, fundamentalmente, demostrar competencias reales. Enfrentan la frustración de acumular diplomas o certificados teóricos que no reflejan sus verdaderas capacidades prácticas ante el mercado laboral.
+Este segmento reúne a las personas que siguen una ruta de certificación en la plataforma y necesitan demostrar la aplicación práctica de las habilidades declaradas.
 
-Están dispuestos a pagar una **suscripción mensual** para acceder a una plataforma que estructure su aprendizaje mediante rutas generadas por Inteligencia Artificial, valide sus conocimientos con evaluaciones prácticas (quizzes o miniproyectos) y les brinde una revisión puntual cuando se estancan. Según diversos reportes sobre empleabilidad y educación continua, un alto porcentaje de estudiantes de cursos online siente inseguridad al aplicar lo aprendido en escenarios reales. Entre las soluciones más valoradas se encuentra la revisión quirúrgica de su caso: que un Verificador que ya domina la habilidad evalúe puntualmente su proyecto o portafolio cuando la evaluación automática no logra confirmar su dominio, sin necesidad de repasar toda la teoría nuevamente ni depender de una sesión de enseñanza en vivo.
+**Estudiante (aprendizaje y demostración de la habilidad)**
+
+El foco inicial comprende a Estudiantes universitarios y jóvenes profesionales de 18 a 30 años de Lima Metropolitana que utilizan recursos de formación en línea. Este rango constituye una delimitación estratégica del proyecto y no pretende representar la edad de todas las personas que estudian mediante plataformas digitales. El segmento busca complementar sus credenciales con pruebas aplicadas, reconocer los aspectos que necesita reforzar y comunicar sus capacidades al incorporarse al mercado laboral.
+
+La disposición a pagar una **suscripción mensual** por este proceso constituye un supuesto comercial que deberá validarse. La propuesta plantea ofrecer rutas relacionadas con el objetivo del Estudiante, *quizzes* o miniproyectos adaptados a cada habilidad y una revisión puntual cuando la evaluación automática no resulte suficiente.
+
+Como referencia sobre el alcance de la formación digital, Coursera reporta 1,7 millones de usuarios registrados en el Perú, equivalentes al 7% de la fuerza laboral del país. Dentro de esa plataforma, los usuarios peruanos presentan una mediana de edad de 33 años, el 37% estudia desde un dispositivo móvil y las inscripciones a Certificados Profesionales crecieron 33% en un año (Coursera, 2025). Estas cifras corresponden al conjunto de usuarios peruanos de Coursera y permiten dimensionar un mercado relacionado, pero no representan de manera exacta el segmento de 18 a 30 años definido por el proyecto.
+
+Asimismo, Rivas Cossio (2023) reporta una tasa de inadecuación ocupacional del 68,6% entre los jóvenes profesionales analizados en Lima Metropolitana. El indicador evidencia dificultades de correspondencia entre formación y empleo en la población estudiada, sin reducir el fenómeno únicamente a trabajar en un campo distinto del estudiado.
 
 ### 2. Segmento: Personas que validan el conocimiento
 
-Este segmento agrupa a las personas que sostienen la confiabilidad de las habilidades verificadas dentro de la plataforma: por un lado, **Verificadores** (estudiantes que ya certificaron una habilidad y revisan casos puntuales de otros), y por otro, **Coordinadores académicos** (profesores universitarios que supervisan que ese proceso de verificación sea correcto). Ambos operan en dos niveles distintos de una misma cadena de confianza: el Verificador resuelve el caso individual, el Coordinador garantiza que esos casos se estén resolviendo bien.
+Este segmento comprende a Estudiantes de últimos ciclos y egresados recientes de entre 20 y 32 años que ya demostraron una habilidad dentro de la plataforma y pueden revisar los entregables de otros. Ese rango delimita el público inicial del proyecto.
 
-**Nivel 1 — Verificador (revisión caso por caso)**
+La necesidad de mecanismos de validación se relaciona con un contexto laboral en el que el 76% de las vacantes difíciles de cubrir en el Perú estuvo asociado con la falta de habilidades requeridas en los candidatos (Novella et al., 2019). Asimismo, a nivel global, el 63% de los empleadores identifica las brechas de habilidades como una de las principales barreras para transformar sus negocios (World Economic Forum, 2025). Estas cifras contextualizan la importancia del problema, pero no representan una estimación del tamaño del segmento de Verificadores.
 
-Para comenzar a verificar, la persona primero deberá completar su propia *ruta de certificaciones*, en la cual tendrá que demostrar —mediante certificados validados y evaluaciones aprobadas por la IA— que posee los conocimientos necesarios sobre la habilidad que desea verificar en otros.
+Dentro de SkillSwap, los **Verificadores** sostienen la confiabilidad de lo que cada Estudiante certifica: califican caso por caso cada criterio de la rúbrica sobre el entregable presentado, y la plataforma determina la aprobación a partir de esos puntajes. Esas calificaciones están sujetas a la moderación interna de Innovify y a los reportes de los propios Estudiantes.
 
-Una vez que cumpla estos requisitos, quedará habilitada como Verificador para esa habilidad específica, y podrá comenzar a participar en la *revisión de casos de verificación puntuales*, evaluando el proyecto o portafolio que el estudiante presenta como evidencia frente a una rúbrica estructurada.
+**Verificador (revisión caso por caso)**
 
-Por cada caso revisado y resuelto, el Verificador podrá obtener *SkillCredits*, un sistema de reconocimiento interno de la plataforma —no monetario— que representa su experiencia y participación, y que también sirve para *demostrar profesionalmente su experiencia* (ej. publicación en LinkedIn) o canjearse por beneficios dentro de la propia plataforma.
+Para asumir el rol de Verificador, la persona deberá completar su propia *ruta de certificación*, demostrar la habilidad mediante las evaluaciones de la plataforma y aprobar un *examen de ingreso* relacionado con la competencia que desea revisar en otros usuarios.
 
-**Nivel 2 — Coordinador (supervisión del sistema de verificación)**
+Una vez cumplidos estos requisitos, quedará habilitada únicamente para esa habilidad y podrá calificar, criterio por criterio, el entregable presentado por el Estudiante mediante una rúbrica estructurada.
 
-El Coordinador necesita visibilidad real sobre el nivel de dominio de habilidades de sus estudiantes, más allá de la nota de un curso o un certificado presentado — y a la vez necesita asegurar que los Verificadores estén resolviendo los casos correctamente, ya que la métrica que consume solo tiene valor si el proceso detrás es confiable.
+Por cada caso resuelto, el Verificador podrá obtener *SkillCredits*, unidades de reconocimiento interno y no monetario asociadas con su experiencia y participación. Estos créditos no se canjean por beneficios: funcionan como reputación y, al alcanzar ciertos umbrales, otorgan rangos visibles en su perfil profesional. El proyecto supone que el reconocimiento y la construcción de un historial verificable pueden incentivar su participación sin necesidad de un pago directo; esta creencia deberá contrastarse mediante la validación del producto. El Verificador conserva su condición de Estudiante suscrito, de modo que habilitarse para revisar no sustituye la suscripción mensual ni constituye una contraprestación económica.
 
-Por eso, el Coordinador puede revisar indicadores de *confiabilidad de los Verificadores* (decisiones revertidas, sanciones), resolver disputas cuando un certificado resulta sospechoso o un estudiante apela una decisión, y habilitar una *reevaluación o nuevo intento* cuando corresponda. A cambio, obtiene acceso a *métricas generales de la plataforma*: habilidades más solicitadas, certificaciones más frecuentes, áreas con mayor tasa de fallo, y qué Verificadores tienen mejor desempeño — data que solo es útil porque el propio Coordinador garantiza su integridad.
-
-En conjunto, este segmento es el que sostiene la credibilidad de todo lo que un estudiante certifica en la plataforma: el Verificador la sostiene caso por caso, el Coordinador la sostiene a nivel de sistema.
+La revisión estructurada de cada caso es la que permite mantener un registro verificable de las decisiones que respaldan las habilidades demostradas por los Estudiantes.
 
 ---
 
 # Capítulo II: Requirements Development and Software Solution Design
  
 ## 2.1. Competidores
- 
+
 Innovify opera en el ecosistema de plataformas de orientación profesional y validación práctica de habilidades. A diferencia de plataformas de cursos online que enseñan contenido directamente, SkillSwap no enseña — orienta al estudiante sobre qué certificados conseguir y en qué orden según su meta profesional, y valida que realmente los dominó antes de avanzar. A continuación se identifican los principales competidores directos e indirectos:
 
-Google Career Certificates (Competidor Directo) Google Career Certificates crea rutas de aprendizaje estructuradas hacia roles laborales específicos (analista de datos, desarrollador UX, técnico de soporte IT, entre otros), combinando contenido propio con una validación al final de la ruta. Es el competidor más cercano porque comparte el mismo modelo de orientación hacia una meta profesional. Su diferencia con SkillSwap es que Google enseña el contenido dentro de su plataforma, mientras que SkillSwap no enseña nada — orienta al estudiante a conseguir sus certificados donde prefiera y luego valida que realmente los dominó mediante evaluaciones prácticas y revisión de Verificadores certificados.
+**Google Career Certificates (Competidor Directo)**
+Google Career Certificates crea rutas de aprendizaje estructuradas hacia roles laborales específicos (analista de datos, desarrollador UX, técnico de soporte IT, entre otros), combinando contenido propio con una validación al final de la ruta. Es el competidor más cercano porque comparte el mismo modelo de orientación hacia una meta profesional. Su diferencia con SkillSwap es que Google enseña el contenido dentro de su plataforma, mientras que SkillSwap no enseña nada — orienta al estudiante a conseguir sus certificados donde prefiera y luego valida que realmente los dominó mediante evaluaciones prácticas y revisión de Verificadores certificados.
 
-Roadmap.sh (Competidor Directo) Roadmap.sh es una plataforma de código abierto que genera rutas de aprendizaje visuales hacia roles tecnológicos específicos (frontend developer, DevOps engineer, data scientist, etc.). Su propuesta de orientar al estudiante sobre qué aprender y en qué orden es idéntica a la de SkillSwap. Su debilidad crítica es que no tiene ningún mecanismo de validación: el estudiante puede marcar un tema como aprendido sin ninguna evidencia real. SkillSwap cierra ese vacío exigiendo un quiz o miniproyecto generado por IA por cada paso de la ruta, con revisión de un Verificador certificado cuando la evaluación automática no basta.
+**Roadmap.sh (Competidor Directo)**
+Roadmap.sh es una plataforma de código abierto que genera rutas de aprendizaje visuales hacia roles tecnológicos específicos (frontend developer, DevOps engineer, data scientist, etc.). Su propuesta de orientar al estudiante sobre qué aprender y en qué orden es idéntica a la de SkillSwap. Su debilidad crítica es que no tiene ningún mecanismo de validación: el estudiante puede marcar un tema como aprendido sin ninguna evidencia real. SkillSwap cierra ese vacío exigiendo un quiz o miniproyecto generado por IA por cada paso de la ruta, con revisión de un Verificador certificado cuando la evaluación automática no basta.
 
-Platzi (Competidor Indirecto) Platzi es una plataforma latinoamericana de educación tecnológica con cursos propios y rutas estructuradas hacia carreras específicas. A diferencia de SkillSwap, Platzi enseña el contenido directamente. Su debilidad es que la validación queda limitada a proyectos autoevaluados o revisados por pares sin criterio certificado. El estudiante de SkillSwap puede haber aprendido en Platzi y traer ese certificado a SkillSwap para demostrar que realmente lo dominó.
+**Platzi (Competidor Indirecto)**
+Platzi es una plataforma latinoamericana de educación tecnológica con cursos propios y rutas estructuradas hacia carreras específicas. A diferencia de SkillSwap, Platzi enseña el contenido directamente. Su debilidad es que la validación queda limitada a proyectos autoevaluados o revisados por pares sin criterio certificado. El estudiante de SkillSwap puede haber aprendido en Platzi y traer ese certificado a SkillSwap para demostrar que realmente lo dominó.
 
-Coursera (Competidor Indirecto) Coursera ofrece especializaciones y rutas de certificación profesional en alianza con universidades de prestigio. A diferencia de SkillSwap, Coursera enseña el contenido y emite certificados tras evaluaciones estandarizadas de opción múltiple, sin validación práctica real ni revisión humana certificada. El estudiante de SkillSwap puede usar sus certificados de Coursera como punto de partida y luego validar en SkillSwap que el dominio es real.
- 
+**Coursera (Competidor Indirecto)**
+Coursera ofrece especializaciones y rutas de certificación profesional en alianza con universidades de prestigio. A diferencia de SkillSwap, Coursera enseña el contenido y emite certificados tras evaluaciones estandarizadas de opción múltiple, sin validación práctica real ni revisión humana certificada. El estudiante de SkillSwap puede usar sus certificados de Coursera como punto de partida y luego validar en SkillSwap que el dominio es real.
+
 ---
- 
+
 ### 2.1.1. Análisis competitivo
- 
- 
+
 | Criterio de Análisis | **Innovify / SkillSwap** | **Google Career Certificates** | **Roadmap.sh** | **Platzi** | **Coursera** |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Overview** | Plataforma que orienta al estudiante sobre qué certificados conseguir y en qué orden según su meta profesional, y valida mediante quizzes/miniproyectos generados por IA y revisión de Verificadores certificados que realmente dominó cada paso de la ruta. | Rutas de aprendizaje hacia roles laborales específicos con contenido propio de Google. Emite certificados reconocidos por empresas como Google, IBM y Meta. | Rutas de aprendizaje visuales de código abierto para roles tecnológicos. No enseña ni valida — solo orienta qué aprender y en qué orden. | Plataforma de educación tecnológica latinoamericana con cursos propios y rutas hacia carreras específicas. Comunidad activa y certificados reconocidos en la región. | Plataforma masiva de cursos online con certificados emitidos por universidades de prestigio y empresas como Google, IBM y Meta. Orientada a la entrega de contenido estructurado. |
@@ -343,27 +432,37 @@ Coursera (Competidor Indirecto) Coursera ofrece especializaciones y rutas de cer
 | **Amenazas (SWOT)** | Google o LinkedIn podrían lanzar una capa de validación similar. Resistencia al modelo de examen de ingreso para Verificadores. | Nuevas plataformas de validación que complementen su ecosistema. | Plataformas que copien el modelo de rutas y añadan validación real. | Competidores con mayor rigor en la revisión entre pares. | Nuevas plataformas con validación práctica real. Desconfianza creciente en certificados online. |
 
 *(Tabla 3. Análisis competitivo Landscape — Elaboración propia. Nota: SkillSwap no compite con plataformas de cursos sino que actúa como capa de validación sobre ellas.)*
- 
+
 ---
- 
+
 ### 2.1.2. Estrategias y tácticas frente a competidores
- 
-A continuación se presentan las estrategias y tácticas que Innovify puede implementar para destacarse frente a competidores en el ecosistema de certificación y validación de habilidades, capitalizando su modelo único de verificación práctica, su sistema de reconocimiento profesional y el emparejamiento inteligente entre estudiantes y Verificadores.
- 
+
+A continuación se presentan las estrategias y tácticas que Innovify puede implementar para diferenciarse en el ecosistema de validación de habilidades prácticas, capitalizando su posición única como capa de validación sobre el ecosistema de aprendizaje existente, su sistema de reconocimiento profesional para Verificadores mediante SkillCredits y la supervisión institucional que el Coordinador garantiza sobre todo el proceso.
+
 #### Estrategias
- 
-* **Diferenciación por Validación Real:** A diferencia de Coursera, LinkedIn Learning y Platzi, que emiten certificados tras evaluaciones superficiales, Innovify se posiciona como la única plataforma que exige demostración práctica real del conocimiento mediante quizzes generados por IA, miniproyectos evaluados por Verificadores certificados y una demostración final supervisada. El certificado de Innovify acredita lo que el usuario realmente sabe hacer, no solo que vio un video.
-* **Construcción de Confianza mediante el Examen de Ingreso:** Ningún competidor directo verifica que sus revisores realmente dominen lo que evalúan. Innovify elimina ese riesgo exigiendo que todo Verificador certifique previamente su propia ruta y supere un examen de ingreso riguroso antes de poder revisar casos de otros. Esto crea un ecosistema de calidad garantizada que los diferencia radicalmente.
-* **SkillCredits como Diferencial Profesional:** El sistema de SkillCredits crea un incentivo único que ningún competidor ofrece: el Verificador construye una reputación verificable y exportable a LinkedIn que demuestra su calidad de evaluación y dominio técnico. Esto atrae a los mejores Verificadores disponibles, elevando la calidad del ecosistema completo.
-* **Matching Inteligente como Ventaja Tecnológica:** El sistema de recomendación híbrido de Innovify, basado en embeddings de habilidades, resuelve el problema que ningún competidor ha abordado: conectar al estudiante con el Verificador más adecuado para su vacío de conocimiento específico, no con cualquier Verificador disponible. Esto maximiza la efectividad de cada revisión de caso.
-* **Modelo Sostenible B2C con Tienda de SkillCredits:** La combinación de suscripción mensual del estudiante con la venta directa de SkillCredits en una tienda dentro de la plataforma crea un ecosistema económicamente sostenible sin depender de comisiones entre usuarios, a diferencia de modelos puramente freemium que dependen de publicidad o de modelos corporativos que excluyen al estudiante individual.
+
+* **Complementar en vez de competir:** SkillSwap no reemplaza las plataformas de cursos existentes — las complementa. El estudiante aprende donde prefiera (Coursera, freeCodeCamp, YouTube, Platzi) y usa SkillSwap para demostrar que realmente dominó lo que aprendió. Esto elimina la fricción de cambiar de plataforma y posiciona a SkillSwap como una capa de validación universal sobre cualquier fuente de aprendizaje.
+
+* **Validación humana certificada como diferencial irreemplazable:** Roadmap.sh orienta pero no valida. Platzi valida sin criterio certificado. Google Career Certificates valida dentro del curso pero sin revisión humana externa. SkillSwap es el único modelo donde quien valida también demostró previamente que domina lo que evalúa, mediante una ruta propia y un examen de ingreso. Esa barrera de calidad no puede copiarse fácilmente porque requiere construir una comunidad de Verificadores certificados.
+
+* **SkillCredits como incentivo que ningún competidor tiene:** Ninguno de los competidores identificados ofrece reconocimiento profesional verificable para quien valida. Los SkillCredits de SkillSwap son no monetarios, no comprables y exportables a LinkedIn — acreditan experiencia de revisión técnica que los empleadores valoran y que actualmente no existe en el mercado.
+
+* **Supervisión institucional como garantía de calidad del ecosistema:** Ningún competidor tiene un Coordinador institucional que resuelva disputas, revise certificados sospechosos y acceda a métricas reales del proceso. Esa capa de supervisión hace que los datos que consume el Coordinador valgan algo — sin ella, serían métricas sin respaldo real.
+
+* **Modelo sostenible B2C por suscripción:** La suscripción mensual del estudiante como única fuente de ingreso crea un modelo predecible y sostenible sin depender de comisiones entre usuarios ni de la venta de reconocimiento, a diferencia de modelos puramente freemium que dependen de publicidad o de modelos corporativos que excluyen al estudiante individual.
+
 #### Tácticas
- 
+
 * **Programa de Verificadores Fundadores:** Ofrecer a los primeros 100 Verificadores certificados condiciones especiales (mayor acumulación de SkillCredits por caso resuelto, badge exclusivo de "Verificador Fundador") para construir la masa crítica inicial de talento verificado que hace funcionar la plataforma.
-* **Alianzas con Ferias de Empleabilidad y Career Centers:** Establecer presencia en las ferias de prácticas y empleo de las principales universidades del país, donde los estudiantes con SkillCredits y evaluaciones validadas pueden diferenciarse ante los reclutadores.
-* **Campaña "Demuestra lo que sabes":** Lanzar una campaña en LinkedIn e Instagram que contraste la situación actual (CV lleno de certificados sin validación real) con la propuesta de Innovify (portafolio de habilidades demostradas y verificadas), apelando directamente al dolor del estudiante que sabe que sabe pero no puede demostrarlo.
-* **Integración con LinkedIn API:** Desarrollar la funcionalidad de exportación de SkillCredits directamente al perfil de LinkedIn como credencial verificable, generando viralidad orgánica cada vez que un Verificador publica su logro en su red profesional.
-* **Ruta de Demostración Gratuita:** Ofrecer una ruta de certificación gratuita de una habilidad específica (por ejemplo, Python básico o Excel intermedio) que permita a los estudiantes experimentar el modelo completo de validación antes de pagar la suscripción, reduciendo la barrera de entrada.
+
+* **Alianzas con plataformas de cursos como fuentes de certificados:** Contactar a Platzi, Coursera y freeCodeCamp para que sus certificados sean reconocidos automáticamente por el sistema OCR de SkillSwap, reduciendo la fricción de subida y validando la procedencia del documento sin intervención manual.
+
+* **Campaña "Ya aprendiste, ahora demuéstralo":** Dirigida a estudiantes que ya tienen certificados de Coursera, Platzi o Google Career Certificates pero sienten que esos certificados no tienen peso real ante empleadores. El mensaje central: SkillSwap no les pide que vuelvan a aprender — les pide que demuestren lo que ya saben.
+
+* **Alianzas con universidades para el rol de Coordinador:** Acercarse a docentes y coordinadores académicos de universidades peruanas para que adopten el rol de Coordinador dentro de SkillSwap, dándole respaldo institucional al proceso de verificación y generando confianza en empleadores sobre la credibilidad de las evaluaciones.
+
+* **Integración con LinkedIn para SkillCredits:** Desarrollar la funcionalidad de exportación de SkillCredits directamente al perfil de LinkedIn como credencial verificable, generando viralidad orgánica cada vez que un Verificador publica su logro en su red profesional.
+
 ---
  
 ## 2.2. Entrevistas
@@ -388,8 +487,6 @@ A continuación se presentan las estrategias y tácticas que Innovify puede impl
 14. ¿Preferirías recibir una revisión de un Verificador que sea experto exactamente en el sub-tema donde fallaste, en vez de tener que repasar todo el curso desde cero?
 **Segmento objetivo #2: Personas que validan el conocimiento**
  
-*Nivel 1 — Verificador*
- 
 1. Para comenzar, cuéntame sobre ti: ¿qué estudias o en qué trabajas, en qué áreas tienes dominio sólido y cómo llegaste a desarrollarlo?
 2. ¿Has enseñado o ayudado a alguien a aprender algo de forma informal? ¿Cómo fue esa experiencia y qué te motivó a hacerlo?
 3. ¿Cuáles son las principales frustraciones que has tenido cuando intentas ayudar a alguien que no llega con el nivel mínimo necesario?
@@ -405,22 +502,6 @@ A continuación se presentan las estrategias y tácticas que Innovify puede impl
 13. ¿Qué debería tener sí o sí una plataforma para que la consideres profesional y confiable para ejercer este rol?
 14. Si pudieras exhibir en tu perfil de LinkedIn una credencial que dice "Verificador certificado en [habilidad], con X casos resueltos", ¿crees que eso tendría valor real para tu carrera profesional?
 
-*Nivel 2 — Coordinador*
- 
-1. Para comenzar, ¿podría describir brevemente su rol en la universidad y sus principales responsabilidades relacionadas con el alumnado?
-2. Desde su posición, ¿cuáles considera que son los mayores desafíos que enfrentan los estudiantes para tener éxito académico hoy en día?
-3. ¿De qué maneras fomenta actualmente la universidad la colaboración académica entre sus estudiantes?
-4. ¿Qué beneficios u oportunidades cree que podría traer para sus estudiantes una plataforma que les permita colaborar con alumnos verificados de otras universidades del país?
-5. ¿Qué características o políticas debería tener una herramienta de este tipo para que la universidad se sintiera cómoda apoyándola?
-6. ¿Cuál es la principal preocupación de la universidad respecto al uso que los alumnos dan a las herramientas de estudio en línea existentes, como grupos de WhatsApp o repositorios de documentos? (ej. plagio, fraude, seguridad).
-7. Nuestra plataforma propone un sistema donde un coordinador de la universidad valida que el usuario es un alumno activo. ¿Qué dificultades operativas o burocráticas anticipa para implementar un proceso así en su día a día?
-8. ¿Qué riesgos para la reputación de la universidad o la seguridad de los estudiantes le preocuparían más en un sistema que conecta a sus alumnos con "externos", aunque sean de otras universidades?
-9. Actualmente, ¿qué tan simple o complejo es para su equipo verificar el estatus de un alumno (si está matriculado, activo, etc.) para un trámite administrativo común?
-10. ¿Utilizan algún software o plataforma específica para la gestión de la identidad y los datos de los estudiantes?
-11. Imaginemos que le damos acceso a un "Panel de Coordinador". Para que su labor de validación fuera eficiente y segura, ¿qué funciones serían indispensables? (ej. búsqueda por código/DNI, un solo clic para aprobar, historial de validaciones, etc.).
-12. Más allá de solo validar la identidad, ¿qué otro tipo de información o control (anonimizado, por supuesto) le gustaría tener para asegurar que la participación de sus estudiantes es positiva y segura?
----
- 
 ### 2.2.2. Registro de entrevistas
  
 #### Segmento objetivo #1: Personas que quieren aprender
@@ -432,11 +513,15 @@ Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataf
 * **Apellidos:** Perales Rodríguez
 * **Edad:** 21 años
 * **Distrito:** San Miguel
+**Figura 4**
+
+*Entrevista 1: Personas que quieren aprender*
+
 <p align="center">
   <img src="public/assets/images-doc/entrevista-s1-e1.png" alt="Entrevista Mireya" width="600">
-  <br>
-  <em>Figura 1. Entrevista 1: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la primera entrevista al segmento de personas que quieren aprender.</em>
 </p>
+
+*Nota.* En esta figura se aprecia la primera entrevista al segmento de personas que quieren aprender. Elaboración propia.
 **URL:** https://www.youtube.com/watch?v=TdVTVb2Cj1s<br>**Inicio:** 0:00<br>**Duración:** 6:28 minutos
  
 **Resumen descriptivo:**
@@ -453,11 +538,15 @@ Sobre el perfil del Verificador, Mireya es muy clara: prioriza que tenga experie
 * **Apellidos:** Véliz
 * **Edad:** 24 años
 * **Distrito:** Cayma, Arequipa
+**Figura 5**
+
+*Entrevista 2: Personas que quieren aprender*
+
 <p align="center">
   <img src="public/assets/images-doc/entrevista-s1-e2.png" alt="Entrevista Mathias" width="600">
-  <br>
-  <em>Figura 2. Entrevista 2: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la segunda entrevista al segmento de personas que quieren aprender.</em>
 </p>
+
+*Nota.* En esta figura se aprecia la segunda entrevista al segmento de personas que quieren aprender. Elaboración propia.
 **URL:** https://www.youtube.com/watch?v=xt02A76wXNQ<br>**Inicio:** 0:00<br>**Duración:** 7:58 minutos
  
 **Resumen descriptivo:**
@@ -472,11 +561,15 @@ Respecto al modelo de Innovify, Mathias lo ve como la solución directa a su pro
 * **Apellidos:** Rojas Valverde
 * **Edad:** 19 años
 * **Distrito:** Miraflores
+**Figura 6**
+
+*Entrevista 3: Personas que quieren aprender*
+
 <p align="center">
   <img src="public/assets/images-doc/entrevista-s1-e3.png" alt="Entrevista Carlos" width="600">
-  <br>
-  <em>Figura 3. Entrevista 3: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la tercera entrevista al segmento de personas que quieren aprender.</em>
 </p>
+
+*Nota.* En esta figura se aprecia la tercera entrevista al segmento de personas que quieren aprender. Elaboración propia.
 **URL:** https://www.youtube.com/watch?v=wcjn0ionQ-8<br>**Inicio:** 0:00<br>**Duración:** 6:53 minutos
  
 **Resumen descriptivo:**
@@ -490,8 +583,6 @@ Respecto al modelo de Innovify, Carlos valora especialmente la idea de la ruta d
  
 #### Segmento objetivo #2: Personas que validan el conocimiento
  
-*Nivel 1 — Verificador*
- 
 Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataforma que valida habilidades prácticas mediante evaluaciones generadas por IA y revisión de casos por pares certificados. Para este nivel entrevistamos a estudiantes avanzados y egresados con dominio técnico sólido que han ayudado informalmente a otros sin reconocimiento formal, con el objetivo de comprender sus motivaciones, frustraciones con los modelos informales actuales y percepción sobre un sistema donde primero deben certificar su propia ruta antes de poder revisar casos de otros.
  
 **Entrevista 1**
@@ -499,11 +590,15 @@ Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataf
 * **Apellidos:** Guerrero Rodríguez
 * **Edad:** 26 años
 * **Distrito:** San Isidro
+**Figura 7**
+
+*Entrevista 1: Segmento Verificador*
+
 <p align="center">
   <img src="public/assets/images-doc/entrevista-s2-e1.png" alt="Entrevista Marco" width="600">
-  <br>
-  <em>Figura 4. Entrevista 1: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la primera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
+
+*Nota.* En esta figura se aprecia la primera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento. Elaboración propia.
 **URL:** https://www.youtube.com/watch?v=n53WUVagpE4<br>**Inicio:** 0:00<br>**Duración:** 7:53 minutos
  
 **Resumen descriptivo:**
@@ -518,11 +613,15 @@ Respecto al modelo de Innovify, Marco está muy de acuerdo con que el Verificado
 * **Apellidos:** Herrera
 * **Edad:** 28 años
 * **Distrito:** Surco
+**Figura 8**
+
+*Entrevista 2: Segmento Verificador*
+
 <p align="center">
   <img src="public/assets/images-doc/entrevista-s2-e2.png" alt="Entrevista Mariana" width="600">
-  <br>
-  <em>Figura 5. Entrevista 2: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la segunda entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
+
+*Nota.* En esta figura se aprecia la segunda entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento. Elaboración propia.
 **URL:** https://www.youtube.com/watch?v=h8Uh3w6U1qE<br>**Inicio:** 0:00<br>**Duración:** 5:29 minutos
  
 **Resumen descriptivo:**
@@ -537,11 +636,15 @@ Mariana está de acuerdo con que el Verificador demuestre primero su propio domi
 * **Apellidos:** Mora Chávez
 * **Edad:** 23 años
 * **Distrito:** Barranco
+**Figura 9**
+
+*Entrevista 3: Segmento Verificador*
+
 <p align="center">
   <img src="public/assets/images-doc/entrevista-s2-e3.png" alt="Entrevista Sebastián" width="600">
-  <br>
-  <em>Figura 6. Entrevista 3: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
+
+*Nota.* En esta figura se aprecia la tercera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento. Elaboración propia.
 **URL:** https://www.youtube.com/watch?v=wtCs-bESKhI<br>**Inicio:** 0:00<br>**Duración:** 7:06 minutos
  
 **Resumen descriptivo:**
@@ -550,61 +653,6 @@ Sebastián es egresado de Comunicaciones de la UPC y trabaja como freelance en m
 Su principal motivación no es el dinero sino construir reputación profesional verificable. Sebastián entiende que en el mundo del marketing digital, el portafolio y las credenciales son todo, y actualmente no tiene ninguna forma de acreditar que sabe evaluar el trabajo de otros con criterio.
  
 Respecto al modelo de Innovify, valora especialmente que la plataforma exija que el Verificador haya certificado su propia ruta antes de revisar a otros, porque eso eleva la calidad del ecosistema completo y hace que pertenecer a él sea una credencial en sí misma. Le parece muy atractivo el sistema de SkillCredits y su integración con LinkedIn. También valora la asignación automática de casos, porque prefiere que le lleguen estudiantes cuyo vacío específico coincide con su área de mayor dominio, en vez de recibir cualquier solicitud genérica de marketing.
- 
----
- 
-*Nivel 2 — Coordinador*
- 
-Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataforma que valida habilidades prácticas y garantiza la integridad del proceso mediante un panel de supervisión institucional. Para este nivel entrevistamos a docentes, jefes de práctica y coordinadores académicos de distintas universidades, con el objetivo de identificar sus preocupaciones respecto al fraude, las barreras operativas para implementar procesos de validación y los requisitos que debería cumplir una herramienta de este tipo para contar con el respaldo institucional.
- 
-**Entrevista 1**
-* **Nombres:** Armando
-* **Apellidos:** Novoa
-* **Edad:** 49 años
-* **Distrito:** San Miguel
-<p align="center">
-  <img src="public/assets/images-doc/entre-rafa.png" alt="Entrevista Armando" width="600">
-  <br>
-  <em>Figura 7. Entrevista 1: Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la primera entrevista al nivel de Coordinador.</em>
-</p>
-**URL:** https://youtu.be/YDpJ_S8Ik2g<br>**Inicio:** 0:00<br>**Duración:** 13 minutos con 54 segundos
- 
-**Resumen descriptivo:**
-Esta entrevista fue realizada a un docente de Cálculo 2 de la Universidad Peruana de Ciencias Aplicadas (UPC). De acuerdo con lo conversado, el profesor considera que la propuesta es una muy buena idea y la percibe como fundamental para el desarrollo profesional de los estudiantes. Destaca la importancia de que los alumnos puedan validar sus conocimientos y demostrar habilidades reales, incluso frente a estudiantes de otras universidades, con el fin de adaptarse a un mercado laboral cada vez más exigente.
- 
-Asimismo, mostró cautela en sus declaraciones para no vulnerar su contrato con la universidad, pero enfatizó que las plataformas tecnológicas tienen un gran potencial siempre que se utilicen bajo un marco de ética y respeto a las normas institucionales. Señaló que la educación en valores debe prevalecer sobre la simple restricción del uso de la tecnología.
- 
-Finalmente, evidenció interés en la funcionalidad operativa de la propuesta, sugiriendo que la validación y el acceso a la información se gestionen por niveles académicos, con el objetivo de asegurar que el contenido sea adecuado y pertinente para cada etapa del estudiante.
- 
-**Entrevista 2**
-* **Nombres:** Jesús
-* **Apellidos:** Hernández
-* **Edad:** 29 años
-* **Distrito:** Cercado de Lima
-<p align="center">
-  <img src="public/assets/images-doc/entrevista-victor3-1.png" alt="Entrevista Jesús" width="600">
-  <br>
-  <em>Figura 8. Entrevista 2: Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la segunda entrevista al nivel de Coordinador.</em>
-</p>
-* **URL Parte 1:** https://youtu.be/oRoAbwVAjxI | **Inicio:** 0:00 | **Duración:** 10m 12s
-* **URL Parte 2:** https://youtu.be/tWd_sJHLAak | **Inicio:** 0:00 | **Duración:** 11m 50s
-**Resumen descriptivo:**
-Jesús Hernández, jefe de prácticas, señala que los principales desafíos de los alumnos son la gestión del tiempo, el acceso a información confiable y la dificultad en el trabajo en equipo. Sobre una plataforma interuniversitaria de validación de habilidades, considera esencial la verificación de alumnos, políticas claras de integridad académica y un sistema de trazabilidad. Destacó que la universidad se preocupa por evitar plagio, fraude académico y certificados falsos. Advirtió que la implementación de una plataforma con validación manual podría generar carga laboral y costos, sugiriendo procesos automatizados como reconocimiento facial. Propuso que el panel del Coordinador permita buscar y resolver casos fácilmente, acceder al historial de un Verificador y monitorear la confiabilidad de sus decisiones para asegurar una participación segura.
- 
-**Entrevista 3**
-* **Nombres:** Raúl
-* **Apellidos:** Pardo
-* **Edad:** 34 años
-* **Distrito:** San Borja
-<p align="center">
-  <img src="public/assets/images-doc/entrevista-david1.png" alt="Entrevista Raúl" width="600">
-  <br>
-  <em>Figura 9. Entrevista 3: Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Coordinador.</em>
-</p>
-**URL:** https://youtu.be/cP_YiYr2VD8<br>**Inicio:** 0:00<br>**Duración:** 10 minutos con 40 segundos
- 
-**Resumen descriptivo:**
-El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy buena idea y parte fundamental del desarrollo académico que los estudiantes validen mutuamente sus conocimientos. Destacó que las herramientas tecnológicas son productivas para este fin siempre que se les dé un buen uso, priorizando el aprendizaje sobre ventajas deshonestas. También mostró cierta preocupación por la carga que representa para un Verificador revisar casos constantemente, ya que siente que podría impactar negativamente en su propio tiempo y productividad, especialmente en estudiantes con muchas responsabilidades académicas.
  
 ---
  
@@ -658,9 +706,7 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 ---
 
 #### Segmento objetivo #2: Personas que validan el conocimiento
-
-*Nivel 1 — Verificador*
-
+ 
 **1. Características objetivas**
 * **Edad:** Estudiantes avanzados o egresados recientes, entre 23 y 28 años (100%).
 * **Carrera:** Diversas áreas (Ingeniería de Software, Contabilidad, Comunicaciones) (100%).
@@ -698,39 +744,6 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 *(Tabla 5. Principales hallazgos de entrevistas al nivel de Verificador - Elaboración propia.)*
 
 ---
-
-*Nivel 2 — Coordinador*
-
-**1. Características objetivas**
-* **Edad y rol:** Profesionales entre 29 y 53 años (100%). Docentes, coordinadores o jefes de práctica (100%).
-* **Ámbito laboral:** Universidades (100%).
-* **Responsabilidades:** Supervisión del aprendizaje (100%). Garantizar integridad académica (100%). Evaluación del desempeño (100%).
-* **Relación con tecnología:** Uso de herramientas digitales educativas (100%). Sistemas de control académico (100%).
-
-**2. Características subjetivas**
-* **Percepción de la validación de habilidades entre pares:** Considerada fundamental (100%). Positiva colaboración interuniversitaria (100%). Mejora la preparación profesional (66%).
-* **Preocupaciones:** Plagio, fraude y suplantación (100%). Uso indebido de tecnología (100%). Información poco confiable (100%). Riesgo reputacional (66%).
-* **Barreras:** Validación de estudiantes (100%). Carga operativa (67%). Costos (67%). Necesidad de automatización (33%).
-* **Requisitos de la plataforma:** Verificación de identidad (100%). Validación académica (100%). Políticas claras (100%). Trazabilidad de interacciones (100%). Panel de monitoreo (100%).
-
-&nbsp;
-
-| Característica | % entrevistados | Insight clave |
-| :--- | :--- | :--- |
-| Validación de habilidades entre pares | 100% | Fundamental |
-| Colaboración interuniversitaria | 100% | Positiva si se controla |
-| Preocupación por fraude | 100% | Riesgo principal |
-| Validación de identidad | 100% | Requisito crítico |
-| Uso responsable de tecnología | 100% | Condición base |
-| Riesgo reputacional | 66% | Preocupación relevante |
-| Problemas de tiempo | 100% | Limita uso |
-| Sistema de monitoreo | 100% | Necesario |
-| Carga operativa | 67% | Barrera |
-| Segmentación académica | 33% | Mejora pertinencia |
-
-*(Tabla 6. Principales hallazgos del nivel de Coordinador - Elaboración propia.)*
-
----
  
 ## 2.3. Needfinding
  
@@ -742,36 +755,29 @@ Los User Personas fueron construidos a partir de los patrones identificados en l
  
 **Segmento 1 — Personas que quieren aprender**
  
+**Figura 10**
+
+*User Persona - Personas que quieren aprender*
+
 <p align="center">
   <img src="public/assets/images-doc/user1-app.png" alt="User Persona Estudiante" width="800">
-  <br>
-  <em>Figura 7. User Persona - Personas que quieren aprender - Elaboración propia.</em>
 </p>
+
+*Nota.* Elaboración propia.
 El arquetipo de Valeria Ramos representa al segmento de estudiantes: estudiante universitaria de 22 años, con certificados online que no puede convertir en evidencia creíble de dominio práctico ante el mercado laboral. Sus objetivos son demostrar habilidades reales ante empleadores, seguir una ruta de aprendizaje estructurada por IA y recibir una revisión puntual de un Verificador cuando la evaluación automática no logra confirmar su dominio. Sus principales frustraciones son la brecha entre el certificado y el dominio real, no saber si está aprendiendo correctamente, y la dificultad de encontrar una forma confiable de validar sus conocimientos en áreas específicas.
  
 **Segmento 2 — Personas que validan el conocimiento**
  
-*Nivel 1 — Verificador*
- 
+**Figura 11**
+
+*User Persona - Verificador*
+
 <p align="center">
   <img src="public/assets/images-doc/user2-app.png" alt="User Persona Verificador" width="800">
-  <br>
-  <em>Figura 8. User Persona - Verificador - Elaboración propia.</em>
 </p>
+
+*Nota.* Elaboración propia.
 El arquetipo de Carlos Mendoza representa al nivel de Verificador dentro del segmento: estudiante avanzado de 25 años, con dominio técnico sólido y experiencia informal ayudando a otros sin reconocimiento formal. Sus objetivos son construir una reputación profesional verificable mediante SkillCredits, obtener casos que encajen con su especialidad mediante la asignación automática de la plataforma, y pertenecer a un ecosistema riguroso que valide su nivel de dominio. Sus principales frustraciones son la falta de estructura en los modelos informales, recibir casos fuera de su área de dominio, y no tener credenciales que acrediten su capacidad de revisión.
- 
-*Nivel 2 — Coordinador*
- 
-<p align="center">
-  <img src="public/assets/images-doc/user3-app.png" alt="User Persona Coordinador" width="800">
-  <br>
-  <em>Figura 9. User Persona - Coordinador - Elaboración propia.</em>
-</p>
-El arquetipo de Jorge Ríos representa al nivel de Coordinador dentro del segmento: docente y coordinador académico de 47 años, responsable de supervisar la calidad del proceso de verificación y garantizar la integridad institucional. Sus objetivos son asegurar que los Verificadores mantengan una confiabilidad alta, resolver disputas sobre certificados sospechosos o decisiones apeladas, y acceder a métricas agregadas de la plataforma para tomar decisiones informadas. Sus principales preocupaciones son el fraude, la suplantación de identidad, la carga operativa de los procesos de validación manual y el riesgo reputacional para la institución.
- 
-**En conjunto**, los arquetipos de usuario presentados permiten comprender de manera clara las necesidades, motivaciones y desafíos de los dos segmentos objetivo de Innovify. El perfil del Estudiante orienta el diseño hacia rutas de aprendizaje estructuradas, evaluaciones prácticas generadas por IA y acceso a una revisión puntual cuando se produce un bloqueo específico. Dentro del segmento que valida el conocimiento, el perfil del Verificador establece los lineamientos necesarios para un sistema de reconocimiento profesional verificable y una asignación automática de casos que garantice la calidad del ecosistema, mientras que el perfil del Coordinador define los requerimientos para las herramientas de supervisión, resolución de disputas y monitoreo de calidad. En conjunto, estos arquetipos permiten alinear el desarrollo con usuarios reales y diversos, asegurando una solución centrada en la experiencia, la eficiencia operativa y el equilibrio entre aprendizaje, verificación y supervisión.
- 
----
  
 ### 2.3.2. User Task Matrix
  
@@ -794,9 +800,6 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
  
 #### Segmento objetivo #2: Personas que validan el conocimiento
  
-*Nivel 1 — Verificador*
- 
- 
 | Tasks | Marco<br>Frecuencia | Marco<br>Importancia | Mariana<br>Frecuencia | Mariana<br>Importancia | Sebastián<br>Frecuencia | Sebastián<br>Importancia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Mantener y actualizar el dominio técnico propio | Muy alta | Muy alta | Alta | Muy alta | Muy alta | Muy alta |
@@ -809,63 +812,37 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
  
 *(Tabla 8. Tareas y motivaciones del nivel de Verificador - Elaboración propia.)*
  
-*Nivel 2 — Coordinador*
- 
- 
-| Tasks | Armando<br>Frecuencia | Armando<br>Importancia | Jesús<br>Frecuencia | Jesús<br>Importancia | Raúl<br>Frecuencia | Raúl<br>Importancia |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Guiar a estudiantes en la aplicación práctica de conceptos | Muy alta | Muy alta | Muy alta | Muy alta | Alta | Muy alta |
-| Enseñar a gestionar el tiempo y organizarse eficientemente | Media | Alta | Muy alta | Alta | Media-Alta | Alta |
-| Fomentar el trabajo en equipo y habilidades de comunicación | Media | Alta | Alta | Alta | Alta | Alta |
-| Garantizar acceso a información confiable | Media | Muy alta | Alta | Muy alta | Media | Alta |
-| Verificar certificados y resolver disputas sobre decisiones de Verificadores | Baja-Media | Alta | Media | Alta | Alta | Alta |
-| Implementar herramientas digitales que faciliten la organización | Media | Alta | Alta | Alta | Alta | Muy alta |
- 
-*(Tabla 9. Funciones y prioridades del nivel de Coordinador - Elaboración propia.)*
- 
-**Conclusión:**
-Las tareas más frecuentes e importantes son:
- 
-* **Estudiantes:** Buscar recursos de aprendizaje y aplicar lo aprendido en proyectos prácticos son las más frecuentes. Identificar exactamente en qué sub-tema están fallando y validar que lo aprendido es suficiente para el mercado son las más importantes aunque poco frecuentes, porque actualmente no tienen herramientas para hacerlo.
-* **Verificadores:** Mantener el dominio técnico propio es la tarea más frecuente e importante. Construir reputación profesional verificable es altamente importante pero actualmente poco frecuente porque no existe un mecanismo para hacerlo.
-* **Coordinadores:** Guiar mediante casos prácticos y verificar la integridad académica son las tareas más frecuentes e importantes. Todos coinciden en requerir herramientas digitales que reduzcan la carga operativa y automaticen los procesos de validación.
-Todos los segmentos coinciden en el uso intensivo de herramientas digitales y en la necesidad de conexión con personas de nivel verificado, aunque cada grupo lo aplica desde roles distintos del mismo ecosistema.
- 
----
- 
 ### 2.3.3. User Journey Mapping
  
 En esta sección se presentan los User Journey Maps As-Is de cada User Persona, mostrando el recorrido completo de los usuarios en la situación actual, sin intervención de la solución de Innovify, lo que incluye procesos, puntos de dolor y oportunidades.
  
 * **Segmento 1: Personas que quieren aprender.** Inicia con la decisión de aprender una habilidad específica, continúa con la búsqueda y toma de cursos online, la obtención de un certificado que no puede convertir en evidencia práctica, el bloqueo en sub-temas específicos sin saber a quién recurrir, y culmina con la frustración de no poder demostrar el dominio real ante empleadores o clientes.
-* **Segmento 2, Nivel 1 — Verificador.** Comienza con la motivación de compartir su dominio técnico y ganar reconocimiento profesional, pero enfrenta la falta de estructura en los modelos informales, la dificultad para llegar a personas con nivel mínimo adecuado, la ausencia de reconocimiento formal por su labor y la imposibilidad de acreditar su capacidad de evaluación de forma verificable.
-* **Segmento 2, Nivel 2 — Coordinador.** Inicia su recorrido al identificar la necesidad de mantener la calidad académica y garantizar la integridad del proceso de verificación. Enfrenta complejidades al anticipar errores operativos, sufre de sobrecarga operativa y riesgos de fraude o certificados falsos, y finalmente lidia con limitaciones operativas y la dificultad de medir el impacto real de sus esfuerzos.
+* **Segmento 2 — Verificador.** Comienza con la motivación de compartir su dominio técnico y ganar reconocimiento profesional, pero enfrenta la falta de estructura en los modelos informales, la dificultad para llegar a personas con nivel mínimo adecuado, la ausencia de reconocimiento formal por su labor y la imposibilidad de acreditar su capacidad de evaluación de forma verificable.
 #### Segmento #1: Personas que quieren aprender
  
+**Figura 12**
+
+*User Journey Mapping – Personas que quieren aprender*
+
 <p align="center">
   <img src="public/assets/images-doc/jur1-app.png" alt="Journey Map Estudiante" width="800">
-  <br>
-  <em>Figura 10. User Journey Mapping – Personas que quieren aprender - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del primer segmento del nuevo proyecto Innovify.</em>
 </p>
+
+*Nota.* En esta figura se aprecia el Journey Mapping del primer segmento del nuevo proyecto Innovify. Elaboración propia.
 En esta figura se observa el recorrido de Valeria a través de cinco etapas críticas: decisión de aprender, búsqueda de recursos, obtención del certificado, bloqueo en la práctica real y búsqueda de validación. El diagrama detalla la curva emocional del arquetipo, identificando puntos de dolor como la incertidumbre sobre si está aprendiendo correctamente, la frustración al no poder demostrar el dominio en situaciones reales y la dificultad para encontrar una forma confiable de validar exactamente el sub-tema donde se bloqueó.
  
-#### Segmento #2, Nivel 1: Verificador
+#### Segmento #2: Verificador
  
+**Figura 13**
+
+*User Journey Mapping – Nivel Verificador*
+
 <p align="center">
   <img src="public/assets/images-doc/jur2-app.png" alt="Journey Map Verificador" width="800">
-  <br>
-  <em>Figura 11. User Journey Mapping – Nivel Verificador - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del nivel de Verificador dentro del segundo segmento del nuevo proyecto Innovify.</em>
 </p>
+
+*Nota.* En esta figura se aprecia el Journey Mapping del nivel de Verificador dentro del segundo segmento del nuevo proyecto Innovify. Elaboración propia.
 En esta figura se visualiza la experiencia de Carlos desde la perspectiva del Verificador. El mapa describe el proceso desde la motivación inicial de ayudar a otros, pasando por la gestión informal y desorganizada de esa ayuda, la frustración por recibir personas sin nivel mínimo, hasta la ausencia total de reconocimiento formal o credencial verificable que acredite su capacidad de evaluación.
- 
-#### Segmento #2, Nivel 2: Coordinador
- 
-<p align="center">
-  <img src="public/assets/images-doc/jur3-app.png" alt="Journey Map Coordinador" width="800">
-  <br>
-  <em>Figura 12. User Journey Mapping – Nivel Coordinador - Elaboración propia. Nota: En esta figura se aprecia el Journey Mapping del nivel de Coordinador dentro del segundo segmento del nuevo proyecto Innovify.</em>
-</p>
-En esta figura se detalla el flujo de gestión de Jorge desde el ángulo académico y de calidad institucional. El mapa abarca la planeación, implementación y supervisión del proceso de verificación, poniendo énfasis en la mitigación de riesgos operativos como el fraude y los certificados falsos. Se identifican puntos de dolor como la sobrecarga operativa de los procesos de validación manual y la ausencia de herramientas tecnológicas que automaticen la verificación de certificados y el monitoreo de casos.
  
 **Entonces**, los mapas de experiencia presentados permiten comprender de manera integral cómo interactúan los distintos actores con el ecosistema de aprendizaje y validación de habilidades en la situación actual. Desde la perspectiva del estudiante, el recorrido está marcado por una inversión constante de tiempo y dinero en certificaciones que no generan evidencia creíble de competencia práctica. Desde el lado del Verificador, la experiencia actual es desorganizada y sin reconocimiento formal. Finalmente, la visión del Coordinador incorpora una capa de control y supervisión orientada a garantizar la calidad académica y la seguridad del sistema. En conjunto, estas perspectivas permiten diseñar una experiencia equilibrada, eficiente y segura para todos los participantes del ecosistema.
  
@@ -877,30 +854,29 @@ Para profundizar en el entendimiento de los usuarios finales y diseñar una solu
  
 #### Segmento #1: Personas que quieren aprender
  
+**Figura 14**
+
+*Empathy Mapping - Personas que quieren aprender*
+
 <p align="center">
   <img src="public/assets/images-doc/Empati1-app.png" alt="Empathy Map Estudiante" width="800">
-  <br>
-  <em>Figura 13. Empathy Mapping - Personas que quieren aprender - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del primer segmento del nuevo proyecto Innovify.</em>
 </p>
+
+*Nota.* En esta figura se aprecia el Empathy Mapping del primer segmento del nuevo proyecto Innovify. Elaboración propia.
 Se observa el mapa de empatía de Valeria, arquetipo que representa al segmento de estudiantes. El diagrama detalla su necesidad de demostrar habilidades prácticas reales ante un mercado laboral que exige competencias verificables, no solo certificados. Sus principales puntos de dolor son la ansiedad por no saber si lo que aprendió es suficiente, la frustración de tener certificados que nadie toma en serio y la incapacidad de identificar exactamente en qué sub-tema está fallando para pedir una revisión específica. Sus ganancias esperadas son una credencial verificable con peso real ante empleadores y acceso a un Verificador que resuelva exactamente el bloqueo que tiene, sin tener que repasar todo el curso desde cero.
  
-#### Segmento #2, Nivel 1: Verificador
+#### Segmento #2: Verificador
  
+**Figura 15**
+
+*Empathy Mapping - Nivel Verificador*
+
 <p align="center">
   <img src="public/assets/images-doc/Empati2-app.png" alt="Empathy Map Verificador" width="800">
-  <br>
-  <em>Figura 14. Empathy Mapping - Nivel Verificador - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del nivel de Verificador dentro del segundo segmento del nuevo proyecto Innovify.</em>
 </p>
+
+*Nota.* En esta figura se aprecia el Empathy Mapping del nivel de Verificador dentro del segundo segmento del nuevo proyecto Innovify. Elaboración propia.
 En esta figura se detalla el mapa de empatía de Carlos, arquetipo del nivel de Verificador. El análisis subraya su deseo de convertir su dominio técnico en reconocimiento profesional verificable. Sus principales puntos de dolor son la falta de un mecanismo formal que acredite su capacidad de evaluación, la desorganización de los modelos informales actuales y la frustración de recibir personas sin nivel mínimo que hace que las revisiones sean ineficientes. Sus ganancias esperadas son pertenecer a un ecosistema riguroso que eleve su estatus profesional, acumular SkillCredits que pueda exhibir en LinkedIn y recibir información precisa sobre el vacío del estudiante antes de cada caso para prepararse mejor.
- 
-#### Segmento #2, Nivel 2: Coordinador
- 
-<p align="center">
-  <img src="public/assets/images-doc/Empati3-app.png" alt="Empathy Map Coordinador" width="800">
-  <br>
-  <em>Figura 15. Empathy Mapping - Nivel Coordinador - Elaboración propia. Nota: En esta figura se aprecia el Empathy Mapping del nivel de Coordinador dentro del segundo segmento del nuevo proyecto Innovify.</em>
-</p>
-En la imagen se presenta la caracterización empática de Jorge, arquetipo del nivel de Coordinador. El mapa resalta su preocupación por mantener la calidad académica y la integridad institucional, señalando como riesgos principales el fraude o los certificados falsos y la sobrecarga operativa de los procesos de validación manual. Sus ganancias esperadas son el acceso a herramientas tecnológicas que agilicen la verificación de certificados, un panel de monitoreo con métricas agregadas de la plataforma y mecanismos automatizados de trazabilidad que reduzcan la carga de trabajo de su equipo.
  
 **Entonces**, los mapas de empatía permiten profundizar en las necesidades emocionales, motivaciones y dificultades de los dos segmentos objetivo de Innovify. En el caso del estudiante, se evidencia una motivación fuerte orientada a la empleabilidad y al reconocimiento real de sus capacidades, enfrentando frustraciones relacionadas con la superficialidad del modelo de certificación actual y la dificultad de encontrar una validación específica cuando se bloquea. Dentro del segmento que valida el conocimiento, el perfil del Verificador destaca una motivación centrada en el reconocimiento profesional, con frustraciones relacionadas con la informalidad y la falta de estructura de los modelos actuales; mientras que el perfil del Coordinador destaca una fuerte preocupación por la calidad académica y la seguridad del sistema, priorizando la prevención de riesgos como el fraude y los certificados falsos, y valorando el uso de herramientas tecnológicas que optimicen los procesos de validación y reduzcan la carga operativa. En conjunto, estos mapas evidencian la importancia de diseñar una plataforma equilibrada que atienda tanto aspectos funcionales como emocionales, asegurando confianza, eficiencia y valor para todos los usuarios del ecosistema.
 
@@ -910,11 +886,15 @@ En esta sección se presentan los As-Is Scenario Maps elaborados con la herramie
 
 **Segmento #1: Personas que quieren aprender**
 
+**Figura 16**
+
+*As-Is Scenario Mapping – Personas que quieren aprender*
+
 <p align="center">
   <img src="public/assets/images-doc/asis1-app.png" alt="As-Is Scenario Map Estudiante" width="800">
-  <br>
-  <em>Figura 16. As-Is Scenario Mapping – Personas que quieren aprender - Elaboración propia. Nota: Elaborado con la herramienta Miro.</em>
 </p>
+
+*Nota.* Elaborado con la herramienta Miro. Elaboración propia.
 
 En el mapa se observa que Valeria comienza identificando una habilidad que quiere dominar, pero sin saber por dónde empezar elige un curso de forma intuitiva. Obtiene el certificado sintiéndose lista, pero cuando intenta aplicarlo en una entrevista real se bloquea y descubre que el certificado no refleja su dominio práctico. Al buscar ayuda solo encuentra respuestas genéricas en foros o ChatGPT que no resuelven su bloqueo específico. El principal punto de dolor es la brecha entre tener el certificado y poder demostrarlo en la práctica real.
 
@@ -922,11 +902,15 @@ En el mapa se observa que Valeria comienza identificando una habilidad que quier
 
 **Segmento #2: Personas que validan el conocimiento**
 
+**Figura 17**
+
+*As-Is Scenario Mapping – Personas que validan el conocimiento*
+
 <p align="center">
   <img src="public/assets/images-doc/asis2-app.png" alt="As-Is Scenario Map Verificador" width="800">
-  <br>
-  <em>Figura 17. As-Is Scenario Mapping – Personas que validan el conocimiento - Elaboración propia. Nota: Elaborado con la herramienta Miro.</em>
 </p>
+
+*Nota.* Elaborado con la herramienta Miro. Elaboración propia.
 
 En el mapa se observa que Carlos quiere ayudar a otros con su habilidad pero no encuentra un modelo profesional que lo respalde. Coordina por WhatsApp con personas que llegan sin el nivel mínimo, hace la revisión por Zoom sin ninguna rúbrica ni criterio estructurado, y al terminar no tiene ninguna evidencia formal de lo que hizo. El principal punto de dolor es la ausencia de reconocimiento y estructura: dedica tiempo de calidad a revisar el trabajo de otros pero nadie puede verificarlo.
 
@@ -940,11 +924,15 @@ En esta sección se presentan los To-Be Scenario Maps elaborados con la herramie
 
 **Segmento #1: Personas que quieren aprender**
 
+**Figura 18**
+
+*To-Be Scenario Mapping – Personas que quieren aprender*
+
 <p align="center">
   <img src="public/assets/images-doc/tobe1-app.png" alt="To-Be Scenario Map Estudiante" width="800">
-  <br>
-  <em>Figura 18. To-Be Scenario Mapping – Personas que quieren aprender - Elaboración propia. Nota: Elaborado con la herramienta Miro.</em>
 </p>
+
+*Nota.* Elaborado con la herramienta Miro. Elaboración propia.
 
 En el mapa se observa que con Innovify, Valeria se registra con su correo institucional y la IA le genera una ruta de aprendizaje clara desde el inicio. Sube sus certificados, rinde evaluaciones prácticas personalizadas y cuando falla una, un Verificador que ya sabe exactamente en qué punto se bloqueó la revisa de forma quirúrgica. Al completar la ruta obtiene una credencial verificable que muestra exactamente qué habilidades demostró, no solo que tomó un curso, con peso real ante cualquier empleador.
 
@@ -952,68 +940,1356 @@ En el mapa se observa que con Innovify, Valeria se registra con su correo instit
 
 **Segmento #2: Personas que validan el conocimiento**
 
+**Figura 19**
+
+*To-Be Scenario Mapping – Personas que validan el conocimiento*
+
 <p align="center">
   <img src="public/assets/images-doc/tobe2-app.png" alt="To-Be Scenario Map Verificador" width="800">
-  <br>
-  <em>Figura 19. To-Be Scenario Mapping – Personas que validan el conocimiento - Elaboración propia. Nota: Elaborado con la herramienta Miro.</em>
 </p>
+
+*Nota.* Elaborado con la herramienta Miro. Elaboración propia.
 
 En el mapa se observa que con Innovify, Carlos primero certifica su propia ruta y supera el examen de ingreso, lo que garantiza que quien revisa realmente sabe. Recibe casos asignados automáticamente con información precisa del punto donde falló el estudiante, los revisa frente a una rúbrica estructurada y acumula SkillCredits verificables por cada caso resuelto. Estos SkillCredits los exporta a LinkedIn como credencial profesional, transformando su labor de revisión en reconocimiento real y verificable.
 
 ---
-### 2.4.1. User Stories
-*(Nota: Adaptar la tabla de User Stories previa para incluir los requisitos del curso: persistencia local, acceso a hardware, consumo de API propia y SDK externo).*
 
-**Ejemplos de User Stories clave para el entorno móvil:**
-*   **US_Mobile01 (Permisos de Dispositivo):** *As a user, I want the app to request camera and microphone permissions before joining a session, so that I can securely broadcast my video and audio during the live tutoring.*
-*   **US_Mobile02 (Almacenamiento Local):** *As a Learner, I want the app to locally store my search preferences and recent chat history using SQLite/Room/CoreData, so that the app loads faster and I can review messages even with a poor internet connection.*
-*   **US_Mobile03 (Consumo SDK Externo):** *As a Tutor, I want to initiate a live video call directly within the app using an integrated third-party SDK (e.g., Agora or Jitsi), so that I don't have to share external links with the learner.*
-*   **Spike Story (Investigación):** *Investigate and prototype the integration of the external Video SDK into the native mobile architecture, evaluating performance, battery consumption, and necessary device permissions.*
+### 2.4.1. User Stories
+
+En esta sección se especifican los requisitos funcionales y técnicos de SkillSwap, aplicación móvil nativa y multiplataforma, mediante User Stories agrupadas en Epics. Las historias se redactaron a partir de los hallazgos de las entrevistas, los User Personas, el User Task Matrix y los Journey Maps de los dos segmentos objetivo: **personas que quieren aprender (Estudiantes)** y **personas que validan el conocimiento (Verificadores y Coordinadores)**, además de los visitantes de la Landing Page. En total se definen **55 historias**: 45 User Stories orientadas a los usuarios finales y 10 Technical Stories, redactadas con el rol *Developer*, que describen los servicios RESTful que consume la aplicación móvil.
+
+#### Epics
+
+| Epic ID | Título | Descripción |
+| :--- | :--- | :--- |
+| EP01 | Gestión de cuenta institucional y suscripción | Como usuario, quiero registrarme con mi correo institucional, acceder de forma segura y gestionar mi suscripción, para formar parte de un ecosistema de estudiantes reales y acceder a los beneficios de la plataforma. |
+| EP02 | Ruta de aprendizaje personalizada | Como estudiante, quiero declarar en lenguaje natural la habilidad que deseo dominar y obtener una ruta de certificaciones generada por IA, para avanzar de forma estructurada sin conocer de antemano los nombres exactos de los cursos. |
+| EP03 | Validación de certificados | Como estudiante, quiero subir mis certificados y que la plataforma extraiga, verifique y relacione su contenido con mi ruta, para que cada certificado cuente como evidencia confiable de una habilidad. |
+| EP04 | Evaluaciones prácticas generadas por IA | Como estudiante, quiero demostrar cada habilidad certificada mediante quizzes y miniproyectos generados por IA, para comprobar que realmente la domino y conocer con precisión el sub-tema en el que fallo. |
+| EP05 | Verificación de casos por pares | Como estudiante o Verificador, quiero que los intentos no aprobados se escalen a un Verificador habilitado que los revise frente a una rúbrica, para resolver cada caso de forma justa, rápida y trazable. |
+| EP06 | Demostración final supervisada | Como estudiante, quiero demostrar el dominio integral de mi ruta completada mediante un proyecto avanzado o examen supervisado por video, para obtener una validación final con mayor rigor. |
+| EP07 | SkillCredits y reconocimiento profesional | Como Verificador, quiero acumular, consultar, canjear y exhibir mis SkillCredits, para que mi labor de verificación se convierta en una credencial profesional verificable. |
+| EP08 | Supervisión y calidad del Coordinador | Como Coordinador, quiero resolver disputas, habilitar reevaluaciones, controlar la actividad y confiabilidad de los Verificadores y consultar métricas de la plataforma, para garantizar la integridad de todo el proceso de verificación. |
+| EP09 | Landing Page | Como visitante, quiero conocer la propuesta de valor, los planes y la forma de participar en SkillSwap desde un sitio web público, para decidir si descargo la aplicación y me registro. |
+
+*(Tabla 11. Epics del proyecto - Elaboración propia.)*
+
+#### User Stories y Technical Stories
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US01</td><td>Estudiante</td><td>Alta</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Registro con correo institucional</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero registrarme con mi correo institucional, para acceder a la plataforma como un usuario universitario verificado.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Registro con dominio institucional válido</strong><br><strong>Dado que</strong> el estudiante no tiene una cuenta registrada<br><strong>Cuando</strong> envía su nombre de usuario, contraseña y un correo con dominio .edu.pe<br><strong>Entonces</strong> el sistema crea la cuenta con el rol Student<br><strong>Y</strong> envía un correo de verificación a la dirección registrada<br><br><strong>Escenario 2: Registro con dominio no institucional</strong><br><strong>Dado que</strong> el estudiante no tiene una cuenta registrada<br><strong>Cuando</strong> envía un correo cuyo dominio no pertenece a una institución educativa (.edu.pe)<br><strong>Entonces</strong> el sistema rechaza el registro<br><strong>Y</strong> informa que solo se aceptan correos institucionales<br><br><strong>Escenario 3: Registro con correo ya utilizado</strong><br><strong>Dado que</strong> existe una cuenta asociada a un correo institucional<br><strong>Cuando</strong> otro registro se envía con ese mismo correo<br><strong>Entonces</strong> el sistema rechaza el registro<br><strong>Y</strong> informa que el correo ya se encuentra en uso</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US02</td><td>Estudiante</td><td>Alta</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Inicio de sesión</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero iniciar sesión con mis credenciales, para acceder a mi ruta, mis certificados y mis evaluaciones.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Inicio de sesión con credenciales válidas</strong><br><strong>Dado que</strong> el estudiante tiene una cuenta verificada<br><strong>Cuando</strong> envía su nombre de usuario y contraseña correctos<br><strong>Entonces</strong> el sistema autentica al estudiante<br><strong>Y</strong> le otorga acceso a los recursos asociados a su rol<br><br><strong>Escenario 2: Inicio de sesión con credenciales inválidas</strong><br><strong>Dado que</strong> el estudiante tiene una cuenta registrada<br><strong>Cuando</strong> envía una contraseña incorrecta<br><strong>Entonces</strong> el sistema deniega el acceso<br><strong>Y</strong> no revela si el error corresponde al usuario o a la contraseña<br><br><strong>Escenario 3: Inicio de sesión con cuenta no verificada</strong><br><strong>Dado que</strong> el estudiante no ha confirmado su correo institucional<br><strong>Cuando</strong> intenta iniciar sesión<br><strong>Entonces</strong> el sistema deniega el acceso<br><strong>Y</strong> reenvía el correo de verificación</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US03</td><td>Estudiante</td><td>Media</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Acceso mediante biometría del dispositivo</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero iniciar sesión con la huella o el reconocimiento facial de mi dispositivo, para acceder de forma rápida y segura sin escribir mi contraseña.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Activación del acceso biométrico</strong><br><strong>Dado que</strong> el estudiante tiene una sesión activa<br><strong>Y</strong> su dispositivo cuenta con un sensor biométrico configurado<br><strong>Cuando</strong> habilita el acceso biométrico<br><strong>Entonces</strong> la aplicación almacena de forma segura en el dispositivo la credencial asociada<br><br><strong>Escenario 2: Acceso biométrico exitoso</strong><br><strong>Dado que</strong> el estudiante tiene el acceso biométrico habilitado<br><strong>Cuando</strong> el sensor del dispositivo valida su identidad<br><strong>Entonces</strong> la aplicación inicia la sesión sin solicitar la contraseña<br><br><strong>Escenario 3: Dispositivo sin biometría disponible</strong><br><strong>Dado que</strong> el dispositivo no cuenta con un sensor biométrico configurado<br><strong>Cuando</strong> el estudiante intenta habilitar el acceso biométrico<br><strong>Entonces</strong> la aplicación mantiene el inicio de sesión mediante contraseña<br><strong>Y</strong> comunica que la funcionalidad no está disponible en el dispositivo</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US04</td><td>Estudiante</td><td>Media</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Configuración del perfil de intereses</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero registrar mi descripción y mis temas de interés en mi perfil, para que la plataforma personalice mis rutas y el emparejamiento con Verificadores.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Registro de temas de interés</strong><br><strong>Dado que</strong> el estudiante tiene una sesión activa<br><strong>Cuando</strong> registra uno o más temas de interés y una descripción<br><strong>Entonces</strong> el sistema guarda la información en su perfil<br><strong>Y</strong> la incorpora al vector de habilidades del estudiante<br><br><strong>Escenario 2: Actualización de intereses</strong><br><strong>Dado que</strong> el estudiante ya registró temas de interés<br><strong>Cuando</strong> modifica sus temas de interés<br><strong>Entonces</strong> el sistema reemplaza los temas anteriores<br><strong>Y</strong> recalcula su vector de habilidades</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US05</td><td>Estudiante</td><td>Alta</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Suscripción al plan mensual</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero suscribirme al plan mensual desde la aplicación mediante Google Play, para acceder a las rutas de certificación, las evaluaciones y la verificación de mis casos.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Suscripción exitosa</strong><br><strong>Dado que</strong> el estudiante tiene una cuenta verificada sin suscripción activa<br><strong>Cuando</strong> confirma la compra del plan mensual mediante Google Play Billing<br><strong>Entonces</strong> el sistema valida la compra con Google Play<br><strong>Y</strong> activa su suscripción con la fecha de vencimiento del periodo<br><br><strong>Escenario 2: Pago rechazado</strong><br><strong>Dado que</strong> el estudiante no tiene una suscripción activa<br><strong>Cuando</strong> Google Play Billing rechaza o cancela la transacción<br><strong>Entonces</strong> el sistema no activa la suscripción<br><strong>Y</strong> informa el motivo del rechazo<br><br><strong>Escenario 3: Renovación automática</strong><br><strong>Dado que</strong> el estudiante tiene una suscripción activa<br><strong>Cuando</strong> Google Play renueva la suscripción al finalizar el periodo<br><strong>Entonces</strong> el sistema extiende la fecha de vencimiento por un nuevo periodo<br><br><strong>Escenario 4: Cancelación de la suscripción</strong><br><strong>Dado que</strong> el estudiante cancela su suscripción desde Google Play<br><strong>Cuando</strong> finaliza el periodo ya pagado<br><strong>Entonces</strong> el sistema restringe la generación de nuevas evaluaciones<br><strong>Y</strong> conserva su ruta, certificados e historial</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US06</td><td>Estudiante</td><td>Alta</td><td>EP02</td></tr>
+  <tr><th>Title</th><td colspan="3">Declaración de la meta en lenguaje natural</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero describir con mis propias palabras la habilidad que deseo aprender, para que la IA la relacione con la taxonomía de habilidades sin que yo conozca el nombre exacto de cada certificación.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Meta interpretada correctamente</strong><br><strong>Dado que</strong> el estudiante tiene una suscripción activa<br><strong>Cuando</strong> declara la meta "quiero aprender a construir APIs REST con autenticación JWT"<br><strong>Entonces</strong> el sistema identifica las habilidades correspondientes de la taxonomía mediante búsqueda semántica<br><strong>Y</strong> genera una ruta de aprendizaje asociada a esa meta<br><br><strong>Escenario 2: Meta sin correspondencia en la taxonomía</strong><br><strong>Dado que</strong> el estudiante tiene una suscripción activa<br><strong>Cuando</strong> declara una meta que no supera el umbral mínimo de similitud con ninguna habilidad de la taxonomía<br><strong>Entonces</strong> el sistema no genera la ruta<br><strong>Y</strong> solicita al estudiante precisar su meta</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US07</td><td>Estudiante</td><td>Media</td><td>EP02</td></tr>
+  <tr><th>Title</th><td colspan="3">Confirmación de la habilidad interpretada</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero confirmar la habilidad que la IA interpretó de mi meta cuando existen varias opciones posibles, para que mi ruta no se construya sobre una interpretación incorrecta.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Meta ambigua</strong><br><strong>Dado que</strong> la meta declarada por el estudiante coincide con más de una habilidad con similitud cercana<br><strong>Cuando</strong> el sistema procesa la meta<br><strong>Entonces</strong> el sistema presenta las habilidades candidatas ordenadas por similitud<br><strong>Y</strong> espera la confirmación del estudiante antes de generar la ruta<br><br><strong>Escenario 2: Confirmación de la habilidad</strong><br><strong>Dado que</strong> el sistema presentó habilidades candidatas<br><strong>Cuando</strong> el estudiante confirma una de ellas<br><strong>Entonces</strong> el sistema genera la ruta a partir de la habilidad confirmada</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US08</td><td>Estudiante</td><td>Alta</td><td>EP02</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de la ruta de aprendizaje</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero consultar mi ruta de aprendizaje con el estado de cada certificación, para saber qué he completado y cuál es mi siguiente paso.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta de ruta activa</strong><br><strong>Dado que</strong> el estudiante tiene una ruta activa<br><strong>Cuando</strong> consulta su ruta<br><strong>Entonces</strong> el sistema retorna los nodos en su orden de prerrequisitos<br><strong>Y</strong> cada nodo indica su estado: bloqueado, disponible o completado<br><br><strong>Escenario 2: Desbloqueo del siguiente nodo</strong><br><strong>Dado que</strong> el estudiante completa un nodo de su ruta<br><strong>Cuando</strong> el sistema registra la aprobación del nodo<br><strong>Entonces</strong> el siguiente nodo de la secuencia cambia su estado a disponible<br><br><strong>Escenario 3: Ruta completada</strong><br><strong>Dado que</strong> el estudiante completa el último nodo pendiente<br><strong>Cuando</strong> el sistema registra la aprobación del nodo<br><strong>Entonces</strong> la ruta cambia su estado a completada<br><strong>Y</strong> el estudiante queda habilitado para la demostración final</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US09</td><td>Estudiante</td><td>Alta</td><td>EP02</td></tr>
+  <tr><th>Title</th><td colspan="3">Reconocimiento de habilidades ya certificadas</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero que la ruta considere los certificados que ya tengo validados, para no repetir certificaciones de habilidades que ya demostré.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Generación de ruta con certificados previos</strong><br><strong>Dado que</strong> el estudiante posee un certificado validado que cubre una habilidad requerida por su meta<br><strong>Cuando</strong> el sistema genera la ruta<br><strong>Entonces</strong> el nodo de esa habilidad se registra como completado<br><strong>Y</strong> se vincula al certificado validado<br><br><strong>Escenario 2: Recalculo tras un nuevo certificado</strong><br><strong>Dado que</strong> el estudiante tiene una ruta activa<br><strong>Cuando</strong> valida un nuevo certificado que cubre un nodo pendiente<br><strong>Entonces</strong> el sistema recalcula los nodos pendientes de la ruta<br><strong>Y</strong> conserva sin cambios los nodos ya completados</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US10</td><td>Estudiante</td><td>Media</td><td>EP02</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de la ruta sin conexión</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero consultar mi ruta de aprendizaje aunque no tenga conexión a internet, para revisar mi avance en cualquier momento.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Almacenamiento local de la ruta</strong><br><strong>Dado que</strong> el estudiante consulta su ruta con conexión a internet<br><strong>Cuando</strong> el sistema retorna la ruta<br><strong>Entonces</strong> la aplicación guarda una copia en la base de datos local del dispositivo<br><br><strong>Escenario 2: Consulta sin conexión</strong><br><strong>Dado que</strong> el estudiante tiene una copia local de su ruta<br><strong>Y</strong> el dispositivo no tiene conexión a internet<br><strong>Cuando</strong> consulta su ruta<br><strong>Entonces</strong> la aplicación retorna la copia local<br><strong>Y</strong> indica la fecha de su última sincronización<br><br><strong>Escenario 3: Sincronización al recuperar conexión</strong><br><strong>Dado que</strong> el dispositivo recupera la conexión a internet<br><strong>Cuando</strong> el estudiante consulta su ruta<br><strong>Entonces</strong> la aplicación actualiza la copia local con la versión del servidor</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US11</td><td>Estudiante</td><td>Alta</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Captura del certificado con la cámara</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero capturar mi certificado físico o impreso con la cámara del dispositivo, para registrarlo sin necesidad de escanearlo previamente.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Captura con permiso concedido</strong><br><strong>Dado que</strong> el estudiante concedió el permiso de cámara a la aplicación<br><strong>Cuando</strong> captura la imagen de su certificado<br><strong>Entonces</strong> la aplicación registra la imagen como documento del certificado<br><strong>Y</strong> inicia la extracción de sus datos<br><br><strong>Escenario 2: Permiso de cámara denegado</strong><br><strong>Dado que</strong> el estudiante denegó el permiso de cámara<br><strong>Cuando</strong> intenta capturar un certificado<br><strong>Entonces</strong> la aplicación no accede a la cámara<br><strong>Y</strong> ofrece registrar el certificado desde un archivo del dispositivo<br><br><strong>Escenario 3: Imagen ilegible</strong><br><strong>Dado que</strong> el estudiante captura una imagen borrosa o incompleta<br><strong>Cuando</strong> la extracción no reconoce texto suficiente<br><strong>Entonces</strong> la aplicación rechaza la imagen<br><strong>Y</strong> solicita una nueva captura</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US12</td><td>Estudiante</td><td>Alta</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Carga del certificado desde un archivo</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero subir mi certificado en formato PDF o imagen desde mi dispositivo, para validar certificados que obtuve en plataformas digitales.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Carga de formato válido</strong><br><strong>Dado que</strong> el estudiante tiene una sesión activa<br><strong>Cuando</strong> sube un archivo PDF, JPG o PNG de hasta 10 MB<br><strong>Entonces</strong> el sistema almacena el archivo en el almacenamiento en la nube<br><strong>Y</strong> registra el certificado en estado pendiente de verificación<br><br><strong>Escenario 2: Formato o tamaño no permitido</strong><br><strong>Dado que</strong> el estudiante tiene una sesión activa<br><strong>Cuando</strong> sube un archivo con un formato no permitido o mayor a 10 MB<br><strong>Entonces</strong> el sistema rechaza el archivo<br><strong>Y</strong> informa los formatos y el tamaño aceptados</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US13</td><td>Estudiante</td><td>Alta</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Extracción automática de datos del certificado</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero que la aplicación extraiga automáticamente los datos de mi certificado, para no transcribir manualmente el curso, la institución y la fecha.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Extracción completa</strong><br><strong>Dado que</strong> el estudiante registró la imagen de un certificado<br><strong>Cuando</strong> el reconocimiento de texto on-device procesa la imagen<br><strong>Entonces</strong> el sistema obtiene el titular, la institución, el curso y la fecha de emisión<br><strong>Y</strong> conserva el texto completo extraído para auditoría<br><br><strong>Escenario 2: Extracción parcial</strong><br><strong>Dado que</strong> el reconocimiento de texto no identifica uno o más campos obligatorios<br><strong>Cuando</strong> finaliza la extracción<br><strong>Entonces</strong> el sistema solicita al estudiante completar los campos faltantes<br><strong>Y</strong> marca dichos campos como ingresados manualmente<br><br><strong>Escenario 3: Titular distinto al usuario</strong><br><strong>Dado que</strong> el titular extraído no coincide con el nombre registrado del estudiante<br><strong>Cuando</strong> el sistema evalúa el riesgo del certificado<br><strong>Entonces</strong> el certificado se registra con estado sospechoso<br><strong>Y</strong> se escala al Coordinador</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US14</td><td>Estudiante</td><td>Alta</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Detección de certificados duplicados</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero que la plataforma detecte certificados duplicados, para que ningún usuario obtenga una validación con un documento ya utilizado.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Certificado original</strong><br><strong>Dado que</strong> el hash del archivo no coincide con ningún certificado registrado<br><strong>Cuando</strong> el estudiante registra el certificado<br><strong>Entonces</strong> el sistema continúa con la evaluación de riesgo del certificado<br><br><strong>Escenario 2: Certificado duplicado del mismo usuario</strong><br><strong>Dado que</strong> el estudiante ya registró un archivo con el mismo hash<br><strong>Cuando</strong> intenta registrarlo nuevamente<br><strong>Entonces</strong> el sistema rechaza el registro<br><strong>Y</strong> referencia el certificado existente<br><br><strong>Escenario 3: Certificado registrado por otro usuario</strong><br><strong>Dado que</strong> otro usuario ya registró un archivo con el mismo hash<br><strong>Cuando</strong> el estudiante registra el certificado<br><strong>Entonces</strong> el sistema asigna el estado sospechoso al certificado<br><strong>Y</strong> escala el caso al Coordinador</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US15</td><td>Estudiante</td><td>Alta</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Correspondencia del certificado con la habilidad</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero que la IA confirme que mi certificado realmente cubre la habilidad del nodo al que lo asocio, para que mi avance refleje lo que efectivamente estudié.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Certificado que cubre la habilidad</strong><br><strong>Dado que</strong> el estudiante asocia un certificado verificado a un nodo de su ruta<br><strong>Cuando</strong> la IA compara el contenido extraído con la habilidad del nodo<br><strong>Y</strong> la similitud supera el umbral definido<br><strong>Entonces</strong> el sistema vincula el certificado al nodo<br><strong>Y</strong> habilita la evaluación práctica del nodo<br><br><strong>Escenario 2: Certificado que no cubre la habilidad</strong><br><strong>Dado que</strong> el estudiante asocia un certificado verificado a un nodo de su ruta<br><strong>Cuando</strong> la similitud entre el contenido extraído y la habilidad no supera el umbral definido<br><strong>Entonces</strong> el sistema no vincula el certificado al nodo<br><strong>Y</strong> sugiere los nodos de la ruta con los que el certificado sí guarda correspondencia</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US16</td><td>Estudiante</td><td>Media</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta del estado de verificación</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero conocer el estado de verificación de cada certificado que subí y recibir una notificación cuando se resuelva, para saber si ya cuenta como evidencia en mi ruta.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta de certificados</strong><br><strong>Dado que</strong> el estudiante registró uno o más certificados<br><strong>Cuando</strong> consulta sus certificados<br><strong>Entonces</strong> el sistema retorna cada certificado con su estado: pendiente, verificado, sospechoso o rechazado<br><br><strong>Escenario 2: Notificación de resolución</strong><br><strong>Dado que</strong> el estudiante concedió el permiso de notificaciones<br><strong>Cuando</strong> uno de sus certificados alcanza el estado verificado o rechazado<br><strong>Entonces</strong> el sistema envía una notificación push al dispositivo del estudiante mediante Firebase Cloud Messaging<br><strong>Y</strong> la notificación incluye el motivo cuando el estado es rechazado<br><br><strong>Escenario 3: Permiso de notificaciones denegado</strong><br><strong>Dado que</strong> el estudiante denegó el permiso de notificaciones<br><strong>Cuando</strong> uno de sus certificados alcanza un estado definitivo<br><strong>Entonces</strong> el sistema no envía la notificación push<br><strong>Y</strong> el nuevo estado queda disponible en la consulta de sus certificados</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US17</td><td>Estudiante</td><td>Alta</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Generación del quiz de un nodo</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero que la IA genere un quiz basado en la habilidad de mi certificado, para demostrar que adquirí el conocimiento y no solo el documento.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Generación de quiz</strong><br><strong>Dado que</strong> el estudiante tiene un nodo disponible con un certificado vinculado<br><strong>Cuando</strong> solicita su evaluación práctica<br><strong>Entonces</strong> el sistema genera un quiz sobre los sub-temas de la habilidad del nodo<br><strong>Y</strong> asocia el quiz al nodo<br><br><strong>Escenario 2: Nodo bloqueado</strong><br><strong>Dado que</strong> el nodo del estudiante se encuentra bloqueado<br><strong>Cuando</strong> solicita su evaluación práctica<br><strong>Entonces</strong> el sistema rechaza la solicitud<br><strong>Y</strong> indica el nodo prerrequisito pendiente<br><br><strong>Escenario 3: Nuevo intento con preguntas distintas</strong><br><strong>Dado que</strong> el estudiante ya rindió el quiz de un nodo<br><strong>Cuando</strong> se le habilita un nuevo intento<br><strong>Entonces</strong> el sistema genera un quiz con preguntas distintas a las del intento anterior</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US18</td><td>Estudiante</td><td>Alta</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Resolución del quiz con calificación en el servidor</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero rendir el quiz y conocer mi resultado de inmediato, para saber si demostré la habilidad del nodo.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Quiz aprobado</strong><br><strong>Dado que</strong> el estudiante rinde el quiz de un nodo<br><strong>Cuando</strong> envía sus respuestas<br><strong>Y</strong> el puntaje calculado en el servidor alcanza el umbral de aprobación<br><strong>Entonces</strong> el sistema registra el intento como aprobado<br><strong>Y</strong> marca el nodo como completado<br><br><strong>Escenario 2: Quiz no aprobado</strong><br><strong>Dado que</strong> el estudiante rinde el quiz de un nodo<br><strong>Cuando</strong> el puntaje calculado no alcanza el umbral de aprobación<br><strong>Entonces</strong> el sistema registra el intento como no aprobado<br><strong>Y</strong> abre un caso de verificación asociado al intento<br><br><strong>Escenario 3: Tiempo límite excedido</strong><br><strong>Dado que</strong> el quiz tiene un tiempo límite definido<br><strong>Cuando</strong> el tiempo límite finaliza antes del envío<br><strong>Entonces</strong> el sistema califica únicamente las respuestas registradas hasta ese momento</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US19</td><td>Estudiante</td><td>Alta</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Entrega de un miniproyecto</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero desarrollar y entregar un miniproyecto generado para mi nodo, para demostrar la habilidad de forma práctica y no solo teórica.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Generación del enunciado</strong><br><strong>Dado que</strong> el estudiante tiene un nodo disponible cuya habilidad admite evaluación práctica<br><strong>Cuando</strong> solicita un miniproyecto<br><strong>Entonces</strong> el sistema genera un enunciado con su rúbrica de evaluación<br><br><strong>Escenario 2: Entrega dentro del plazo</strong><br><strong>Dado que</strong> el estudiante tiene un miniproyecto asignado<br><strong>Cuando</strong> entrega su repositorio o archivos dentro del plazo definido<br><strong>Entonces</strong> el sistema registra la entrega<br><strong>Y</strong> ejecuta la evaluación preliminar de la IA según la rúbrica<br><br><strong>Escenario 3: Evaluación preliminar insuficiente</strong><br><strong>Dado que</strong> la evaluación preliminar de la IA no alcanza el puntaje mínimo de la rúbrica o su nivel de confianza es bajo<br><strong>Cuando</strong> finaliza la evaluación<br><strong>Entonces</strong> el sistema abre un caso de verificación para la revisión de un Verificador</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US20</td><td>Estudiante</td><td>Alta</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Identificación del sub-tema débil</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero saber exactamente en qué sub-tema fallé, para reforzar solo esa parte en lugar de repetir todo el certificado.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Diagnóstico tras un intento no aprobado</strong><br><strong>Dado que</strong> el estudiante obtiene un intento no aprobado<br><strong>Cuando</strong> el sistema analiza los errores por sub-tema<br><strong>Entonces</strong> el sistema identifica los sub-temas con menor desempeño<br><strong>Y</strong> recomienda recursos específicos para cada uno<br><br><strong>Escenario 2: Intento aprobado con errores puntuales</strong><br><strong>Dado que</strong> el estudiante aprueba un intento con errores concentrados en un sub-tema<br><strong>Cuando</strong> el sistema registra el resultado<br><strong>Entonces</strong> el sistema informa el sub-tema a reforzar sin bloquear su avance</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US21</td><td>Estudiante</td><td>Media</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Conservación del avance ante pérdida de conexión</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero que mis respuestas se conserven si pierdo la conexión durante un quiz, para no perder mi avance.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Pérdida de conexión durante el quiz</strong><br><strong>Dado que</strong> el estudiante rinde un quiz<br><strong>Cuando</strong> el dispositivo pierde la conexión a internet<br><strong>Entonces</strong> la aplicación almacena localmente las respuestas registradas<br><br><strong>Escenario 2: Envío al recuperar la conexión</strong><br><strong>Dado que</strong> existen respuestas almacenadas localmente de un quiz en curso<br><strong>Cuando</strong> el dispositivo recupera la conexión antes del tiempo límite<br><strong>Entonces</strong> la aplicación sincroniza las respuestas con el servidor<br><strong>Y</strong> elimina la copia local tras la confirmación</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US22</td><td>Estudiante</td><td>Alta</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Habilitación como Verificador mediante examen de ingreso</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero rendir el examen de ingreso de una habilidad cuya ruta completé, para habilitarme como Verificador y revisar casos de otros estudiantes.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Examen aprobado</strong><br><strong>Dado que</strong> el estudiante completó su ruta de certificación de una habilidad<br><strong>Cuando</strong> aprueba el examen de ingreso de dicha habilidad<br><strong>Entonces</strong> el sistema crea o actualiza su perfil de Verificador<br><strong>Y</strong> lo habilita para revisar casos de esa habilidad<br><br><strong>Escenario 2: Ruta incompleta</strong><br><strong>Dado que</strong> el estudiante no completó la ruta de una habilidad<br><strong>Cuando</strong> solicita rendir el examen de ingreso de esa habilidad<br><strong>Entonces</strong> el sistema rechaza la solicitud<br><strong>Y</strong> indica los nodos pendientes<br><br><strong>Escenario 3: Examen no aprobado</strong><br><strong>Dado que</strong> el estudiante no aprueba el examen de ingreso<br><strong>Cuando</strong> el sistema registra el resultado<br><strong>Entonces</strong> el sistema no lo habilita como Verificador<br><strong>Y</strong> define la fecha a partir de la cual puede volver a rendirlo</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US23</td><td>Verificador</td><td>Media</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Gestión de disponibilidad</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero indicar si estoy disponible para recibir casos, para que solo se me asignen revisiones cuando puedo atenderlas.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Activación de disponibilidad</strong><br><strong>Dado que</strong> el Verificador está habilitado y no disponible<br><strong>Cuando</strong> activa su disponibilidad<br><strong>Entonces</strong> el sistema lo incluye en el proceso de asignación de casos<br><br><strong>Escenario 2: Desactivación de disponibilidad</strong><br><strong>Dado que</strong> el Verificador está disponible<br><strong>Cuando</strong> desactiva su disponibilidad<br><strong>Entonces</strong> el sistema deja de asignarle nuevos casos<br><strong>Y</strong> mantiene los casos que ya tiene asignados</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US24</td><td>Verificador</td><td>Alta</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Asignación automática de casos por afinidad</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero recibir automáticamente casos que coincidan con mi especialidad, para revisar solo trabajos de habilidades que domino.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Asignación del mejor candidato</strong><br><strong>Dado que</strong> se abre un caso de verificación de una habilidad<br><strong>Y</strong> existen Verificadores disponibles habilitados en esa habilidad<br><strong>Cuando</strong> el sistema de recomendación evalúa la similitud de perfiles y el historial de casos similares<br><strong>Entonces</strong> el sistema asigna el caso al Verificador con mayor puntaje de afinidad<br><strong>Y</strong> le envía una notificación push mediante Firebase Cloud Messaging<br><br><strong>Escenario 2: Exclusión por conflicto</strong><br><strong>Dado que</strong> el Verificador con mayor afinidad es el mismo estudiante del caso<br><strong>Cuando</strong> el sistema asigna el caso<br><strong>Entonces</strong> el sistema excluye a ese Verificador<br><strong>Y</strong> asigna el caso al siguiente candidato<br><br><strong>Escenario 3: Sin Verificadores disponibles</strong><br><strong>Dado que</strong> no existen Verificadores disponibles para la habilidad del caso<br><strong>Cuando</strong> el sistema intenta asignar el caso<br><strong>Entonces</strong> el caso permanece en cola<br><strong>Y</strong> se reintenta la asignación cuando un Verificador habilitado activa su disponibilidad<br><br><strong>Escenario 4: Permiso de notificaciones denegado</strong><br><strong>Dado que</strong> el Verificador denegó el permiso de notificaciones<br><strong>Cuando</strong> el sistema le asigna un caso<br><strong>Entonces</strong> el caso queda registrado en su listado de casos asignados<br><strong>Y</strong> el plazo de resolución inicia desde el momento de la asignación</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US25</td><td>Verificador</td><td>Alta</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Revisión del caso con rúbrica</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero evaluar el trabajo del estudiante frente a una rúbrica estructurada, para emitir una decisión objetiva y justificada.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Caso aprobado</strong><br><strong>Dado que</strong> el Verificador tiene un caso asignado<br><strong>Cuando</strong> registra la calificación de todos los criterios de la rúbrica con resultado aprobatorio<br><strong>Entonces</strong> el sistema resuelve el caso como aprobado<br><strong>Y</strong> marca como completado el nodo del estudiante<br><br><strong>Escenario 2: Caso rechazado</strong><br><strong>Dado que</strong> el Verificador tiene un caso asignado<br><strong>Cuando</strong> registra una decisión desaprobatoria junto con sus observaciones<br><strong>Entonces</strong> el sistema resuelve el caso como rechazado<br><strong>Y</strong> comunica las observaciones al estudiante<br><br><strong>Escenario 3: Rúbrica incompleta</strong><br><strong>Dado que</strong> el Verificador tiene un caso asignado<br><strong>Cuando</strong> registra una decisión sin calificar todos los criterios de la rúbrica<br><strong>Entonces</strong> el sistema no resuelve el caso<br><strong>Y</strong> indica los criterios pendientes</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US26</td><td>Estudiante</td><td>Media</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Aporte de evidencia adicional</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero adjuntar evidencia adicional a mi caso de verificación, para respaldar mejor el dominio de la habilidad.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Evidencia en caso abierto</strong><br><strong>Dado que</strong> el estudiante tiene un caso de verificación abierto<br><strong>Cuando</strong> adjunta un enlace a su repositorio o un archivo de su portafolio<br><strong>Entonces</strong> el sistema asocia la evidencia al caso<br><strong>Y</strong> la pone a disposición del Verificador asignado<br><br><strong>Escenario 2: Caso ya resuelto</strong><br><strong>Dado que</strong> el caso de verificación del estudiante ya fue resuelto<br><strong>Cuando</strong> intenta adjuntar evidencia<br><strong>Entonces</strong> el sistema rechaza la evidencia</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US27</td><td>Estudiante</td><td>Media</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Apelación de la decisión del Verificador</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero apelar la decisión de un Verificador que considero injusta, para que un Coordinador revise mi caso.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Apelación dentro del plazo</strong><br><strong>Dado que</strong> el caso del estudiante fue resuelto como rechazado hace menos de 7 días<br><strong>Cuando</strong> registra una apelación con su justificación<br><strong>Entonces</strong> el sistema crea una disputa de tipo apelación<br><strong>Y</strong> la remite al Coordinador<br><br><strong>Escenario 2: Apelación fuera del plazo</strong><br><strong>Dado que</strong> el caso del estudiante fue resuelto hace más de 7 días<br><strong>Cuando</strong> intenta registrar una apelación<br><strong>Entonces</strong> el sistema rechaza la apelación<br><strong>Y</strong> informa el plazo vigente<br><br><strong>Escenario 3: Apelación duplicada</strong><br><strong>Dado que</strong> el estudiante ya registró una apelación para un caso<br><strong>Cuando</strong> intenta registrar otra sobre el mismo caso<br><strong>Entonces</strong> el sistema rechaza la nueva apelación</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US28</td><td>Estudiante</td><td>Baja</td><td>EP06</td></tr>
+  <tr><th>Title</th><td colspan="3">Programación de la demostración final</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero programar mi demostración final en un horario disponible de un Verificador, para validar el dominio integral de mi ruta completada.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Programación con ruta completada</strong><br><strong>Dado que</strong> el estudiante completó su ruta<br><strong>Cuando</strong> elige la modalidad (proyecto avanzado o examen supervisado) y un horario disponible<br><strong>Entonces</strong> el sistema registra la demostración<br><strong>Y</strong> asigna a un Verificador habilitado en la habilidad de la ruta<br><br><strong>Escenario 2: Ruta no completada</strong><br><strong>Dado que</strong> el estudiante tiene nodos pendientes en su ruta<br><strong>Cuando</strong> solicita programar la demostración final<br><strong>Entonces</strong> el sistema rechaza la solicitud</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US29</td><td>Estudiante</td><td>Baja</td><td>EP06</td></tr>
+  <tr><th>Title</th><td colspan="3">Demostración final por video</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero grabar y subir un video de mi demostración final dentro de la aplicación, para que el Verificador constate que la demostración es genuina.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Grabación del video</strong><br><strong>Dado que</strong> el estudiante completó todos los nodos de su ruta de aprendizaje<br><strong>Y</strong> concedió los permisos de cámara y micrófono<br><strong>Cuando</strong> graba el video de su demostración final desde la aplicación<br><strong>Entonces</strong> el sistema permite adjuntarlo como evidencia del caso de verificación<br><br><strong>Escenario 2: Permisos no concedidos</strong><br><strong>Dado que</strong> el estudiante no concedió los permisos de cámara o micrófono<br><strong>Cuando</strong> intenta grabar el video de demostración<br><strong>Entonces</strong> la aplicación no inicia la grabación<br><strong>Y</strong> solicita los permisos requeridos<br><br><strong>Escenario 3: Registro del resultado</strong><br><strong>Dado que</strong> el video de la demostración fue subido correctamente<br><strong>Cuando</strong> el Verificador revisa el video y registra su evaluación según la rúbrica<br><strong>Entonces</strong> el sistema registra el resultado de la demostración final en el perfil del estudiante</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US30</td><td>Verificador</td><td>Alta</td><td>EP07</td></tr>
+  <tr><th>Title</th><td colspan="3">Acreditación de SkillCredits por caso resuelto</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero recibir SkillCredits por cada caso que resuelvo, para que mi labor de verificación sea reconocida.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Acreditación tras la resolución</strong><br><strong>Dado que</strong> el Verificador resuelve un caso de verificación<br><strong>Cuando</strong> el sistema registra la resolución<br><strong>Entonces</strong> el sistema acredita en su billetera los SkillCredits correspondientes<br><strong>Y</strong> registra una transacción de tipo ganado<br><br><strong>Escenario 2: Decisión revertida</strong><br><strong>Dado que</strong> el Coordinador revierte la decisión de un Verificador tras una disputa<br><strong>Cuando</strong> el sistema registra la reversión<br><strong>Entonces</strong> el sistema no acredita SkillCredits adicionales por ese caso<br><strong>Y</strong> reduce la confiabilidad del Verificador</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US31</td><td>Verificador</td><td>Media</td><td>EP07</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de billetera e historial</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero consultar mi saldo de SkillCredits y el historial de movimientos, para conocer cuántos créditos gané y en qué los utilicé.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta de saldo</strong><br><strong>Dado que</strong> el Verificador tiene una billetera<br><strong>Cuando</strong> consulta su billetera<br><strong>Entonces</strong> el sistema retorna el saldo actual de SkillCredits<br><br><strong>Escenario 2: Consulta de historial</strong><br><strong>Dado que</strong> el Verificador registra movimientos en su billetera<br><strong>Cuando</strong> consulta su historial<br><strong>Entonces</strong> el sistema retorna los movimientos ordenados del más reciente al más antiguo<br><strong>Y</strong> cada movimiento indica su tipo, cantidad y fecha</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US32</td><td>Verificador</td><td>Media</td><td>EP07</td></tr>
+  <tr><th>Title</th><td colspan="3">Canje de SkillCredits en la tienda</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero canjear mis SkillCredits por beneficios de la tienda, para aprovechar el reconocimiento que acumulé.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Canje con saldo suficiente</strong><br><strong>Dado que</strong> el Verificador tiene un saldo mayor o igual al costo de un beneficio<br><strong>Cuando</strong> solicita el canje de ese beneficio<br><strong>Entonces</strong> el sistema descuenta el costo de su saldo<br><strong>Y</strong> registra una transacción de tipo canjeado<br><br><strong>Escenario 2: Canje con saldo insuficiente</strong><br><strong>Dado que</strong> el Verificador tiene un saldo menor al costo de un beneficio<br><strong>Cuando</strong> solicita el canje de ese beneficio<br><strong>Entonces</strong> el sistema rechaza el canje<br><strong>Y</strong> mantiene su saldo sin cambios</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US33</td><td>Verificador</td><td>Media</td><td>EP07</td></tr>
+  <tr><th>Title</th><td colspan="3">Compartir logros en LinkedIn</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero compartir mis SkillCredits y habilidades verificadas en LinkedIn u otras redes profesionales, para exhibir mi experiencia como una credencial verificable.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Generación de la credencial</strong><br><strong>Dado que</strong> el Verificador tiene al menos una habilidad verificada<br><strong>Cuando</strong> solicita compartir su logro<br><strong>Entonces</strong> el sistema genera una credencial con un enlace público de verificación<br><br><strong>Escenario 2: Compartir mediante el sistema del dispositivo</strong><br><strong>Dado que</strong> el Verificador generó una credencial<br><strong>Cuando</strong> la comparte<br><strong>Entonces</strong> la aplicación envía el enlace de la credencial mediante el mecanismo nativo de compartir de Android hacia la aplicación de LinkedIn u otra aplicación instalada<br><br><strong>Escenario 3: Validación pública de la credencial</strong><br><strong>Dado que</strong> un tercero accede al enlace público de una credencial<br><strong>Cuando</strong> consulta su autenticidad<br><strong>Entonces</strong> el sistema retorna el titular, la habilidad, los SkillCredits y la fecha de emisión<br><strong>Y</strong> no expone datos personales adicionales</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US34</td><td>Coordinador</td><td>Alta</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de disputas pendientes</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero consultar las disputas pendientes con su evidencia, para priorizar y resolver los casos que requieren mi decisión.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Listado de disputas pendientes</strong><br><strong>Dado que</strong> existen disputas en estado pendiente<br><strong>Cuando</strong> el Coordinador consulta las disputas<br><strong>Entonces</strong> el sistema retorna las disputas pendientes ordenadas por antigüedad<br><strong>Y</strong> cada una indica su origen: certificado sospechoso, apelación o reporte de usuario<br><br><strong>Escenario 2: Consulta de evidencia</strong><br><strong>Dado que</strong> el Coordinador consulta una disputa<br><strong>Cuando</strong> solicita su evidencia<br><strong>Entonces</strong> el sistema retorna los datos extraídos y la evaluación de riesgo del certificado, o la rúbrica y la evidencia del caso, según el origen</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US35</td><td>Coordinador</td><td>Alta</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Resolución de certificados sospechosos</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero decidir sobre los certificados marcados como sospechosos, para evitar que documentos fraudulentos se validen en la plataforma.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Certificado legítimo</strong><br><strong>Dado que</strong> el Coordinador revisa un certificado sospechoso<br><strong>Cuando</strong> lo resuelve como legítimo<br><strong>Entonces</strong> el certificado cambia a estado verificado<br><strong>Y</strong> se vincula a la ruta del estudiante<br><br><strong>Escenario 2: Certificado fraudulento</strong><br><strong>Dado que</strong> el Coordinador revisa un certificado sospechoso<br><strong>Cuando</strong> lo resuelve como fraudulento<br><strong>Entonces</strong> el certificado cambia a estado rechazado<br><strong>Y</strong> el sistema registra una sanción sobre la cuenta del estudiante<br><br><strong>Escenario 3: Resolución sin observaciones</strong><br><strong>Dado que</strong> el Coordinador resuelve una disputa<br><strong>Cuando</strong> no registra observaciones<br><strong>Entonces</strong> el sistema no aplica la resolución<br><strong>Y</strong> exige el registro de observaciones</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US36</td><td>Coordinador</td><td>Alta</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Resolución de apelaciones</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero resolver las apelaciones de los estudiantes sobre decisiones de Verificadores, para corregir decisiones incorrectas y mantener la confianza en el proceso.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Decisión confirmada</strong><br><strong>Dado que</strong> el Coordinador revisa una apelación<br><strong>Cuando</strong> confirma la decisión del Verificador<br><strong>Entonces</strong> la disputa se resuelve sin cambios sobre el caso original<br><br><strong>Escenario 2: Decisión revertida</strong><br><strong>Dado que</strong> el Coordinador revisa una apelación<br><strong>Cuando</strong> revierte la decisión del Verificador<br><strong>Entonces</strong> el caso original cambia a aprobado<br><strong>Y</strong> el sistema registra la reversión en la confiabilidad del Verificador</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US37</td><td>Coordinador</td><td>Alta</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Habilitación de reevaluación o nuevo intento</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero habilitar una reevaluación o un nuevo intento a un estudiante, para que vuelva a demostrar su habilidad cuando existan dudas sobre un resultado.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Habilitación de nuevo intento</strong><br><strong>Dado que</strong> un estudiante agotó los intentos de un nodo<br><strong>Cuando</strong> el Coordinador habilita un nuevo intento con su justificación<br><strong>Entonces</strong> el sistema habilita una nueva evaluación en ese nodo<br><strong>Y</strong> registra la justificación del Coordinador<br><br><strong>Escenario 2: Reevaluación de un resultado aprobado</strong><br><strong>Dado que</strong> el Coordinador identifica dudas sobre un intento aprobado<br><strong>Cuando</strong> ordena una reevaluación<br><strong>Entonces</strong> el nodo del estudiante vuelve a estado disponible<br><strong>Y</strong> el sistema genera una nueva evaluación</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US38</td><td>Coordinador</td><td>Media</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Exigencia de nuevo examen al Verificador</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero exigir que un Verificador con baja confiabilidad vuelva a rendir su examen de ingreso, para asegurar la calidad de sus revisiones.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Exigencia de nuevo examen</strong><br><strong>Dado que</strong> un Verificador tiene una confiabilidad menor al umbral definido<br><strong>Cuando</strong> el Coordinador exige un nuevo examen de ingreso<br><strong>Entonces</strong> el sistema suspende su habilitación en la habilidad<br><strong>Y</strong> reasigna sus casos abiertos a otros Verificadores<br><br><strong>Escenario 2: Rehabilitación tras aprobar</strong><br><strong>Dado que</strong> un Verificador tiene la habilitación suspendida por exigencia de nuevo examen<br><strong>Cuando</strong> aprueba el examen de ingreso<br><strong>Entonces</strong> el sistema restablece su habilitación en la habilidad</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US39</td><td>Coordinador</td><td>Media</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Definición del plazo de actividad de los Verificadores</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero definir el plazo máximo para resolver un caso asignado, para que los estudiantes no esperen indefinidamente una revisión.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Definición del plazo</strong><br><strong>Dado que</strong> el Coordinador tiene una sesión activa<br><strong>Cuando</strong> define un plazo de resolución de 48 horas<br><strong>Entonces</strong> el sistema aplica ese plazo a los casos asignados a partir de ese momento<br><br><strong>Escenario 2: Caso vencido</strong><br><strong>Dado que</strong> un Verificador no resuelve un caso dentro del plazo definido<br><strong>Cuando</strong> el plazo vence<br><strong>Entonces</strong> el sistema reasigna el caso a otro Verificador disponible<br><strong>Y</strong> registra el incumplimiento en la confiabilidad del Verificador original</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US40</td><td>Coordinador</td><td>Media</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de métricas de la plataforma</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero consultar métricas agregadas de estudiantes y Verificadores, para tomar decisiones informadas sobre la calidad y la demanda de habilidades.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Métricas de demanda</strong><br><strong>Dado que</strong> existen rutas registradas en la plataforma<br><strong>Cuando</strong> el Coordinador consulta las métricas de demanda<br><strong>Entonces</strong> el sistema retorna las habilidades más solicitadas y las certificaciones más frecuentes en el periodo seleccionado<br><br><strong>Escenario 2: Métricas de dificultad</strong><br><strong>Dado que</strong> existen intentos de evaluación registrados<br><strong>Cuando</strong> el Coordinador consulta las métricas de dificultad<br><strong>Entonces</strong> el sistema retorna las habilidades y sub-temas con mayor tasa de desaprobación<br><br><strong>Escenario 3: Métricas de Verificadores</strong><br><strong>Dado que</strong> existen casos resueltos<br><strong>Cuando</strong> el Coordinador consulta el desempeño de los Verificadores<br><strong>Entonces</strong> el sistema retorna los Verificadores ordenados por confiabilidad<br><strong>Y</strong> el tiempo promedio de resolución de cada uno</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US41</td><td>Visitante</td><td>Alta</td><td>EP09</td></tr>
+  <tr><th>Title</th><td colspan="3">Propuesta de valor para estudiantes</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como visitante, quiero conocer cómo SkillSwap me ayuda a demostrar mis habilidades más allá de un certificado, para decidir si la plataforma responde a mi necesidad.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Acceso a la propuesta de valor</strong><br><strong>Dado que</strong> el visitante accede a la landing page<br><strong>Cuando</strong> consulta la información dirigida a estudiantes<br><strong>Entonces</strong> el sitio presenta la propuesta de valor: rutas generadas por IA, validación de certificados, evaluaciones prácticas y verificación por pares<br><br><strong>Escenario 2: Explicación del proceso</strong><br><strong>Dado que</strong> el visitante consulta la información dirigida a estudiantes<br><strong>Cuando</strong> revisa el funcionamiento de la plataforma<br><strong>Entonces</strong> el sitio describe en orden los pasos: declarar la meta, subir certificados, rendir evaluaciones y obtener la validación final</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US42</td><td>Visitante</td><td>Media</td><td>EP09</td></tr>
+  <tr><th>Title</th><td colspan="3">Información para futuros Verificadores</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como visitante, quiero conocer los requisitos y beneficios de ser Verificador, para saber cómo participar y qué reconocimiento puedo obtener.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Requisitos para ser Verificador</strong><br><strong>Dado que</strong> el visitante accede a la landing page<br><strong>Cuando</strong> consulta la información dirigida a Verificadores<br><strong>Entonces</strong> el sitio presenta los requisitos de habilitación: completar la ruta de certificación y aprobar el examen de ingreso<br><br><strong>Escenario 2: Beneficios del Verificador</strong><br><strong>Dado que</strong> el visitante consulta la información dirigida a Verificadores<br><strong>Cuando</strong> revisa los beneficios<br><strong>Entonces</strong> el sitio explica qué son los SkillCredits, cómo se obtienen y cómo se comparten como credencial verificable</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US43</td><td>Visitante</td><td>Alta</td><td>EP09</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de planes y precios</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como visitante, quiero conocer el precio y los beneficios del plan mensual, para evaluar si la suscripción se ajusta a mi presupuesto.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta del plan mensual</strong><br><strong>Dado que</strong> el visitante accede a la landing page<br><strong>Cuando</strong> consulta los planes<br><strong>Entonces</strong> el sitio presenta el precio mensual en soles y los beneficios incluidos en la suscripción<br><br><strong>Escenario 2: Condiciones de la suscripción</strong><br><strong>Dado que</strong> el visitante consulta los planes<br><strong>Cuando</strong> revisa las condiciones<br><strong>Entonces</strong> el sitio informa que la suscripción se gestiona mediante Google Play y puede cancelarse en cualquier momento</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US44</td><td>Visitante</td><td>Alta</td><td>EP09</td></tr>
+  <tr><th>Title</th><td colspan="3">Descarga de la aplicación</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como visitante, quiero acceder a la descarga de la aplicación desde la landing page, para instalarla en mi dispositivo sin buscarla manualmente.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Redirección a la tienda</strong><br><strong>Dado que</strong> el visitante accede a la landing page desde cualquier dispositivo<br><strong>Cuando</strong> solicita descargar la aplicación<br><strong>Entonces</strong> el sitio lo redirige a la ficha de SkillSwap en Google Play<br><br><strong>Escenario 2: Requisito de correo institucional</strong><br><strong>Dado que</strong> el visitante solicita descargar la aplicación<br><strong>Cuando</strong> el sitio presenta la información de registro<br><strong>Entonces</strong> el sitio informa que el registro requiere un correo institucional con dominio .edu.pe</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US45</td><td>Visitante</td><td>Media</td><td>EP09</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de preguntas frecuentes</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como visitante, quiero consultar las preguntas frecuentes sobre la plataforma, para resolver mis dudas antes de registrarme.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta de preguntas frecuentes</strong><br><strong>Dado que</strong> el visitante accede a la landing page<br><strong>Cuando</strong> consulta las preguntas frecuentes<br><strong>Entonces</strong> el sitio presenta respuestas sobre la validación de certificados, el rol del Verificador, los SkillCredits y la suscripción<br><br><strong>Escenario 2: Sitio adaptable</strong><br><strong>Dado que</strong> el visitante accede a la landing page desde un dispositivo móvil<br><strong>Cuando</strong> el sitio se carga<br><strong>Entonces</strong> el contenido se adapta al tamaño del dispositivo y permanece legible sin desplazamiento horizontal</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS01</td><td>Developer</td><td>Alta</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoint de registro de usuarios</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar el endpoint POST /api/v1/authentication/sign-up, para que la aplicación móvil registre usuarios validando el dominio institucional del correo.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Registro exitoso</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/authentication/sign-up está disponible<br><strong>Cuando</strong> se envía un request con username, email institucional y password válidos<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene el UserResource con id, username, email, role e isVerified<br><br><strong>Escenario 2: Dominio no institucional</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/authentication/sign-up está disponible<br><strong>Cuando</strong> se envía un request con un email cuyo dominio no es .edu.pe<br><strong>Entonces</strong> el response tiene el código 400 Bad Request<br><strong>Y</strong> el body contiene el mensaje de error de dominio no permitido<br><br><strong>Escenario 3: Email o username existente</strong><br><strong>Dado que</strong> ya existe un usuario con el mismo email o username<br><strong>Cuando</strong> se envía el request de registro<br><strong>Entonces</strong> el response tiene el código 409 Conflict</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS02</td><td>Developer</td><td>Alta</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoint de autenticación con JWT</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar el endpoint POST /api/v1/authentication/sign-in, para que la aplicación móvil obtenga un token JWT con el cual consumir los servicios protegidos.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Credenciales válidas</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/authentication/sign-in está disponible<br><strong>Cuando</strong> se envía un request con username y password válidos<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el AuthenticatedUserResource con el token JWT<br><br><strong>Escenario 2: Credenciales inválidas</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/authentication/sign-in está disponible<br><strong>Cuando</strong> se envía un request con credenciales incorrectas<br><strong>Entonces</strong> el response tiene el código 401 Unauthorized<br><br><strong>Escenario 3: Token ausente en un recurso protegido</strong><br><strong>Dado que</strong> un endpoint requiere autenticación<br><strong>Cuando</strong> se envía un request sin el header Authorization<br><strong>Entonces</strong> el response tiene el código 401 Unauthorized</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS03</td><td>Developer</td><td>Alta</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoint de registro de certificados</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar el endpoint POST /api/v1/certificates, para registrar los certificados con los datos extraídos on-device y disparar su evaluación de riesgo.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Registro de certificado</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/certificates está disponible<br><strong>Cuando</strong> se envía un UploadCertificateResource válido con los datos extraídos, el fileHash y la storageReference<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene el certificado con su status y riskAssessment<br><br><strong>Escenario 2: Hash duplicado del mismo propietario</strong><br><strong>Dado que</strong> el propietario ya registró un certificado con el mismo fileHash<br><strong>Cuando</strong> se envía el request<br><strong>Entonces</strong> el response tiene el código 409 Conflict<br><br><strong>Escenario 3: Campos obligatorios ausentes</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/certificates está disponible<br><strong>Cuando</strong> se envía un request sin holderName, institutionName o courseName<br><strong>Entonces</strong> el response tiene el código 400 Bad Request</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS04</td><td>Developer</td><td>Media</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoints de consulta de certificados</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints GET /api/v1/certificates/{id} y GET /api/v1/certificates?ownerId={ownerId}, para que la aplicación móvil consulte el estado de los certificados.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta por id existente</strong><br><strong>Dado que</strong> existe un certificado con el id solicitado<br><strong>Cuando</strong> se envía un request GET /api/v1/certificates/{id}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el detalle y el status del certificado<br><br><strong>Escenario 2: Consulta por id inexistente</strong><br><strong>Dado que</strong> no existe un certificado con el id solicitado<br><strong>Cuando</strong> se envía un request GET /api/v1/certificates/{id}<br><strong>Entonces</strong> el response tiene el código 404 Not Found<br><br><strong>Escenario 3: Listado por propietario</strong><br><strong>Dado que</strong> un estudiante registró certificados<br><strong>Cuando</strong> se envía un request GET /api/v1/certificates?ownerId={ownerId}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene únicamente los certificados de ese propietario</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS05</td><td>Developer</td><td>Alta</td><td>EP02</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoints de generación y consulta de rutas</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints POST /api/v1/learning-paths y GET /api/v1/learning-paths/{studentId}, para generar la ruta a partir de la meta declarada y consultarla con el estado de sus nodos.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Generación de ruta</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/learning-paths está disponible<br><strong>Cuando</strong> se envía un DeclareGoalResource con una meta interpretable<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene la ruta con sus nodos ordenados y sus estados<br><br><strong>Escenario 2: Meta no interpretable</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/learning-paths está disponible<br><strong>Cuando</strong> se envía una meta sin correspondencia en la taxonomía de habilidades<br><strong>Entonces</strong> el response tiene el código 422 Unprocessable Entity<br><br><strong>Escenario 3: Consulta de ruta inexistente</strong><br><strong>Dado que</strong> el estudiante no tiene una ruta activa<br><strong>Cuando</strong> se envía un request GET /api/v1/learning-paths/{studentId}<br><strong>Entonces</strong> el response tiene el código 404 Not Found</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS06</td><td>Developer</td><td>Alta</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoint de generación de evaluaciones</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar el endpoint POST /api/v1/path-nodes/{nodeId}/assessment-blueprint, para generar mediante IA la evaluación correspondiente a un nodo disponible.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Nodo disponible</strong><br><strong>Dado que</strong> el nodo {nodeId} tiene estado available<br><strong>Cuando</strong> se envía el request POST /api/v1/path-nodes/{nodeId}/assessment-blueprint<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene el blueprint con sus preguntas sin exponer las respuestas correctas<br><br><strong>Escenario 2: Nodo bloqueado</strong><br><strong>Dado que</strong> el nodo {nodeId} tiene estado locked<br><strong>Cuando</strong> se envía el request<br><strong>Entonces</strong> el response tiene el código 409 Conflict<br><br><strong>Escenario 3: Servicio de IA no disponible</strong><br><strong>Dado que</strong> el servicio de generación de IA no responde<br><strong>Cuando</strong> se envía el request<br><strong>Entonces</strong> el response tiene el código 503 Service Unavailable<br><strong>Y</strong> el nodo mantiene su estado sin cambios</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS07</td><td>Developer</td><td>Alta</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoints de registro de intentos</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints POST /api/v1/assessment-attempts y GET /api/v1/assessment-attempts/{id}, para calificar los intentos en el servidor y abrir un caso de verificación cuando no se aprueban.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Intento aprobado</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/assessment-attempts está disponible<br><strong>Cuando</strong> se envía un SubmitAssessmentAttemptResource cuyas respuestas alcanzan el umbral<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene el score y passed con valor true<br><br><strong>Escenario 2: Intento no aprobado</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/assessment-attempts está disponible<br><strong>Cuando</strong> se envía un request cuyas respuestas no alcanzan el umbral<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene passed con valor false y el id del VerificationCase abierto<br><br><strong>Escenario 3: Blueprint inexistente</strong><br><strong>Dado que</strong> el blueprintId enviado no existe<br><strong>Cuando</strong> se envía el request<br><strong>Entonces</strong> el response tiene el código 404 Not Found</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS08</td><td>Developer</td><td>Alta</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoints de gestión de casos de verificación</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints de VerificationCaseController y VerifierProfileController, para que los Verificadores consulten sus casos, gestionen su disponibilidad y registren sus decisiones.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Listado de casos asignados</strong><br><strong>Dado que</strong> un Verificador tiene casos asignados<br><strong>Cuando</strong> se envía un request GET /api/v1/verification-cases?verifierId={id}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene únicamente los casos asignados a ese Verificador<br><br><strong>Escenario 2: Registro de decisión</strong><br><strong>Dado que</strong> un caso está asignado al Verificador autenticado<br><strong>Cuando</strong> se envía un request PATCH /api/v1/verification-cases/{id}/decision con un ResolveCaseResource completo<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el caso cambia a estado resuelto<br><br><strong>Escenario 3: Decisión de un Verificador no asignado</strong><br><strong>Dado que</strong> un caso no está asignado al Verificador autenticado<br><strong>Cuando</strong> se envía el request PATCH /api/v1/verification-cases/{id}/decision<br><strong>Entonces</strong> el response tiene el código 403 Forbidden<br><br><strong>Escenario 4: Actualización de disponibilidad</strong><br><strong>Dado que</strong> existe un perfil de Verificador<br><strong>Cuando</strong> se envía un request PATCH /api/v1/verifier-profiles/{id}/availability<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el valor actualizado de available</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS09</td><td>Developer</td><td>Media</td><td>EP07</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoints de billetera y canje de SkillCredits</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints de WalletController y CreditTransactionController, para consultar saldos, historial de movimientos y registrar canjes de SkillCredits.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta de saldo</strong><br><strong>Dado que</strong> el usuario tiene una billetera<br><strong>Cuando</strong> se envía un request GET /api/v1/wallets/{userId}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el balance actual<br><br><strong>Escenario 2: Canje con saldo suficiente</strong><br><strong>Dado que</strong> el saldo del usuario cubre el costo del beneficio<br><strong>Cuando</strong> se envía un request POST /api/v1/credit-transactions/redeem<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene la transacción de tipo REDEEMED<br><br><strong>Escenario 3: Canje con saldo insuficiente</strong><br><strong>Dado que</strong> el saldo del usuario no cubre el costo del beneficio<br><strong>Cuando</strong> se envía un request POST /api/v1/credit-transactions/redeem<br><strong>Entonces</strong> el response tiene el código 422 Unprocessable Entity<br><strong>Y</strong> el balance permanece sin cambios</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS10</td><td>Developer</td><td>Alta</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoints de gestión de disputas</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints de DisputeController, para registrar reportes de usuarios y permitir que el Coordinador consulte y resuelva las disputas pendientes.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Registro de reporte</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/disputes/reports está disponible<br><strong>Cuando</strong> se envía un CreateUserReportResource válido<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> la disputa se registra con sourceType USER_REPORT y status PENDING<br><br><strong>Escenario 2: Listado de pendientes por un Coordinador</strong><br><strong>Dado que</strong> el usuario autenticado tiene el rol Coordinator<br><strong>Cuando</strong> se envía un request GET /api/v1/disputes?status=pending<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene únicamente disputas en estado PENDING<br><br><strong>Escenario 3: Acceso sin rol de Coordinador</strong><br><strong>Dado que</strong> el usuario autenticado tiene el rol Student<br><strong>Cuando</strong> se envía un request PATCH /api/v1/disputes/{disputeId}/resolve<br><strong>Entonces</strong> el response tiene el código 403 Forbidden<br><br><strong>Escenario 4: Resolución incoherente</strong><br><strong>Dado que</strong> el outcome enviado no es coherente con el sourceType de la disputa<br><strong>Cuando</strong> se envía el request PATCH /api/v1/disputes/{disputeId}/resolve<br><strong>Entonces</strong> el response tiene el código 400 Bad Request<br><strong>Y</strong> la disputa permanece en estado PENDING</td></tr>
+</table>
+
+*(Tabla 12. User Stories del proyecto - Elaboración propia.)*
 
 ### 2.4.2. Impact Mapping
-*(Nota: Insertar los diagramas de Impact Mapping conectando los Business Goals con los User Personas y las funcionalidades móviles).*
+
+El Impact Mapping de SkillSwap se elaboró en UXPressia con el objetivo de conectar los objetivos del negocio con los cambios de comportamiento que se esperan de los usuarios y con las funcionalidades que la aplicación debe ofrecer para provocarlos. Se definieron cuatro **Business Goals** bajo los criterios SMART, cuyas métricas se derivan de las hipótesis planteadas en la sección 1.2.2.3. Como **Actors** se emplearon los User Personas identificados en la sección 2.3.1 —Valeria Ramos (Estudiante), Carlos Mendoza (Verificador) y Jorge Ríos (Coordinador)—, respondiendo a la pregunta *¿quiénes nos ayudarán a lograr la meta?*. La columna **Impacts** describe cómo se espera que cada persona cambie su comportamiento, la columna **Deliverables** responde a *¿qué puede hacer la plataforma para provocar esos impactos?*, y la columna **User Stories** reúne las historias de la sección 2.4.1 que permiten construir cada deliverable.
+
+**Business Goal 1: Adopción y suscripción**
+
+*Alcanzar 2,000 estudiantes universitarios con suscripción mensual activa en los primeros 6 meses desde el lanzamiento de la aplicación.*
+
+Esta meta asegura el ingreso recurrente principal del modelo de negocio. Para lograrla se necesita que Valeria Ramos se registre con su correo institucional y se suscriba al plan mensual, y que declare su meta de aprendizaje y siga la ruta que la IA le propone. Para provocar estos comportamientos, la plataforma ofrece el registro con validación de dominio `.edu.pe`, la suscripción mediante Google Play Billing, el intérprete de metas en lenguaje natural y la ruta de aprendizaje personalizada (US01, US05, US06 y US08).
+
+**Figura 20**
+
+*Impact Map - Business Goal 1: Adopción y suscripción*
+
+<p align="center">
+  <img src="public/assets/images-doc/impact-map-1.png" alt="Impact Map - Adopción y suscripción" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+**Business Goal 2: Validación práctica de habilidades**
+
+*Lograr que el 70 % de los estudiantes que suben un certificado rindan su evaluación práctica y que menos del 30 % de los intentos requiera la intervención de un Verificador, durante los primeros 6 meses de operación.*
+
+Esta meta mide la propuesta de valor central de SkillSwap: que el certificado se complemente con una demostración práctica y que la IA resuelva la mayoría de los casos sin intervención humana. Se espera que Valeria suba sus certificados como evidencia, rinda voluntariamente la evaluación práctica de cada uno, refuerce solo el sub-tema en el que falla y, al completar su ruta, demuestre su dominio integral. Los deliverables asociados son la extracción automática de datos con ML Kit, la validación de correspondencia entre certificado y habilidad, los quizzes generados por IA con calificación inmediata, el diagnóstico del sub-tema débil y la demostración final supervisada por un verificador (US13, US15, US17, US18, US20 y US29).
+
+**Figura 21**
+
+*Impact Map - Business Goal 2: Validación práctica de habilidades*
+
+<p align="center">
+  <img src="public/assets/images-doc/impact-map-2.png" alt="Impact Map - Validación práctica de habilidades" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+**Business Goal 3: Red de Verificadores**
+
+*Contar con 150 Verificadores habilitados que resuelvan el 85 % de los casos escalados en menos de 48 horas, dentro de los primeros 8 meses desde el lanzamiento.*
+
+La capacidad de la plataforma para resolver los casos que la IA no puede cerrar depende de contar con suficientes Verificadores activos. Para ello se necesita que Carlos Mendoza se habilite aprobando el examen de ingreso, resuelva a tiempo los casos que se le asignan y se mantenga activo gracias al reconocimiento profesional. La plataforma lo impulsa mediante el examen de ingreso por habilidad, la asignación automática de casos por afinidad, la rúbrica estructurada de evaluación, la acreditación de SkillCredits y la credencial verificable para compartir en LinkedIn (US22, US24, US25, US30 y US33).
+
+**Figura 22**
+
+*Impact Map - Business Goal 3: Red de Verificadores*
+
+<p align="center">
+  <img src="public/assets/images-doc/impact-map-3.png" alt="Impact Map - Red de Verificadores" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+**Business Goal 4: Calidad y confianza del proceso**
+
+*Mantener la tasa de disputas y reevaluaciones por debajo del 5 % del total de evaluaciones realizadas y resolver el 90 % de las disputas en menos de 72 horas, durante el primer año de operación.*
+
+Esta meta protege la credibilidad de todo lo que se certifica en la plataforma. Involucra a dos actores: Jorge Ríos, de quien se espera que resuelva a tiempo las disputas pendientes y controle la calidad de las evaluaciones y de los Verificadores; y Valeria, de quien se espera que confíe en el proceso y apele solo cuando lo considere necesario. Los deliverables correspondientes son el panel de disputas con evidencia, la resolución de apelaciones, la habilitación de reevaluaciones, el nuevo examen obligatorio para Verificadores con baja confiabilidad y la apelación con plazo definido (US34, US36, US37, US38 y US27).
+
+**Figura 23**
+
+*Impact Map - Business Goal 4: Calidad y confianza del proceso*
+
+<p align="center">
+  <img src="public/assets/images-doc/impact-map-4.png" alt="Impact Map - Calidad y confianza del proceso" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+En conjunto, los cuatro Impact Maps muestran cómo cada funcionalidad de la aplicación contribuye a un objetivo de negocio medible: los dos primeros se centran en el Estudiante como fuente de ingresos y como beneficiario de la validación práctica, mientras que los dos últimos aseguran que el segmento que valida el conocimiento —Verificadores y Coordinadores— sostenga la capacidad y la confiabilidad del proceso.
 
 ### 2.4.3. Product Backlog
-*(Nota: Insertar la tabla del Product Backlog priorizado, estimando los Story Points de las historias adaptadas al desarrollo móvil).*
+
+El Product Backlog de SkillSwap reúne las 55 historias definidas en la sección 2.4.1, ordenadas según el valor que aportan al negocio y estimadas en Story Points con la escala de Fibonacci (1, 2, 3, 5 y 8), donde el valor refleja la complejidad, el esfuerzo y la incertidumbre relativa de cada historia.
+
+La estimación total del Product Backlog asciende a **204 Story Points**.
+
+| # Orden | User Story Id | Título | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
+| :---: | :---: | :--- | :---: | :---: |
+| 1 | US41 | Propuesta de valor para estudiantes | 2 | |
+| 2 | US43 | Consulta de planes y precios | 2 | |
+| 3 | US44 | Descarga de la aplicación | 1 | |
+| 4 | US42 | Información para futuros Verificadores | 2 | |
+| 5 | US45 | Consulta de preguntas frecuentes | 1 | |
+| 6 | TS05 | Endpoints de generación y consulta de rutas | 5 | |
+| 7 | US06 | Declaración de la meta en lenguaje natural | 8 | |
+| 8 | US08 | Consulta de la ruta de aprendizaje | 3 | |
+| 9 | TS03 | Endpoint de registro de certificados | 5 | |
+| 10 | US12 | Carga del certificado desde un archivo | 3 | |
+| 11 | US11 | Captura del certificado con la cámara | 3 | |
+| 12 | US13 | Extracción automática de datos del certificado | 8 | |
+| 13 | US15 | Correspondencia del certificado con la habilidad | 5 | |
+| 14 | TS06 | Endpoint de generación de evaluaciones | 5 | |
+| 15 | US17 | Generación del quiz de un nodo | 5 | |
+| 16 | TS07 | Endpoints de registro de intentos | 3 | |
+| 17 | US18 | Resolución del quiz con calificación en el servidor | 3 | |
+| 18 | US20 | Identificación del sub-tema débil | 5 | |
+| 19 | US05 | Suscripción al plan mensual | 5 | |
+| 20 | US09 | Reconocimiento de habilidades ya certificadas | 3 | |
+| 21 | US14 | Detección de certificados duplicados | 3 | |
+| 22 | TS04 | Endpoints de consulta de certificados | 2 | |
+| 23 | US16 | Consulta del estado de verificación | 3 | |
+| 24 | TS08 | Endpoints de gestión de casos de verificación | 5 | |
+| 25 | US24 | Asignación automática de casos por afinidad | 8 | |
+| 26 | US25 | Revisión del caso con rúbrica | 5 | |
+| 27 | US22 | Habilitación como Verificador mediante examen de ingreso | 5 | |
+| 28 | US23 | Gestión de disponibilidad | 2 | |
+| 29 | US26 | Aporte de evidencia adicional | 2 | |
+| 30 | TS01 | Endpoint de registro de usuarios | 3 | |
+| 31 | US01 | Registro con correo institucional | 3 | |
+| 32 | TS02 | Endpoint de autenticación con JWT | 2 | |
+| 33 | US02 | Inicio de sesión | 2 | |
+| 34 | US19 | Entrega de un miniproyecto | 8 | |
+| 35 | TS10 | Endpoints de gestión de disputas | 5 | |
+| 36 | US34 | Consulta de disputas pendientes | 3 | |
+| 37 | US35 | Resolución de certificados sospechosos | 3 | |
+| 38 | US27 | Apelación de la decisión del Verificador | 3 | |
+| 39 | US36 | Resolución de apelaciones | 3 | |
+| 40 | US37 | Habilitación de reevaluación o nuevo intento | 3 | |
+| 41 | TS09 | Endpoints de billetera y canje de SkillCredits | 3 | |
+| 42 | US30 | Acreditación de SkillCredits por caso resuelto | 3 | |
+| 43 | US31 | Consulta de billetera e historial | 2 | |
+| 44 | US33 | Compartir logros en LinkedIn | 3 | |
+| 45 | US38 | Exigencia de nuevo examen al Verificador | 3 | |
+| 46 | US39 | Definición del plazo de actividad de los Verificadores | 3 | |
+| 47 | US40 | Consulta de métricas de la plataforma | 5 | |
+| 48 | US32 | Canje de SkillCredits en la tienda | 3 | |
+| 49 | US04 | Configuración del perfil de intereses | 2 | |
+| 50 | US07 | Confirmación de la habilidad interpretada | 3 | |
+| 51 | US10 | Consulta de la ruta sin conexión | 5 | |
+| 52 | US21 | Conservación del avance ante pérdida de conexión | 5 | |
+| 53 | US03 | Acceso mediante biometría del dispositivo | 3 | |
+| 54 | US28 | Programación de la demostración final | 3 | |
+| 55 | US29 | Demostración final por video | 8 | |
+
+*(Tabla 13. Product Backlog - Elaboración propia.)*
+
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
 ### 2.5.1. EventStorming
-*(Nota: Documentar las fases de Candidate Context Discovery y Domain Message Flows Modeling realizadas por el equipo).*
+
+El EventStorming se desarrolló siguiendo los diez pasos propuestos en el material del curso, a partir del modelo de negocio descrito en el Capítulo I. El objetivo fue identificar los eventos del dominio de SkillSwap, ordenarlos en el tiempo, reconocer los puntos críticos del proceso y agrupar los agregados resultantes en bounded contexts candidatos.
+
+**Paso 1. Unstructured Exploration**
+
+En este primer paso se realizó una lluvia de ideas de los eventos de dominio relevantes para SkillSwap, redactados en tiempo pasado porque describen hechos que ya ocurrieron en el negocio. Se identificaron 64 eventos, que abarcan el registro y la suscripción del Estudiante, la generación de la ruta de certificación, el registro de certificados, la evaluación mediante quizzes y entregables prácticos, la revisión por parte de los Verificadores, la demostración final, la emisión de la certificación, la moderación de decisiones y la habilitación de nuevos Verificadores. En esta etapa los eventos se presentan sin orden, ya que el propósito es explorar el dominio antes de estructurarlo.
+
+**Figura 24**
+
+*EventStorming, paso 1: Unstructured Exploration*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-01-exploracion.png" alt="EventStorming paso 1: eventos de dominio de SkillSwap sin orden" width="900">
+</p>
+
+*Nota.* Eventos de dominio de SkillSwap identificados durante la exploración inicial, presentados sin orden cronológico. Elaboración propia.
+
+**Paso 2. Timelines**
+
+En el segundo paso, los eventos identificados se ordenaron en el tiempo. Por la cantidad de eventos, la línea de tiempo se organizó en carriles, uno por actor o ciclo de vida (Suscripción, Estudiante, Verificador y Moderación), y se dividió en tres fases del proceso. En cada carril, la fila superior muestra el camino exitoso y debajo se ubican los escenarios alternativos que se desprenden de cada evento.
+
+No se modelaron caminos separados para el plan gratuito y el premium, porque los eventos son los mismos en ambos: lo que cambia son los límites de rutas y de escalamientos, que aparecen como ramas, y la duración de las esperas y los plazos de revisión. Mantener un solo camino deja a la vista que ningún plan ofrece más oportunidades de aprobar.
+
+La primera fase abarca el registro, la suscripción y el registro de certificados. Cuando el Estudiante verifica su correo, se le asigna el plan gratuito, que puede evolucionar a una suscripción premium con su propio ciclo de cobro, renovación, rechazo del pago o cancelación. Luego declara su objetivo, recibe su ruta de certificación y sube sus certificados; si el riesgo documental resulta alto, el certificado se marca como sospechoso y su revisión pasa a Moderación.
+
+**Figura 25**
+
+*EventStorming, paso 2: Timelines (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-02a-registro.png" alt="EventStorming paso 2: registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Línea de tiempo en carriles del registro, la suscripción y el registro de certificados. Las líneas punteadas indican el traspaso entre carriles. Elaboración propia.
+
+La segunda fase corresponde a la evaluación de los nodos de la ruta. En los nodos de quiz, un intento desaprobado permite volver a intentarlo con preguntas nuevas hasta agotar los tres intentos, tras lo cual comienza un periodo de espera. En los nodos prácticos, el entregable enviado abre un caso de verificación que toma un Verificador en su propio carril; si el plazo de revisión vence, el caso se reasigna. La calificación que el Verificador registra por criterio es la que determina si el entregable se aprueba o si requiere cambios, en cuyo caso el Estudiante recibe los criterios no cumplidos y puede reenviar su entrega. Por cada revisión, el Verificador recibe SkillCredits, apruebe o rechace, y su confiabilidad se recalcula. Si el Estudiante reporta una decisión, se abre una disputa que resuelve Moderación; cuando la decisión se revierte, se aplica una sanción y la confiabilidad del Verificador vuelve a calcularse.
+
+**Figura 26**
+
+*EventStorming, paso 2: Timelines (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-02b-evaluacion.png" alt="EventStorming paso 2: evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Línea de tiempo en carriles de la evaluación de los nodos de quiz y de los nodos prácticos. Elaboración propia.
+
+La tercera fase cubre la demostración final, la certificación y la habilitación de nuevos Verificadores. Al completar la ruta, el Estudiante envía su demostración final, que califica un Verificador; esa calificación determina si la demostración se aprueba y se emite la certificación, o si se devuelven los criterios no cumplidos. Si el Estudiante reporta la calificación, se asigna un segundo revisor. La certificación emitida es, además, el requisito para que el Estudiante solicite el examen de ingreso y, al aprobarlo, quede habilitado como Verificador para esa habilidad.
+
+**Figura 27**
+
+*EventStorming, paso 2: Timelines (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-02c-certificacion.png" alt="EventStorming paso 2: demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Línea de tiempo en carriles de la demostración final, la emisión de la certificación y la habilitación de un Verificador. Elaboración propia.
+
+**Paso 3. Pain Points**
+
+En el tercer paso se revisó la línea de tiempo para identificar los puntos críticos del proceso: dudas, reglas que aún no están definidas y riesgos que el equipo debe resolver antes de implementar. Cada punto crítico se registró como un rombo rosado unido al evento en el que aparece. Se identificaron 15 puntos críticos, repartidos en las mismas tres fases del paso anterior.
+
+En la fase de registro, suscripción y certificados, las dudas se concentran en la generación de la ruta y en la lectura de los certificados: cuántos nodos prácticos debe incluir como mínimo una ruta, qué ocurre si el OCR no logra leer un certificado y si un certificado marcado como sospechoso bloquea el avance del Estudiante mientras Moderación lo revisa. En la suscripción, queda por definir si existe un periodo de gracia cuando falla el cobro.
+
+**Figura 28**
+
+*EventStorming, paso 3: Pain Points (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-03a-registro.png" alt="EventStorming paso 3: puntos críticos del registro, la suscripción y los certificados" width="900">
+</p>
+
+*Nota.* Puntos críticos, representados como rombos rosados, identificados sobre la línea de tiempo del registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la fase de evaluación de los nodos aparece el mayor número de puntos críticos. En los quizzes, preocupa cómo controlar la calidad de las preguntas generadas por la inteligencia artificial, si se requiere un certificado para rendir un nodo y cuánto dura el periodo de espera en cada plan. En la revisión humana, quedan abiertas la situación del Estudiante del plan gratuito que alcanza su límite de escalamientos, el tratamiento de un Verificador que deja vencer varios plazos, los umbrales de cada rango de Verificador y el destino de los casos que tenía asignados un Verificador sancionado.
+
+**Figura 29**
+
+*EventStorming, paso 3: Pain Points (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-03b-evaluacion.png" alt="EventStorming paso 3: puntos críticos de la evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Puntos críticos, representados como rombos rosados, identificados sobre la línea de tiempo de la evaluación de los nodos de quiz y de los nodos prácticos. Elaboración propia.
+
+En la fase de demostración final, certificación y nuevo Verificador, los puntos críticos se relacionan con la disponibilidad y la imparcialidad de la revisión: qué ocurre si no hay Verificadores habilitados para la habilidad, quién define los criterios y el umbral de aprobación de la rúbrica y si un Verificador puede revisar a alguien que conoce. Estas tres dudas aplican también a la revisión de los nodos prácticos, pero se ubicaron en esta fase para no recargar la figura anterior. Por último, queda por definir quién diseña el examen de ingreso para Verificadores y cuándo puede repetirse.
+
+**Figura 30**
+
+*EventStorming, paso 3: Pain Points (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-03c-certificacion.png" alt="EventStorming paso 3: puntos críticos de la demostración final, la certificación y el nuevo Verificador" width="900">
+</p>
+
+*Nota.* Puntos críticos, representados como rombos rosados, identificados sobre la línea de tiempo de la demostración final, la emisión de la certificación y la habilitación de un Verificador. Elaboración propia.
+
+**Paso 4. Pivotal Points**
+
+En el cuarto paso se identificaron los eventos pivotales, es decir, aquellos después de los cuales el proceso entra en una fase distinta. Cada uno se marcó con una línea vertical ubicada inmediatamente después del evento, en su carril. Se identificaron seis eventos pivotales.
+
+En la fase de registro, suscripción y certificados hay dos. El primero es "Correo verificado": a partir de ese momento el usuario deja de ser anónimo y puede operar en la plataforma. El segundo es "Ruta de certificación generada", que cierra el diagnóstico del objetivo y da inicio al recorrido de aprendizaje.
+
+**Figura 31**
+
+*EventStorming, paso 4: Pivotal Points (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-04a-registro.png" alt="EventStorming paso 4: eventos pivotales del registro, la suscripción y los certificados" width="900">
+</p>
+
+*Nota.* Las líneas verticales marcan los eventos pivotales que separan el registro, el diagnóstico del objetivo y el inicio del recorrido de aprendizaje. Elaboración propia.
+
+En la fase de evaluación de los nodos, el evento pivotal es "Caso de verificación abierto". Hasta ese punto la evaluación es automática, porque los quizzes se corrigen solos; desde ese punto interviene un Verificador. Este cambio se repite en cada nodo práctico de la ruta.
+
+**Figura 32**
+
+*EventStorming, paso 4: Pivotal Points (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-04b-evaluacion.png" alt="EventStorming paso 4: evento pivotal de la evaluación de los nodos" width="900">
+</p>
+
+*Nota.* La línea vertical marca el paso de la evaluación automática a la revisión humana en los nodos prácticos. Elaboración propia.
+
+En la fase de demostración final, certificación y nuevo Verificador hay tres eventos pivotales. "Ruta completada" cierra la evaluación de los nodos y habilita la demostración final. "Certificación emitida" cierra el recorrido del Estudiante, porque la habilidad queda certificada. Por último, "Verificador habilitado para la habilidad" marca el cambio de rol: desde ese momento, el Estudiante puede revisar el trabajo de otros.
+
+**Figura 33**
+
+*EventStorming, paso 4: Pivotal Points (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-04c-certificacion.png" alt="EventStorming paso 4: eventos pivotales de la demostración final, la certificación y el nuevo Verificador" width="900">
+</p>
+
+*Nota.* Las líneas verticales marcan el inicio de la demostración final, la emisión de la certificación y la habilitación del Estudiante como Verificador. Elaboración propia.
+
+**Paso 5. Commands**
+
+En el quinto paso se identificaron los comandos, es decir, las decisiones que producen cada evento. Cada comando se registró en un post-it azul a la izquierda del evento que dispara, con el actor que lo ejecuta en un post-it amarillo encima. En este paso solo se incluyen los comandos que ejecuta una persona; los que ejecuta el sistema se incorporan en el paso siguiente, junto con las políticas. El modelo tiene dos actores, el Estudiante y el Verificador. Moderación no aparece como actor, porque opera desde un panel externo a la aplicación.
+
+En la fase de registro, suscripción y certificados, todos los comandos los ejecuta el Estudiante: registrarse, verificar su correo, iniciar sesión, declarar su objetivo y subir certificados, además de iniciar o cancelar la suscripción premium. La suscripción vencida y la suscripción cancelada son desenlaces independientes: la primera se produce cuando falla el cobro y la segunda, cuando el Estudiante lo decide.
+
+**Figura 34**
+
+*EventStorming, paso 5: Commands (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-05a-registro.png" alt="EventStorming paso 5: Commands, registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Comandos, en azul, y actores, en amarillo, del registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la evaluación de los nodos, el Estudiante envía los intentos de quiz, los entregables y sus reenvíos, y puede calificar la revisión recibida o reportar la decisión. El único comando del Verificador en esta fase es calificar el entregable: el Verificador no decide si el entregable se aprueba, sino que registra la calificación de cada criterio de la rúbrica.
+
+**Figura 35**
+
+*EventStorming, paso 5: Commands (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-05b-evaluacion.png" alt="EventStorming paso 5: Commands, evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Comandos, en azul, y actores, en amarillo, de la evaluación de los nodos de quiz y de los nodos prácticos. Elaboración propia.
+
+En la fase final, el Estudiante envía la demostración final y puede reportar su calificación, y el Verificador la califica con la rúbrica. Los comandos para solicitar y rendir el examen de ingreso los ejecuta el Estudiante, aunque aparecen en el carril del Verificador, porque todavía no está habilitado como tal. Una vez habilitado, el Verificador actualiza su disponibilidad.
+
+**Figura 36**
+
+*EventStorming, paso 5: Commands (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-05c-certificacion.png" alt="EventStorming paso 5: Commands, demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Comandos, en azul, y actores, en amarillo, de la demostración final, la emisión de la certificación y la habilitación de un Verificador. Elaboración propia.
+
+**Paso 6. Policies**
+
+En el sexto paso se agregaron las políticas, que representan las reacciones automáticas del sistema: cuando ocurre un evento, el sistema ejecuta un comando sin que intervenga una persona. Cada política se registró en un post-it morado sobre el comando que ejecuta. Con este paso aparecen en el tablero los comandos del sistema, que completan la cadena entre los eventos.
+
+En la primera fase, las políticas envían el correo de verificación cuando el Estudiante se registra, asignan el plan gratuito cuando verifica su correo y generan la ruta de certificación cuando declara un objetivo. Cada certificado subido pasa por una cadena automática: se extraen sus datos, se evalúa el riesgo documental y, según el resultado, se registra o se escala a Moderación. En la suscripción, el cobro se ejecuta al inicio de cada periodo mensual y, si el pago se rechaza, la suscripción vence.
+
+**Figura 37**
+
+*EventStorming, paso 6: Policies (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-06a-registro.png" alt="EventStorming paso 6: Policies, registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Políticas, en morado, y comandos del sistema del registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la evaluación se concentran las reglas de negocio del modelo. El quiz se genera con preguntas nuevas al iniciar el nodo o al terminar el periodo de espera, y al agotar los intentos comienza la espera. Al enviar un entregable se abre un caso, siempre que el plan tenga escalamientos disponibles; al abrir el caso se asigna un Verificador y, si vence el plazo, el caso se reasigna. La política central es el cálculo de la aprobación: cuando el Verificador califica el entregable, el sistema calcula el resultado contra el umbral de la rúbrica y, si no lo alcanza, devuelve los criterios no cumplidos. Cada calificación acredita SkillCredits al Verificador, apruebe o rechace, y recalcula su confiabilidad; cuando el total de SkillCredits cruza un umbral, se otorga el rango correspondiente.
+
+**Figura 38**
+
+*EventStorming, paso 6: Policies (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-06b-evaluacion.png" alt="EventStorming paso 6: Policies, evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Políticas, en morado, y comandos del sistema de la evaluación de los nodos. Elaboración propia.
+
+En la fase final, completar todos los nodos completa la ruta y habilita la demostración final. La aprobación de la demostración también la calcula el sistema a partir de la calificación del Verificador y, cuando se aprueba, se emite la certificación. Si el Estudiante reporta la calificación, se asigna un segundo revisor. Por último, aprobar el examen de ingreso habilita al Verificador para esa habilidad.
+
+**Figura 39**
+
+*EventStorming, paso 6: Policies (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-06c-certificacion.png" alt="EventStorming paso 6: Policies, demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Políticas, en morado, y comandos del sistema de la demostración final, la emisión de la certificación y la habilitación de un Verificador. Elaboración propia.
+
+**Paso 7. Read Models**
+
+En el séptimo paso se identificaron los read models, es decir, la información que cada actor consulta antes de ejecutar un comando. Cada read model se registró en un post-it verde junto al comando que apoya.
+
+En la primera fase, el Estudiante consulta su plan y sus límites antes de declarar un objetivo o de pasar a premium, el estado de sus certificados antes de subir uno nuevo y el estado de su suscripción antes de cancelarla.
+
+**Figura 40**
+
+*EventStorming, paso 7: Read Models (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-07a-registro.png" alt="EventStorming paso 7: Read Models, registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Read models, en verde, que consulta el Estudiante durante el registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la evaluación, el Estudiante consulta el quiz, el enunciado práctico con su rúbrica y los criterios no cumplidos antes de reenviar un entregable o de reportar una decisión. Antes de calificar una revisión, consulta el perfil público del Verificador. El Verificador, por su parte, trabaja sobre su cola de casos con plazos y sobre el formulario de la rúbrica.
+
+**Figura 41**
+
+*EventStorming, paso 7: Read Models (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-07b-evaluacion.png" alt="EventStorming paso 7: Read Models, evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Read models, en verde, que consultan el Estudiante y el Verificador durante la evaluación de los nodos. Elaboración propia.
+
+En la fase final, el Estudiante consulta el enunciado y la rúbrica de la demostración antes de enviarla, y su elegibilidad antes de solicitar el examen de ingreso. El Verificador califica la demostración sobre el formulario de la rúbrica.
+
+**Figura 42**
+
+*EventStorming, paso 7: Read Models (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-07c-certificacion.png" alt="EventStorming paso 7: Read Models, demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Read models, en verde, de la demostración final y la solicitud del examen de ingreso. Elaboración propia.
+
+**Paso 8. External Systems**
+
+En el octavo paso se incorporaron los sistemas externos, representados con post-its rojos. Algunos reciben órdenes del sistema, otros son notificados cuando ocurre un evento y uno de ellos, el panel de moderación, ejecuta comandos sobre el sistema.
+
+En la primera fase intervienen el servicio de correo, que envía la verificación; el LLM, que genera la ruta de certificación; Cloudinary, que almacena los certificados; ML Kit, que extrae sus datos mediante OCR en el dispositivo, y la pasarela de pago, que ejecuta el cobro de la suscripción. Como pasarela se consideró Culqi o Mercado Pago, porque Stripe no opera en Perú. El panel de moderación aparece como el sistema que resuelve la revisión de un certificado sospechoso.
+
+**Figura 43**
+
+*EventStorming, paso 8: External Systems (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-08a-registro.png" alt="EventStorming paso 8: External Systems, registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Sistemas externos, en rojo, que intervienen en el registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la evaluación, el LLM genera las preguntas de cada intento, los enunciados prácticos y el enunciado nuevo cuando un nodo se reactiva. Cloudinary almacena los entregables y el servicio de correo notifica los criterios no cumplidos. El panel de moderación, externo a la aplicación, ejecuta la resolución de disputas y la aplicación de sanciones, apoyándose en una vista de reportes, disputas y confiabilidad.
+
+**Figura 44**
+
+*EventStorming, paso 8: External Systems (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-08b-evaluacion.png" alt="EventStorming paso 8: External Systems, evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Sistemas externos, en rojo, que intervienen en la evaluación de los nodos y en la moderación. Elaboración propia.
+
+En la fase final, Cloudinary almacena la demostración final y el servicio de correo notifica tanto los criterios no cumplidos como la emisión de la certificación.
+
+**Figura 45**
+
+*EventStorming, paso 8: External Systems (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-08c-certificacion.png" alt="EventStorming paso 8: External Systems, demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Sistemas externos, en rojo, que intervienen en la demostración final y la emisión de la certificación. Elaboración propia.
+
+**Paso 9. Aggregates**
+
+En el noveno paso, los comandos y los eventos se agruparon en agregados, es decir, en los objetos del dominio que reciben los comandos, protegen las reglas de negocio y producen los eventos. Se identificaron 12 agregados. En la figura, cada agregado aparece como un post-it alto de color amarillo pálido, con los comandos que recibe a la izquierda, los eventos que produce a la derecha y su regla principal debajo.
+
+Los agregados con más responsabilidad son VerificationCase, que concentra la revisión humana de los entregables y de la demostración final, incluidas la asignación, el plazo, el cálculo de la aprobación y las reentregas, y LearningPath, que gestiona la ruta y el avance de sus nodos. Certificate se mantiene separado de la ruta, porque registrar un certificado no completa ningún nodo, y SkillCertification se modeló como un agregado propio, porque solo puede emitirse con la ruta completada y la demostración final aprobada. Wallet refleja que los SkillCredits solo se ganan revisando y que no se compran ni se canjean.
+
+**Figura 46**
+
+*EventStorming, paso 9: Aggregates*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-09-agregados.png" alt="EventStorming paso 9: agregados de SkillSwap con sus comandos y eventos" width="900">
+</p>
+
+*Nota.* Agregados de SkillSwap, en amarillo pálido, con los comandos que reciben, los eventos que producen y la regla principal de cada uno. Elaboración propia.
+
+**Paso 10. Bounded Contexts**
+
+En el último paso, los agregados se agruparon en bounded contexts candidatos, según la cercanía de su funcionalidad y las políticas que los conectan. Se obtuvieron ocho contextos. Dos se consideran core, porque contienen la propuesta de valor de SkillSwap: Learning Path Engine, que convierte el objetivo del Estudiante en una ruta de certificación, y Assessment & Peer Review, que verifica el dominio de cada habilidad mediante la revisión con rúbrica. Credential Verification, Reputation, Recognition & Incentives y Moderation & Disputes son contextos de soporte, mientras que Identity & Access y Subscription & Billing son genéricos.
+
+Las flechas moradas representan las políticas que conectan los contextos, y las flechas punteadas, las consultas. Assessment & Peer Review es el contexto con más relaciones: consulta a Subscription & Billing los escalamientos, la espera y el plazo que corresponden al plan, y notifica a Learning Path Engine, Reputation y Recognition & Incentives cada vez que se califica o se aprueba una entrega. Moderation & Disputes recibe los certificados sospechosos y, cuando revierte una decisión, notifica a Reputation y a Assessment & Peer Review.
+
+**Figura 47**
+
+*EventStorming, paso 10: Bounded Contexts*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-10-bounded-contexts.png" alt="EventStorming paso 10: bounded contexts candidatos de SkillSwap" width="900">
+</p>
+
+*Nota.* Bounded contexts candidatos de SkillSwap, delimitados con línea punteada. Los contextos core tienen borde grueso; las flechas moradas representan políticas y las punteadas, consultas. Elaboración propia.
+
+#### 2.5.1.1. Candidate Context Discovery
+
+A partir del EventStorming, se realizó el descubrimiento de contextos candidatos para identificar los bounded contexts de SkillSwap. El proceso se desarrolló en tres iteraciones sobre una versión simplificada de la línea de tiempo, que conserva los eventos que mejor representan cada parte del proceso. En cada iteración se aplicó una de las técnicas propuestas: start-with-simple y look-for-pivotal-events para una primera división del dominio, un refinamiento del borrador según el lenguaje y las reglas de cada parte, y start-with-value para clasificar los contextos resultantes según su valor para el negocio.
+
+**Iteración 1. Start-with-simple y look-for-pivotal-events**
+
+En la primera iteración, la línea de tiempo se descompuso en pasos secuenciales, usando como límites los seis eventos pivotales identificados en el paso 4 del EventStorming: correo verificado, ruta de certificación generada, caso de verificación abierto, ruta completada, certificación emitida y Verificador habilitado para la habilidad. Así se obtuvieron siete fases, desde el registro hasta la revisión como Verificador, y a cada una se le asignó un contexto en borrador. Dentro de la fase de recorrido se separaron los certificados de la evaluación, porque registrar un certificado no completa ningún nodo de la ruta.
+
+En esta iteración también se observó que algunos eventos no pertenecen a una sola fase. El cobro y el vencimiento de la suscripción, los SkillCredits, la confiabilidad del Verificador y las disputas aparecen en distintos momentos del proceso, por lo que se registraron aparte como candidatos a contextos transversales.
+
+**Figura 48**
+
+*Candidate Context Discovery, iteración 1: fases delimitadas por los eventos pivotales*
+
+<p align="center">
+  <img src="public/assets/images-doc/candidate-context-discovery-1-pivotales.png" alt="Línea de tiempo simplificada de SkillSwap dividida en fases por los eventos pivotales" width="900">
+</p>
+
+*Nota.* Línea de tiempo simplificada, dividida en fases por los eventos pivotales. Debajo de cada fase figura el contexto en borrador, y en la parte inferior, los eventos que aparecen en varias fases. Elaboración propia.
+
+**Iteración 2. Refinamiento de los contextos candidatos**
+
+En la segunda iteración, cada evento se ubicó en el carril del contexto candidato al que pertenece, manteniendo su posición en el tiempo. Los borradores se ajustaron según dos criterios: que los eventos de un mismo contexto compartan el lenguaje y las reglas de negocio, y que el contexto pueda evolucionar sin arrastrar a los demás.
+
+Con este criterio, los borradores de evaluación, revisión y Verificadores se unieron en Assessment & Peer Review, porque comparten el mismo lenguaje de casos, rúbricas, criterios e intentos, y porque el examen de ingreso del Verificador es también una evaluación. El borrador de certificación se integró a Learning Path Engine, porque la certificación es el resultado de completar la ruta; en ese mismo contexto quedó la generación del quiz, ya que el blueprint de evaluación se define junto con cada nodo. Los eventos transversales dieron lugar a cuatro contextos propios: Subscription & Billing, Reputation, Recognition & Incentives y Moderation & Disputes. La figura muestra que el flujo principal avanza entre Learning Path Engine y Assessment & Peer Review, mientras que los demás contextos intervienen en momentos puntuales.
+
+**Figura 49**
+
+*Candidate Context Discovery, iteración 2: línea de tiempo por contexto candidato*
+
+<p align="center">
+  <img src="public/assets/images-doc/candidate-context-discovery-2-contextos.png" alt="Eventos de SkillSwap organizados en carriles por contexto candidato" width="900">
+</p>
+
+*Nota.* Cada carril corresponde a un contexto candidato y cada evento conserva su posición en el tiempo. Las líneas verticales son los eventos pivotales; los carriles con borde grueso corresponden a los contextos core. Elaboración propia.
+
+**Iteración 3. Start-with-value**
+
+En la tercera iteración, los contextos candidatos se clasificaron según su aporte a la propuesta de valor de SkillSwap, que es demostrar que el Estudiante domina una habilidad y no solo que tiene un certificado. Se consideraron core Learning Path Engine y Assessment & Peer Review, porque sin la ruta y sin la verificación con rúbrica la plataforma no tendría una propuesta diferenciada. Credential Verification, Reputation, Recognition & Incentives y Moderation & Disputes se clasificaron como contextos de soporte, porque son específicos del negocio, pero existen para sostener a los contextos core. Identity & Access y Subscription & Billing se clasificaron como genéricos, porque resuelven necesidades comunes a cualquier aplicación y pueden apoyarse en soluciones existentes.
+
+**Figura 50**
+
+*Candidate Context Discovery, iteración 3: clasificación de los contextos por valor*
+
+<p align="center">
+  <img src="public/assets/images-doc/candidate-context-discovery-3-valor.png" alt="Contextos candidatos de SkillSwap clasificados en core, soporte y genéricos" width="900">
+</p>
+
+*Nota.* Contextos candidatos clasificados según su aporte a la propuesta de valor, con la responsabilidad principal de cada uno. Elaboración propia.
+
+El resultado del proceso son ocho contextos candidatos, que se resumen en la tabla siguiente y que se desarrollan en las secciones 2.5.1.2 y 2.5.1.3.
+
+| Contexto candidato | Tipo | Responsabilidad | Eventos representativos |
+|---|---|---|---|
+| Learning Path Engine | Core | Convertir el objetivo del Estudiante en una ruta de certificación, seguir el avance de sus nodos y emitir la certificación | Ruta de certificación generada, Nodo completado, Ruta completada, Certificación emitida |
+| Assessment & Peer Review | Core | Verificar el dominio de cada habilidad con quizzes, entregables y la demostración final revisados con rúbrica, y habilitar a los Verificadores | Caso de verificación abierto, Entregable calificado por criterio, Demostración final aprobada, Verificador habilitado para la habilidad |
+| Credential Verification | Soporte | Registrar los certificados previos del Estudiante y detectar los sospechosos | Certificado registrado, Certificado marcado como sospechoso |
+| Reputation | Soporte | Medir la confiabilidad de cada Verificador | Revisión calificada por el Estudiante, Confiabilidad del Verificador recalculada |
+| Recognition & Incentives | Soporte | Acreditar SkillCredits por cada revisión y otorgar rangos | SkillCredits acreditados, Rango de Verificador alcanzado |
+| Moderation & Disputes | Soporte | Resolver disputas y revisiones de certificados desde el panel externo | Disputa abierta, Decisión revertida, Revisión de certificado resuelta |
+| Identity & Access | Genérico | Registrar al usuario, verificar su correo y autenticarlo | Estudiante registrado, Correo verificado |
+| Subscription & Billing | Genérico | Gestionar los planes gratuito y premium y el cobro de la suscripción | Plan gratuito asignado, Pago de suscripción cobrado, Suscripción vencida |
+
+#### 2.5.1.2. Domain Message Flows Modeling
+
+Una vez identificados los contextos candidatos, se modeló cómo colaboran entre sí para resolver los escenarios principales del negocio. Para ello se elaboraron diagramas de Domain Message Flow, una técnica de visualización basada en Domain Storytelling que muestra, para un escenario concreto, los mensajes que intercambian los actores, los bounded contexts y los sistemas externos.
+
+Los diagramas siguen la notación de mensaje y contenido combinados. Los actores se representan con una figura de persona, los bounded contexts con una elipse morada y los sistemas externos con un engranaje. Cada mensaje es una tarjeta de color según su tipo: azul para los comandos, naranja para los eventos y verde para las consultas. La tarjeta indica el nombre del mensaje y sus datos más importantes, y el número en la parte superior, que también aparece sobre la flecha correspondiente, señala el orden en que ocurre dentro del escenario. Las flechas punteadas van del emisor al receptor.
+
+Se modelaron seis escenarios, elegidos para que cada bounded context participe en al menos uno de ellos.
+
+El primer escenario muestra cómo colaboran Identity & Access y Subscription & Billing. El Estudiante se registra desde la aplicación, Identity & Access solicita al servicio de correo el envío del código de verificación y, cuando el Estudiante verifica su correo, publica el evento Correo verificado, al que Subscription & Billing reacciona asignando el plan gratuito. Si el Estudiante decide pasar al plan premium, Subscription & Billing ordena el cobro a la pasarela de pago, que responde con el evento Pago de suscripción cobrado.
+
+**Figura 51**
+
+*Domain Message Flow: Registro del Estudiante y paso al plan premium*
+
+<p align="center">
+  <img src="public/assets/images-doc/message-flow-registro.png" alt="Domain Message Flow del escenario registro del estudiante y paso al plan premium" width="900">
+</p>
+
+*Nota.* Mensajes intercambiados entre actores, bounded contexts y sistemas externos en el escenario de registro del Estudiante y paso al plan premium. Los números indican el orden de los mensajes. Elaboración propia.
+
+En el segundo escenario, el Estudiante declara su objetivo y Learning Path Engine consulta a Subscription & Billing si el plan le permite abrir una nueva ruta. Con esa respuesta, solicita al LLM la generación de la ruta, indicando el objetivo, la brecha de habilidades y el mínimo de nodos prácticos, y finalmente publica el evento Ruta de certificación generada, con los nodos y el tipo de cada uno.
+
+**Figura 52**
+
+*Domain Message Flow: Declaración del objetivo y generación de la ruta*
+
+<p align="center">
+  <img src="public/assets/images-doc/message-flow-ruta.png" alt="Domain Message Flow del escenario declaración del objetivo y generación de la ruta" width="900">
+</p>
+
+*Nota.* Mensajes intercambiados entre actores, bounded contexts y sistemas externos en el escenario de declaración del objetivo y generación de la ruta. Los números indican el orden de los mensajes. Elaboración propia.
+
+El tercer escenario corresponde al flujo central de SkillSwap. El entregable del Estudiante se almacena en Cloudinary y se envía a Assessment & Peer Review, que consulta a Subscription & Billing los escalamientos disponibles y el plazo de revisión según el plan. Tras la asignación, el Verificador califica cada criterio de la rúbrica. Cuando el sistema calcula que el entregable se aprueba, Assessment & Peer Review publica el evento Entregable aprobado, que Learning Path Engine usa para completar el nodo, y el evento Entregable calificado por criterio, que Recognition & Incentives usa para acreditar SkillCredits y Reputation para recalcular la confiabilidad del Verificador.
+
+**Figura 53**
+
+*Domain Message Flow: Revisión de un entregable práctico aprobado*
+
+<p align="center">
+  <img src="public/assets/images-doc/message-flow-entregable.png" alt="Domain Message Flow del escenario revisión de un entregable práctico aprobado" width="900">
+</p>
+
+*Nota.* Mensajes intercambiados entre actores, bounded contexts y sistemas externos en el escenario de revisión de un entregable práctico aprobado. Los números indican el orden de los mensajes. Elaboración propia.
+
+El cuarto escenario muestra la moderación. El Estudiante reporta la decisión de un Verificador y Moderation & Disputes abre la disputa. El panel de moderación, externo a la aplicación, consulta las disputas abiertas y ejecuta la resolución. Cuando la decisión se revierte, Moderation & Disputes publica el evento Decisión revertida, que Reputation usa para recalcular la confiabilidad del Verificador y Assessment & Peer Review para aprobar el entregable, lo que a su vez completa el nodo en Learning Path Engine.
+
+**Figura 54**
+
+*Domain Message Flow: Reporte de una decisión revertida por Moderación*
+
+<p align="center">
+  <img src="public/assets/images-doc/message-flow-disputa.png" alt="Domain Message Flow del escenario reporte de una decisión revertida por moderación" width="900">
+</p>
+
+*Nota.* Mensajes intercambiados entre actores, bounded contexts y sistemas externos en el escenario de reporte de una decisión revertida por Moderación. Los números indican el orden de los mensajes. Elaboración propia.
+
+En el quinto escenario, Learning Path Engine publica el evento Ruta completada, que habilita la demostración final en Assessment & Peer Review. El Estudiante envía su demostración, el Verificador la califica con la rúbrica y, cuando se aprueba, Assessment & Peer Review publica el evento Demostración final aprobada. Learning Path Engine emite entonces la certificación, notifica al Estudiante por correo y publica el evento Certificación emitida.
+
+**Figura 55**
+
+*Domain Message Flow: Demostración final y emisión de la certificación*
+
+<p align="center">
+  <img src="public/assets/images-doc/message-flow-demostracion.png" alt="Domain Message Flow del escenario demostración final y emisión de la certificación" width="900">
+</p>
+
+*Nota.* Mensajes intercambiados entre actores, bounded contexts y sistemas externos en el escenario de demostración final y emisión de la certificación. Los números indican el orden de los mensajes. Elaboración propia.
+
+El último escenario muestra el registro de un certificado. La aplicación extrae sus datos en el dispositivo con ML Kit y los envía a Credential Verification, que evalúa el riesgo documental. Si el riesgo es alto, publica el evento Certificado marcado como sospechoso, que Moderation & Disputes recibe para su revisión. Cuando el panel de moderación resuelve el caso, Moderation & Disputes devuelve el resultado a Credential Verification mediante el evento Revisión de certificado resuelta.
+
+**Figura 56**
+
+*Domain Message Flow: Registro de un certificado sospechoso*
+
+<p align="center">
+  <img src="public/assets/images-doc/message-flow-certificado.png" alt="Domain Message Flow del escenario registro de un certificado sospechoso" width="900">
+</p>
+
+*Nota.* Mensajes intercambiados entre actores, bounded contexts y sistemas externos en el escenario de registro de un certificado sospechoso. Los números indican el orden de los mensajes. Elaboración propia.
+
+#### 2.5.1.3. Bounded Context Canvases
+
+Con los contextos candidatos y sus flujos de mensajes definidos, se elaboró un Bounded Context Canvas para cada uno, usando la versión 5 de la plantilla de ddd-crew. Los contextos se trabajaron en orden de importancia, empezando por los core, y cada canvas se construyó de forma iterativa con los siguientes pasos:
+
+1. **Context Overview Definition:** definir el nombre, el propósito y la clasificación estratégica del contexto (tipo de dominio, modelo de negocio, evolución y rol).
+2. **Business Rules Distillation & Ubiquitous Language Capture:** extraer las reglas de negocio del EventStorming y registrar los términos propios del contexto.
+3. **Capability Analysis:** identificar qué capacidades ofrece el contexto a partir de los comandos y consultas que recibe.
+4. **Capability Layering:** cuando aplica, ordenar esas capacidades en capas según su nivel.
+5. **Dependencies Capture:** registrar los mensajes de entrada y de salida y los colaboradores con los que se intercambian, a partir de los Domain Message Flows.
+6. **Design Critique:** revisar el diseño, registrar los supuestos, las métricas para validarlo y las preguntas abiertas, y evaluar alternativas.
+
+En los canvas, los comandos se muestran en azul, los eventos en amarillo y las consultas en verde, como en la plantilla original. Las preguntas abiertas recogen los puntos críticos identificados en el paso 3 del EventStorming.
+
+Se trabajó primero Assessment & Peer Review, por ser el contexto que materializa la propuesta de valor. En la definición general se estableció su propósito, verificar el dominio de cada habilidad, y se clasificó como core, custom built y de ejecución. Al destilar las reglas se concluyó que el Verificador no aprueba ni rechaza, sino que califica cada criterio, y que la aprobación la calcula el sistema contra el umbral de la rúbrica; también se fijaron los límites de intentos, reentregas y plazos. En el análisis de capacidades se identificaron tres grupos, que corresponden a sus capas: la evaluación automática de los quizzes, la revisión humana de los entregables y de la demostración final, y la habilitación de nuevos Verificadores mediante el examen de ingreso. En la captura de dependencias se observó que recibe los blueprints de Learning Path Engine, consulta a Subscription & Billing los límites del plan y notifica sus resultados a Learning Path Engine, Reputation y Recognition & Incentives. En la crítica del diseño se evaluó separar la habilitación de Verificadores en un contexto propio; se descartó en esta etapa porque comparte el lenguaje de casos, rúbricas e intentos, aunque queda como candidata a separarse si crece.
+
+**Figura 57**
+
+*Bounded Context Canvas: Assessment & Peer Review*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-assessment-peer-review.png" alt="Bounded Context Canvas del contexto Assessment & Peer Review" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Assessment & Peer Review, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Learning Path Engine es el segundo contexto core. Su propósito es convertir el objetivo del Estudiante en una ruta de certificación y seguir su avance hasta emitir la certificación. Entre sus reglas destacan el mínimo de nodos prácticos por ruta, el límite de rutas del plan gratuito y la condición para emitir la certificación. Sus capacidades se organizan en dos capas: la generación de la ruta y de los blueprints de evaluación, que delega en el LLM, y el seguimiento del avance hasta la certificación. En las dependencias se identificó una relación en ambos sentidos con Assessment & Peer Review, que se resuelve con eventos: Learning Path Engine publica los blueprints y la ruta completada, y reacciona a los nodos y demostraciones aprobados. En la crítica se evaluó trasladar la generación de blueprints a Assessment & Peer Review; se mantuvo aquí porque el blueprint se define junto con cada nodo de la ruta.
+
+**Figura 58**
+
+*Bounded Context Canvas: Learning Path Engine*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-learning-path-engine.png" alt="Bounded Context Canvas del contexto Learning Path Engine" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Learning Path Engine, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Credential Verification se clasificó como un contexto de soporte orientado al cumplimiento, porque protege la confianza en el perfil del Estudiante. Su regla central es que registrar un certificado no completa ningún nodo, de modo que el certificado previo complementa el perfil, pero no reemplaza la demostración. Su capacidad principal es el registro con evaluación del riesgo documental, apoyada en ML Kit para la extracción en el dispositivo y en Cloudinary para el almacenamiento. Su única dependencia de dominio es Moderation & Disputes, que revisa los certificados sospechosos. En la crítica quedó abierta la pregunta de si un certificado sospechoso debe bloquear la ruta.
+
+**Figura 59**
+
+*Bounded Context Canvas: Credential Verification*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-credential-verification.png" alt="Bounded Context Canvas del contexto Credential Verification" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Credential Verification, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Reputation es un contexto de análisis: no ejecuta el proceso principal, sino que interpreta sus resultados para medir la confiabilidad de cada Verificador. Se alimenta de tres fuentes: la calificación que el Estudiante da a la revisión, las calificaciones registradas en Assessment & Peer Review y las decisiones revertidas por Moderation & Disputes. Su resultado vuelve a Assessment & Peer Review, que lo usa como parte del historial para asignar casos. En la crítica se discutió unirlo con Recognition & Incentives; se mantuvieron separados porque la confiabilidad mide la calidad de las revisiones, mientras que los SkillCredits premian su cantidad.
+
+**Figura 60**
+
+*Bounded Context Canvas: Reputation*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-reputation.png" alt="Bounded Context Canvas del contexto Reputation" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Reputation, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Recognition & Incentives reconoce el trabajo de los Verificadores. Sus reglas reflejan decisiones del modelo de negocio: los SkillCredits se ganan por cada revisión, apruebe o rechace, para no incentivar decisiones en un sentido, y no se compran ni se canjean, porque funcionan como reputación visible. Su capacidad es acreditar SkillCredits y otorgar rangos por umbral, y depende únicamente de los eventos de Assessment & Peer Review. La definición de los umbrales de cada rango queda como pregunta abierta.
+
+**Figura 61**
+
+*Bounded Context Canvas: Recognition & Incentives*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-recognition-incentives.png" alt="Bounded Context Canvas del contexto Recognition & Incentives" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Recognition & Incentives, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Moderation & Disputes resuelve las disputas y las revisiones de certificados. Una decisión de diseño importante es que la moderación no es un actor de la aplicación: el equipo interno opera desde un panel externo que consume los comandos de este contexto. Sus capacidades son resolver disputas, aplicar sanciones y resolver revisiones de certificados, y sus resultados se comunican con eventos a Reputation, Assessment & Peer Review y Credential Verification. En la crítica quedó pendiente definir qué ocurre con los casos asignados a un Verificador sancionado.
+
+**Figura 62**
+
+*Bounded Context Canvas: Moderation & Disputes*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-moderation-disputes.png" alt="Bounded Context Canvas del contexto Moderation & Disputes" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Moderation & Disputes, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Subscription & Billing se clasificó como genérico, porque la gestión de planes y cobros es común a muchas aplicaciones y se apoya en una pasarela de pago existente, Culqi o Mercado Pago. Su regla principal refleja el modelo de negocio: ningún plan compra la aprobación, ya que la cantidad de intentos es igual en ambos, y el plan premium solo reduce las esperas y los plazos y amplía las rutas y los escalamientos. En las dependencias se observa que es un contexto muy consultado: Learning Path Engine y Assessment & Peer Review le preguntan por los límites del plan antes de actuar.
+
+**Figura 63**
+
+*Bounded Context Canvas: Subscription & Billing*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-subscription-billing.png" alt="Bounded Context Canvas del contexto Subscription & Billing" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Subscription & Billing, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Por último, Identity & Access se clasificó como genérico, commodity y de tipo gateway, porque es la puerta de entrada a la aplicación. Registra a los usuarios, verifica su correo con un código, sin exigir un dominio institucional, y los autentica. Un Verificador sigue siendo el mismo usuario que se registró como Estudiante, por lo que no existe un registro separado. Su dependencia principal es Subscription & Billing, que reacciona al correo verificado asignando el plan gratuito.
+
+**Figura 64**
+
+*Bounded Context Canvas: Identity & Access*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-identity-access.png" alt="Bounded Context Canvas del contexto Identity & Access" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Identity & Access, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
 
 ### 2.5.2. Context Mapping
 
-El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los siete Bounded Contexts que conforman la solución, aplicando los patrones de relación establecidos en Domain-Driven Design para gestionar las dependencias entre equipos y modelos de dominio, bajo el nuevo enfoque de la plataforma centrado en la verificación de habilidades mediante Inteligencia Artificial.
+El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los ocho Bounded Contexts que conforman la solución, aplicando los patrones de relación establecidos en Domain-Driven Design para gestionar las dependencias entre equipos y modelos de dominio, bajo el nuevo enfoque de la plataforma centrado en la verificación de habilidades mediante Inteligencia Artificial.
 
-**Identity & Access** actúa como **Upstream** de todo el sistema bajo el patrón **Conformist**: su agregado `User` expone únicamente `userId` y `role` como datos públicos, y el resto de los Bounded Contexts (Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives y Moderation & Disputes) se conforman a ese modelo sin negociar cambios, referenciando el identificador de usuario como un dato externo dentro de su propio esquema de persistencia. Es dentro de este Bounded Context que se distingue el perfil de `Student` del perfil de `Verificador` (vinculado a un Student que ya completó su propia ruta de certificación), sin que ello implique un rol adicional a nivel de autenticación.
+**Identity & Access** actúa como **Upstream** de todo el sistema bajo el patrón **Conformist**: su agregado `User` expone únicamente `userId` y `role` como datos públicos, y el resto de los Bounded Contexts (Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes) se conforman a ese modelo sin negociar cambios, referenciando el identificador de usuario como un dato externo dentro de su propio esquema de persistencia. Es dentro de este Bounded Context que se distingue el perfil de `Student` del perfil de `Verificador` (vinculado a un Student que ya completó su propia ruta de certificación), sin que ello implique un rol adicional a nivel de autenticación.
 
 **Credential Verification** mantiene una relación **Customer/Supplier** hacia **Learning Path Engine**: únicamente un certificado ya validado (extraído y verificado como legítimo) puede ser consumido como evidencia de una habilidad dentro del cálculo de brechas, por lo que Learning Path Engine actúa como Downstream, consumiendo el modelo de `Certificate` validado sin poder alterar las reglas de extracción o de detección de fraude definidas en el Upstream.
 
 **Learning Path Engine**, como núcleo de negocio (Core Domain) de la plataforma, es **Supplier** de **Assessment & Peer Review** bajo el patrón **Customer/Supplier**: cada `PathNode` de la ruta generada define la especificación de la evaluación (habilidad a demostrar, nivel de exigencia) que Assessment & Peer Review debe ejecutar como Downstream, sin negociar el contenido de dicha especificación.
 
-**Assessment & Peer Review**, como ejecutor del flujo de evaluación y revisión humana, es **Supplier** de **Reputation** (la resolución de un `VerificationCase` —aprobado o rechazado, y quién lo revisó— dispara el recálculo de la confiabilidad del Verificador y del Employability Score del estudiante) y de **Wallet & Incentives** (la resolución de un caso por parte de un Verificador dispara la acreditación de SkillCredits), ambas bajo el patrón **Customer/Supplier**.
+**Assessment & Peer Review**, como ejecutor del flujo de evaluación y revisión humana, es **Supplier** de **Reputation** (la resolución de un `VerificationCase` —aprobado o rechazado, y quién lo revisó— dispara el recálculo de la confiabilidad del Verificador y del Employability Score del estudiante) y de **Recognition & Incentives** (la resolución de un caso por parte de un Verificador dispara la acreditación de SkillCredits), ambas bajo el patrón **Customer/Supplier**.
+
+**Subscription & Billing** opera de forma independiente al resto de los Bounded Contexts de negocio, sin ninguna relación Customer/Supplier hacia Recognition & Incentives: gestiona únicamente el acceso recurrente del Estudiante a la plataforma mediante la suscripción mensual, sin intervenir en el balance ni la acreditación de SkillCredits, que permanecen como un sistema de reconocimiento estrictamente no monetario y no adquirible. Este Bounded Context mantiene una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **Stripe**, aislando el modelo de dominio interno `Subscription` de los contratos, eventos (webhooks) y formatos propios de la API de pagos.
 
 **Moderation & Disputes** se relaciona como **Customer/Supplier** hacia **Identity & Access** (emite órdenes de sanción sobre la cuenta de un usuario que presentó certificados fraudulentos o incurrió en una falta) y hacia **Reputation** (ajusta la reputación del usuario tras una disputa resuelta). Adicionalmente, mantiene una relación de **Anticorruption Layer (ACL)** hacia **Assessment & Peer Review**: en lugar de depender directamente del modelo interno de `VerificationCase`, Moderation & Disputes traduce la información recibida a su propio modelo simplificado de "caso en disputa", evitando acoplarse a cambios futuros en la lógica interna de asignación y revisión de Verificadores.
 
 Finalmente, **Credential Verification** mantiene una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **ML Kit** (Text Recognition / Entity Extraction de Firebase, utilizado on-device para la extracción de datos del certificado), aislando el modelo de dominio interno `Certificate` de los contratos y formatos de respuesta propios del SDK externo.
 
+**Figura 65**
+
+*Context Mapping de SkillSwap*
+
 <p align="center">
-  <img src="images-doc/context-mapping.svg" alt="Context Mapping" width="900">
-  <br>
-  <em>Figura XX. Context Mapping de SkillSwap - Elaboración propia. Nota: Se muestran las relaciones Conformist, Customer/Supplier y Anticorruption Layer entre los Bounded Contexts Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives y Moderation & Disputes.</em>
+  <img src="images-doc/context-mapping.png" alt="Context Mapping" width="900">
 </p>
+
+*Nota.* Se muestran las relaciones Conformist, Customer/Supplier y Anticorruption Layer entre los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes) y los sistemas externos ML Kit y Stripe. Elaboración propia.
 
 ### 2.5.3. Software Architecture
 
 **Software Architecture Context Level Diagram:**
-Muestra la interacción de los tres actores (Estudiante, Verificador, Profesor/Coordinador) con el sistema central de SkillSwap y los servicios externos de terceros (extracción de datos de certificados vía ML Kit, almacenamiento de evidencias y servicio de notificaciones).
+Muestra la interacción de los tres actores (Estudiante, Verificador, Coordinador) con el sistema central de SkillSwap y los servicios externos de terceros (extracción de datos de certificados vía ML Kit, procesamiento de pagos vía Stripe, almacenamiento de evidencias y servicio de notificaciones).
 
 **Software Architecture Container Level Diagram:**
 Detalla la estructura de contenedores:
-1. **Mobile Application (Native/Cross-Platform):** La interfaz principal para los tres actores, desarrollada con soporte de almacenamiento local, acceso a hardware (cámara para captura de certificados, biometría) y consumo del backend RESTful.
-2. **Landing Page:** Sitio web estático para la presentación del modelo de negocio, accesible por los tres actores.
-3. **API Gateway / RESTful Web Services:** El backend desarrollado internamente que orquesta la lógica de negocio de los siete Bounded Contexts.
-4. **Database:** Repositorio central de información, compartido por los siete Bounded Contexts.
+1. **Mobile Application (Native/Cross-Platform):** La interfaz principal para los Estudiantes y Verificadores, desarrollada con soporte de almacenamiento local, acceso a hardware (cámara para captura de certificados, biometría) y consumo del backend RESTful.
+2. **Landing Page:** Sitio web estático para la presentación del modelo de negocio, de acceso público.
+3. **API Gateway / RESTful Web Services:** El backend desarrollado internamente que orquesta la lógica de negocio de los ocho Bounded Contexts.
+4. **Database:** Repositorio central de información, compartido por los ocho Bounded Contexts.
 
 **Software Architecture Deployment Diagram:**
 Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de los usuarios (Android), el Landing Page en un servicio de hosting estático, y el backend junto con la base de datos en infraestructura Cloud.
@@ -1022,15 +2298,19 @@ Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de
 
 El diagrama de contexto (Context Diagram) bajo el enfoque C4 Model presenta al sistema SkillSwap como una caja central única, mostrando sus interacciones de alto nivel con los actores principales y los sistemas externos de terceros, sin exponer aún detalles de implementación.
 
-El sistema es utilizado por tres actores principales: el **Estudiante**, quien sube sus certificados y demuestra sus habilidades a través de las evaluaciones generadas por la plataforma; el **Verificador** (un perfil vinculado a un Estudiante que ya completó su propia ruta de certificación), quien revisa los casos que la IA no puede resolver con suficiente confianza; y el **Profesor Universitario/Coordinador**, quien supervisa la calidad del proceso de verificación desde la aplicación móvil. Los tres actores interactúan con el sistema a través de la **aplicación móvil nativa (Android) y cross-platform (Flutter)**, así como del Landing Page.
+El sistema es utilizado por tres actores principales: el **Estudiante**, quien sube sus certificados, demuestra sus habilidades a través de las evaluaciones generadas por la plataforma y accede a la plataforma mediante una suscripción mensual; el **Verificador** (un perfil vinculado a un Estudiante que ya completó su propia ruta de certificación), quien revisa los casos que la IA no puede resolver con suficiente confianza; y el **Coordinador**, quien supervisa la calidad del proceso de verificación desde la aplicación móvil. Los tres actores interactúan con el sistema a través de la **aplicación móvil nativa (Android) y cross-platform (Flutter)**, así como del Landing Page.
 
-A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), utilizado on-device para la extracción de datos de los certificados subidos por el Estudiante (institución, curso, fecha) — esta es la tecnología que satisface el requisito de aprendizaje autónomo del curso; un **servicio de almacenamiento en la nube** para las imágenes de certificados y evidencias adjuntas a un caso de revisión; y un **servicio de correo electrónico** para el envío de notificaciones institucionales (validación de dominio `.edu.pe`, resultado de una evaluación, apertura o resolución de un caso de verificación).
+A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), utilizado on-device para la extracción de datos de los certificados subidos por el Estudiante (institución, curso, fecha) — esta es la tecnología que satisface el requisito de aprendizaje autónomo del curso; **Stripe**, utilizado para el procesamiento del cobro recurrente de la suscripción mensual y la compra de paquetes de SkillCredits en la tienda interna; un **servicio de almacenamiento en la nube** para las imágenes de certificados y evidencias adjuntas a un caso de revisión; y un **servicio de correo electrónico** para el envío de notificaciones institucionales (validación de dominio `.edu.pe`, resultado de una evaluación, apertura o resolución de un caso de verificación).
+
+**Figura 66**
+
+*C4 Model: Context Diagram*
 
 <p align="center">
   <img src="images-doc/SkillSwapSystemContext.svg" alt="System Context Diagram - Mobile" width="800">
-  <br>
-  <em>Figura XX. C4 Model: Context Diagram - Elaboración propia. Nota: Diagrama de contexto que muestra el sistema SkillSwap en el centro y sus interacciones directas con los actores principales (Estudiante, Verificador, Profesor/Coordinador) a través de la aplicación móvil nativa, la aplicación cross-platform y el Landing Page, así como con los sistemas externos de terceros (ML Kit, almacenamiento en la nube y servicio de correo electrónico).</em>
 </p>
+
+*Nota.* Diagrama de contexto que muestra el sistema SkillSwap en el centro y sus interacciones directas con los actores principales (Estudiante, Verificador, Coordinador) a través de la aplicación móvil nativa, la aplicación cross-platform y el Landing Page, así como con los sistemas externos de terceros (ML Kit, Stripe, almacenamiento en la nube y servicio de correo electrónico). Elaboración propia.
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
@@ -1039,36 +2319,44 @@ El diagrama de contenedores (Container Diagram) descompone el sistema SkillSwap 
 Los contenedores identificados son los siguientes:
 
 - **Landing Page (Sitio Web Estático):** Presenta el modelo de negocio de SkillSwap al público general, implementado con HTML5, CSS3 y JavaScript.
-- **Android Native Application:** Aplicación móvil nativa dirigida a los tres actores (Estudiante, Verificador, Profesor/Coordinador), desarrollada en Kotlin con Jetpack Compose, que consume los Web Services RESTful del backend.
-- **Cross-Platform Application (Flutter):** Aplicación móvil dirigida a Android, que replica las funcionalidades core para los tres actores, desarrollada en Flutter con Dart, consumiendo igualmente los Web Services RESTful expuestos por el backend.
-- **API / RESTful Web Services:** Backend desarrollado bajo arquitectura RESTful en C# / ASP.NET Core, actuando como Published Language único para los tres clientes (Landing Page, Android Native App y Flutter App), orquestando la lógica de negocio de los siete Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives y Moderation & Disputes).
+- **Android Native Application:** Aplicación móvil nativa dirigida a los Estudiantes y Verificadores, desarrollada en Kotlin con Jetpack Compose, que consume los Web Services RESTful del backend.
+- **Cross-Platform Application (Flutter):** Aplicación móvil dirigida a Android, que replica las funcionalidades core para los Estudiantes y Verificadores, desarrollada en Flutter con Dart, consumiendo igualmente los Web Services RESTful expuestos por el backend.
+- **API / RESTful Web Services:** Backend desarrollado bajo arquitectura RESTful en C# / ASP.NET Core, actuando como Published Language único para los tres clientes (Landing Page, Android Native App y Flutter App), orquestando la lógica de negocio de los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes).
 - **Database:** Repositorio central de persistencia (instancia única de MySQL), donde cada Bounded Context mantiene sus propias tablas siguiendo los principios de Domain-Driven Design.
 
 Es importante resaltar que tanto la aplicación Android nativa como la aplicación Flutter cross-platform consumen el **mismo contrato de API RESTful** documentado con OpenAPI/Swagger, sin requerir endpoints adicionales ni lógica de backend duplicada, evidenciando así el desacoplamiento entre la capa de presentación y la capa de dominio/aplicación del sistema.
 
+**Figura 67**
+
+*C4 Model: Container Diagram*
+
 <p align="center">
   <img src="images-doc/SkillSwapContainer.svg" alt="Container Diagram - Mobile" width="900">
-  <br>
-  <em>Figura XX. C4 Model: Container Diagram - Elaboración propia. Nota: Diagrama de contenedores que muestra el Landing Page, la Aplicación Android Nativa, la Aplicación Cross-Platform (Flutter), el backend de Web Services RESTful y la Base de Datos, junto con sus interacciones y los sistemas externos ML Kit y el servicio de almacenamiento en la nube.</em>
 </p>
+
+*Nota.* Diagrama de contenedores que muestra el Landing Page, la Aplicación Android Nativa, la Aplicación Cross-Platform (Flutter), el backend de Web Services RESTful y la Base de Datos, junto con sus interacciones y los sistemas externos ML Kit, Stripe y el servicio de almacenamiento en la nube. Elaboración propia.
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
 El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física de los contenedores de SkillSwap sobre la infraestructura de hardware y los entornos de ejecución, evidenciando cómo se despliega la solución en un ambiente real.
 
-- **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes, Verificadores y el Profesor alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y la Aplicación Cross-Platform (Flutter, dirigida a Android), instaladas mediante distribución interna vía **Firebase App Distribution** durante el ciclo de pruebas, y descargables desde el dispositivo físico para la sustentación del curso. En estos dispositivos se ejecuta además **ML Kit** de forma on-device para la extracción de datos de los certificados, sin requerir una llamada a un servicio en la nube para dicho procesamiento.
-- **Hosting estático:** Aloja el Landing Page, servido de forma estática desde un proveedor de hosting (Firebase Hosting / Vercel), accesible por los tres actores del sistema.
-- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (C# / ASP.NET Core), desplegado en **Render**, donde se ejecuta la lógica de negocio de los siete Bounded Contexts a través de un único API Gateway, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por los tres clientes (Landing Page, Android Native App, Flutter App).
-- **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de MySQL desplegada en **Render**, compartida por los siete Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
-- **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para las imágenes de certificados y evidencias adjuntas a un caso de verificación, y servicio de correo electrónico para el envío de notificaciones (validación institucional, resultados de evaluación, estado de un caso de revisión).
+- **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes y Verificadores alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y la Aplicación Cross-Platform (Flutter, dirigida a Android), instaladas mediante distribución interna vía **Firebase App Distribution** durante el ciclo de pruebas, y descargables desde el dispositivo físico para la sustentación del curso. En estos dispositivos se ejecuta además **ML Kit** de forma on-device para la extracción de datos de los certificados, sin requerir una llamada a un servicio en la nube para dicho procesamiento.
+- **Hosting estático:** Aloja el Landing Page, servido de forma estática desde un proveedor de hosting (Firebase Hosting / Vercel), de acceso público.
+- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (C# / ASP.NET Core), desplegado en **Render**, donde se ejecuta la lógica de negocio de los ocho Bounded Contexts a través de un único API Gateway, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por los tres clientes (Landing Page, Android Native App, Flutter App).
+- **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de MySQL desplegada en **Render**, compartida por los ocho Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
+- **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para las imágenes de certificados y evidencias adjuntas a un caso de verificación, servicio de correo electrónico para el envío de notificaciones (validación institucional, resultados de evaluación, estado de un caso de revisión), y **Stripe** para el procesamiento del cobro recurrente de la suscripción mensual.
 
 Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
 
+**Figura 68**
+
+*C4 Model: Deployment Diagram*
+
 <p align="center">
   <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram - Mobile" width="900">
-  <br>
-  <em>Figura XX. C4 Model: Deployment Diagram - Elaboración propia. Nota: Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution y ejecución on-device de ML Kit, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de MySQL en Render y el servicio externo de almacenamiento en la nube. Elaborado en PlantUML.</em>
 </p>
+
+*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution y ejecución on-device de ML Kit, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de MySQL en Render y los servicios externos de almacenamiento en la nube y Stripe. Elaborado en PlantUML. Elaboración propia.
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
@@ -1246,31 +2534,43 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
+**Figura 69**
+
+*C4 Model: Component Diagram del Bounded Context Identity & Access*
+
 <p align="center">
   <img src="images-doc/IdentityComponent.svg" alt="Component Diagram - Identity & Access" width="800">
-  <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Identity & Access - Elaboración propia. Nota: Se detalla la segregación entre el Controller, los Command/Query Services y los adaptadores de Persistencia y Seguridad (JWT), evidenciando las relaciones con los demás Bounded Contexts: la creación de la wallet inicial de SkillCredits en Wallet & Incentives al registrarse, la consulta de estado de sanción hacia Moderation & Disputes, y las solicitudes entrantes de Assessment & Peer Review (lista de Verificadores disponibles), Reputation (actualización de confiabilidad/Employability Score), Moderation & Disputes (datos de la cuenta reportada y actualización tras sanción) y Wallet & Incentives (confirmación de biometría antes de canjear SkillCredits).</em>
 </p>
+
+*Nota.* Se detalla la segregación entre el Controller, los Command/Query Services y los adaptadores de Persistencia y Seguridad (JWT), evidenciando las relaciones con los demás Bounded Contexts: la creación de la wallet inicial de SkillCredits en Recognition & Incentives al registrarse, la consulta de estado de sanción hacia Moderation & Disputes, y las solicitudes entrantes de Assessment & Peer Review (lista de Verificadores disponibles), Reputation (actualización de confiabilidad/Employability Score), Moderation & Disputes (datos de la cuenta reportada y actualización tras sanción) y Recognition & Incentives (confirmación de biometría antes de canjear SkillCredits). Elaboración propia.
 
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 
+**Figura 70**
+
+*Diagrama de Clases UML del Domain Layer de Identity & Access*
+
 <p align="center">
   <img src="images-doc/class-identity-mobile.png" alt="Class Diagram - Identity & Access" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Identity & Access - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
+
+*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
 
 El modelado de clases de Identity & Access pertenece al agregado raíz `User`, junto con sus Value Objects `Username`, `Email`, `PasswordHash` y `DeviceToken`, y la enumeración `Role`, debido a que estos elementos concentran de forma exclusiva la información de cuenta, credenciales y estado de verificación institucional de cada usuario de la plataforma. Se destaca el Value Object `DeviceToken`, incorporado sobre el agregado `User` como punto de extensión para una futura integración de notificaciones push en los clientes móviles nativo y cross-platform.
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
+**Figura 71**
+
+*Diagrama de Base de Datos del Bounded Context Identity & Access*
+
 <p align="center">
   <img src="images-doc/db-identity-mobile.png" alt="Database Diagram - Identity & Access" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Identity & Access - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
+
+*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
 
 El modelado de base de datos de Identity & Access pertenece a la tabla `users`, debido a que es la única tabla que persiste el agregado raíz `User` junto con sus Value Objects embebidos (`username`, `email`, `password_hash`, `role`, `device_token`), sin requerir tablas adicionales — a diferencia de otros Bounded Contexts del proyecto, `User` no compone ninguna entidad hija ni colección propia, por lo que un único registro por usuario es suficiente para representar el agregado completo. Se destaca el campo `device_token`, incorporado sobre la tabla `users` para el soporte de una futura integración de notificaciones push en los clientes móviles.
 
@@ -1455,32 +2755,43 @@ Estos componentes aseguran que la lógica de negocio de Credential Verification 
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
+**Figura 72**
+
+*C4 Model: Component Diagram del Bounded Context Credential Verification*
+
 <p align="center">
   <img src="images-doc/CredentialVerificationComponent.svg" alt="Component Diagram - Credential Verification" width="800">
-  <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Credential Verification - Elaboración propia. Nota: Se detalla la segregación entre el Controller, el Command/Query Service y los adaptadores de Persistencia, extracción OCR (ML Kit on-device) y almacenamiento de archivos (Cloudinary), evidenciando la escalación de certificados en estado SUSPICIOUS hacia Moderation & Disputes y la solicitud entrante de certificados verificados desde Learning Path Engine.</em>
 </p>
+
+*Nota.* Se detalla la segregación entre el Controller, el Command/Query Service y los adaptadores de Persistencia, extracción OCR (ML Kit on-device) y almacenamiento de archivos (Cloudinary), evidenciando la escalación de certificados en estado SUSPICIOUS hacia Moderation & Disputes y la solicitud entrante de certificados verificados desde Learning Path Engine. Elaboración propia.
 
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
+**Figura 73**
+
+*Diagrama de Clases UML del Domain Layer de Credential Verification*
+
 <p align="center">
   <img src="images-doc/class-credential-verification-mobile.png" alt="Class Diagram - Credential Verification" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Credential Verification - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
+
+*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
 
 El modelado de clases de Credential Verification pertenece al agregado raíz `Certificate`, junto con el Value Object `RiskAssessment` (y su enumeración asociada `RiskLevel`) y las enumeraciones `VerificationStatus` y `VerificationMethod`, debido a que estos elementos concentran de forma exclusiva el documento subido por el Estudiante, los datos extraídos mediante OCR, y el resultado explicable de la evaluación de riesgo — sin depender de la lógica específica de ningún emisor externo (SUNEDU, Coursera, etc.), la cual queda fuera del alcance implementado del curso y documentada únicamente a nivel de `VerificationMethod`.
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
+**Figura 74**
+
+*Diagrama de Base de Datos del Bounded Context Credential Verification*
+
 <p align="center">
   <img src="images-doc/db-credential-verification-mobile.png" alt="Database Diagram - Credential Verification" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Credential Verification - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
 
-El modelado de base de datos de Credential Verification pertenece a la tabla `certificates`, debido a que es la única tabla que persiste el agregado raíz `Certificate` junto con los datos extraídos por OCR, el hash del archivo y el resultado de la evaluación de riesgo — al igual que en Identity & Access, no existe ninguna entidad hija ni colección propia dentro de este agregado, por lo que un único registro por certificado es suficiente. Se destacan los campos `ocr_text`, `qr_payload`, `file_hash` y `storage_reference`, incorporados para el soporte de la captura desde cámara y el procesamiento on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto.
+*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
 
+El modelado de base de datos de Credential Verification pertenece a la tabla `certificates`, debido a que es la única tabla que persiste el agregado raíz `Certificate` junto con los datos extraídos por OCR, el hash del archivo y el resultado de la evaluación de riesgo — al igual que en Identity & Access, no existe ninguna entidad hija ni colección propia dentro de este agregado, por lo que un único registro por certificado es suficiente. Se destacan los campos `ocr_text`, `qr_payload`, `file_hash` y `storage_reference`, incorporados para el soporte de la captura desde cámara y el procesamiento on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto.
 
 
 ---
@@ -1680,29 +2991,41 @@ Estos componentes garantizan que el algoritmo de matching de habilidades y el pr
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
+**Figura 75**
+
+*C4 Model: Component Diagram del Bounded Context Learning Path Engine*
+
 <p align="center">
   <img src="images-doc/LearningPathEngineComponent.svg" alt="Component Diagram - Learning Path Engine" width="800">
-  <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Learning Path Engine - Elaboración propia. Nota: Se detalla la segregación entre los Controllers de `LearningPath` y `AssessmentBlueprint`, el Command/Query Service, el componente interno `SkillTaxonomy Matcher` y el adaptador de generación de preguntas mediante una API de IA generativa (LLM), evidenciando la solicitud de certificados verificados hacia Credential Verification, la notificación entrante de certificados verificados desde ese mismo Bounded Context, y las solicitudes entrantes de Assessment & Peer Review (blueprint del nodo y notificación de nodo demostrado).</em>
 </p>
+
+*Nota.* Se detalla la segregación entre los Controllers de `LearningPath` y `AssessmentBlueprint`, el Command/Query Service, el componente interno `SkillTaxonomy Matcher` y el adaptador de generación de preguntas mediante una API de IA generativa (LLM), evidenciando la solicitud de certificados verificados hacia Credential Verification, la notificación entrante de certificados verificados desde ese mismo Bounded Context, y las solicitudes entrantes de Assessment & Peer Review (blueprint del nodo y notificación de nodo demostrado). Elaboración propia.
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
+**Figura 76**
+
+*Diagrama de Clases UML del Domain Layer de Learning Path Engine*
+
 <p align="center">
   <img src="images-doc/class-learning-path-engine-mobile.png" alt="Class Diagram - Learning Path Engine" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Learning Path Engine - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
+
+*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
 
 El modelado de clases de Learning Path Engine pertenece a los agregados raíz `LearningPath` y `AssessmentBlueprint`, junto con la entidad `PathNode`, los Value Objects `CareerGoal` y `SkillGap`, y la entidad `Question` embebida en `AssessmentBlueprint`, debido a que estos elementos concentran de forma exclusiva el business core de la plataforma: la interpretación de la meta del estudiante, el cálculo de la brecha de habilidad, la secuencia de nodos de la ruta personalizada y el contenido evaluativo generado dinámicamente por IA para cada nodo.
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
+**Figura 77**
+
+*Diagrama de Base de Datos del Bounded Context Learning Path Engine*
+
 <p align="center">
   <img src="images-doc/db-learning-path-engine-mobile.png" alt="Database Diagram - Learning Path Engine" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Learning Path Engine - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
+
+*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
 
 El modelado de base de datos de Learning Path Engine pertenece a las tablas `learning_paths`, `path_nodes` y `assessment_blueprints`, debido a que estas tres tablas persisten de forma normalizada la ruta de aprendizaje del estudiante (`learning_paths`), cada paso individual de dicha ruta con su estado de avance (`path_nodes`), y la evaluación generada dinámicamente por IA para demostrar la habilidad de un nodo específico (`assessment_blueprints`) — una relación uno a muchos en ambos casos, ya que una ruta se compone de varios nodos y cada nodo puede requerir su propio blueprint de evaluación.
 
@@ -1871,7 +3194,7 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Assessment & Peer
 | SubmitAssessmentAttemptCommandHandler | Procesa el envío de respuestas del estudiante. | Solicita a Learning Path Engine (vía Context Facade) el `AssessmentBlueprint` con `correctAnswer` incluido, instancia `AssessmentAttempt` (que calcula el resultado internamente) y lo persiste. Si `passed` es verdadero, notifica a Learning Path Engine para completar el nodo y a Reputation para actualizar el Employability Score del estudiante. Si es falso, delega en `OpenVerificationCaseCommandHandler`. |
 | OpenVerificationCaseCommandHandler | Abre y asigna un nuevo caso tras un intento fallido. | Instancia `VerificationCase`, invoca `VerifierMatcher.findAvailableVerifier()` sobre los perfiles disponibles para el `skillTag`, ejecuta `assignVerifier()` y persiste el caso. |
 | AttachEvidenceCommandHandler | Procesa la evidencia adicional del estudiante. | Recupera el `VerificationCase`, invoca `attachEvidence()` y lo persiste. |
-| ResolveVerificationCaseCommandHandler | Procesa la decisión del Verificador. | Recupera el caso, invoca `resolve()`. Si la decisión es `APPROVED`, notifica a Learning Path Engine para completar el nodo, a Reputation para actualizar la confiabilidad del Verificador y el Employability Score del estudiante, y a Wallet & Incentives para acreditar SkillCredits al Verificador. Si es `REJECTED`, notifica solo a Reputation. |
+| ResolveVerificationCaseCommandHandler | Procesa la decisión del Verificador. | Recupera el caso, invoca `resolve()`. Notifica siempre a Reputation para actualizar la confiabilidad del Verificador y a Recognition & Incentives para acreditar SkillCredits por la revisión realizada, con independencia del resultado. Adicionalmente, si la decisión es `APPROVED`, notifica a Learning Path Engine para completar el nodo. |
 | UpdateVerifierAvailabilityCommandHandler | Procesa el cambio de disponibilidad de un Verificador. | Recupera el `VerifierProfile`, invoca `updateAvailability()` y lo persiste. |
 | GetVerificationCaseQueryHandler / GetAssessmentAttemptQueryHandler / ListCasesByVerifierQueryHandler | Recuperan el detalle o listado solicitado. | Consultan el repositorio correspondiente. |
 
@@ -1882,7 +3205,7 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Assessment & Peer
 | AssessmentAttemptDto | Objeto que transporta el resultado de un intento entre capas. |
 | VerificationCaseDto | Objeto que transporta el estado y decisión de un caso entre capas. |
 
-En la Application Layer de Assessment & Peer Review, `SubmitAssessmentAttemptCommandHandler` asegura que un estudiante nunca avance de nodo sin una evaluación real (automática o por Verificador), y `ResolveVerificationCaseCommandHandler` centraliza el único punto donde la aprobación de un caso dispara los tres eventos hacia Learning Path Engine, Reputation y Wallet & Incentives.
+En la Application Layer de Assessment & Peer Review, `SubmitAssessmentAttemptCommandHandler` asegura que un estudiante nunca avance de nodo sin una evaluación real (automática o por Verificador), y `ResolveVerificationCaseCommandHandler` centraliza el único punto donde la aprobación de un caso dispara los tres eventos hacia Learning Path Engine, Reputation y Recognition & Incentives.
 
 #### 2.6.4.4. Infrastructure Layer
 
@@ -1904,31 +3227,43 @@ Estos componentes garantizan que ni la asignación de Verificador ni la califica
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
+**Figura 78**
+
+*C4 Model: Component Diagram del Bounded Context Assessment & Peer Review*
+
 <p align="center">
   <img src="images-doc/AssessmentPeerReviewComponent.svg" alt="Component Diagram - Assessment & Peer Review" width="800">
-  <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Assessment & Peer Review - Elaboración propia. Nota: Se detalla la segregación entre los Controllers de `AssessmentAttempt`, `VerificationCase` y `VerifierProfile`, el Command/Query Service, el componente interno `VerifierMatcher` y el adaptador de almacenamiento de evidencia (Cloudinary), evidenciando la solicitud del blueprint hacia Learning Path Engine, las notificaciones hacia Reputation y Wallet & Incentives, la consulta de datos de usuario hacia Identity & Access, y la consulta entrante desde Moderation & Disputes sobre un caso escalado.</em>
 </p>
+
+*Nota.* Se detalla la segregación entre los Controllers de `AssessmentAttempt`, `VerificationCase` y `VerifierProfile`, el Command/Query Service, el componente interno `VerifierMatcher` y el adaptador de almacenamiento de evidencia (Cloudinary), evidenciando la solicitud del blueprint hacia Learning Path Engine, las notificaciones hacia Reputation y Recognition & Incentives, la consulta de datos de usuario hacia Identity & Access, y la consulta entrante desde Moderation & Disputes sobre un caso escalado. Elaboración propia.
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
+**Figura 79**
+
+*Diagrama de Clases UML del Domain Layer de Assessment & Peer Review*
+
 <p align="center">
   <img src="images-doc/class-assessment-peer-review-mobile.png" alt="Class Diagram - Assessment & Peer Review" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Assessment & Peer Review - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
+
+*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
 
 El modelado de clases de Assessment & Peer Review pertenece a los agregados raíz `AssessmentAttempt`, `VerifierProfile` y `VerificationCase`, junto con el Value Object `Score`, debido a que estos elementos concentran de forma exclusiva la ejecución del intento del estudiante sobre la evaluación generada por la IA, la elegibilidad de un Estudiante como Verificador de otros, y el flujo de escalamiento hacia revisión humana cuando dicho intento no es aprobado — sin depender de ninguna sesión de comunicación en tiempo real, a diferencia del modelo de tutorías original.
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
+**Figura 80**
+
+*Diagrama de Base de Datos del Bounded Context Assessment & Peer Review*
+
 <p align="center">
   <img src="images-doc/db-assessment-peer-review-mobile.png" alt="Database Diagram - Assessment & Peer Review" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Assessment & Peer Review - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
 
-El modelado de base de datos de Assessment & Peer Review pertenece a las tablas `assessment_attempts`, `verifier_profiles` y `verification_cases`, debido a que estas tres tablas persisten de forma independiente los tres agregados raíz del Bounded Context: el intento y resultado de una evaluación (`assessment_attempts`), la elegibilidad y disponibilidad de un Verificador (`verifier_profiles`), y el caso abierto cuando un intento no es aprobado, incluyendo su asignación y resolución con rúbrica estructurada (`verification_cases`). Se destaca el campo `evidence_url` en `verification_cases`, que reemplaza por completo la infraestructura de videollamada y chat en tiempo real del modelo de tutorías original.
+*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
+
+El modelado de base de datos de Assessment & Peer Review pertenece a las tablas `assessment_attempts`, `verifier_profiles` y `verification_cases`, debido a que estas tres tablas persisten de forma independiente los tres agregados raíz del Bounded Context: el intento y resultado de una evaluación (`assessment_attempts`), la elegibilidad y disponibilidad de un Verificador (`verifier_profiles`), y el caso abierto cuando un intento no es aprobado, incluyendo su asignación y resolución con rúbrica estructurada (`verification_cases`). Se destaca el campo `evidence_url` en `verification_cases`, que reemplaza por completo la infraestructura de chat en tiempo real del modelo de tutorías original.
 
 ---
 
@@ -2087,40 +3422,52 @@ Este adaptador permite que Assessment & Peer Review mantenga sincronizado el `ra
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
+**Figura 81**
+
+*C4 Model: Component Diagram del Bounded Context Reputation*
+
 <p align="center">
   <img src="images-doc/ReputationComponent.svg" alt="Component Diagram - Reputation" width="800">
-  <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Reputation - Elaboración propia. Nota: Se detalla la segregación entre los Controllers de solo lectura (`VerifierReliability`, `StudentEmployability`), el Command/Query Service y el adaptador de sincronización hacia Assessment & Peer Review, evidenciando que toda escritura ocurre exclusivamente mediante eventos entrantes de Assessment & Peer Review (resolución de caso/aprobación automática) y de Moderation & Disputes (reversión de decisión/sanción aplicada), sin ningún endpoint de creación consumido directamente por el cliente.</em>
 </p>
+
+*Nota.* Se detalla la segregación entre los Controllers de solo lectura (`VerifierReliability`, `StudentEmployability`), el Command/Query Service y el adaptador de sincronización hacia Assessment & Peer Review, evidenciando que toda escritura ocurre exclusivamente mediante eventos entrantes de Assessment & Peer Review (resolución de caso/aprobación automática) y de Moderation & Disputes (reversión de decisión/sanción aplicada), sin ningún endpoint de creación consumido directamente por el cliente. Elaboración propia.
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
+**Figura 82**
+
+*Diagrama de Clases UML del Domain Layer de Reputation*
+
 <p align="center">
   <img src="images-doc/class-reputation-mobile.png" alt="Class Diagram - Reputation" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Reputation - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
+
+*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
 
 El modelado de clases de Reputation pertenece a los agregados raíz `VerifierReliability` y `StudentEmployabilityScore`, junto con los Value Objects `ReliabilityScore` y `EmployabilityScore`, debido a que estos elementos concentran de forma exclusiva el recálculo explicable de la confiabilidad de un Verificador y del nivel de empleabilidad demostrado de un Estudiante, calculados ambos a partir de eventos internos del sistema — sin que ningún usuario califique directamente a otro, a diferencia del modelo de tutorías original.
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
+**Figura 83**
+
+*Diagrama de Base de Datos del Bounded Context Reputation*
+
 <p align="center">
   <img src="images-doc/db-reputation-mobile.png" alt="Database Diagram - Reputation" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Reputation - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
+
+*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
 
 El modelado de base de datos de Reputation pertenece a las tablas `verifier_reliabilities` y `student_employability_scores`, debido a que estas dos tablas persisten de forma independiente los dos agregados raíz del Bounded Context, cada uno con su propio puntaje y contadores recalculados por evento — sin una tabla intermedia de reseñas o calificaciones directas, ya que ese concepto no existe en el nuevo modelo.
 
 
 ---
 
-### 2.6.6. Bounded Context: Wallet & Incentives
+### 2.6.6. Bounded Context: Recognition & Incentives
 
 #### 2.6.6.1. Domain Layer
 
-La capa de dominio de Wallet & Incentives concentra las reglas de negocio de la billetera de SkillCredits — créditos internos no monetarios — que un Verificador acumula al resolver casos de verificación, y que cualquier usuario puede canjear por beneficios dentro de la plataforma. A diferencia del modelo de tutorías original, no existe transferencia de dinero real entre usuarios ni comisión de plataforma.
+La capa de dominio de Recognition & Incentives concentra las reglas de negocio de la billetera de SkillCredits — créditos internos no monetarios — que un Verificador acumula al resolver casos de verificación, y que cualquier usuario puede canjear por beneficios dentro de la plataforma. A diferencia del modelo de tutorías original, no existe transferencia de dinero real entre usuarios ni comisión de plataforma.
 
 **1. Aggregate Root: Wallet**
 
@@ -2204,7 +3551,7 @@ Métodos
 - `findByOwnerId(int userId)`, `save(Wallet wallet)` (WalletRepository).
 - `save(CreditTransaction transaction)`, `findByWalletId(int walletId)` (CreditTransactionRepository).
 
-En la Domain Layer de SkillSwap, dentro del Bounded Context de Wallet & Incentives, el agregado `Wallet` gestiona el saldo de SkillCredits de cada usuario, mientras que la entidad `CreditTransaction` registra cada movimiento validado por el Value Object `Credits`. El costo de cada beneficio canjeable se delega al Domain Service `RedemptionPricing`, manteniendo esta regla de negocio desacoplada del agregado — sin que exista, en ningún punto del dominio, un concepto de moneda real ni de comisión de plataforma.
+En la Domain Layer de SkillSwap, dentro del Bounded Context de Recognition & Incentives, el agregado `Wallet` gestiona el saldo de SkillCredits de cada usuario, mientras que la entidad `CreditTransaction` registra cada movimiento validado por el Value Object `Credits`. El costo de cada beneficio canjeable se delega al Domain Service `RedemptionPricing`, manteniendo esta regla de negocio desacoplada del agregado — sin que exista, en ningún punto del dominio, un concepto de moneda real ni de comisión de plataforma.
 
 #### 2.6.6.2. Interface Layer
 
@@ -2241,7 +3588,7 @@ Del lado del cliente móvil, el endpoint de canje (`redeem`) requiere que el usu
 | Nombre | Descripción | Resumen de Lógica |
 |---|---|---|
 | CreateWalletCommandHandler | Procesa la creación de la billetera inicial. | Recibe el evento desde Identity & Access tras el registro de un nuevo usuario, instancia `Wallet` con saldo en cero y lo persiste. |
-| CreditVerifierCommandHandler | Procesa la acreditación de créditos ganados. | Recibe el evento desde Assessment & Peer Review tras la resolución `APPROVED` de un `VerificationCase`, ejecuta `credit()` sobre el `Wallet` del Verificador y registra la `CreditTransaction` de tipo `EARNED`. |
+| CreditVerifierCommandHandler | Procesa la acreditación de créditos ganados. | Recibe el evento desde Assessment & Peer Review tras la resolución de un `VerificationCase`, sea `APPROVED` o `REJECTED`, ejecuta `credit()` sobre el `Wallet` del Verificador y registra la `CreditTransaction` de tipo `EARNED`. |
 | RedeemCommandHandler | Procesa el canje de un beneficio. | Calcula el costo mediante `RedemptionPricing`, valida saldo suficiente, ejecuta `debit()` sobre el `Wallet` y registra la `CreditTransaction` de tipo `REDEEMED`. |
 | GetWalletBalanceQueryHandler / GetWalletTransactionsQueryHandler | Recuperan el saldo o historial solicitado. | Consultan el repositorio correspondiente. |
 
@@ -2252,7 +3599,7 @@ Del lado del cliente móvil, el endpoint de canje (`redeem`) requiere que el usu
 | WalletDto | Objeto que transporta el saldo operativo de una billetera entre capas. |
 | CreditTransactionDto | Objeto que transporta el detalle de un movimiento entre capas. |
 
-En la Application Layer de Wallet & Incentives, `CreditVerifierCommandHandler` es el único punto donde se acreditan créditos, y depende exclusivamente de un evento de Assessment & Peer Review — nunca de una acción directa de otro usuario, eliminando así el flujo de donación P2P y su comisión asociada que existían en el modelo de tutorías.
+En la Application Layer de Recognition & Incentives, `CreditVerifierCommandHandler` es el único punto donde se acreditan créditos, y depende exclusivamente de un evento de Assessment & Peer Review — nunca de una acción directa de otro usuario, eliminando así el flujo de donación P2P y su comisión asociada que existían en el modelo de tutorías.
 
 #### 2.6.6.4. Infrastructure Layer
 
@@ -2267,31 +3614,43 @@ Este Bounded Context no incluye integraciones con pasarelas de pago externas ni 
 
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
+**Figura 84**
+
+*C4 Model: Component Diagram del Bounded Context Recognition & Incentives*
+
 <p align="center">
-  <img src="images-doc/WalletIncentivesComponent.svg" alt="Component Diagram - Wallet & Incentives" width="800">
-  <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Wallet & Incentives - Elaboración propia. Nota: Se detalla la segregación entre los Controllers de `Wallet` y `CreditTransaction`, el Command/Query Service y el Repository, evidenciando la creación de la billetera inicial solicitada por Identity & Access al registrarse, la acreditación de SkillCredits notificada por Assessment & Peer Review tras un caso aprobado, y la confirmación de biometría consultada hacia Identity & Access antes de un canje — sin ninguna integración con pasarelas de pago externas.</em>
+  <img src="images-doc/WalletIncentivesComponent.svg" alt="Component Diagram - Recognition & Incentives" width="800">
 </p>
+
+*Nota.* Se detalla la segregación entre los Controllers de `Wallet` y `CreditTransaction`, el Command/Query Service y el Repository, evidenciando la creación de la billetera inicial solicitada por Identity & Access al registrarse, la acreditación de SkillCredits notificada por Assessment & Peer Review tras un caso aprobado, y la confirmación de biometría consultada hacia Identity & Access antes de un canje — sin ninguna integración con pasarelas de pago externas. Elaboración propia.
 
 ##### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
+**Figura 85**
+
+*Diagrama de Clases UML del Domain Layer de Recognition & Incentives*
+
 <p align="center">
-  <img src="images-doc/class-wallet-incentives-mobile.png" alt="Class Diagram - Wallet & Incentives" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Wallet & Incentives - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
+  <img src="images-doc/class-wallet-incentives-mobile.png" alt="Class Diagram - Recognition & Incentives" width="800">
 </p>
 
-El modelado de clases de Wallet & Incentives pertenece al agregado raíz `Wallet`, junto con la entidad `CreditTransaction` y el Value Object `Credits`, debido a que estos elementos concentran de forma exclusiva el saldo de SkillCredits de cada usuario y el historial de movimientos — créditos ganados al resolver un caso de verificación, o canjeados por un beneficio — sin que exista, en ningún punto del dominio, un concepto de moneda real ni de comisión de plataforma.
+*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
+
+El modelado de clases de Recognition & Incentives pertenece al agregado raíz `Wallet`, junto con la entidad `CreditTransaction` y el Value Object `Credits`, debido a que estos elementos concentran de forma exclusiva el saldo de SkillCredits de cada usuario y el historial de movimientos — créditos ganados al resolver un caso de verificación, o canjeados por un beneficio — sin que exista, en ningún punto del dominio, un concepto de moneda real ni de comisión de plataforma.
 
 ##### 2.6.6.6.2. Bounded Context Database Design Diagram
 
+**Figura 86**
+
+*Diagrama de Base de Datos del Bounded Context Recognition & Incentives*
+
 <p align="center">
-  <img src="images-doc/db-wallet-incentives-mobile.png" alt="Database Diagram - Wallet & Incentives" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Wallet & Incentives - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
+  <img src="images-doc/db-wallet-incentives-mobile.png" alt="Database Diagram - Recognition & Incentives" width="800">
 </p>
 
-El modelado de base de datos de Wallet & Incentives pertenece a las tablas `wallets` y `credit_transactions`, debido a que la primera persiste el saldo vigente de SkillCredits de cada usuario y la segunda registra, en una relación uno a muchos, cada movimiento asociado a dicha billetera — sin ninguna tabla de credenciales de tarjeta ni de integración con una pasarela de pago externa, a diferencia del modelo de tutorías original.
+*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
+
+El modelado de base de datos de Recognition & Incentives pertenece a las tablas `wallets` y `credit_transactions`, debido a que la primera persiste el saldo vigente de SkillCredits de cada usuario y la segunda registra, en una relación uno a muchos, cada movimiento asociado a dicha billetera — sin ninguna tabla de credenciales de tarjeta ni de integración con una pasarela de pago externa, a diferencia del modelo de tutorías original.
 
 ---
 
@@ -2464,57 +3823,261 @@ Estos adaptadores permiten que Moderation & Disputes coordine la resolución ent
 
 #### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 
+**Figura 87**
+
+*C4 Model: Component Diagram del Bounded Context Moderation & Disputes*
+
 <p align="center">
   <img src="images-doc/ModerationDisputesComponent.svg" alt="Component Diagram - Moderation & Disputes" width="800">
-  <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Moderation & Disputes - Elaboración propia. Nota: Se detalla la segregación entre el Controller, el Command/Query Service y los adaptadores de consulta de evidencia hacia Credential Verification y Assessment & Peer Review, evidenciando la escalación automática de certificados en estado SUSPICIOUS, y las notificaciones salientes hacia Identity & Access (suspensión de cuenta) y Reputation (reversión de decisión/sanción aplicada) tras la resolución del Coordinador.</em>
 </p>
+
+*Nota.* Se detalla la segregación entre el Controller, el Command/Query Service y los adaptadores de consulta de evidencia hacia Credential Verification y Assessment & Peer Review, evidenciando la escalación automática de certificados en estado SUSPICIOUS, y las notificaciones salientes hacia Identity & Access (suspensión de cuenta) y Reputation (reversión de decisión/sanción aplicada) tras la resolución del Coordinador. Elaboración propia.
 
 ##### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
 
+**Figura 88**
+
+*Diagrama de Clases UML del Domain Layer de Moderation & Disputes*
+
 <p align="center">
   <img src="images-doc/class-moderation-disputes-mobile.png" alt="Class Diagram - Moderation & Disputes" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Clases UML del Domain Layer de Moderation & Disputes - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
+
+*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
 
 El modelado de clases de Moderation & Disputes pertenece al agregado raíz `Dispute`, junto con la entidad `Sanction`, debido a que estos elementos generalizan bajo un único modelo los tres orígenes de escalación posibles hacia el Coordinador (certificado sospechoso, apelación de una decisión de Verificador, o reporte directo de usuario), evitando que Moderation dependa directamente de los modelos internos de `Certificate` o `VerificationCase` — el rol de Anticorruption Layer definido en el Context Mapping.
 
 ##### 2.6.7.6.2. Bounded Context Database Design Diagram
 
+**Figura 89**
+
+*Diagrama de Base de Datos del Bounded Context Moderation & Disputes*
+
 <p align="center">
   <img src="images-doc/db-moderation-disputes-mobile.png" alt="Database Diagram - Moderation & Disputes" width="800">
-  <br>
-  <em>Figura XX. Diagrama de Base de Datos del Bounded Context Moderation & Disputes - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
+
+*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
 
 El modelado de base de datos de Moderation & Disputes pertenece a las tablas `disputes` y `sanctions`, debido a que la primera persiste, en un único modelo unificado, cualquier caso que requiera la decisión final del Coordinador —identificado mediante `source_type` y `source_reference_id`—, y la segunda registra, en una relación uno a muchos, la sanción aplicada únicamente cuando el origen del caso fue un reporte de usuario resuelto con el outcome `SANCTIONED`.
 
 ---
 
-A continuación se presenta el diagrama relacional completo de SkillSwap, mostrando la totalidad de las tablas y sus relaciones entre los siete Bounded Contexts.
+### 2.6.8. Bounded Context: Subscription & Billing
+
+#### 2.6.8.1. Domain Layer
+
+La capa de dominio de Subscription & Billing concentra las reglas de negocio del cobro recurrente de la suscripción mensual del Estudiante, manteniendo el modelo desacoplado de la pasarela de pago concreta (Stripe) mediante un contrato de dominio propio.
+
+**1. Aggregate Root: Subscription**
+
+Descripción: El agregado `Subscription` representa el acceso recurrente de un Estudiante a la plataforma, gobernando las transiciones de estado de su ciclo de facturación mensual.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único de la suscripción (autogenerado). |
+| studentId | int | Referencia al usuario `Student` (Identity & Access) propietario de la suscripción. |
+| plan | SubscriptionPlan (VO) | Plan contratado, incluyendo su nombre y precio. |
+| status | SubscriptionStatus (VO) | Estado actual del ciclo de facturación. |
+| startedAt | timestamp | Fecha de inicio de la suscripción. |
+| renewsAt | timestamp | Fecha en la que corresponde el próximo cobro. |
+| cancelledAt | timestamp (nullable) | Fecha en la que el Estudiante canceló la suscripción, si aplica. |
+
+Métodos
+
+- `Subscription(studentId, plan)` (Constructor): Crea la suscripción en estado `ACTIVE`, calculando `renewsAt` a partir de la fecha actual y la periodicidad del plan.
+- `renew(Date newRenewsAt)`: Confirma el cobro del ciclo actual y actualiza `renewsAt` al siguiente período, manteniendo el estado en `ACTIVE`.
+- `cancel()`: Transiciona el estado a `CANCELLED` y registra `cancelledAt`, sin revocar el acceso hasta que finalice el período ya pagado.
+- `expire()`: Transiciona el estado a `EXPIRED` cuando un cobro de renovación falla y no se resuelve dentro del período de gracia.
+
+**2. Value Object: SubscriptionPlan**
+
+Descripción: Encapsula el nombre y el precio del plan contratado por el Estudiante.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| name | string | Nombre comercial del plan (ej. "Plan Mensual"). |
+| price | Money (VO) | Precio periódico del plan. |
+
+**3. Value Object: Money**
+
+Descripción: Encapsula un monto monetario junto con su moneda, evitando operaciones aritméticas ambiguas entre distintas divisas.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| amount | decimal | Cantidad numérica del monto. |
+| currency | string | Código de moneda (ej. `PEN`). |
+
+Métodos
+
+- `Money(decimal amount, String currency)` (Constructor): Valida que el monto no sea negativo.
+
+**4. Value Object: SubscriptionStatus**
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | `ACTIVE`, `EXPIRED`, `CANCELLED`. |
+
+**5. Domain Service: PaymentGateway**
+
+Descripción: Define el contrato para procesar un cobro contra una pasarela de pago externa, desacoplando el dominio de la tecnología concreta (Stripe) y permitiendo sustituirla o simularla sin modificar el resto del Bounded Context.
+
+Métodos
+
+- `charge(Money amount, String paymentMethodToken)`: Procesa el cobro del monto indicado contra el método de pago del usuario y retorna el resultado de la transacción (éxito/fallo, identificador externo del cargo).
+
+**6. Repository: SubscriptionRepository**
+
+Métodos
+
+- `findByStudentId(int studentId)`: Recupera la suscripción vigente de un Estudiante.
+- `save(Subscription subscription)`: Persiste una suscripción nueva o actualizada.
+
+En la Domain Layer de SkillSwap, dentro del Bounded Context de Subscription & Billing, el agregado `Subscription` centraliza el ciclo de vida del cobro recurrente, apoyándose en el Domain Service `PaymentGateway` para desacoplar el dominio del proveedor concreto de pagos, y en el Value Object `Money` para representar montos en moneda real de forma segura.
+
+#### 2.6.8.2. Interface Layer
+
+**Resources**
+
+| Nombre | Descripción |
+|---|---|
+| CreateSubscriptionResource | DTO de entrada con el plan elegido y el token del método de pago. |
+| SubscriptionResource | DTO de salida que representa la suscripción vigente (plan, estado, próxima renovación). |
+
+**Controllers**
+
+| Nombre | Método HTTP | Ruta / Resource | Descripción |
+|---|---|---|---|
+| SubscriptionController | POST | `/api/v1/subscriptions` (CreateSubscriptionResource) | Crea la suscripción del Estudiante y procesa el primer cobro. |
+| SubscriptionController | GET | `/api/v1/subscriptions/{studentId}` | Retorna el estado vigente de la suscripción. |
+| SubscriptionController | PATCH | `/api/v1/subscriptions/{id}/cancel` | Cancela la suscripción, efectiva al finalizar el período ya pagado. |
+
+**Transformers / Assemblers**
+
+| Nombre | Descripción |
+|---|---|
+| SubscriptionResourceFromEntityAssembler | Convierte `Subscription` en `SubscriptionResource`. |
+| CreateSubscriptionCommandFromResourceAssembler | Transforma `CreateSubscriptionResource` en `CreateSubscriptionCommand`. |
+
+Los controladores no procesan directamente el token del método de pago: lo delegan sin inspeccionarlo a la capa de aplicación, que a su vez lo pasa al adaptador de infraestructura de Stripe, evitando que datos sensibles de pago circulen por el dominio.
+
+#### 2.6.8.3. Application Layer
+
+**Handlers**
+
+| Nombre | Descripción | Resumen de Lógica |
+|---|---|---|
+| CreateSubscriptionCommandHandler | Procesa la creación de una nueva suscripción. | Invoca `PaymentGateway.charge()` con el precio del plan; si el cobro es exitoso, instancia `Subscription` en estado `ACTIVE` y la persiste. |
+| CancelSubscriptionCommandHandler | Procesa la cancelación de una suscripción. | Recupera la `Subscription`, invoca `cancel()` y la persiste. |
+| RenewSubscriptionCommandHandler | Procesa la renovación periódica de una suscripción. | Disparado por el webhook de Stripe al confirmarse el cobro recurrente; invoca `renew()` sobre la `Subscription` correspondiente. |
+| GetSubscriptionQueryHandler | Recupera el detalle de la suscripción vigente. | Consulta `SubscriptionRepository.findByStudentId()`. |
+
+**Internal DTOs**
+
+| Nombre | Descripción |
+|---|---|
+| SubscriptionDto | Objeto que transporta el estado operativo de la suscripción entre capas. |
+
+En la Application Layer de Subscription & Billing, `RenewSubscriptionCommandHandler` asegura que el acceso del Estudiante se mantenga sincronizado con el estado real del cobro recurrente en la pasarela de pago, sin que este Bounded Context intervenga en ningún momento sobre el balance de SkillCredits del usuario.
+
+#### 2.6.8.4. Infrastructure Layer
+
+**Persistence (Repository Implementation)**
+
+| Nombre | Descripción | Tecnologías / Herramientas |
+|---|---|---|
+| SubscriptionRepositoryAdapter | Implementación concreta de `SubscriptionRepository` sobre la tabla `subscriptions`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+
+**Payment Services Implementation**
+
+| Nombre | Descripción | Resumen de Implementación |
+|---|---|---|
+| StripePaymentGatewayAdapter | Implementación técnica de `PaymentGateway` mediante la API de Stripe. | Procesa cobros vía Stripe Payment Intents y verifica la firma de los webhooks entrantes para confirmar cobros recurrentes de forma asíncrona. |
+
+*Nota de alcance:* si la integración real con Stripe (incluyendo el manejo de webhooks) no resulta viable dentro de los tiempos del ciclo, el equipo documentará esta limitación de la misma forma en que ya se hizo con los niveles de verificación no implementados en Credential Verification — sustituyendo `StripePaymentGatewayAdapter` por una implementación simulada (`SimulatedPaymentGatewayAdapter`) que respeta el mismo contrato `PaymentGateway`, sin alterar el Domain Layer ni la Application Layer.
+
+#### 2.6.8.5. Bounded Context Software Architecture Component Level Diagrams
+
+**Figura 90**
+
+*C4 Model: Component Diagram del Bounded Context Subscription & Billing*
+
+<p align="center">
+  <img src="images-doc/SubscriptionBillingComponent.svg" alt="Component Diagram - Subscription & Billing" width="800">
+</p>
+
+*Nota.* Se detalla la segregación entre el Controller, el Command/Query Service y el adaptador de cobro hacia Stripe, evidenciando el manejo asíncrono de la confirmación de pagos mediante un Webhook Handler. Este Bounded Context opera de forma completamente independiente de Recognition & Incentives. Elaboración propia.
+
+##### 2.6.8.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Figura 91**
+
+*Diagrama de Clases UML del Domain Layer de Subscription & Billing*
+
+<p align="center">
+  <img src="images-doc/class-subscription-billing-mobile.png" alt="Class Diagram - Subscription & Billing" width="800">
+</p>
+
+*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
+
+El modelado de clases de Subscription & Billing pertenece únicamente al agregado raíz `Subscription`, junto con los Value Objects `SubscriptionPlan` y `Money`, debido a que este Bounded Context gestiona exclusivamente el ciclo de vida del cobro recurrente de la mensualidad, desacoplado del proveedor concreto de pagos mediante el Domain Service `PaymentGateway`, definido en el Context Mapping como el límite de Anticorruption Layer hacia Stripe.
+
+##### 2.6.8.6.2. Bounded Context Database Design Diagram
+
+**Figura 92**
+
+*Diagrama de Base de Datos del Bounded Context Subscription & Billing*
+
+<p align="center">
+  <img src="images-doc/db-subscription-billing-mobile.png" alt="Database Diagram - Subscription & Billing" width="800">
+</p>
+
+*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
+
+El modelado de base de datos de Subscription & Billing pertenece a la tabla `subscriptions`, debido a que es la única tabla que persiste el agregado raíz `Subscription`, incluyendo el plan contratado aplanado en columnas simples (`plan_name`, `plan_price`, `plan_currency`) — al igual que en Identity & Access y Credential Verification, no existe ninguna entidad hija ni colección propia, por lo que un único registro por suscripción es suficiente. No se persiste el método de pago ni datos sensibles de tarjeta, delegados por completo a Stripe.
+
+
+---
+
+A continuación se presenta el diagrama relacional completo de SkillSwap, mostrando la totalidad de las tablas y sus relaciones entre los ocho Bounded Contexts.
+
+**Figura 93**
+
+*Diagrama de Base de Datos completo de SkillSwap*
 
 <p align="center">
   <img src="images-doc/db-full-mobile.svg" alt="Diagrama de Base de Datos Completo" width="1000">
-  <br>
-  <em>Figura XX. Diagrama de Base de Datos completo de SkillSwap - Elaboración propia. Nota: Se muestra la totalidad de las tablas correspondientes a los siete Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Moderation & Disputes), incluyendo el campo device_token sobre la tabla users para el soporte de notificaciones push, y los campos file_hash, storage_reference, ocr_text y qr_payload incorporados sobre la tabla certificates para el soporte de la captura desde cámara y la extracción on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto. Elaborado en dbdiagram.io.</em>
 </p>
 
-En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos MySQL (`skillswap_db`) aloja de forma organizada las tablas de los siete Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `assessment_attempts` y `verification_cases` en Assessment & Peer Review) y bajo acoplamiento entre ellos, referenciándose únicamente a través del identificador de usuario (`users.id`) como dato compartido. La incorporación del campo `device_token` y de los campos de extracción sobre `certificates` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, sin alterar la estructura ni las relaciones ya validadas en la versión web de la plataforma.
+*Nota.* Se muestra la totalidad de las tablas correspondientes a los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el campo device_token sobre la tabla users para el soporte de notificaciones push, los campos file_hash, storage_reference, ocr_text y qr_payload incorporados sobre la tabla certificates para el soporte de la captura desde cámara y la extracción on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto, y la tabla subscriptions incorporada para el soporte del cobro recurrente de la suscripción mensual. Elaborado en dbdiagram.io. Elaboración propia.
+
+En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos MySQL (`skillswap_db`) aloja de forma organizada las tablas de los ocho Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `assessment_attempts` y `verification_cases` en Assessment & Peer Review) y bajo acoplamiento entre ellos, referenciándose únicamente a través del identificador de usuario (`users.id`) como dato compartido. La incorporación del campo `device_token` y de los campos de extracción sobre `certificates` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, mientras que la tabla `subscriptions` evidencia el modelo de negocio de acceso recurrente (mensualidad), completamente independiente del sistema interno no monetario de SkillCredits, que solo se gana mediante participación como Verificador y no admite ninguna forma de adquisición directa.
 
 
+A continuación se presenta el diagrama de clases UML completo de SkillSwap, mostrando la totalidad del modelo de dominio y su segmentación entre los ocho Bounded Contexts.
 
-A continuación se presenta el diagrama de clases UML completo de SkillSwap, mostrando la totalidad del modelo de dominio y su segmentación entre los siete Bounded Contexts.
+**Figura 94**
+
+*Diagrama de Clases UML completo de SkillSwap*
 
 <p align="center">
   <img src="images-doc/SkillSwap_ClassDiagram_Mobile.svg" alt="Diagrama de Clases Completo" width="1000">
-  <br>
-  <em>Figura XX. Diagrama de Clases UML completo de SkillSwap - Elaboración propia. Nota: Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los siete Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Moderation & Disputes), incluyendo el Value Object `DeviceToken` en Identity & Access y los atributos de extracción OCR (`ocrText`, `qrPayload`, `fileHash`) en `Certificate` (Credential Verification), incorporados para el soporte de las funcionalidades propias de los clientes móviles. Elaborado en PlantUML.</em>
 </p>
 
-En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `Certificate`, `LearningPath`, `AssessmentBlueprint`, `AssessmentAttempt`, `VerifierProfile`, `VerificationCase`, `VerifierReliability`, `StudentEmployabilityScore`, `Wallet`, `Dispute`) heredando de un `AbstractDomainAggregateRoot` compartido, manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos — toda referencia cruzada se resuelve mediante un identificador simple (`Long`). La incorporación del Value Object `DeviceToken` en Identity & Access y de los atributos de extracción de `Certificate` en Credential Verification demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, en particular la captura desde cámara y el procesamiento on-device mediante ML Kit que constituye el feature de aprendizaje autónomo del proyecto.
+*Nota.* Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el Value Object `DeviceToken` en Identity & Access, los atributos de extracción OCR (`ocrText`, `qrPayload`, `fileHash`) en `Certificate` (Credential Verification), y el agregado `Subscription` (Subscription & Billing) incorporado para el soporte del cobro recurrente de la mensualidad. Elaborado en PlantUML. Elaboración propia.
+
+En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `Certificate`, `LearningPath`, `AssessmentBlueprint`, `AssessmentAttempt`, `VerifierProfile`, `VerificationCase`, `VerifierReliability`, `StudentEmployabilityScore`, `Wallet`, `Subscription`, `Dispute`) heredando de un `AbstractDomainAggregateRoot` compartido, manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos — toda referencia cruzada se resuelve mediante un identificador simple (`Long`). La incorporación del Value Object `DeviceToken` en Identity & Access y de los atributos de extracción de `Certificate` en Credential Verification demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, en particular la captura desde cámara y el procesamiento on-device mediante ML Kit que constituye el feature de aprendizaje autónomo del proyecto. Por su parte, el agregado `Subscription` en Subscription & Billing, junto con los Value Objects `SubscriptionPlan` y `Money`, evidencia el desacoplamiento entre el cobro recurrente al Estudiante y el sistema interno no monetario de SkillCredits en Recognition & Incentives, ambos Bounded Contexts operando de forma completamente independiente entre sí y desacoplados del proveedor concreto de pagos (Stripe) mediante el Domain Service `PaymentGateway`.
 
 ---
+
 
 # Conclusiones
 
@@ -2539,19 +4102,13 @@ Contrastar el Problem Statement con nuestro propio diseño de arquitectura nos o
 *Esta sección la dejo como plantilla para que ustedes la completen con lo que realmente vivieron en el desarrollo — no tengo visibilidad de esa parte de tu equipo (por ejemplo, algún problema real con Render/MySQL, con la integración de ML Kit en Android/Flutter, o algo que decidieron simplificar sobre la marcha durante los Sprints). Sigue el mismo tono: qué pasó, por qué pasó, qué aprendieron, cómo lo habrían hecho distinto si lo supieran desde el inicio — como en el ejemplo que me pasaste sobre la base de datos de Aiven suspendiéndose por inactividad.*
 
 # Bibliografía
-* Davila, R. C., Aguero Corzo, E. del C., Portillo, H., & Quimbita, O. R. (2022). Deserción universitaria de los estudiantes de una universidad peruana. *Universidad y Sociedad, 14*(2), 421-427. [http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S2218-36202022000200421](http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S2218-36202022000200421)
-* Escalante, J., Medina, C., & Vásquez, A. (2023). La deserción universitaria: un problema no resuelto en el Perú. *Hacedor - AIAPÆC, 7*(1), 60-72. [https://doi.org/10.26495/rch.v7i1.2421](https://doi.org/10.26495/rch.v7i1.2421)
-* García-Ortiz, J., López de Castro Machado, C., & Rivero Frutos, L. (2021). Fracaso y abandono universitario: Percepción de los(as) estudiantes de Educación Social de la Universidad de Castilla-La Mancha. *Revista de Educación y Desarrollo Social, 8*(1), 54–73. [https://www.redalyc.org/journal/140/14070424012/html](https://www.redalyc.org/journal/140/14070424012/html)
-* Gobierno del Perú. (2024). *Presupuesto público para el 2024 pone énfasis en educación, salud, atención de emergencias por desastres naturales y seguridad ciudadana*. [https://www.gob.pe/institucion/mef/noticias/868273](https://www.gob.pe/institucion/mef/noticias/868273)
-* GoPeer. *Online tutoring made simple*. Recuperado de [https://gopeer.org/auth](https://gopeer.org/auth)
-* Gutiérrez Pallares, J., Bernal Pérez, M. B., & Gutiérrez Pallares, E. (2024). Habilidades blandas: Pilares fundamentales para la empleabilidad en el siglo XXI. *RILCO DS: Revista de Desarrollo sustentable, Negocios, Emprendimiento y Educación, 6*(58), 65–76. [https://dialnet.unirioja.es/servlet/articulo?codigo=9789998](https://dialnet.unirioja.es/servlet/articulo?codigo=9789998)
-* Instituto de Educación Superior Sabio Nacional Antúnez de Mayolo - TELESUP. (2019, junio). *Reglamento de Bienestar Estudiantil*. [https://isam.edu.pe/pdf/reglamento-de-bienestar-estudiantil.pdf](https://isam.edu.pe/pdf/reglamento-de-bienestar-estudiantil.pdf)
-* Knack. *Peer tutoring for college students*. Recuperado de [https://www.joinknack.com/students](https://www.joinknack.com/students)
-* Ministerio de Educación. (2021, 8 de noviembre). *Tasa de deserción en educación universitaria se redujo a 11.5 %*. Gob.pe. [https://www.gob.pe/institucion/minedu/noticias/552273](https://www.gob.pe/institucion/minedu/noticias/552273)
-* uDocz. *Plataforma de estudio colaborativo*. Recuperado de [https://www.udocz.com/home](https://www.udocz.com/home)
-* Universidad de Piura. (2020, 26 de octubre). *La importancia de las habilidades blandas en la educación*. [https://www.udep.edu.pe/admision/lima/la-importancia-de-las-habilidades-blandas-en-la-educacion](https://www.udep.edu.pe/admision/lima/la-importancia-de-las-habilidades-blandas-en-la-educacion)
-* Villamizar-Loaiza, C. (2021). La legitimidad institucional como fuente de reputación corporativa. *Investigación y Desarrollo, 29*(2), 196–222. [https://www.redalyc.org/journal/268/26871326008/html](https://www.redalyc.org/journal/268/26871326008/html)
+* Coursera. (2025). *Global skills report 2025*. [https://www.coursera.org/skills-reports/global](https://www.coursera.org/skills-reports/global)
+* Instituto Nacional de Estadística e Informática. (2025). *Estadísticas de las tecnologías de información y comunicación en los hogares: II trimestre 2025* (Informe Técnico N.° 03). [https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf](https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf)
+* Novella, R., Alvarado, A., Rosas, D., & González-Velosa, C. (2019). *Encuesta de habilidades al trabajo (ENHAT) 2017-2018: Causas y consecuencias de la brecha de habilidades en Perú* (Nota Técnica N.° IDB-TN-1652). Banco Interamericano de Desarrollo. [https://proyectos.inei.gob.pe/iinei/srienaho/Descarga/DocumentosMetodologicos/2017-18/6-ENHAT_2017-2018_Caus_y_consec_de_la_brecha_de_habil_en_Peru.pdf](https://proyectos.inei.gob.pe/iinei/srienaho/Descarga/DocumentosMetodologicos/2017-18/6-ENHAT_2017-2018_Caus_y_consec_de_la_brecha_de_habil_en_Peru.pdf)
+* Organisation for Economic Co-operation and Development. (2024). *Bridging talent shortages in tech: Skills-first hiring, micro-credentials and inclusive outreach*. OECD Publishing. [https://doi.org/10.1787/f35da44f-en](https://doi.org/10.1787/f35da44f-en)
+* Rivas Cossio, R. E. (2023). La inadecuación ocupacional de jóvenes en Perú. *Políticas Públicas, 16*(2), 39–59. [https://doi.org/10.35588/pp.v16i2.6201](https://doi.org/10.35588/pp.v16i2.6201)
 
+* World Economic Forum. (2025). *The future of jobs report 2025*. [https://www.weforum.org/publications/the-future-of-jobs-report-2025/](https://www.weforum.org/publications/the-future-of-jobs-report-2025/)
 # Anexos
 
 * **Wireframes (Figma):** [https://www.figma.com/design/l6Z6APfbLoci4YMSaZkILK/Wireframes-camino-feliz?node-id=121-1250&t=91cAQ4Kz2gcFrsPc-1](https://www.figma.com/design/l6Z6APfbLoci4YMSaZkILK/Wireframes-camino-feliz?node-id=121-1250&t=91cAQ4Kz2gcFrsPc-1)
@@ -2562,6 +4119,8 @@ Contrastar el Problem Statement con nuestro propio diseño de arquitectura nos o
 
 * **Landing Page (GitHub Pages):**
 [https://github.com/Aplicaciones-Dispositivos-Moviles](https://github.com/Aplicaciones-Dispositivos-Moviles)
+
+link: [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/)
 
 
 ---
@@ -2590,141 +4149,111 @@ Contrastar el Problem Statement con nuestro propio diseño de arquitectura nos o
 20. Development Evidence for Sprint Review
 
 
-
 ---
 
 ###  Índice de Figuras
 
-1. Entrevista 1: Estudiante-Aprendiz
-2. Entrevista 2: Estudiante-Aprendiz
-3. Entrevista 3: Estudiante-Aprendiz
-4. Entrevista 1: Estudiante-Tutor
-5. Entrevista 2: Estudiante-Tutor
-6. Entrevista 3: Estudiante-Tutor
-7. Entrevista 2: Coordinador Institucional (Parte 1)
-8. Entrevista 2: Coordinador Institucional (Parte 2)
-9. Entrevista 3: Coordinador Institucional
-10. Entrevista 4: Coordinador Institucional
-11. User Persona - Estudiantes que quieren aprender
-12. User Persona - Estudiantes que quieren enseñar
-13. User Persona - Coordinador Institucional
-14. User Journey Mapping - Estudiantes que quieren aprender
-15. User Journey Mapping - Estudiantes que quieren enseñar
-16. User Journey Mapping - Coordinador Institucional
-17. Empathy Mapping - Estudiantes aprendices
-18. Empathy Mapping - Estudiantes tutores
-19. Empathy Mapping - Coordinador Institucional
-20. Derivación de requisitos (Event Storming)
-21. Requerimientos de comunicación síncrona
-22. Flujo financiero y KPIs
-23. Gestión de identidad y perfiles
-24. Búsqueda y selección de tutores
-25. Interacción en tiempo real
-26. Procesos de aprendizaje y retroalimentación
-27. Módulos de soporte y administración
-28. Flujo de gestión de usuarios
-29. Flujo de búsqueda de tutores
-30. Espacio de trabajo colaborativo
-31. Ciclo de vida de cuestionarios
-32. Sistema de reputación del tutor
-33. Flujo financiero de la plataforma
-34. Resolución de conflictos
-35. Impact Mapping - Registro de estudiantes
-36. Impact Mapping - Tutorías exitosas
-37. Impact Mapping - Retención y participación
-38. Logo Innovify
-39. Landing page - Página inicio
-40. Paleta de colores
-41. Paleta de colores iOS Mobile
-42. Tipografía iOS Mobile
-43. Campos de texto iOS Mobile
-44. Botones iOS Mobile
-45. Pickers y alertas iOS Mobile
-46. Enlace a redes sociales iOS Mobile
-47. Paleta de colores Android Mobile
-48. Tipografía Android Mobile
-49. Campos de texto Android Mobile
-50. Botones Android Mobile
-51. Pickers y alertas Android Mobile
-52. Enlace a redes sociales Android Mobile
-53. Diagrama de flujo Estudiante aprendiz
-54. Diagrama de flujo Estudiante tutor
-55. Diagrama de flujo Coordinador institucional
-56. Sistema de etiquetado en navegación móvil
-57. Wireframe sección principal Landing Page
-58. Wireframe estructura Landing Page
-59. Wireframe página principal web
-60. Mock-up sección principal Landing Page
-61. Mock-up cuerpo Landing Page
-62. Mock-up Landing Page móvil
-63. Arquitectura de la Landing Page
-64. Colección de wireframes Web
-65. Colección de wireframes Web
-66. Wireflow de búsqueda y solicitud de tutoría
-67. Wireflow de recepción y aceptación de solicitud
-68. Wireflow de calificación de sesión y gestión de favoritos
-69. Wireflow de configuración de perfil y disponibilidad del tutor
-70. Wireflow de búsqueda avanzada con filtros
-71. Wireflow de realización de sesión de tutoría
-72. Wireflow de dashboard y reputación del tutor
-73. Wireflow de monitoreo del coordinador
-74. Wireflow de personalización de la experiencia
-75. Mock-ups de alta fidelidad aplicación móvil
-76. Diseño de componentes Payments & Wallet
-77. Diseño físico Identity & Profile Context
-78. (omitida en fuente original)
-79. Diseño físico Academic & Assessment Context
-80. Diseño físico Monetization Context
-81. Diseño físico Shared Kernel & Infrastructure
-82. Diseño físico Reputation & Gamification
-83. Diseño físico Communication & Notifications
-84. Wireflow búsqueda y solicitud (mobile)
-85. Wireflow recepción y aceptación (tutor)
-86. Wireflow verificación de estudiantes
-87. Wireflow calificación y favoritos
-88. Wireflow configuración de perfil
-89. Wireflow búsqueda avanzada (mobile)
-90. Wireflow sesión de tutoría (mobile)
-91. Wireflow moderación y disputas
-92. C4 Model - Container Diagram
-93. Componentes Workplace Context
-94. Componentes Reputation System Context
-95. Componentes Payments & Wallet
-96. Moderation & Disputes Context
-97. Componentes Learning & Assessment
-98. Estructura Learning & Assessment (repositorio)
-99. Discovery Bounded Context
-100. C4 Model - Component Diagram
-101. Diagrama de clases UML del dominio
-102. Arquitectura DDD (Bounded Contexts)
-103. Base de datos relacional por contextos
-104. Organización del proyecto en GitHub
-105. Gráfico de commits del proyecto
-106. Network graph (Gitflow)
-107. Seguimiento Sprint 1 en Trello
-108. Historial de commits
-109. Página de inicio (landing estática)
-110. Sección “Sobre nosotros”
-111. Formulario de autenticación
-112. Formulario de registro
-113. Sección de equipo
-114. Código fuente index.html
-115. Hoja de estilos CSS
-116. Configuración GitHub Pages
-117. Landing page publicada
-118. Gráfico commits over time
-119. Estadísticas de colaboradores
-120. Listado de commits recientes
-121. Pull Request estructurado
-122. Pull Request con conflictos
- 
+Figura 1. *Gráfico de contribuciones al repositorio del Project Report durante AV1*<br>
+Figura 2. *Historial de commits en el repositorio del Project Report*<br>
+Figura 3. *Lean UX Canvas (v2)*<br>
+Figura 4. *Entrevista 1: Personas que quieren aprender*<br>
+Figura 5. *Entrevista 2: Personas que quieren aprender*<br>
+Figura 6. *Entrevista 3: Personas que quieren aprender*<br>
+Figura 7. *Entrevista 1: Segmento Verificador*<br>
+Figura 8. *Entrevista 2: Segmento Verificador*<br>
+Figura 9. *Entrevista 3: Segmento Verificador*<br>
+Figura 10. *User Persona - Personas que quieren aprender*<br>
+Figura 11. *User Persona - Verificador*<br>
+Figura 12. *User Journey Mapping – Personas que quieren aprender*<br>
+Figura 13. *User Journey Mapping – Nivel Verificador*<br>
+Figura 14. *Empathy Mapping - Personas que quieren aprender*<br>
+Figura 15. *Empathy Mapping - Nivel Verificador*<br>
+Figura 16. *As-Is Scenario Mapping – Personas que quieren aprender*<br>
+Figura 17. *As-Is Scenario Mapping – Personas que validan el conocimiento*<br>
+Figura 18. *To-Be Scenario Mapping – Personas que quieren aprender*<br>
+Figura 19. *To-Be Scenario Mapping – Personas que validan el conocimiento*<br>
+Figura 20. *Impact Map - Business Goal 1: Adopción y suscripción*<br>
+Figura 21. *Impact Map - Business Goal 2: Validación práctica de habilidades*<br>
+Figura 22. *Impact Map - Business Goal 3: Red de Verificadores*<br>
+Figura 23. *Impact Map - Business Goal 4: Calidad y confianza del proceso*<br>
+Figura 24. *EventStorming, paso 1: Unstructured Exploration*<br>
+Figura 25. *EventStorming, paso 2: Timelines (registro, suscripción y certificados)*<br>
+Figura 26. *EventStorming, paso 2: Timelines (evaluación de los nodos)*<br>
+Figura 27. *EventStorming, paso 2: Timelines (demostración final, certificación y nuevo Verificador)*<br>
+Figura 28. *EventStorming, paso 3: Pain Points (registro, suscripción y certificados)*<br>
+Figura 29. *EventStorming, paso 3: Pain Points (evaluación de los nodos)*<br>
+Figura 30. *EventStorming, paso 3: Pain Points (demostración final, certificación y nuevo Verificador)*<br>
+Figura 31. *EventStorming, paso 4: Pivotal Points (registro, suscripción y certificados)*<br>
+Figura 32. *EventStorming, paso 4: Pivotal Points (evaluación de los nodos)*<br>
+Figura 33. *EventStorming, paso 4: Pivotal Points (demostración final, certificación y nuevo Verificador)*<br>
+Figura 34. *EventStorming, paso 5: Commands (registro, suscripción y certificados)*<br>
+Figura 35. *EventStorming, paso 5: Commands (evaluación de los nodos)*<br>
+Figura 36. *EventStorming, paso 5: Commands (demostración final, certificación y nuevo Verificador)*<br>
+Figura 37. *EventStorming, paso 6: Policies (registro, suscripción y certificados)*<br>
+Figura 38. *EventStorming, paso 6: Policies (evaluación de los nodos)*<br>
+Figura 39. *EventStorming, paso 6: Policies (demostración final, certificación y nuevo Verificador)*<br>
+Figura 40. *EventStorming, paso 7: Read Models (registro, suscripción y certificados)*<br>
+Figura 41. *EventStorming, paso 7: Read Models (evaluación de los nodos)*<br>
+Figura 42. *EventStorming, paso 7: Read Models (demostración final, certificación y nuevo Verificador)*<br>
+Figura 43. *EventStorming, paso 8: External Systems (registro, suscripción y certificados)*<br>
+Figura 44. *EventStorming, paso 8: External Systems (evaluación de los nodos)*<br>
+Figura 45. *EventStorming, paso 8: External Systems (demostración final, certificación y nuevo Verificador)*<br>
+Figura 46. *EventStorming, paso 9: Aggregates*<br>
+Figura 47. *EventStorming, paso 10: Bounded Contexts*<br>
+Figura 48. *Candidate Context Discovery, iteración 1: fases delimitadas por los eventos pivotales*<br>
+Figura 49. *Candidate Context Discovery, iteración 2: línea de tiempo por contexto candidato*<br>
+Figura 50. *Candidate Context Discovery, iteración 3: clasificación de los contextos por valor*<br>
+Figura 51. *Domain Message Flow: Registro del Estudiante y paso al plan premium*<br>
+Figura 52. *Domain Message Flow: Declaración del objetivo y generación de la ruta*<br>
+Figura 53. *Domain Message Flow: Revisión de un entregable práctico aprobado*<br>
+Figura 54. *Domain Message Flow: Reporte de una decisión revertida por Moderación*<br>
+Figura 55. *Domain Message Flow: Demostración final y emisión de la certificación*<br>
+Figura 56. *Domain Message Flow: Registro de un certificado sospechoso*<br>
+Figura 57. *Bounded Context Canvas: Assessment & Peer Review*<br>
+Figura 58. *Bounded Context Canvas: Learning Path Engine*<br>
+Figura 59. *Bounded Context Canvas: Credential Verification*<br>
+Figura 60. *Bounded Context Canvas: Reputation*<br>
+Figura 61. *Bounded Context Canvas: Recognition & Incentives*<br>
+Figura 62. *Bounded Context Canvas: Moderation & Disputes*<br>
+Figura 63. *Bounded Context Canvas: Subscription & Billing*<br>
+Figura 64. *Bounded Context Canvas: Identity & Access*<br>
+Figura 65. *Context Mapping de SkillSwap*<br>
+Figura 66. *C4 Model: Context Diagram*<br>
+Figura 67. *C4 Model: Container Diagram*<br>
+Figura 68. *C4 Model: Deployment Diagram*<br>
+Figura 69. *C4 Model: Component Diagram del Bounded Context Identity & Access*<br>
+Figura 70. *Diagrama de Clases UML del Domain Layer de Identity & Access*<br>
+Figura 71. *Diagrama de Base de Datos del Bounded Context Identity & Access*<br>
+Figura 72. *C4 Model: Component Diagram del Bounded Context Credential Verification*<br>
+Figura 73. *Diagrama de Clases UML del Domain Layer de Credential Verification*<br>
+Figura 74. *Diagrama de Base de Datos del Bounded Context Credential Verification*<br>
+Figura 75. *C4 Model: Component Diagram del Bounded Context Learning Path Engine*<br>
+Figura 76. *Diagrama de Clases UML del Domain Layer de Learning Path Engine*<br>
+Figura 77. *Diagrama de Base de Datos del Bounded Context Learning Path Engine*<br>
+Figura 78. *C4 Model: Component Diagram del Bounded Context Assessment & Peer Review*<br>
+Figura 79. *Diagrama de Clases UML del Domain Layer de Assessment & Peer Review*<br>
+Figura 80. *Diagrama de Base de Datos del Bounded Context Assessment & Peer Review*<br>
+Figura 81. *C4 Model: Component Diagram del Bounded Context Reputation*<br>
+Figura 82. *Diagrama de Clases UML del Domain Layer de Reputation*<br>
+Figura 83. *Diagrama de Base de Datos del Bounded Context Reputation*<br>
+Figura 84. *C4 Model: Component Diagram del Bounded Context Recognition & Incentives*<br>
+Figura 85. *Diagrama de Clases UML del Domain Layer de Recognition & Incentives*<br>
+Figura 86. *Diagrama de Base de Datos del Bounded Context Recognition & Incentives*<br>
+Figura 87. *C4 Model: Component Diagram del Bounded Context Moderation & Disputes*<br>
+Figura 88. *Diagrama de Clases UML del Domain Layer de Moderation & Disputes*<br>
+Figura 89. *Diagrama de Base de Datos del Bounded Context Moderation & Disputes*<br>
+Figura 90. *C4 Model: Component Diagram del Bounded Context Subscription & Billing*<br>
+Figura 91. *Diagrama de Clases UML del Domain Layer de Subscription & Billing*<br>
+Figura 92. *Diagrama de Base de Datos del Bounded Context Subscription & Billing*<br>
+Figura 93. *Diagrama de Base de Datos completo de SkillSwap*<br>
+Figura 94. *Diagrama de Clases UML completo de SkillSwap*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
 | Producto | Descripción | Enlace |
 | :--- | :--- | :--- |
 | **Landing Page** | Sitio web estático de presentación del modelo de negocio Innovify (SkillSwap). | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage.git](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage.git) |
-| **Android Native Application** | Aplicación móvil nativa (Kotlin / Jetpack Compose) donde interactúan Aprendices, Tutores y el Profesor, distribuida vía Firebase App Distribution. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp.git](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp.git) |
+| **Android Native Application** | Aplicación móvil nativa (Kotlin / Jetpack Compose) donde interactúan Estudiantes, Verificadores y Coordinadores, distribuida vía Firebase App Distribution. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp.git](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp.git) |
 | **Cross-Platform Application (Flutter)** | Aplicación móvil multiplataforma (Flutter / Dart, dirigida a Android), distribuida vía Firebase App Distribution. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter.git](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter.git) |
 | **Backend — Swagger UI** | Documentación interactiva de los Web Services RESTful (ASP.NET Core / C#). | [PENDIENTE] |
 | **Backend — Repositorio** | Código fuente de los Web Services RESTful, organizados por los siete Bounded Contexts. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices.git](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices.git) |
@@ -2752,5 +4281,3 @@ Contrastar el Problem Statement con nuestro propio diseño de arquitectura nos o
 | **Validation Interviews** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202610-1asi0730---validation-sprint-<br><br>Formato: .mp4<br><br>Duración: En función a cantidad de entrevistas (considerar edición de 3 a 5 minutos por entrevista). | Consolida sesiones y entrevistas de validación en las que usuarios de los segmentos objetivo interactúen con el landing page y con los prototipos de experiencias web y mobile, manifestando sus observaciones. Para cada entrevista se debe incluir títulos con información del entrevistado, el segmento objetivo y la fecha de la entrevista. | |
 | **About the Product** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202610-1asi0730---aboutthe-product-sprint-<br><br>Formato: .mp4<br><br>Duración: De 1 a 3 minutos. | Orientación promocional, resumiendo el modelo de negocio, las características y beneficios del producto, incluyendo algunas escenas de interacción con el producto y al menos una opinión por cada segmento objetivo. | **Video de Microsoft Stream:** |
 | **About the Team** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202610-1asi0730---aboutthe-team-sprint-<br><br>Formato: .mp4<br><br>Duración: En función al contenido (considerar 5 minutos para la sección de retrospectiva del grupo y 1 minuto por cada testimonio de miembro del equipo). | Video que resume el proceso de trabajo realizado, incluyendo escenas de sesiones de trabajo real del equipo, complementando con narración (voz en off) del proceso. Incluye además el testimonio ante cámara de cada participante describiendo actividades realizadas, logro de outcomes y desarrollo de competencias alcanzados. | **Video de Microsoft Stream:** | |
-
-
