@@ -1521,7 +1521,79 @@ Esta meta protege la credibilidad de todo lo que se certifica en la plataforma. 
 En conjunto, los cuatro Impact Maps muestran cómo cada funcionalidad de la aplicación contribuye a un objetivo de negocio medible: los dos primeros se centran en el Estudiante como fuente de ingresos y como beneficiario de la validación práctica, mientras que los dos últimos aseguran que el segmento que valida el conocimiento —Verificadores y Coordinadores— sostenga la capacidad y la confiabilidad del proceso.
 
 ### 2.4.3. Product Backlog
-*(Nota: Insertar la tabla del Product Backlog priorizado, estimando los Story Points de las historias adaptadas al desarrollo móvil).*
+
+El Product Backlog de SkillSwap reúne las 55 historias definidas en la sección 2.4.1, ordenadas según el valor que aportan al negocio y estimadas en Story Points con la escala de Fibonacci (1, 2, 3, 5 y 8), donde el valor refleja la complejidad, el esfuerzo y la incertidumbre relativa de cada historia.
+
+El orden responde a los siguientes criterios:
+
+* **Landing Page (US41–US45):** se ubica al inicio porque debe estar disponible desde el primer sprint, como canal de adquisición que presenta la propuesta de valor, los planes y la descarga de la aplicación.
+* **Núcleo de la propuesta de valor:** a continuación se priorizan las historias que diferencian a SkillSwap de sus competidores: la ruta de aprendizaje generada por IA, la validación de certificados con ML Kit, las evaluaciones prácticas generadas por IA y el diagnóstico del sub-tema débil. Cada Technical Story se ubica inmediatamente antes de las User Stories que consumen su endpoint.
+* **Suscripción y verificación por pares:** luego se ubican la suscripción mensual, que sostiene el modelo de ingresos, y el flujo de escalamiento hacia los Verificadores (asignación por afinidad, rúbrica y examen de ingreso).
+* **Autenticación:** el registro institucional y el inicio de sesión se ubican después de las funcionalidades de mayor valor, ya que por sí solos no generan valor diferencial para el usuario.
+* **Supervisión, incentivos y mejoras:** finalmente se ubican las funcionalidades del Coordinador, la billetera de SkillCredits y las mejoras de experiencia (persistencia sin conexión, biometría) y la demostración final por videollamada, de menor prioridad.
+
+La estimación total del Product Backlog asciende a **204 Story Points**.
+
+| # Orden | User Story Id | Título | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
+| :---: | :---: | :--- | :---: | :---: |
+| 1 | US41 | Propuesta de valor para estudiantes | 2 | |
+| 2 | US43 | Consulta de planes y precios | 2 | |
+| 3 | US44 | Descarga de la aplicación | 1 | |
+| 4 | US42 | Información para futuros Verificadores | 2 | |
+| 5 | US45 | Consulta de preguntas frecuentes | 1 | |
+| 6 | TS05 | Endpoints de generación y consulta de rutas | 5 | |
+| 7 | US06 | Declaración de la meta en lenguaje natural | 8 | |
+| 8 | US08 | Consulta de la ruta de aprendizaje | 3 | |
+| 9 | TS03 | Endpoint de registro de certificados | 5 | |
+| 10 | US12 | Carga del certificado desde un archivo | 3 | |
+| 11 | US11 | Captura del certificado con la cámara | 3 | |
+| 12 | US13 | Extracción automática de datos del certificado | 8 | |
+| 13 | US15 | Correspondencia del certificado con la habilidad | 5 | |
+| 14 | TS06 | Endpoint de generación de evaluaciones | 5 | |
+| 15 | US17 | Generación del quiz de un nodo | 5 | |
+| 16 | TS07 | Endpoints de registro de intentos | 3 | |
+| 17 | US18 | Resolución del quiz con calificación en el servidor | 3 | |
+| 18 | US20 | Identificación del sub-tema débil | 5 | |
+| 19 | US05 | Suscripción al plan mensual | 5 | |
+| 20 | US09 | Reconocimiento de habilidades ya certificadas | 3 | |
+| 21 | US14 | Detección de certificados duplicados | 3 | |
+| 22 | TS04 | Endpoints de consulta de certificados | 2 | |
+| 23 | US16 | Consulta del estado de verificación | 3 | |
+| 24 | TS08 | Endpoints de gestión de casos de verificación | 5 | |
+| 25 | US24 | Asignación automática de casos por afinidad | 8 | |
+| 26 | US25 | Revisión del caso con rúbrica | 5 | |
+| 27 | US22 | Habilitación como Verificador mediante examen de ingreso | 5 | |
+| 28 | US23 | Gestión de disponibilidad | 2 | |
+| 29 | US26 | Aporte de evidencia adicional | 2 | |
+| 30 | TS01 | Endpoint de registro de usuarios | 3 | |
+| 31 | US01 | Registro con correo institucional | 3 | |
+| 32 | TS02 | Endpoint de autenticación con JWT | 2 | |
+| 33 | US02 | Inicio de sesión | 2 | |
+| 34 | US19 | Entrega de un miniproyecto | 8 | |
+| 35 | TS10 | Endpoints de gestión de disputas | 5 | |
+| 36 | US34 | Consulta de disputas pendientes | 3 | |
+| 37 | US35 | Resolución de certificados sospechosos | 3 | |
+| 38 | US27 | Apelación de la decisión del Verificador | 3 | |
+| 39 | US36 | Resolución de apelaciones | 3 | |
+| 40 | US37 | Habilitación de reevaluación o nuevo intento | 3 | |
+| 41 | TS09 | Endpoints de billetera y canje de SkillCredits | 3 | |
+| 42 | US30 | Acreditación de SkillCredits por caso resuelto | 3 | |
+| 43 | US31 | Consulta de billetera e historial | 2 | |
+| 44 | US33 | Compartir logros en LinkedIn | 3 | |
+| 45 | US38 | Exigencia de nuevo examen al Verificador | 3 | |
+| 46 | US39 | Definición del plazo de actividad de los Verificadores | 3 | |
+| 47 | US40 | Consulta de métricas de la plataforma | 5 | |
+| 48 | US32 | Canje de SkillCredits en la tienda | 3 | |
+| 49 | US04 | Configuración del perfil de intereses | 2 | |
+| 50 | US07 | Confirmación de la habilidad interpretada | 3 | |
+| 51 | US10 | Consulta de la ruta sin conexión | 5 | |
+| 52 | US21 | Conservación del avance ante pérdida de conexión | 5 | |
+| 53 | US03 | Acceso mediante biometría del dispositivo | 3 | |
+| 54 | US28 | Programación de la demostración final | 3 | |
+| 55 | US29 | Demostración final por videollamada | 8 | |
+
+*(Tabla 13. Product Backlog - Elaboración propia.)*
+
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
