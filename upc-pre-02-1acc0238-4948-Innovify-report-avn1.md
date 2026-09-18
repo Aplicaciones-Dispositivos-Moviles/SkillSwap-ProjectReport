@@ -33,9 +33,9 @@ SkillSwap
 | :--- | :--- |
 | U201924127 | Alberca Saavedra, Víctor Manuel |
 | U20231C792 | Becerra Ninahuanca, Luis Angel |
-| U20241D958 | Lopez Montalvo, Kevin Edu |
 | U201724692 | Komatsu Dueñas, David |
-| U202423711 | Piero Sulca Sánchez |
+| U20241D958 | Lopez Montalvo, Kevin Edu |
+| U202423711 | Sulca Sanchez, Piero Angel |
 
 </div>
 
@@ -96,33 +96,34 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 *   **Becerra Ninahuanca Luis Angel:** Obtener una certificación en integración de servicios Cloud para aplicaciones móviles en los próximos 6 meses, mejorando la seguridad y reduciendo la latencia en el consumo de APIs.
 *   **Lopez Montalvo Kevin Edu:** Dominar herramientas de testing automatizado para aplicaciones multiplataforma (ej. Appium) antes de culminar la carrera, logrando automatizar el 80% de los flujos críticos de la aplicación.
 *   **Komatsu Dueñas, David:** Desarrollar habilidades de liderazgo técnico gestionando al menos 2 proyectos de software open source orientados a móviles en GitHub durante el próximo año, implementando GitFlow y CI/CD de forma efectiva.
+*   **Sulca Sánchez, Piero:** Dominar el desarrollo de aplicaciones móviles multiplataforma con Flutter antes de marzo de 2027, logrando publicar al menos una aplicación funcional en Google Play Store con cobertura de pruebas automatizadas superior al 70%.
 
 ---
 
 
-# Capítulo I: Introducción
+# Capítulo I: Presentación
 
 ## 1.1. Startup Profile
 
 ### 1.1.1. Descripción de la Startup
 
-Innovify es una startup cuyo propósito es reducir la deserción académica conectando a estudiantes universitarios para que aprendan y validen habilidades específicas a través de rutas de certificación guiadas. A diferencia de un esquema de tutorías puntuales y desestructuradas, Innovify organiza el aprendizaje en torno a un objetivo declarado por el propio estudiante: al indicar qué habilidad quiere dominar, la plataforma genera una ruta de aprendizaje compuesta por certificaciones que debe cursar y subir para su validación. Por cada certificado subido, el aprendiz puede rendir un quiz o desarrollar un miniproyecto que demuestre la habilidad adquirida y, si el intento no logra demostrarla, el caso se escala a un Verificador, quien revisa puntualmente su proyecto o portafolio frente a una rúbrica estructurada. Al completar toda la ruta, el aprendiz tiene la opción de demostrar su dominio integral mediante un proyecto avanzado o un examen supervisado. Es únicamente en esta instancia final donde se emplea una videollamada, integrada en la misma plataforma, con el fin de constatar en tiempo real que la demostración es genuina —no como un espacio de enseñanza.
+Innovify es una startup tecnológica del sector educativo que desarrolla soluciones orientadas a la validación de habilidades. Su producto, SkillSwap, es una plataforma móvil dirigida principalmente a estudiantes universitarios y jóvenes profesionales que necesitan complementar sus credenciales con una demostración de que pueden aplicar las habilidades declaradas. La propuesta busca reducir la brecha entre completar una actividad formativa y demostrar el dominio práctico de los conocimientos adquiridos.
 
-Para poder verificar, un estudiante debe primero recorrer su propia ruta de certificación y aprobar un examen de ingreso que demuestre que realmente domina la habilidad. Una vez habilitado, el Verificador puede revisar casos puntuales o supervisar exámenes y proyectos avanzados de otros aprendices. Cada intervención validada le otorga SkillCredits, una moneda de reconocimiento que evidencia su nivel de dominio y que puede exhibirse en LinkedIn u otras plataformas profesionales como credencial verificable.
+SkillSwap organiza la experiencia a partir del objetivo declarado por el Estudiante y lo relaciona con una taxonomía de habilidades para proponer una ruta de certificación. El Estudiante puede incorporar certificados externos, cuyos datos se extraen mediante reconocimiento óptico de caracteres con ML Kit para facilitar su registro y análisis de riesgo documental. Esta extracción no demuestra por sí misma el dominio de la habilidad: la comprobación se realiza mediante *quizzes* o miniproyectos aplicados a la habilidad, cuya generación puede ser asistida por inteligencia artificial. Cuando la evaluación automática no resulta suficiente, el caso se asigna a un Verificador habilitado, quien revisa el entregable mediante una rúbrica estructurada. El cumplimiento de la ruta permite obtener una certificación respaldada por el historial de evaluaciones y revisiones realizadas en la plataforma.
 
-Innovify opera bajo un modelo de negocio B2C: el aprendiz paga una mensualidad que incluye el acceso a la ruta de certificación, los quizzes y miniproyectos, y la supervisión de la evaluación final; el Verificador, por su parte, gana SkillCredits por cada caso que resuelve, los cuales también pueden adquirirse directamente en una tienda dentro de la plataforma y canjearse por beneficios propios del ecosistema, sin que exista una comisión pagada directamente entre usuarios. Un tercer perfil, el coordinador, actúa como garante de calidad del ecosistema: define plazos de actividad para los Verificadores, monitorea la confiabilidad de sus decisiones —una baja confiabilidad es indicio de una revisión deficiente— y puede exigir que un Verificador vuelva a rendir su examen de certificación. El coordinador también accede a métricas agregadas de toda la plataforma, como los temas de mayor demanda tanto entre aprendices como entre Verificadores.
+Para revisar casos de otros usuarios, el Estudiante debe completar previamente su propia ruta de certificación y aprobar un examen de ingreso relacionado con la habilidad que desea verificar. Una vez habilitado, puede participar como Verificador y recibir SkillCredits por cada intervención validada. Los SkillCredits constituyen unidades de reconocimiento no monetarias asociadas a su participación y experiencia como Verificador; no pueden comprarse y pueden mostrarse en el perfil profesional del usuario o canjearse por beneficios internos de la plataforma.
 
-El emparejamiento entre aprendices y Verificadores no es manual: cada usuario cuenta con un perfil construido a partir de su historial (certificados, resultados de quizzes/miniproyectos, ritmo de avance y temas de interés, en el caso del aprendiz; certificados, examen de ingreso, SkillCredits, confiabilidad recibida y sub-temas de mayor dominio, en el caso del Verificador), representado como un vector de embeddings de habilidades. Un sistema de recomendación híbrido —que combina coincidencia por contenido (habilidad del aprendiz vs. especialidad del Verificador) con filtrado colaborativo (qué Verificadores funcionaron bien con perfiles similares)— sugiere el mejor Verificador disponible para cada caso. Esta misma información, agregada a nivel de plataforma, alimenta el ranking de temas más demandados que revisa el coordinador.
+Innovify plantea para SkillSwap un modelo de negocio B2C basado en una suscripción mensual pagada por los Estudiantes. Esta suscripción brinda acceso a las rutas de certificación, las evaluaciones y la supervisión del proceso de validación. No existen pagos directos ni comisiones entre Estudiantes y Verificadores. Además, la plataforma incorpora al Coordinador, responsable de monitorear la confiabilidad de las revisiones, gestionar situaciones que requieran reevaluación y consultar métricas generales sobre la actividad del ecosistema.
 
-Todo este ecosistema se mantiene seguro gracias a un proceso de validación automatizada que exige el uso de correos institucionales (.edu.pe, upc.edu.pe, pupc.edu.pe) para garantizar que los usuarios sean estudiantes reales.
+La asignación de casos se realiza automáticamente considerando la habilidad requerida, el historial y la disponibilidad de los Verificadores. Asimismo, SkillSwap incorpora mecanismos de confianza como la verificación del correo electrónico, el historial auditable de las evaluaciones y la habilitación de Verificadores a partir de las certificaciones obtenidas dentro de la plataforma. Estos mecanismos buscan reducir la dependencia de declaraciones no comprobadas y favorecer un proceso de validación consistente.
 
 ### Visión
 
-Ser la plataforma líder en validación de habilidades y certificación práctica entre estudiantes universitarios a nivel nacional, reconocida por conectar de forma confiable el talento académico disperso entre distintas instituciones y por sostener, mediante inteligencia artificial, un ecosistema de verificación entre pares riguroso y económicamente sostenible.
+Ser una plataforma de referencia en la validación práctica de habilidades, reconocida por ofrecer a estudiantes universitarios y jóvenes profesionales un proceso confiable, trazable y sostenible de certificación y verificación entre pares.
 
 ### Misión
 
-Facilitar la validación de habilidades entre estudiantes universitarios mediante rutas de certificación personalizadas, evaluaciones generadas por IA y revisión de pares para casos puntuales, con una demostración final supervisada por videollamada. Promovemos la excelencia académica, el desarrollo de habilidades blandas y el reconocimiento justo al esfuerzo del Verificador mediante SkillCredits, dentro de un ecosistema validado institucionalmente por correo universitario y potenciado por el emparejamiento inteligente entre aprendices y Verificadores.
+Facilitar que estudiantes universitarios y jóvenes profesionales demuestren el dominio práctico de sus habilidades mediante rutas de certificación, evaluaciones aplicadas apoyadas por tecnología y revisiones estructuradas entre pares. Innovify reconoce la contribución de los Verificadores mediante SkillCredits y proporciona al Coordinador mecanismos para supervisar la confiabilidad y el seguimiento del proceso de validación.
 
 
 ### 1.1.2. Perfiles de integrantes del equipo
@@ -132,9 +133,10 @@ Facilitar la validación de habilidades entre estudiantes universitarios mediant
 | Foto | Integrante | Carrera | Descripción |
 | :---: | :--- | :--- | :--- |
 | <img src="public/assets/images-doc/image-perfil-victor.png" width="100"> | **Alberca Saavedra, Víctor Manuel**<br>(U201924127) | Ingeniería de Software | Aporta conocimientos sólidos en arquitectura de software, backend y bases de datos. Lidera la investigación e integración del SDK de reconocimiento de texto (ML Kit) y la adaptación de los Bounded Contexts al entorno móvil. |
-| *(Foto)* | **Becerra Ninahuanca, Luis Angel**<br>(U20231C792) | Ingeniería de Software | Especialista en lógica de negocio, integración de servicios e interfaces limpias. Investiga patrones de diseño UI/UX propios de aplicaciones móviles nativas/multiplataforma y lidera el análisis competitivo enfocado en apps del mismo rubro. |
-| *(Foto)* | **Lopez Montalvo, Kevin Edu**<br>(U20241D958) | Ingeniería de Software | Aporta conocimientos en diseño móvil, UX/UI y metodologías ágiles. Documenta el proceso Lean UX y estructura las User Stories bajo un enfoque Mobile-First. |
-| *(Foto)* | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. |
+| <img src="public/assets/images-doc/image-perfil-luis.png" width="100"> | **Becerra Ninahuanca, Luis Angel**<br>(U20231C792) | Ingeniería de Software | Especialista en lógica de negocio, integración de servicios e interfaces limpias. Investiga patrones de diseño UI/UX propios de aplicaciones móviles nativas/multiplataforma y lidera el análisis competitivo enfocado en apps del mismo rubro. |
+| <img src="public/assets/images-doc/image-perfil-kevin.png" width="100"> | **Lopez Montalvo, Kevin Edu**<br>(U20241D958) | Ingeniería de Software | Aporta conocimientos en diseño móvil, UX/UI y metodologías ágiles. Documenta el proceso Lean UX y estructura las User Stories bajo un enfoque Mobile-First. |
+| <img src="public/assets/images-doc/image-perfil-david.png" width="100"> | **Komatsu Dueñas, David**<br>(U201724692) | Ingeniería de Software | Enfocado en investigación tecnológica, análisis de datos y control de calidad. Lidera el modelado de flujos de mensajes entre Bounded Contexts y el diseño de diagramas de arquitectura. |
+| <img src="public/assets/images-doc/image-perfil-piero.jpg" width="100" alt="Fotografía de Piero Angel Sulca Sanchez"> | **Sulca Sanchez, Piero Angel**<br>(U202423711) | Ingeniería de Software | Cuenta con experiencia en desarrollo web y trabajo en equipos pequeños. Se especializa en frontend y muestra interés por el diseño creativo de interfaces, especialmente en experiencias 3D, animaciones y productos digitales diferenciados. Aporta conocimientos en levantamiento de requerimientos, diseño de interfaces, desarrollo web con React y TypeScript, y diseño de bases de datos, además de organización y colaboración en equipo. |
 
 </div>
 
@@ -146,119 +148,181 @@ Facilitar la validación de habilidades entre estudiantes universitarios mediant
 
 ### 1.2.1. Antecedentes y problemática
 
-En el Perú y en la región, el mercado laboral y académico enfrenta una paradoja: existe un alto volumen de profesionales y estudiantes con múltiples diplomas, pero persiste una brecha significativa en la demostración de habilidades prácticas. Según diversos estudios sobre la empleabilidad y la educación superior, un gran porcentaje de egresados y estudiantes de cursos online (MOOCs) no logran aplicar los conocimientos teóricos en entornos reales.
+En el mercado laboral peruano existe una brecha entre las habilidades requeridas por las organizaciones y las que encuentran entre los postulantes. La Encuesta de Habilidades al Trabajo 2017-2018 señala que el 47% de las empresas con vacantes tuvo dificultades para cubrirlas y que el 76% de las vacantes difíciles de cubrir se relacionó con la falta de habilidades de los candidatos (Novella et al., 2019). Estas cifras establecen el contexto de una brecha de habilidades que exige mecanismos más claros para demostrar las capacidades de los postulantes.
 
-Diversos análisis asocian este fenómeno a un modelo educativo donde prima la "acumulación de certificados" por encima de la validación real de competencias. A esto se suman factores como la falta de seguimiento personalizado, evaluaciones genéricas que no miden el dominio práctico y la ausencia de un mecanismo de verificación que pueda resolver dudas puntuales sobre un caso específico (Escalante et al., 2023).
+Paralelamente, el aprendizaje en línea y la obtención de credenciales digitales continúan expandiéndose. Coursera registra 1,7 millones de estudiantes peruanos en su plataforma y reporta un crecimiento interanual del 33% en las inscripciones a Certificados Profesionales en el país (Coursera, 2025). Un certificado de finalización acredita que una persona completó una actividad conforme a los criterios de su emisor; sin embargo, considerado de manera aislada, no necesariamente ofrece una demostración suficiente y verificable de cómo aplica la habilidad en un contexto práctico. En este sentido, los enfoques de contratación basados en habilidades proponen complementar las calificaciones y credenciales con mecanismos que permitan identificar y demostrar competencias específicas (Organisation for Economic Co-operation and Development [OECD], 2024).
 
-Si bien estas causas son multifactoriales, nuestra investigación identifica un problema subyacente y desatendido: **la ilusión del conocimiento y la falta de validación práctica**. Actualmente, el ecosistema educativo funciona de manera aislada. Un estudiante puede obtener un certificado en una plataforma "A", pero no existe un puente formal y riguroso que valide si realmente adquirió esa habilidad, ni un sistema que conecte inteligentemente ese certificado con una evaluación real de dominio. Los estudiantes se ven limitados a consumir contenido estático sin demostrar su pericia, mientras que quienes ya dominan una habilidad carecen de un espacio validado donde ejercer esa revisión y construir una reputación comprobable.
+A partir de este contexto, el problema identificado es la dificultad que enfrentan los Estudiantes para complementar sus certificados con un proceso que evalúe la aplicación práctica de las habilidades declaradas. La dispersión de certificados, proyectos y resultados agrava el seguimiento, pero no constituye la causa principal: el vacío central es la falta de una comprobación directa del desempeño y de criterios claros para determinar el dominio. Sin esa evaluación, el propio Estudiante puede desconocer qué aspectos necesita reforzar hasta enfrentarse a una tarea aplicada. Asimismo, los Verificadores necesitan un entorno estructurado para revisar entregables y registrar sus contribuciones, mientras que los Coordinadores requieren mecanismos para supervisar la confiabilidad de esas decisiones.
 
-Esto no solo impacta negativamente en el desarrollo profesional de los estudiantes, sino también en la capacidad productiva del país por la falta de talento verdaderamente calificado, agravando problemas como el subempleo y la ineficiencia en los procesos de reclutamiento.
+Esta situación dificulta que los Estudiantes reconozcan sus brechas antes de aplicar una habilidad y respalden sus credenciales con pruebas de desempeño comparables. También impide que terceros comprendan el proceso seguido para determinar el dominio. La oportunidad consiste, por tanto, en complementar la formación existente con un proceso de validación que articule credenciales, evaluaciones aplicadas, revisiones humanas y decisiones documentadas.
 
-Para conocer aún más la problemática usaremos la técnica de las **5W y 2H**:
+El contexto tecnológico favorece el planteamiento de una solución móvil: el 95,4% de los hogares peruanos cuenta con telefonía móvil, mientras que el 37,8% dispone de una computadora; además, el 89,0% de los usuarios de internet accede al servicio mediante un teléfono celular (Instituto Nacional de Estadística e Informática [INEI], 2025). Estas cifras respaldan la elección del canal móvil para acercar el proceso de validación a los segmentos objetivo.
+
+Para analizar los antecedentes y delimitar la problemática, se aplica la técnica de las **5W y 2H**: *What*, *Why*, *Who*, *When*, *Where*, *How* y *How much*. Esta técnica permite identificar el problema, sus causas, los actores involucrados, las circunstancias en las que se manifiesta, su alcance y sus principales efectos.
 
 #### What (¿Qué? / ¿Cuál?)
-* **¿Cuál es el problema?** El problema es la brecha entre la obtención de un certificado y el dominio real de una habilidad. Muchos estudiantes acumulan diplomas sin adquirir las competencias prácticas necesarias, lo que genera frustración, estancamiento profesional y desconfianza en las credenciales académicas.
-* **¿Qué soluciones existen actualmente?** Actualmente existen plataformas de educación online (como Coursera, Udemy o Platzi). Sin embargo, estas se centran en la entrega de contenido y emiten certificados tras evaluaciones básicas, sin una validación rigurosa ni supervisión humana. Con nuestra propuesta de valor buscamos generar un ecosistema impulsado por Inteligencia Artificial que no solo traza rutas de aprendizaje, sino que exige la validación práctica de certificados mediante quizzes, miniproyectos y la revisión de Verificadores certificados.
-* **¿Cuál es la relación con el usuario?** El usuario es el eje de un ecosistema de tres roles: el estudiante (que aprende y demuestra habilidades), el Verificador (que revisa casos puntuales y gana SkillCredits) y el coordinador (que audita la calidad del proceso). La relación se basa en la confianza, la transparencia y el mérito demostrado.
+* **¿Cuál es el problema?** Los Estudiantes que obtienen certificados de finalización no siempre cuentan con un proceso complementario que les permita comprobar, mediante una tarea aplicada y un resultado verificable, que pueden utilizar las habilidades declaradas.
+* **¿Qué alternativas existen actualmente?** Las plataformas de educación en línea permiten adquirir conocimientos y obtener credenciales; los portafolios permiten exhibir proyectos; y las redes profesionales permiten comunicar logros. En las alternativas analizadas, estos mecanismos no se articulan en un mismo proceso que relacione una credencial externa con una evaluación práctica, una eventual revisión por un par habilitado y la supervisión de la confiabilidad de la decisión.
+* **¿Qué efectos produce el problema?** El Estudiante puede desconocer qué aspectos necesita reforzar hasta enfrentarse a una tarea real y debe complementar su credencial con demostraciones preparadas bajo criterios diversos. Por ello, un tercero no siempre puede reconstruir cómo se determinó el dominio de la habilidad. A su vez, la labor del Verificador puede quedar sin un registro que respalde su experiencia y el Coordinador puede carecer de indicadores para supervisar la calidad de las decisiones.
 
 #### Why (¿Por qué?)
-* **¿Cuál es la causa principal del problema?** La causa principal es que los modelos de evaluación actuales son pasivos y estandarizados. Ver un video y aprobar un examen de opción múltiple no garantiza el dominio de una competencia. Además, cuando el intento de un estudiante no logra demostrar dicho dominio, no cuenta con un sistema inteligente que identifique su punto débil exacto y lo conecte con el Verificador adecuado para una revisión específica de su caso.
+* **¿Por qué ocurre el problema?** Una credencial de finalización registra el cumplimiento de los criterios definidos por su emisor. Cuando estos criterios se limitan a completar contenidos o aprobar una evaluación estandarizada centrada en reconocer o recordar información, no se observa el desempeño de la persona ante una tarea aplicada a un caso real. Por ello, relacionar mejor los documentos existentes no resuelve por sí solo la insuficiencia: es necesario comprobar la aplicación de la habilidad mediante criterios explícitos y dejar constancia de la decisión.
 
 #### Who (¿Quién?)
-* **¿Quiénes están involucrados?** Está involucrada la comunidad de aprendizaje continuo: estudiantes universitarios, profesionales en *upskilling/reskilling*, Verificadores certificados y coordinadores académicos.
-* **¿A quiénes les sucede el problema?** A personas que invierten tiempo en aprender pero sienten inseguridad sobre sus capacidades prácticas reales, así como a quienes ya dominan una habilidad y desean revisar el trabajo de otros pero no encuentran una plataforma que valide su nivel y les otorgue credibilidad (como los SkillCredits) frente a la industria.
+* **¿Quiénes son los principales afectados?** Los Estudiantes universitarios y jóvenes profesionales que necesitan demostrar las habilidades adquiridas mediante cursos, certificaciones, proyectos o aprendizaje autónomo.
+* **¿Qué otros actores están involucrados?** También intervienen los Verificadores con experiencia suficiente para revisar los entregables de sus pares y los Coordinadores responsables de supervisar la calidad y confiabilidad del proceso de verificación.
 
 #### When (¿Cuándo?)
-* **¿Cuándo sucede el problema?** Constantemente, pero se hace evidente en momentos críticos: al intentar aplicar lo aprendido en un proyecto real, al enfrentarse a pruebas técnicas en entrevistas laborales o cuando el estudiante se estanca en un tema avanzado por no haber interiorizado los fundamentos.
-* **¿Cuándo el cliente usa el producto?** Cuando un estudiante decide que necesita dominar (no solo estudiar) una habilidad específica; cuando necesita validar un certificado previo; o, en el caso del Verificador, cuando dispone de tiempo para revisar casos puntuales y fortalecer su perfil profesional.
+* **¿Cuándo se manifiesta el problema?** Se hace visible después de obtener una credencial, al postular a prácticas o empleos y cuando el Estudiante necesita demostrar la aplicación de una habilidad ante una tarea o proyecto concreto.
+* **¿Cuándo vuelve a presentarse?** Puede repetirse cada vez que el Estudiante incorpora una nueva habilidad o presenta una credencial ante un contexto que exige evidencia adicional de aplicación práctica.
 
 #### Where (¿Dónde?)
-* **¿Dónde está el usuario cuando usa la plataforma?** En cualquier entorno con conexión a internet propicio para el estudio o el trabajo remoto (salas de estudio, bibliotecas, habitaciones o espacios de *coworking*). Todo ocurre en un entorno 100% digital e integrado.
-* **¿Dónde surge el problema?** En la desconexión entre la educación teórica tradicional (o el e-learning masivo) y las demandas de habilidades prácticas y comprobables del mundo real.
+* **¿En qué ámbitos se manifiesta?** En la educación universitaria, las plataformas de aprendizaje en línea, los procesos de formación autónoma y las etapas de incorporación al mercado laboral.
+* **¿Dónde se produce la desconexión?** En la transición entre el espacio que emite la credencial y el contexto donde el Estudiante debe demostrar que puede aplicar la habilidad adquirida.
 
 #### How (¿Cómo?)
-* **¿En qué condiciones los clientes usan nuestro producto?** Los estudiantes lo usan con el objetivo claro de certificar sus capacidades mediante retos prácticos y, en la instancia final de su ruta, una demostración supervisada por videollamada. Los Verificadores lo utilizan tras haber certificado su propia habilidad, buscando construir credenciales verificables (SkillCredits) para sus redes profesionales.
-* **¿Cómo se enteran de la aplicación?** A través de redes sociales, comunidades de aprendizaje, alianzas con instituciones educativas y, fundamentalmente, a través de plataformas como LinkedIn, donde los estudiantes y Verificadores exhibirán sus insignias y SkillCredits validados por Innovify.
+* **¿Cómo se manifiesta actualmente?** El Estudiante puede presentar el certificado, sus proyectos y los resultados de evaluaciones previas, pero estos elementos no siempre comparten criterios ni permiten reconstruir mediante un registro verificable cómo se comprobó el dominio. En consecuencia, cada receptor debe interpretarlos por separado y el Estudiante carece de retroalimentación precisa sobre los aspectos que necesita reforzar.
+* **¿Cómo puede abordarse?** Mediante una experiencia móvil que relacione las credenciales con pruebas aplicadas a la habilidad y, cuando sea necesario, con revisiones realizadas por Verificadores habilitados mediante rúbricas estructuradas y supervisadas por un Coordinador.
 
 #### How much (¿Cuánto?)
-* **¿Cuánto le cuesta este problema a la economía, sociedad o institución del Perú actualmente?** La brecha de habilidades (*skills gap*) cuesta millones al año a las empresas en procesos de reclutamiento fallidos, reentrenamiento de personal y baja productividad, afectando directamente la competitividad del mercado laboral peruano y latinoamericano.
-* **¿Cuánto costaría implementar la solución propuesta?**
-  * Desarrollo de la plataforma web (Rutas, Dashboards): S/ 20,000 - S/ 38,000
-  * Integración de modelos de IA (LLMs para rutas y quizzes, Embeddings para matching): S/ 8,000 - S/ 15,000
-  * Integración de videollamadas (demostración final) y pasarela de pagos (suscripciones y tienda de SkillCredits): S/ 4,000 - S/ 8,000
-  * Diseño UI/UX enfocado en la validación y verificación: S/ 4,000 - S/ 8,000
-  * Arquitectura Cloud (Hosting, base de datos de vectores): S/ 3,000 - S/ 6,000
-  * Seguridad, validación de identidades y soporte: S/ 4,000 - S/ 7,000
+* **¿Qué magnitud tiene la brecha de habilidades en el Perú?** El 47% de las empresas con vacantes tuvo dificultades para cubrirlas y el 76% de las vacantes difíciles de cubrir se relacionó con la falta de habilidades de los candidatos (Novella et al., 2019). Estas cifras dimensionan la necesidad de hacer visibles y comprobables las capacidades de los postulantes.
+* **¿Qué alcance tiene el aprendizaje en línea entre usuarios peruanos?** En Coursera se registran 1,7 millones de estudiantes peruanos, equivalentes al 7% de la fuerza laboral del país, y un crecimiento interanual del 33% en las inscripciones a Certificados Profesionales (Coursera, 2025).
+* **¿Qué alcance tiene la inadecuación ocupacional?** Rivas Cossio (2023) reporta una tasa de inadecuación ocupacional del 68,6% entre los jóvenes profesionales analizados en Lima Metropolitana, lo que evidencia dificultades de correspondencia entre formación y empleo dentro de esa población.
+* **¿Qué importancia tiene la brecha para las organizaciones?** A nivel global, el 63% de los empleadores identifica las brechas de habilidades como una de las principales barreras para transformar sus negocios durante el periodo 2025-2030 (World Economic Forum, 2025).
+
+#### Objetivo de la solución
+
+Desarrollar una plataforma móvil que permita a Estudiantes universitarios y jóvenes profesionales complementar sus certificados con pruebas aplicadas y revisiones provistas de un registro auditable para demostrar el dominio práctico de sus habilidades. Asimismo, la solución organizará el proceso mediante rutas de certificación, reconocerá la participación de los Verificadores y proporcionará al Coordinador mecanismos para supervisar la confiabilidad de las decisiones.
+
+#### Restricciones del alcance
+
+* SkillSwap complementa la formación obtenida en universidades, plataformas educativas y otros medios; no reemplaza esas fuentes ni imparte cursos o tutorías.
+* La plataforma evalúa entregables dentro de su propio proceso, pero no garantiza la contratación laboral del Estudiante ni sustituye los procedimientos de selección de las organizaciones.
+* La extracción de datos mediante OCR facilita el registro y el análisis de riesgo documental, pero no equivale a una comprobación oficial ante la entidad emisora; las integraciones con registros externos quedan fuera del alcance implementado.
+* La confiabilidad de la revisión entre pares depende de la disponibilidad de Verificadores previamente habilitados para cada habilidad.
+* La inteligencia artificial generativa se utiliza como apoyo para producir contenido evaluativo, pero los resultados del proceso deben mantenerse sujetos a las reglas de validación y supervisión de la plataforma.
+* El desarrollo se limita a las funcionalidades e integraciones seleccionadas para el periodo académico.
 
 ---
 ### 1.2.2. Lean UX Process
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-Nuestra plataforma se enfoca en resolver la brecha existente entre la obtención de un certificado académico y la demostración real de una habilidad. En el modelo educativo actual, las plataformas tradicionales (MOOCs, universidades) se centran en la emisión de diplomas tras evaluaciones estandarizadas que no siempre validan la competencia práctica, dejando al estudiante sin una forma confiable de comprobar —ante sí mismo o ante terceros— que realmente domina lo que dice saber.
+El estado actual de la formación en línea y la certificación de habilidades en el Perú se ha enfocado principalmente en facilitar que estudiantes universitarios y jóvenes profesionales completen actividades formativas y obtengan credenciales emitidas por distintas instituciones y plataformas. La expansión de este flujo se refleja en el crecimiento de las inscripciones a Certificados Profesionales entre los usuarios peruanos de Coursera (Coursera, 2025), mientras que las dificultades para encontrar las habilidades requeridas en los postulantes evidencian una brecha persistente en el mercado laboral peruano (Novella et al., 2019). Esta situación afecta a los actores del proyecto de la siguiente manera:
 
-La problemática que abordamos es la "ilusión de conocimiento" en el ámbito universitario y laboral peruano. Según estudios sobre empleabilidad y educación continua, un porcentaje significativo de egresados y estudiantes de cursos en línea no logra transferir el conocimiento teórico a un entorno práctico (Escalante et al., 2023), lo que se traduce en procesos de reclutamiento fallidos y en una desconfianza creciente hacia las credenciales académicas por parte de las empresas. Muchos estudiantes, tras finalizar un curso, descubren que no pueden aplicar lo aprendido en proyectos reales, y no cuentan con un mecanismo que les indique con precisión en qué parte de su aprendizaje está el vacío.
+* **Personas que quieren aprender — Estudiante:** necesita comprobar cómo aplica la habilidad adquirida, identificar los aspectos que debe reforzar y respaldar sus certificados mediante resultados verificables.
+* **Personas que validan el conocimiento — Verificador:** necesita criterios estructurados para revisar los entregables de otros Estudiantes y un registro que reconozca la experiencia adquirida mediante esas revisiones.
+* **Personas que validan el conocimiento — Coordinador:** necesita supervisar la calidad de las decisiones, identificar revisiones poco confiables y gestionar incidencias o reevaluaciones.
 
-Hemos observado que, si bien existe un gran volumen de talento distribuido entre los estudiantes universitarios, este conocimiento no está siendo validado ni aprovechado eficientemente: no existe un ecosistema que confirme de forma rigurosa lo que un estudiante afirma saber, más allá de la palabra del propio certificado. Quienes ya dominan una habilidad, por su parte, tampoco tienen un espacio validado donde ejercer esa experiencia y construir, en torno a ella, una reputación comprobable.
+Lo que los productos y servicios analizados no logran resolver de manera integrada es la validación práctica complementaria de una credencial previamente obtenida. Un certificado de finalización informa que una persona cumplió los criterios de su emisor, pero no necesariamente muestra cómo se desempeña ante un caso concreto. Las alternativas analizadas atienden por separado el aprendizaje, la presentación de proyectos o la comunicación de logros; la brecha consiste en articular la credencial con una prueba aplicada, una eventual revisión humana estructurada y la supervisión de la confiabilidad de la decisión. Esta necesidad es coherente con los enfoques basados en habilidades, que proponen complementar las calificaciones y credenciales con demostraciones de competencias específicas (OECD, 2024).
 
-A raíz de esta problemática, nuestra propuesta busca responder a la siguiente pregunta: **¿Cómo podríamos ayudar a los estudiantes universitarios a demostrar, de forma confiable y verificable, que realmente dominan una habilidad, más allá del certificado que la respalda?**
+Nuestro producto abordará esta brecha mediante una experiencia móvil en la que el Estudiante definirá un objetivo y seguirá una ruta de certificación relacionada con las habilidades requeridas. El reconocimiento óptico de caracteres facilitará el registro y análisis documental de los certificados, mientras que la inteligencia artificial generativa apoyará la creación de evaluaciones adaptadas a cada habilidad. Cuando la evaluación automática no resulte suficiente, el caso se asignará a un Verificador habilitado para revisar el entregable mediante una rúbrica estructurada; a su vez, el Coordinador podrá supervisar la confiabilidad del proceso y atender las incidencias correspondientes.
+
+Nuestro foco inicial serán las personas que quieren aprender: Estudiantes universitarios y jóvenes profesionales de 18 a 30 años de Lima Metropolitana que utilizan recursos de formación en línea y necesitan presentar demostraciones prácticas con un registro verificable al incorporarse al mercado laboral.
+
+Sabremos que tendremos éxito cuando, durante la validación del producto, al menos el 70% de los Estudiantes que registre un certificado complete la evaluación práctica asociada, al menos el 85% de los casos escalados sea resuelto por un Verificador en un plazo máximo de 48 horas y menos del 3% de las decisiones emitidas por los Verificadores sea posteriormente revertido por un Coordinador.
 
 #### 1.2.2.2. Lean UX Assumptions
 
-Para abordar de manera efectiva la brecha entre la obtención de un certificado y el dominio real de una habilidad, es fundamental partir de una serie de supuestos sobre nuestros usuarios y su comportamiento frente a la validación de conocimientos. El éxito de Innovify depende de qué tan acertadas sean estas hipótesis centradas en la confianza del usuario y en nuestro modelo de negocio.
+##### Business Assumptions
 
-Nuestro análisis del entorno universitario peruano revela que los estudiantes enfrentan inseguridad respecto a sus capacidades prácticas reales. Suponemos que existe un vacío entre lo que un estudiante certifica y lo que realmente domina, y que muchos valoran activamente contar con una forma objetiva de comprobarlo. Creemos que los estudiantes están dispuestos a pagar una mensualidad si esto les garantiza acceso a rutas de aprendizaje estructuradas por IA, evaluaciones que midan su nivel real, y la posibilidad de escalar su caso a un Verificador cuando la evaluación automática no sea suficiente.
+* Creemos que existe un mercado de Estudiantes universitarios y jóvenes profesionales dispuesto a pagar una suscripción por complementar sus credenciales con un proceso de validación práctica.
+* Creemos que la suscripción mensual de los Estudiantes puede sostener el modelo B2C como única fuente de ingresos, sin comisiones entre usuarios ni venta de SkillCredits.
+* Creemos que el reconocimiento obtenido mediante SkillCredits y un historial de revisiones será suficiente para atraer y mantener Verificadores activos sin ofrecerles una retribución monetaria directa.
+* Creemos que la evaluación automática resolverá una proporción suficiente de intentos para mantener sostenible la carga de revisión humana conforme aumente el número de Estudiantes.
+* Creemos que el equipo cuenta con las capacidades técnicas para integrar extracción de datos mediante OCR e inteligencia artificial generativa dentro de una aplicación móvil.
+* Creemos que los Estudiantes elegirán SkillSwap frente a alternativas centradas únicamente en formación, exhibición de credenciales o portafolios, porque integra evaluación aplicada, revisión por Verificadores habilitados y supervisión del Coordinador en un mismo proceso.
 
-Asimismo, identificamos que el principal motivador para actuar como Verificador es el reconocimiento profesional, más que un ingreso monetario directo. Creemos que el sistema de *SkillCredits* —ganables al resolver casos, o adquiribles en una tienda dentro de la plataforma— servirá como un incentivo suficiente para que los Verificadores se mantengan activos, ya que podrán exhibir estos créditos en plataformas como LinkedIn como prueba de su experiencia.
+##### Business Outcome Assumptions
 
-Nuestra propuesta se distinguirá por la automatización y el rigor. Asumimos que la combinación de una evaluación generada por IA como primer filtro, una revisión humana estructurada como respaldo, y la intervención de un Coordinador para auditar la calidad del proceso, creará un entorno altamente confiable, estructurado y escalable, sin depender de un modelo de comisiones entre usuarios.
+* Creemos que la adopción será sostenible cuando la tasa de renovación mensual de la suscripción se mantenga por encima del 80%.
+* Creemos que el modelo será rentable cuando el valor del ciclo de vida del Estudiante (LTV) supere el costo de adquisición de clientes (CAC) en una relación de 3 a 1.
+* Creemos que la incorporación de credenciales será fluida cuando al menos el 85% de los Estudiantes que inicie la carga de un certificado complete el registro sin abandonarlo.
+* Creemos que el proceso generará participación cuando al menos el 70% de los Estudiantes que registre un certificado complete la evaluación práctica asociada.
+* Creemos que la operación será escalable cuando menos del 30% de los intentos de evaluación requiera la intervención de un Verificador.
+* Creemos que la atención será oportuna cuando al menos el 85% de los casos escalados sea resuelto por un Verificador en un plazo máximo de 48 horas.
+* Creemos que el sistema de reconocimiento será sostenible cuando al menos el 60% de los Verificadores habilitados resuelva un caso durante cada mes de actividad.
+* Creemos que la calidad del proceso será confiable cuando menos del 3% de las decisiones emitidas por Verificadores sea revertida por el Coordinador.
+* Creemos que la supervisión será oportuna cuando al menos el 90% de las incidencias asignadas sea resuelto por un Coordinador en un plazo máximo de 72 horas.
 
-##### Assumptions Worksheet
+##### User Assumptions
 
-| Pregunta | Respuesta |
-| :--- | :--- |
-| **¿Quién es el usuario?** | Nuestros usuarios se dividen en tres roles:<br>1. **El Estudiante:** Persona que busca aprender y demostrar habilidades reales. Sube certificados, rinde quizzes/miniproyectos y, si no logra demostrar la habilidad, su caso se escala a un Verificador.<br>2. **El Verificador:** Estudiante que ya certificó una habilidad y revisa casos puntuales de otros, motivado por el reconocimiento profesional y los SkillCredits.<br>3. **El Coordinador:** Perfil académico que audita la calidad del proceso de verificación, evalúa la confiabilidad de los Verificadores y gestiona reevaluaciones. |
-| **¿Dónde encaja nuestro producto en su trabajo o vida?** | Los estudiantes lo usarán como complemento práctico a sus estudios teóricos o universitarios, y como preparación previa a procesos de selección laboral. Los Verificadores lo usarán en su tiempo libre para fortalecer su perfil profesional. |
-| **¿Qué problemas tiene nuestro producto a resolver?** | • **Falta de validación práctica:** Superado mediante quizzes dinámicos y miniproyectos generados por IA.<br>• **Escalamiento ineficiente cuando la IA no basta:** Superado mediante la asignación automática de un Verificador disponible que domine la habilidad en cuestión.<br>• **Falta de credibilidad del certificado:** Superado con la extracción y validación automática del documento, y la acumulación pública de SkillCredits del Verificador. |
-| **¿Cuándo y cómo es nuestro producto usado?** | Se usa al finalizar un curso externo para validar el certificado, durante la preparación para entrevistas técnicas, o cuando un estudiante necesita demostrar de forma supervisada el dominio integral de su ruta. |
-| **¿Qué características son importantes?** | • **Rutas Inteligentes y Evaluación:** IA para procesar certificados y generar quizzes.<br>• **Asignación automática de Verificador:** Algoritmo que conecta un caso pendiente con un Verificador disponible.<br>• **SkillCredits:** Sistema de reconocimiento y credenciales profesionales, con tienda de canje dentro de la plataforma.<br>• **Videollamada:** Integrada únicamente para la demostración final supervisada, no para sesiones de enseñanza. |
-| **¿Cómo debe verse nuestro producto y cómo comportarse?** | Debe percibirse como un entorno riguroso, profesional y meritocrático. No es una red de ayuda o tutorías, es un estándar de validación de habilidades (estilo plataforma de certificación técnica). |
+* Creemos que el usuario principal es un Estudiante universitario o joven profesional de 18 a 30 años de Lima Metropolitana que utiliza recursos de formación en línea y necesita demostrar la aplicación práctica de sus habilidades.
+* Creemos que el Verificador es un Estudiante avanzado o joven profesional que ya demostró una habilidad y está dispuesto a revisar entregables de otros usuarios a cambio de reconocimiento profesional.
+* Creemos que el Coordinador es un perfil académico que necesita supervisar la calidad de las decisiones y atender incidencias o reevaluaciones.
+* Creemos que un Estudiante puede convertirse en Verificador para una habilidad específica sin abandonar su participación como aprendiz en otras rutas.
 
-##### Definición de Objetivos
+##### User Outcome and Benefit Assumptions
 
-**Business outcomes**
-* Reducir la brecha entre la educación teórica y la demostración práctica de habilidades.
-* Lograr un modelo de negocio recurrente y escalable mediante la mensualidad de los estudiantes y la venta de SkillCredits en la tienda de la plataforma.
-* Automatizar la validación de certificados y la asignación de Verificadores mediante modelos de Inteligencia Artificial.
-* Consolidar los *SkillCredits* como una credencial reconocida en el mercado laboral.
-* Mantener un alto estándar de calidad mediante el monitoreo de los Coordinadores.
+* Creemos que el Estudiante obtiene valor cuando una ruta le muestra qué habilidades debe demostrar para alcanzar el objetivo declarado.
+* Creemos que el Estudiante reduce esfuerzo y errores cuando puede incorporar un certificado sin transcribir manualmente todos sus datos.
+* Creemos que el Estudiante obtiene valor cuando una evaluación aplicada le permite comprobar su desempeño e identificar los aspectos que debe reforzar.
+* Creemos que el Estudiante confía más en una revisión cuando el Verificador ha demostrado previamente la misma habilidad y ha aprobado un examen de ingreso.
+* Creemos que el futuro Verificador obtiene valor cuando puede acreditar formalmente que está habilitado para revisar una habilidad específica.
+* Creemos que el Estudiante obtiene valor cuando recibe una revisión pertinente y oportuna si la evaluación automática no resulta suficiente.
+* Creemos que el Verificador obtiene valor al construir una reputación comprobable mediante SkillCredits y un historial de casos resueltos.
+* Creemos que el Coordinador obtiene valor cuando puede supervisar la confiabilidad de los Verificadores y resolver incidencias con información suficiente.
 
-**User outcomes**
-* (Estudiantes) Demostrar dominio real sobre un tema, eliminando el síndrome del impostor.
-* (Estudiantes) Superar bloqueos académicos rápidamente con una revisión puntual y experta.
-* (Verificadores) Construir un portafolio de experiencia de revisión verificable para potenciar su perfil profesional.
-* (Verificadores) Obtener reconocimiento (SkillCredits) sin depender de un ingreso económico directo por revisar casos de otros.
+##### Feature Assumptions
 
-**Features**
-* Intérprete de objetivos por IA (NLP) para generar rutas de aprendizaje semánticas.
-* Sistema OCR y de validación de certificados con generación automática de evaluaciones (quizzes/rúbricas).
-* Algoritmo de asignación automática de Verificador disponible para cada caso pendiente.
-* Billetera virtual, tienda y sistema de insignias para los *SkillCredits*.
-* Dashboard analítico para el Coordinador (confiabilidad de Verificadores, disputas, demanda de habilidades).
-* Videollamada integrada exclusivamente para la demostración final supervisada de la ruta.
+* Creemos que una ruta de certificación estructurada a partir del objetivo del Estudiante y de una taxonomía de habilidades ordenará las capacidades que debe demostrar.
+* Creemos que la extracción mediante OCR recuperará los campos requeridos en al menos el 90% de los certificados cargados, reducirá el esfuerzo de registro y producirá un historial documental auditable.
+* Creemos que los *quizzes* y miniproyectos adaptados a cada habilidad, con contenido evaluativo apoyado por inteligencia artificial generativa, permitirán observar el desempeño del Estudiante.
+* Creemos que exigir al futuro Verificador completar su propia ruta y aprobar un examen de ingreso permitirá habilitarlo únicamente para las habilidades que haya demostrado.
+* Creemos que la asignación automática basada en la habilidad requerida, el historial y la disponibilidad reducirá el tiempo necesario para obtener una revisión pertinente.
+* Creemos que los SkillCredits y el historial de casos resueltos mantendrán activo al Verificador sin necesidad de un pago directo.
+* Creemos que un panel con indicadores de confiabilidad permitirá al Coordinador identificar revisiones deficientes, resolver incidencias y sostener la calidad del proceso.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
-**Hipótesis de Negocio**
-* Creemos que al implementar un sistema de registro y verificación automática exclusiva con correos institucionales (".edu.pe") para todos los estudiantes, resultará en una superación de la barrera de desconfianza inicial y un ingreso más ágil sin validación manual, lo que facilitará la adopción de la plataforma; sabremos que esto es cierto cuando el 90% de los nuevos usuarios complete su registro en las primeras 24 horas y la tasa de reportes por cuentas falsas o suplantación sea cercana a 0%.
-* Creemos que al operar bajo un modelo de mensualidad para los estudiantes complementado con la venta de SkillCredits en una tienda dentro de la plataforma, resultará en un modelo de negocio sostenible sin depender de comisiones entre usuarios; sabremos que esto es cierto cuando el LTV (Life Time Value) del estudiante supere el costo de adquisición (CAC) en un ratio de 3:1 y la tienda de SkillCredits genere al menos el 20% del ingreso mensual total.
-* Finalmente, creemos que al generar evaluaciones prácticas (quizzes o miniproyectos) mediante IA como primer filtro, y escalar a un Verificador solo cuando sea necesario, resultará en un proceso de verificación riguroso pero eficiente; sabremos que esto es cierto cuando menos del 30% de los intentos requiera intervención de un Verificador, y la tasa de disputas o reevaluaciones solicitadas se mantenga por debajo del 5% del total de evaluaciones realizadas.
+**Hipótesis 1: Ruta estructurada por objetivo y taxonomía de habilidades**
 
-**Hipótesis de Usuario**
-* Creemos que al generar evaluaciones prácticas (quizzes o miniproyectos) basadas en los certificados subidos, los estudiantes percibirán un valor real en la validación; sabremos que esto es cierto cuando el 70% de los estudiantes que suben un certificado decidan rendir la prueba práctica voluntariamente.
-* Creemos que al asignar automáticamente un Verificador disponible que domina la habilidad en cuestión cuando la evaluación automática no sea suficiente, los estudiantes percibirán una resolución rápida y confiable de su caso; sabremos que esto es cierto cuando el 85% de los casos escalados se resuelvan en menos de 48 horas y el estudiante califique la revisión con 4.5/5 o más.
-* Creemos que al ofrecer una demostración final supervisada por videollamada únicamente al completar toda la ruta, los estudiantes percibirán mayor rigurosidad y valor en su certificación final, sin sentir que la plataforma depende de sesiones de enseñanza; sabremos que esto es cierto cuando el 80% de los estudiantes que completan su ruta opte por realizar dicha demostración.
-* Creemos que al otorgar *SkillCredits* como reconocimiento al desempeño de los Verificadores, resultará en una fuerte retención de participación sin necesidad de un incentivo económico directo; sabremos que esto es cierto cuando el 60% de los Verificadores activos comparta sus logros (SkillCredits) en redes profesionales como LinkedIn, atrayendo a su vez tráfico orgánico a la plataforma.
+Creemos que alcanzaremos una tasa de renovación mensual superior al 80%<br>
+si los Estudiantes universitarios y jóvenes profesionales de 18 a 30 años<br>
+logran reconocer qué habilidades deben demostrar para alcanzar su objetivo<br>
+mediante una ruta de certificación estructurada a partir del objetivo declarado y de una taxonomía de habilidades.
+
+**Hipótesis 2: Registro asistido del certificado mediante OCR**
+
+Creemos que lograremos que al menos el 85% de los Estudiantes que inicie la carga de un certificado complete el registro sin abandonarlo<br>
+si los Estudiantes que incorporan una credencial externa<br>
+logran reducir el esfuerzo y los errores asociados con el registro manual<br>
+mediante la extracción de datos del certificado con OCR.
+
+**Hipótesis 3: Evaluación aplicada a la habilidad**
+
+Creemos que lograremos que menos del 30% de los intentos de evaluación requiera la intervención de un Verificador<br>
+si los Estudiantes que necesitan demostrar una habilidad<br>
+logran comprobar su desempeño e identificar los aspectos que deben reforzar<br>
+mediante *quizzes* y miniproyectos adaptados a la habilidad, con contenido evaluativo apoyado por inteligencia artificial generativa.
+
+**Hipótesis 4: Habilitación del Verificador**
+
+Creemos que lograremos que menos del 3% de las decisiones de los Verificadores sea revertida por el Coordinador<br>
+si los Estudiantes que aspiran a actuar como Verificadores<br>
+logran acreditar formalmente que están preparados para revisar una habilidad específica<br>
+mediante la exigencia de que el futuro Verificador complete su propia ruta y apruebe un examen de ingreso.
+
+**Hipótesis 5: Asignación automática de Verificador**
+
+Creemos que lograremos que al menos el 85% de los casos escalados sea resuelto en un plazo máximo de 48 horas<br>
+si los Estudiantes cuya evaluación automática no resulte suficiente<br>
+logran recibir una revisión pertinente y oportuna<br>
+mediante la asignación automática basada en la habilidad requerida, el historial y la disponibilidad de los Verificadores.
+
+**Hipótesis 6: SkillCredits e historial de revisiones**
+
+Creemos que lograremos que al menos el 60% de los Verificadores habilitados resuelva un caso durante cada mes de actividad sin recibir un pago directo<br>
+si los Verificadores<br>
+logran construir una reputación comprobable por sus contribuciones<br>
+mediante SkillCredits y un historial de casos resueltos.
+
+**Hipótesis 7: Panel de confiabilidad del Coordinador**
+
+Creemos que lograremos que al menos el 90% de las incidencias asignadas sea resuelto en un plazo máximo de 72 horas<br>
+si los Coordinadores<br>
+logran supervisar la confiabilidad de los Verificadores y atender cada incidencia con información suficiente<br>
+mediante un panel de indicadores de confiabilidad, decisiones e historial de casos.
 
 #### 1.2.2.4. Lean UX Canvas
 
@@ -266,40 +330,53 @@ Nuestra propuesta se distinguirá por la automatización y el rigor. Asumimos qu
 | :--- | :--- |
 | **Título:** Innovify Lean UX Canvas | **Fecha:** 10/09/2026 |
 | **Iteración:** 1 | |
-| **1. Problema de negocio**<br>El mercado educativo está saturado de certificados que no demuestran competencias reales. Los estudiantes se estancan al no poder aplicar la teoría y no tienen cómo validar de forma objetiva lo que dicen saber. Quienes ya dominan una habilidad tampoco tienen un espacio estandarizado donde ejercer esa experiencia y construir una reputación comprobable. | **5. Solución**<br>Una plataforma impulsada por IA que genera rutas de aprendizaje, valida certificados y evalúa mediante retos prácticos generados dinámicamente. Si el intento no logra demostrar el dominio, un algoritmo asigna automáticamente el caso a un Verificador disponible que ya certificó esa habilidad, quien lo revisa frente a una rúbrica estructurada. Los Verificadores ganan SkillCredits, canjeables en una tienda interna, todo supervisado por un Coordinador de calidad. |
+| **1. Problema de negocio**<br><br>**Desde la perspectiva del Estudiante:** Los estudiantes universitarios acumulan certificados de cursos online sin poder demostrar que realmente dominan la habilidad en situaciones prácticas. Cuando se enfrentan a una entrevista técnica o a un proyecto real, descubren que el certificado no refleja su dominio efectivo. No saben con precisión en qué punto de su aprendizaje está el vacío, ni tienen a quién recurrir para una revisión específica de su caso.<br><br>**Desde la perspectiva del Verificador:** Quienes ya dominan una habilidad no tienen un espacio estructurado y confiable donde ejercer esa experiencia para revisar el trabajo de otros. Los modelos informales (WhatsApp, Discord) carecen de estructura, reconocimiento formal y garantía de que la persona que llega tiene el nivel mínimo para aprovechar la revisión.<br><br>**Desde la perspectiva del Coordinador:** Los coordinadores académicos no tienen visibilidad real sobre el dominio práctico de habilidades de sus estudiantes más allá de una nota o un certificado presentado, ni herramientas para auditar la calidad del proceso de revisión entre pares de forma sistemática. | **5. Solución**<br>Una plataforma impulsada por IA que genera rutas de aprendizaje, valida certificados y evalúa mediante retos prácticos generados dinámicamente. Si el intento no logra demostrar el dominio, un algoritmo asigna automáticamente el caso a un Verificador disponible que ya certificó esa habilidad, quien lo revisa frente a una rúbrica estructurada. Los Verificadores ganan SkillCredits, canjeables en una tienda interna, todo supervisado por un Coordinador de calidad. |
 | **2. Resultados comerciales**<br>Se busca lograr ingresos recurrentes (MRR) mediante la mensualidad de los estudiantes, complementados con la venta de SkillCredits en la tienda interna; asegurar escalabilidad automatizando la validación y la asignación de Verificadores con IA; y posicionar los *SkillCredits* como un estándar de la industria. | **6. Hipótesis**<br>• Creemos que la IA generará evaluaciones más precisas que los flujos manuales estáticos.<br>• Creemos que los estudiantes pagarán una mensualidad por validar sus conocimientos y tener acceso al proceso de verificación.<br>• Creemos que exigir una ruta de certificación propia a los Verificadores elevará la calidad percibida de sus revisiones.<br>• Creemos que los *SkillCredits* incentivarán a los Verificadores a mantenerse activos sin necesidad de un pago directo.<br>• Creemos que el algoritmo de asignación reducirá el tiempo de resolución de un caso y mejorará las tasas de éxito en la certificación. |
 | **3. Usuarios y clientes**<br>• **Estudiantes:** Buscan dominar una habilidad, validar certificados y recibir una revisión puntual cuando la IA no basta.<br>• **Verificadores:** Estudiantes que ya certificaron una habilidad y buscan reconocimiento profesional revisando casos de otros.<br>• **Coordinadores:** Aseguradores de la calidad del proceso de verificación. | **7. ¿Qué es lo más importante que necesitamos aprender primero?**<br>• ¿Están dispuestos los estudiantes a pagar por "evaluarse y validarse" en lugar de solo consumir contenido?<br>• ¿Los estudiantes que ya dominan una habilidad estarán dispuestos a revisar casos de otros a cambio de SkillCredits, sin un pago monetario directo?<br>• ¿Es técnicamente viable que la IA extraiga con precisión el temario de un certificado subido en PDF/Imagen y genere una evaluación coherente a partir de él? |
 | **4. Beneficios del usuario**<br>El estudiante obtiene un dominio comprobable de habilidades y una revisión puntual cuando se estanca. El Verificador obtiene reconocimiento y credenciales verificables (*SkillCredits*), sin depender de un ingreso monetario directo. El sistema garantiza confianza en las capacidades certificadas de sus usuarios. | **8. ¿Cuál es la menor cantidad de trabajo que necesitamos hacer para aprender la siguiente cosa más importante?**<br>• Entrevistas a estudiantes para validar la disposición de pago (mensualidad) y el interés en los *SkillCredits* como incentivo no monetario.<br>• Desarrollar un MVP de extracción de texto y validación de certificados usando un LLM para probar la viabilidad técnica antes de construir toda la plataforma. |
 
 ---
 
+
 ## 1.3. Segmentos objetivo
 
-### 1. Segmento: Personas que quieren aprender (Estudiantes)
+### 1. Segmento: Personas que quieren aprender
 
-Son individuos proactivos, abarcando desde estudiantes universitarios hasta jóvenes profesionales (generalmente entre 18 y 30 años), que buscan aprender y, fundamentalmente, demostrar competencias reales. Enfrentan la frustración de acumular diplomas o certificados teóricos que no reflejan sus verdaderas capacidades prácticas ante el mercado laboral.
+Este segmento reúne a las personas que siguen una ruta de certificación en la plataforma y necesitan demostrar la aplicación práctica de las habilidades declaradas.
 
-Están dispuestos a pagar una **suscripción mensual** para acceder a una plataforma que estructure su aprendizaje mediante rutas generadas por Inteligencia Artificial, valide sus conocimientos con evaluaciones prácticas (quizzes o miniproyectos) y les brinde una revisión puntual cuando se estancan. Según diversos reportes sobre empleabilidad y educación continua, un alto porcentaje de estudiantes de cursos online siente inseguridad al aplicar lo aprendido en escenarios reales. Entre las soluciones más valoradas se encuentra la revisión quirúrgica de su caso: que un Verificador que ya domina la habilidad evalúe puntualmente su proyecto o portafolio cuando la evaluación automática no logra confirmar su dominio, sin necesidad de repasar toda la teoría nuevamente ni depender de una sesión de enseñanza en vivo.
+**Estudiante (aprendizaje y demostración de la habilidad)**
+
+El foco inicial comprende a Estudiantes universitarios y jóvenes profesionales de 18 a 30 años de Lima Metropolitana que utilizan recursos de formación en línea. Este rango constituye una delimitación estratégica del proyecto y no pretende representar la edad de todas las personas que estudian mediante plataformas digitales. El segmento busca complementar sus credenciales con pruebas aplicadas, reconocer los aspectos que necesita reforzar y comunicar sus capacidades al incorporarse al mercado laboral.
+
+La disposición a pagar una **suscripción mensual** por este proceso constituye un supuesto comercial que deberá validarse. La propuesta plantea ofrecer rutas relacionadas con el objetivo del Estudiante, *quizzes* o miniproyectos adaptados a cada habilidad y una revisión puntual cuando la evaluación automática no resulte suficiente.
+
+Como referencia sobre el alcance de la formación digital, Coursera reporta 1,7 millones de usuarios registrados en el Perú, equivalentes al 7% de la fuerza laboral del país. Dentro de esa plataforma, los usuarios peruanos presentan una mediana de edad de 33 años, el 37% estudia desde un dispositivo móvil y las inscripciones a Certificados Profesionales crecieron 33% en un año (Coursera, 2025). Estas cifras corresponden al conjunto de usuarios peruanos de Coursera y permiten dimensionar un mercado relacionado, pero no representan de manera exacta el segmento de 18 a 30 años definido por el proyecto.
+
+Asimismo, Rivas Cossio (2023) reporta una tasa de inadecuación ocupacional del 68,6% entre los jóvenes profesionales analizados en Lima Metropolitana. El indicador evidencia dificultades de correspondencia entre formación y empleo en la población estudiada, sin reducir el fenómeno únicamente a trabajar en un campo distinto del estudiado. De manera exploratoria, las entrevistas presentadas en la sección 2.2.3 muestran interés por evaluaciones aplicadas y por una revisión enfocada en los aspectos que cada Estudiante necesita reforzar.
 
 ### 2. Segmento: Personas que validan el conocimiento
 
-Este segmento agrupa a las personas que sostienen la confiabilidad de las habilidades verificadas dentro de la plataforma: por un lado, **Verificadores** (estudiantes que ya certificaron una habilidad y revisan casos puntuales de otros), y por otro, **Coordinadores académicos** (profesores universitarios que supervisan que ese proceso de verificación sea correcto). Ambos operan en dos niveles distintos de una misma cadena de confianza: el Verificador resuelve el caso individual, el Coordinador garantiza que esos casos se estén resolviendo bien.
+Este segmento reúne dos perfiles. El primero comprende a Estudiantes de últimos ciclos y egresados recientes de entre 20 y 32 años que han demostrado una habilidad y podrían participar en la revisión de casos. El segundo incluye a docentes, jefes de práctica y Coordinadores académicos de entre 30 y 55 años vinculados a instituciones de educación superior. Estos rangos delimitan el público inicial del proyecto; en las entrevistas exploratorias de la sección 2.2.3 participaron posibles Verificadores de 23 a 28 años y perfiles académicos de 29 a 53 años.
+
+La necesidad de mecanismos de validación se relaciona con un contexto laboral en el que el 76% de las vacantes difíciles de cubrir en el Perú estuvo asociado con la falta de habilidades requeridas en los candidatos (Novella et al., 2019). Asimismo, a nivel global, el 63% de los empleadores identifica las brechas de habilidades como una de las principales barreras para transformar sus negocios (World Economic Forum, 2025). Estas cifras contextualizan la importancia del problema, pero no representan una estimación del tamaño del segmento de Verificadores y Coordinadores.
+
+Dentro de SkillSwap, ambos perfiles cumplen funciones distintas en el proceso de confianza. Los **Verificadores** son Estudiantes que han demostrado previamente una habilidad y revisan casos puntuales de otros usuarios. Los **Coordinadores académicos** supervisan la calidad de esas decisiones y gestionan las incidencias que puedan afectar el proceso. El Verificador actúa sobre cada caso, mientras que el Coordinador supervisa el funcionamiento general.
 
 **Nivel 1 — Verificador (revisión caso por caso)**
 
-Para comenzar a verificar, la persona primero deberá completar su propia *ruta de certificaciones*, en la cual tendrá que demostrar —mediante certificados validados y evaluaciones aprobadas por la IA— que posee los conocimientos necesarios sobre la habilidad que desea verificar en otros.
+Para asumir el rol de Verificador, la persona deberá completar su propia *ruta de certificación*, demostrar la habilidad mediante las evaluaciones de la plataforma y aprobar un *examen de ingreso* relacionado con la competencia que desea revisar en otros usuarios.
 
-Una vez que cumpla estos requisitos, quedará habilitada como Verificador para esa habilidad específica, y podrá comenzar a participar en la *revisión de casos de verificación puntuales*, evaluando el proyecto o portafolio que el estudiante presenta como evidencia frente a una rúbrica estructurada.
+Una vez cumplidos estos requisitos, quedará habilitada únicamente para esa habilidad y podrá revisar el entregable presentado por el Estudiante mediante una rúbrica estructurada.
 
-Por cada caso revisado y resuelto, el Verificador podrá obtener *SkillCredits*, un sistema de reconocimiento interno de la plataforma —no monetario— que representa su experiencia y participación, y que también sirve para *demostrar profesionalmente su experiencia* (ej. publicación en LinkedIn) o canjearse por beneficios dentro de la propia plataforma.
+Por cada caso resuelto, el Verificador podrá obtener *SkillCredits*, unidades de reconocimiento interno y no monetario asociadas con su experiencia y participación. Estos créditos podrán mostrarse en su perfil profesional o canjearse por beneficios internos. El proyecto supone que el reconocimiento y la construcción de un historial verificable pueden incentivar su participación sin necesidad de un pago directo; esta creencia deberá contrastarse mediante la validación del producto. El Verificador conserva su condición de Estudiante suscrito, de modo que habilitarse para revisar no sustituye la suscripción mensual ni constituye una contraprestación económica.
 
 **Nivel 2 — Coordinador (supervisión del sistema de verificación)**
 
-El Coordinador necesita visibilidad real sobre el nivel de dominio de habilidades de sus estudiantes, más allá de la nota de un curso o un certificado presentado — y a la vez necesita asegurar que los Verificadores estén resolviendo los casos correctamente, ya que la métrica que consume solo tiene valor si el proceso detrás es confiable.
+El Coordinador necesita supervisar la calidad de las decisiones emitidas por los Verificadores y comprender cómo se determinó el dominio de una habilidad. Esta función permite identificar revisiones deficientes y preservar la confiabilidad de los indicadores generados por la plataforma.
 
-Por eso, el Coordinador puede revisar indicadores de *confiabilidad de los Verificadores* (decisiones revertidas, sanciones), resolver disputas cuando un certificado resulta sospechoso o un estudiante apela una decisión, y habilitar una *reevaluación o nuevo intento* cuando corresponda. A cambio, obtiene acceso a *métricas generales de la plataforma*: habilidades más solicitadas, certificaciones más frecuentes, áreas con mayor tasa de fallo, y qué Verificadores tienen mejor desempeño — data que solo es útil porque el propio Coordinador garantiza su integridad.
+Para ello, podrá consultar indicadores de confiabilidad de los Verificadores, como decisiones revertidas o sanciones; resolver disputas relacionadas con certificados sospechosos o decisiones apeladas; y habilitar una reevaluación cuando corresponda. También podrá consultar métricas generales, entre ellas las habilidades más solicitadas, las certificaciones más frecuentes, las áreas con mayor tasa de fallo y el desempeño de los Verificadores.
 
-En conjunto, este segmento es el que sostiene la credibilidad de todo lo que un estudiante certifica en la plataforma: el Verificador la sostiene caso por caso, el Coordinador la sostiene a nivel de sistema.
+En conjunto, el Verificador aporta una revisión estructurada en cada caso y el Coordinador supervisa la calidad del proceso. Ambos roles permiten mantener un registro verificable de las decisiones que respaldan las habilidades demostradas por los Estudiantes.
 
 ---
 
@@ -322,14 +399,15 @@ Platzi es una plataforma latinoamericana de educación tecnológica con fuerte p
  
 ### 2.1.1. Análisis competitivo
  
+ 
 | Criterio de Análisis | **Innovify / SkillSwap** | **Coursera** | **LinkedIn Learning** | **Platzi** |
 | :--- | :--- | :--- | :--- | :--- |
 | **Overview** | Plataforma de validación de habilidades mediante rutas de certificación personalizadas por IA, quizzes/miniproyectos generados dinámicamente y revisión de casos puntuales por Verificadores que ya certificaron su propia ruta y superaron un examen de ingreso. | Plataforma masiva de cursos online con certificados emitidos por universidades y empresas. Orientada a la entrega de contenido estructurado. | Plataforma de aprendizaje corporativo integrada a LinkedIn. Certificados visibles en el perfil profesional del usuario. | Plataforma latinoamericana de educación tecnológica con rutas de aprendizaje, comunidad activa y proyectos prácticos. |
 | **Ventaja competitiva** | **Validación práctica real:** quizzes y miniproyectos generados por IA + revisión humana certificada. **SkillCredits:** reconocimiento profesional verificable para Verificadores. **Matching inteligente:** emparejamiento por embeddings de habilidades. | Alianzas con universidades y empresas de primer nivel. Reconocimiento global del certificado. | Integración nativa con LinkedIn. Visibilidad profesional inmediata. Catálogo masivo. | Fuerte comunidad latinoamericana. Proyectos prácticos. Precios accesibles para la región. |
 | **Mercado objetivo** | Estudiantes universitarios y jóvenes profesionales (18-35 años) que buscan demostrar habilidades prácticas reales para el mercado laboral. Verificadores que buscan reconocimiento profesional y construir reputación verificable. | Estudiantes y profesionales que buscan credenciales reconocidas por empresas globales. | Profesionales en entornos corporativos que buscan upskilling continuo financiado por su empresa. | Estudiantes y profesionales latinoamericanos que buscan habilidades tecnológicas a precio accesible. |
 | **Estrategias de marketing** | Marketing de comunidad universitaria. Programa de embajadores en campus. LinkedIn como canal de exhibición de SkillCredits. | SEO masivo. Alianzas con empresas (Google, IBM, Meta). Publicidad digital global. | Integración directa con el ecosistema LinkedIn. Ventas B2B a empresas para licencias corporativas. | Marketing de contenidos en redes sociales. Comunidad activa y referidos. Influencers tecnológicos. |
-| **Productos & Servicios** | Rutas de aprendizaje por IA, validación de certificados, quizzes/miniproyectos, revisión de casos por Verificadores, demostración final supervisada por videollamada, matching inteligente estudiante-Verificador, SkillCredits, panel de coordinador. | Cursos, especializaciones, certificados profesionales, grados universitarios online. | Cursos en video, certificados de finalización, rutas de aprendizaje, integración con perfil LinkedIn. | Cursos en video, rutas de aprendizaje, proyectos, comunidad de Discord/Slack, certificados Platzi. |
-| **Precios & Costos** | Suscripción mensual B2C para estudiantes. SkillCredits ganables por los Verificadores al resolver casos, o adquiribles directamente en una tienda dentro de la plataforma. | Suscripción mensual o pago por curso/especialización. Auditoría gratuita sin certificado. | Suscripción mensual individual o licencia corporativa anual. | Suscripción mensual o anual. Plan experto con acceso a todos los cursos. |
+| **Productos & Servicios** | Rutas de aprendizaje por IA, validación de certificados, quizzes/miniproyectos, revisión de casos por Verificadores, certificado de ruta respaldado por el historial de verificación, matching inteligente estudiante-Verificador, SkillCredits, panel de coordinador. | Cursos, especializaciones, certificados profesionales, grados universitarios online. | Cursos en video, certificados de finalización, rutas de aprendizaje, integración con perfil LinkedIn. | Cursos en video, rutas de aprendizaje, proyectos, comunidad de Discord/Slack, certificados Platzi. |
+| **Precios & Costos** | Suscripción mensual B2C para estudiantes como única fuente de ingreso. SkillCredits ganables por los Verificadores al resolver casos, no adquiribles con dinero. | Suscripción mensual o pago por curso/especialización. Auditoría gratuita sin certificado. | Suscripción mensual individual o licencia corporativa anual. | Suscripción mensual o anual. Plan experto con acceso a todos los cursos. |
 | **Canales de distribución** | Móvil (nativa/cross-platform) y web. | Web y móvil. | Web y móvil. | Web y móvil. |
 | **Fortalezas (SWOT)** | Validación práctica real supervisada por pares certificados. Modelo de reconocimiento profesional (SkillCredits). Matching por IA. Examen de ingreso que garantiza calidad del Verificador. | Reconocimiento global del certificado. Alianzas con universidades top. Base de usuarios masiva. | Integración nativa con LinkedIn. Alcance corporativo. Catálogo masivo. | Comunidad latinoamericana activa. Proyectos prácticos. Precios competitivos. |
 | **Debilidades (SWOT)** | Requiere masa crítica inicial de Verificadores certificados. Proceso de onboarding más exigente. Dependencia de APIs de IA externas. | No valida el dominio práctico real. Evaluaciones estandarizadas superficiales. Sin supervisión humana. | Certificados sin validación práctica real. No tiene Verificadores humanos certificados. | Calidad de revisión entre pares sin criterio certificado. Sin supervisión humana especializada. |
@@ -346,11 +424,11 @@ A continuación se presentan las estrategias y tácticas que Innovify puede impl
  
 #### Estrategias
  
-* **Diferenciación por Validación Real:** A diferencia de Coursera, LinkedIn Learning y Platzi, que emiten certificados tras evaluaciones superficiales, Innovify se posiciona como la única plataforma que exige demostración práctica real del conocimiento mediante quizzes generados por IA, miniproyectos evaluados por Verificadores certificados y una demostración final supervisada. El certificado de Innovify acredita lo que el usuario realmente sabe hacer, no solo que vio un video.
+* **Diferenciación por Validación Real:** A diferencia de Coursera, LinkedIn Learning y Platzi, que emiten certificados tras evaluaciones superficiales, Innovify se posiciona como la única plataforma que exige demostración práctica real del conocimiento mediante quizzes generados por IA, miniproyectos evaluados por Verificadores certificados. El certificado de Innovify acredita lo que el usuario realmente sabe hacer, no solo que vio un video.
 * **Construcción de Confianza mediante el Examen de Ingreso:** Ningún competidor directo verifica que sus revisores realmente dominen lo que evalúan. Innovify elimina ese riesgo exigiendo que todo Verificador certifique previamente su propia ruta y supere un examen de ingreso riguroso antes de poder revisar casos de otros. Esto crea un ecosistema de calidad garantizada que los diferencia radicalmente.
 * **SkillCredits como Diferencial Profesional:** El sistema de SkillCredits crea un incentivo único que ningún competidor ofrece: el Verificador construye una reputación verificable y exportable a LinkedIn que demuestra su calidad de evaluación y dominio técnico. Esto atrae a los mejores Verificadores disponibles, elevando la calidad del ecosistema completo.
 * **Matching Inteligente como Ventaja Tecnológica:** El sistema de recomendación híbrido de Innovify, basado en embeddings de habilidades, resuelve el problema que ningún competidor ha abordado: conectar al estudiante con el Verificador más adecuado para su vacío de conocimiento específico, no con cualquier Verificador disponible. Esto maximiza la efectividad de cada revisión de caso.
-* **Modelo Sostenible B2C con Tienda de SkillCredits:** La combinación de suscripción mensual del estudiante con la venta directa de SkillCredits en una tienda dentro de la plataforma crea un ecosistema económicamente sostenible sin depender de comisiones entre usuarios, a diferencia de modelos puramente freemium que dependen de publicidad o de modelos corporativos que excluyen al estudiante individual.
+* **Modelo Sostenible B2C por Suscripción:** La suscripción mensual del estudiante como única fuente de ingreso crea un ecosistema económicamente sostenible y predecible, sin depender de comisiones entre usuarios ni de la venta de reconocimiento, a diferencia de modelos puramente freemium que dependen de publicidad o de modelos corporativos que excluyen al estudiante individual.
 #### Tácticas
  
 * **Programa de Verificadores Fundadores:** Ofrecer a los primeros 100 Verificadores certificados condiciones especiales (mayor acumulación de SkillCredits por caso resuelto, badge exclusivo de "Verificador Fundador") para construir la masa crítica inicial de talento verificado que hace funcionar la plataforma.
@@ -398,6 +476,7 @@ A continuación se presentan las estrategias y tácticas que Innovify puede impl
 12. ¿Qué tan dispuesto estarías a supervisar por videollamada la demostración final de un proyecto avanzado, garantizando que lo que se presenta es realmente propio de esa persona?
 13. ¿Qué debería tener sí o sí una plataforma para que la consideres profesional y confiable para ejercer este rol?
 14. Si pudieras exhibir en tu perfil de LinkedIn una credencial que dice "Verificador certificado en [habilidad], con X casos resueltos", ¿crees que eso tendría valor real para tu carrera profesional?
+
 *Nivel 2 — Coordinador*
  
 1. Para comenzar, ¿podría describir brevemente su rol en la universidad y sus principales responsabilidades relacionadas con el alumnado?
@@ -430,15 +509,16 @@ Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataf
   <br>
   <em>Figura 1. Entrevista 1: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la primera entrevista al segmento de personas que quieren aprender.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=7TT_t2KaSyI
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=TdVTVb2Cj1s<br>**Inicio:** 0:00<br>**Duración:** 6:28 minutos
+ 
 **Resumen descriptivo:**
-En esta entrevista, Mireya estudia Ingeniería de Sistemas en la UPC y se encuentra en quinto ciclo. Describe su relación con el aprendizaje como principalmente autodidacta — ha completado dos cursos de Python en Coursera y uno de SQL en Udemy — pero confiesa que al momento de postular a prácticas sintió que sus certificados no le servían porque no podía demostrar que realmente sabía aplicar lo aprendido. Recuerda específicamente una entrevista técnica donde le pidieron escribir una función en Python desde cero y se bloqueó, pese a tener el certificado. Su método actual cuando se estanca es buscar en Stack Overflow o preguntar a ChatGPT, pero reconoce que muchas veces no sabe si la solución que obtiene es correcta o solo funciona por casualidad.
+En esta entrevista, Mireya estudia Ingeniería de Gestión Empresarial en la UPC y se encuentra en quinto ciclo. Recientemente consiguió sus primeras prácticas profesionales en el área de gestión en una empresa de consumo masivo. Describe su proceso de preparación como bastante autodidacta y de prueba y error: actualizó su CV múltiples veces usando plantillas de Canva, comparó con los de compañeras que ya habían practicado, y se preparó para entrevistas viendo videos de YouTube. Sin embargo, reconoce que siempre sintió que le faltaba alguien que le dijera si lo estaba haciendo bien.
  
-Respecto al modelo de validación práctica de Innovify, Mireya lo percibe como algo que "hace falta" en el mercado. Le parece coherente que, si va a obtener una credencial, primero tenga que demostrar que puede resolver algo real. Está dispuesta a pagar una suscripción mensual de hasta S/ 50 si eso le garantiza acceso a Verificadores certificados y evaluaciones que le digan con precisión en qué está fallando. Lo que más le interesa del perfil del Verificador es ver en qué empresa trabajó o trabaja y qué proyectos ha hecho, no solo cuántos casos ha resuelto.
+Cuando tuvo la suerte de que una prima con experiencia laboral le revisara el CV por WhatsApp, notó la diferencia inmediatamente: le señaló que estaba incluyendo información poco relevante y que debía resaltar resultados concretos. Mireya destaca que avanzó rápido con esa ayuda, pero reconoce que fue suerte que su prima tuviera tiempo esa semana. Su mayor dificultad es no saber a quién más pedirle ese tipo de orientación, ya que sus compañeros de clase están en la misma situación que ella.
  
-Valora especialmente el modelo de examen de ingreso para Verificadores, porque indica que no cualquiera puede revisar el trabajo de otros. Considera que una credencial que muestre exactamente qué habilidades demostró — no solo que tomó un curso — tendría mucho más peso ante un empleador. Finalmente, destaca que la posibilidad de recibir una revisión enfocada exactamente en el sub-tema donde falló, en vez de repetir todo el curso, sería lo más eficiente y lo que más le ayudaría en sus tiempos actuales de carga universitaria.
+Respecto al uso de herramientas digitales, usa Canva para el diseño del CV, ChatGPT para redactar mejor sus experiencias y LinkedIn para buscar ofertas y contactar reclutadores, aunque casi nunca recibe respuesta. Considera que la IA funciona bien como primer filtro antes de llegar a una persona, pero no reemplaza la orientación personalizada.
+ 
+Sobre el perfil del Verificador, Mireya es muy clara: prioriza que tenga experiencia real en su área — en qué empresa trabajó, cuánto tiempo lleva en el rubro y si estudió algo similar a su carrera — por encima de la cantidad de reseñas. Respecto al modelo de Innovify, valora especialmente la posibilidad de que la plataforma asigne automáticamente un mentor con conocimiento específico de su carrera, porque considera que buscar ayuda por su cuenta es lento y no siempre aplica a su situación. Está dispuesta a dar una donación voluntaria por la sesión si esta es realmente útil. Finalmente, prefiere que la videollamada esté integrada dentro de la misma plataforma, porque los links externos de Zoom se pierden en el chat y reducen el compromiso de ambas partes.
  
 **Entrevista 2**
 * **Nombres:** Mathias
@@ -450,9 +530,8 @@ Valora especialmente el modelo de examen de ingreso para Verificadores, porque i
   <br>
   <em>Figura 2. Entrevista 2: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la segunda entrevista al segmento de personas que quieren aprender.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=xt02A76wXNQ
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=xt02A76wXNQ<br>**Inicio:** 0:00<br>**Duración:** 7:58 minutos
+ 
 **Resumen descriptivo:**
 Mathias es egresado de Administración de la Universidad Nacional de San Agustín de Arequipa y lleva ocho meses buscando empleo en marketing digital. Cuenta con tres certificados de Google Digital Garage, uno de HubSpot y un curso de Meta Ads completado en Udemy, pero en todas las entrevistas en las que ha participado le dicen que "le falta experiencia práctica". Describe esa situación como profundamente frustrante: siente que invirtió tiempo y dinero en aprender pero no puede demostrarlo de forma creíble ante nadie.
  
@@ -470,9 +549,8 @@ Respecto al modelo de Innovify, Mathias lo ve como la solución directa a su pro
   <br>
   <em>Figura 3. Entrevista 3: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la tercera entrevista al segmento de personas que quieren aprender.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=wcjn0ionQ-8
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=wcjn0ionQ-8<br>**Inicio:** 0:00<br>**Duración:** 6:53 minutos
+ 
 **Resumen descriptivo:**
 Carlos estudia Diseño Gráfico en Toulouse Lautrec y se encuentra en tercer ciclo. Aprendió Figma de manera autodidacta viendo tutoriales en YouTube y practicando por su cuenta, y siente que tiene un nivel intermedio-avanzado en la herramienta. Sin embargo, cuando busca trabajos freelance o postula a prácticas, no tiene ninguna credencial formal que avale ese conocimiento — los cursos gratuitos de YouTube no emiten certificados y los certificados de plataformas pagadas son genéricos.
  
@@ -498,9 +576,8 @@ Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataf
   <br>
   <em>Figura 4. Entrevista 1: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la primera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=n53WUVagpE4
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=n53WUVagpE4<br>**Inicio:** 0:00<br>**Duración:** 7:53 minutos
+ 
 **Resumen descriptivo:**
 Marco estudia Ingeniería de Software en la PUCP y está en séptimo ciclo. Domina React, Node.js, PostgreSQL y arquitectura de microservicios, conocimientos que desarrolló combinando su formación universitaria con proyectos freelance y contribuciones a repositorios open source. Ha ayudado informalmente a varios compañeros de ciclos menores a resolver dudas puntuales de programación, pero siempre de forma desorganizada — por WhatsApp, sin estructura, sin que la persona llegue con un nivel mínimo establecido.
  
@@ -518,9 +595,8 @@ Respecto al modelo de Innovify, Marco está muy de acuerdo con que el Verificado
   <br>
   <em>Figura 5. Entrevista 2: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la segunda entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=h8Uh3w6U1qE
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=h8Uh3w6U1qE<br>**Inicio:** 0:00<br>**Duración:** 5:29 minutos
+ 
 **Resumen descriptivo:**
 Mariana es egresada de Contabilidad de la Universidad de Lima y trabaja hace dos años en una firma de auditoría. Domina Excel avanzado, Power BI y análisis financiero, habilidades que desarrolló en su trabajo y que sabe que son muy demandadas en el mercado. Ha ayudado informalmente a compañeros universitarios con estas herramientas, pero el modelo le resulta poco profesional y difícil de gestionar: tiene que coordinar por WhatsApp, no hay estructura, y las personas a veces no vienen preparadas.
  
@@ -538,9 +614,8 @@ Mariana está de acuerdo con que el Verificador demuestre primero su propio domi
   <br>
   <em>Figura 6. Entrevista 3: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
-* **URL:** [Completar con URL de Microsoft Stream]
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** <br>**Inicio:** 0:00<br>**Duración:** 6:53 minutos
+ 
 **Resumen descriptivo:**
 Sebastián es egresado de Comunicaciones de la UPC y trabaja como freelance en marketing de contenidos. Domina SEO técnico, copywriting y estrategia de redes sociales, habilidades que desarrolló en proyectos reales con clientes. Intentó enseñar en Preply pero lo abandonó porque la plataforma permite que cualquiera enseñe sin verificación, lo que deteriora la calidad percibida de todos los que ofrecen ayuda ahí.
  
@@ -564,9 +639,8 @@ Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataf
   <br>
   <em>Figura 7. Entrevista 1: Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la primera entrevista al nivel de Coordinador.</em>
 </p>
-* **URL:** https://youtu.be/YDpJ_S8Ik2g
-* **Inicio:** 0:00
-* **Duración:** 13 minutos con 54 segundos
+**URL:** https://youtu.be/YDpJ_S8Ik2g<br>**Inicio:** 0:00<br>**Duración:** 13 minutos con 54 segundos
+ 
 **Resumen descriptivo:**
 Esta entrevista fue realizada a un docente de Cálculo 2 de la Universidad Peruana de Ciencias Aplicadas (UPC). De acuerdo con lo conversado, el profesor considera que la propuesta es una muy buena idea y la percibe como fundamental para el desarrollo profesional de los estudiantes. Destaca la importancia de que los alumnos puedan validar sus conocimientos y demostrar habilidades reales, incluso frente a estudiantes de otras universidades, con el fin de adaptarse a un mercado laboral cada vez más exigente.
  
@@ -599,18 +673,17 @@ Jesús Hernández, jefe de prácticas, señala que los principales desafíos de 
   <br>
   <em>Figura 9. Entrevista 3: Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Coordinador.</em>
 </p>
-* **URL:** https://youtu.be/cP_YiYr2VD8
-* **Inicio:** 0:00
-* **Duración:** 10 minutos con 40 segundos
+**URL:** https://youtu.be/cP_YiYr2VD8<br>**Inicio:** 0:00<br>**Duración:** 10 minutos con 40 segundos
+ 
 **Resumen descriptivo:**
 El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy buena idea y parte fundamental del desarrollo académico que los estudiantes validen mutuamente sus conocimientos. Destacó que las herramientas tecnológicas son productivas para este fin siempre que se les dé un buen uso, priorizando el aprendizaje sobre ventajas deshonestas. También mostró cierta preocupación por la carga que representa para un Verificador revisar casos constantemente, ya que siente que podría impactar negativamente en su propio tiempo y productividad, especialmente en estudiantes con muchas responsabilidades académicas.
  
 ---
  
 ### 2.2.3. Análisis de entrevistas
- 
+
 #### Segmento objetivo #1: Personas que quieren aprender
- 
+
 **1. Características objetivas**
 * **Edad:** Estudiantes universitarios o egresados recientes, generalmente entre 19 y 24 años (100%).
 * **Carrera:** Diversas carreras universitarias (Ingeniería de Sistemas, Administración, Diseño Gráfico) (100%).
@@ -619,6 +692,7 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
   * Uso de plataformas de cursos online (Coursera, Udemy, YouTube) (100%).
   * Uso de herramientas de IA como ChatGPT para resolver dudas (100%).
   * Poca o nula experiencia con validación práctica supervisada por pares certificados (100%).
+
 **2. Características subjetivas**
 * **Frustración con los certificados actuales:**
   * Sienten que los certificados online no reflejan su dominio práctico real (100%).
@@ -636,6 +710,9 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
   * Priorizan que el Verificador tenga experiencia real en su área (proyectos, empresas) sobre la cantidad de casos resueltos (100%).
   * Prefieren una revisión enfocada en el sub-tema donde fallaron, no repetir el curso completo (100%).
   * Valoran ver portafolio de proyectos reales del Verificador antes de que les sea asignado (66%).
+
+&nbsp;
+
 | Característica | % Entrevistados | Fuente / Frase de entrevista |
 | :--- | :--- | :--- |
 | Frustración por brecha certificado vs. dominio real | 100% | "Tenía el certificado pero en la entrevista técnica me bloqueé." |
@@ -647,20 +724,21 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Prioriza experiencia real del Verificador sobre cantidad de casos | 100% | "Prefiero que haya trabajado en mi área aunque tenga menos casos resueltos." |
 | Necesidad de ruta estructurada de aprendizaje | 66% | "Quiero que alguien me diga qué aprender, en qué orden." |
 | Inseguridad al aplicar lo aprendido en práctica real | 66% | "Aprendí Python pero no sé si lo que hago está bien o funciona de casualidad." |
- 
+
 *(Tabla 4. Principales hallazgos de entrevistas a personas que quieren aprender - Elaboración propia.)*
- 
+
 ---
- 
+
 #### Segmento objetivo #2: Personas que validan el conocimiento
- 
+
 *Nivel 1 — Verificador*
- 
+
 **1. Características objetivas**
 * **Edad:** Estudiantes avanzados o egresados recientes, entre 23 y 28 años (100%).
 * **Carrera:** Diversas áreas (Ingeniería de Software, Contabilidad, Comunicaciones) (100%).
 * **Experiencia:** Todos tienen experiencia ayudando a otros de forma informal sin reconocimiento formal (100%).
 * **Habilidades digitales:** Usan WhatsApp, Zoom y Drive como principales herramientas para ayudar a distancia (100%).
+
 **2. Características subjetivas**
 * **Motivaciones para actuar como Verificador:**
   * Reconocimiento profesional verificable (SkillCredits en LinkedIn) como incentivo principal (100%).
@@ -673,6 +751,9 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
   * De acuerdo con que el Verificador certifique previamente su propia ruta como garantía de calidad (100%).
   * Valoran recibir información precisa sobre el error específico del estudiante antes del caso (100%).
   * Consideran que la asignación automática por especialidad es más eficiente que recibir solicitudes genéricas (100%).
+
+&nbsp;
+
 | Característica | % Entrevistados | Fuente / Frase de entrevista |
 | :--- | :--- | :--- |
 | Motivación principal: reconocimiento profesional (SkillCredits) | 100% | "Lo que más me atrae es poder demostrar en LinkedIn que sé evaluar, no solo que sé hacer." |
@@ -685,23 +766,27 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Frustración por falta de reconocimiento formal | 100% | "Nadie sabe que reviso bien porque no hay forma de demostrarlo." |
 | Preferencia por casos con objetivo claro definido | 66% | "Quiero saber de qué va el caso antes de aceptarlo." |
 | Interés en supervisar proyectos avanzados | 33% | "Me interesaría supervisar proyectos finales, no solo revisiones puntuales." |
- 
+
 *(Tabla 5. Principales hallazgos de entrevistas al nivel de Verificador - Elaboración propia.)*
- 
+
 ---
- 
+
 *Nivel 2 — Coordinador*
- 
+
 **1. Características objetivas**
 * **Edad y rol:** Profesionales entre 29 y 53 años (100%). Docentes, coordinadores o jefes de práctica (100%).
 * **Ámbito laboral:** Universidades (100%).
 * **Responsabilidades:** Supervisión del aprendizaje (100%). Garantizar integridad académica (100%). Evaluación del desempeño (100%).
 * **Relación con tecnología:** Uso de herramientas digitales educativas (100%). Sistemas de control académico (100%).
+
 **2. Características subjetivas**
 * **Percepción de la validación de habilidades entre pares:** Considerada fundamental (100%). Positiva colaboración interuniversitaria (100%). Mejora la preparación profesional (66%).
 * **Preocupaciones:** Plagio, fraude y suplantación (100%). Uso indebido de tecnología (100%). Información poco confiable (100%). Riesgo reputacional (66%).
 * **Barreras:** Validación de estudiantes (100%). Carga operativa (67%). Costos (67%). Necesidad de automatización (33%).
 * **Requisitos de la plataforma:** Verificación de identidad (100%). Validación académica (100%). Políticas claras (100%). Trazabilidad de interacciones (100%). Panel de monitoreo (100%).
+
+&nbsp;
+
 | Característica | % entrevistados | Insight clave |
 | :--- | :--- | :--- |
 | Validación de habilidades entre pares | 100% | Fundamental |
@@ -714,9 +799,9 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Sistema de monitoreo | 100% | Necesario |
 | Carga operativa | 67% | Barrera |
 | Segmentación académica | 33% | Mejora pertinencia |
- 
+
 *(Tabla 6. Principales hallazgos del nivel de Coordinador - Elaboración propia.)*
- 
+
 ---
  
 ## 2.3. Needfinding
@@ -766,6 +851,7 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
  
 #### Segmento objetivo #1: Personas que quieren aprender
  
+ 
 | Tasks | Mireya<br>Frecuencia | Mireya<br>Importancia | Mathias<br>Frecuencia | Mathias<br>Importancia | Carlos<br>Frecuencia | Carlos<br>Importancia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Buscar recursos de aprendizaje en internet | Muy alta | Alta | Muy alta | Alta | Muy alta | Alta |
@@ -782,6 +868,7 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
  
 *Nivel 1 — Verificador*
  
+ 
 | Tasks | Marco<br>Frecuencia | Marco<br>Importancia | Mariana<br>Frecuencia | Mariana<br>Importancia | Sebastián<br>Frecuencia | Sebastián<br>Importancia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Mantener y actualizar el dominio técnico propio | Muy alta | Muy alta | Alta | Muy alta | Muy alta | Muy alta |
@@ -795,6 +882,7 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
 *(Tabla 8. Tareas y motivaciones del nivel de Verificador - Elaboración propia.)*
  
 *Nivel 2 — Coordinador*
+ 
  
 | Tasks | Armando<br>Frecuencia | Armando<br>Importancia | Jesús<br>Frecuencia | Jesús<br>Importancia | Raúl<br>Frecuencia | Raúl<br>Importancia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -888,10 +976,63 @@ En la imagen se presenta la caracterización empática de Jorge, arquetipo del n
  
 **Entonces**, los mapas de empatía permiten profundizar en las necesidades emocionales, motivaciones y dificultades de los dos segmentos objetivo de Innovify. En el caso del estudiante, se evidencia una motivación fuerte orientada a la empleabilidad y al reconocimiento real de sus capacidades, enfrentando frustraciones relacionadas con la superficialidad del modelo de certificación actual y la dificultad de encontrar una validación específica cuando se bloquea. Dentro del segmento que valida el conocimiento, el perfil del Verificador destaca una motivación centrada en el reconocimiento profesional, con frustraciones relacionadas con la informalidad y la falta de estructura de los modelos actuales; mientras que el perfil del Coordinador destaca una fuerte preocupación por la calidad académica y la seguridad del sistema, priorizando la prevención de riesgos como el fraude y los certificados falsos, y valorando el uso de herramientas tecnológicas que optimicen los procesos de validación y reduzcan la carga operativa. En conjunto, estos mapas evidencian la importancia de diseñar una plataforma equilibrada que atienda tanto aspectos funcionales como emocionales, asegurando confianza, eficiencia y valor para todos los usuarios del ecosistema.
 
+### 2.3.5. As-Is Scenario Mapping
+
+En esta sección se presentan los As-Is Scenario Maps elaborados con la herramienta Miro para cada segmento objetivo, describiendo el recorrido actual del usuario sin la intervención de la solución de Innovify. El objetivo es identificar los puntos de dolor y las oportunidades de mejora en el flujo actual de cada actor.
+
+**Segmento #1: Personas que quieren aprender**
+
+<p align="center">
+  <img src="public/assets/images-doc/asis1-app.png" alt="As-Is Scenario Map Estudiante" width="800">
+  <br>
+  <em>Figura 16. As-Is Scenario Mapping – Personas que quieren aprender - Elaboración propia. Nota: Elaborado con la herramienta Miro.</em>
+</p>
+
+En el mapa se observa que Valeria comienza identificando una habilidad que quiere dominar, pero sin saber por dónde empezar elige un curso de forma intuitiva. Obtiene el certificado sintiéndose lista, pero cuando intenta aplicarlo en una entrevista real se bloquea y descubre que el certificado no refleja su dominio práctico. Al buscar ayuda solo encuentra respuestas genéricas en foros o ChatGPT que no resuelven su bloqueo específico. El principal punto de dolor es la brecha entre tener el certificado y poder demostrarlo en la práctica real.
+
+&nbsp;
+
+**Segmento #2: Personas que validan el conocimiento**
+
+<p align="center">
+  <img src="public/assets/images-doc/asis2-app.png" alt="As-Is Scenario Map Verificador" width="800">
+  <br>
+  <em>Figura 17. As-Is Scenario Mapping – Personas que validan el conocimiento - Elaboración propia. Nota: Elaborado con la herramienta Miro.</em>
+</p>
+
+En el mapa se observa que Carlos quiere ayudar a otros con su habilidad pero no encuentra un modelo profesional que lo respalde. Coordina por WhatsApp con personas que llegan sin el nivel mínimo, hace la revisión por Zoom sin ninguna rúbrica ni criterio estructurado, y al terminar no tiene ninguna evidencia formal de lo que hizo. El principal punto de dolor es la ausencia de reconocimiento y estructura: dedica tiempo de calidad a revisar el trabajo de otros pero nadie puede verificarlo.
+
 ---
 
 ## 2.4. Requirements specification
 
+To-Be Scenario Mapping
+
+En esta sección se presentan los To-Be Scenario Maps elaborados con la herramienta Miro para cada segmento objetivo, describiendo el recorrido ideal del usuario con la solución de Innovify implementada. El objetivo es evidenciar cómo la plataforma transforma cada punto de dolor del As-Is en una experiencia fluida, confiable y motivadora.
+
+**Segmento #1: Personas que quieren aprender**
+
+<p align="center">
+  <img src="public/assets/images-doc/tobe1-app.png" alt="To-Be Scenario Map Estudiante" width="800">
+  <br>
+  <em>Figura 18. To-Be Scenario Mapping – Personas que quieren aprender - Elaboración propia. Nota: Elaborado con la herramienta Miro.</em>
+</p>
+
+En el mapa se observa que con Innovify, Valeria se registra con su correo institucional y la IA le genera una ruta de aprendizaje clara desde el inicio. Sube sus certificados, rinde evaluaciones prácticas personalizadas y cuando falla una, un Verificador que ya sabe exactamente en qué punto se bloqueó la revisa de forma quirúrgica. Al completar la ruta obtiene una credencial verificable que muestra exactamente qué habilidades demostró, no solo que tomó un curso, con peso real ante cualquier empleador.
+
+&nbsp;
+
+**Segmento #2: Personas que validan el conocimiento**
+
+<p align="center">
+  <img src="public/assets/images-doc/tobe2-app.png" alt="To-Be Scenario Map Verificador" width="800">
+  <br>
+  <em>Figura 19. To-Be Scenario Mapping – Personas que validan el conocimiento - Elaboración propia. Nota: Elaborado con la herramienta Miro.</em>
+</p>
+
+En el mapa se observa que con Innovify, Carlos primero certifica su propia ruta y supera el examen de ingreso, lo que garantiza que quien revisa realmente sabe. Recibe casos asignados automáticamente con información precisa del punto donde falló el estudiante, los revisa frente a una rúbrica estructurada y acumula SkillCredits verificables por cada caso resuelto. Estos SkillCredits los exporta a LinkedIn como credencial profesional, transformando su labor de revisión en reconocimiento real y verificable.
+
+---
 ### 2.4.1. User Stories
 *(Nota: Adaptar la tabla de User Stories previa para incluir los requisitos del curso: persistencia local, acceso a hardware, consumo de API propia y SDK externo).*
 
@@ -2645,19 +2786,13 @@ Contrastar el Problem Statement con nuestro propio diseño de arquitectura nos o
 *Esta sección la dejo como plantilla para que ustedes la completen con lo que realmente vivieron en el desarrollo — no tengo visibilidad de esa parte de tu equipo (por ejemplo, algún problema real con Render/MySQL, con la integración de ML Kit en Android/Flutter, o algo que decidieron simplificar sobre la marcha durante los Sprints). Sigue el mismo tono: qué pasó, por qué pasó, qué aprendieron, cómo lo habrían hecho distinto si lo supieran desde el inicio — como en el ejemplo que me pasaste sobre la base de datos de Aiven suspendiéndose por inactividad.*
 
 # Bibliografía
-* Davila, R. C., Aguero Corzo, E. del C., Portillo, H., & Quimbita, O. R. (2022). Deserción universitaria de los estudiantes de una universidad peruana. *Universidad y Sociedad, 14*(2), 421-427. [http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S2218-36202022000200421](http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S2218-36202022000200421)
-* Escalante, J., Medina, C., & Vásquez, A. (2023). La deserción universitaria: un problema no resuelto en el Perú. *Hacedor - AIAPÆC, 7*(1), 60-72. [https://doi.org/10.26495/rch.v7i1.2421](https://doi.org/10.26495/rch.v7i1.2421)
-* García-Ortiz, J., López de Castro Machado, C., & Rivero Frutos, L. (2021). Fracaso y abandono universitario: Percepción de los(as) estudiantes de Educación Social de la Universidad de Castilla-La Mancha. *Revista de Educación y Desarrollo Social, 8*(1), 54–73. [https://www.redalyc.org/journal/140/14070424012/html](https://www.redalyc.org/journal/140/14070424012/html)
-* Gobierno del Perú. (2024). *Presupuesto público para el 2024 pone énfasis en educación, salud, atención de emergencias por desastres naturales y seguridad ciudadana*. [https://www.gob.pe/institucion/mef/noticias/868273](https://www.gob.pe/institucion/mef/noticias/868273)
-* GoPeer. *Online tutoring made simple*. Recuperado de [https://gopeer.org/auth](https://gopeer.org/auth)
-* Gutiérrez Pallares, J., Bernal Pérez, M. B., & Gutiérrez Pallares, E. (2024). Habilidades blandas: Pilares fundamentales para la empleabilidad en el siglo XXI. *RILCO DS: Revista de Desarrollo sustentable, Negocios, Emprendimiento y Educación, 6*(58), 65–76. [https://dialnet.unirioja.es/servlet/articulo?codigo=9789998](https://dialnet.unirioja.es/servlet/articulo?codigo=9789998)
-* Instituto de Educación Superior Sabio Nacional Antúnez de Mayolo - TELESUP. (2019, junio). *Reglamento de Bienestar Estudiantil*. [https://isam.edu.pe/pdf/reglamento-de-bienestar-estudiantil.pdf](https://isam.edu.pe/pdf/reglamento-de-bienestar-estudiantil.pdf)
-* Knack. *Peer tutoring for college students*. Recuperado de [https://www.joinknack.com/students](https://www.joinknack.com/students)
-* Ministerio de Educación. (2021, 8 de noviembre). *Tasa de deserción en educación universitaria se redujo a 11.5 %*. Gob.pe. [https://www.gob.pe/institucion/minedu/noticias/552273](https://www.gob.pe/institucion/minedu/noticias/552273)
-* uDocz. *Plataforma de estudio colaborativo*. Recuperado de [https://www.udocz.com/home](https://www.udocz.com/home)
-* Universidad de Piura. (2020, 26 de octubre). *La importancia de las habilidades blandas en la educación*. [https://www.udep.edu.pe/admision/lima/la-importancia-de-las-habilidades-blandas-en-la-educacion](https://www.udep.edu.pe/admision/lima/la-importancia-de-las-habilidades-blandas-en-la-educacion)
-* Villamizar-Loaiza, C. (2021). La legitimidad institucional como fuente de reputación corporativa. *Investigación y Desarrollo, 29*(2), 196–222. [https://www.redalyc.org/journal/268/26871326008/html](https://www.redalyc.org/journal/268/26871326008/html)
+* Coursera. (2025). *Global skills report 2025*. [https://www.coursera.org/skills-reports/global](https://www.coursera.org/skills-reports/global)
+* Instituto Nacional de Estadística e Informática. (2025). *Estadísticas de las tecnologías de información y comunicación en los hogares: II trimestre 2025* (Informe Técnico N.° 03). [https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf](https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf)
+* Novella, R., Alvarado, A., Rosas, D., & González-Velosa, C. (2019). *Encuesta de habilidades al trabajo (ENHAT) 2017-2018: Causas y consecuencias de la brecha de habilidades en Perú* (Nota Técnica N.° IDB-TN-1652). Banco Interamericano de Desarrollo. [https://proyectos.inei.gob.pe/iinei/srienaho/Descarga/DocumentosMetodologicos/2017-18/6-ENHAT_2017-2018_Caus_y_consec_de_la_brecha_de_habil_en_Peru.pdf](https://proyectos.inei.gob.pe/iinei/srienaho/Descarga/DocumentosMetodologicos/2017-18/6-ENHAT_2017-2018_Caus_y_consec_de_la_brecha_de_habil_en_Peru.pdf)
+* Organisation for Economic Co-operation and Development. (2024). *Bridging talent shortages in tech: Skills-first hiring, micro-credentials and inclusive outreach*. OECD Publishing. [https://doi.org/10.1787/f35da44f-en](https://doi.org/10.1787/f35da44f-en)
+* Rivas Cossio, R. E. (2023). La inadecuación ocupacional de jóvenes en Perú. *Políticas Públicas, 16*(2), 39–59. [https://doi.org/10.35588/pp.v16i2.6201](https://doi.org/10.35588/pp.v16i2.6201)
 
+* World Economic Forum. (2025). *The future of jobs report 2025*. [https://www.weforum.org/publications/the-future-of-jobs-report-2025/](https://www.weforum.org/publications/the-future-of-jobs-report-2025/)
 # Anexos
 
 * **Wireframes (Figma):** [https://www.figma.com/design/l6Z6APfbLoci4YMSaZkILK/Wireframes-camino-feliz?node-id=121-1250&t=91cAQ4Kz2gcFrsPc-1](https://www.figma.com/design/l6Z6APfbLoci4YMSaZkILK/Wireframes-camino-feliz?node-id=121-1250&t=91cAQ4Kz2gcFrsPc-1)
@@ -2860,5 +2995,3 @@ link: [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage
 | **Validation Interviews** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202610-1asi0730---validation-sprint-<br><br>Formato: .mp4<br><br>Duración: En función a cantidad de entrevistas (considerar edición de 3 a 5 minutos por entrevista). | Consolida sesiones y entrevistas de validación en las que usuarios de los segmentos objetivo interactúen con el landing page y con los prototipos de experiencias web y mobile, manifestando sus observaciones. Para cada entrevista se debe incluir títulos con información del entrevistado, el segmento objetivo y la fecha de la entrevista. | |
 | **About the Product** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202610-1asi0730---aboutthe-product-sprint-<br><br>Formato: .mp4<br><br>Duración: De 1 a 3 minutos. | Orientación promocional, resumiendo el modelo de negocio, las características y beneficios del producto, incluyendo algunas escenas de interacción con el producto y al menos una opinión por cada segmento objetivo. | **Video de Microsoft Stream:** |
 | **About the Team** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202610-1asi0730---aboutthe-team-sprint-<br><br>Formato: .mp4<br><br>Duración: En función al contenido (considerar 5 minutos para la sección de retrospectiva del grupo y 1 minuto por cada testimonio de miembro del equipo). | Video que resume el proceso de trabajo realizado, incluyendo escenas de sesiones de trabajo real del equipo, complementando con narración (voz en off) del proceso. Incluye además el testimonio ante cámara de cada participante describiendo actividades realizadas, logro de outcomes y desarrollo de competencias alcanzados. | **Video de Microsoft Stream:** | |
-
-
