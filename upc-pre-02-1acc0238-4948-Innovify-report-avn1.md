@@ -542,7 +542,7 @@ Mariana está de acuerdo con que el Verificador demuestre primero su propio domi
   <br>
   <em>Figura 6. Entrevista 3: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
-**URL:** <br>**Inicio:** 0:00<br>**Duración:** 6:53 minutos
+**URL:** https://www.youtube.com/watch?v=wtCs-bESKhI<br>**Inicio:** 0:00<br>**Duración:** 7:06 minutos
  
 **Resumen descriptivo:**
 Sebastián es egresado de Comunicaciones de la UPC y trabaja como freelance en marketing de contenidos. Domina SEO técnico, copywriting y estrategia de redes sociales, habilidades que desarrolló en proyectos reales con clientes. Intentó enseñar en Preply pero lo abandonó porque la plataforma permite que cualquiera enseñe sin verificación, lo que deteriora la calidad percibida de todos los que ofrecen ayuda ahí.
