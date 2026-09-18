@@ -38,12 +38,17 @@ rectangle "Reputation" as REP <<downstream>>
 ' ===== Fila inferior =====
 rectangle "Moderation &\nDisputes" as MOD <<upstream>>
 rectangle "Wallet &\nIncentives" as WAL <<downstream>>
+rectangle "Subscription &\nBilling" as SUB <<upstream>>
+rectangle "Stripe" as STR <<external>>
 
 ' ===== Layout: forzar filas con enlaces invisibles =====
 CV -[hidden]right-> LPE
 LPE -[hidden]right-> APR
+APR -[hidden]right-> MLK
 IAM -[hidden]right-> REP
 MOD -[hidden]right-> WAL
+WAL -[hidden]right-> SUB
+SUB -[hidden]right-> STR
 CV -[hidden]down-> IAM
 IAM -[hidden]down-> MOD
 
@@ -61,6 +66,7 @@ IAM -up-> APR : [Conformist]
 IAM -right-> REP : [Conformist]
 IAM -down-> WAL : [Conformist]
 IAM -left-> MOD : [Conformist]
+IAM -down-> SUB : [Conformist]
 
 ' Assessment & Peer Review hacia Reputation y Wallet
 APR -down-> REP : [Customer/Supplier]
@@ -70,5 +76,8 @@ APR -down-> WAL : [Customer/Supplier]
 MOD -up-> IAM : [Customer/Supplier]
 MOD -right-> REP : [Customer/Supplier]
 MOD ..> APR : [Anticorruption\nLayer]
+
+' Subscription & Billing (independiente de Wallet & Incentives)
+SUB ..> STR : [Anticorruption\nLayer]
 
 @enduml

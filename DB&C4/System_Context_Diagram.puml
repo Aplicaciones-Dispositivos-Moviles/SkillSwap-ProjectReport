@@ -12,6 +12,7 @@ System(skillSwapSystem, "SkillSwap Platform", "Plataforma central que verifica h
 System_Ext(emailService, "Email Api", "Integración con correos institucionales")
 System_Ext(mlKitService, "ML Kit (Firebase)", "SDK on-device de OCR/Entity Extraction para procesar certificados")
 System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para imágenes de certificados y evidencias de casos")
+System_Ext(stripeApi, "Stripe", "Procesamiento de la suscripción mensual y la compra de SkillCredits")
 
 Rel(student, skillSwapSystem, "Usa (app móvil / landing page)")
 Rel(verifier, skillSwapSystem, "Usa (app móvil / landing page)")
@@ -20,5 +21,6 @@ Rel(professor, skillSwapSystem, "Usa (app móvil / landing page)")
 Rel(skillSwapSystem, emailService, "Envía correos de validación y notificaciones")
 Rel(skillSwapSystem, mlKitService, "Extrae datos del certificado (OCR on-device)")
 Rel(skillSwapSystem, cloudStorage, "Guarda certificados y evidencias de casos")
+Rel(skillSwapSystem, stripeApi, "Procesa la suscripción y la compra de SkillCredits")
 
 @enduml
