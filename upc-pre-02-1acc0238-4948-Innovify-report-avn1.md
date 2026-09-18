@@ -430,15 +430,16 @@ Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataf
   <br>
   <em>Figura 1. Entrevista 1: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la primera entrevista al segmento de personas que quieren aprender.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=7TT_t2KaSyI
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=TdVTVb2Cj1s<br>**Inicio:** 0:00<br>**Duración:** 6:28 minutos
+ 
 **Resumen descriptivo:**
-En esta entrevista, Mireya estudia Ingeniería de Sistemas en la UPC y se encuentra en quinto ciclo. Describe su relación con el aprendizaje como principalmente autodidacta — ha completado dos cursos de Python en Coursera y uno de SQL en Udemy — pero confiesa que al momento de postular a prácticas sintió que sus certificados no le servían porque no podía demostrar que realmente sabía aplicar lo aprendido. Recuerda específicamente una entrevista técnica donde le pidieron escribir una función en Python desde cero y se bloqueó, pese a tener el certificado. Su método actual cuando se estanca es buscar en Stack Overflow o preguntar a ChatGPT, pero reconoce que muchas veces no sabe si la solución que obtiene es correcta o solo funciona por casualidad.
+En esta entrevista, Mireya estudia Ingeniería de Gestión Empresarial en la UPC y se encuentra en quinto ciclo. Recientemente consiguió sus primeras prácticas profesionales en el área de gestión en una empresa de consumo masivo. Describe su proceso de preparación como bastante autodidacta y de prueba y error: actualizó su CV múltiples veces usando plantillas de Canva, comparó con los de compañeras que ya habían practicado, y se preparó para entrevistas viendo videos de YouTube. Sin embargo, reconoce que siempre sintió que le faltaba alguien que le dijera si lo estaba haciendo bien.
  
-Respecto al modelo de validación práctica de Innovify, Mireya lo percibe como algo que "hace falta" en el mercado. Le parece coherente que, si va a obtener una credencial, primero tenga que demostrar que puede resolver algo real. Está dispuesta a pagar una suscripción mensual de hasta S/ 50 si eso le garantiza acceso a Verificadores certificados y evaluaciones que le digan con precisión en qué está fallando. Lo que más le interesa del perfil del Verificador es ver en qué empresa trabajó o trabaja y qué proyectos ha hecho, no solo cuántos casos ha resuelto.
+Cuando tuvo la suerte de que una prima con experiencia laboral le revisara el CV por WhatsApp, notó la diferencia inmediatamente: le señaló que estaba incluyendo información poco relevante y que debía resaltar resultados concretos. Mireya destaca que avanzó rápido con esa ayuda, pero reconoce que fue suerte que su prima tuviera tiempo esa semana. Su mayor dificultad es no saber a quién más pedirle ese tipo de orientación, ya que sus compañeros de clase están en la misma situación que ella.
  
-Valora especialmente el modelo de examen de ingreso para Verificadores, porque indica que no cualquiera puede revisar el trabajo de otros. Considera que una credencial que muestre exactamente qué habilidades demostró — no solo que tomó un curso — tendría mucho más peso ante un empleador. Finalmente, destaca que la posibilidad de recibir una revisión enfocada exactamente en el sub-tema donde falló, en vez de repetir todo el curso, sería lo más eficiente y lo que más le ayudaría en sus tiempos actuales de carga universitaria.
+Respecto al uso de herramientas digitales, usa Canva para el diseño del CV, ChatGPT para redactar mejor sus experiencias y LinkedIn para buscar ofertas y contactar reclutadores, aunque casi nunca recibe respuesta. Considera que la IA funciona bien como primer filtro antes de llegar a una persona, pero no reemplaza la orientación personalizada.
+ 
+Sobre el perfil del Verificador, Mireya es muy clara: prioriza que tenga experiencia real en su área — en qué empresa trabajó, cuánto tiempo lleva en el rubro y si estudió algo similar a su carrera — por encima de la cantidad de reseñas. Respecto al modelo de Innovify, valora especialmente la posibilidad de que la plataforma asigne automáticamente un mentor con conocimiento específico de su carrera, porque considera que buscar ayuda por su cuenta es lento y no siempre aplica a su situación. Está dispuesta a dar una donación voluntaria por la sesión si esta es realmente útil. Finalmente, prefiere que la videollamada esté integrada dentro de la misma plataforma, porque los links externos de Zoom se pierden en el chat y reducen el compromiso de ambas partes.
  
 **Entrevista 2**
 * **Nombres:** Mathias
@@ -450,9 +451,8 @@ Valora especialmente el modelo de examen de ingreso para Verificadores, porque i
   <br>
   <em>Figura 2. Entrevista 2: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la segunda entrevista al segmento de personas que quieren aprender.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=xt02A76wXNQ
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=xt02A76wXNQ<br>**Inicio:** 0:00<br>**Duración:** 7:58 minutos
+ 
 **Resumen descriptivo:**
 Mathias es egresado de Administración de la Universidad Nacional de San Agustín de Arequipa y lleva ocho meses buscando empleo en marketing digital. Cuenta con tres certificados de Google Digital Garage, uno de HubSpot y un curso de Meta Ads completado en Udemy, pero en todas las entrevistas en las que ha participado le dicen que "le falta experiencia práctica". Describe esa situación como profundamente frustrante: siente que invirtió tiempo y dinero en aprender pero no puede demostrarlo de forma creíble ante nadie.
  
@@ -470,9 +470,8 @@ Respecto al modelo de Innovify, Mathias lo ve como la solución directa a su pro
   <br>
   <em>Figura 3. Entrevista 3: Personas que quieren aprender | Innovify. Nota: En esta figura se aprecia la tercera entrevista al segmento de personas que quieren aprender.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=wcjn0ionQ-8
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=wcjn0ionQ-8<br>**Inicio:** 0:00<br>**Duración:** 6:53 minutos
+ 
 **Resumen descriptivo:**
 Carlos estudia Diseño Gráfico en Toulouse Lautrec y se encuentra en tercer ciclo. Aprendió Figma de manera autodidacta viendo tutoriales en YouTube y practicando por su cuenta, y siente que tiene un nivel intermedio-avanzado en la herramienta. Sin embargo, cuando busca trabajos freelance o postula a prácticas, no tiene ninguna credencial formal que avale ese conocimiento — los cursos gratuitos de YouTube no emiten certificados y los certificados de plataformas pagadas son genéricos.
  
@@ -498,9 +497,8 @@ Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataf
   <br>
   <em>Figura 4. Entrevista 1: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la primera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=n53WUVagpE4
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=n53WUVagpE4<br>**Inicio:** 0:00<br>**Duración:** 7:53 minutos
+ 
 **Resumen descriptivo:**
 Marco estudia Ingeniería de Software en la PUCP y está en séptimo ciclo. Domina React, Node.js, PostgreSQL y arquitectura de microservicios, conocimientos que desarrolló combinando su formación universitaria con proyectos freelance y contribuciones a repositorios open source. Ha ayudado informalmente a varios compañeros de ciclos menores a resolver dudas puntuales de programación, pero siempre de forma desorganizada — por WhatsApp, sin estructura, sin que la persona llegue con un nivel mínimo establecido.
  
@@ -518,9 +516,8 @@ Respecto al modelo de Innovify, Marco está muy de acuerdo con que el Verificado
   <br>
   <em>Figura 5. Entrevista 2: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la segunda entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
-* **URL:** https://www.youtube.com/watch?v=h8Uh3w6U1qE
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** https://www.youtube.com/watch?v=h8Uh3w6U1qE<br>**Inicio:** 0:00<br>**Duración:** 5:29 minutos
+ 
 **Resumen descriptivo:**
 Mariana es egresada de Contabilidad de la Universidad de Lima y trabaja hace dos años en una firma de auditoría. Domina Excel avanzado, Power BI y análisis financiero, habilidades que desarrolló en su trabajo y que sabe que son muy demandadas en el mercado. Ha ayudado informalmente a compañeros universitarios con estas herramientas, pero el modelo le resulta poco profesional y difícil de gestionar: tiene que coordinar por WhatsApp, no hay estructura, y las personas a veces no vienen preparadas.
  
@@ -538,9 +535,8 @@ Mariana está de acuerdo con que el Verificador demuestre primero su propio domi
   <br>
   <em>Figura 6. Entrevista 3: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
-* **URL:** [Completar con URL de Microsoft Stream]
-* **Inicio:** 0:00
-* **Duración:** [Completar]
+**URL:** [Completar con URL de Microsoft Stream]<br>**Inicio:** 0:00<br>**Duración:** [Completar]
+ 
 **Resumen descriptivo:**
 Sebastián es egresado de Comunicaciones de la UPC y trabaja como freelance en marketing de contenidos. Domina SEO técnico, copywriting y estrategia de redes sociales, habilidades que desarrolló en proyectos reales con clientes. Intentó enseñar en Preply pero lo abandonó porque la plataforma permite que cualquiera enseñe sin verificación, lo que deteriora la calidad percibida de todos los que ofrecen ayuda ahí.
  
@@ -564,9 +560,8 @@ Somos el equipo Innovify de la UPC y estamos desarrollando SkillSwap, una plataf
   <br>
   <em>Figura 7. Entrevista 1: Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la primera entrevista al nivel de Coordinador.</em>
 </p>
-* **URL:** https://youtu.be/YDpJ_S8Ik2g
-* **Inicio:** 0:00
-* **Duración:** 13 minutos con 54 segundos
+**URL:** https://youtu.be/YDpJ_S8Ik2g<br>**Inicio:** 0:00<br>**Duración:** 13 minutos con 54 segundos
+ 
 **Resumen descriptivo:**
 Esta entrevista fue realizada a un docente de Cálculo 2 de la Universidad Peruana de Ciencias Aplicadas (UPC). De acuerdo con lo conversado, el profesor considera que la propuesta es una muy buena idea y la percibe como fundamental para el desarrollo profesional de los estudiantes. Destaca la importancia de que los alumnos puedan validar sus conocimientos y demostrar habilidades reales, incluso frente a estudiantes de otras universidades, con el fin de adaptarse a un mercado laboral cada vez más exigente.
  
@@ -599,9 +594,8 @@ Jesús Hernández, jefe de prácticas, señala que los principales desafíos de 
   <br>
   <em>Figura 9. Entrevista 3: Segmento Coordinador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Coordinador.</em>
 </p>
-* **URL:** https://youtu.be/cP_YiYr2VD8
-* **Inicio:** 0:00
-* **Duración:** 10 minutos con 40 segundos
+**URL:** https://youtu.be/cP_YiYr2VD8<br>**Inicio:** 0:00<br>**Duración:** 10 minutos con 40 segundos
+ 
 **Resumen descriptivo:**
 El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy buena idea y parte fundamental del desarrollo académico que los estudiantes validen mutuamente sus conocimientos. Destacó que las herramientas tecnológicas son productivas para este fin siempre que se les dé un buen uso, priorizando el aprendizaje sobre ventajas deshonestas. También mostró cierta preocupación por la carga que representa para un Verificador revisar casos constantemente, ya que siente que podría impactar negativamente en su propio tiempo y productividad, especialmente en estudiantes con muchas responsabilidades académicas.
  
