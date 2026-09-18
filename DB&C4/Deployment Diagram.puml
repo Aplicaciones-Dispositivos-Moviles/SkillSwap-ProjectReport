@@ -25,7 +25,7 @@ Deployment_Node(cloudPlatform, "Render", "Plataforma Cloud"){
 Deployment_Node(externalCloud, "Servicios Externos en la Nube", "SaaS"){
     System_Ext(cloudStorage, "Cloudinary", "Almacenamiento de certificados y evidencias de casos")
     System_Ext(emailService, "Email Api", "Notificaciones institucionales")
-    System_Ext(stripeApi, "Stripe", "Procesamiento de la suscripción y la compra de SkillCredits")
+    System_Ext(stripeApi, "Stripe", "Procesamiento de la suscripción")
 }
 
 Rel(androidApp, mlKitSdk, "Invoca localmente", "SDK call")

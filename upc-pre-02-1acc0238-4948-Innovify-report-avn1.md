@@ -914,9 +914,9 @@ En la imagen se presenta la caracterización empática de Jorge, arquetipo del n
 
 ### 2.5.2. Context Mapping
 
-El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los siete Bounded Contexts que conforman la solución, aplicando los patrones de relación establecidos en Domain-Driven Design para gestionar las dependencias entre equipos y modelos de dominio, bajo el nuevo enfoque de la plataforma centrado en la verificación de habilidades mediante Inteligencia Artificial.
+El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los ocho Bounded Contexts que conforman la solución, aplicando los patrones de relación establecidos en Domain-Driven Design para gestionar las dependencias entre equipos y modelos de dominio, bajo el nuevo enfoque de la plataforma centrado en la verificación de habilidades mediante Inteligencia Artificial.
 
-**Identity & Access** actúa como **Upstream** de todo el sistema bajo el patrón **Conformist**: su agregado `User` expone únicamente `userId` y `role` como datos públicos, y el resto de los Bounded Contexts (Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives y Moderation & Disputes) se conforman a ese modelo sin negociar cambios, referenciando el identificador de usuario como un dato externo dentro de su propio esquema de persistencia. Es dentro de este Bounded Context que se distingue el perfil de `Student` del perfil de `Verificador` (vinculado a un Student que ya completó su propia ruta de certificación), sin que ello implique un rol adicional a nivel de autenticación.
+**Identity & Access** actúa como **Upstream** de todo el sistema bajo el patrón **Conformist**: su agregado `User` expone únicamente `userId` y `role` como datos públicos, y el resto de los Bounded Contexts (Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Subscription & Billing y Moderation & Disputes) se conforman a ese modelo sin negociar cambios, referenciando el identificador de usuario como un dato externo dentro de su propio esquema de persistencia. Es dentro de este Bounded Context que se distingue el perfil de `Student` del perfil de `Verificador` (vinculado a un Student que ya completó su propia ruta de certificación), sin que ello implique un rol adicional a nivel de autenticación.
 
 **Credential Verification** mantiene una relación **Customer/Supplier** hacia **Learning Path Engine**: únicamente un certificado ya validado (extraído y verificado como legítimo) puede ser consumido como evidencia de una habilidad dentro del cálculo de brechas, por lo que Learning Path Engine actúa como Downstream, consumiendo el modelo de `Certificate` validado sin poder alterar las reglas de extracción o de detección de fraude definidas en el Upstream.
 
@@ -924,17 +924,16 @@ El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los
 
 **Assessment & Peer Review**, como ejecutor del flujo de evaluación y revisión humana, es **Supplier** de **Reputation** (la resolución de un `VerificationCase` —aprobado o rechazado, y quién lo revisó— dispara el recálculo de la confiabilidad del Verificador y del Employability Score del estudiante) y de **Wallet & Incentives** (la resolución de un caso por parte de un Verificador dispara la acreditación de SkillCredits), ambas bajo el patrón **Customer/Supplier**.
 
-**Subscription & Billing** mantiene una relación **Customer/Supplier** hacia **Wallet & Incentives**: cuando un `CreditPurchase` se completa exitosamente, Wallet & Incentives actúa como Downstream, consumiendo únicamente la confirmación de la compra (cantidad de créditos adquiridos) para acreditar el saldo, sin conocer ni depender de los detalles del cobro (monto en soles, estado de la pasarela de pago). Este Bounded Context mantiene además una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **Stripe**, aislando el modelo de dominio interno `Subscription`/`CreditPurchase` de los contratos, eventos (webhooks) y formatos propios de la API de pagos.
-
+**Subscription & Billing** opera de forma independiente al resto de los Bounded Contexts de negocio, sin ninguna relación Customer/Supplier hacia Wallet & Incentives: gestiona únicamente el acceso recurrente del Estudiante a la plataforma mediante la suscripción mensual, sin intervenir en el balance ni la acreditación de SkillCredits, que permanecen como un sistema de reconocimiento estrictamente no monetario y no adquirible. Este Bounded Context mantiene una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **Stripe**, aislando el modelo de dominio interno `Subscription` de los contratos, eventos (webhooks) y formatos propios de la API de pagos.
 
 **Moderation & Disputes** se relaciona como **Customer/Supplier** hacia **Identity & Access** (emite órdenes de sanción sobre la cuenta de un usuario que presentó certificados fraudulentos o incurrió en una falta) y hacia **Reputation** (ajusta la reputación del usuario tras una disputa resuelta). Adicionalmente, mantiene una relación de **Anticorruption Layer (ACL)** hacia **Assessment & Peer Review**: en lugar de depender directamente del modelo interno de `VerificationCase`, Moderation & Disputes traduce la información recibida a su propio modelo simplificado de "caso en disputa", evitando acoplarse a cambios futuros en la lógica interna de asignación y revisión de Verificadores.
 
 Finalmente, **Credential Verification** mantiene una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **ML Kit** (Text Recognition / Entity Extraction de Firebase, utilizado on-device para la extracción de datos del certificado), aislando el modelo de dominio interno `Certificate` de los contratos y formatos de respuesta propios del SDK externo.
 
 <p align="center">
-  <img src="images-doc/context-mapping.svg" alt="Context Mapping" width="900">
+  <img src="images-doc/context-mapping.png" alt="Context Mapping" width="900">
   <br>
-  <em>Figura XX. Context Mapping de SkillSwap - Elaboración propia. Nota: Se muestran las relaciones Conformist, Customer/Supplier y Anticorruption Layer entre los Bounded Contexts Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives y Moderation & Disputes.</em>
+  <em>Figura XX. Context Mapping de SkillSwap - Elaboración propia. Nota: Se muestran las relaciones Conformist, Customer/Supplier y Anticorruption Layer entre los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Subscription & Billing y Moderation & Disputes) y los sistemas externos ML Kit y Stripe.</em>
 </p>
 
 ### 2.5.3. Software Architecture
@@ -956,7 +955,7 @@ Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de
 
 El diagrama de contexto (Context Diagram) bajo el enfoque C4 Model presenta al sistema SkillSwap como una caja central única, mostrando sus interacciones de alto nivel con los actores principales y los sistemas externos de terceros, sin exponer aún detalles de implementación.
 
-El sistema es utilizado por tres actores principales: el **Estudiante**, quien sube sus certificados, demuestra sus habilidades a través de las evaluaciones generadas por la plataforma y accede a la plataforma mediante una suscripción mensual o adquiere SkillCredits en la tienda interna; el **Verificador** (un perfil vinculado a un Estudiante que ya completó su propia ruta de certificación), quien revisa los casos que la IA no puede resolver con suficiente confianza; y el **Profesor Universitario/Coordinador**, quien supervisa la calidad del proceso de verificación desde la aplicación móvil. Los tres actores interactúan con el sistema a través de la **aplicación móvil nativa (Android) y cross-platform (Flutter)**, así como del Landing Page.
+El sistema es utilizado por tres actores principales: el **Estudiante**, quien sube sus certificados, demuestra sus habilidades a través de las evaluaciones generadas por la plataforma y accede a la plataforma mediante una suscripción mensual; el **Verificador** (un perfil vinculado a un Estudiante que ya completó su propia ruta de certificación), quien revisa los casos que la IA no puede resolver con suficiente confianza; y el **Profesor Universitario/Coordinador**, quien supervisa la calidad del proceso de verificación desde la aplicación móvil. Los tres actores interactúan con el sistema a través de la **aplicación móvil nativa (Android) y cross-platform (Flutter)**, así como del Landing Page.
 
 A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), utilizado on-device para la extracción de datos de los certificados subidos por el Estudiante (institución, curso, fecha) — esta es la tecnología que satisface el requisito de aprendizaje autónomo del curso; **Stripe**, utilizado para el procesamiento del cobro recurrente de la suscripción mensual y la compra de paquetes de SkillCredits en la tienda interna; un **servicio de almacenamiento en la nube** para las imágenes de certificados y evidencias adjuntas a un caso de revisión; y un **servicio de correo electrónico** para el envío de notificaciones institucionales (validación de dominio `.edu.pe`, resultado de una evaluación, apertura o resolución de un caso de verificación).
 
@@ -994,7 +993,7 @@ El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física 
 - **Hosting estático:** Aloja el Landing Page, servido de forma estática desde un proveedor de hosting (Firebase Hosting / Vercel), accesible por los tres actores del sistema.
 - **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (C# / ASP.NET Core), desplegado en **Render**, donde se ejecuta la lógica de negocio de los ocho Bounded Contexts a través de un único API Gateway, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por los tres clientes (Landing Page, Android Native App, Flutter App).
 - **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de MySQL desplegada en **Render**, compartida por los ocho Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
-- **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para las imágenes de certificados y evidencias adjuntas a un caso de verificación, servicio de correo electrónico para el envío de notificaciones (validación institucional, resultados de evaluación, estado de un caso de revisión), y **Stripe** para el procesamiento del cobro recurrente de la suscripción mensual y la compra de SkillCredits en la tienda interna.
+- **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para las imágenes de certificados y evidencias adjuntas a un caso de verificación, servicio de correo electrónico para el envío de notificaciones (validación institucional, resultados de evaluación, estado de un caso de revisión), y **Stripe** para el procesamiento del cobro recurrente de la suscripción mensual.
 
 Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
 
@@ -2430,7 +2429,7 @@ El modelado de base de datos de Moderation & Disputes pertenece a las tablas `di
 
 #### 2.6.8.1. Domain Layer
 
-La capa de dominio de Subscription & Billing concentra las reglas de negocio del cobro recurrente de la suscripción mensual del Estudiante y de la compra de paquetes de SkillCredits en la tienda interna, manteniendo el modelo desacoplado de la pasarela de pago concreta (Stripe) mediante un contrato de dominio propio.
+La capa de dominio de Subscription & Billing concentra las reglas de negocio del cobro recurrente de la suscripción mensual del Estudiante, manteniendo el modelo desacoplado de la pasarela de pago concreta (Stripe) mediante un contrato de dominio propio.
 
 **1. Aggregate Root: Subscription**
 
@@ -2455,28 +2454,7 @@ Métodos
 - `cancel()`: Transiciona el estado a `CANCELLED` y registra `cancelledAt`, sin revocar el acceso hasta que finalice el período ya pagado.
 - `expire()`: Transiciona el estado a `EXPIRED` cuando un cobro de renovación falla y no se resuelve dentro del período de gracia.
 
-**2. Aggregate Root: CreditPurchase**
-
-Descripción: El agregado `CreditPurchase` representa la compra puntual de un paquete de SkillCredits en la tienda interna, independiente del ciclo de la suscripción.
-
-Atributos
-
-| Atributo | Tipo | Descripción |
-|---|---|---|
-| id | int | Identificador único de la compra (autogenerado). |
-| buyerId | int | Usuario que realiza la compra. |
-| creditsAmount | int | Cantidad de SkillCredits adquiridos. |
-| amountPaid | Money (VO) | Monto pagado en moneda real. |
-| status | PurchaseStatus (VO) | Estado del intento de compra. |
-| purchasedAt | timestamp | Fecha de creación del intento de compra. |
-
-Métodos
-
-- `CreditPurchase(buyerId, creditsAmount, amountPaid)` (Constructor): Registra el intento de compra en estado `PENDING`, antes de la confirmación de la pasarela de pago.
-- `complete()`: Transiciona el estado a `COMPLETED` una vez confirmado el cobro, habilitando la notificación hacia Wallet & Incentives.
-- `fail()`: Transiciona el estado a `FAILED` si la pasarela de pago rechaza o no logra procesar el cobro.
-
-**3. Value Object: SubscriptionPlan**
+**2. Value Object: SubscriptionPlan**
 
 Descripción: Encapsula el nombre y el precio del plan contratado por el Estudiante.
 
@@ -2487,7 +2465,7 @@ Atributos
 | name | string | Nombre comercial del plan (ej. "Plan Mensual"). |
 | price | Money (VO) | Precio periódico del plan. |
 
-**4. Value Object: Money**
+**3. Value Object: Money**
 
 Descripción: Encapsula un monto monetario junto con su moneda, evitando operaciones aritméticas ambiguas entre distintas divisas.
 
@@ -2502,7 +2480,7 @@ Métodos
 
 - `Money(decimal amount, String currency)` (Constructor): Valida que el monto no sea negativo.
 
-**5. Value Object: SubscriptionStatus**
+**4. Value Object: SubscriptionStatus**
 
 Atributos
 
@@ -2510,15 +2488,7 @@ Atributos
 |---|---|---|
 | value | enum | `ACTIVE`, `EXPIRED`, `CANCELLED`. |
 
-**6. Value Object: PurchaseStatus**
-
-Atributos
-
-| Atributo | Tipo | Descripción |
-|---|---|---|
-| value | enum | `PENDING`, `COMPLETED`, `FAILED`. |
-
-**7. Domain Service: PaymentGateway**
+**5. Domain Service: PaymentGateway**
 
 Descripción: Define el contrato para procesar un cobro contra una pasarela de pago externa, desacoplando el dominio de la tecnología concreta (Stripe) y permitiendo sustituirla o simularla sin modificar el resto del Bounded Context.
 
@@ -2526,14 +2496,14 @@ Métodos
 
 - `charge(Money amount, String paymentMethodToken)`: Procesa el cobro del monto indicado contra el método de pago del usuario y retorna el resultado de la transacción (éxito/fallo, identificador externo del cargo).
 
-**8. Repository: SubscriptionRepository, CreditPurchaseRepository**
+**6. Repository: SubscriptionRepository**
 
 Métodos
 
-- `findByStudentId(int studentId)`, `save(Subscription subscription)` (SubscriptionRepository).
-- `findById(int id)`, `findByBuyerId(int buyerId)`, `save(CreditPurchase purchase)` (CreditPurchaseRepository).
+- `findByStudentId(int studentId)`: Recupera la suscripción vigente de un Estudiante.
+- `save(Subscription subscription)`: Persiste una suscripción nueva o actualizada.
 
-En la Domain Layer de SkillSwap, dentro del Bounded Context de Subscription & Billing, `Subscription` y `CreditPurchase` se mantienen como dos agregados independientes porque representan dos ciclos de vida distintos (uno recurrente, uno puntual), ambos apoyándose en el mismo Domain Service `PaymentGateway` para desacoplar el dominio del proveedor concreto de pagos, y compartiendo el Value Object `Money` para representar montos en moneda real.
+En la Domain Layer de SkillSwap, dentro del Bounded Context de Subscription & Billing, el agregado `Subscription` centraliza el ciclo de vida del cobro recurrente, apoyándose en el Domain Service `PaymentGateway` para desacoplar el dominio del proveedor concreto de pagos, y en el Value Object `Money` para representar montos en moneda real de forma segura.
 
 #### 2.6.8.2. Interface Layer
 
@@ -2543,8 +2513,6 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Subscription & Bi
 |---|---|
 | CreateSubscriptionResource | DTO de entrada con el plan elegido y el token del método de pago. |
 | SubscriptionResource | DTO de salida que representa la suscripción vigente (plan, estado, próxima renovación). |
-| PurchaseCreditsResource | DTO de entrada con la cantidad de créditos deseada y el token del método de pago. |
-| CreditPurchaseResource | DTO de salida que representa una compra (créditos, monto, estado). |
 
 **Controllers**
 
@@ -2553,17 +2521,13 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Subscription & Bi
 | SubscriptionController | POST | `/api/v1/subscriptions` (CreateSubscriptionResource) | Crea la suscripción del Estudiante y procesa el primer cobro. |
 | SubscriptionController | GET | `/api/v1/subscriptions/{studentId}` | Retorna el estado vigente de la suscripción. |
 | SubscriptionController | PATCH | `/api/v1/subscriptions/{id}/cancel` | Cancela la suscripción, efectiva al finalizar el período ya pagado. |
-| CreditPurchaseController | POST | `/api/v1/credit-purchases` (PurchaseCreditsResource) | Registra la compra de un paquete de SkillCredits y procesa el cobro. |
-| CreditPurchaseController | GET | `/api/v1/credit-purchases?buyerId={id}` | Lista el historial de compras de un usuario. |
 
 **Transformers / Assemblers**
 
 | Nombre | Descripción |
 |---|---|
 | SubscriptionResourceFromEntityAssembler | Convierte `Subscription` en `SubscriptionResource`. |
-| CreditPurchaseResourceFromEntityAssembler | Convierte `CreditPurchase` en `CreditPurchaseResource`. |
 | CreateSubscriptionCommandFromResourceAssembler | Transforma `CreateSubscriptionResource` en `CreateSubscriptionCommand`. |
-| PurchaseCreditsCommandFromResourceAssembler | Transforma `PurchaseCreditsResource` en `PurchaseCreditsCommand`. |
 
 Los controladores no procesan directamente el token del método de pago: lo delegan sin inspeccionarlo a la capa de aplicación, que a su vez lo pasa al adaptador de infraestructura de Stripe, evitando que datos sensibles de pago circulen por el dominio.
 
@@ -2576,17 +2540,15 @@ Los controladores no procesan directamente el token del método de pago: lo dele
 | CreateSubscriptionCommandHandler | Procesa la creación de una nueva suscripción. | Invoca `PaymentGateway.charge()` con el precio del plan; si el cobro es exitoso, instancia `Subscription` en estado `ACTIVE` y la persiste. |
 | CancelSubscriptionCommandHandler | Procesa la cancelación de una suscripción. | Recupera la `Subscription`, invoca `cancel()` y la persiste. |
 | RenewSubscriptionCommandHandler | Procesa la renovación periódica de una suscripción. | Disparado por el webhook de Stripe al confirmarse el cobro recurrente; invoca `renew()` sobre la `Subscription` correspondiente. |
-| PurchaseCreditsCommandHandler | Procesa la compra de un paquete de SkillCredits. | Instancia `CreditPurchase` en estado `PENDING`, invoca `PaymentGateway.charge()`; si el cobro es exitoso, invoca `complete()` y notifica a Wallet & Incentives para acreditar el saldo. Si falla, invoca `fail()`. |
-| GetSubscriptionQueryHandler / GetPurchaseHistoryQueryHandler | Recuperan el detalle o historial solicitado. | Consultan el repositorio correspondiente. |
+| GetSubscriptionQueryHandler | Recupera el detalle de la suscripción vigente. | Consulta `SubscriptionRepository.findByStudentId()`. |
 
 **Internal DTOs**
 
 | Nombre | Descripción |
 |---|---|
 | SubscriptionDto | Objeto que transporta el estado operativo de la suscripción entre capas. |
-| CreditPurchaseDto | Objeto que transporta el estado de una compra entre capas. |
 
-En la Application Layer de Subscription & Billing, `PurchaseCreditsCommandHandler` es el único punto donde una compra confirmada dispara la acreditación de SkillCredits en Wallet & Incentives, y `RenewSubscriptionCommandHandler` asegura que el acceso del Estudiante se mantenga sincronizado con el estado real del cobro recurrente en la pasarela de pago.
+En la Application Layer de Subscription & Billing, `RenewSubscriptionCommandHandler` asegura que el acceso del Estudiante se mantenga sincronizado con el estado real del cobro recurrente en la pasarela de pago, sin que este Bounded Context intervenga en ningún momento sobre el balance de SkillCredits del usuario.
 
 #### 2.6.8.4. Infrastructure Layer
 
@@ -2595,13 +2557,12 @@ En la Application Layer de Subscription & Billing, `PurchaseCreditsCommandHandle
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
 | SubscriptionRepositoryAdapter | Implementación concreta de `SubscriptionRepository` sobre la tabla `subscriptions`. | ORM del stack backend, instancia MySQL desplegada en Render. |
-| CreditPurchaseRepositoryAdapter | Implementación concreta de `CreditPurchaseRepository` sobre la tabla `credit_purchases`. | ORM del stack backend, instancia MySQL desplegada en Render. |
 
 **Payment Services Implementation**
 
 | Nombre | Descripción | Resumen de Implementación |
 |---|---|---|
-| StripePaymentGatewayAdapter | Implementación técnica de `PaymentGateway` mediante la API de Stripe. | Procesa cobros vía Stripe Payment Intents y verifica la firma de los webhooks entrantes para confirmar cobros recurrentes y compras puntuales de forma asíncrona. |
+| StripePaymentGatewayAdapter | Implementación técnica de `PaymentGateway` mediante la API de Stripe. | Procesa cobros vía Stripe Payment Intents y verifica la firma de los webhooks entrantes para confirmar cobros recurrentes de forma asíncrona. |
 
 *Nota de alcance:* si la integración real con Stripe (incluyendo el manejo de webhooks) no resulta viable dentro de los tiempos del ciclo, el equipo documentará esta limitación de la misma forma en que ya se hizo con los niveles de verificación no implementados en Credential Verification — sustituyendo `StripePaymentGatewayAdapter` por una implementación simulada (`SimulatedPaymentGatewayAdapter`) que respeta el mismo contrato `PaymentGateway`, sin alterar el Domain Layer ni la Application Layer.
 
@@ -2610,7 +2571,7 @@ En la Application Layer de Subscription & Billing, `PurchaseCreditsCommandHandle
 <p align="center">
   <img src="images-doc/SubscriptionBillingComponent.svg" alt="Component Diagram - Subscription & Billing" width="800">
   <br>
-  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Subscription & Billing - Elaboración propia. Nota: Se detalla la segregación entre los Controllers de `Subscription` y `CreditPurchase`, el Command/Query Service y el adaptador de cobro hacia Stripe, evidenciando el manejo asíncrono de la confirmación de pagos mediante un Webhook Handler, y la notificación saliente hacia Wallet & Incentives para acreditar SkillCredits tras una compra completada.</em>
+  <em>Figura XX. C4 Model: Component Diagram del Bounded Context Subscription & Billing - Elaboración propia. Nota: Se detalla la segregación entre el Controller, el Command/Query Service y el adaptador de cobro hacia Stripe, evidenciando el manejo asíncrono de la confirmación de pagos mediante un Webhook Handler. Este Bounded Context opera de forma completamente independiente de Wallet & Incentives.</em>
 </p>
 
 ##### 2.6.8.6.1. Bounded Context Domain Layer Class Diagrams
@@ -2621,7 +2582,7 @@ En la Application Layer de Subscription & Billing, `PurchaseCreditsCommandHandle
   <em>Figura XX. Diagrama de Clases UML del Domain Layer de Subscription & Billing - Elaboración propia. Nota: Recorte del diagrama de clases general correspondiente a este Bounded Context.</em>
 </p>
 
-El modelado de clases de Subscription & Billing pertenece a los agregados raíz `Subscription` y `CreditPurchase`, junto con los Value Objects `SubscriptionPlan` y `Money`, debido a que estos elementos representan dos ciclos de vida de cobro genuinamente distintos —uno recurrente (la mensualidad) y uno puntual (la compra de un paquete de SkillCredits)— ambos desacoplados del proveedor concreto de pagos mediante el Domain Service `PaymentGateway`, definido en el Context Mapping como el límite de Anticorruption Layer hacia Stripe.
+El modelado de clases de Subscription & Billing pertenece únicamente al agregado raíz `Subscription`, junto con los Value Objects `SubscriptionPlan` y `Money`, debido a que este Bounded Context gestiona exclusivamente el ciclo de vida del cobro recurrente de la mensualidad, desacoplado del proveedor concreto de pagos mediante el Domain Service `PaymentGateway`, definido en el Context Mapping como el límite de Anticorruption Layer hacia Stripe.
 
 ##### 2.6.8.6.2. Bounded Context Database Design Diagram
 
@@ -2631,7 +2592,7 @@ El modelado de clases de Subscription & Billing pertenece a los agregados raíz 
   <em>Figura XX. Diagrama de Base de Datos del Bounded Context Subscription & Billing - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
 
-El modelado de base de datos de Subscription & Billing pertenece a las tablas `subscriptions` y `credit_purchases`, debido a que la primera persiste el ciclo de facturación recurrente del Estudiante, incluyendo el plan contratado aplanado en columnas simples (`plan_name`, `plan_price`, `plan_currency`), y la segunda registra cada intento de compra puntual de SkillCredits con su propio estado (`PENDING`/`COMPLETED`/`FAILED`), sin que en ningún caso se persista el método de pago ni datos sensibles de tarjeta, delegados por completo a Stripe.
+El modelado de base de datos de Subscription & Billing pertenece a la tabla `subscriptions`, debido a que es la única tabla que persiste el agregado raíz `Subscription`, incluyendo el plan contratado aplanado en columnas simples (`plan_name`, `plan_price`, `plan_currency`) — al igual que en Identity & Access y Credential Verification, no existe ninguna entidad hija ni colección propia, por lo que un único registro por suscripción es suficiente. No se persiste el método de pago ni datos sensibles de tarjeta, delegados por completo a Stripe.
 
 
 ---
@@ -2641,10 +2602,10 @@ A continuación se presenta el diagrama relacional completo de SkillSwap, mostra
 <p align="center">
   <img src="images-doc/db-full-mobile.svg" alt="Diagrama de Base de Datos Completo" width="1000">
   <br>
-  <em>Figura XX. Diagrama de Base de Datos completo de SkillSwap - Elaboración propia. Nota: Se muestra la totalidad de las tablas correspondientes a los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el campo device_token sobre la tabla users para el soporte de notificaciones push, los campos file_hash, storage_reference, ocr_text y qr_payload incorporados sobre la tabla certificates para el soporte de la captura desde cámara y la extracción on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto, y las tablas subscriptions y credit_purchases incorporadas para el soporte del cobro recurrente de la suscripción mensual y la compra de SkillCredits en la tienda interna. Elaborado en dbdiagram.io.</em>
+  <em>Figura XX. Diagrama de Base de Datos completo de SkillSwap - Elaboración propia. Nota: Se muestra la totalidad de las tablas correspondientes a los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el campo device_token sobre la tabla users para el soporte de notificaciones push, los campos file_hash, storage_reference, ocr_text y qr_payload incorporados sobre la tabla certificates para el soporte de la captura desde cámara y la extracción on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto, y la tabla subscriptions incorporada para el soporte del cobro recurrente de la suscripción mensual. Elaborado en dbdiagram.io.</em>
 </p>
 
-En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos MySQL (`skillswap_db`) aloja de forma organizada las tablas de los ocho Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `assessment_attempts` y `verification_cases` en Assessment & Peer Review) y bajo acoplamiento entre ellos, referenciándose únicamente a través del identificador de usuario (`users.id`) como dato compartido. La incorporación del campo `device_token` y de los campos de extracción sobre `certificates` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, mientras que las tablas `subscriptions` y `credit_purchases` evidencian el desacoplamiento entre el modelo de negocio de acceso recurrente (mensualidad) y el sistema interno no monetario de reconocimiento (SkillCredits), sin que en ningún caso se persistan datos sensibles del método de pago del usuario.
+En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos MySQL (`skillswap_db`) aloja de forma organizada las tablas de los ocho Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `assessment_attempts` y `verification_cases` en Assessment & Peer Review) y bajo acoplamiento entre ellos, referenciándose únicamente a través del identificador de usuario (`users.id`) como dato compartido. La incorporación del campo `device_token` y de los campos de extracción sobre `certificates` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, mientras que la tabla `subscriptions` evidencia el modelo de negocio de acceso recurrente (mensualidad), completamente independiente del sistema interno no monetario de SkillCredits, que solo se gana mediante participación como Verificador y no admite ninguna forma de adquisición directa.
 
 
 
@@ -2653,10 +2614,10 @@ A continuación se presenta el diagrama de clases UML completo de SkillSwap, mos
 <p align="center">
   <img src="images-doc/SkillSwap_ClassDiagram_Mobile.svg" alt="Diagrama de Clases Completo" width="1000">
   <br>
-  <em>Figura XX. Diagrama de Clases UML completo de SkillSwap - Elaboración propia. Nota: Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el Value Object `DeviceToken` en Identity & Access, los atributos de extracción OCR (`ocrText`, `qrPayload`, `fileHash`) en `Certificate` (Credential Verification), y los agregados `Subscription` y `CreditPurchase` (Subscription & Billing) incorporados para el soporte del cobro recurrente y la compra de SkillCredits. Elaborado en PlantUML.</em>
+  <em>Figura XX. Diagrama de Clases UML completo de SkillSwap - Elaboración propia. Nota: Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el Value Object `DeviceToken` en Identity & Access, los atributos de extracción OCR (`ocrText`, `qrPayload`, `fileHash`) en `Certificate` (Credential Verification), y el agregado `Subscription` (Subscription & Billing) incorporado para el soporte del cobro recurrente de la mensualidad. Elaborado en PlantUML.</em>
 </p>
 
-En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `Certificate`, `LearningPath`, `AssessmentBlueprint`, `AssessmentAttempt`, `VerifierProfile`, `VerificationCase`, `VerifierReliability`, `StudentEmployabilityScore`, `Wallet`, `Subscription`, `CreditPurchase`, `Dispute`) heredando de un `AbstractDomainAggregateRoot` compartido, manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos — toda referencia cruzada se resuelve mediante un identificador simple (`Long`). La incorporación del Value Object `DeviceToken` en Identity & Access y de los atributos de extracción de `Certificate` en Credential Verification demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, en particular la captura desde cámara y el procesamiento on-device mediante ML Kit que constituye el feature de aprendizaje autónomo del proyecto. Por su parte, los agregados `Subscription` y `CreditPurchase` en Subscription & Billing, junto con el Value Object compartido `Money`, evidencian la separación entre el cobro recurrente al Estudiante y el sistema interno no monetario de SkillCredits, ambos desacoplados del proveedor concreto de pagos (Stripe) mediante el Domain Service `PaymentGateway`.
+En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `Certificate`, `LearningPath`, `AssessmentBlueprint`, `AssessmentAttempt`, `VerifierProfile`, `VerificationCase`, `VerifierReliability`, `StudentEmployabilityScore`, `Wallet`, `Subscription`, `Dispute`) heredando de un `AbstractDomainAggregateRoot` compartido, manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos — toda referencia cruzada se resuelve mediante un identificador simple (`Long`). La incorporación del Value Object `DeviceToken` en Identity & Access y de los atributos de extracción de `Certificate` en Credential Verification demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, en particular la captura desde cámara y el procesamiento on-device mediante ML Kit que constituye el feature de aprendizaje autónomo del proyecto. Por su parte, el agregado `Subscription` en Subscription & Billing, junto con los Value Objects `SubscriptionPlan` y `Money`, evidencia el desacoplamiento entre el cobro recurrente al Estudiante y el sistema interno no monetario de SkillCredits en Wallet & Incentives, ambos Bounded Contexts operando de forma completamente independiente entre sí y desacoplados del proveedor concreto de pagos (Stripe) mediante el Domain Service `PaymentGateway`.
 
 ---
 
@@ -2707,6 +2668,8 @@ Contrastar el Problem Statement con nuestro propio diseño de arquitectura nos o
 
 * **Landing Page (GitHub Pages):**
 [https://github.com/Aplicaciones-Dispositivos-Moviles](https://github.com/Aplicaciones-Dispositivos-Moviles)
+
+link: [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/)
 
 
 ---
