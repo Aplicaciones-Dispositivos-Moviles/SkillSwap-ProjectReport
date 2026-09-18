@@ -893,13 +893,529 @@ En la imagen se presenta la caracterización empática de Jorge, arquetipo del n
 ## 2.4. Requirements specification
 
 ### 2.4.1. User Stories
-*(Nota: Adaptar la tabla de User Stories previa para incluir los requisitos del curso: persistencia local, acceso a hardware, consumo de API propia y SDK externo).*
 
-**Ejemplos de User Stories clave para el entorno móvil:**
-*   **US_Mobile01 (Permisos de Dispositivo):** *As a user, I want the app to request camera and microphone permissions before joining a session, so that I can securely broadcast my video and audio during the live tutoring.*
-*   **US_Mobile02 (Almacenamiento Local):** *As a Learner, I want the app to locally store my search preferences and recent chat history using SQLite/Room/CoreData, so that the app loads faster and I can review messages even with a poor internet connection.*
-*   **US_Mobile03 (Consumo SDK Externo):** *As a Tutor, I want to initiate a live video call directly within the app using an integrated third-party SDK (e.g., Agora or Jitsi), so that I don't have to share external links with the learner.*
-*   **Spike Story (Investigación):** *Investigate and prototype the integration of the external Video SDK into the native mobile architecture, evaluating performance, battery consumption, and necessary device permissions.*
+En esta sección se especifican los requisitos funcionales y técnicos de SkillSwap, aplicación móvil nativa y multiplataforma, mediante User Stories agrupadas en Epics. Las historias se redactaron a partir de los hallazgos de las entrevistas, los User Personas, el User Task Matrix y los Journey Maps de los dos segmentos objetivo: **personas que quieren aprender (Estudiantes)** y **personas que validan el conocimiento (Verificadores y Coordinadores)**. En total se definen **50 historias**: 40 User Stories orientadas a los usuarios finales y 10 Technical Stories, redactadas con el rol *Developer*, que describen los servicios RESTful que consume la aplicación móvil.
+
+Cada User Story incluye sus criterios de aceptación redactados en tiempo presente, en tercera persona, sin referencias a elementos de interfaz de usuario y bajo la estructura Gherkin (*Dado que – Cuando – Entonces*). En el caso de las Technical Stories, los criterios describen los escenarios de interacción request/response de cada endpoint.
+
+#### Epics
+
+| Epic ID | Título | Descripción |
+| :--- | :--- | :--- |
+| EP01 | Gestión de cuenta institucional y suscripción | Como usuario, quiero registrarme con mi correo institucional, acceder de forma segura y gestionar mi suscripción, para formar parte de un ecosistema de estudiantes reales y acceder a los beneficios de la plataforma. |
+| EP02 | Ruta de aprendizaje personalizada | Como estudiante, quiero declarar en lenguaje natural la habilidad que deseo dominar y obtener una ruta de certificaciones generada por IA, para avanzar de forma estructurada sin conocer de antemano los nombres exactos de los cursos. |
+| EP03 | Validación de certificados | Como estudiante, quiero subir mis certificados y que la plataforma extraiga, verifique y relacione su contenido con mi ruta, para que cada certificado cuente como evidencia confiable de una habilidad. |
+| EP04 | Evaluaciones prácticas generadas por IA | Como estudiante, quiero demostrar cada habilidad certificada mediante quizzes y miniproyectos generados por IA, para comprobar que realmente la domino y conocer con precisión el sub-tema en el que fallo. |
+| EP05 | Verificación de casos por pares | Como estudiante o Verificador, quiero que los intentos no aprobados se escalen a un Verificador habilitado que los revise frente a una rúbrica, para resolver cada caso de forma justa, rápida y trazable. |
+| EP06 | Demostración final supervisada | Como estudiante, quiero demostrar el dominio integral de mi ruta completada mediante un proyecto avanzado o examen supervisado por videollamada, para obtener una validación final con mayor rigor. |
+| EP07 | SkillCredits y reconocimiento profesional | Como Verificador, quiero acumular, consultar, canjear y exhibir mis SkillCredits, para que mi labor de verificación se convierta en una credencial profesional verificable. |
+| EP08 | Supervisión y calidad del Coordinador | Como Coordinador, quiero resolver disputas, habilitar reevaluaciones, controlar la actividad y confiabilidad de los Verificadores y consultar métricas de la plataforma, para garantizar la integridad de todo el proceso de verificación. |
+
+*(Tabla 11. Epics del proyecto - Elaboración propia.)*
+
+#### User Stories y Technical Stories
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US01</td><td>Estudiante</td><td>Alta</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Registro con correo institucional</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero registrarme con mi correo institucional, para acceder a la plataforma como un usuario universitario verificado.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Registro con dominio institucional válido</strong><br><strong>Dado que</strong> el estudiante no tiene una cuenta registrada<br><strong>Cuando</strong> envía su nombre de usuario, contraseña y un correo con dominio .edu.pe<br><strong>Entonces</strong> el sistema crea la cuenta con el rol Student<br><strong>Y</strong> envía un correo de verificación a la dirección registrada<br><br><strong>Escenario 2: Registro con dominio no institucional</strong><br><strong>Dado que</strong> el estudiante no tiene una cuenta registrada<br><strong>Cuando</strong> envía un correo cuyo dominio no pertenece a una institución educativa (.edu.pe)<br><strong>Entonces</strong> el sistema rechaza el registro<br><strong>Y</strong> informa que solo se aceptan correos institucionales<br><br><strong>Escenario 3: Registro con correo ya utilizado</strong><br><strong>Dado que</strong> existe una cuenta asociada a un correo institucional<br><strong>Cuando</strong> otro registro se envía con ese mismo correo<br><strong>Entonces</strong> el sistema rechaza el registro<br><strong>Y</strong> informa que el correo ya se encuentra en uso</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US02</td><td>Estudiante</td><td>Alta</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Inicio de sesión</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero iniciar sesión con mis credenciales, para acceder a mi ruta, mis certificados y mis evaluaciones.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Inicio de sesión con credenciales válidas</strong><br><strong>Dado que</strong> el estudiante tiene una cuenta verificada<br><strong>Cuando</strong> envía su nombre de usuario y contraseña correctos<br><strong>Entonces</strong> el sistema autentica al estudiante<br><strong>Y</strong> le otorga acceso a los recursos asociados a su rol<br><br><strong>Escenario 2: Inicio de sesión con credenciales inválidas</strong><br><strong>Dado que</strong> el estudiante tiene una cuenta registrada<br><strong>Cuando</strong> envía una contraseña incorrecta<br><strong>Entonces</strong> el sistema deniega el acceso<br><strong>Y</strong> no revela si el error corresponde al usuario o a la contraseña<br><br><strong>Escenario 3: Inicio de sesión con cuenta no verificada</strong><br><strong>Dado que</strong> el estudiante no ha confirmado su correo institucional<br><strong>Cuando</strong> intenta iniciar sesión<br><strong>Entonces</strong> el sistema deniega el acceso<br><strong>Y</strong> reenvía el correo de verificación</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US03</td><td>Estudiante</td><td>Media</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Acceso mediante biometría del dispositivo</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero iniciar sesión con la huella o el reconocimiento facial de mi dispositivo, para acceder de forma rápida y segura sin escribir mi contraseña.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Activación del acceso biométrico</strong><br><strong>Dado que</strong> el estudiante tiene una sesión activa<br><strong>Y</strong> su dispositivo cuenta con un sensor biométrico configurado<br><strong>Cuando</strong> habilita el acceso biométrico<br><strong>Entonces</strong> la aplicación almacena de forma segura en el dispositivo la credencial asociada<br><br><strong>Escenario 2: Acceso biométrico exitoso</strong><br><strong>Dado que</strong> el estudiante tiene el acceso biométrico habilitado<br><strong>Cuando</strong> el sensor del dispositivo valida su identidad<br><strong>Entonces</strong> la aplicación inicia la sesión sin solicitar la contraseña<br><br><strong>Escenario 3: Dispositivo sin biometría disponible</strong><br><strong>Dado que</strong> el dispositivo no cuenta con un sensor biométrico configurado<br><strong>Cuando</strong> el estudiante intenta habilitar el acceso biométrico<br><strong>Entonces</strong> la aplicación mantiene el inicio de sesión mediante contraseña<br><strong>Y</strong> comunica que la funcionalidad no está disponible en el dispositivo</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US04</td><td>Estudiante</td><td>Media</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Configuración del perfil de intereses</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero registrar mi descripción y mis temas de interés en mi perfil, para que la plataforma personalice mis rutas y el emparejamiento con Verificadores.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Registro de temas de interés</strong><br><strong>Dado que</strong> el estudiante tiene una sesión activa<br><strong>Cuando</strong> registra uno o más temas de interés y una descripción<br><strong>Entonces</strong> el sistema guarda la información en su perfil<br><strong>Y</strong> la incorpora al vector de habilidades del estudiante<br><br><strong>Escenario 2: Actualización de intereses</strong><br><strong>Dado que</strong> el estudiante ya registró temas de interés<br><strong>Cuando</strong> modifica sus temas de interés<br><strong>Entonces</strong> el sistema reemplaza los temas anteriores<br><strong>Y</strong> recalcula su vector de habilidades</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US05</td><td>Estudiante</td><td>Alta</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Suscripción al plan mensual</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero suscribirme al plan mensual desde la aplicación mediante Google Play, para acceder a las rutas de certificación, las evaluaciones y la verificación de mis casos.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Suscripción exitosa</strong><br><strong>Dado que</strong> el estudiante tiene una cuenta verificada sin suscripción activa<br><strong>Cuando</strong> confirma la compra del plan mensual mediante Google Play Billing<br><strong>Entonces</strong> el sistema valida la compra con Google Play<br><strong>Y</strong> activa su suscripción con la fecha de vencimiento del periodo<br><br><strong>Escenario 2: Pago rechazado</strong><br><strong>Dado que</strong> el estudiante no tiene una suscripción activa<br><strong>Cuando</strong> Google Play Billing rechaza o cancela la transacción<br><strong>Entonces</strong> el sistema no activa la suscripción<br><strong>Y</strong> informa el motivo del rechazo<br><br><strong>Escenario 3: Renovación automática</strong><br><strong>Dado que</strong> el estudiante tiene una suscripción activa<br><strong>Cuando</strong> Google Play renueva la suscripción al finalizar el periodo<br><strong>Entonces</strong> el sistema extiende la fecha de vencimiento por un nuevo periodo<br><br><strong>Escenario 4: Cancelación de la suscripción</strong><br><strong>Dado que</strong> el estudiante cancela su suscripción desde Google Play<br><strong>Cuando</strong> finaliza el periodo ya pagado<br><strong>Entonces</strong> el sistema restringe la generación de nuevas evaluaciones<br><strong>Y</strong> conserva su ruta, certificados e historial</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US06</td><td>Estudiante</td><td>Alta</td><td>EP02</td></tr>
+  <tr><th>Title</th><td colspan="3">Declaración de la meta en lenguaje natural</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero describir con mis propias palabras la habilidad que deseo aprender, para que la IA la relacione con la taxonomía de habilidades sin que yo conozca el nombre exacto de cada certificación.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Meta interpretada correctamente</strong><br><strong>Dado que</strong> el estudiante tiene una suscripción activa<br><strong>Cuando</strong> declara la meta "quiero aprender a construir APIs REST con autenticación JWT"<br><strong>Entonces</strong> el sistema identifica las habilidades correspondientes de la taxonomía mediante búsqueda semántica<br><strong>Y</strong> genera una ruta de aprendizaje asociada a esa meta<br><br><strong>Escenario 2: Meta sin correspondencia en la taxonomía</strong><br><strong>Dado que</strong> el estudiante tiene una suscripción activa<br><strong>Cuando</strong> declara una meta que no supera el umbral mínimo de similitud con ninguna habilidad de la taxonomía<br><strong>Entonces</strong> el sistema no genera la ruta<br><strong>Y</strong> solicita al estudiante precisar su meta</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US07</td><td>Estudiante</td><td>Media</td><td>EP02</td></tr>
+  <tr><th>Title</th><td colspan="3">Confirmación de la habilidad interpretada</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero confirmar la habilidad que la IA interpretó de mi meta cuando existen varias opciones posibles, para que mi ruta no se construya sobre una interpretación incorrecta.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Meta ambigua</strong><br><strong>Dado que</strong> la meta declarada por el estudiante coincide con más de una habilidad con similitud cercana<br><strong>Cuando</strong> el sistema procesa la meta<br><strong>Entonces</strong> el sistema presenta las habilidades candidatas ordenadas por similitud<br><strong>Y</strong> espera la confirmación del estudiante antes de generar la ruta<br><br><strong>Escenario 2: Confirmación de la habilidad</strong><br><strong>Dado que</strong> el sistema presentó habilidades candidatas<br><strong>Cuando</strong> el estudiante confirma una de ellas<br><strong>Entonces</strong> el sistema genera la ruta a partir de la habilidad confirmada</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US08</td><td>Estudiante</td><td>Alta</td><td>EP02</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de la ruta de aprendizaje</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero consultar mi ruta de aprendizaje con el estado de cada certificación, para saber qué he completado y cuál es mi siguiente paso.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta de ruta activa</strong><br><strong>Dado que</strong> el estudiante tiene una ruta activa<br><strong>Cuando</strong> consulta su ruta<br><strong>Entonces</strong> el sistema retorna los nodos en su orden de prerrequisitos<br><strong>Y</strong> cada nodo indica su estado: bloqueado, disponible o completado<br><br><strong>Escenario 2: Desbloqueo del siguiente nodo</strong><br><strong>Dado que</strong> el estudiante completa un nodo de su ruta<br><strong>Cuando</strong> el sistema registra la aprobación del nodo<br><strong>Entonces</strong> el siguiente nodo de la secuencia cambia su estado a disponible<br><br><strong>Escenario 3: Ruta completada</strong><br><strong>Dado que</strong> el estudiante completa el último nodo pendiente<br><strong>Cuando</strong> el sistema registra la aprobación del nodo<br><strong>Entonces</strong> la ruta cambia su estado a completada<br><strong>Y</strong> el estudiante queda habilitado para la demostración final</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US09</td><td>Estudiante</td><td>Alta</td><td>EP02</td></tr>
+  <tr><th>Title</th><td colspan="3">Reconocimiento de habilidades ya certificadas</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero que la ruta considere los certificados que ya tengo validados, para no repetir certificaciones de habilidades que ya demostré.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Generación de ruta con certificados previos</strong><br><strong>Dado que</strong> el estudiante posee un certificado validado que cubre una habilidad requerida por su meta<br><strong>Cuando</strong> el sistema genera la ruta<br><strong>Entonces</strong> el nodo de esa habilidad se registra como completado<br><strong>Y</strong> se vincula al certificado validado<br><br><strong>Escenario 2: Recalculo tras un nuevo certificado</strong><br><strong>Dado que</strong> el estudiante tiene una ruta activa<br><strong>Cuando</strong> valida un nuevo certificado que cubre un nodo pendiente<br><strong>Entonces</strong> el sistema recalcula los nodos pendientes de la ruta<br><strong>Y</strong> conserva sin cambios los nodos ya completados</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US10</td><td>Estudiante</td><td>Media</td><td>EP02</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de la ruta sin conexión</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero consultar mi ruta de aprendizaje aunque no tenga conexión a internet, para revisar mi avance en cualquier momento.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Almacenamiento local de la ruta</strong><br><strong>Dado que</strong> el estudiante consulta su ruta con conexión a internet<br><strong>Cuando</strong> el sistema retorna la ruta<br><strong>Entonces</strong> la aplicación guarda una copia en la base de datos local del dispositivo<br><br><strong>Escenario 2: Consulta sin conexión</strong><br><strong>Dado que</strong> el estudiante tiene una copia local de su ruta<br><strong>Y</strong> el dispositivo no tiene conexión a internet<br><strong>Cuando</strong> consulta su ruta<br><strong>Entonces</strong> la aplicación retorna la copia local<br><strong>Y</strong> indica la fecha de su última sincronización<br><br><strong>Escenario 3: Sincronización al recuperar conexión</strong><br><strong>Dado que</strong> el dispositivo recupera la conexión a internet<br><strong>Cuando</strong> el estudiante consulta su ruta<br><strong>Entonces</strong> la aplicación actualiza la copia local con la versión del servidor</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US11</td><td>Estudiante</td><td>Alta</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Captura del certificado con la cámara</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero capturar mi certificado físico o impreso con la cámara del dispositivo, para registrarlo sin necesidad de escanearlo previamente.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Captura con permiso concedido</strong><br><strong>Dado que</strong> el estudiante concedió el permiso de cámara a la aplicación<br><strong>Cuando</strong> captura la imagen de su certificado<br><strong>Entonces</strong> la aplicación registra la imagen como documento del certificado<br><strong>Y</strong> inicia la extracción de sus datos<br><br><strong>Escenario 2: Permiso de cámara denegado</strong><br><strong>Dado que</strong> el estudiante denegó el permiso de cámara<br><strong>Cuando</strong> intenta capturar un certificado<br><strong>Entonces</strong> la aplicación no accede a la cámara<br><strong>Y</strong> ofrece registrar el certificado desde un archivo del dispositivo<br><br><strong>Escenario 3: Imagen ilegible</strong><br><strong>Dado que</strong> el estudiante captura una imagen borrosa o incompleta<br><strong>Cuando</strong> la extracción no reconoce texto suficiente<br><strong>Entonces</strong> la aplicación rechaza la imagen<br><strong>Y</strong> solicita una nueva captura</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US12</td><td>Estudiante</td><td>Alta</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Carga del certificado desde un archivo</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero subir mi certificado en formato PDF o imagen desde mi dispositivo, para validar certificados que obtuve en plataformas digitales.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Carga de formato válido</strong><br><strong>Dado que</strong> el estudiante tiene una sesión activa<br><strong>Cuando</strong> sube un archivo PDF, JPG o PNG de hasta 10 MB<br><strong>Entonces</strong> el sistema almacena el archivo en el almacenamiento en la nube<br><strong>Y</strong> registra el certificado en estado pendiente de verificación<br><br><strong>Escenario 2: Formato o tamaño no permitido</strong><br><strong>Dado que</strong> el estudiante tiene una sesión activa<br><strong>Cuando</strong> sube un archivo con un formato no permitido o mayor a 10 MB<br><strong>Entonces</strong> el sistema rechaza el archivo<br><strong>Y</strong> informa los formatos y el tamaño aceptados</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US13</td><td>Estudiante</td><td>Alta</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Extracción automática de datos del certificado</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero que la aplicación extraiga automáticamente los datos de mi certificado, para no transcribir manualmente el curso, la institución y la fecha.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Extracción completa</strong><br><strong>Dado que</strong> el estudiante registró la imagen de un certificado<br><strong>Cuando</strong> el reconocimiento de texto on-device procesa la imagen<br><strong>Entonces</strong> el sistema obtiene el titular, la institución, el curso y la fecha de emisión<br><strong>Y</strong> conserva el texto completo extraído para auditoría<br><br><strong>Escenario 2: Extracción parcial</strong><br><strong>Dado que</strong> el reconocimiento de texto no identifica uno o más campos obligatorios<br><strong>Cuando</strong> finaliza la extracción<br><strong>Entonces</strong> el sistema solicita al estudiante completar los campos faltantes<br><strong>Y</strong> marca dichos campos como ingresados manualmente<br><br><strong>Escenario 3: Titular distinto al usuario</strong><br><strong>Dado que</strong> el titular extraído no coincide con el nombre registrado del estudiante<br><strong>Cuando</strong> el sistema evalúa el riesgo del certificado<br><strong>Entonces</strong> el certificado se registra con estado sospechoso<br><strong>Y</strong> se escala al Coordinador</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US14</td><td>Estudiante</td><td>Alta</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Detección de certificados duplicados</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero que la plataforma detecte certificados duplicados, para que ningún usuario obtenga una validación con un documento ya utilizado.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Certificado original</strong><br><strong>Dado que</strong> el hash del archivo no coincide con ningún certificado registrado<br><strong>Cuando</strong> el estudiante registra el certificado<br><strong>Entonces</strong> el sistema continúa con la evaluación de riesgo del certificado<br><br><strong>Escenario 2: Certificado duplicado del mismo usuario</strong><br><strong>Dado que</strong> el estudiante ya registró un archivo con el mismo hash<br><strong>Cuando</strong> intenta registrarlo nuevamente<br><strong>Entonces</strong> el sistema rechaza el registro<br><strong>Y</strong> referencia el certificado existente<br><br><strong>Escenario 3: Certificado registrado por otro usuario</strong><br><strong>Dado que</strong> otro usuario ya registró un archivo con el mismo hash<br><strong>Cuando</strong> el estudiante registra el certificado<br><strong>Entonces</strong> el sistema asigna el estado sospechoso al certificado<br><strong>Y</strong> escala el caso al Coordinador</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US15</td><td>Estudiante</td><td>Alta</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Correspondencia del certificado con la habilidad</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero que la IA confirme que mi certificado realmente cubre la habilidad del nodo al que lo asocio, para que mi avance refleje lo que efectivamente estudié.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Certificado que cubre la habilidad</strong><br><strong>Dado que</strong> el estudiante asocia un certificado verificado a un nodo de su ruta<br><strong>Cuando</strong> la IA compara el contenido extraído con la habilidad del nodo<br><strong>Y</strong> la similitud supera el umbral definido<br><strong>Entonces</strong> el sistema vincula el certificado al nodo<br><strong>Y</strong> habilita la evaluación práctica del nodo<br><br><strong>Escenario 2: Certificado que no cubre la habilidad</strong><br><strong>Dado que</strong> el estudiante asocia un certificado verificado a un nodo de su ruta<br><strong>Cuando</strong> la similitud entre el contenido extraído y la habilidad no supera el umbral definido<br><strong>Entonces</strong> el sistema no vincula el certificado al nodo<br><strong>Y</strong> sugiere los nodos de la ruta con los que el certificado sí guarda correspondencia</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US16</td><td>Estudiante</td><td>Media</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta del estado de verificación</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero conocer el estado de verificación de cada certificado que subí y recibir una notificación cuando se resuelva, para saber si ya cuenta como evidencia en mi ruta.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta de certificados</strong><br><strong>Dado que</strong> el estudiante registró uno o más certificados<br><strong>Cuando</strong> consulta sus certificados<br><strong>Entonces</strong> el sistema retorna cada certificado con su estado: pendiente, verificado, sospechoso o rechazado<br><br><strong>Escenario 2: Notificación de resolución</strong><br><strong>Dado que</strong> el estudiante concedió el permiso de notificaciones<br><strong>Cuando</strong> uno de sus certificados alcanza el estado verificado o rechazado<br><strong>Entonces</strong> el sistema envía una notificación push al dispositivo del estudiante mediante Firebase Cloud Messaging<br><strong>Y</strong> la notificación incluye el motivo cuando el estado es rechazado<br><br><strong>Escenario 3: Permiso de notificaciones denegado</strong><br><strong>Dado que</strong> el estudiante denegó el permiso de notificaciones<br><strong>Cuando</strong> uno de sus certificados alcanza un estado definitivo<br><strong>Entonces</strong> el sistema no envía la notificación push<br><strong>Y</strong> el nuevo estado queda disponible en la consulta de sus certificados</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US17</td><td>Estudiante</td><td>Alta</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Generación del quiz de un nodo</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero que la IA genere un quiz basado en la habilidad de mi certificado, para demostrar que adquirí el conocimiento y no solo el documento.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Generación de quiz</strong><br><strong>Dado que</strong> el estudiante tiene un nodo disponible con un certificado vinculado<br><strong>Cuando</strong> solicita su evaluación práctica<br><strong>Entonces</strong> el sistema genera un quiz sobre los sub-temas de la habilidad del nodo<br><strong>Y</strong> asocia el quiz al nodo<br><br><strong>Escenario 2: Nodo bloqueado</strong><br><strong>Dado que</strong> el nodo del estudiante se encuentra bloqueado<br><strong>Cuando</strong> solicita su evaluación práctica<br><strong>Entonces</strong> el sistema rechaza la solicitud<br><strong>Y</strong> indica el nodo prerrequisito pendiente<br><br><strong>Escenario 3: Nuevo intento con preguntas distintas</strong><br><strong>Dado que</strong> el estudiante ya rindió el quiz de un nodo<br><strong>Cuando</strong> se le habilita un nuevo intento<br><strong>Entonces</strong> el sistema genera un quiz con preguntas distintas a las del intento anterior</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US18</td><td>Estudiante</td><td>Alta</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Resolución del quiz con calificación en el servidor</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero rendir el quiz y conocer mi resultado de inmediato, para saber si demostré la habilidad del nodo.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Quiz aprobado</strong><br><strong>Dado que</strong> el estudiante rinde el quiz de un nodo<br><strong>Cuando</strong> envía sus respuestas<br><strong>Y</strong> el puntaje calculado en el servidor alcanza el umbral de aprobación<br><strong>Entonces</strong> el sistema registra el intento como aprobado<br><strong>Y</strong> marca el nodo como completado<br><br><strong>Escenario 2: Quiz no aprobado</strong><br><strong>Dado que</strong> el estudiante rinde el quiz de un nodo<br><strong>Cuando</strong> el puntaje calculado no alcanza el umbral de aprobación<br><strong>Entonces</strong> el sistema registra el intento como no aprobado<br><strong>Y</strong> abre un caso de verificación asociado al intento<br><br><strong>Escenario 3: Tiempo límite excedido</strong><br><strong>Dado que</strong> el quiz tiene un tiempo límite definido<br><strong>Cuando</strong> el tiempo límite finaliza antes del envío<br><strong>Entonces</strong> el sistema califica únicamente las respuestas registradas hasta ese momento</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US19</td><td>Estudiante</td><td>Alta</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Entrega de un miniproyecto</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero desarrollar y entregar un miniproyecto generado para mi nodo, para demostrar la habilidad de forma práctica y no solo teórica.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Generación del enunciado</strong><br><strong>Dado que</strong> el estudiante tiene un nodo disponible cuya habilidad admite evaluación práctica<br><strong>Cuando</strong> solicita un miniproyecto<br><strong>Entonces</strong> el sistema genera un enunciado con su rúbrica de evaluación<br><br><strong>Escenario 2: Entrega dentro del plazo</strong><br><strong>Dado que</strong> el estudiante tiene un miniproyecto asignado<br><strong>Cuando</strong> entrega su repositorio o archivos dentro del plazo definido<br><strong>Entonces</strong> el sistema registra la entrega<br><strong>Y</strong> ejecuta la evaluación preliminar de la IA según la rúbrica<br><br><strong>Escenario 3: Evaluación preliminar insuficiente</strong><br><strong>Dado que</strong> la evaluación preliminar de la IA no alcanza el puntaje mínimo de la rúbrica o su nivel de confianza es bajo<br><strong>Cuando</strong> finaliza la evaluación<br><strong>Entonces</strong> el sistema abre un caso de verificación para la revisión de un Verificador</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US20</td><td>Estudiante</td><td>Alta</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Identificación del sub-tema débil</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero saber exactamente en qué sub-tema fallé, para reforzar solo esa parte en lugar de repetir todo el certificado.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Diagnóstico tras un intento no aprobado</strong><br><strong>Dado que</strong> el estudiante obtiene un intento no aprobado<br><strong>Cuando</strong> el sistema analiza los errores por sub-tema<br><strong>Entonces</strong> el sistema identifica los sub-temas con menor desempeño<br><strong>Y</strong> recomienda recursos específicos para cada uno<br><br><strong>Escenario 2: Intento aprobado con errores puntuales</strong><br><strong>Dado que</strong> el estudiante aprueba un intento con errores concentrados en un sub-tema<br><strong>Cuando</strong> el sistema registra el resultado<br><strong>Entonces</strong> el sistema informa el sub-tema a reforzar sin bloquear su avance</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US21</td><td>Estudiante</td><td>Media</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Conservación del avance ante pérdida de conexión</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero que mis respuestas se conserven si pierdo la conexión durante un quiz, para no perder mi avance.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Pérdida de conexión durante el quiz</strong><br><strong>Dado que</strong> el estudiante rinde un quiz<br><strong>Cuando</strong> el dispositivo pierde la conexión a internet<br><strong>Entonces</strong> la aplicación almacena localmente las respuestas registradas<br><br><strong>Escenario 2: Envío al recuperar la conexión</strong><br><strong>Dado que</strong> existen respuestas almacenadas localmente de un quiz en curso<br><strong>Cuando</strong> el dispositivo recupera la conexión antes del tiempo límite<br><strong>Entonces</strong> la aplicación sincroniza las respuestas con el servidor<br><strong>Y</strong> elimina la copia local tras la confirmación</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US22</td><td>Estudiante</td><td>Alta</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Habilitación como Verificador mediante examen de ingreso</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero rendir el examen de ingreso de una habilidad cuya ruta completé, para habilitarme como Verificador y revisar casos de otros estudiantes.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Examen aprobado</strong><br><strong>Dado que</strong> el estudiante completó su ruta de certificación de una habilidad<br><strong>Cuando</strong> aprueba el examen de ingreso de dicha habilidad<br><strong>Entonces</strong> el sistema crea o actualiza su perfil de Verificador<br><strong>Y</strong> lo habilita para revisar casos de esa habilidad<br><br><strong>Escenario 2: Ruta incompleta</strong><br><strong>Dado que</strong> el estudiante no completó la ruta de una habilidad<br><strong>Cuando</strong> solicita rendir el examen de ingreso de esa habilidad<br><strong>Entonces</strong> el sistema rechaza la solicitud<br><strong>Y</strong> indica los nodos pendientes<br><br><strong>Escenario 3: Examen no aprobado</strong><br><strong>Dado que</strong> el estudiante no aprueba el examen de ingreso<br><strong>Cuando</strong> el sistema registra el resultado<br><strong>Entonces</strong> el sistema no lo habilita como Verificador<br><strong>Y</strong> define la fecha a partir de la cual puede volver a rendirlo</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US23</td><td>Verificador</td><td>Media</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Gestión de disponibilidad</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero indicar si estoy disponible para recibir casos, para que solo se me asignen revisiones cuando puedo atenderlas.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Activación de disponibilidad</strong><br><strong>Dado que</strong> el Verificador está habilitado y no disponible<br><strong>Cuando</strong> activa su disponibilidad<br><strong>Entonces</strong> el sistema lo incluye en el proceso de asignación de casos<br><br><strong>Escenario 2: Desactivación de disponibilidad</strong><br><strong>Dado que</strong> el Verificador está disponible<br><strong>Cuando</strong> desactiva su disponibilidad<br><strong>Entonces</strong> el sistema deja de asignarle nuevos casos<br><strong>Y</strong> mantiene los casos que ya tiene asignados</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US24</td><td>Verificador</td><td>Alta</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Asignación automática de casos por afinidad</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero recibir automáticamente casos que coincidan con mi especialidad, para revisar solo trabajos de habilidades que domino.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Asignación del mejor candidato</strong><br><strong>Dado que</strong> se abre un caso de verificación de una habilidad<br><strong>Y</strong> existen Verificadores disponibles habilitados en esa habilidad<br><strong>Cuando</strong> el sistema de recomendación evalúa la similitud de perfiles y el historial de casos similares<br><strong>Entonces</strong> el sistema asigna el caso al Verificador con mayor puntaje de afinidad<br><strong>Y</strong> le envía una notificación push mediante Firebase Cloud Messaging<br><br><strong>Escenario 2: Exclusión por conflicto</strong><br><strong>Dado que</strong> el Verificador con mayor afinidad es el mismo estudiante del caso<br><strong>Cuando</strong> el sistema asigna el caso<br><strong>Entonces</strong> el sistema excluye a ese Verificador<br><strong>Y</strong> asigna el caso al siguiente candidato<br><br><strong>Escenario 3: Sin Verificadores disponibles</strong><br><strong>Dado que</strong> no existen Verificadores disponibles para la habilidad del caso<br><strong>Cuando</strong> el sistema intenta asignar el caso<br><strong>Entonces</strong> el caso permanece en cola<br><strong>Y</strong> se reintenta la asignación cuando un Verificador habilitado activa su disponibilidad<br><br><strong>Escenario 4: Permiso de notificaciones denegado</strong><br><strong>Dado que</strong> el Verificador denegó el permiso de notificaciones<br><strong>Cuando</strong> el sistema le asigna un caso<br><strong>Entonces</strong> el caso queda registrado en su listado de casos asignados<br><strong>Y</strong> el plazo de resolución inicia desde el momento de la asignación</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US25</td><td>Verificador</td><td>Alta</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Revisión del caso con rúbrica</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero evaluar el trabajo del estudiante frente a una rúbrica estructurada, para emitir una decisión objetiva y justificada.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Caso aprobado</strong><br><strong>Dado que</strong> el Verificador tiene un caso asignado<br><strong>Cuando</strong> registra la calificación de todos los criterios de la rúbrica con resultado aprobatorio<br><strong>Entonces</strong> el sistema resuelve el caso como aprobado<br><strong>Y</strong> marca como completado el nodo del estudiante<br><br><strong>Escenario 2: Caso rechazado</strong><br><strong>Dado que</strong> el Verificador tiene un caso asignado<br><strong>Cuando</strong> registra una decisión desaprobatoria junto con sus observaciones<br><strong>Entonces</strong> el sistema resuelve el caso como rechazado<br><strong>Y</strong> comunica las observaciones al estudiante<br><br><strong>Escenario 3: Rúbrica incompleta</strong><br><strong>Dado que</strong> el Verificador tiene un caso asignado<br><strong>Cuando</strong> registra una decisión sin calificar todos los criterios de la rúbrica<br><strong>Entonces</strong> el sistema no resuelve el caso<br><strong>Y</strong> indica los criterios pendientes</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US26</td><td>Estudiante</td><td>Media</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Aporte de evidencia adicional</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero adjuntar evidencia adicional a mi caso de verificación, para respaldar mejor el dominio de la habilidad.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Evidencia en caso abierto</strong><br><strong>Dado que</strong> el estudiante tiene un caso de verificación abierto<br><strong>Cuando</strong> adjunta un enlace a su repositorio o un archivo de su portafolio<br><strong>Entonces</strong> el sistema asocia la evidencia al caso<br><strong>Y</strong> la pone a disposición del Verificador asignado<br><br><strong>Escenario 2: Caso ya resuelto</strong><br><strong>Dado que</strong> el caso de verificación del estudiante ya fue resuelto<br><strong>Cuando</strong> intenta adjuntar evidencia<br><strong>Entonces</strong> el sistema rechaza la evidencia</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US27</td><td>Estudiante</td><td>Media</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Apelación de la decisión del Verificador</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero apelar la decisión de un Verificador que considero injusta, para que un Coordinador revise mi caso.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Apelación dentro del plazo</strong><br><strong>Dado que</strong> el caso del estudiante fue resuelto como rechazado hace menos de 7 días<br><strong>Cuando</strong> registra una apelación con su justificación<br><strong>Entonces</strong> el sistema crea una disputa de tipo apelación<br><strong>Y</strong> la remite al Coordinador<br><br><strong>Escenario 2: Apelación fuera del plazo</strong><br><strong>Dado que</strong> el caso del estudiante fue resuelto hace más de 7 días<br><strong>Cuando</strong> intenta registrar una apelación<br><strong>Entonces</strong> el sistema rechaza la apelación<br><strong>Y</strong> informa el plazo vigente<br><br><strong>Escenario 3: Apelación duplicada</strong><br><strong>Dado que</strong> el estudiante ya registró una apelación para un caso<br><strong>Cuando</strong> intenta registrar otra sobre el mismo caso<br><strong>Entonces</strong> el sistema rechaza la nueva apelación</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US28</td><td>Estudiante</td><td>Baja</td><td>EP06</td></tr>
+  <tr><th>Title</th><td colspan="3">Programación de la demostración final</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero programar mi demostración final en un horario disponible de un Verificador, para validar el dominio integral de mi ruta completada.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Programación con ruta completada</strong><br><strong>Dado que</strong> el estudiante completó su ruta<br><strong>Cuando</strong> elige la modalidad (proyecto avanzado o examen supervisado) y un horario disponible<br><strong>Entonces</strong> el sistema registra la demostración<br><strong>Y</strong> asigna a un Verificador habilitado en la habilidad de la ruta<br><br><strong>Escenario 2: Ruta no completada</strong><br><strong>Dado que</strong> el estudiante tiene nodos pendientes en su ruta<br><strong>Cuando</strong> solicita programar la demostración final<br><strong>Entonces</strong> el sistema rechaza la solicitud</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US29</td><td>Estudiante</td><td>Baja</td><td>EP06</td></tr>
+  <tr><th>Title</th><td colspan="3">Demostración final por videollamada</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como estudiante, quiero realizar mi demostración final por videollamada dentro de la aplicación, para que el Verificador constate en tiempo real que la demostración es genuina.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Ingreso a la videollamada</strong><br><strong>Dado que</strong> el estudiante tiene una demostración programada<br><strong>Y</strong> concedió los permisos de cámara y micrófono<br><strong>Cuando</strong> ingresa a la demostración en el horario programado<br><strong>Entonces</strong> la aplicación inicia la videollamada con el Verificador asignado mediante el SDK de video integrado<br><br><strong>Escenario 2: Permisos no concedidos</strong><br><strong>Dado que</strong> el estudiante no concedió los permisos de cámara o micrófono<br><strong>Cuando</strong> intenta ingresar a la demostración<br><strong>Entonces</strong> la aplicación no inicia la videollamada<br><strong>Y</strong> solicita los permisos requeridos<br><br><strong>Escenario 3: Registro del resultado</strong><br><strong>Dado que</strong> la videollamada de la demostración finaliza<br><strong>Cuando</strong> el Verificador registra su evaluación según la rúbrica<br><strong>Entonces</strong> el sistema registra el resultado de la demostración final en el perfil del estudiante</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US30</td><td>Verificador</td><td>Alta</td><td>EP07</td></tr>
+  <tr><th>Title</th><td colspan="3">Acreditación de SkillCredits por caso resuelto</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero recibir SkillCredits por cada caso que resuelvo, para que mi labor de verificación sea reconocida.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Acreditación tras la resolución</strong><br><strong>Dado que</strong> el Verificador resuelve un caso de verificación<br><strong>Cuando</strong> el sistema registra la resolución<br><strong>Entonces</strong> el sistema acredita en su billetera los SkillCredits correspondientes<br><strong>Y</strong> registra una transacción de tipo ganado<br><br><strong>Escenario 2: Decisión revertida</strong><br><strong>Dado que</strong> el Coordinador revierte la decisión de un Verificador tras una disputa<br><strong>Cuando</strong> el sistema registra la reversión<br><strong>Entonces</strong> el sistema no acredita SkillCredits adicionales por ese caso<br><strong>Y</strong> reduce la confiabilidad del Verificador</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US31</td><td>Verificador</td><td>Media</td><td>EP07</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de billetera e historial</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero consultar mi saldo de SkillCredits y el historial de movimientos, para conocer cuántos créditos gané y en qué los utilicé.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta de saldo</strong><br><strong>Dado que</strong> el Verificador tiene una billetera<br><strong>Cuando</strong> consulta su billetera<br><strong>Entonces</strong> el sistema retorna el saldo actual de SkillCredits<br><br><strong>Escenario 2: Consulta de historial</strong><br><strong>Dado que</strong> el Verificador registra movimientos en su billetera<br><strong>Cuando</strong> consulta su historial<br><strong>Entonces</strong> el sistema retorna los movimientos ordenados del más reciente al más antiguo<br><strong>Y</strong> cada movimiento indica su tipo, cantidad y fecha</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US32</td><td>Verificador</td><td>Media</td><td>EP07</td></tr>
+  <tr><th>Title</th><td colspan="3">Canje de SkillCredits en la tienda</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero canjear mis SkillCredits por beneficios de la tienda, para aprovechar el reconocimiento que acumulé.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Canje con saldo suficiente</strong><br><strong>Dado que</strong> el Verificador tiene un saldo mayor o igual al costo de un beneficio<br><strong>Cuando</strong> solicita el canje de ese beneficio<br><strong>Entonces</strong> el sistema descuenta el costo de su saldo<br><strong>Y</strong> registra una transacción de tipo canjeado<br><br><strong>Escenario 2: Canje con saldo insuficiente</strong><br><strong>Dado que</strong> el Verificador tiene un saldo menor al costo de un beneficio<br><strong>Cuando</strong> solicita el canje de ese beneficio<br><strong>Entonces</strong> el sistema rechaza el canje<br><strong>Y</strong> mantiene su saldo sin cambios</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US33</td><td>Verificador</td><td>Media</td><td>EP07</td></tr>
+  <tr><th>Title</th><td colspan="3">Compartir logros en LinkedIn</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Verificador, quiero compartir mis SkillCredits y habilidades verificadas en LinkedIn u otras redes profesionales, para exhibir mi experiencia como una credencial verificable.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Generación de la credencial</strong><br><strong>Dado que</strong> el Verificador tiene al menos una habilidad verificada<br><strong>Cuando</strong> solicita compartir su logro<br><strong>Entonces</strong> el sistema genera una credencial con un enlace público de verificación<br><br><strong>Escenario 2: Compartir mediante el sistema del dispositivo</strong><br><strong>Dado que</strong> el Verificador generó una credencial<br><strong>Cuando</strong> la comparte<br><strong>Entonces</strong> la aplicación envía el enlace de la credencial mediante el mecanismo nativo de compartir de Android hacia la aplicación de LinkedIn u otra aplicación instalada<br><br><strong>Escenario 3: Validación pública de la credencial</strong><br><strong>Dado que</strong> un tercero accede al enlace público de una credencial<br><strong>Cuando</strong> consulta su autenticidad<br><strong>Entonces</strong> el sistema retorna el titular, la habilidad, los SkillCredits y la fecha de emisión<br><strong>Y</strong> no expone datos personales adicionales</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US34</td><td>Coordinador</td><td>Alta</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de disputas pendientes</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero consultar las disputas pendientes con su evidencia, para priorizar y resolver los casos que requieren mi decisión.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Listado de disputas pendientes</strong><br><strong>Dado que</strong> existen disputas en estado pendiente<br><strong>Cuando</strong> el Coordinador consulta las disputas<br><strong>Entonces</strong> el sistema retorna las disputas pendientes ordenadas por antigüedad<br><strong>Y</strong> cada una indica su origen: certificado sospechoso, apelación o reporte de usuario<br><br><strong>Escenario 2: Consulta de evidencia</strong><br><strong>Dado que</strong> el Coordinador consulta una disputa<br><strong>Cuando</strong> solicita su evidencia<br><strong>Entonces</strong> el sistema retorna los datos extraídos y la evaluación de riesgo del certificado, o la rúbrica y la evidencia del caso, según el origen</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US35</td><td>Coordinador</td><td>Alta</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Resolución de certificados sospechosos</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero decidir sobre los certificados marcados como sospechosos, para evitar que documentos fraudulentos se validen en la plataforma.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Certificado legítimo</strong><br><strong>Dado que</strong> el Coordinador revisa un certificado sospechoso<br><strong>Cuando</strong> lo resuelve como legítimo<br><strong>Entonces</strong> el certificado cambia a estado verificado<br><strong>Y</strong> se vincula a la ruta del estudiante<br><br><strong>Escenario 2: Certificado fraudulento</strong><br><strong>Dado que</strong> el Coordinador revisa un certificado sospechoso<br><strong>Cuando</strong> lo resuelve como fraudulento<br><strong>Entonces</strong> el certificado cambia a estado rechazado<br><strong>Y</strong> el sistema registra una sanción sobre la cuenta del estudiante<br><br><strong>Escenario 3: Resolución sin observaciones</strong><br><strong>Dado que</strong> el Coordinador resuelve una disputa<br><strong>Cuando</strong> no registra observaciones<br><strong>Entonces</strong> el sistema no aplica la resolución<br><strong>Y</strong> exige el registro de observaciones</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US36</td><td>Coordinador</td><td>Alta</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Resolución de apelaciones</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero resolver las apelaciones de los estudiantes sobre decisiones de Verificadores, para corregir decisiones incorrectas y mantener la confianza en el proceso.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Decisión confirmada</strong><br><strong>Dado que</strong> el Coordinador revisa una apelación<br><strong>Cuando</strong> confirma la decisión del Verificador<br><strong>Entonces</strong> la disputa se resuelve sin cambios sobre el caso original<br><br><strong>Escenario 2: Decisión revertida</strong><br><strong>Dado que</strong> el Coordinador revisa una apelación<br><strong>Cuando</strong> revierte la decisión del Verificador<br><strong>Entonces</strong> el caso original cambia a aprobado<br><strong>Y</strong> el sistema registra la reversión en la confiabilidad del Verificador</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US37</td><td>Coordinador</td><td>Alta</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Habilitación de reevaluación o nuevo intento</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero habilitar una reevaluación o un nuevo intento a un estudiante, para que vuelva a demostrar su habilidad cuando existan dudas sobre un resultado.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Habilitación de nuevo intento</strong><br><strong>Dado que</strong> un estudiante agotó los intentos de un nodo<br><strong>Cuando</strong> el Coordinador habilita un nuevo intento con su justificación<br><strong>Entonces</strong> el sistema habilita una nueva evaluación en ese nodo<br><strong>Y</strong> registra la justificación del Coordinador<br><br><strong>Escenario 2: Reevaluación de un resultado aprobado</strong><br><strong>Dado que</strong> el Coordinador identifica dudas sobre un intento aprobado<br><strong>Cuando</strong> ordena una reevaluación<br><strong>Entonces</strong> el nodo del estudiante vuelve a estado disponible<br><strong>Y</strong> el sistema genera una nueva evaluación</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US38</td><td>Coordinador</td><td>Media</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Exigencia de nuevo examen al Verificador</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero exigir que un Verificador con baja confiabilidad vuelva a rendir su examen de ingreso, para asegurar la calidad de sus revisiones.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Exigencia de nuevo examen</strong><br><strong>Dado que</strong> un Verificador tiene una confiabilidad menor al umbral definido<br><strong>Cuando</strong> el Coordinador exige un nuevo examen de ingreso<br><strong>Entonces</strong> el sistema suspende su habilitación en la habilidad<br><strong>Y</strong> reasigna sus casos abiertos a otros Verificadores<br><br><strong>Escenario 2: Rehabilitación tras aprobar</strong><br><strong>Dado que</strong> un Verificador tiene la habilitación suspendida por exigencia de nuevo examen<br><strong>Cuando</strong> aprueba el examen de ingreso<br><strong>Entonces</strong> el sistema restablece su habilitación en la habilidad</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US39</td><td>Coordinador</td><td>Media</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Definición del plazo de actividad de los Verificadores</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero definir el plazo máximo para resolver un caso asignado, para que los estudiantes no esperen indefinidamente una revisión.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Definición del plazo</strong><br><strong>Dado que</strong> el Coordinador tiene una sesión activa<br><strong>Cuando</strong> define un plazo de resolución de 48 horas<br><strong>Entonces</strong> el sistema aplica ese plazo a los casos asignados a partir de ese momento<br><br><strong>Escenario 2: Caso vencido</strong><br><strong>Dado que</strong> un Verificador no resuelve un caso dentro del plazo definido<br><strong>Cuando</strong> el plazo vence<br><strong>Entonces</strong> el sistema reasigna el caso a otro Verificador disponible<br><strong>Y</strong> registra el incumplimiento en la confiabilidad del Verificador original</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>US40</td><td>Coordinador</td><td>Media</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Consulta de métricas de la plataforma</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como Coordinador, quiero consultar métricas agregadas de estudiantes y Verificadores, para tomar decisiones informadas sobre la calidad y la demanda de habilidades.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Métricas de demanda</strong><br><strong>Dado que</strong> existen rutas registradas en la plataforma<br><strong>Cuando</strong> el Coordinador consulta las métricas de demanda<br><strong>Entonces</strong> el sistema retorna las habilidades más solicitadas y las certificaciones más frecuentes en el periodo seleccionado<br><br><strong>Escenario 2: Métricas de dificultad</strong><br><strong>Dado que</strong> existen intentos de evaluación registrados<br><strong>Cuando</strong> el Coordinador consulta las métricas de dificultad<br><strong>Entonces</strong> el sistema retorna las habilidades y sub-temas con mayor tasa de desaprobación<br><br><strong>Escenario 3: Métricas de Verificadores</strong><br><strong>Dado que</strong> existen casos resueltos<br><strong>Cuando</strong> el Coordinador consulta el desempeño de los Verificadores<br><strong>Entonces</strong> el sistema retorna los Verificadores ordenados por confiabilidad<br><strong>Y</strong> el tiempo promedio de resolución de cada uno</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS01</td><td>Developer</td><td>Alta</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoint de registro de usuarios</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar el endpoint POST /api/v1/authentication/sign-up, para que la aplicación móvil registre usuarios validando el dominio institucional del correo.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Registro exitoso</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/authentication/sign-up está disponible<br><strong>Cuando</strong> se envía un request con username, email institucional y password válidos<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene el UserResource con id, username, email, role e isVerified<br><br><strong>Escenario 2: Dominio no institucional</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/authentication/sign-up está disponible<br><strong>Cuando</strong> se envía un request con un email cuyo dominio no es .edu.pe<br><strong>Entonces</strong> el response tiene el código 400 Bad Request<br><strong>Y</strong> el body contiene el mensaje de error de dominio no permitido<br><br><strong>Escenario 3: Email o username existente</strong><br><strong>Dado que</strong> ya existe un usuario con el mismo email o username<br><strong>Cuando</strong> se envía el request de registro<br><strong>Entonces</strong> el response tiene el código 409 Conflict</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS02</td><td>Developer</td><td>Alta</td><td>EP01</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoint de autenticación con JWT</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar el endpoint POST /api/v1/authentication/sign-in, para que la aplicación móvil obtenga un token JWT con el cual consumir los servicios protegidos.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Credenciales válidas</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/authentication/sign-in está disponible<br><strong>Cuando</strong> se envía un request con username y password válidos<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el AuthenticatedUserResource con el token JWT<br><br><strong>Escenario 2: Credenciales inválidas</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/authentication/sign-in está disponible<br><strong>Cuando</strong> se envía un request con credenciales incorrectas<br><strong>Entonces</strong> el response tiene el código 401 Unauthorized<br><br><strong>Escenario 3: Token ausente en un recurso protegido</strong><br><strong>Dado que</strong> un endpoint requiere autenticación<br><strong>Cuando</strong> se envía un request sin el header Authorization<br><strong>Entonces</strong> el response tiene el código 401 Unauthorized</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS03</td><td>Developer</td><td>Alta</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoint de registro de certificados</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar el endpoint POST /api/v1/certificates, para registrar los certificados con los datos extraídos on-device y disparar su evaluación de riesgo.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Registro de certificado</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/certificates está disponible<br><strong>Cuando</strong> se envía un UploadCertificateResource válido con los datos extraídos, el fileHash y la storageReference<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene el certificado con su status y riskAssessment<br><br><strong>Escenario 2: Hash duplicado del mismo propietario</strong><br><strong>Dado que</strong> el propietario ya registró un certificado con el mismo fileHash<br><strong>Cuando</strong> se envía el request<br><strong>Entonces</strong> el response tiene el código 409 Conflict<br><br><strong>Escenario 3: Campos obligatorios ausentes</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/certificates está disponible<br><strong>Cuando</strong> se envía un request sin holderName, institutionName o courseName<br><strong>Entonces</strong> el response tiene el código 400 Bad Request</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS04</td><td>Developer</td><td>Media</td><td>EP03</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoints de consulta de certificados</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints GET /api/v1/certificates/{id} y GET /api/v1/certificates?ownerId={ownerId}, para que la aplicación móvil consulte el estado de los certificados.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta por id existente</strong><br><strong>Dado que</strong> existe un certificado con el id solicitado<br><strong>Cuando</strong> se envía un request GET /api/v1/certificates/{id}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el detalle y el status del certificado<br><br><strong>Escenario 2: Consulta por id inexistente</strong><br><strong>Dado que</strong> no existe un certificado con el id solicitado<br><strong>Cuando</strong> se envía un request GET /api/v1/certificates/{id}<br><strong>Entonces</strong> el response tiene el código 404 Not Found<br><br><strong>Escenario 3: Listado por propietario</strong><br><strong>Dado que</strong> un estudiante registró certificados<br><strong>Cuando</strong> se envía un request GET /api/v1/certificates?ownerId={ownerId}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene únicamente los certificados de ese propietario</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS05</td><td>Developer</td><td>Alta</td><td>EP02</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoints de generación y consulta de rutas</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints POST /api/v1/learning-paths y GET /api/v1/learning-paths/{studentId}, para generar la ruta a partir de la meta declarada y consultarla con el estado de sus nodos.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Generación de ruta</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/learning-paths está disponible<br><strong>Cuando</strong> se envía un DeclareGoalResource con una meta interpretable<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene la ruta con sus nodos ordenados y sus estados<br><br><strong>Escenario 2: Meta no interpretable</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/learning-paths está disponible<br><strong>Cuando</strong> se envía una meta sin correspondencia en la taxonomía de habilidades<br><strong>Entonces</strong> el response tiene el código 422 Unprocessable Entity<br><br><strong>Escenario 3: Consulta de ruta inexistente</strong><br><strong>Dado que</strong> el estudiante no tiene una ruta activa<br><strong>Cuando</strong> se envía un request GET /api/v1/learning-paths/{studentId}<br><strong>Entonces</strong> el response tiene el código 404 Not Found</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS06</td><td>Developer</td><td>Alta</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoint de generación de evaluaciones</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar el endpoint POST /api/v1/path-nodes/{nodeId}/assessment-blueprint, para generar mediante IA la evaluación correspondiente a un nodo disponible.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Nodo disponible</strong><br><strong>Dado que</strong> el nodo {nodeId} tiene estado available<br><strong>Cuando</strong> se envía el request POST /api/v1/path-nodes/{nodeId}/assessment-blueprint<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene el blueprint con sus preguntas sin exponer las respuestas correctas<br><br><strong>Escenario 2: Nodo bloqueado</strong><br><strong>Dado que</strong> el nodo {nodeId} tiene estado locked<br><strong>Cuando</strong> se envía el request<br><strong>Entonces</strong> el response tiene el código 409 Conflict<br><br><strong>Escenario 3: Servicio de IA no disponible</strong><br><strong>Dado que</strong> el servicio de generación de IA no responde<br><strong>Cuando</strong> se envía el request<br><strong>Entonces</strong> el response tiene el código 503 Service Unavailable<br><strong>Y</strong> el nodo mantiene su estado sin cambios</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS07</td><td>Developer</td><td>Alta</td><td>EP04</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoints de registro de intentos</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints POST /api/v1/assessment-attempts y GET /api/v1/assessment-attempts/{id}, para calificar los intentos en el servidor y abrir un caso de verificación cuando no se aprueban.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Intento aprobado</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/assessment-attempts está disponible<br><strong>Cuando</strong> se envía un SubmitAssessmentAttemptResource cuyas respuestas alcanzan el umbral<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene el score y passed con valor true<br><br><strong>Escenario 2: Intento no aprobado</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/assessment-attempts está disponible<br><strong>Cuando</strong> se envía un request cuyas respuestas no alcanzan el umbral<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene passed con valor false y el id del VerificationCase abierto<br><br><strong>Escenario 3: Blueprint inexistente</strong><br><strong>Dado que</strong> el blueprintId enviado no existe<br><strong>Cuando</strong> se envía el request<br><strong>Entonces</strong> el response tiene el código 404 Not Found</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS08</td><td>Developer</td><td>Alta</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoints de gestión de casos de verificación</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints de VerificationCaseController y VerifierProfileController, para que los Verificadores consulten sus casos, gestionen su disponibilidad y registren sus decisiones.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Listado de casos asignados</strong><br><strong>Dado que</strong> un Verificador tiene casos asignados<br><strong>Cuando</strong> se envía un request GET /api/v1/verification-cases?verifierId={id}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene únicamente los casos asignados a ese Verificador<br><br><strong>Escenario 2: Registro de decisión</strong><br><strong>Dado que</strong> un caso está asignado al Verificador autenticado<br><strong>Cuando</strong> se envía un request PATCH /api/v1/verification-cases/{id}/decision con un ResolveCaseResource completo<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el caso cambia a estado resuelto<br><br><strong>Escenario 3: Decisión de un Verificador no asignado</strong><br><strong>Dado que</strong> un caso no está asignado al Verificador autenticado<br><strong>Cuando</strong> se envía el request PATCH /api/v1/verification-cases/{id}/decision<br><strong>Entonces</strong> el response tiene el código 403 Forbidden<br><br><strong>Escenario 4: Actualización de disponibilidad</strong><br><strong>Dado que</strong> existe un perfil de Verificador<br><strong>Cuando</strong> se envía un request PATCH /api/v1/verifier-profiles/{id}/availability<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el valor actualizado de available</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS09</td><td>Developer</td><td>Media</td><td>EP07</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoints de billetera y canje de SkillCredits</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints de WalletController y CreditTransactionController, para consultar saldos, historial de movimientos y registrar canjes de SkillCredits.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta de saldo</strong><br><strong>Dado que</strong> el usuario tiene una billetera<br><strong>Cuando</strong> se envía un request GET /api/v1/wallets/{userId}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el balance actual<br><br><strong>Escenario 2: Canje con saldo suficiente</strong><br><strong>Dado que</strong> el saldo del usuario cubre el costo del beneficio<br><strong>Cuando</strong> se envía un request POST /api/v1/credit-transactions/redeem<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene la transacción de tipo REDEEMED<br><br><strong>Escenario 3: Canje con saldo insuficiente</strong><br><strong>Dado que</strong> el saldo del usuario no cubre el costo del beneficio<br><strong>Cuando</strong> se envía un request POST /api/v1/credit-transactions/redeem<br><strong>Entonces</strong> el response tiene el código 422 Unprocessable Entity<br><strong>Y</strong> el balance permanece sin cambios</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS10</td><td>Developer</td><td>Alta</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoints de gestión de disputas</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints de DisputeController, para registrar reportes de usuarios y permitir que el Coordinador consulte y resuelva las disputas pendientes.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Registro de reporte</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/disputes/reports está disponible<br><strong>Cuando</strong> se envía un CreateUserReportResource válido<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> la disputa se registra con sourceType USER_REPORT y status PENDING<br><br><strong>Escenario 2: Listado de pendientes por un Coordinador</strong><br><strong>Dado que</strong> el usuario autenticado tiene el rol Coordinator<br><strong>Cuando</strong> se envía un request GET /api/v1/disputes?status=pending<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene únicamente disputas en estado PENDING<br><br><strong>Escenario 3: Acceso sin rol de Coordinador</strong><br><strong>Dado que</strong> el usuario autenticado tiene el rol Student<br><strong>Cuando</strong> se envía un request PATCH /api/v1/disputes/{disputeId}/resolve<br><strong>Entonces</strong> el response tiene el código 403 Forbidden<br><br><strong>Escenario 4: Resolución incoherente</strong><br><strong>Dado que</strong> el outcome enviado no es coherente con el sourceType de la disputa<br><strong>Cuando</strong> se envía el request PATCH /api/v1/disputes/{disputeId}/resolve<br><strong>Entonces</strong> el response tiene el código 400 Bad Request<br><strong>Y</strong> la disputa permanece en estado PENDING</td></tr>
+</table>
+
+*(Tabla 12. User Stories del proyecto - Elaboración propia.)*
 
 ### 2.4.2. Impact Mapping
 *(Nota: Insertar los diagramas de Impact Mapping conectando los Business Goals con los User Personas y las funcionalidades móviles).*
