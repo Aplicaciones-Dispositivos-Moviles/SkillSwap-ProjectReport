@@ -283,7 +283,6 @@ package "Wallet & Incentives" {
     enum TransactionType {
         EARNED
         REDEEMED
-        PURCHASED
     }
 
     enum RedemptionItem {
@@ -309,16 +308,6 @@ package "Subscription & Billing" {
         +expire(): void
     }
 
-    class CreditPurchase <<Aggregate Root>> {
-        +buyerId: Long
-        +creditsAmount: Integer
-        +amountPaid: Money
-        +status: PurchaseStatus
-        +purchasedAt: Date
-        +complete(): void
-        +fail(): void
-    }
-
     class SubscriptionPlan <<Value Object>> {
         +name: String
         +price: Money
@@ -335,17 +324,9 @@ package "Subscription & Billing" {
         CANCELLED
     }
 
-    enum PurchaseStatus {
-        PENDING
-        COMPLETED
-        FAILED
-    }
-
     Subscription --> SubscriptionPlan
     Subscription --> SubscriptionStatus
     SubscriptionPlan --> Money
-    CreditPurchase --> Money
-    CreditPurchase --> PurchaseStatus
 }
 
 ' --- Herencia hacia el Aggregate Root compartido ---

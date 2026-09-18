@@ -77,8 +77,7 @@ MOD -up-> IAM : [Customer/Supplier]
 MOD -right-> REP : [Customer/Supplier]
 MOD ..> APR : [Anticorruption\nLayer]
 
-' Subscription & Billing
-SUB -left-> WAL : [Customer/Supplier]
+' Subscription & Billing (independiente de Wallet & Incentives)
 SUB ..> STR : [Anticorruption\nLayer]
 
 @enduml

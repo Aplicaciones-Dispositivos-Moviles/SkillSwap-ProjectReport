@@ -19,7 +19,7 @@ System_Boundary(skillSwapSystem, "SkillSwap Platform") {
     Container(assessmentBC, "Assessment & Peer Review Bounded Context", "C# / ASP.NET Core", "Intentos de evaluación, asignación y revisión de Verificador")
     Container(reputationBC, "Reputation Bounded Context", "C# / ASP.NET Core", "Confiabilidad del Verificador y Employability Score")
     Container(walletBC, "Wallet & Incentives Bounded Context", "C# / ASP.NET Core", "Balance y transferencias de SkillCredits")
-    Container(subscriptionBC, "Subscription & Billing Bounded Context", "C# / ASP.NET Core", "Suscripción mensual y compra de SkillCredits en la tienda")
+    Container(subscriptionBC, "Subscription & Billing Bounded Context", "C# / ASP.NET Core", "Suscripción mensual")
     Container(moderationBC, "Moderation & Disputes Bounded Context", "C# / ASP.NET Core", "Resolución de disputas y sanciones")
 
     ContainerDb(mainDB, "SkillSwap Database", "MySQL 8", "Base de datos única compartida por los ocho Bounded Contexts (skillswap_db)")
@@ -67,7 +67,7 @@ Rel(credentialBC, mlKitService, "Extrae datos del certificado (OCR on-device)")
 Rel(credentialBC, cloudStorage, "Guarda la imagen del certificado")
 Rel(assessmentBC, cloudStorage, "Guarda evidencias adjuntas a un caso de verificación")
 Rel(moderationBC, emailService, "Envía notificación de sanción o resolución de disputa")
-Rel(subscriptionBC, stripeApi, "Procesa el cobro de la suscripción y de la compra de SkillCredits")
-Rel(subscriptionBC, walletBC, "Notifica compra completada para acreditar SkillCredits")
+Rel(subscriptionBC, stripeApi, "Procesa el cobro de la suscripción")
+
 
 @enduml
