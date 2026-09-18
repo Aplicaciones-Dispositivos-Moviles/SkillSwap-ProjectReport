@@ -1668,7 +1668,588 @@ La estimación total del Product Backlog asciende a **204 Story Points**.
 ## 2.5. Strategic-Level Domain-Driven Design
 
 ### 2.5.1. EventStorming
-*(Nota: Documentar las fases de Candidate Context Discovery y Domain Message Flows Modeling realizadas por el equipo).*
+
+El EventStorming se desarrolló siguiendo los diez pasos propuestos en el material del curso, a partir del modelo de negocio descrito en el Capítulo I. El objetivo fue identificar los eventos del dominio de SkillSwap, ordenarlos en el tiempo, reconocer los puntos críticos del proceso y agrupar los agregados resultantes en bounded contexts candidatos.
+
+**Paso 1. Unstructured Exploration**
+
+En este primer paso se realizó una lluvia de ideas de los eventos de dominio relevantes para SkillSwap, redactados en tiempo pasado porque describen hechos que ya ocurrieron en el negocio. Se identificaron 64 eventos, que abarcan el registro y la suscripción del Estudiante, la generación de la ruta de certificación, el registro de certificados, la evaluación mediante quizzes y entregables prácticos, la revisión por parte de los Verificadores, la demostración final, la emisión de la certificación, la moderación de decisiones y la habilitación de nuevos Verificadores. En esta etapa los eventos se presentan sin orden, ya que el propósito es explorar el dominio antes de estructurarlo.
+
+**Figura 24**
+
+*EventStorming, paso 1: Unstructured Exploration*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-01-exploracion.png" alt="EventStorming paso 1: eventos de dominio de SkillSwap sin orden" width="900">
+</p>
+
+*Nota.* Eventos de dominio de SkillSwap identificados durante la exploración inicial, presentados sin orden cronológico. Elaboración propia.
+
+**Paso 2. Timelines**
+
+En el segundo paso, los eventos identificados se ordenaron en el tiempo. Por la cantidad de eventos, la línea de tiempo se organizó en carriles, uno por actor o ciclo de vida (Suscripción, Estudiante, Verificador y Moderación), y se dividió en tres fases del proceso. En cada carril, la fila superior muestra el camino exitoso y debajo se ubican los escenarios alternativos que se desprenden de cada evento.
+
+No se modelaron caminos separados para el plan gratuito y el premium, porque los eventos son los mismos en ambos: lo que cambia son los límites de rutas y de escalamientos, que aparecen como ramas, y la duración de las esperas y los plazos de revisión. Mantener un solo camino deja a la vista que ningún plan ofrece más oportunidades de aprobar.
+
+La primera fase abarca el registro, la suscripción y el registro de certificados. Cuando el Estudiante verifica su correo, se le asigna el plan gratuito, que puede evolucionar a una suscripción premium con su propio ciclo de cobro, renovación, rechazo del pago o cancelación. Luego declara su objetivo, recibe su ruta de certificación y sube sus certificados; si el riesgo documental resulta alto, el certificado se marca como sospechoso y su revisión pasa a Moderación.
+
+**Figura 25**
+
+*EventStorming, paso 2: Timelines (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-02a-registro.png" alt="EventStorming paso 2: registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Línea de tiempo en carriles del registro, la suscripción y el registro de certificados. Las líneas punteadas indican el traspaso entre carriles. Elaboración propia.
+
+La segunda fase corresponde a la evaluación de los nodos de la ruta. En los nodos de quiz, un intento desaprobado permite volver a intentarlo con preguntas nuevas hasta agotar los tres intentos, tras lo cual comienza un periodo de espera. En los nodos prácticos, el entregable enviado abre un caso de verificación que toma un Verificador en su propio carril; si el plazo de revisión vence, el caso se reasigna. La calificación que el Verificador registra por criterio es la que determina si el entregable se aprueba o si requiere cambios, en cuyo caso el Estudiante recibe los criterios no cumplidos y puede reenviar su entrega. Por cada revisión, el Verificador recibe SkillCredits, apruebe o rechace, y su confiabilidad se recalcula. Si el Estudiante reporta una decisión, se abre una disputa que resuelve Moderación; cuando la decisión se revierte, se aplica una sanción y la confiabilidad del Verificador vuelve a calcularse.
+
+**Figura 26**
+
+*EventStorming, paso 2: Timelines (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-02b-evaluacion.png" alt="EventStorming paso 2: evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Línea de tiempo en carriles de la evaluación de los nodos de quiz y de los nodos prácticos. Elaboración propia.
+
+La tercera fase cubre la demostración final, la certificación y la habilitación de nuevos Verificadores. Al completar la ruta, el Estudiante envía su demostración final, que califica un Verificador; esa calificación determina si la demostración se aprueba y se emite la certificación, o si se devuelven los criterios no cumplidos. Si el Estudiante reporta la calificación, se asigna un segundo revisor. La certificación emitida es, además, el requisito para que el Estudiante solicite el examen de ingreso y, al aprobarlo, quede habilitado como Verificador para esa habilidad.
+
+**Figura 27**
+
+*EventStorming, paso 2: Timelines (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-02c-certificacion.png" alt="EventStorming paso 2: demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Línea de tiempo en carriles de la demostración final, la emisión de la certificación y la habilitación de un Verificador. Elaboración propia.
+
+**Paso 3. Pain Points**
+
+En el tercer paso se revisó la línea de tiempo para identificar los puntos críticos del proceso: dudas, reglas que aún no están definidas y riesgos que el equipo debe resolver antes de implementar. Cada punto crítico se registró como un rombo rosado unido al evento en el que aparece. Se identificaron 15 puntos críticos, repartidos en las mismas tres fases del paso anterior.
+
+En la fase de registro, suscripción y certificados, las dudas se concentran en la generación de la ruta y en la lectura de los certificados: cuántos nodos prácticos debe incluir como mínimo una ruta, qué ocurre si el OCR no logra leer un certificado y si un certificado marcado como sospechoso bloquea el avance del Estudiante mientras Moderación lo revisa. En la suscripción, queda por definir si existe un periodo de gracia cuando falla el cobro.
+
+**Figura 28**
+
+*EventStorming, paso 3: Pain Points (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-03a-registro.png" alt="EventStorming paso 3: puntos críticos del registro, la suscripción y los certificados" width="900">
+</p>
+
+*Nota.* Puntos críticos, representados como rombos rosados, identificados sobre la línea de tiempo del registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la fase de evaluación de los nodos aparece el mayor número de puntos críticos. En los quizzes, preocupa cómo controlar la calidad de las preguntas generadas por la inteligencia artificial, si se requiere un certificado para rendir un nodo y cuánto dura el periodo de espera en cada plan. En la revisión humana, quedan abiertas la situación del Estudiante del plan gratuito que alcanza su límite de escalamientos, el tratamiento de un Verificador que deja vencer varios plazos, los umbrales de cada rango de Verificador y el destino de los casos que tenía asignados un Verificador sancionado.
+
+**Figura 29**
+
+*EventStorming, paso 3: Pain Points (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-03b-evaluacion.png" alt="EventStorming paso 3: puntos críticos de la evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Puntos críticos, representados como rombos rosados, identificados sobre la línea de tiempo de la evaluación de los nodos de quiz y de los nodos prácticos. Elaboración propia.
+
+En la fase de demostración final, certificación y nuevo Verificador, los puntos críticos se relacionan con la disponibilidad y la imparcialidad de la revisión: qué ocurre si no hay Verificadores habilitados para la habilidad, quién define los criterios y el umbral de aprobación de la rúbrica y si un Verificador puede revisar a alguien que conoce. Estas tres dudas aplican también a la revisión de los nodos prácticos, pero se ubicaron en esta fase para no recargar la figura anterior. Por último, queda por definir quién diseña el examen de ingreso para Verificadores y cuándo puede repetirse.
+
+**Figura 30**
+
+*EventStorming, paso 3: Pain Points (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-03c-certificacion.png" alt="EventStorming paso 3: puntos críticos de la demostración final, la certificación y el nuevo Verificador" width="900">
+</p>
+
+*Nota.* Puntos críticos, representados como rombos rosados, identificados sobre la línea de tiempo de la demostración final, la emisión de la certificación y la habilitación de un Verificador. Elaboración propia.
+
+**Paso 4. Pivotal Points**
+
+En el cuarto paso se identificaron los eventos pivotales, es decir, aquellos después de los cuales el proceso entra en una fase distinta. Cada uno se marcó con una línea vertical ubicada inmediatamente después del evento, en su carril. Se identificaron seis eventos pivotales.
+
+En la fase de registro, suscripción y certificados hay dos. El primero es "Correo verificado": a partir de ese momento el usuario deja de ser anónimo y puede operar en la plataforma. El segundo es "Ruta de certificación generada", que cierra el diagnóstico del objetivo y da inicio al recorrido de aprendizaje.
+
+**Figura 31**
+
+*EventStorming, paso 4: Pivotal Points (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-04a-registro.png" alt="EventStorming paso 4: eventos pivotales del registro, la suscripción y los certificados" width="900">
+</p>
+
+*Nota.* Las líneas verticales marcan los eventos pivotales que separan el registro, el diagnóstico del objetivo y el inicio del recorrido de aprendizaje. Elaboración propia.
+
+En la fase de evaluación de los nodos, el evento pivotal es "Caso de verificación abierto". Hasta ese punto la evaluación es automática, porque los quizzes se corrigen solos; desde ese punto interviene un Verificador. Este cambio se repite en cada nodo práctico de la ruta.
+
+**Figura 32**
+
+*EventStorming, paso 4: Pivotal Points (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-04b-evaluacion.png" alt="EventStorming paso 4: evento pivotal de la evaluación de los nodos" width="900">
+</p>
+
+*Nota.* La línea vertical marca el paso de la evaluación automática a la revisión humana en los nodos prácticos. Elaboración propia.
+
+En la fase de demostración final, certificación y nuevo Verificador hay tres eventos pivotales. "Ruta completada" cierra la evaluación de los nodos y habilita la demostración final. "Certificación emitida" cierra el recorrido del Estudiante, porque la habilidad queda certificada. Por último, "Verificador habilitado para la habilidad" marca el cambio de rol: desde ese momento, el Estudiante puede revisar el trabajo de otros.
+
+**Figura 33**
+
+*EventStorming, paso 4: Pivotal Points (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-04c-certificacion.png" alt="EventStorming paso 4: eventos pivotales de la demostración final, la certificación y el nuevo Verificador" width="900">
+</p>
+
+*Nota.* Las líneas verticales marcan el inicio de la demostración final, la emisión de la certificación y la habilitación del Estudiante como Verificador. Elaboración propia.
+
+**Paso 5. Commands**
+
+En el quinto paso se identificaron los comandos, es decir, las decisiones que producen cada evento. Cada comando se registró en un post-it azul a la izquierda del evento que dispara, con el actor que lo ejecuta en un post-it amarillo encima. En este paso solo se incluyen los comandos que ejecuta una persona; los que ejecuta el sistema se incorporan en el paso siguiente, junto con las políticas. El modelo tiene dos actores, el Estudiante y el Verificador. Moderación no aparece como actor, porque opera desde un panel externo a la aplicación.
+
+En la fase de registro, suscripción y certificados, todos los comandos los ejecuta el Estudiante: registrarse, verificar su correo, iniciar sesión, declarar su objetivo y subir certificados, además de iniciar o cancelar la suscripción premium. La suscripción vencida y la suscripción cancelada son desenlaces independientes: la primera se produce cuando falla el cobro y la segunda, cuando el Estudiante lo decide.
+
+**Figura 34**
+
+*EventStorming, paso 5: Commands (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-05a-registro.png" alt="EventStorming paso 5: Commands, registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Comandos, en azul, y actores, en amarillo, del registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la evaluación de los nodos, el Estudiante envía los intentos de quiz, los entregables y sus reenvíos, y puede calificar la revisión recibida o reportar la decisión. El único comando del Verificador en esta fase es calificar el entregable: el Verificador no decide si el entregable se aprueba, sino que registra la calificación de cada criterio de la rúbrica.
+
+**Figura 35**
+
+*EventStorming, paso 5: Commands (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-05b-evaluacion.png" alt="EventStorming paso 5: Commands, evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Comandos, en azul, y actores, en amarillo, de la evaluación de los nodos de quiz y de los nodos prácticos. Elaboración propia.
+
+En la fase final, el Estudiante envía la demostración final y puede reportar su calificación, y el Verificador la califica con la rúbrica. Los comandos para solicitar y rendir el examen de ingreso los ejecuta el Estudiante, aunque aparecen en el carril del Verificador, porque todavía no está habilitado como tal. Una vez habilitado, el Verificador actualiza su disponibilidad.
+
+**Figura 36**
+
+*EventStorming, paso 5: Commands (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-05c-certificacion.png" alt="EventStorming paso 5: Commands, demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Comandos, en azul, y actores, en amarillo, de la demostración final, la emisión de la certificación y la habilitación de un Verificador. Elaboración propia.
+
+**Paso 6. Policies**
+
+En el sexto paso se agregaron las políticas, que representan las reacciones automáticas del sistema: cuando ocurre un evento, el sistema ejecuta un comando sin que intervenga una persona. Cada política se registró en un post-it morado sobre el comando que ejecuta. Con este paso aparecen en el tablero los comandos del sistema, que completan la cadena entre los eventos.
+
+En la primera fase, las políticas envían el correo de verificación cuando el Estudiante se registra, asignan el plan gratuito cuando verifica su correo y generan la ruta de certificación cuando declara un objetivo. Cada certificado subido pasa por una cadena automática: se extraen sus datos, se evalúa el riesgo documental y, según el resultado, se registra o se escala a Moderación. En la suscripción, el cobro se ejecuta al inicio de cada periodo mensual y, si el pago se rechaza, la suscripción vence.
+
+**Figura 37**
+
+*EventStorming, paso 6: Policies (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-06a-registro.png" alt="EventStorming paso 6: Policies, registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Políticas, en morado, y comandos del sistema del registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la evaluación se concentran las reglas de negocio del modelo. El quiz se genera con preguntas nuevas al iniciar el nodo o al terminar el periodo de espera, y al agotar los intentos comienza la espera. Al enviar un entregable se abre un caso, siempre que el plan tenga escalamientos disponibles; al abrir el caso se asigna un Verificador y, si vence el plazo, el caso se reasigna. La política central es el cálculo de la aprobación: cuando el Verificador califica el entregable, el sistema calcula el resultado contra el umbral de la rúbrica y, si no lo alcanza, devuelve los criterios no cumplidos. Cada calificación acredita SkillCredits al Verificador, apruebe o rechace, y recalcula su confiabilidad; cuando el total de SkillCredits cruza un umbral, se otorga el rango correspondiente.
+
+**Figura 38**
+
+*EventStorming, paso 6: Policies (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-06b-evaluacion.png" alt="EventStorming paso 6: Policies, evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Políticas, en morado, y comandos del sistema de la evaluación de los nodos. Elaboración propia.
+
+En la fase final, completar todos los nodos completa la ruta y habilita la demostración final. La aprobación de la demostración también la calcula el sistema a partir de la calificación del Verificador y, cuando se aprueba, se emite la certificación. Si el Estudiante reporta la calificación, se asigna un segundo revisor. Por último, aprobar el examen de ingreso habilita al Verificador para esa habilidad.
+
+**Figura 39**
+
+*EventStorming, paso 6: Policies (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-06c-certificacion.png" alt="EventStorming paso 6: Policies, demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Políticas, en morado, y comandos del sistema de la demostración final, la emisión de la certificación y la habilitación de un Verificador. Elaboración propia.
+
+**Paso 7. Read Models**
+
+En el séptimo paso se identificaron los read models, es decir, la información que cada actor consulta antes de ejecutar un comando. Cada read model se registró en un post-it verde junto al comando que apoya.
+
+En la primera fase, el Estudiante consulta su plan y sus límites antes de declarar un objetivo o de pasar a premium, el estado de sus certificados antes de subir uno nuevo y el estado de su suscripción antes de cancelarla.
+
+**Figura 40**
+
+*EventStorming, paso 7: Read Models (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-07a-registro.png" alt="EventStorming paso 7: Read Models, registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Read models, en verde, que consulta el Estudiante durante el registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la evaluación, el Estudiante consulta el quiz, el enunciado práctico con su rúbrica y los criterios no cumplidos antes de reenviar un entregable o de reportar una decisión. Antes de calificar una revisión, consulta el perfil público del Verificador. El Verificador, por su parte, trabaja sobre su cola de casos con plazos y sobre el formulario de la rúbrica.
+
+**Figura 41**
+
+*EventStorming, paso 7: Read Models (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-07b-evaluacion.png" alt="EventStorming paso 7: Read Models, evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Read models, en verde, que consultan el Estudiante y el Verificador durante la evaluación de los nodos. Elaboración propia.
+
+En la fase final, el Estudiante consulta el enunciado y la rúbrica de la demostración antes de enviarla, y su elegibilidad antes de solicitar el examen de ingreso. El Verificador califica la demostración sobre el formulario de la rúbrica.
+
+**Figura 42**
+
+*EventStorming, paso 7: Read Models (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-07c-certificacion.png" alt="EventStorming paso 7: Read Models, demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Read models, en verde, de la demostración final y la solicitud del examen de ingreso. Elaboración propia.
+
+**Paso 8. External Systems**
+
+En el octavo paso se incorporaron los sistemas externos, representados con post-its rojos. Algunos reciben órdenes del sistema, otros son notificados cuando ocurre un evento y uno de ellos, el panel de moderación, ejecuta comandos sobre el sistema.
+
+En la primera fase intervienen el servicio de correo, que envía la verificación; el LLM, que genera la ruta de certificación; Cloudinary, que almacena los certificados; ML Kit, que extrae sus datos mediante OCR en el dispositivo, y la pasarela de pago, que ejecuta el cobro de la suscripción. Como pasarela se consideró Culqi o Mercado Pago, porque Stripe no opera en Perú. El panel de moderación aparece como el sistema que resuelve la revisión de un certificado sospechoso.
+
+**Figura 43**
+
+*EventStorming, paso 8: External Systems (registro, suscripción y certificados)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-08a-registro.png" alt="EventStorming paso 8: External Systems, registro, suscripción y certificados" width="900">
+</p>
+
+*Nota.* Sistemas externos, en rojo, que intervienen en el registro, la suscripción y el registro de certificados. Elaboración propia.
+
+En la evaluación, el LLM genera las preguntas de cada intento, los enunciados prácticos y el enunciado nuevo cuando un nodo se reactiva. Cloudinary almacena los entregables y el servicio de correo notifica los criterios no cumplidos. El panel de moderación, externo a la aplicación, ejecuta la resolución de disputas y la aplicación de sanciones, apoyándose en una vista de reportes, disputas y confiabilidad.
+
+**Figura 44**
+
+*EventStorming, paso 8: External Systems (evaluación de los nodos)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-08b-evaluacion.png" alt="EventStorming paso 8: External Systems, evaluación de los nodos" width="900">
+</p>
+
+*Nota.* Sistemas externos, en rojo, que intervienen en la evaluación de los nodos y en la moderación. Elaboración propia.
+
+En la fase final, Cloudinary almacena la demostración final y el servicio de correo notifica tanto los criterios no cumplidos como la emisión de la certificación.
+
+**Figura 45**
+
+*EventStorming, paso 8: External Systems (demostración final, certificación y nuevo Verificador)*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-08c-certificacion.png" alt="EventStorming paso 8: External Systems, demostración final, certificación y nuevo Verificador" width="900">
+</p>
+
+*Nota.* Sistemas externos, en rojo, que intervienen en la demostración final y la emisión de la certificación. Elaboración propia.
+
+**Paso 9. Aggregates**
+
+En el noveno paso, los comandos y los eventos se agruparon en agregados, es decir, en los objetos del dominio que reciben los comandos, protegen las reglas de negocio y producen los eventos. Se identificaron 12 agregados. En la figura, cada agregado aparece como un post-it alto de color amarillo pálido, con los comandos que recibe a la izquierda, los eventos que produce a la derecha y su regla principal debajo.
+
+Los agregados con más responsabilidad son VerificationCase, que concentra la revisión humana de los entregables y de la demostración final, incluidas la asignación, el plazo, el cálculo de la aprobación y las reentregas, y LearningPath, que gestiona la ruta y el avance de sus nodos. Certificate se mantiene separado de la ruta, porque registrar un certificado no completa ningún nodo, y SkillCertification se modeló como un agregado propio, porque solo puede emitirse con la ruta completada y la demostración final aprobada. Wallet refleja que los SkillCredits solo se ganan revisando y que no se compran ni se canjean.
+
+**Figura 46**
+
+*EventStorming, paso 9: Aggregates*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-09-agregados.png" alt="EventStorming paso 9: agregados de SkillSwap con sus comandos y eventos" width="900">
+</p>
+
+*Nota.* Agregados de SkillSwap, en amarillo pálido, con los comandos que reciben, los eventos que producen y la regla principal de cada uno. Elaboración propia.
+
+**Paso 10. Bounded Contexts**
+
+En el último paso, los agregados se agruparon en bounded contexts candidatos, según la cercanía de su funcionalidad y las políticas que los conectan. Se obtuvieron ocho contextos. Dos se consideran core, porque contienen la propuesta de valor de SkillSwap: Learning Path Engine, que convierte el objetivo del Estudiante en una ruta de certificación, y Assessment & Peer Review, que verifica el dominio de cada habilidad mediante la revisión con rúbrica. Credential Verification, Reputation, Recognition & Incentives y Moderation & Disputes son contextos de soporte, mientras que Identity & Access y Subscription & Billing son genéricos.
+
+Las flechas moradas representan las políticas que conectan los contextos, y las flechas punteadas, las consultas. Assessment & Peer Review es el contexto con más relaciones: consulta a Subscription & Billing los escalamientos, la espera y el plazo que corresponden al plan, y notifica a Learning Path Engine, Reputation y Recognition & Incentives cada vez que se califica o se aprueba una entrega. Moderation & Disputes recibe los certificados sospechosos y, cuando revierte una decisión, notifica a Reputation y a Assessment & Peer Review.
+
+**Figura 47**
+
+*EventStorming, paso 10: Bounded Contexts*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-10-bounded-contexts.png" alt="EventStorming paso 10: bounded contexts candidatos de SkillSwap" width="900">
+</p>
+
+*Nota.* Bounded contexts candidatos de SkillSwap, delimitados con línea punteada. Los contextos core tienen borde grueso; las flechas moradas representan políticas y las punteadas, consultas. Elaboración propia.
+
+#### 2.5.1.1. Candidate Context Discovery
+
+A partir del EventStorming, se realizó el descubrimiento de contextos candidatos para identificar los bounded contexts de SkillSwap. El proceso se desarrolló en tres iteraciones sobre una versión simplificada de la línea de tiempo, que conserva los eventos que mejor representan cada parte del proceso. En cada iteración se aplicó una de las técnicas propuestas: start-with-simple y look-for-pivotal-events para una primera división del dominio, un refinamiento del borrador según el lenguaje y las reglas de cada parte, y start-with-value para clasificar los contextos resultantes según su valor para el negocio.
+
+**Iteración 1. Start-with-simple y look-for-pivotal-events**
+
+En la primera iteración, la línea de tiempo se descompuso en pasos secuenciales, usando como límites los seis eventos pivotales identificados en el paso 4 del EventStorming: correo verificado, ruta de certificación generada, caso de verificación abierto, ruta completada, certificación emitida y Verificador habilitado para la habilidad. Así se obtuvieron siete fases, desde el registro hasta la revisión como Verificador, y a cada una se le asignó un contexto en borrador. Dentro de la fase de recorrido se separaron los certificados de la evaluación, porque registrar un certificado no completa ningún nodo de la ruta.
+
+En esta iteración también se observó que algunos eventos no pertenecen a una sola fase. El cobro y el vencimiento de la suscripción, los SkillCredits, la confiabilidad del Verificador y las disputas aparecen en distintos momentos del proceso, por lo que se registraron aparte como candidatos a contextos transversales.
+
+**Figura 48**
+
+*Candidate Context Discovery, iteración 1: fases delimitadas por los eventos pivotales*
+
+<p align="center">
+  <img src="public/assets/images-doc/candidate-context-discovery-1-pivotales.png" alt="Línea de tiempo simplificada de SkillSwap dividida en fases por los eventos pivotales" width="900">
+</p>
+
+*Nota.* Línea de tiempo simplificada, dividida en fases por los eventos pivotales. Debajo de cada fase figura el contexto en borrador, y en la parte inferior, los eventos que aparecen en varias fases. Elaboración propia.
+
+**Iteración 2. Refinamiento de los contextos candidatos**
+
+En la segunda iteración, cada evento se ubicó en el carril del contexto candidato al que pertenece, manteniendo su posición en el tiempo. Los borradores se ajustaron según dos criterios: que los eventos de un mismo contexto compartan el lenguaje y las reglas de negocio, y que el contexto pueda evolucionar sin arrastrar a los demás.
+
+Con este criterio, los borradores de evaluación, revisión y Verificadores se unieron en Assessment & Peer Review, porque comparten el mismo lenguaje de casos, rúbricas, criterios e intentos, y porque el examen de ingreso del Verificador es también una evaluación. El borrador de certificación se integró a Learning Path Engine, porque la certificación es el resultado de completar la ruta; en ese mismo contexto quedó la generación del quiz, ya que el blueprint de evaluación se define junto con cada nodo. Los eventos transversales dieron lugar a cuatro contextos propios: Subscription & Billing, Reputation, Recognition & Incentives y Moderation & Disputes. La figura muestra que el flujo principal avanza entre Learning Path Engine y Assessment & Peer Review, mientras que los demás contextos intervienen en momentos puntuales.
+
+**Figura 49**
+
+*Candidate Context Discovery, iteración 2: línea de tiempo por contexto candidato*
+
+<p align="center">
+  <img src="public/assets/images-doc/candidate-context-discovery-2-contextos.png" alt="Eventos de SkillSwap organizados en carriles por contexto candidato" width="900">
+</p>
+
+*Nota.* Cada carril corresponde a un contexto candidato y cada evento conserva su posición en el tiempo. Las líneas verticales son los eventos pivotales; los carriles con borde grueso corresponden a los contextos core. Elaboración propia.
+
+**Iteración 3. Start-with-value**
+
+En la tercera iteración, los contextos candidatos se clasificaron según su aporte a la propuesta de valor de SkillSwap, que es demostrar que el Estudiante domina una habilidad y no solo que tiene un certificado. Se consideraron core Learning Path Engine y Assessment & Peer Review, porque sin la ruta y sin la verificación con rúbrica la plataforma no tendría una propuesta diferenciada. Credential Verification, Reputation, Recognition & Incentives y Moderation & Disputes se clasificaron como contextos de soporte, porque son específicos del negocio, pero existen para sostener a los contextos core. Identity & Access y Subscription & Billing se clasificaron como genéricos, porque resuelven necesidades comunes a cualquier aplicación y pueden apoyarse en soluciones existentes.
+
+**Figura 50**
+
+*Candidate Context Discovery, iteración 3: clasificación de los contextos por valor*
+
+<p align="center">
+  <img src="public/assets/images-doc/candidate-context-discovery-3-valor.png" alt="Contextos candidatos de SkillSwap clasificados en core, soporte y genéricos" width="900">
+</p>
+
+*Nota.* Contextos candidatos clasificados según su aporte a la propuesta de valor, con la responsabilidad principal de cada uno. Elaboración propia.
+
+El resultado del proceso son ocho contextos candidatos, que se resumen en la tabla siguiente y que se desarrollan en las secciones 2.5.1.2 y 2.5.1.3.
+
+| Contexto candidato | Tipo | Responsabilidad | Eventos representativos |
+|---|---|---|---|
+| Learning Path Engine | Core | Convertir el objetivo del Estudiante en una ruta de certificación, seguir el avance de sus nodos y emitir la certificación | Ruta de certificación generada, Nodo completado, Ruta completada, Certificación emitida |
+| Assessment & Peer Review | Core | Verificar el dominio de cada habilidad con quizzes, entregables y la demostración final revisados con rúbrica, y habilitar a los Verificadores | Caso de verificación abierto, Entregable calificado por criterio, Demostración final aprobada, Verificador habilitado para la habilidad |
+| Credential Verification | Soporte | Registrar los certificados previos del Estudiante y detectar los sospechosos | Certificado registrado, Certificado marcado como sospechoso |
+| Reputation | Soporte | Medir la confiabilidad de cada Verificador | Revisión calificada por el Estudiante, Confiabilidad del Verificador recalculada |
+| Recognition & Incentives | Soporte | Acreditar SkillCredits por cada revisión y otorgar rangos | SkillCredits acreditados, Rango de Verificador alcanzado |
+| Moderation & Disputes | Soporte | Resolver disputas y revisiones de certificados desde el panel externo | Disputa abierta, Decisión revertida, Revisión de certificado resuelta |
+| Identity & Access | Genérico | Registrar al usuario, verificar su correo y autenticarlo | Estudiante registrado, Correo verificado |
+| Subscription & Billing | Genérico | Gestionar los planes gratuito y premium y el cobro de la suscripción | Plan gratuito asignado, Pago de suscripción cobrado, Suscripción vencida |
+
+#### 2.5.1.2. Domain Message Flows Modeling
+
+Una vez identificados los contextos candidatos, se modeló cómo colaboran entre sí para resolver los escenarios principales del negocio. Para ello se elaboraron diagramas de Domain Message Flow, una técnica de visualización basada en Domain Storytelling que muestra, para un escenario concreto, los mensajes que intercambian los actores, los bounded contexts y los sistemas externos.
+
+Los diagramas siguen la notación de mensaje y contenido combinados. Los actores se representan con una figura de persona, los bounded contexts con una elipse morada y los sistemas externos con un engranaje. Cada mensaje es una tarjeta de color según su tipo: azul para los comandos, naranja para los eventos y verde para las consultas. La tarjeta indica el nombre del mensaje y sus datos más importantes, y el número en la parte superior, que también aparece sobre la flecha correspondiente, señala el orden en que ocurre dentro del escenario. Las flechas punteadas van del emisor al receptor.
+
+Se modelaron seis escenarios, elegidos para que cada bounded context participe en al menos uno de ellos.
+
+El primer escenario muestra cómo colaboran Identity & Access y Subscription & Billing. El Estudiante se registra desde la aplicación, Identity & Access solicita al servicio de correo el envío del código de verificación y, cuando el Estudiante verifica su correo, publica el evento Correo verificado, al que Subscription & Billing reacciona asignando el plan gratuito. Si el Estudiante decide pasar al plan premium, Subscription & Billing ordena el cobro a la pasarela de pago, que responde con el evento Pago de suscripción cobrado.
+
+**Figura 51**
+
+*Domain Message Flow: Registro del Estudiante y paso al plan premium*
+
+<p align="center">
+  <img src="public/assets/images-doc/message-flow-registro.png" alt="Domain Message Flow del escenario registro del estudiante y paso al plan premium" width="900">
+</p>
+
+*Nota.* Mensajes intercambiados entre actores, bounded contexts y sistemas externos en el escenario de registro del Estudiante y paso al plan premium. Los números indican el orden de los mensajes. Elaboración propia.
+
+En el segundo escenario, el Estudiante declara su objetivo y Learning Path Engine consulta a Subscription & Billing si el plan le permite abrir una nueva ruta. Con esa respuesta, solicita al LLM la generación de la ruta, indicando el objetivo, la brecha de habilidades y el mínimo de nodos prácticos, y finalmente publica el evento Ruta de certificación generada, con los nodos y el tipo de cada uno.
+
+**Figura 52**
+
+*Domain Message Flow: Declaración del objetivo y generación de la ruta*
+
+<p align="center">
+  <img src="public/assets/images-doc/message-flow-ruta.png" alt="Domain Message Flow del escenario declaración del objetivo y generación de la ruta" width="900">
+</p>
+
+*Nota.* Mensajes intercambiados entre actores, bounded contexts y sistemas externos en el escenario de declaración del objetivo y generación de la ruta. Los números indican el orden de los mensajes. Elaboración propia.
+
+El tercer escenario corresponde al flujo central de SkillSwap. El entregable del Estudiante se almacena en Cloudinary y se envía a Assessment & Peer Review, que consulta a Subscription & Billing los escalamientos disponibles y el plazo de revisión según el plan. Tras la asignación, el Verificador califica cada criterio de la rúbrica. Cuando el sistema calcula que el entregable se aprueba, Assessment & Peer Review publica el evento Entregable aprobado, que Learning Path Engine usa para completar el nodo, y el evento Entregable calificado por criterio, que Recognition & Incentives usa para acreditar SkillCredits y Reputation para recalcular la confiabilidad del Verificador.
+
+**Figura 53**
+
+*Domain Message Flow: Revisión de un entregable práctico aprobado*
+
+<p align="center">
+  <img src="public/assets/images-doc/message-flow-entregable.png" alt="Domain Message Flow del escenario revisión de un entregable práctico aprobado" width="900">
+</p>
+
+*Nota.* Mensajes intercambiados entre actores, bounded contexts y sistemas externos en el escenario de revisión de un entregable práctico aprobado. Los números indican el orden de los mensajes. Elaboración propia.
+
+El cuarto escenario muestra la moderación. El Estudiante reporta la decisión de un Verificador y Moderation & Disputes abre la disputa. El panel de moderación, externo a la aplicación, consulta las disputas abiertas y ejecuta la resolución. Cuando la decisión se revierte, Moderation & Disputes publica el evento Decisión revertida, que Reputation usa para recalcular la confiabilidad del Verificador y Assessment & Peer Review para aprobar el entregable, lo que a su vez completa el nodo en Learning Path Engine.
+
+**Figura 54**
+
+*Domain Message Flow: Reporte de una decisión revertida por Moderación*
+
+<p align="center">
+  <img src="public/assets/images-doc/message-flow-disputa.png" alt="Domain Message Flow del escenario reporte de una decisión revertida por moderación" width="900">
+</p>
+
+*Nota.* Mensajes intercambiados entre actores, bounded contexts y sistemas externos en el escenario de reporte de una decisión revertida por Moderación. Los números indican el orden de los mensajes. Elaboración propia.
+
+En el quinto escenario, Learning Path Engine publica el evento Ruta completada, que habilita la demostración final en Assessment & Peer Review. El Estudiante envía su demostración, el Verificador la califica con la rúbrica y, cuando se aprueba, Assessment & Peer Review publica el evento Demostración final aprobada. Learning Path Engine emite entonces la certificación, notifica al Estudiante por correo y publica el evento Certificación emitida.
+
+**Figura 55**
+
+*Domain Message Flow: Demostración final y emisión de la certificación*
+
+<p align="center">
+  <img src="public/assets/images-doc/message-flow-demostracion.png" alt="Domain Message Flow del escenario demostración final y emisión de la certificación" width="900">
+</p>
+
+*Nota.* Mensajes intercambiados entre actores, bounded contexts y sistemas externos en el escenario de demostración final y emisión de la certificación. Los números indican el orden de los mensajes. Elaboración propia.
+
+El último escenario muestra el registro de un certificado. La aplicación extrae sus datos en el dispositivo con ML Kit y los envía a Credential Verification, que evalúa el riesgo documental. Si el riesgo es alto, publica el evento Certificado marcado como sospechoso, que Moderation & Disputes recibe para su revisión. Cuando el panel de moderación resuelve el caso, Moderation & Disputes devuelve el resultado a Credential Verification mediante el evento Revisión de certificado resuelta.
+
+**Figura 56**
+
+*Domain Message Flow: Registro de un certificado sospechoso*
+
+<p align="center">
+  <img src="public/assets/images-doc/message-flow-certificado.png" alt="Domain Message Flow del escenario registro de un certificado sospechoso" width="900">
+</p>
+
+*Nota.* Mensajes intercambiados entre actores, bounded contexts y sistemas externos en el escenario de registro de un certificado sospechoso. Los números indican el orden de los mensajes. Elaboración propia.
+
+#### 2.5.1.3. Bounded Context Canvases
+
+Con los contextos candidatos y sus flujos de mensajes definidos, se elaboró un Bounded Context Canvas para cada uno, usando la versión 5 de la plantilla de ddd-crew. Los contextos se trabajaron en orden de importancia, empezando por los core, y cada canvas se construyó de forma iterativa con los siguientes pasos:
+
+1. **Context Overview Definition:** definir el nombre, el propósito y la clasificación estratégica del contexto (tipo de dominio, modelo de negocio, evolución y rol).
+2. **Business Rules Distillation & Ubiquitous Language Capture:** extraer las reglas de negocio del EventStorming y registrar los términos propios del contexto.
+3. **Capability Analysis:** identificar qué capacidades ofrece el contexto a partir de los comandos y consultas que recibe.
+4. **Capability Layering:** cuando aplica, ordenar esas capacidades en capas según su nivel.
+5. **Dependencies Capture:** registrar los mensajes de entrada y de salida y los colaboradores con los que se intercambian, a partir de los Domain Message Flows.
+6. **Design Critique:** revisar el diseño, registrar los supuestos, las métricas para validarlo y las preguntas abiertas, y evaluar alternativas.
+
+En los canvas, los comandos se muestran en azul, los eventos en amarillo y las consultas en verde, como en la plantilla original. Las preguntas abiertas recogen los puntos críticos identificados en el paso 3 del EventStorming.
+
+Se trabajó primero Assessment & Peer Review, por ser el contexto que materializa la propuesta de valor. En la definición general se estableció su propósito, verificar el dominio de cada habilidad, y se clasificó como core, custom built y de ejecución. Al destilar las reglas se concluyó que el Verificador no aprueba ni rechaza, sino que califica cada criterio, y que la aprobación la calcula el sistema contra el umbral de la rúbrica; también se fijaron los límites de intentos, reentregas y plazos. En el análisis de capacidades se identificaron tres grupos, que corresponden a sus capas: la evaluación automática de los quizzes, la revisión humana de los entregables y de la demostración final, y la habilitación de nuevos Verificadores mediante el examen de ingreso. En la captura de dependencias se observó que recibe los blueprints de Learning Path Engine, consulta a Subscription & Billing los límites del plan y notifica sus resultados a Learning Path Engine, Reputation y Recognition & Incentives. En la crítica del diseño se evaluó separar la habilitación de Verificadores en un contexto propio; se descartó en esta etapa porque comparte el lenguaje de casos, rúbricas e intentos, aunque queda como candidata a separarse si crece.
+
+**Figura 57**
+
+*Bounded Context Canvas: Assessment & Peer Review*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-assessment-peer-review.png" alt="Bounded Context Canvas del contexto Assessment & Peer Review" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Assessment & Peer Review, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Learning Path Engine es el segundo contexto core. Su propósito es convertir el objetivo del Estudiante en una ruta de certificación y seguir su avance hasta emitir la certificación. Entre sus reglas destacan el mínimo de nodos prácticos por ruta, el límite de rutas del plan gratuito y la condición para emitir la certificación. Sus capacidades se organizan en dos capas: la generación de la ruta y de los blueprints de evaluación, que delega en el LLM, y el seguimiento del avance hasta la certificación. En las dependencias se identificó una relación en ambos sentidos con Assessment & Peer Review, que se resuelve con eventos: Learning Path Engine publica los blueprints y la ruta completada, y reacciona a los nodos y demostraciones aprobados. En la crítica se evaluó trasladar la generación de blueprints a Assessment & Peer Review; se mantuvo aquí porque el blueprint se define junto con cada nodo de la ruta.
+
+**Figura 58**
+
+*Bounded Context Canvas: Learning Path Engine*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-learning-path-engine.png" alt="Bounded Context Canvas del contexto Learning Path Engine" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Learning Path Engine, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Credential Verification se clasificó como un contexto de soporte orientado al cumplimiento, porque protege la confianza en el perfil del Estudiante. Su regla central es que registrar un certificado no completa ningún nodo, de modo que el certificado previo complementa el perfil, pero no reemplaza la demostración. Su capacidad principal es el registro con evaluación del riesgo documental, apoyada en ML Kit para la extracción en el dispositivo y en Cloudinary para el almacenamiento. Su única dependencia de dominio es Moderation & Disputes, que revisa los certificados sospechosos. En la crítica quedó abierta la pregunta de si un certificado sospechoso debe bloquear la ruta.
+
+**Figura 59**
+
+*Bounded Context Canvas: Credential Verification*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-credential-verification.png" alt="Bounded Context Canvas del contexto Credential Verification" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Credential Verification, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Reputation es un contexto de análisis: no ejecuta el proceso principal, sino que interpreta sus resultados para medir la confiabilidad de cada Verificador. Se alimenta de tres fuentes: la calificación que el Estudiante da a la revisión, las calificaciones registradas en Assessment & Peer Review y las decisiones revertidas por Moderation & Disputes. Su resultado vuelve a Assessment & Peer Review, que lo usa como parte del historial para asignar casos. En la crítica se discutió unirlo con Recognition & Incentives; se mantuvieron separados porque la confiabilidad mide la calidad de las revisiones, mientras que los SkillCredits premian su cantidad.
+
+**Figura 60**
+
+*Bounded Context Canvas: Reputation*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-reputation.png" alt="Bounded Context Canvas del contexto Reputation" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Reputation, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Recognition & Incentives reconoce el trabajo de los Verificadores. Sus reglas reflejan decisiones del modelo de negocio: los SkillCredits se ganan por cada revisión, apruebe o rechace, para no incentivar decisiones en un sentido, y no se compran ni se canjean, porque funcionan como reputación visible. Su capacidad es acreditar SkillCredits y otorgar rangos por umbral, y depende únicamente de los eventos de Assessment & Peer Review. La definición de los umbrales de cada rango queda como pregunta abierta.
+
+**Figura 61**
+
+*Bounded Context Canvas: Recognition & Incentives*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-recognition-incentives.png" alt="Bounded Context Canvas del contexto Recognition & Incentives" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Recognition & Incentives, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Moderation & Disputes resuelve las disputas y las revisiones de certificados. Una decisión de diseño importante es que la moderación no es un actor de la aplicación: el equipo interno opera desde un panel externo que consume los comandos de este contexto. Sus capacidades son resolver disputas, aplicar sanciones y resolver revisiones de certificados, y sus resultados se comunican con eventos a Reputation, Assessment & Peer Review y Credential Verification. En la crítica quedó pendiente definir qué ocurre con los casos asignados a un Verificador sancionado.
+
+**Figura 62**
+
+*Bounded Context Canvas: Moderation & Disputes*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-moderation-disputes.png" alt="Bounded Context Canvas del contexto Moderation & Disputes" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Moderation & Disputes, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Subscription & Billing se clasificó como genérico, porque la gestión de planes y cobros es común a muchas aplicaciones y se apoya en una pasarela de pago existente, Culqi o Mercado Pago. Su regla principal refleja el modelo de negocio: ningún plan compra la aprobación, ya que la cantidad de intentos es igual en ambos, y el plan premium solo reduce las esperas y los plazos y amplía las rutas y los escalamientos. En las dependencias se observa que es un contexto muy consultado: Learning Path Engine y Assessment & Peer Review le preguntan por los límites del plan antes de actuar.
+
+**Figura 63**
+
+*Bounded Context Canvas: Subscription & Billing*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-subscription-billing.png" alt="Bounded Context Canvas del contexto Subscription & Billing" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Subscription & Billing, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
+
+Por último, Identity & Access se clasificó como genérico, commodity y de tipo gateway, porque es la puerta de entrada a la aplicación. Registra a los usuarios, verifica su correo con un código, sin exigir un dominio institucional, y los autentica. Un Verificador sigue siendo el mismo usuario que se registró como Estudiante, por lo que no existe un registro separado. Su dependencia principal es Subscription & Billing, que reacciona al correo verificado asignando el plan gratuito.
+
+**Figura 64**
+
+*Bounded Context Canvas: Identity & Access*
+
+<p align="center">
+  <img src="public/assets/images-doc/bounded-context-canvas-identity-access.png" alt="Bounded Context Canvas del contexto Identity & Access" width="900">
+</p>
+
+*Nota.* Bounded Context Canvas del contexto Identity & Access, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
 
 ### 2.5.2. Context Mapping
 
@@ -1688,7 +2269,7 @@ El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los
 
 Finalmente, **Credential Verification** mantiene una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **ML Kit** (Text Recognition / Entity Extraction de Firebase, utilizado on-device para la extracción de datos del certificado), aislando el modelo de dominio interno `Certificate` de los contratos y formatos de respuesta propios del SDK externo.
 
-**Figura 24**
+**Figura 65**
 
 *Context Mapping de SkillSwap*
 
@@ -1721,7 +2302,7 @@ El sistema es utilizado por tres actores principales: el **Estudiante**, quien s
 
 A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), utilizado on-device para la extracción de datos de los certificados subidos por el Estudiante (institución, curso, fecha) — esta es la tecnología que satisface el requisito de aprendizaje autónomo del curso; **Stripe**, utilizado para el procesamiento del cobro recurrente de la suscripción mensual y la compra de paquetes de SkillCredits en la tienda interna; un **servicio de almacenamiento en la nube** para las imágenes de certificados y evidencias adjuntas a un caso de revisión; y un **servicio de correo electrónico** para el envío de notificaciones institucionales (validación de dominio `.edu.pe`, resultado de una evaluación, apertura o resolución de un caso de verificación).
 
-**Figura 25**
+**Figura 66**
 
 *C4 Model: Context Diagram*
 
@@ -1745,7 +2326,7 @@ Los contenedores identificados son los siguientes:
 
 Es importante resaltar que tanto la aplicación Android nativa como la aplicación Flutter cross-platform consumen el **mismo contrato de API RESTful** documentado con OpenAPI/Swagger, sin requerir endpoints adicionales ni lógica de backend duplicada, evidenciando así el desacoplamiento entre la capa de presentación y la capa de dominio/aplicación del sistema.
 
-**Figura 26**
+**Figura 67**
 
 *C4 Model: Container Diagram*
 
@@ -1767,7 +2348,7 @@ El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física 
 
 Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
 
-**Figura 27**
+**Figura 68**
 
 *C4 Model: Deployment Diagram*
 
@@ -1953,7 +2534,7 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 28**
+**Figura 69**
 
 *C4 Model: Component Diagram del Bounded Context Identity & Access*
 
@@ -1967,7 +2548,7 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
 
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 29**
+**Figura 70**
 
 *Diagrama de Clases UML del Domain Layer de Identity & Access*
 
@@ -1981,7 +2562,7 @@ El modelado de clases de Identity & Access pertenece al agregado raíz `User`, j
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
-**Figura 30**
+**Figura 71**
 
 *Diagrama de Base de Datos del Bounded Context Identity & Access*
 
@@ -2174,7 +2755,7 @@ Estos componentes aseguran que la lógica de negocio de Credential Verification 
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 31**
+**Figura 72**
 
 *C4 Model: Component Diagram del Bounded Context Credential Verification*
 
@@ -2186,7 +2767,7 @@ Estos componentes aseguran que la lógica de negocio de Credential Verification 
 
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 32**
+**Figura 73**
 
 *Diagrama de Clases UML del Domain Layer de Credential Verification*
 
@@ -2200,7 +2781,7 @@ El modelado de clases de Credential Verification pertenece al agregado raíz `Ce
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-**Figura 33**
+**Figura 74**
 
 *Diagrama de Base de Datos del Bounded Context Credential Verification*
 
@@ -2410,7 +2991,7 @@ Estos componentes garantizan que el algoritmo de matching de habilidades y el pr
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 34**
+**Figura 75**
 
 *C4 Model: Component Diagram del Bounded Context Learning Path Engine*
 
@@ -2422,7 +3003,7 @@ Estos componentes garantizan que el algoritmo de matching de habilidades y el pr
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 35**
+**Figura 76**
 
 *Diagrama de Clases UML del Domain Layer de Learning Path Engine*
 
@@ -2436,7 +3017,7 @@ El modelado de clases de Learning Path Engine pertenece a los agregados raíz `L
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-**Figura 36**
+**Figura 77**
 
 *Diagrama de Base de Datos del Bounded Context Learning Path Engine*
 
@@ -2646,7 +3227,7 @@ Estos componentes garantizan que ni la asignación de Verificador ni la califica
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 37**
+**Figura 78**
 
 *C4 Model: Component Diagram del Bounded Context Assessment & Peer Review*
 
@@ -2658,7 +3239,7 @@ Estos componentes garantizan que ni la asignación de Verificador ni la califica
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 38**
+**Figura 79**
 
 *Diagrama de Clases UML del Domain Layer de Assessment & Peer Review*
 
@@ -2672,7 +3253,7 @@ El modelado de clases de Assessment & Peer Review pertenece a los agregados raí
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-**Figura 39**
+**Figura 80**
 
 *Diagrama de Base de Datos del Bounded Context Assessment & Peer Review*
 
@@ -2841,7 +3422,7 @@ Este adaptador permite que Assessment & Peer Review mantenga sincronizado el `ra
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 40**
+**Figura 81**
 
 *C4 Model: Component Diagram del Bounded Context Reputation*
 
@@ -2853,7 +3434,7 @@ Este adaptador permite que Assessment & Peer Review mantenga sincronizado el `ra
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 41**
+**Figura 82**
 
 *Diagrama de Clases UML del Domain Layer de Reputation*
 
@@ -2867,7 +3448,7 @@ El modelado de clases de Reputation pertenece a los agregados raíz `VerifierRel
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-**Figura 42**
+**Figura 83**
 
 *Diagrama de Base de Datos del Bounded Context Reputation*
 
@@ -3033,7 +3614,7 @@ Este Bounded Context no incluye integraciones con pasarelas de pago externas ni 
 
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 43**
+**Figura 84**
 
 *C4 Model: Component Diagram del Bounded Context Recognition & Incentives*
 
@@ -3045,7 +3626,7 @@ Este Bounded Context no incluye integraciones con pasarelas de pago externas ni 
 
 ##### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 44**
+**Figura 85**
 
 *Diagrama de Clases UML del Domain Layer de Recognition & Incentives*
 
@@ -3059,7 +3640,7 @@ El modelado de clases de Recognition & Incentives pertenece al agregado raíz `W
 
 ##### 2.6.6.6.2. Bounded Context Database Design Diagram
 
-**Figura 45**
+**Figura 86**
 
 *Diagrama de Base de Datos del Bounded Context Recognition & Incentives*
 
@@ -3242,7 +3823,7 @@ Estos adaptadores permiten que Moderation & Disputes coordine la resolución ent
 
 #### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 46**
+**Figura 87**
 
 *C4 Model: Component Diagram del Bounded Context Moderation & Disputes*
 
@@ -3254,7 +3835,7 @@ Estos adaptadores permiten que Moderation & Disputes coordine la resolución ent
 
 ##### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 47**
+**Figura 88**
 
 *Diagrama de Clases UML del Domain Layer de Moderation & Disputes*
 
@@ -3268,7 +3849,7 @@ El modelado de clases de Moderation & Disputes pertenece al agregado raíz `Disp
 
 ##### 2.6.7.6.2. Bounded Context Database Design Diagram
 
-**Figura 48**
+**Figura 89**
 
 *Diagrama de Base de Datos del Bounded Context Moderation & Disputes*
 
@@ -3425,7 +4006,7 @@ En la Application Layer de Subscription & Billing, `RenewSubscriptionCommandHand
 
 #### 2.6.8.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 49**
+**Figura 90**
 
 *C4 Model: Component Diagram del Bounded Context Subscription & Billing*
 
@@ -3437,7 +4018,7 @@ En la Application Layer de Subscription & Billing, `RenewSubscriptionCommandHand
 
 ##### 2.6.8.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 50**
+**Figura 91**
 
 *Diagrama de Clases UML del Domain Layer de Subscription & Billing*
 
@@ -3451,7 +4032,7 @@ El modelado de clases de Subscription & Billing pertenece únicamente al agregad
 
 ##### 2.6.8.6.2. Bounded Context Database Design Diagram
 
-**Figura 51**
+**Figura 92**
 
 *Diagrama de Base de Datos del Bounded Context Subscription & Billing*
 
@@ -3468,7 +4049,7 @@ El modelado de base de datos de Subscription & Billing pertenece a la tabla `sub
 
 A continuación se presenta el diagrama relacional completo de SkillSwap, mostrando la totalidad de las tablas y sus relaciones entre los ocho Bounded Contexts.
 
-**Figura 52**
+**Figura 93**
 
 *Diagrama de Base de Datos completo de SkillSwap*
 
@@ -3483,7 +4064,7 @@ En síntesis, el diagrama relacional evidencia una estructura de base de datos c
 
 A continuación se presenta el diagrama de clases UML completo de SkillSwap, mostrando la totalidad del modelo de dominio y su segmentación entre los ocho Bounded Contexts.
 
-**Figura 53**
+**Figura 94**
 
 *Diagrama de Clases UML completo de SkillSwap*
 
@@ -3595,37 +4176,77 @@ Figura 20. *Impact Map - Business Goal 1: Adopción y suscripción*<br>
 Figura 21. *Impact Map - Business Goal 2: Validación práctica de habilidades*<br>
 Figura 22. *Impact Map - Business Goal 3: Red de Verificadores*<br>
 Figura 23. *Impact Map - Business Goal 4: Calidad y confianza del proceso*<br>
-Figura 24. *Context Mapping de SkillSwap*<br>
-Figura 25. *C4 Model: Context Diagram*<br>
-Figura 26. *C4 Model: Container Diagram*<br>
-Figura 27. *C4 Model: Deployment Diagram*<br>
-Figura 28. *C4 Model: Component Diagram del Bounded Context Identity & Access*<br>
-Figura 29. *Diagrama de Clases UML del Domain Layer de Identity & Access*<br>
-Figura 30. *Diagrama de Base de Datos del Bounded Context Identity & Access*<br>
-Figura 31. *C4 Model: Component Diagram del Bounded Context Credential Verification*<br>
-Figura 32. *Diagrama de Clases UML del Domain Layer de Credential Verification*<br>
-Figura 33. *Diagrama de Base de Datos del Bounded Context Credential Verification*<br>
-Figura 34. *C4 Model: Component Diagram del Bounded Context Learning Path Engine*<br>
-Figura 35. *Diagrama de Clases UML del Domain Layer de Learning Path Engine*<br>
-Figura 36. *Diagrama de Base de Datos del Bounded Context Learning Path Engine*<br>
-Figura 37. *C4 Model: Component Diagram del Bounded Context Assessment & Peer Review*<br>
-Figura 38. *Diagrama de Clases UML del Domain Layer de Assessment & Peer Review*<br>
-Figura 39. *Diagrama de Base de Datos del Bounded Context Assessment & Peer Review*<br>
-Figura 40. *C4 Model: Component Diagram del Bounded Context Reputation*<br>
-Figura 41. *Diagrama de Clases UML del Domain Layer de Reputation*<br>
-Figura 42. *Diagrama de Base de Datos del Bounded Context Reputation*<br>
-Figura 43. *C4 Model: Component Diagram del Bounded Context Recognition & Incentives*<br>
-Figura 44. *Diagrama de Clases UML del Domain Layer de Recognition & Incentives*<br>
-Figura 45. *Diagrama de Base de Datos del Bounded Context Recognition & Incentives*<br>
-Figura 46. *C4 Model: Component Diagram del Bounded Context Moderation & Disputes*<br>
-Figura 47. *Diagrama de Clases UML del Domain Layer de Moderation & Disputes*<br>
-Figura 48. *Diagrama de Base de Datos del Bounded Context Moderation & Disputes*<br>
-Figura 49. *C4 Model: Component Diagram del Bounded Context Subscription & Billing*<br>
-Figura 50. *Diagrama de Clases UML del Domain Layer de Subscription & Billing*<br>
-Figura 51. *Diagrama de Base de Datos del Bounded Context Subscription & Billing*<br>
-Figura 52. *Diagrama de Base de Datos completo de SkillSwap*<br>
-Figura 53. *Diagrama de Clases UML completo de SkillSwap*<br>
-
+Figura 24. *EventStorming, paso 1: Unstructured Exploration*<br>
+Figura 25. *EventStorming, paso 2: Timelines (registro, suscripción y certificados)*<br>
+Figura 26. *EventStorming, paso 2: Timelines (evaluación de los nodos)*<br>
+Figura 27. *EventStorming, paso 2: Timelines (demostración final, certificación y nuevo Verificador)*<br>
+Figura 28. *EventStorming, paso 3: Pain Points (registro, suscripción y certificados)*<br>
+Figura 29. *EventStorming, paso 3: Pain Points (evaluación de los nodos)*<br>
+Figura 30. *EventStorming, paso 3: Pain Points (demostración final, certificación y nuevo Verificador)*<br>
+Figura 31. *EventStorming, paso 4: Pivotal Points (registro, suscripción y certificados)*<br>
+Figura 32. *EventStorming, paso 4: Pivotal Points (evaluación de los nodos)*<br>
+Figura 33. *EventStorming, paso 4: Pivotal Points (demostración final, certificación y nuevo Verificador)*<br>
+Figura 34. *EventStorming, paso 5: Commands (registro, suscripción y certificados)*<br>
+Figura 35. *EventStorming, paso 5: Commands (evaluación de los nodos)*<br>
+Figura 36. *EventStorming, paso 5: Commands (demostración final, certificación y nuevo Verificador)*<br>
+Figura 37. *EventStorming, paso 6: Policies (registro, suscripción y certificados)*<br>
+Figura 38. *EventStorming, paso 6: Policies (evaluación de los nodos)*<br>
+Figura 39. *EventStorming, paso 6: Policies (demostración final, certificación y nuevo Verificador)*<br>
+Figura 40. *EventStorming, paso 7: Read Models (registro, suscripción y certificados)*<br>
+Figura 41. *EventStorming, paso 7: Read Models (evaluación de los nodos)*<br>
+Figura 42. *EventStorming, paso 7: Read Models (demostración final, certificación y nuevo Verificador)*<br>
+Figura 43. *EventStorming, paso 8: External Systems (registro, suscripción y certificados)*<br>
+Figura 44. *EventStorming, paso 8: External Systems (evaluación de los nodos)*<br>
+Figura 45. *EventStorming, paso 8: External Systems (demostración final, certificación y nuevo Verificador)*<br>
+Figura 46. *EventStorming, paso 9: Aggregates*<br>
+Figura 47. *EventStorming, paso 10: Bounded Contexts*<br>
+Figura 48. *Candidate Context Discovery, iteración 1: fases delimitadas por los eventos pivotales*<br>
+Figura 49. *Candidate Context Discovery, iteración 2: línea de tiempo por contexto candidato*<br>
+Figura 50. *Candidate Context Discovery, iteración 3: clasificación de los contextos por valor*<br>
+Figura 51. *Domain Message Flow: Registro del Estudiante y paso al plan premium*<br>
+Figura 52. *Domain Message Flow: Declaración del objetivo y generación de la ruta*<br>
+Figura 53. *Domain Message Flow: Revisión de un entregable práctico aprobado*<br>
+Figura 54. *Domain Message Flow: Reporte de una decisión revertida por Moderación*<br>
+Figura 55. *Domain Message Flow: Demostración final y emisión de la certificación*<br>
+Figura 56. *Domain Message Flow: Registro de un certificado sospechoso*<br>
+Figura 57. *Bounded Context Canvas: Assessment & Peer Review*<br>
+Figura 58. *Bounded Context Canvas: Learning Path Engine*<br>
+Figura 59. *Bounded Context Canvas: Credential Verification*<br>
+Figura 60. *Bounded Context Canvas: Reputation*<br>
+Figura 61. *Bounded Context Canvas: Recognition & Incentives*<br>
+Figura 62. *Bounded Context Canvas: Moderation & Disputes*<br>
+Figura 63. *Bounded Context Canvas: Subscription & Billing*<br>
+Figura 64. *Bounded Context Canvas: Identity & Access*<br>
+Figura 65. *Context Mapping de SkillSwap*<br>
+Figura 66. *C4 Model: Context Diagram*<br>
+Figura 67. *C4 Model: Container Diagram*<br>
+Figura 68. *C4 Model: Deployment Diagram*<br>
+Figura 69. *C4 Model: Component Diagram del Bounded Context Identity & Access*<br>
+Figura 70. *Diagrama de Clases UML del Domain Layer de Identity & Access*<br>
+Figura 71. *Diagrama de Base de Datos del Bounded Context Identity & Access*<br>
+Figura 72. *C4 Model: Component Diagram del Bounded Context Credential Verification*<br>
+Figura 73. *Diagrama de Clases UML del Domain Layer de Credential Verification*<br>
+Figura 74. *Diagrama de Base de Datos del Bounded Context Credential Verification*<br>
+Figura 75. *C4 Model: Component Diagram del Bounded Context Learning Path Engine*<br>
+Figura 76. *Diagrama de Clases UML del Domain Layer de Learning Path Engine*<br>
+Figura 77. *Diagrama de Base de Datos del Bounded Context Learning Path Engine*<br>
+Figura 78. *C4 Model: Component Diagram del Bounded Context Assessment & Peer Review*<br>
+Figura 79. *Diagrama de Clases UML del Domain Layer de Assessment & Peer Review*<br>
+Figura 80. *Diagrama de Base de Datos del Bounded Context Assessment & Peer Review*<br>
+Figura 81. *C4 Model: Component Diagram del Bounded Context Reputation*<br>
+Figura 82. *Diagrama de Clases UML del Domain Layer de Reputation*<br>
+Figura 83. *Diagrama de Base de Datos del Bounded Context Reputation*<br>
+Figura 84. *C4 Model: Component Diagram del Bounded Context Recognition & Incentives*<br>
+Figura 85. *Diagrama de Clases UML del Domain Layer de Recognition & Incentives*<br>
+Figura 86. *Diagrama de Base de Datos del Bounded Context Recognition & Incentives*<br>
+Figura 87. *C4 Model: Component Diagram del Bounded Context Moderation & Disputes*<br>
+Figura 88. *Diagrama de Clases UML del Domain Layer de Moderation & Disputes*<br>
+Figura 89. *Diagrama de Base de Datos del Bounded Context Moderation & Disputes*<br>
+Figura 90. *C4 Model: Component Diagram del Bounded Context Subscription & Billing*<br>
+Figura 91. *Diagrama de Clases UML del Domain Layer de Subscription & Billing*<br>
+Figura 92. *Diagrama de Base de Datos del Bounded Context Subscription & Billing*<br>
+Figura 93. *Diagrama de Base de Datos completo de SkillSwap*<br>
+Figura 94. *Diagrama de Clases UML completo de SkillSwap*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
