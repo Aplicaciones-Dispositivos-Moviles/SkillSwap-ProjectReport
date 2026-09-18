@@ -1668,7 +1668,22 @@ La estimación total del Product Backlog asciende a **204 Story Points**.
 ## 2.5. Strategic-Level Domain-Driven Design
 
 ### 2.5.1. EventStorming
-*(Nota: Documentar las fases de Candidate Context Discovery y Domain Message Flows Modeling realizadas por el equipo).*
+
+El EventStorming se desarrolló siguiendo los diez pasos propuestos en el material del curso, a partir del modelo de negocio descrito en el Capítulo I. El objetivo fue identificar los eventos del dominio de SkillSwap, ordenarlos en el tiempo, reconocer los puntos críticos del proceso y agrupar los agregados resultantes en bounded contexts candidatos.
+
+**Paso 1. Unstructured Exploration**
+
+En este primer paso se realizó una lluvia de ideas de los eventos de dominio relevantes para SkillSwap, redactados en tiempo pasado porque describen hechos que ya ocurrieron en el negocio. Se identificaron 64 eventos, que abarcan el registro y la suscripción del Estudiante, la generación de la ruta de certificación, el registro de certificados, la evaluación mediante quizzes y entregables prácticos, la revisión por parte de los Verificadores, la demostración final, la emisión de la certificación, la moderación de decisiones y la habilitación de nuevos Verificadores. En esta etapa los eventos se presentan sin orden, ya que el propósito es explorar el dominio antes de estructurarlo.
+
+**Figura 24**
+
+*EventStorming, paso 1: Unstructured Exploration*
+
+<p align="center">
+  <img src="public/assets/images-doc/eventstorming-paso-01-exploracion.png" alt="EventStorming paso 1: eventos de dominio de SkillSwap sin orden" width="900">
+</p>
+
+*Nota.* Eventos de dominio de SkillSwap identificados durante la exploración inicial, presentados sin orden cronológico. Elaboración propia.
 
 ### 2.5.2. Context Mapping
 
@@ -1688,7 +1703,7 @@ El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los
 
 Finalmente, **Credential Verification** mantiene una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **ML Kit** (Text Recognition / Entity Extraction de Firebase, utilizado on-device para la extracción de datos del certificado), aislando el modelo de dominio interno `Certificate` de los contratos y formatos de respuesta propios del SDK externo.
 
-**Figura 24**
+**Figura 25**
 
 *Context Mapping de SkillSwap*
 
@@ -1721,7 +1736,7 @@ El sistema es utilizado por tres actores principales: el **Estudiante**, quien s
 
 A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), utilizado on-device para la extracción de datos de los certificados subidos por el Estudiante (institución, curso, fecha) — esta es la tecnología que satisface el requisito de aprendizaje autónomo del curso; **Stripe**, utilizado para el procesamiento del cobro recurrente de la suscripción mensual y la compra de paquetes de SkillCredits en la tienda interna; un **servicio de almacenamiento en la nube** para las imágenes de certificados y evidencias adjuntas a un caso de revisión; y un **servicio de correo electrónico** para el envío de notificaciones institucionales (validación de dominio `.edu.pe`, resultado de una evaluación, apertura o resolución de un caso de verificación).
 
-**Figura 25**
+**Figura 26**
 
 *C4 Model: Context Diagram*
 
@@ -1745,7 +1760,7 @@ Los contenedores identificados son los siguientes:
 
 Es importante resaltar que tanto la aplicación Android nativa como la aplicación Flutter cross-platform consumen el **mismo contrato de API RESTful** documentado con OpenAPI/Swagger, sin requerir endpoints adicionales ni lógica de backend duplicada, evidenciando así el desacoplamiento entre la capa de presentación y la capa de dominio/aplicación del sistema.
 
-**Figura 26**
+**Figura 27**
 
 *C4 Model: Container Diagram*
 
@@ -1767,7 +1782,7 @@ El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física 
 
 Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
 
-**Figura 27**
+**Figura 28**
 
 *C4 Model: Deployment Diagram*
 
@@ -1953,7 +1968,7 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 28**
+**Figura 29**
 
 *C4 Model: Component Diagram del Bounded Context Identity & Access*
 
@@ -1967,7 +1982,7 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
 
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 29**
+**Figura 30**
 
 *Diagrama de Clases UML del Domain Layer de Identity & Access*
 
@@ -1981,7 +1996,7 @@ El modelado de clases de Identity & Access pertenece al agregado raíz `User`, j
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
-**Figura 30**
+**Figura 31**
 
 *Diagrama de Base de Datos del Bounded Context Identity & Access*
 
@@ -2174,7 +2189,7 @@ Estos componentes aseguran que la lógica de negocio de Credential Verification 
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 31**
+**Figura 32**
 
 *C4 Model: Component Diagram del Bounded Context Credential Verification*
 
@@ -2186,7 +2201,7 @@ Estos componentes aseguran que la lógica de negocio de Credential Verification 
 
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 32**
+**Figura 33**
 
 *Diagrama de Clases UML del Domain Layer de Credential Verification*
 
@@ -2200,7 +2215,7 @@ El modelado de clases de Credential Verification pertenece al agregado raíz `Ce
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-**Figura 33**
+**Figura 34**
 
 *Diagrama de Base de Datos del Bounded Context Credential Verification*
 
@@ -2410,7 +2425,7 @@ Estos componentes garantizan que el algoritmo de matching de habilidades y el pr
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 34**
+**Figura 35**
 
 *C4 Model: Component Diagram del Bounded Context Learning Path Engine*
 
@@ -2422,7 +2437,7 @@ Estos componentes garantizan que el algoritmo de matching de habilidades y el pr
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 35**
+**Figura 36**
 
 *Diagrama de Clases UML del Domain Layer de Learning Path Engine*
 
@@ -2436,7 +2451,7 @@ El modelado de clases de Learning Path Engine pertenece a los agregados raíz `L
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-**Figura 36**
+**Figura 37**
 
 *Diagrama de Base de Datos del Bounded Context Learning Path Engine*
 
@@ -2646,7 +2661,7 @@ Estos componentes garantizan que ni la asignación de Verificador ni la califica
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 37**
+**Figura 38**
 
 *C4 Model: Component Diagram del Bounded Context Assessment & Peer Review*
 
@@ -2658,7 +2673,7 @@ Estos componentes garantizan que ni la asignación de Verificador ni la califica
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 38**
+**Figura 39**
 
 *Diagrama de Clases UML del Domain Layer de Assessment & Peer Review*
 
@@ -2672,7 +2687,7 @@ El modelado de clases de Assessment & Peer Review pertenece a los agregados raí
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-**Figura 39**
+**Figura 40**
 
 *Diagrama de Base de Datos del Bounded Context Assessment & Peer Review*
 
@@ -2841,7 +2856,7 @@ Este adaptador permite que Assessment & Peer Review mantenga sincronizado el `ra
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 40**
+**Figura 41**
 
 *C4 Model: Component Diagram del Bounded Context Reputation*
 
@@ -2853,7 +2868,7 @@ Este adaptador permite que Assessment & Peer Review mantenga sincronizado el `ra
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 41**
+**Figura 42**
 
 *Diagrama de Clases UML del Domain Layer de Reputation*
 
@@ -2867,7 +2882,7 @@ El modelado de clases de Reputation pertenece a los agregados raíz `VerifierRel
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-**Figura 42**
+**Figura 43**
 
 *Diagrama de Base de Datos del Bounded Context Reputation*
 
@@ -3033,7 +3048,7 @@ Este Bounded Context no incluye integraciones con pasarelas de pago externas ni 
 
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 43**
+**Figura 44**
 
 *C4 Model: Component Diagram del Bounded Context Recognition & Incentives*
 
@@ -3045,7 +3060,7 @@ Este Bounded Context no incluye integraciones con pasarelas de pago externas ni 
 
 ##### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 44**
+**Figura 45**
 
 *Diagrama de Clases UML del Domain Layer de Recognition & Incentives*
 
@@ -3059,7 +3074,7 @@ El modelado de clases de Recognition & Incentives pertenece al agregado raíz `W
 
 ##### 2.6.6.6.2. Bounded Context Database Design Diagram
 
-**Figura 45**
+**Figura 46**
 
 *Diagrama de Base de Datos del Bounded Context Recognition & Incentives*
 
@@ -3242,7 +3257,7 @@ Estos adaptadores permiten que Moderation & Disputes coordine la resolución ent
 
 #### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 46**
+**Figura 47**
 
 *C4 Model: Component Diagram del Bounded Context Moderation & Disputes*
 
@@ -3254,7 +3269,7 @@ Estos adaptadores permiten que Moderation & Disputes coordine la resolución ent
 
 ##### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 47**
+**Figura 48**
 
 *Diagrama de Clases UML del Domain Layer de Moderation & Disputes*
 
@@ -3268,7 +3283,7 @@ El modelado de clases de Moderation & Disputes pertenece al agregado raíz `Disp
 
 ##### 2.6.7.6.2. Bounded Context Database Design Diagram
 
-**Figura 48**
+**Figura 49**
 
 *Diagrama de Base de Datos del Bounded Context Moderation & Disputes*
 
@@ -3425,7 +3440,7 @@ En la Application Layer de Subscription & Billing, `RenewSubscriptionCommandHand
 
 #### 2.6.8.5. Bounded Context Software Architecture Component Level Diagrams
 
-**Figura 49**
+**Figura 50**
 
 *C4 Model: Component Diagram del Bounded Context Subscription & Billing*
 
@@ -3437,7 +3452,7 @@ En la Application Layer de Subscription & Billing, `RenewSubscriptionCommandHand
 
 ##### 2.6.8.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Figura 50**
+**Figura 51**
 
 *Diagrama de Clases UML del Domain Layer de Subscription & Billing*
 
@@ -3451,7 +3466,7 @@ El modelado de clases de Subscription & Billing pertenece únicamente al agregad
 
 ##### 2.6.8.6.2. Bounded Context Database Design Diagram
 
-**Figura 51**
+**Figura 52**
 
 *Diagrama de Base de Datos del Bounded Context Subscription & Billing*
 
@@ -3468,7 +3483,7 @@ El modelado de base de datos de Subscription & Billing pertenece a la tabla `sub
 
 A continuación se presenta el diagrama relacional completo de SkillSwap, mostrando la totalidad de las tablas y sus relaciones entre los ocho Bounded Contexts.
 
-**Figura 52**
+**Figura 53**
 
 *Diagrama de Base de Datos completo de SkillSwap*
 
@@ -3483,7 +3498,7 @@ En síntesis, el diagrama relacional evidencia una estructura de base de datos c
 
 A continuación se presenta el diagrama de clases UML completo de SkillSwap, mostrando la totalidad del modelo de dominio y su segmentación entre los ocho Bounded Contexts.
 
-**Figura 53**
+**Figura 54**
 
 *Diagrama de Clases UML completo de SkillSwap*
 
@@ -3595,36 +3610,37 @@ Figura 20. *Impact Map - Business Goal 1: Adopción y suscripción*<br>
 Figura 21. *Impact Map - Business Goal 2: Validación práctica de habilidades*<br>
 Figura 22. *Impact Map - Business Goal 3: Red de Verificadores*<br>
 Figura 23. *Impact Map - Business Goal 4: Calidad y confianza del proceso*<br>
-Figura 24. *Context Mapping de SkillSwap*<br>
-Figura 25. *C4 Model: Context Diagram*<br>
-Figura 26. *C4 Model: Container Diagram*<br>
-Figura 27. *C4 Model: Deployment Diagram*<br>
-Figura 28. *C4 Model: Component Diagram del Bounded Context Identity & Access*<br>
-Figura 29. *Diagrama de Clases UML del Domain Layer de Identity & Access*<br>
-Figura 30. *Diagrama de Base de Datos del Bounded Context Identity & Access*<br>
-Figura 31. *C4 Model: Component Diagram del Bounded Context Credential Verification*<br>
-Figura 32. *Diagrama de Clases UML del Domain Layer de Credential Verification*<br>
-Figura 33. *Diagrama de Base de Datos del Bounded Context Credential Verification*<br>
-Figura 34. *C4 Model: Component Diagram del Bounded Context Learning Path Engine*<br>
-Figura 35. *Diagrama de Clases UML del Domain Layer de Learning Path Engine*<br>
-Figura 36. *Diagrama de Base de Datos del Bounded Context Learning Path Engine*<br>
-Figura 37. *C4 Model: Component Diagram del Bounded Context Assessment & Peer Review*<br>
-Figura 38. *Diagrama de Clases UML del Domain Layer de Assessment & Peer Review*<br>
-Figura 39. *Diagrama de Base de Datos del Bounded Context Assessment & Peer Review*<br>
-Figura 40. *C4 Model: Component Diagram del Bounded Context Reputation*<br>
-Figura 41. *Diagrama de Clases UML del Domain Layer de Reputation*<br>
-Figura 42. *Diagrama de Base de Datos del Bounded Context Reputation*<br>
-Figura 43. *C4 Model: Component Diagram del Bounded Context Recognition & Incentives*<br>
-Figura 44. *Diagrama de Clases UML del Domain Layer de Recognition & Incentives*<br>
-Figura 45. *Diagrama de Base de Datos del Bounded Context Recognition & Incentives*<br>
-Figura 46. *C4 Model: Component Diagram del Bounded Context Moderation & Disputes*<br>
-Figura 47. *Diagrama de Clases UML del Domain Layer de Moderation & Disputes*<br>
-Figura 48. *Diagrama de Base de Datos del Bounded Context Moderation & Disputes*<br>
-Figura 49. *C4 Model: Component Diagram del Bounded Context Subscription & Billing*<br>
-Figura 50. *Diagrama de Clases UML del Domain Layer de Subscription & Billing*<br>
-Figura 51. *Diagrama de Base de Datos del Bounded Context Subscription & Billing*<br>
-Figura 52. *Diagrama de Base de Datos completo de SkillSwap*<br>
-Figura 53. *Diagrama de Clases UML completo de SkillSwap*<br>
+Figura 24. *EventStorming, paso 1: Unstructured Exploration*<br>
+Figura 25. *Context Mapping de SkillSwap*<br>
+Figura 26. *C4 Model: Context Diagram*<br>
+Figura 27. *C4 Model: Container Diagram*<br>
+Figura 28. *C4 Model: Deployment Diagram*<br>
+Figura 29. *C4 Model: Component Diagram del Bounded Context Identity & Access*<br>
+Figura 30. *Diagrama de Clases UML del Domain Layer de Identity & Access*<br>
+Figura 31. *Diagrama de Base de Datos del Bounded Context Identity & Access*<br>
+Figura 32. *C4 Model: Component Diagram del Bounded Context Credential Verification*<br>
+Figura 33. *Diagrama de Clases UML del Domain Layer de Credential Verification*<br>
+Figura 34. *Diagrama de Base de Datos del Bounded Context Credential Verification*<br>
+Figura 35. *C4 Model: Component Diagram del Bounded Context Learning Path Engine*<br>
+Figura 36. *Diagrama de Clases UML del Domain Layer de Learning Path Engine*<br>
+Figura 37. *Diagrama de Base de Datos del Bounded Context Learning Path Engine*<br>
+Figura 38. *C4 Model: Component Diagram del Bounded Context Assessment & Peer Review*<br>
+Figura 39. *Diagrama de Clases UML del Domain Layer de Assessment & Peer Review*<br>
+Figura 40. *Diagrama de Base de Datos del Bounded Context Assessment & Peer Review*<br>
+Figura 41. *C4 Model: Component Diagram del Bounded Context Reputation*<br>
+Figura 42. *Diagrama de Clases UML del Domain Layer de Reputation*<br>
+Figura 43. *Diagrama de Base de Datos del Bounded Context Reputation*<br>
+Figura 44. *C4 Model: Component Diagram del Bounded Context Recognition & Incentives*<br>
+Figura 45. *Diagrama de Clases UML del Domain Layer de Recognition & Incentives*<br>
+Figura 46. *Diagrama de Base de Datos del Bounded Context Recognition & Incentives*<br>
+Figura 47. *C4 Model: Component Diagram del Bounded Context Moderation & Disputes*<br>
+Figura 48. *Diagrama de Clases UML del Domain Layer de Moderation & Disputes*<br>
+Figura 49. *Diagrama de Base de Datos del Bounded Context Moderation & Disputes*<br>
+Figura 50. *C4 Model: Component Diagram del Bounded Context Subscription & Billing*<br>
+Figura 51. *Diagrama de Clases UML del Domain Layer de Subscription & Billing*<br>
+Figura 52. *Diagrama de Base de Datos del Bounded Context Subscription & Billing*<br>
+Figura 53. *Diagrama de Base de Datos completo de SkillSwap*<br>
+Figura 54. *Diagrama de Clases UML completo de SkillSwap*<br>
 
 
 ## Anexo A. Enlaces de Acceso a la Solución
