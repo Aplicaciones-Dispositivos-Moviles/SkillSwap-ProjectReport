@@ -380,6 +380,7 @@ A continuación se presentan las estrategias y tácticas que Innovify puede impl
 12. ¿Qué herramientas digitales usas actualmente para aprender? ¿Qué es lo que más te frustra de ellas?
 13. Imagina que puedes subir un certificado externo (de Coursera, por ejemplo) y la plataforma te genera un miniproyecto para validar que realmente adquiriste esa habilidad. ¿Eso te parecería valioso o innecesario?
 14. ¿Preferirías recibir una revisión de un Verificador que sea experto exactamente en el sub-tema donde fallaste, en vez de tener que repasar todo el curso desde cero?
+
 **Segmento objetivo #2: Personas que validan el conocimiento**
  
 *Nivel 1 — Verificador*
