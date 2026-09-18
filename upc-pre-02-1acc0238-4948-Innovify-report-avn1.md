@@ -1046,7 +1046,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
 | EP03 | Validación de certificados | Como estudiante, quiero subir mis certificados y que la plataforma extraiga, verifique y relacione su contenido con mi ruta, para que cada certificado cuente como evidencia confiable de una habilidad. |
 | EP04 | Evaluaciones prácticas generadas por IA | Como estudiante, quiero demostrar cada habilidad certificada mediante quizzes y miniproyectos generados por IA, para comprobar que realmente la domino y conocer con precisión el sub-tema en el que fallo. |
 | EP05 | Verificación de casos por pares | Como estudiante o Verificador, quiero que los intentos no aprobados se escalen a un Verificador habilitado que los revise frente a una rúbrica, para resolver cada caso de forma justa, rápida y trazable. |
-| EP06 | Demostración final supervisada | Como estudiante, quiero demostrar el dominio integral de mi ruta completada mediante un proyecto avanzado o examen supervisado por videollamada, para obtener una validación final con mayor rigor. |
+| EP06 | Demostración final supervisada | Como estudiante, quiero demostrar el dominio integral de mi ruta completada mediante un proyecto avanzado o examen supervisado por video, para obtener una validación final con mayor rigor. |
 | EP07 | SkillCredits y reconocimiento profesional | Como Verificador, quiero acumular, consultar, canjear y exhibir mis SkillCredits, para que mi labor de verificación se convierta en una credencial profesional verificable. |
 | EP08 | Supervisión y calidad del Coordinador | Como Coordinador, quiero resolver disputas, habilitar reevaluaciones, controlar la actividad y confiabilidad de los Verificadores y consultar métricas de la plataforma, para garantizar la integridad de todo el proceso de verificación. |
 | EP09 | Landing Page | Como visitante, quiero conocer la propuesta de valor, los planes y la forma de participar en SkillSwap desde un sitio web público, para decidir si descargo la aplicación y me registro. |
@@ -1338,11 +1338,11 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
 <table>
   <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
   <tr><td>US29</td><td>Estudiante</td><td>Baja</td><td>EP06</td></tr>
-  <tr><th>Title</th><td colspan="3">Demostración final por videollamada</td></tr>
+  <tr><th>Title</th><td colspan="3">Demostración final por video</td></tr>
   <tr><th colspan="4">Description</th></tr>
-  <tr><td colspan="4">Como estudiante, quiero realizar mi demostración final por videollamada dentro de la aplicación, para que el Verificador constate en tiempo real que la demostración es genuina.</td></tr>
+  <tr><td colspan="4">Como estudiante, quiero grabar y subir un video de mi demostración final dentro de la aplicación, para que el Verificador constate que la demostración es genuina.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Ingreso a la videollamada</strong><br><strong>Dado que</strong> el estudiante tiene una demostración programada<br><strong>Y</strong> concedió los permisos de cámara y micrófono<br><strong>Cuando</strong> ingresa a la demostración en el horario programado<br><strong>Entonces</strong> la aplicación inicia la videollamada con el Verificador asignado mediante el SDK de video integrado<br><br><strong>Escenario 2: Permisos no concedidos</strong><br><strong>Dado que</strong> el estudiante no concedió los permisos de cámara o micrófono<br><strong>Cuando</strong> intenta ingresar a la demostración<br><strong>Entonces</strong> la aplicación no inicia la videollamada<br><strong>Y</strong> solicita los permisos requeridos<br><br><strong>Escenario 3: Registro del resultado</strong><br><strong>Dado que</strong> la videollamada de la demostración finaliza<br><strong>Cuando</strong> el Verificador registra su evaluación según la rúbrica<br><strong>Entonces</strong> el sistema registra el resultado de la demostración final en el perfil del estudiante</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Grabación del video</strong><br><strong>Dado que</strong> el estudiante completó todos los nodos de su ruta de aprendizaje<br><strong>Y</strong> concedió los permisos de cámara y micrófono<br><strong>Cuando</strong> graba el video de su demostración final desde la aplicación<br><strong>Entonces</strong> el sistema permite adjuntarlo como evidencia del caso de verificación<br><br><strong>Escenario 2: Permisos no concedidos</strong><br><strong>Dado que</strong> el estudiante no concedió los permisos de cámara o micrófono<br><strong>Cuando</strong> intenta grabar el video de demostración<br><strong>Entonces</strong> la aplicación no inicia la grabación<br><strong>Y</strong> solicita los permisos requeridos<br><br><strong>Escenario 3: Registro del resultado</strong><br><strong>Dado que</strong> el video de la demostración fue subido correctamente<br><strong>Cuando</strong> el Verificador revisa el video y registra su evaluación según la rúbrica<br><strong>Entonces</strong> el sistema registra el resultado de la demostración final en el perfil del estudiante</td></tr>
 </table>
 
 <table>
@@ -1627,7 +1627,7 @@ Esta meta asegura el ingreso recurrente principal del modelo de negocio. Para lo
 
 *Lograr que el 70 % de los estudiantes que suben un certificado rindan su evaluación práctica y que menos del 30 % de los intentos requiera la intervención de un Verificador, durante los primeros 6 meses de operación.*
 
-Esta meta mide la propuesta de valor central de SkillSwap: que el certificado se complemente con una demostración práctica y que la IA resuelva la mayoría de los casos sin intervención humana. Se espera que Valeria suba sus certificados como evidencia, rinda voluntariamente la evaluación práctica de cada uno, refuerce solo el sub-tema en el que falla y, al completar su ruta, demuestre su dominio integral. Los deliverables asociados son la extracción automática de datos con ML Kit, la validación de correspondencia entre certificado y habilidad, los quizzes generados por IA con calificación inmediata, el diagnóstico del sub-tema débil y la demostración final supervisada por videollamada (US13, US15, US17, US18, US20 y US29).
+Esta meta mide la propuesta de valor central de SkillSwap: que el certificado se complemente con una demostración práctica y que la IA resuelva la mayoría de los casos sin intervención humana. Se espera que Valeria suba sus certificados como evidencia, rinda voluntariamente la evaluación práctica de cada uno, refuerce solo el sub-tema en el que falla y, al completar su ruta, demuestre su dominio integral. Los deliverables asociados son la extracción automática de datos con ML Kit, la validación de correspondencia entre certificado y habilidad, los quizzes generados por IA con calificación inmediata, el diagnóstico del sub-tema débil y la demostración final supervisada por un verificador (US13, US15, US17, US18, US20 y US29).
 
 <p align="center">
   <img src="public/assets/images-doc/impact-map-2.png" alt="Impact Map - Validación práctica de habilidades" width="900">
@@ -1723,7 +1723,7 @@ La estimación total del Product Backlog asciende a **204 Story Points**.
 | 52 | US21 | Conservación del avance ante pérdida de conexión | 5 | |
 | 53 | US03 | Acceso mediante biometría del dispositivo | 3 | |
 | 54 | US28 | Programación de la demostración final | 3 | |
-| 55 | US29 | Demostración final por videollamada | 8 | |
+| 55 | US29 | Demostración final por video | 8 | |
 
 *(Tabla 13. Product Backlog - Elaboración propia.)*
 
@@ -2682,7 +2682,7 @@ El modelado de clases de Assessment & Peer Review pertenece a los agregados raí
   <em>Figura XX. Diagrama de Base de Datos del Bounded Context Assessment & Peer Review - Elaboración propia. Nota: Recorte del diagrama relacional general correspondiente a este Bounded Context.</em>
 </p>
 
-El modelado de base de datos de Assessment & Peer Review pertenece a las tablas `assessment_attempts`, `verifier_profiles` y `verification_cases`, debido a que estas tres tablas persisten de forma independiente los tres agregados raíz del Bounded Context: el intento y resultado de una evaluación (`assessment_attempts`), la elegibilidad y disponibilidad de un Verificador (`verifier_profiles`), y el caso abierto cuando un intento no es aprobado, incluyendo su asignación y resolución con rúbrica estructurada (`verification_cases`). Se destaca el campo `evidence_url` en `verification_cases`, que reemplaza por completo la infraestructura de videollamada y chat en tiempo real del modelo de tutorías original.
+El modelado de base de datos de Assessment & Peer Review pertenece a las tablas `assessment_attempts`, `verifier_profiles` y `verification_cases`, debido a que estas tres tablas persisten de forma independiente los tres agregados raíz del Bounded Context: el intento y resultado de una evaluación (`assessment_attempts`), la elegibilidad y disponibilidad de un Verificador (`verifier_profiles`), y el caso abierto cuando un intento no es aprobado, incluyendo su asignación y resolución con rúbrica estructurada (`verification_cases`). Se destaca el campo `evidence_url` en `verification_cases`, que reemplaza por completo la infraestructura de chat en tiempo real del modelo de tutorías original.
 
 ---
 
