@@ -896,8 +896,6 @@ En la imagen se presenta la caracterización empática de Jorge, arquetipo del n
 
 En esta sección se especifican los requisitos funcionales y técnicos de SkillSwap, aplicación móvil nativa y multiplataforma, mediante User Stories agrupadas en Epics. Las historias se redactaron a partir de los hallazgos de las entrevistas, los User Personas, el User Task Matrix y los Journey Maps de los dos segmentos objetivo: **personas que quieren aprender (Estudiantes)** y **personas que validan el conocimiento (Verificadores y Coordinadores)**. En total se definen **50 historias**: 40 User Stories orientadas a los usuarios finales y 10 Technical Stories, redactadas con el rol *Developer*, que describen los servicios RESTful que consume la aplicación móvil.
 
-Cada User Story incluye sus criterios de aceptación redactados en tiempo presente, en tercera persona, sin referencias a elementos de interfaz de usuario y bajo la estructura Gherkin (*Dado que – Cuando – Entonces*). En el caso de las Technical Stories, los criterios describen los escenarios de interacción request/response de cada endpoint.
-
 #### Epics
 
 | Epic ID | Título | Descripción |
