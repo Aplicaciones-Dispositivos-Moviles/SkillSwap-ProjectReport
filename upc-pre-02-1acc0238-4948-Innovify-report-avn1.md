@@ -399,6 +399,7 @@ A continuación se presentan las estrategias y tácticas que Innovify puede impl
 12. ¿Qué tan dispuesto estarías a supervisar por videollamada la demostración final de un proyecto avanzado, garantizando que lo que se presenta es realmente propio de esa persona?
 13. ¿Qué debería tener sí o sí una plataforma para que la consideres profesional y confiable para ejercer este rol?
 14. Si pudieras exhibir en tu perfil de LinkedIn una credencial que dice "Verificador certificado en [habilidad], con X casos resueltos", ¿crees que eso tendría valor real para tu carrera profesional?
+
 *Nivel 2 — Coordinador*
  
 1. Para comenzar, ¿podría describir brevemente su rol en la universidad y sus principales responsabilidades relacionadas con el alumnado?
