@@ -322,6 +322,7 @@ Platzi es una plataforma latinoamericana de educación tecnológica con fuerte p
  
 ### 2.1.1. Análisis competitivo
  
+ 
 | Criterio de Análisis | **Innovify / SkillSwap** | **Coursera** | **LinkedIn Learning** | **Platzi** |
 | :--- | :--- | :--- | :--- | :--- |
 | **Overview** | Plataforma de validación de habilidades mediante rutas de certificación personalizadas por IA, quizzes/miniproyectos generados dinámicamente y revisión de casos puntuales por Verificadores que ya certificaron su propia ruta y superaron un examen de ingreso. | Plataforma masiva de cursos online con certificados emitidos por universidades y empresas. Orientada a la entrega de contenido estructurado. | Plataforma de aprendizaje corporativo integrada a LinkedIn. Certificados visibles en el perfil profesional del usuario. | Plataforma latinoamericana de educación tecnológica con rutas de aprendizaje, comunidad activa y proyectos prácticos. |
@@ -380,7 +381,6 @@ A continuación se presentan las estrategias y tácticas que Innovify puede impl
 12. ¿Qué herramientas digitales usas actualmente para aprender? ¿Qué es lo que más te frustra de ellas?
 13. Imagina que puedes subir un certificado externo (de Coursera, por ejemplo) y la plataforma te genera un miniproyecto para validar que realmente adquiriste esa habilidad. ¿Eso te parecería valioso o innecesario?
 14. ¿Preferirías recibir una revisión de un Verificador que sea experto exactamente en el sub-tema donde fallaste, en vez de tener que repasar todo el curso desde cero?
-
 **Segmento objetivo #2: Personas que validan el conocimiento**
  
 *Nivel 1 — Verificador*
@@ -399,7 +399,6 @@ A continuación se presentan las estrategias y tácticas que Innovify puede impl
 12. ¿Qué tan dispuesto estarías a supervisar por videollamada la demostración final de un proyecto avanzado, garantizando que lo que se presenta es realmente propio de esa persona?
 13. ¿Qué debería tener sí o sí una plataforma para que la consideres profesional y confiable para ejercer este rol?
 14. Si pudieras exhibir en tu perfil de LinkedIn una credencial que dice "Verificador certificado en [habilidad], con X casos resueltos", ¿crees que eso tendría valor real para tu carrera profesional?
-
 *Nivel 2 — Coordinador*
  
 1. Para comenzar, ¿podría describir brevemente su rol en la universidad y sus principales responsabilidades relacionadas con el alumnado?
@@ -762,6 +761,7 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
  
 #### Segmento objetivo #1: Personas que quieren aprender
  
+ 
 | Tasks | Mireya<br>Frecuencia | Mireya<br>Importancia | Mathias<br>Frecuencia | Mathias<br>Importancia | Carlos<br>Frecuencia | Carlos<br>Importancia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Buscar recursos de aprendizaje en internet | Muy alta | Alta | Muy alta | Alta | Muy alta | Alta |
@@ -778,6 +778,7 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
  
 *Nivel 1 — Verificador*
  
+ 
 | Tasks | Marco<br>Frecuencia | Marco<br>Importancia | Mariana<br>Frecuencia | Mariana<br>Importancia | Sebastián<br>Frecuencia | Sebastián<br>Importancia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Mantener y actualizar el dominio técnico propio | Muy alta | Muy alta | Alta | Muy alta | Muy alta | Muy alta |
@@ -791,6 +792,7 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
 *(Tabla 8. Tareas y motivaciones del nivel de Verificador - Elaboración propia.)*
  
 *Nivel 2 — Coordinador*
+ 
  
 | Tasks | Armando<br>Frecuencia | Armando<br>Importancia | Jesús<br>Frecuencia | Jesús<br>Importancia | Raúl<br>Frecuencia | Raúl<br>Importancia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
