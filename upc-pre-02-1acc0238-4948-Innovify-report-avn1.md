@@ -1418,7 +1418,58 @@ Cada User Story incluye sus criterios de aceptación redactados en tiempo presen
 *(Tabla 12. User Stories del proyecto - Elaboración propia.)*
 
 ### 2.4.2. Impact Mapping
-*(Nota: Insertar los diagramas de Impact Mapping conectando los Business Goals con los User Personas y las funcionalidades móviles).*
+
+El Impact Mapping de SkillSwap se elaboró en UXPressia con el objetivo de conectar los objetivos del negocio con los cambios de comportamiento que se esperan de los usuarios y con las funcionalidades que la aplicación debe ofrecer para provocarlos. Se definieron cuatro **Business Goals** bajo los criterios SMART, cuyas métricas se derivan de las hipótesis planteadas en la sección 1.2.2.3. Como **Actors** se emplearon los User Personas identificados en la sección 2.3.1 —Valeria Ramos (Estudiante), Carlos Mendoza (Verificador) y Jorge Ríos (Coordinador)—, respondiendo a la pregunta *¿quiénes nos ayudarán a lograr la meta?*. La columna **Impacts** describe cómo se espera que cada persona cambie su comportamiento, la columna **Deliverables** responde a *¿qué puede hacer la plataforma para provocar esos impactos?*, y la columna **User Stories** reúne las historias de la sección 2.4.1 que permiten construir cada deliverable.
+
+**Business Goal 1: Adopción y suscripción**
+
+*Alcanzar 2,000 estudiantes universitarios con suscripción mensual activa en los primeros 6 meses desde el lanzamiento de la aplicación.*
+
+Esta meta asegura el ingreso recurrente principal del modelo de negocio. Para lograrla se necesita que Valeria Ramos se registre con su correo institucional y se suscriba al plan mensual, y que declare su meta de aprendizaje y siga la ruta que la IA le propone. Para provocar estos comportamientos, la plataforma ofrece el registro con validación de dominio `.edu.pe`, la suscripción mediante Google Play Billing, el intérprete de metas en lenguaje natural y la ruta de aprendizaje personalizada (US01, US05, US06 y US08).
+
+<p align="center">
+  <img src="public/assets/images-doc/impact-map-1.png" alt="Impact Map - Adopción y suscripción" width="900">
+  <br>
+  <em>Figura 16. Impact Map - Business Goal 1: Adopción y suscripción - Elaboración propia.</em>
+</p>
+
+**Business Goal 2: Validación práctica de habilidades**
+
+*Lograr que el 70 % de los estudiantes que suben un certificado rindan su evaluación práctica y que menos del 30 % de los intentos requiera la intervención de un Verificador, durante los primeros 6 meses de operación.*
+
+Esta meta mide la propuesta de valor central de SkillSwap: que el certificado se complemente con una demostración práctica y que la IA resuelva la mayoría de los casos sin intervención humana. Se espera que Valeria suba sus certificados como evidencia, rinda voluntariamente la evaluación práctica de cada uno, refuerce solo el sub-tema en el que falla y, al completar su ruta, demuestre su dominio integral. Los deliverables asociados son la extracción automática de datos con ML Kit, la validación de correspondencia entre certificado y habilidad, los quizzes generados por IA con calificación inmediata, el diagnóstico del sub-tema débil y la demostración final supervisada por videollamada (US13, US15, US17, US18, US20 y US29).
+
+<p align="center">
+  <img src="public/assets/images-doc/impact-map-2.png" alt="Impact Map - Validación práctica de habilidades" width="900">
+  <br>
+  <em>Figura 17. Impact Map - Business Goal 2: Validación práctica de habilidades - Elaboración propia.</em>
+</p>
+
+**Business Goal 3: Red de Verificadores**
+
+*Contar con 150 Verificadores habilitados que resuelvan el 85 % de los casos escalados en menos de 48 horas, dentro de los primeros 8 meses desde el lanzamiento.*
+
+La capacidad de la plataforma para resolver los casos que la IA no puede cerrar depende de contar con suficientes Verificadores activos. Para ello se necesita que Carlos Mendoza se habilite aprobando el examen de ingreso, resuelva a tiempo los casos que se le asignan y se mantenga activo gracias al reconocimiento profesional. La plataforma lo impulsa mediante el examen de ingreso por habilidad, la asignación automática de casos por afinidad, la rúbrica estructurada de evaluación, la acreditación de SkillCredits y la credencial verificable para compartir en LinkedIn (US22, US24, US25, US30 y US33).
+
+<p align="center">
+  <img src="public/assets/images-doc/impact-map-3.png" alt="Impact Map - Red de Verificadores" width="900">
+  <br>
+  <em>Figura 18. Impact Map - Business Goal 3: Red de Verificadores - Elaboración propia.</em>
+</p>
+
+**Business Goal 4: Calidad y confianza del proceso**
+
+*Mantener la tasa de disputas y reevaluaciones por debajo del 5 % del total de evaluaciones realizadas y resolver el 90 % de las disputas en menos de 72 horas, durante el primer año de operación.*
+
+Esta meta protege la credibilidad de todo lo que se certifica en la plataforma. Involucra a dos actores: Jorge Ríos, de quien se espera que resuelva a tiempo las disputas pendientes y controle la calidad de las evaluaciones y de los Verificadores; y Valeria, de quien se espera que confíe en el proceso y apele solo cuando lo considere necesario. Los deliverables correspondientes son el panel de disputas con evidencia, la resolución de apelaciones, la habilitación de reevaluaciones, el nuevo examen obligatorio para Verificadores con baja confiabilidad y la apelación con plazo definido (US34, US36, US37, US38 y US27).
+
+<p align="center">
+  <img src="public/assets/images-doc/impact-map-4.png" alt="Impact Map - Calidad y confianza del proceso" width="900">
+  <br>
+  <em>Figura 19. Impact Map - Business Goal 4: Calidad y confianza del proceso - Elaboración propia.</em>
+</p>
+
+En conjunto, los cuatro Impact Maps muestran cómo cada funcionalidad de la aplicación contribuye a un objetivo de negocio medible: los dos primeros se centran en el Estudiante como fuente de ingresos y como beneficiario de la validación práctica, mientras que los dos últimos aseguran que el segmento que valida el conocimiento —Verificadores y Coordinadores— sostenga la capacidad y la confiabilidad del proceso.
 
 ### 2.4.3. Product Backlog
 *(Nota: Insertar la tabla del Product Backlog priorizado, estimando los Story Points de las historias adaptadas al desarrollo móvil).*
