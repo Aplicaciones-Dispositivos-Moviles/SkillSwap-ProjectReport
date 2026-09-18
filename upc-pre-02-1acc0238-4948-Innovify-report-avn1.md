@@ -1769,7 +1769,7 @@ En la fase de demostración final, certificación y nuevo Verificador, los punto
 
 **Paso 4. Pivotal Points**
 
-En el cuarto paso se identificaron los eventos pivotales, es decir, aquellos después de los cuales el proceso entra en una fase distinta. Cada uno se marcó con una línea vertical que atraviesa el evento en su carril. Se identificaron seis eventos pivotales.
+En el cuarto paso se identificaron los eventos pivotales, es decir, aquellos después de los cuales el proceso entra en una fase distinta. Cada uno se marcó con una línea vertical ubicada inmediatamente después del evento, en su carril. Se identificaron seis eventos pivotales.
 
 En la fase de registro, suscripción y certificados hay dos. El primero es "Correo verificado": a partir de ese momento el usuario deja de ser anónimo y puede operar en la plataforma. El segundo es "Ruta de certificación generada", que cierra el diagnóstico del objetivo y da inicio al recorrido de aprendizaje.
 
