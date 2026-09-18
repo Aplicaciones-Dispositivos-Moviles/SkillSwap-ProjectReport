@@ -70,9 +70,23 @@ En esta sección se indica el URL del repositorio utilizado para la elaboración
 
 ### AV1
 
-Durante el desarrollo de la entrega AV1, el equipo distribuyó la elaboración del informe asignando capítulos y secciones específicas a cada integrante según sus áreas de responsabilidad. Cada miembro realizó sus aportes directamente en el repositorio de GitHub mediante commits en ramas individuales, siguiendo la convención de Conventional Commits y GitFlow. Todos los integrantes participaron activamente en la redacción de secciones del informe en formato Markdown, asegurando coherencia y calidad en el contenido entregado.
+Durante el desarrollo de la entrega AV1, el equipo distribuyó la elaboración del informe asignando capítulos y secciones específicas a cada integrante según sus áreas de responsabilidad. Cada miembro realizó sus aportes directamente en el repositorio de GitHub mediante commits en ramas individuales, siguiendo la convención de Conventional Commits y GitFlow, integrando los cambios mediante Pull Requests hacia la rama `develop`. Todos los integrantes participaron activamente en la redacción de secciones del informe en formato Markdown, asegurando coherencia y calidad en el contenido entregado.
 
-*(Nota: Insertar aquí las capturas de los analíticos de colaboración, branches y commits de GitHub correspondientes al avance 1).*
+A continuación, se presentan las capturas de los analíticos de colaboración del repositorio del informe:
+
+<figure style="text-align: center; margin-bottom: 40px;">
+  <img src="public/assets/images-doc/PR1.png" alt="Analíticos de colaboración - Project Report" width="800">
+  <figcaption style="margin-top: 10px;">
+    <em>Figura 1. Gráfico de contribuciones al repositorio del Project Report durante AV1. Se evidencia la participación de todos los integrantes del equipo mediante commits realizados en el período correspondiente.</em>
+  </figcaption>
+</figure>
+
+<figure style="text-align: center; margin-bottom: 40px;">
+  <img src="public/assets/images-doc/PR2.png" alt="Historial de commits - Project Report" width="800">
+  <figcaption style="margin-top: 10px;">
+    <em>Figura 2. Historial de commits en el repositorio del Project Report, evidenciando los aportes individuales de cada miembro con sus respectivos mensajes bajo la convención de Conventional Commits.</em>
+  </figcaption>
+</figure>
 
 ---
 
