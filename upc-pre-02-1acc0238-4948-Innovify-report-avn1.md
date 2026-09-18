@@ -1524,14 +1524,6 @@ En conjunto, los cuatro Impact Maps muestran cómo cada funcionalidad de la apli
 
 El Product Backlog de SkillSwap reúne las 55 historias definidas en la sección 2.4.1, ordenadas según el valor que aportan al negocio y estimadas en Story Points con la escala de Fibonacci (1, 2, 3, 5 y 8), donde el valor refleja la complejidad, el esfuerzo y la incertidumbre relativa de cada historia.
 
-El orden responde a los siguientes criterios:
-
-* **Landing Page (US41–US45):** se ubica al inicio porque debe estar disponible desde el primer sprint, como canal de adquisición que presenta la propuesta de valor, los planes y la descarga de la aplicación.
-* **Núcleo de la propuesta de valor:** a continuación se priorizan las historias que diferencian a SkillSwap de sus competidores: la ruta de aprendizaje generada por IA, la validación de certificados con ML Kit, las evaluaciones prácticas generadas por IA y el diagnóstico del sub-tema débil. Cada Technical Story se ubica inmediatamente antes de las User Stories que consumen su endpoint.
-* **Suscripción y verificación por pares:** luego se ubican la suscripción mensual, que sostiene el modelo de ingresos, y el flujo de escalamiento hacia los Verificadores (asignación por afinidad, rúbrica y examen de ingreso).
-* **Autenticación:** el registro institucional y el inicio de sesión se ubican después de las funcionalidades de mayor valor, ya que por sí solos no generan valor diferencial para el usuario.
-* **Supervisión, incentivos y mejoras:** finalmente se ubican las funcionalidades del Coordinador, la billetera de SkillCredits y las mejoras de experiencia (persistencia sin conexión, biometría) y la demostración final por videollamada, de menor prioridad.
-
 La estimación total del Product Backlog asciende a **204 Story Points**.
 
 | # Orden | User Story Id | Título | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
