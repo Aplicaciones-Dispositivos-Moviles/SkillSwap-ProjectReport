@@ -628,7 +628,7 @@ Mariana está de acuerdo con que el Verificador demuestre primero su propio domi
   <br>
   <em>Figura 6. Entrevista 3: Segmento Verificador | Innovify. Nota: En esta figura se aprecia la tercera entrevista al nivel de Verificador dentro del segmento de personas que validan el conocimiento.</em>
 </p>
-**URL:** https://www.youtube.com/watch?v=wtCs-bESKhI**Inicio:** 0:00<br>**Duración:** 7:06
+**URL:** https://www.youtube.com/watch?v=wtCs-bESKhI<br>**Inicio:** 0:00<br>**Duración:** 7:06
 
 Sebastián es egresado de Comunicaciones de la UPC y trabaja como freelance en marketing de contenidos. Domina SEO técnico, copywriting y estrategia de redes sociales, habilidades que desarrolló en proyectos reales con clientes. Intentó enseñar en Preply pero lo abandonó porque la plataforma permite que cualquiera enseñe sin verificación, lo que deteriora la calidad percibida de todos los que ofrecen ayuda ahí.
  
@@ -4190,9 +4190,6 @@ Cuando tuvimos que reestructurar el segmento de "personas que quieren enseñar",
 
 Contrastar el Problem Statement con nuestro propio diseño de arquitectura nos obligó a revisar más de una vez si el texto seguía describiendo el problema o ya se había colado la solución —un error común que el propio docente del ciclo pasado ya nos había advertido. Ese ida y vuelta constante entre Capítulo I y Capítulo II terminó siendo, en la práctica, la forma más efectiva de detectar inconsistencias: cualquier mención a "comisión", "videollamada de enseñanza" o "mentor" en el texto de negocio era una señal inmediata de que ese párrafo todavía no reflejaba el modelo que ya habíamos cerrado en el diseño técnico.
 
-**Sobre [completar: despliegue, integración de servicios, sprint]**
-
-*Esta sección la dejo como plantilla para que ustedes la completen con lo que realmente vivieron en el desarrollo — no tengo visibilidad de esa parte de tu equipo (por ejemplo, algún problema real con Render/MySQL, con la integración de ML Kit en Android/Flutter, o algo que decidieron simplificar sobre la marcha durante los Sprints). Sigue el mismo tono: qué pasó, por qué pasó, qué aprendieron, cómo lo habrían hecho distinto si lo supieran desde el inicio — como en el ejemplo que me pasaste sobre la base de datos de Aiven suspendiéndose por inactividad.*
 
 # Bibliografía
 * Coursera. (2025). *Global skills report 2025*. [https://www.coursera.org/skills-reports/global](https://www.coursera.org/skills-reports/global)
