@@ -3,7 +3,8 @@
 
 LAYOUT_WITH_LEGEND()
 
-Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
+Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
 System_Ext(stripeApi, "Stripe", "Procesamiento de pagos")
 
@@ -17,7 +18,8 @@ Container_Boundary(subscriptionBC, "Subscription & Billing Bounded Context") {
     Component(subscriptionContextFacade, "Subscription ContextFacade", "C# Class", "Punto de entrada interno")
 }
 
-Rel(apiGateway, subscriptionController, "Request HTTP a Subscription & Billing")
+Rel(androidApp, subscriptionController, "Request HTTP a Subscription & Billing")
+Rel(flutterApp, subscriptionController, "Request HTTP a Subscription & Billing")
 
 Rel(subscriptionController, subscriptionCommandService, "Usa")
 Rel(subscriptionController, subscriptionQueryService, "Usa")
