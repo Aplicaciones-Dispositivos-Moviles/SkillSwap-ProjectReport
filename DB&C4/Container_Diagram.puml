@@ -4,24 +4,13 @@
 LAYOUT_WITH_LEGEND()
 
 Person(student, "Estudiante", "Sube certificados, sigue su ruta de aprendizaje y demuestra sus habilidades.")
-Person(verifier, "Verificador", "Revisa los casos que la IA no puede resolver con suficiente confianza.")
-Person(professor, "Profesor Universitario / Coordinador", "Supervisa la calidad del proceso de verificación.")
+Person(verifier, "Verificador", "Revisa los casos que la IA no puede resolver con suficiente confianza, y supervisa la calidad del proceso de verificación.")
 
 System_Boundary(skillSwapSystem, "SkillSwap Platform") {
-    Container(landingPage, "Landing Page", "HTML5 / CSS3 / JavaScript", "Sitio web estático que presenta el modelo de negocio de SkillSwap.")
-    Container(androidApp, "Android Native Application", "Kotlin / Jetpack Compose", "Aplicación móvil nativa para Estudiantes, Verificadores y Profesor.")
-    Container(flutterApp, "Cross-Platform Application", "Flutter / Dart (dirigido a Android)", "Aplicación móvil multiplataforma para Estudiantes, Verificadores y Profesor.")
-    Container(apiGateway, "Api Gateway", "ASP.NET Core (C#)", "Controlador de tráfico de solicitudes HTTP entrantes.")
-
-    Container(identityBC, "Identity & Access Bounded Context", "C# / ASP.NET Core", "Gestión de autenticación y perfiles")
-    Container(credentialBC, "Credential Verification Bounded Context", "C# / ASP.NET Core", "Extracción OCR y validación de legitimidad de certificados")
-    Container(pathEngineBC, "Learning Path Engine Bounded Context", "C# / ASP.NET Core", "Detección de brechas de habilidad y generación de ruta personalizada")
-    Container(assessmentBC, "Assessment & Peer Review Bounded Context", "C# / ASP.NET Core", "Intentos de evaluación, asignación y revisión de Verificador")
-    Container(reputationBC, "Reputation Bounded Context", "C# / ASP.NET Core", "Confiabilidad del Verificador y Employability Score")
-    Container(walletBC, "Wallet & Incentives Bounded Context", "C# / ASP.NET Core", "Balance y transferencias de SkillCredits")
-    Container(subscriptionBC, "Subscription & Billing Bounded Context", "C# / ASP.NET Core", "Suscripción mensual")
-    Container(moderationBC, "Moderation & Disputes Bounded Context", "C# / ASP.NET Core", "Resolución de disputas y sanciones")
-
+    Container(landingPage, "Landing Page(estatica)", "HTML5 / CSS3 / JavaScript", "Sitio web estático que presenta el modelo de negocio de SkillSwap.")
+    Container(androidApp, "Android Native Application", "Kotlin / Jetpack Compose", "Aplicación móvil nativa para Estudiantes y Verificadores.")
+    Container(flutterApp, "Cross-Platform Application", "Flutter / Dart (dirigido a Android)", "Aplicación móvil multiplataforma para Estudiantes y Verificadores.")
+    Container(apiGateway, "Api / RESTful Web Services", "ASP.NET Core (C#)", "Expone los endpoints del dominio, aplica las reglas de negocio y orquesta la lógica de los ocho Bounded Contexts.")
     ContainerDb(mainDB, "SkillSwap Database", "MySQL 8", "Base de datos única compartida por los ocho Bounded Contexts (skillswap_db)")
 }
 
@@ -32,42 +21,20 @@ System_Ext(stripeApi, "Stripe", "Procesamiento de pagos")
 
 Rel(student, androidApp, "Usa")
 Rel(verifier, androidApp, "Usa")
-Rel(professor, androidApp, "Usa")
 Rel(student, flutterApp, "Usa")
 Rel(verifier, flutterApp, "Usa")
-Rel(professor, flutterApp, "Usa")
 
 Rel(student, landingPage, "Visita")
 Rel(verifier, landingPage, "Visita")
-Rel(professor, landingPage, "Visita")
 
 Rel(androidApp, apiGateway, "Consume API RESTful vía HTTPS")
 Rel(flutterApp, apiGateway, "Consume API RESTful vía HTTPS")
 
-Rel(apiGateway, identityBC, "Enruta solicitudes")
-Rel(apiGateway, credentialBC, "Enruta solicitudes")
-Rel(apiGateway, pathEngineBC, "Enruta solicitudes")
-Rel(apiGateway, assessmentBC, "Enruta solicitudes")
-Rel(apiGateway, reputationBC, "Enruta solicitudes")
-Rel(apiGateway, walletBC, "Enruta solicitudes")
-Rel(apiGateway, subscriptionBC, "Enruta solicitudes")
-Rel(apiGateway, moderationBC, "Enruta solicitudes")
+Rel(apiGateway, mainDB, "Lee/Escribe")
 
-Rel(identityBC, mainDB, "Lee/Escribe")
-Rel(credentialBC, mainDB, "Lee/Escribe")
-Rel(pathEngineBC, mainDB, "Lee/Escribe")
-Rel(assessmentBC, mainDB, "Lee/Escribe")
-Rel(reputationBC, mainDB, "Lee/Escribe")
-Rel(walletBC, mainDB, "Lee/Escribe")
-Rel(subscriptionBC, mainDB, "Lee/Escribe")
-Rel(moderationBC, mainDB, "Lee/Escribe")
-
-Rel(identityBC, emailService, "Envía correo de validación")
-Rel(credentialBC, mlKitService, "Extrae datos del certificado (OCR on-device)")
-Rel(credentialBC, cloudStorage, "Guarda la imagen del certificado")
-Rel(assessmentBC, cloudStorage, "Guarda evidencias adjuntas a un caso de verificación")
-Rel(moderationBC, emailService, "Envía notificación de sanción o resolución de disputa")
-Rel(subscriptionBC, stripeApi, "Procesa el cobro de la suscripción")
-
+Rel(apiGateway, emailService, "Envía correo de validación / notificación de sanción o disputa")
+Rel(apiGateway, mlKitService, "Extrae datos del certificado (OCR on-device)")
+Rel(apiGateway, cloudStorage, "Guarda certificados y evidencias adjuntas a un caso")
+Rel(apiGateway, stripeApi, "Procesa el cobro de la suscripción")
 
 @enduml

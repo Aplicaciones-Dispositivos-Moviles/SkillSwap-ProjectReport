@@ -3,7 +3,8 @@
 
 LAYOUT_WITH_LEGEND()
 
-Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
+Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
 System_Ext(llmApi, "LLM API", "Generación de preguntas por IA")
 
@@ -25,8 +26,10 @@ Component_Ext(credentialCommandService, "Certificate CommandService", "C# Class"
 Component_Ext(assessmentQueryService, "Assessment QueryService", "C# Class", "Bounded Context: Assessment & Peer Review")
 Component_Ext(assessmentCommandService, "Assessment CommandService", "C# Class", "Bounded Context: Assessment & Peer Review")
 
-Rel(apiGateway, learningPathController, "Request HTTP a Learning Path Engine")
-Rel(apiGateway, assessmentBlueprintController, "Request HTTP a Learning Path Engine")
+Rel(androidApp, learningPathController, "Request HTTP a Learning Path Engine")
+Rel(flutterApp, learningPathController, "Request HTTP a Learning Path Engine")
+Rel(androidApp, assessmentBlueprintController, "Request HTTP a Learning Path Engine")
+Rel(flutterApp, assessmentBlueprintController, "Request HTTP a Learning Path Engine")
 
 Rel(learningPathController, pathEngineCommandService, "Usa")
 Rel(learningPathController, pathEngineQueryService, "Usa")
