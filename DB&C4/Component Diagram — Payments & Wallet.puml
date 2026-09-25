@@ -3,7 +3,8 @@
 
 LAYOUT_WITH_LEGEND()
 
-Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
+Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
 
 Container_Boundary(walletBC, "Wallet & Incentives Bounded Context") {
@@ -20,8 +21,11 @@ Component_Ext(identityCommandService, "Identity CommandService", "C# Class", "Bo
 Component_Ext(identityContextFacade, "Identity ContextFacade", "C# Class", "Bounded Context: Identity & Access")
 Component_Ext(assessmentCommandService, "Assessment CommandService", "C# Class", "Bounded Context: Assessment & Peer Review")
 
-Rel(apiGateway, walletController, "Request HTTP a Wallet & Incentives")
-Rel(apiGateway, creditTransactionController, "Request HTTP a Wallet & Incentives")
+Rel(androidApp, walletController, "Request HTTP a Wallet & Incentives")
+Rel(flutterApp, walletController, "Request HTTP a Wallet & Incentives")
+Rel(androidApp, creditTransactionController, "Request HTTP a Wallet & Incentives")
+Rel(flutterApp, creditTransactionController, "Request HTTP a Wallet & Incentives")
+
 Rel(walletController, walletQueryService, "Usa")
 Rel(creditTransactionController, walletCommandService, "Usa")
 

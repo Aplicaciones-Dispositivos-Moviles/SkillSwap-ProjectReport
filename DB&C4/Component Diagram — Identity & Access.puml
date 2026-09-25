@@ -3,7 +3,8 @@
 
 LAYOUT_WITH_LEGEND()
 
-Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
+Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
 System_Ext(emailService, "Email Api")
 
@@ -25,7 +26,8 @@ Component_Ext(moderationQueryService, "Moderation QueryService", "C# Class", "Bo
 Component_Ext(moderationCommandService, "Moderation CommandService", "C# Class", "Bounded Context: Moderation & Disputes")
 Component_Ext(walletQueryService, "Wallet QueryService", "C# Class", "Bounded Context: Wallet & Incentives")
 
-Rel(apiGateway, identityController, "Request HTTP a Identity")
+Rel(androidApp, identityController, "Request HTTP a Identity")
+Rel(flutterApp, identityController, "Request HTTP a Identity")
 Rel(identityController, identityCommandService, "Usa")
 Rel(identityController, identityQueryService, "Usa")
 Rel(identityCommandService, identityRepository, "Usa")
@@ -35,7 +37,7 @@ Rel(identityRepository, mainDB, "SQL Transaction")
 Rel(identityCommandService, emailExternal, "Delega envío")
 Rel(emailExternal, emailService, "Enviar correo de validación")
 
-Rel(identityCommandService, walletContextFacade, "Solicita la creación de la wallet inicial de SkillCredits al registrarse")
+Rel(identityCommandService, walletContextFacade, "Solicita la creación de la wallet inicial al registrarse")
 Rel(identityQueryService, moderationContextFacade, "Pedir estado de sanción de la cuenta")
 
 Rel(identityContextFacade, identityCommandService, "Delega")

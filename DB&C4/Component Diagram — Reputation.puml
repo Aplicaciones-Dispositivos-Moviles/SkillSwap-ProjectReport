@@ -3,7 +3,8 @@
 
 LAYOUT_WITH_LEGEND()
 
-Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
+Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
 
 Container_Boundary(reputationBC, "Reputation Bounded Context") {
@@ -21,8 +22,11 @@ Component_Ext(assessmentContextFacade, "Assessment ContextFacade", "C# Class", "
 Component_Ext(assessmentCommandService, "Assessment CommandService", "C# Class", "Bounded Context: Assessment & Peer Review")
 Component_Ext(moderationCommandService, "Moderation CommandService", "C# Class", "Bounded Context: Moderation & Disputes")
 
-Rel(apiGateway, verifierReliabilityController, "Request HTTP a Reputation")
-Rel(apiGateway, studentEmployabilityController, "Request HTTP a Reputation")
+Rel(androidApp, verifierReliabilityController, "Request HTTP a Reputation")
+Rel(flutterApp, verifierReliabilityController, "Request HTTP a Reputation")
+Rel(androidApp, studentEmployabilityController, "Request HTTP a Reputation")
+Rel(flutterApp, studentEmployabilityController, "Request HTTP a Reputation")
+
 Rel(verifierReliabilityController, reputationQueryService, "Usa")
 Rel(studentEmployabilityController, reputationQueryService, "Usa")
 

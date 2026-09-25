@@ -3,7 +3,8 @@
 
 LAYOUT_WITH_LEGEND()
 
-Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
+Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
 System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para evidencia")
 
@@ -27,9 +28,12 @@ Component_Ext(reputationContextFacade, "Reputation ContextFacade", "C# Class", "
 Component_Ext(walletContextFacade, "Wallet ContextFacade", "C# Class", "Bounded Context: Wallet & Incentives")
 Component_Ext(moderationQueryService, "Moderation QueryService", "C# Class", "Bounded Context: Moderation & Disputes")
 
-Rel(apiGateway, assessmentAttemptController, "Request HTTP a Assessment & Peer Review")
-Rel(apiGateway, verificationCaseController, "Request HTTP a Assessment & Peer Review")
-Rel(apiGateway, verifierProfileController, "Request HTTP a Assessment & Peer Review")
+Rel(androidApp, assessmentAttemptController, "Request HTTP a Assessment & Peer Review")
+Rel(flutterApp, assessmentAttemptController, "Request HTTP a Assessment & Peer Review")
+Rel(androidApp, verificationCaseController, "Request HTTP a Assessment & Peer Review")
+Rel(flutterApp, verificationCaseController, "Request HTTP a Assessment & Peer Review")
+Rel(androidApp, verifierProfileController, "Request HTTP a Assessment & Peer Review")
+Rel(flutterApp, verifierProfileController, "Request HTTP a Assessment & Peer Review")
 
 Rel(assessmentAttemptController, assessmentCommandService, "Usa")
 Rel(assessmentAttemptController, assessmentQueryService, "Usa")

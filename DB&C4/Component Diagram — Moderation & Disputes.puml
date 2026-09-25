@@ -3,7 +3,8 @@
 
 LAYOUT_WITH_LEGEND()
 
-Container_Ext(apiGateway, "Api Gateway", "ASP.NET Core (C#)")
+Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
+Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
 
 Container_Boundary(moderationBC, "Moderation & Disputes Bounded Context") {
@@ -23,7 +24,9 @@ Component_Ext(credentialContextFacade, "Certificate ContextFacade", "C# Class", 
 Component_Ext(credentialCommandService, "Certificate CommandService", "C# Class", "Bounded Context: Credential Verification")
 Component_Ext(assessmentContextFacade, "Assessment ContextFacade", "C# Class", "Bounded Context: Assessment & Peer Review")
 
-Rel(apiGateway, disputeController, "Request HTTP a Moderation & Disputes")
+Rel(androidApp, disputeController, "Request HTTP a Moderation & Disputes")
+Rel(flutterApp, disputeController, "Request HTTP a Moderation & Disputes")
+
 Rel(disputeController, moderationCommandService, "Usa")
 Rel(disputeController, moderationQueryService, "Usa")
 Rel(moderationCommandService, disputeRepository, "Usa")
