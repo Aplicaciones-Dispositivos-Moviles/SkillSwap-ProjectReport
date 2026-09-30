@@ -2352,7 +2352,7 @@ Los contenedores identificados son los siguientes:
 - **Android Native Application:** Aplicación móvil nativa dirigida a los dos actores (Estudiante, Verificador), desarrollada en Kotlin con Jetpack Compose, que consume los Web Services RESTful del backend.
 - **Cross-Platform Application (Flutter):** Aplicación móvil dirigida a Android, que replica las funcionalidades core para ambos actores, desarrollada en Flutter con Dart, consumiendo igualmente los Web Services RESTful expuestos por el backend.
 - **API / RESTful Web Services:** Backend desarrollado bajo arquitectura RESTful en C# / ASP.NET Core, actuando como Published Language único para los tres clientes (Landing Page, Android Native App y Flutter App). Este contenedor expone los endpoints del dominio y orquesta la lógica de negocio de los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Wallet & Incentives, Subscription & Billing y Moderation & Disputes); el detalle interno de cada Bounded Context se desarrolla en su propio Component Diagram (ver 2.6.x.5).
-- **Database:** Repositorio central de persistencia (instancia única de MySQL), donde cada Bounded Context mantiene sus propias tablas siguiendo los principios de Domain-Driven Design.
+- **Database:** Repositorio central de persistencia (instancia única de PostgreSQL), donde cada Bounded Context mantiene sus propias tablas siguiendo los principios de Domain-Driven Design.
 
 Es importante resaltar que tanto la aplicación Android nativa como la aplicación Flutter cross-platform consumen el **mismo contrato de API RESTful** documentado con OpenAPI/Swagger, sin requerir endpoints adicionales ni lógica de backend duplicada, evidenciando así el desacoplamiento entre la capa de presentación y la capa de dominio/aplicación del sistema.
 
@@ -2370,7 +2370,7 @@ El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física 
 - **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes y Verificadores alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y la Aplicación Cross-Platform (Flutter, dirigida a Android), instaladas mediante distribución interna vía **Firebase App Distribution** durante el ciclo de pruebas, y descargables desde el dispositivo físico para la sustentación del curso. En estos dispositivos se ejecuta además **ML Kit** de forma on-device para la extracción de datos de los certificados, sin requerir una llamada a un servicio en la nube para dicho procesamiento.
 - **Hosting estático:** Aloja el Landing Page, servido de forma estática desde un proveedor de hosting (Firebase Hosting / Vercel), de acceso público.
 - **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (C# / ASP.NET Core), desplegado en **Render**, donde se ejecuta la lógica de negocio de los ocho Bounded Contexts a través de un único API Gateway, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por los tres clientes (Landing Page, Android Native App, Flutter App).
-- **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de MySQL desplegada en **Render**, compartida por los ocho Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
+- **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de PostgreSQL desplegada en **Render**, compartida por los ocho Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
 - **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para las imágenes de certificados y evidencias adjuntas a un caso de verificación, servicio de correo electrónico para el envío de notificaciones (validación institucional, resultados de evaluación, estado de un caso de revisión), y **Stripe** para el procesamiento del cobro recurrente de la suscripción mensual.
 
 Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
@@ -2383,7 +2383,7 @@ Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la s
   <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram - Mobile" width="900">
 </p>
 
-*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution y ejecución on-device de ML Kit, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de MySQL en Render y los servicios externos de almacenamiento en la nube y Stripe. Elaborado en PlantUML. Elaboración propia.
+*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution y ejecución on-device de ML Kit, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de PostgreSQL en Render y los servicios externos de almacenamiento en la nube y Stripe. Elaborado en PlantUML. Elaboración propia.
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
@@ -2548,7 +2548,7 @@ En la Infrastructure Layer de SkillSwap, para el contexto de Identity & Access, 
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| UserRepositoryAdapter | Implementación concreta de `UserRepository` que realiza las operaciones CRUD sobre la tabla `users`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| UserRepositoryAdapter | Implementación concreta de `UserRepository` que realiza las operaciones CRUD sobre la tabla `users`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
 
 **Security Services Implementation**
 
@@ -2769,7 +2769,7 @@ En la Infrastructure Layer de SkillSwap, para el contexto de Credential Verifica
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| CertificateRepositoryAdapter | Implementación concreta de `CertificateRepository` que realiza las operaciones CRUD sobre la tabla `certificates`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| CertificateRepositoryAdapter | Implementación concreta de `CertificateRepository` que realiza las operaciones CRUD sobre la tabla `certificates`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
 
 **OCR & Storage Services Implementation**
 
@@ -3004,7 +3004,7 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Learning Path Eng
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| LearningPathRepositoryAdapter | Implementación concreta de `LearningPathRepository` sobre las tablas `learning_paths` y `path_nodes`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| LearningPathRepositoryAdapter | Implementación concreta de `LearningPathRepository` sobre las tablas `learning_paths` y `path_nodes`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
 | AssessmentBlueprintRepositoryAdapter | Implementación concreta de `AssessmentBlueprintRepository` sobre la tabla `assessment_blueprints`. | ORM del stack backend. La lista de preguntas se persiste mediante un converter JSON, siguiendo el mismo criterio que ya aplicaron en el `Quiz` del proyecto base. |
 
 **AI Services Implementation**
@@ -3240,9 +3240,9 @@ En la Application Layer de Assessment & Peer Review, `SubmitAssessmentAttemptCom
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| AssessmentAttemptRepositoryAdapter | Implementación concreta de `AssessmentAttemptRepository` sobre la tabla `assessment_attempts`. | ORM del stack backend, instancia MySQL desplegada en Render. |
-| VerifierProfileRepositoryAdapter | Implementación concreta de `VerifierProfileRepository` sobre la tabla `verifier_profiles`. | ORM del stack backend, instancia MySQL desplegada en Render. |
-| VerificationCaseRepositoryAdapter | Implementación concreta de `VerificationCaseRepository` sobre la tabla `verification_cases`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| AssessmentAttemptRepositoryAdapter | Implementación concreta de `AssessmentAttemptRepository` sobre la tabla `assessment_attempts`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| VerifierProfileRepositoryAdapter | Implementación concreta de `VerifierProfileRepository` sobre la tabla `verifier_profiles`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| VerificationCaseRepositoryAdapter | Implementación concreta de `VerificationCaseRepository` sobre la tabla `verification_cases`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
 
 **Integration Services**
 
@@ -3436,8 +3436,8 @@ En la Application Layer de Reputation, los cuatro event handlers aseguran que ta
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| VerifierReliabilityRepositoryAdapter | Implementación concreta de `VerifierReliabilityRepository` sobre la tabla `verifier_reliabilities`. | ORM del stack backend, instancia MySQL desplegada en Render. |
-| StudentEmployabilityScoreRepositoryAdapter | Implementación concreta de `StudentEmployabilityScoreRepository` sobre la tabla `student_employability_scores`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| VerifierReliabilityRepositoryAdapter | Implementación concreta de `VerifierReliabilityRepository` sobre la tabla `verifier_reliabilities`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| StudentEmployabilityScoreRepositoryAdapter | Implementación concreta de `StudentEmployabilityScoreRepository` sobre la tabla `student_employability_scores`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
 
 **Integration Services**
 
@@ -3634,8 +3634,8 @@ En la Application Layer de Recognition & Incentives, `CreditVerifierCommandHandl
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| WalletRepositoryAdapter | Implementación concreta de `WalletRepository` sobre la tabla `wallets`. | ORM del stack backend, instancia MySQL desplegada en Render. |
-| CreditTransactionRepositoryAdapter | Implementación concreta de `CreditTransactionRepository` sobre la tabla `credit_transactions`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| WalletRepositoryAdapter | Implementación concreta de `WalletRepository` sobre la tabla `wallets`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| CreditTransactionRepositoryAdapter | Implementación concreta de `CreditTransactionRepository` sobre la tabla `credit_transactions`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
 
 Este Bounded Context no incluye integraciones con pasarelas de pago externas ni siquiera como trabajo futuro: al ser SkillCredits un mecanismo puramente interno y no monetario, no existe punto de extensión hacia Stripe u otro proveedor equivalente, a diferencia de Credential Verification, donde sí se documentaron mecanismos de verificación oficial pendientes de integración.
 
@@ -3834,8 +3834,8 @@ En la Application Layer de Moderation & Disputes, `ResolveDisputeCommandHandler`
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| DisputeRepositoryAdapter | Implementación concreta de `DisputeRepository` sobre la tabla `disputes`. | ORM del stack backend, instancia MySQL desplegada en Render. |
-| SanctionRepositoryAdapter | Implementación concreta de `SanctionRepository` sobre la tabla `sanctions`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| DisputeRepositoryAdapter | Implementación concreta de `DisputeRepository` sobre la tabla `disputes`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| SanctionRepositoryAdapter | Implementación concreta de `SanctionRepository` sobre la tabla `sanctions`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
 
 **Integration Services**
 
@@ -4021,7 +4021,7 @@ En la Application Layer de Subscription & Billing, `RenewSubscriptionCommandHand
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| SubscriptionRepositoryAdapter | Implementación concreta de `SubscriptionRepository` sobre la tabla `subscriptions`. | ORM del stack backend, instancia MySQL desplegada en Render. |
+| SubscriptionRepositoryAdapter | Implementación concreta de `SubscriptionRepository` sobre la tabla `subscriptions`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
 
 **Payment Services Implementation**
 
@@ -4086,7 +4086,7 @@ A continuación se presenta el diagrama relacional completo de SkillSwap, mostra
 
 *Nota.* Se muestra la totalidad de las tablas correspondientes a los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el campo device_token sobre la tabla users para el soporte de notificaciones push, los campos file_hash, storage_reference, ocr_text y qr_payload incorporados sobre la tabla certificates para el soporte de la captura desde cámara y la extracción on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto, y la tabla subscriptions incorporada para el soporte del cobro recurrente de la suscripción mensual. Elaborado en dbdiagram.io. Elaboración propia.
 
-En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos MySQL (`skillswap_db`) aloja de forma organizada las tablas de los ocho Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `assessment_attempts` y `verification_cases` en Assessment & Peer Review) y bajo acoplamiento entre ellos, referenciándose únicamente a través del identificador de usuario (`users.id`) como dato compartido. La incorporación del campo `device_token` y de los campos de extracción sobre `certificates` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, mientras que la tabla `subscriptions` evidencia el modelo de negocio de acceso recurrente (mensualidad), completamente independiente del sistema interno no monetario de SkillCredits, que solo se gana mediante participación como Verificador y no admite ninguna forma de adquisición directa.
+En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos PostgreSQL (`skillswap_db`) aloja de forma organizada las tablas de los ocho Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `assessment_attempts` y `verification_cases` en Assessment & Peer Review) y bajo acoplamiento entre ellos, referenciándose únicamente a través del identificador de usuario (`users.id`) como dato compartido. La incorporación del campo `device_token` y de los campos de extracción sobre `certificates` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, mientras que la tabla `subscriptions` evidencia el modelo de negocio de acceso recurrente (mensualidad), completamente independiente del sistema interno no monetario de SkillCredits, que solo se gana mediante participación como Verificador y no admite ninguna forma de adquisición directa.
 
 
 A continuación se presenta el diagrama de clases UML completo de SkillSwap, mostrando la totalidad del modelo de dominio y su segmentación entre los ocho Bounded Contexts.
@@ -4281,7 +4281,7 @@ Figura 94. *Diagrama de Clases UML completo de SkillSwap*<br>
 | **Cross-Platform Application (Flutter)** | Aplicación móvil multiplataforma (Flutter / Dart, dirigida a Android), distribuida vía Firebase App Distribution. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter.git](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter.git) |
 | **Backend — Swagger UI** | Documentación interactiva de los Web Services RESTful (ASP.NET Core / C#). | [PENDIENTE] |
 | **Backend — Repositorio** | Código fuente de los Web Services RESTful, organizados por los siete Bounded Contexts. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices.git](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices.git) |
-| **Base de Datos** | Diagrama de base de datos relacional único, compartido por los siete Bounded Contexts (MySQL administrado en Render). Ver detalle en la sección. | [PENDIENTE] |
+| **Base de Datos** | Diagrama de base de datos relacional único, compartido por los siete Bounded Contexts (PostgreSQL administrado en Render). Ver detalle en la sección. | [PENDIENTE] |
 | **Video About-the-Team** | Video que resume el proceso de trabajo del equipo a lo largo del ciclo de vida del proyecto. | [PENDIENTE] |
 | **Video About-the-Product** | Video promocional dirigido a visitantes de la Landing Page y usuarios de la plataforma. | [PENDIENTE] |
 
