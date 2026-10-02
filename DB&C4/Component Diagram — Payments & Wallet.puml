@@ -1,30 +1,31 @@
-@startuml WalletIncentivesComponent
+@startuml RecognitionIncentivesComponent
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
 LAYOUT_WITH_LEGEND()
 
 Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
 Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
-ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
+ContainerDb_Ext(mainDB, "SkillSwap Database", "PostgreSQL 16")
 
-Container_Boundary(walletBC, "Wallet & Incentives Bounded Context") {
+Container_Boundary(recognitionBC, "Recognition & Incentives Bounded Context") {
     Component(walletController, "Wallet Controller", "C# Class", "RESTful API Controller")
     Component(creditTransactionController, "CreditTransaction Controller", "C# Class", "RESTful API Controller")
     Component(walletCommandService, "Wallet CommandService", "C# Class", "Lógica de negocio")
     Component(walletQueryService, "Wallet QueryService", "C# Class", "Consultas")
+    Component(identityEventHandlers, "Identity EventHandlers", "C# Class", "Reacciona a UserRegistered creando la wallet")
+    Component(assessmentEventHandlers, "Assessment EventHandlers", "C# Class", "Reacciona a VerificationCaseResolved acreditando SkillCredits")
     Component(walletRepository, "Wallet Repository", "C# Interface", "Interface persistencia")
     Component(creditTransactionRepository, "CreditTransaction Repository", "C# Interface", "Interface persistencia")
-    Component(walletContextFacade, "Wallet ContextFacade", "C# Class", "Punto de entrada interno")
+    Component(recognitionContextFacade, "Recognition ContextFacade", "C# Class", "Punto de entrada interno")
 }
 
-Component_Ext(identityCommandService, "Identity CommandService", "C# Class", "Bounded Context: Identity & Access")
-Component_Ext(identityContextFacade, "Identity ContextFacade", "C# Class", "Bounded Context: Identity & Access")
-Component_Ext(assessmentCommandService, "Assessment CommandService", "C# Class", "Bounded Context: Assessment & Peer Review")
+Component_Ext(identityDomainEventPublisher, "DomainEventPublisher", "C# Class (Shared)", "Bounded Context: Identity & Access")
+Component_Ext(assessmentDomainEventPublisher, "DomainEventPublisher", "C# Class (Shared)", "Bounded Context: Assessment & Peer Review")
 
-Rel(androidApp, walletController, "Request HTTP a Wallet & Incentives")
-Rel(flutterApp, walletController, "Request HTTP a Wallet & Incentives")
-Rel(androidApp, creditTransactionController, "Request HTTP a Wallet & Incentives")
-Rel(flutterApp, creditTransactionController, "Request HTTP a Wallet & Incentives")
+Rel(androidApp, walletController, "Request HTTP a Recognition & Incentives")
+Rel(flutterApp, walletController, "Request HTTP a Recognition & Incentives")
+Rel(androidApp, creditTransactionController, "Request HTTP a Recognition & Incentives")
+Rel(flutterApp, creditTransactionController, "Request HTTP a Recognition & Incentives")
 
 Rel(walletController, walletQueryService, "Usa")
 Rel(creditTransactionController, walletCommandService, "Usa")
@@ -36,12 +37,13 @@ Rel(walletQueryService, creditTransactionRepository, "Usa")
 Rel(walletRepository, mainDB, "SQL Transaction")
 Rel(creditTransactionRepository, mainDB, "SQL Transaction")
 
-Rel(walletQueryService, identityContextFacade, "Confirmar biometría antes de canjear SkillCredits")
+Rel(identityDomainEventPublisher, identityEventHandlers, "En proceso, tras el commit")
+Rel(identityEventHandlers, walletCommandService, "Crea la wallet inicial (balance en cero)")
 
-Rel(walletContextFacade, walletCommandService, "Delega")
-Rel(walletContextFacade, walletQueryService, "Delega")
+Rel(assessmentDomainEventPublisher, assessmentEventHandlers, "En proceso, tras el commit")
+Rel(assessmentEventHandlers, walletCommandService, "Acredita SkillCredits al Verificador asignado")
 
-Rel(identityCommandService, walletContextFacade, "Solicitar creación de wallet inicial al registrarse")
-Rel(assessmentCommandService, walletContextFacade, "Notificar caso aprobado para acreditar SkillCredits")
+Rel(recognitionContextFacade, walletCommandService, "Delega")
+Rel(recognitionContextFacade, walletQueryService, "Delega")
 
 @enduml

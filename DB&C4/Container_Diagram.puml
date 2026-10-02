@@ -7,17 +7,17 @@ Person(student, "Estudiante", "Sube certificados, sigue su ruta de aprendizaje y
 Person(verifier, "Verificador", "Revisa los casos que la IA no puede resolver con suficiente confianza, y supervisa la calidad del proceso de verificación.")
 
 System_Boundary(skillSwapSystem, "SkillSwap Platform") {
-    Container(landingPage, "Landing Page(estatica)", "HTML5 / CSS3 / JavaScript", "Sitio web estático que presenta el modelo de negocio de SkillSwap.")
+    Container(landingPage, "Landing Page (estática)", "HTML5 / CSS3 / JavaScript", "Sitio web estático que presenta el modelo de negocio de SkillSwap. Informativa; no consume la API.")
     Container(androidApp, "Android Native Application", "Kotlin / Jetpack Compose", "Aplicación móvil nativa para Estudiantes y Verificadores.")
     Container(flutterApp, "Cross-Platform Application", "Flutter / Dart (dirigido a Android)", "Aplicación móvil multiplataforma para Estudiantes y Verificadores.")
-    Container(apiGateway, "Api / RESTful Web Services", "ASP.NET Core (C#)", "Expone los endpoints del dominio, aplica las reglas de negocio y orquesta la lógica de los ocho Bounded Contexts.")
-    ContainerDb(mainDB, "SkillSwap Database", "MySQL 8", "Base de datos única compartida por los ocho Bounded Contexts (skillswap_db)")
+    Container(apiGateway, "Api / RESTful Web Services", "ASP.NET Core 8 (C#)", "Expone los endpoints del dominio, aplica las reglas de negocio y orquesta la lógica de los ocho Bounded Contexts.")
+    ContainerDb(mainDB, "SkillSwap Database", "PostgreSQL 16", "Base de datos única compartida por los ocho Bounded Contexts (skillswap_db)")
 }
 
 System_Ext(emailService, "Email Api", "Integración con correos institucionales")
 System_Ext(mlKitService, "ML Kit (Firebase)", "SDK on-device de OCR/Entity Extraction")
-System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para certificados y evidencias")
-System_Ext(stripeApi, "Stripe", "Procesamiento de pagos")
+System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para las imágenes de certificados")
+System_Ext(googlePlayBilling, "Google Play Billing", "Procesamiento de suscripciones")
 
 Rel(student, androidApp, "Usa")
 Rel(verifier, androidApp, "Usa")
@@ -29,12 +29,13 @@ Rel(verifier, landingPage, "Visita")
 
 Rel(androidApp, apiGateway, "Consume API RESTful vía HTTPS")
 Rel(flutterApp, apiGateway, "Consume API RESTful vía HTTPS")
+Rel(androidApp, mlKitService, "Extrae datos del certificado (OCR on-device)")
+Rel(flutterApp, mlKitService, "Extrae datos del certificado (OCR on-device)")
 
 Rel(apiGateway, mainDB, "Lee/Escribe")
 
 Rel(apiGateway, emailService, "Envía correo de validación / notificación de sanción o disputa")
-Rel(apiGateway, mlKitService, "Extrae datos del certificado (OCR on-device)")
-Rel(apiGateway, cloudStorage, "Guarda certificados y evidencias adjuntas a un caso")
-Rel(apiGateway, stripeApi, "Procesa el cobro de la suscripción")
+Rel(apiGateway, cloudStorage, "Guarda las imágenes de los certificados")
+Rel(apiGateway, googlePlayBilling, "Verifica y procesa el cobro de la suscripción")
 
 @enduml

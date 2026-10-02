@@ -5,21 +5,22 @@ LAYOUT_WITH_LEGEND()
 
 Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
 Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
-ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
+ContainerDb_Ext(mainDB, "SkillSwap Database", "PostgreSQL 16")
 
 Container_Boundary(reputationBC, "Reputation Bounded Context") {
     Component(verifierReliabilityController, "VerifierReliability Controller", "C# Class", "RESTful API Controller")
     Component(studentEmployabilityController, "StudentEmployability Controller", "C# Class", "RESTful API Controller")
     Component(reputationCommandService, "Reputation CommandService", "C# Class", "Lógica de negocio: recálculo por eventos")
     Component(reputationQueryService, "Reputation QueryService", "C# Class", "Consultas")
+    Component(assessmentEventHandlers, "Assessment EventHandlers", "C# Class", "Reacciona a AssessmentAttemptPassed y VerificationCaseResolved")
     Component(verifierReliabilityRepository, "VerifierReliability Repository", "C# Interface", "Interface persistencia")
     Component(studentEmployabilityRepository, "StudentEmployabilityScore Repository", "C# Interface", "Interface persistencia")
     Component(verifierProfileNotifierExternal, "VerifierProfile NotifierAdapter", "C# Class", "Sincronización con Assessment & Peer Review")
     Component(reputationContextFacade, "Reputation ContextFacade", "C# Class", "Punto de entrada interno")
 }
 
-Component_Ext(assessmentContextFacade, "Assessment ContextFacade", "C# Class", "Bounded Context: Assessment & Peer Review")
-Component_Ext(assessmentCommandService, "Assessment CommandService", "C# Class", "Bounded Context: Assessment & Peer Review")
+Component_Ext(verifierProfileContextFacade, "VerifierProfile ContextFacade", "C# Class", "Bounded Context: Assessment & Peer Review")
+Component_Ext(assessmentDomainEventPublisher, "DomainEventPublisher", "C# Class (Shared)", "Bounded Context: Assessment & Peer Review")
 Component_Ext(moderationCommandService, "Moderation CommandService", "C# Class", "Bounded Context: Moderation & Disputes")
 
 Rel(androidApp, verifierReliabilityController, "Request HTTP a Reputation")
@@ -37,13 +38,15 @@ Rel(reputationQueryService, studentEmployabilityRepository, "Usa")
 Rel(verifierReliabilityRepository, mainDB, "SQL Transaction")
 Rel(studentEmployabilityRepository, mainDB, "SQL Transaction")
 
+Rel(assessmentDomainEventPublisher, assessmentEventHandlers, "En proceso, tras el commit")
+Rel(assessmentEventHandlers, reputationCommandService, "Invoca recálculo de confiabilidad / empleabilidad")
+
 Rel(reputationCommandService, verifierProfileNotifierExternal, "Delega sincronización")
-Rel(verifierProfileNotifierExternal, assessmentContextFacade, "Actualizar VerifierProfile.rating / reviewCount")
+Rel(verifierProfileNotifierExternal, verifierProfileContextFacade, "UpdateRating(score)")
 
 Rel(reputationContextFacade, reputationCommandService, "Delega")
 Rel(reputationContextFacade, reputationQueryService, "Delega")
 
-Rel(assessmentCommandService, reputationContextFacade, "Notificar resolución de caso / aprobación automática")
 Rel(moderationCommandService, reputationContextFacade, "Notificar reversión de decisión / sanción aplicada")
 
 @enduml
