@@ -4,28 +4,28 @@
 LAYOUT_WITH_LEGEND()
 
 Deployment_Node(userDevice, "Dispositivo Móvil del Usuario", "Android"){
-    Container(androidApp, "Android Native App", "Kotlin / Jetpack Compose", "Cliente móvil nativo usado por Estudiantes, Verificadores y el Profesor para interactuar con la plataforma.")
+    Container(androidApp, "Android Native App", "Kotlin / Jetpack Compose", "Cliente móvil nativo usado por Estudiantes y Verificadores para interactuar con la plataforma.")
     Container(flutterApp, "Cross-Platform App", "Flutter / Dart (Android)", "Cliente móvil multiplataforma dirigido a Android.")
     Container(mlKitSdk, "ML Kit SDK", "Firebase On-Device", "Procesa la extracción de datos del certificado directamente en el dispositivo, sin llamada a un servicio en la nube.")
 }
 
-Deployment_Node(staticHosting, "Hosting Estático", "Firebase Hosting / Vercel"){
-    Container(landingPage, "Landing Page", "HTML5 / CSS3 / JavaScript", "Sitio web estático que presenta el modelo de negocio de SkillSwap.")
+Deployment_Node(staticHosting, "Hosting Estático", "GitHub Pages"){
+    Container(landingPage, "Landing Page", "HTML5 / CSS3 / JavaScript", "Sitio web estático que presenta el modelo de negocio de SkillSwap. No consume la API del backend.")
 }
 
 Deployment_Node(cloudPlatform, "Render", "Plataforma Cloud"){
-    Deployment_Node(backendRuntime, "Backend Runtime", "Docker Container"){
-        Container(apiGateway, "Api Gateway + Bounded Contexts", "ASP.NET Core (C#)", "Punto de entrada central que enruta las solicitudes a los ocho Bounded Contexts de la lógica de negocio.")
+    Deployment_Node(backendRuntime, "Backend Runtime", "Docker Container (net8.0)"){
+        Container(apiGateway, "Api Gateway + Bounded Contexts", "ASP.NET Core 8 (C#)", "Punto de entrada central que enruta las solicitudes a los ocho Bounded Contexts de la lógica de negocio.")
     }
-    Deployment_Node(dbServer, "Servidor de Base de Datos Administrado", "Render Managed Database"){
-        ContainerDb(mainDB, "SkillSwap Database", "MySQL 8", "Instancia única compartida por los ocho Bounded Contexts (skillswap_db).")
+    Deployment_Node(dbServer, "Servidor de Base de Datos Administrado", "Render Managed PostgreSQL"){
+        ContainerDb(mainDB, "SkillSwap Database", "PostgreSQL 16", "Instancia única compartida por los ocho Bounded Contexts (skillswap_db).")
     }
 }
 
 Deployment_Node(externalCloud, "Servicios Externos en la Nube", "SaaS"){
-    System_Ext(cloudStorage, "Cloudinary", "Almacenamiento de certificados y evidencias de casos")
+    System_Ext(cloudStorage, "Cloudinary", "Almacenamiento de las imágenes de certificados")
     System_Ext(emailService, "Email Api", "Notificaciones institucionales")
-    System_Ext(stripeApi, "Stripe", "Procesamiento de la suscripción")
+    System_Ext(googlePlayBilling, "Google Play Billing", "Procesamiento de la suscripción")
 }
 
 Rel(androidApp, mlKitSdk, "Invoca localmente", "SDK call")
@@ -33,12 +33,11 @@ Rel(flutterApp, mlKitSdk, "Invoca localmente", "SDK call")
 
 Rel(androidApp, apiGateway, "Consume API RESTful", "HTTPS")
 Rel(flutterApp, apiGateway, "Consume API RESTful", "HTTPS")
-Rel(landingPage, apiGateway, "Consume API RESTful", "HTTPS")
 
 Rel(apiGateway, mainDB, "Lee/Escribe", "SQL")
 
-Rel(apiGateway, cloudStorage, "Guarda certificados y evidencias", "HTTPS")
+Rel(apiGateway, cloudStorage, "Guarda las imágenes de los certificados", "HTTPS")
 Rel(apiGateway, emailService, "Envía notificaciones", "HTTPS")
-Rel(apiGateway, stripeApi, "Procesa pagos", "HTTPS")
+Rel(apiGateway, googlePlayBilling, "Verifica y procesa la suscripción", "HTTPS")
 
 @enduml
