@@ -35,7 +35,7 @@ SkillSwap
 | U20231C792 | Becerra Ninahuanca, Luis Angel |
 | U201724692 | Komatsu Dueñas, David |
 | U20241D958 | Lopez Montalvo, Kevin Edu |
-| U202423711 | Sulca Sanchez, Piero Angel |
+| U202423711 | Sulca Sanchez, Piero Angel | 
 
 </div>
 
@@ -63,10 +63,10 @@ Septiembre 2026
 
 ## Project Report Collaboration Insights
 
-En esta sección se indica el URL del repositorio utilizado para la elaboración colaborativa del Informe de Trabajo Final, así como las evidencias de participación de cada integrante del equipo durante el desarrollo de la entrega AV1.
+En esta sección se indica el URL del repositorio utilizado para la elaboración colaborativa del Informe de Trabajo Final, así como las evidencias de participación de cada integrante del equipo durante el desarrollo de las entregas AV1 y TB1.
 
 **URL del repositorio del Project Report (GitHub):**
-[ https://github.com/orgs/Aplicaciones-Moviles-SkillSwap/repositories ]( https://github.com/orgs/Aplicaciones-Moviles-SkillSwap/repositories )
+[ https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport ]( https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport )
 
 ### AV1
 
@@ -94,6 +94,31 @@ A continuación, se presentan las capturas de los analíticos de colaboración d
 
 *Nota.* Se evidencian los aportes individuales de cada integrante con sus respectivos mensajes bajo la convención Conventional Commits. Elaboración propia.
 
+### TB1
+
+Durante el desarrollo de la entrega TB1, el equipo mantuvo el mismo esquema de colaboración de AV1, incorporando además la corrección sistemática del Capítulo I y II a partir de las decisiones reales tomadas durante la construcción del backend (pasarela de pago, modelo de Assessment & Peer Review, motor de matching, taxonomía de habilidades, entre otras), y la redacción del Capítulo IV con la evidencia del Sprint 1. Alberca Saavedra, Víctor Manuel lideró la actualización de los Capítulos I, II y IV; [Completar — resto del equipo, Capítulo III y evidencias complementarias].
+
+**Figura [Completar]**
+
+*Gráfico de contribuciones al repositorio del Project Report durante TB1*
+
+<p align="center">
+  <img src="public/assets/images-doc/PR3-tb1.png" alt="Analíticos de colaboración - Project Report TB1" width="800">
+</p>
+
+*Nota.* [Completar — captura de Insights → Contributors del repositorio, filtrada al período del TB1.]
+
+**Figura [Completar]**
+
+*Historial de commits en el repositorio del Project Report durante TB1*
+
+<p align="center">
+  <img src="public/assets/images-doc/PR4-tb1.png" alt="Historial de commits - Project Report TB1" width="800">
+</p>
+
+
+
+
 ---
 
 ## Student Outcome
@@ -105,15 +130,15 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 | :--- | :--- | :--- |
-| **Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Lideré la investigación de la tecnología externa (ML Kit, SDK de reconocimiento de texto) a integrar en el proyecto móvil, evaluando sus requisitos técnicos y adaptándolos a la arquitectura móvil nativa. Participé en el diseño estratégico de los Bounded Contexts, incluyendo su rediseño tras el pivote del modelo de negocio.<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Investigué patrones de diseño UI/UX específicos para aplicaciones móviles multiplataforma y colaboré en el análisis competitivo y el diseño de entrevistas enfocadas en la experiencia de movilidad de los estudiantes.<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Documenté el proceso Lean UX y apliqué el aprendizaje sobre persistencia de datos locales en dispositivos para el diseño de los requisitos, estructurando las User Stories bajo un enfoque Mobile-First.<br><br>**Komatsu Dueñas, David (AV1):** Evalué diferentes estrategias de integración de servicios RESTful y modelé el flujo de mensajes entre los Bounded Contexts aplicando Domain Storytelling adaptado al consumo de APIs desde aplicaciones móviles.<br><br>**Sulca Sánchez, Piero Angel (AV1):** Estudié los fundamentos del diseño estratégico con Domain-Driven Design a partir del material del curso y de las plantillas de la comunidad ddd-crew, y los apliqué para elaborar el EventStorming de SkillSwap en sus diez pasos, el Candidate Context Discovery, los Domain Message Flows y los Bounded Context Canvases, modelados en Excalidraw. Para sustentar el problema del Capítulo I, investigué datos estadísticos sobre la brecha entre la certificación y el dominio práctico, los verifiqué en sus fuentes originales y los cité en formato APA 7. | (AV1) El equipo reconoce la necesidad del aprendizaje permanente al investigar e integrar de manera autónoma tecnologías no vistas en clase, como SDKs externos de reconocimiento de texto y persistencia local en dispositivos, aplicando conceptos de Domain-Driven Design al entorno móvil. |
-| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Al enfrentar el pivote del modelo de negocio a mitad de ciclo, tuve que reevaluar y rediseñar desde cero la estrategia de Bounded Contexts que ya había avanzado, reconociendo que el conocimiento adquirido durante la investigación previa (SUNEDU, matching por embeddings) no era aplicable al nuevo alcance del curso y debía sustituirse por soluciones más simples y viables.<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Reconocí la necesidad de actualizar el análisis competitivo y las preguntas de entrevista previamente diseñadas, dado que el modelo de negocio original ya no reflejaba la propuesta de valor vigente del proyecto.<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Identifiqué la necesidad de revisar y reestructurar la documentación de Lean UX ya elaborada para que reflejara el nuevo enfoque del proyecto, en lugar de darla por completa.<br><br>**Komatsu Dueñas, David (AV1):** Reconocí que los flujos de integración entre Bounded Contexts modelados inicialmente debían replantearse por completo tras el cambio de alcance, en vez de simplemente ajustar el software ya diseñado.<br><br>**Sulca Sánchez, Piero Angel (AV1):** Al alinear el Capítulo I con el modelo de negocio vigente, reconocí que partes ya redactadas del informe, como el segmento del Coordinador, el canje de SkillCredits y el enfoque en la deserción académica, respondían a un modelo anterior y debían reformularse en lugar de darse por terminadas. Durante el EventStorming, los puntos críticos identificados me llevaron a revisar decisiones del dominio, como la calificación por criterios y el segundo revisor, antes de trasladarlas al diseño, entendiendo que el modelo se refina de forma iterativa. | (AV1) El equipo reconoce que el aprendizaje permanente no se limita a adquirir tecnologías nuevas, sino también a la capacidad de soltar y reformular conocimiento previamente validado cuando el contexto del proyecto cambia, como ocurrió tras el pivote del modelo de negocio de tutorías a verificación de habilidades. |
+| **Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Lideré la investigación de la tecnología externa (ML Kit, SDK de reconocimiento de texto) a integrar en el proyecto móvil, evaluando sus requisitos técnicos y adaptándolos a la arquitectura móvil nativa. Participé en el diseño estratégico de los Bounded Contexts, incluyendo su rediseño tras el pivote del modelo de negocio.<br><br>**Alberca Saavedra, Víctor Manuel (TB1):** Implementé desde cero el backend de seis Bounded Contexts en C# / ASP.NET Core 8 con Entity Framework Core y PostgreSQL, investigando y aplicando por primera vez tecnologías no vistas en clase: la API REST de Gemini para generación de contenido con reintentos y modelos de respaldo, la verificación de compras de Google Play Billing, almacenamiento privado de archivos con URLs firmadas en Cloudinary, y pruebas de integración con Reqnroll (BDD/Gherkin) contra una base de datos real. También investigué y resolví una limitación real de infraestructura: Render no ofrece MySQL administrado de forma nativa, lo que me llevó a migrar todo el diseño de persistencia a PostgreSQL antes de implementarlo.<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Investigué patrones de diseño UI/UX específicos para aplicaciones móviles multiplataforma y colaboré en el análisis competitivo y el diseño de entrevistas enfocadas en la experiencia de movilidad de los estudiantes.<br><br>**Becerra Ninahuanca, Luis Angel (TB1):** Al diseñar el Style Guide y los wireframes del Landing Page, tuve que investigar principios de Information Architecture (sistemas de organización, etiquetado y navegación) que no habíamos aplicado formalmente en AV1, y ajustar las decisiones visuales iniciales al constatar que algunas no se alineaban con el tono de comunicación definido para el segmento de Verificadores.<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Documenté el proceso Lean UX y apliqué el aprendizaje sobre persistencia de datos locales en dispositivos para el diseño de los requisitos, estructurando las User Stories bajo un enfoque Mobile-First.<br><br>**Lopez Montalvo, Kevin Edu (TB1):** Al construir los Wireflow y User Flow Diagrams de las pantallas core (ruta de aprendizaje, resolución del quiz), tuve que aprender a representar formalmente las rutas alternativas (unhappy paths) del flujo —como qué pantalla ve el estudiante cuando un quiz no se aprueba— lo cual exigió coordinar con el diseño real del backend en vez de asumir un flujo ideal.<br><br>**Komatsu Dueñas, David (AV1):** Evalué diferentes estrategias de integración de servicios RESTful y modelé el flujo de mensajes entre los Bounded Contexts aplicando Domain Storytelling adaptado al consumo de APIs desde aplicaciones móviles.<br><br>**Komatsu Dueñas, David (TB1):** Reconocí que parte del flujo de interacción que había modelado con Domain Storytelling en AV1 ya no aplicaba tal cual al construir los prototipos de UI, porque el backend terminó resolviendo ciertos pasos (como la vinculación de certificados) de forma automática y no mediante una pantalla explícita, por lo que tuve que simplificar los mock-ups correspondientes.<br><br>**Sulca Sánchez, Piero Angel (AV1):** Estudié los fundamentos del diseño estratégico con Domain-Driven Design a partir del material del curso y de las plantillas de la comunidad ddd-crew, y los apliqué para elaborar el EventStorming de SkillSwap en sus diez pasos, el Candidate Context Discovery, los Domain Message Flows y los Bounded Context Canvases, modelados en Excalidraw. Para sustentar el problema del Capítulo I, investigué datos estadísticos sobre la brecha entre la certificación y el dominio práctico, los verifiqué en sus fuentes originales y los cité en formato APA 7.<br><br>**Sulca Sánchez, Piero Angel (TB1):** Al revisar el Context Mapping y los Bounded Context Canvases contra lo realmente implementado en el backend, identifiqué que varias relaciones que había modelado en AV1 (Customer/Supplier directo entre Assessment y Reputation) no correspondían al mecanismo real de eventos de dominio, y tuve que aprender el patrón Published Language para corregir los diagramas de forma consistente con el código. | (AV1) El equipo reconoce la necesidad del aprendizaje permanente al investigar e integrar de manera autónoma tecnologías no vistas en clase, como SDKs externos de reconocimiento de texto y persistencia local en dispositivos, aplicando conceptos de Domain-Driven Design al entorno móvil.<br><br>(TB1) El equipo confirma que ese aprendizaje autónomo se sostuvo al pasar del diseño a la implementación real: construir el backend exigió investigar APIs externas completas (Gemini, Google Play Billing) y resolver restricciones de infraestructura no anticipadas en el diseño original (disponibilidad de motores de base de datos en el proveedor de hosting elegido), evidenciando que actualizar conocimientos no se limita a la etapa de diseño sino que continúa durante la construcción del software. |
+| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Al enfrentar el pivote del modelo de negocio a mitad de ciclo, tuve que reevaluar y rediseñar desde cero la estrategia de Bounded Contexts que ya había avanzado, reconociendo que el conocimiento adquirido durante la investigación previa (SUNEDU, matching por embeddings) no era aplicable al nuevo alcance del curso y debía sustituirse por soluciones más simples y viables.<br><br>**Alberca Saavedra, Víctor Manuel (TB1):** Al construir el backend real, reconocí que varias decisiones documentadas en el diseño (rúbrica por criterio, examen de ingreso del Verificador, tres intentos de quiz, pasarela de pago) no eran viables o necesarias dentro del tiempo del Sprint, y que insistir en implementarlas tal cual hubiera significado no entregar un flujo completo y funcional. Reemplacé esas decisiones por un modelo mínimo igualmente riguroso, y luego tuve que volver sobre el propio informe para que el diseño documentado reflejara honestamente lo construido, en vez de dejar un documento que describiera un sistema distinto al que realmente funciona.<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Reconocí la necesidad de actualizar el análisis competitivo y las preguntas de entrevista previamente diseñadas, dado que el modelo de negocio original ya no reflejaba la propuesta de valor vigente del proyecto.<br><br>**Becerra Ninahuanca, Luis Angel (TB1):** Reconocí que el Style Guide definido en una primera versión debía replantearse al validarlo contra las pantallas reales de la app, en vez de darlo por cerrado solo porque ya existía un documento.<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Identifiqué la necesidad de revisar y reestructurar la documentación de Lean UX ya elaborada para que reflejara el nuevo enfoque del proyecto, en lugar de darla por completa.<br><br>**Lopez Montalvo, Kevin Edu (TB1):** Reconocí que los User Flows no podían completarse sin antes confirmar con el backend qué reglas de negocio realmente existían (ej. que un certificado no completa un nodo), lo que me obligó a esperar y ajustar en vez de diseñar el flujo de forma aislada.<br><br>**Komatsu Dueñas, David (AV1):** Reconocí que los flujos de integración entre Bounded Contexts modelados inicialmente debían replantearse por completo tras el cambio de alcance, en vez de simplemente ajustar el software ya diseñado.<br><br>**Komatsu Dueñas, David (TB1):** Reconocí que modelar la interacción sin validarla contra la arquitectura final genera trabajo que luego hay que rehacer, y que coordinar antes con el equipo técnico habría evitado parte del reproceso en los mock-ups.<br><br>**Sulca Sánchez, Piero Angel (AV1):** Al alinear el Capítulo I con el modelo de negocio vigente, reconocí que partes ya redactadas del informe, como el segmento del Coordinador, el canje de SkillCredits y el enfoque en la deserción académica, respondían a un modelo anterior y debían reformularse en lugar de darse por terminadas. Durante el EventStorming, los puntos críticos identificados me llevaron a revisar decisiones del dominio, como la calificación por criterios y el segundo revisor, antes de trasladarlas al diseño, entendiendo que el modelo se refina de forma iterativa.<br><br>**Sulca Sánchez, Piero Angel (TB1):** Reconocí que un Context Mapping elaborado en una etapa temprana del diseño necesita revisarse una vez que el código revela el mecanismo real de comunicación entre contextos, y que mantenerlo actualizado es parte continua del trabajo, no una tarea de una sola vez. | (AV1) El equipo reconoce que el aprendizaje permanente no se limita a adquirir tecnologías nuevas, sino también a la capacidad de soltar y reformular conocimiento previamente validado cuando el contexto del proyecto cambia, como ocurrió tras el pivote del modelo de negocio de tutorías a verificación de habilidades.<br><br>(TB1) El equipo reconoce que ese mismo principio aplica entre el diseño y la implementación: un documento de arquitectura es una hipótesis de trabajo, no una verdad fija, y la disciplina de volver a corregirlo cuando la construcción revela una limitación real —en vez de dejarlo desactualizado— es en sí misma una forma de aprendizaje permanente aplicada al ciclo de vida completo del software. |
 
 <div style="page-break-after: always;"></div>
 
 
 ## Objetivos SMART
 
-*   **Alberca Saavedra Víctor Manuel:** Completar un curso de especialización en arquitecturas móviles (Kotlin/Swift) para diciembre de 2026, logrando aplicar al menos 3 patrones de diseño avanzados en proyectos personales.
+*   **Alberca Saavedra Víctor Manuel:** Obtener una certificación en arquitectura de software en la nube (Microsoft Certified: Azure Developer Associate o AWS Certified Developer) para julio de 2027, consolidando en al menos 2 proyectos profesionales adicionales los principios de Domain-Driven Design y Clean Architecture aplicados en la construcción del backend de SkillSwap.
 *   **Becerra Ninahuanca Luis Angel:** Obtener una certificación en integración de servicios Cloud para aplicaciones móviles en los próximos 6 meses, mejorando la seguridad y reduciendo la latencia en el consumo de APIs.
 *   **Lopez Montalvo Kevin Edu:** Dominar herramientas de testing automatizado para aplicaciones multiplataforma (ej. Appium) antes de culminar la carrera, logrando automatizar el 80% de los flujos críticos de la aplicación.
 *   **Komatsu Dueñas, David:** Desarrollar habilidades de liderazgo técnico gestionando al menos 2 proyectos de software open source orientados a móviles en GitHub durante el próximo año, implementando GitFlow y CI/CD de forma efectiva.
@@ -4119,12 +4144,463 @@ En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, do
 
 ---
 
+## Capítulo III: Solution UI/UX Design
+
+
+### 3.1. Product design
+
+En esta sección se presenta el diseño del producto como parte integral de la arquitectura del sistema, detallando las decisiones que determinan la interacción entre los usuarios (Estudiante, Verificador) y SkillSwap, alineadas con los principios y elementos de diseño adoptados por el equipo.
+
+#### 3.1.1. Style Guidelines
+
+##### 3.1.1.1. General Style Guidelines
+
+
+| Elemento | Decisión |
+|---|---|
+| Paleta de colores | [Completar — colores primarios/secundarios con sus códigos hex] |
+| Tipografía | [Completar — familia tipográfica, pesos usados] |
+| Espaciado | [Completar — sistema de espaciado, ej. múltiplos de 8px] |
+| Tono de comunicación | [Completar — ej. profesional pero cercano, dado que el producto se dirige a estudiantes universitarios] |
+
+<p align="center">
+  <img src="images-doc/style-guidelines.png" alt="Style Guidelines de SkillSwap" width="900">
+</p>
+
+#### 3.1.2. Information Architecture
+
+##### 3.1.2.1. Organization Systems
+
+*(Completar: en qué grupos de información se aplica organización jerárquica, secuencial o matricial; qué esquema de categorización usan — alfabético, cronológico, por tópicos, por audiencia (Estudiante vs. Verificador).)*
+
+##### 3.1.2.2. Labelling Systems
+
+*(Completar: etiquetas usadas para representar conjuntos de información, ej. cómo se nombran las secciones del menú — "Mi Ruta", "Certificados", "Casos Asignados" — y las asociaciones entre ellas.)*
+
+##### 3.1.2.3. SEO Tags and Meta Tags
+
+*(Completar: Title, Meta Description, Keywords y Author del Landing Page. Para la app móvil, los elementos ASO — App Title, App Keywords, App Subtitle, App Description.)*
+
+| Página / Producto | Title | Meta Description | Keywords |
+|---|---|---|---|
+| Landing Page — Home | [Completar] | [Completar] | [Completar] |
+| App Store Listing | [Completar] | [Completar] | [Completar] |
+
+##### 3.1.2.4. Searching Systems
+
+*(Completar: qué opciones de búsqueda ofrece la app — ej. búsqueda de habilidades en el catálogo al declarar la meta — y con qué filtros.)*
+
+##### 3.1.2.5. Navigation Systems
+
+*(Completar: cómo se guía al Estudiante y al Verificador a través de la app y el Landing Page — navegación por pestañas, menú lateral, etc.)*
+
+#### 3.1.3. Landing Page UI Design
+
+La sección presenta cómo se tradujeron las decisiones de diseño y arquitectura de información al Landing Page de SkillSwap, correspondiente a las historias US41 a US45 (propuesta de valor, planes y precios, descarga de la app, información para Verificadores, preguntas frecuentes).
+
+##### 3.1.3.1. Landing Page Wireframe
+
+*(Completar: wireframes de Desktop y Mobile Web Browser, elaborados en Figma.)*
+
+<p align="center">
+  <img src="images-doc/landing-wireframe-desktop.png" alt="Wireframe Landing Page - Desktop" width="900">
+  <br>
+  <img src="images-doc/landing-wireframe-mobile.png" alt="Wireframe Landing Page - Mobile" width="400">
+</p>
+
+##### 3.1.3.2. Landing Page Mock-up
+
+*(Completar: mock-ups de Desktop y Mobile Web Browser, aplicando el Design System ya definido en 3.1.1.)*
+
+<p align="center">
+  <img src="images-doc/landing-mockup-desktop.png" alt="Mock-up Landing Page - Desktop" width="900">
+  <br>
+  <img src="images-doc/landing-mockup-mobile.png" alt="Mock-up Landing Page - Mobile" width="400">
+</p>
+
+El Landing Page está desplegado en: [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/)
+
+#### 3.1.4. Mobile Applications UX/UI Design
+
+Esta sección presenta el diseño visual y de interacción de las aplicaciones móviles (Android Nativo y Flutter), cubriendo las pantallas core construidas en el Sprint 1: registro/inicio de sesión, carga de certificado, consulta de la ruta de aprendizaje, resolución del quiz, y gestión de casos de verificación (del lado del Verificador).
+
+##### 3.1.4.1. Mobile Applications Wireframes
+
+*(Completar: wireframes de las pantallas principales, en Figma.)*
+
+<p align="center">
+  <img src="images-doc/mobile-wireframes.png" alt="Wireframes de la aplicación móvil" width="900">
+</p>
+
+##### 3.1.4.2. Mobile Applications Wireflow Diagrams
+
+*(Completar: un Wireflow por cada User Goal relevante, por ejemplo: "Declarar mi meta y obtener mi ruta" (Estudiante), "Resolver el quiz de un nodo" (Estudiante), "Revisar un caso asignado" (Verificador). Herramienta: LucidChart u Overflow.)*
+
+<p align="center">
+  <img src="images-doc/wireflow-declarar-meta.png" alt="Wireflow - Declarar meta y obtener ruta" width="900">
+</p>
+
+*Nota.* User goal: [Completar]. [Completar — explicación del flujo representado.]
+
+##### 3.1.4.3. Mobile Applications Mock-ups
+
+*(Completar: mock-ups de las pantallas, aplicando el Design System de 3.1.1.)*
+
+<p align="center">
+  <img src="images-doc/mobile-mockups.png" alt="Mock-ups de la aplicación móvil" width="900">
+</p>
+
+##### 3.1.4.4. Mobile Applications User Flow Diagrams
+
+*(Completar: un User Flow por cada User Goal, consistente con los Wireflows de 3.1.4.2, incluyendo los mock-ups de las pantallas con el happy path y las rutas alternativas.)*
+
+<p align="center">
+  <img src="images-doc/userflow-resolver-quiz.png" alt="User Flow - Resolver el quiz de un nodo" width="900">
+</p>
+
+*Nota.* User goal: [Completar]. [Completar — explicación del flujo y condiciones especificadas, ej. qué pasa si el quiz no se aprueba (se abre un caso).]
+
+##### 3.1.4.5. Mobile Applications Prototyping
+
+*(Completar: prototipo navegable en Figma para Desktop y Mobile Web Browser, con 1 screenshot y el enlace al video de demostración subido a Microsoft Stream, mostrando los principales flujos de interacción.)*
+
+<p align="center">
+  <img src="images-doc/prototype-screenshot.png" alt="Screenshot del prototipo navegable" width="900">
+</p>
+
+* **URL del prototipo:** [Completar]
+* **URL del video de interacción (Microsoft Stream):** [Completar]
+
+---
+
+## Capítulo IV: Product Implementation & Validation
+
+### 4.1. Software Configuration Management
+
+#### 4.1.1. Software Development Environment Configuration
+
+| Herramienta | Propósito | Ruta de referencia / descarga |
+|---|---|---|
+| JetBrains Rider | Desarrollo del backend en C# / ASP.NET Core | [https://www.jetbrains.com/es-es/rider/](https://www.jetbrains.com/es-es/rider/)|
+| .NET SDK 8.0 | Compilación y ejecución del backend | [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download) |
+| Git | Control de versiones | https://git-scm.com/ |
+| GitHub (organización `Aplicaciones-Dispositivos-Moviles`) | Alojamiento del repositorio y gestión de Pull Requests | [https://github.com/Aplicaciones-Dispositivos-Moviles](https://github.com/Aplicaciones-Dispositivos-Moviles)  |
+| PostgreSQL 16 / pgAdmin o DBeaver | Base de datos local de desarrollo y pruebas de integración | [ https://www.postgresql.org/]( https://www.postgresql.org/), [https://www.pgadmin.org/](https://www.pgadmin.org/) |
+| Postman | Pruebas manuales de los endpoints REST durante el desarrollo | [https://www.postman.com/](https://www.postman.com/) |
+| Swagger / Swashbuckle | Documentación interactiva de la API (OpenAPI) | Integrado en el proyecto, expuesto en `/swagger` [https://skillswap-webservices.onrender.com/swagger/index.html](https://skillswap-webservices.onrender.com/swagger/index.html) |
+| Docker Desktop | Construcción y prueba local de la imagen antes de desplegar en Render | [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/) |
+| Render | Hosting del backend (Web Service) y de la base de datos PostgreSQL administrada | [https://render.com/](https://render.com/) |
+| xUnit / Reqnroll | Pruebas unitarias y de integración (BDD con Gherkin) | Integrado en el proyecto |
+
+
+
+#### 4.1.2. Source Code Management
+
+El equipo utiliza **GitHub** como plataforma y sistema de control de versiones, bajo la organización pública `Aplicaciones-Dispositivos-Moviles`. El repositorio del backend es [`SkillSwap-WebServices`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices).
+
+**Flujo de trabajo (GitFlow):**
+- `main`: rama de producción, desplegada en Render. Se actualiza mediante tags de versión semántica (ej. `v0.1.0`) al cerrar cada entrega.
+- `develop`: rama de integración, donde se mergean las ramas `feature/*` mediante Pull Request.
+- `feature/<contexto>-<tema>`: una rama por Bounded Context o tema de trabajo (ej. `feature/assessment-peer-review`, `feature/shared-render-deployment`, `feature/reputation-reliability-employability`, `feature/recognition-incentives-wallet`).
+
+**Convenciones de commits:** Conventional Commits (`tipo(alcance): descripción`), con el Bounded Context como alcance (`iam`, `shared`, `credential`, `learning-path`, `assessment`, `reputation`, `recognition`). Tipos usados: `feat`, `fix`, `refactor`, `test`, `chore`, `build`. El equipo sigue la convención de **un commit por capa** (Domain, Application, Infrastructure, Interface) dentro de cada Bounded Context, de modo que el historial de commits evidencie el proceso de construcción capa por capa; los commits de pruebas automatizadas llevan el tipo `test`.
+
+**Flujo de integración:** los Pull Requests hacia `develop` se mergean con la estrategia *"Create a merge commit"* (sin squash), preservando el historial de commits individuales que exige la evidencia de Development/Testing de cada Sprint. El flujo de trabajo local sigue el orden commit → build → test, y solo se hace push al repositorio remoto cuando todo pasa, agrupando varios commits antes de subirlos.
+
+**Secretos:** las credenciales de desarrollo (connection string local, claves de API) se mantienen únicamente en `appsettings.Development.json`, excluido del repositorio mediante `.gitignore`; en producción se gestionan como variables de entorno en Render (ver 4.1.4).
+
+#### 4.1.3. Source Code Style Guide & Coding Conventions
+
+El backend sigue las convenciones oficiales de **C# / .NET** (Microsoft C# Coding Conventions): clases, métodos e interfaces en `PascalCase`; parámetros y variables locales en `camelCase`; interfaces prefijadas con `I` (ej. `IPaymentGateway`). Toda la nomenclatura del código —clases, propiedades, namespaces, mensajes de commit— está en **inglés**, conforme al Anexo F del enunciado del curso.
+
+Las tablas y columnas de la base de datos siguen `snake_case` (ej. `verifier_user_id`), y los enums se persisten como texto (no como enteros), para mantener legibilidad directa en consultas SQL.
+
+Las pruebas de comportamiento (Gherkin/Reqnroll) se escriben en inglés, con escenarios etiquetados por historia de usuario (ej. `@US18`) o historia técnica (ej. `@TS07`) para trazabilidad directa con el Product Backlog.
+
+#### 4.1.4. Software Deployment Configuration
+
+El backend se despliega como contenedor **Docker** en **Render** (plan gratuito), junto con una base de datos **PostgreSQL 16** también administrada por Render (plan gratuito), en la misma región.
+
+**Dockerfile:** build multi-etapa (`sdk:8.0` → `aspnet:8.0` sobre Debian, con soporte ICU para la cultura `es-419`). Solo se publica el proyecto `SkillSwap.Platform` (sin los proyectos de pruebas). La aplicación escucha en el puerto de la variable de entorno `PORT` (por defecto `10000`), con `ASPNETCORE_ENVIRONMENT=Production`. El archivo `.dockerignore` excluye `appsettings.Development.json`, las carpetas `bin`/`obj` y los proyectos de pruebas.
+
+**Rama de despliegue:** `develop` durante el ciclo de pruebas; al cerrar cada entrega se promueve a `main` mediante `release/x.y.z` con su tag de versión semántica correspondiente, y Render se reconfigura para desplegar desde `main`.
+
+**Variables de entorno en Render** (solo nombres; los valores no se exponen en el informe ni en el repositorio):
+
+| Variable | Propósito |
+|---|---|
+| `DATABASE_URL` | URL interna de la base de datos PostgreSQL de Render |
+| `Database__MigrateOnStartup` | Habilita la aplicación automática de migraciones al arrancar (`true`) |
+| `TokenSettings__Secret` | Secreto para la firma de tokens JWT (mínimo 32 caracteres) |
+| `Cloudinary__CloudName` / `ApiKey` / `ApiSecret` | Credenciales de la integración con Cloudinary |
+| `Gemini__ApiKey`, `Gemini__Model`, `Gemini__FallbackModels__0..N` | Credenciales y modelos de respaldo para la generación de preguntas con Gemini |
+| `Seed__Coordinator__Username` / `Email` / `Password` | Datos de la cuenta inicial del Coordinador, creada automáticamente al arrancar (idempotente, nunca modifica una cuenta existente) |
+
+**Migraciones y datos iniciales:** al arrancar, la aplicación convierte `DATABASE_URL` al formato de cadena de conexión de Npgsql, aplica las migraciones pendientes de Entity Framework Core y crea la cuenta del Coordinador inicial a partir de la configuración `Seed__Coordinator__*`, dado que los Coordinadores no pueden registrarse por su cuenta.
+
+**Observabilidad y disponibilidad:** el endpoint `GET /health` (anónimo, sin acceso a la base de datos) se usa tanto para el health check de Render como para un ping de mantenimiento cada 10 minutos, dado que el plan gratuito de Render suspende el servicio tras 15 minutos sin tráfico. Swagger permanece activo también en producción (`/swagger`), y la raíz (`/`) redirige automáticamente a la documentación.
+
+*(Limitación conocida a declarar en Conclusiones: la base de datos PostgreSQL gratuita de Render expira 30 días después de creada, con 14 días de gracia — deberá recrearse antes de AV2/TB2.)*
+
+---
+
+### 4.2. Landing Page, Services & Applications Implementation
+
+#### 4.2.1. Sprint 1
+
+##### 4.2.1.1. Sprint Planning 1
+
+El Sprint 1 corresponde a la primera iteración de desarrollo del proyecto, enfocada en construir la base funcional del backend (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation y Recognition & Incentives) y en avanzar el diseño UI/UX de la Landing Page y las pantallas core de la aplicación móvil.
+
+| Sprint # | Sprint 1 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | 04/10/2026 |
+| Time | 11:00am |
+| Location | Virtual (Google Meet / Discord) |
+| Prepared By | Alberca Saavedra, Víctor Manuel |
+| Attendees (to planning meeting) | Alberca Saavedra, Víctor Manuel / Becerra Ninahuanca, Luis Angel / Komatsu Dueñas, David / Lopez Montalvo, Kevin Edu Sulca Sanchez, Piero Angel |
+| Sprint n − 1 Review Summary | No aplica — es el primer Sprint del proyecto. |
+| Sprint n − 1 Retrospective Summary | No aplica — es el primer Sprint del proyecto. |
+| **Sprint Goal & User Stories** | |
+| Sprint 1 Goal | Our focus is on construir el núcleo funcional de SkillSwap: registro y autenticación, carga y validación de certificados, generación de rutas de aprendizaje por IA, y el ciclo completo de evaluación y revisión por pares. We believe it delivers a un Estudiante la posibilidad de demostrar una habilidad de principio a fin dentro de la plataforma, y a un Verificador la posibilidad de revisar casos reales. This will be confirmed when el backend esté desplegado públicamente, documentado con OpenAPI, y un Estudiante pueda completar el flujo registro → certificado → ruta → evaluación → caso resuelto sin intervención manual. |
+| Sprint 1 Velocity | 112 SP |
+| Sum of Story Points | 112 |
+
+<p align="center">
+  <img src="images-doc/sprint-planning-1-meeting.png" alt="Reunión de Sprint Planning 1" width="900">
+</p>
+
+*Nota.* [Completar — captura de la reunión de Sprint Planning 1 (Google Meet/Discord), mostrando a los asistentes presentes.]
+
+##### 4.2.1.2. Aspect Leaders and Collaborators
+
+El equipo organizó el Sprint 1 por Bounded Context (backend) y por frente de diseño (Landing Page y aplicación móvil), con un Líder responsable de cada aspecto y el resto del equipo como colaborador cuando corresponde.
+
+| Team Member (Last Name, First Name) | GitHub Username | Identity & Access | Credential Verification | Learning Path Engine | Assessment & Peer Review | Reputation | Recognition & Incentives | Despliegue (Render) | Landing Page UI | Mobile App UX/UI |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Alberca Saavedra, Víctor Manuel | Agnizzz  | L | | | L | L | | | C | C |
+| Becerra Ninahuanca, Luis Angel | blafyy | | L | | | | | | L | C |
+| Lopez Montalvo, Kevin Edu | lopescamos | | | L | | | | | C | L |
+| Komatsu Dueñas, David | dakoduz | | | | | | L | | C | C |
+| Sulca Sánchez, Piero Angel | psulca | | | | | | | L | C | C |
+
+*(L = Leader, C = Collaborator.)*
+
+##### 4.2.1.3. Sprint Backlog 1
+
+<p align="center">
+  <img src="images-doc/sprint1-board.png" alt="Sprint Backlog Board - Sprint 1" width="900">
+</p>
+
+*Nota.* Tablero del Sprint 1 en Trello, con las columnas To-Do / In-Process / To-Review / Done. URL público del Board: [https://trello.com/invite/b/68e353c594f09e671b636f51/ATTIb5441351e50cdc8914cef6195966155d23769D30/product-backlog](https://trello.com/invite/b/68e353c594f09e671b636f51/ATTIb5441351e50cdc8914cef6195966155d23769D30/product-backlog)
+
+| Sprint # | Sprint 1 | | | | | | | |
+|---|---|---|---|---|---|---|---|---|
+| **User Story** | | **Work-Item / Task** | | | | | | |
+| Id | Title | Id | Title | Description | Estimation (Hours) | Assigned To | Status |
+| TS01 | Endpoint de registro de usuarios | T01 | Domain Layer de Identity & Access | Agregado `User`, Value Objects (`Username`, `Email`, `PasswordHash`, `DeviceToken`) y servicios de dominio (`PasswordHasher`, `EmailDomainValidator`) | 8 | Alberca Saavedra, Víctor Manuel | Done |
+| TS01 / TS02 | Endpoint de registro / autenticación JWT | T02 | Application + Interface Layer de autenticación | `SignUpCommandHandler`, `SignInCommandHandler`, `AuthenticationController`, `JwtTokenGenerator`, `BCryptPasswordHasher` | 8 | Alberca Saavedra, Víctor Manuel | Done |
+| TS03 | Endpoint de registro de certificados | T03 | Domain Layer de Credential Verification | Agregado `Certificate`, `RiskAssessment`, `CertificateRiskScorer` | 10 | Alberca Saavedra, Víctor Manuel | Done |
+| TS03 / TS04 | Endpoints de certificados | T04 | Application + Infrastructure Layer de Credential Verification | `UploadCertificateCommandHandler`, integración con Cloudinary (almacenamiento privado, URL firmada) | 10 | Alberca Saavedra, Víctor Manuel | Done |
+| TS05 | Endpoints de generación y consulta de rutas | T05 | Domain Layer de Learning Path Engine | Agregados `LearningPath`, `PathNode`; catálogo de 55 habilidades (`skill-catalog.json`), `SkillTaxonomyMatcher` | 12 | Alberca Saavedra, Víctor Manuel | Done |
+| TS06 | Endpoint de generación de evaluaciones | T06 | Integración con Gemini API | `AssessmentBlueprint`, `LlmQuestionGenerator` con modelo principal y cadena de respaldo | 9 | Alberca Saavedra, Víctor Manuel | Done |
+| TS07 / TS08 | Endpoints de intentos y casos de verificación | T07 | Domain Layer de Assessment & Peer Review | Agregados `AssessmentAttempt`, `VerificationCase`, `VerifierProfile`; `VerifierMatcher`, `CaseAssignmentService` | 14 | Alberca Saavedra, Víctor Manuel | Done |
+| TS07 / TS08 | Endpoints de intentos y casos de verificación | T08 | Application + Interface Layer de Assessment & Peer Review | Controllers, Command/Query Services, eventos `AssessmentAttemptPassed` / `VerificationCaseResolved` | 10 | Alberca Saavedra, Víctor Manuel | Done |
+| — | Historia técnica de Reputation (TS11) | T09 | Domain + Application Layer de Reputation | Agregados `VerifierReliability`, `StudentEmployabilityScore`; event handlers de BC4 | 8 | Alberca Saavedra, Víctor Manuel | Done |
+| TS09 | Endpoints de billetera y canje | T10 | Domain + Application Layer de Recognition & Incentives | Agregados `Wallet`, `CreditTransaction`; event handlers de Identity & Assessment | 8 | Alberca Saavedra, Víctor Manuel | Done |
+| — | Despliegue del backend | T11 | Dockerfile + configuración de Render | Build multi-etapa, variables de entorno, migraciones automáticas, seed del Coordinador | 6 | Alberca Saavedra, Víctor Manuel | Done |
+| US41–US45 | Landing Page | T12 | Wireframe + Mock-up + implementación de la Landing Page | HTML5/CSS3/JS, desplegado en GitHub Pages | 10 | Becerra Ninahuanca, Luis Angel | Done |
+| — | Pantallas core de la app móvil | T13 | Wireframes + Mock-ups + prototipo navegable en Figma | Pantallas de registro, ruta de aprendizaje, quiz y casos de verificación | 12 | Lopez Montalvo, Kevin Edu | In-Process |
+
+#### 4.2.1.4. Development Evidence for Sprint Review
+
+El equipo organizó el desarrollo del backend en una rama `feature/<contexto>-<tema>` por Bounded Context, siguiendo Conventional Commits con un commit por capa (Domain, Application, Infrastructure, Interface), integrados a `develop` mediante Pull Requests mergeados con la estrategia "Create a merge commit".
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| SkillSwap-WebServices | feature/iam-identity-access | `30f986b` | chore: initialize solution and project skeleton | Estructura inicial de la solución .NET 8 y los proyectos del backend. | 2026-09-30 |
+| SkillSwap-WebServices | feature/iam-identity-access | `b75e3c8` | feat(shared): add shared kernel, base repository and unit of work | `AbstractDomainAggregateRoot`, repositorio base y Unit of Work compartidos entre todos los Bounded Contexts. | 2026-09-30 |
+| SkillSwap-WebServices | feature/iam-identity-access | `17bf060` | feat(iam): add domain layer for identity and access | Agregado `User`, Value Objects (`Username`, `Email`, `PasswordHash`, `DeviceToken`) y enum `UserRole`. | 2026-09-30 |
+| SkillSwap-WebServices | feature/iam-identity-access | `3f18157` | feat(iam): add application layer for identity and access | `UserCommandService`, `UserQueryService`, handlers de sign-up y sign-in. | 2026-09-30 |
+| SkillSwap-WebServices | feature/iam-identity-access | `18a7b70` | feat(iam): add infrastructure layer for identity and access | `UserRepository`, `BCryptPasswordHasher`, `JwtTokenGenerator`. | 2026-09-30 |
+| SkillSwap-WebServices | feature/iam-identity-access | `95abd69` | feat(iam): add interface layer and application startup | `AuthenticationController`, `UsersController`, configuración de arranque de la API. | 2026-09-30 |
+| SkillSwap-WebServices | feature/iam-identity-access | `280f2bf` | feat(shared): add es-419 localization of error messages | `ErrorMessage.resx` y `ErrorMessage.es-419.resx` para los mensajes de error. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `1024316` | feat(credential): add domain layer for credential verification | Agregado `Certificate`, `RiskAssessment`, `CertificateRiskScorer`. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `4275863` | feat(credential): add infrastructure layer for credential verification | `CertificateRepository`, adaptador de almacenamiento con Cloudinary. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `b002841` | feat(credential): add interface layer for credential verification | `CertificatesController`, `CertificateResource`. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `d70e15d` | feat(credential): reference the existing certificate on duplicate uploads | Al detectar un duplicado del mismo dueño, la respuesta referencia el `existingCertificateId` (409 DuplicateFile). | 2026-09-30 |
+| SkillSwap-WebServices | feature/learning-path-engine | `679b90b` | feat(learning-path): add skill taxonomy catalog with integrity tests | Catálogo `skill-catalog.json` con 55 habilidades y validación de integridad al arrancar. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `514b647` | feat(learning-path): add domain layer for learning path engine | Agregados `LearningPath`, `PathNode`; `SkillTaxonomyMatcher`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `6ac8f2a` | feat(learning-path): link certificates by skill and list pending prerequisites | Vínculo de certificados por coincidencia de palabras clave y `pendingPrerequisitesOf`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `823f02c` | feat(credential): add context facade for other bounded contexts | `ICredentialContextFacade`, expuesta para que Learning Path Engine consulte certificados verificados. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `ad8a358` | feat(learning-path): add application layer for learning path engine | Handlers de declaración de meta y generación de blueprint. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `d68fe26` | feat(learning-path): retry and fall back when gemini is temporarily unavailable | Reintentos ante fallos transitorios de la API de Gemini. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `0d4f171` | feat(learning-path): add gemini model fallback chain and time budget | Cadena de modelos de respaldo y tiempo límite total de 60s antes de responder 503. | 2026-10-01 |
+| SkillSwap-WebServices | feature/assessment-peer-review | `8d2f7c9` | feat(learning-path): add learning path context facade | `ILearningPathContextFacade`, expuesta para uso de Assessment & Peer Review. | 2026-10-01 |
+| SkillSwap-WebServices | feature/assessment-peer-review | `53c24e3` | feat(assessment): add assessment and peer review domain layer | Agregados `AssessmentAttempt`, `VerificationCase`, `VerifierProfile`; `VerifierMatcher`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/assessment-peer-review | `02d4bae` | feat(assessment): add application layer and ACL usage | Handlers de intento, apertura y resolución de caso; consumo de la ACL de Learning Path Engine. | 2026-10-01 |
+| SkillSwap-WebServices | feature/assessment-peer-review | `e0395ff` | feat(assessment): add persistence, migration and event publisher | `IDomainEventPublisher`; migración de `assessment_attempts`, `verifier_profiles`, `verification_cases`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/assessment-peer-review | `17f0d6d` | feat(assessment): add rest interface | `AssessmentAttemptsController`, `VerificationCasesController`, `VerifierProfilesController`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/shared-render-deployment | `18ccb28` | feat(shared): add health check endpoint and root redirect | `GET /health` anónimo; `/` redirige a `/swagger`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/shared-render-deployment | `9477dcb` | feat(shared): resolve database url and migrate on startup | Conversión de `DATABASE_URL` a cadena Npgsql; migraciones automáticas si `MigrateOnStartup=true`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/shared-render-deployment | `49a629c` | feat(iam): seed coordinator account on startup | Creación idempotente de la cuenta inicial del Coordinador. | 2026-10-01 |
+| SkillSwap-WebServices | feature/shared-render-deployment | `1e2bde9` | feat(shared): make cors origins configurable | `Cors__AllowedOrigins__N` configurable por entorno. | 2026-10-01 |
+| SkillSwap-WebServices | feature/shared-render-deployment | `3c5e8a6` | build(docker): add dockerfile for render | Build multi-etapa `sdk:8.0` → `aspnet:8.0`, escucha en el puerto de `PORT`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/reputation-reliability-employability | `a43aa54` | feat(assessment): add verifier profile context facade | `IVerifierProfileContextFacade`, expuesta para que Reputation sincronice el `rating`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/reputation-reliability-employability | `bb054ea` | feat(reputation): add reputation domain layer | Agregados `VerifierReliability`, `StudentEmployabilityScore`; calculadoras explicables. | 2026-10-01 |
+| SkillSwap-WebServices | feature/reputation-reliability-employability | `3a1a4a8` | feat(reputation): add application layer and event handlers | Reacción a `AssessmentAttemptPassed` y `VerificationCaseResolved`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/reputation-reliability-employability | `36ead5a` | feat(reputation): add persistence and migration | Migración de `verifier_reliabilities`, `student_employability_scores`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/reputation-reliability-employability | `7e59dd7` | feat(reputation): add rest interface | `GET /verifier-reliabilities/{id}`, `GET /student-employability-scores/{id}`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/recognition-incentives-wallet | `93eae15` | feat(iam): publish user registered event | Evento `UserRegistered`, publicado tras el commit del sign-up. | 2026-10-01 |
+| SkillSwap-WebServices | feature/recognition-incentives-wallet | `959992a` | feat(recognition): add recognition domain layer | Agregados `Wallet`, `CreditTransaction` (con `relatedCaseId`). | 2026-10-01 |
+| SkillSwap-WebServices | feature/recognition-incentives-wallet | `fe65a22` | feat(recognition): add application layer and event handlers | Creación de wallet al registrarse, acreditación de SkillCredits al resolver un caso. | 2026-10-01 |
+| SkillSwap-WebServices | feature/recognition-incentives-wallet | `09f1c9d` | feat(recognition): add persistence and migration | Migración de `wallets`, `credit_transactions`. | 2026-10-02 |
+| SkillSwap-WebServices | feature/recognition-incentives-wallet | `e9ae9c8` | feat(recognition): add rest interface | `WalletController`, `CreditTransactionController`, endpoint de canje. | 2026-10-02 |
+| SkillSwap-WebServices | feature/recognition-incentives-wallet | `f7e476f` | feat(recognition): add recognition and incentives bounded context | Cierre del Bounded Context Recognition & Incentives. | 2026-10-02 |
+
+#### 4.2.1.5. Testing Suite Evidence for Sprint Review
+
+El equipo utilizó **xUnit** para pruebas unitarias de dominio y **Reqnroll** (Gherkin) para pruebas de integración y aceptación, ejecutadas contra una instancia real de PostgreSQL en lugar de mocks de base de datos. Los archivos `.feature` están en inglés y etiquetados por historia de usuario o historia técnica.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| SkillSwap-WebServices | feature/iam-identity-access | `d1cc3f5` | test(iam): add unit tests for identity and access | Cobertura de `IamError` (credenciales inválidas, duplicados, dominio no institucional). | 2026-09-30 |
+| SkillSwap-WebServices | feature/iam-identity-access | `a8e60e8` | test(iam): fix repeated reading of response body in bdd steps | Corrección de los steps BDD que leían dos veces el cuerpo de la respuesta HTTP. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `39bdf5d` | test(credential): add domain unit tests | Cobertura de `Certificate`, `RiskAssessment`, `CertificateRiskScorer`. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `f887710` | test(credential): add openapi regression test for issue date | Verifica que `issueDate` se documente correctamente en el esquema OpenAPI. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `23dd2fd` | test(credential): update risk scorer tests for file reuse rule | Ajuste de pruebas tras subir a +50 el puntaje por archivo idéntico de otro usuario. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `aeebd49` | test(credential): add application layer unit tests | Cobertura de `UploadCertificateCommandHandler`. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `a76f59c` | test(credential): add infrastructure tests | Cobertura del adaptador de Cloudinary y el repositorio. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `ecfd3c6` | test(shared): add result unit tests | Cobertura del tipo `Result<T>` compartido entre Bounded Contexts. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `73cf8ab` | test(credential): add integration tests for certificate endpoints | Pruebas de integración de `POST/GET /certificates` contra PostgreSQL real. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `0498f6e` | test(credential): add bdd scenarios for certificate upload, duplicates and status | Escenarios Gherkin `@US12`, `@US13`, `@US14`, `@US16`. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `55cfda6` | test(credential): restrict openapi check to schema properties | Ajuste de la prueba de regresión OpenAPI de `f887710` para validar solo propiedades del esquema. | 2026-09-30 |
+| SkillSwap-WebServices | feature/learning-path-engine | `72b8675` | test(learning-path): add domain unit tests | Cobertura de `LearningPath`, `SkillGapAnalyzer`, `LearningPathBuilder`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `3adca9a` | test(learning-path): add application layer unit tests | Cobertura de los handlers de declaración de meta y generación de blueprint. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `930c200` | test(learning-path): add infrastructure and service integration tests | Cobertura de `SkillTaxonomyMatcher` y el repositorio. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `2a0d0b1` | test: add infrastructure and integration tests for learning path engine | Pruebas de integración adicionales contra PostgreSQL real. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `ae460df` | test(learning-path): add bdd scenarios for goals, consultation and assessments | Escenarios Gherkin `@US06`, `@US08`, `@US17`. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `be2b70c` | test(learning-path): cover skill names and certificate link refresh | Cobertura del refresco de vínculos de certificados al consultar la ruta (`@US09`). | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `c9528d7` | test(learning-path): add integration tests for learning path endpoints | Pruebas de integración de los endpoints REST del Bounded Context. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `00ec0aa` | test(learning-path): add bdd scenarios for goals, consultation and assessments | Escenarios Gherkin complementarios de meta y consulta de ruta. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `e67f4ef` | test(learning-path): cover gemini retries and fallback | Cobertura de los reintentos ante fallos transitorios de Gemini. | 2026-10-01 |
+| SkillSwap-WebServices | feature/learning-path-engine | `513500e` | test(learning-path): cover gemini fallback chain and time budget | Cobertura de la cadena de modelos de respaldo y el tiempo límite de 60s. | 2026-10-01 |
+| SkillSwap-WebServices | feature/assessment-peer-review | `4f8a8ea` | test(assessment): add integration and bdd tests | Escenarios Gherkin `@US18`, `@US22`, `@US23`, `@US24`, `@US25`, `@US26` contra PostgreSQL real. | 2026-10-01 |
+| SkillSwap-WebServices | feature/reputation-reliability-employability | `e8ab705` | test(reputation): add integration and bdd tests | Cobertura de las fórmulas de confiabilidad y empleabilidad, e integración de los event handlers. | 2026-10-01 |
+| SkillSwap-WebServices | feature/recognition-incentives-wallet | `c9baf1b` | test(recognition): add integration and bdd tests | Escenarios Gherkin `@US30`, `@US31`, `@US32`; cobertura de `CHECK (balance >= 0)`. | 2026-10-02 |
+| SkillSwap-WebServices | feature/tests-bdd-generated-files | `0b58102` | test(bdd): add generated code-behind for the reputation and wallet features | Archivos `.feature.cs` generados por Reqnroll para Reputation y Recognition & Incentives. | 2026-10-02 |
+
+#### 4.2.1.6. Execution Evidence for Sprint Review
+
+Durante el Sprint 1 se implementaron y verificaron en ejecución los flujos core del backend: registro y autenticación con dominio institucional, subida y evaluación de riesgo de un certificado, declaración de meta y generación de ruta de aprendizaje, generación y resolución de una evaluación, habilitación como Verificador, y el ciclo completo de un caso de verificación desde su apertura hasta su resolución.
+
+
+<p align="center">
+  <img src="images-doc/execution-sign-up.png" alt="Ejecución - Registro con correo institucional" width="800">
+</p>
+
+*Nota.* Registro de una cuenta `Student` validando el dominio `.edu.pe`, con el token JWT retornado en la respuesta.
+
+<p align="center">
+  <img src="images-doc/execution-certificate-upload.png" alt="Ejecución - Subida de certificado" width="800">
+</p>
+
+*Nota.* Subida de un certificado desde Postman/la app móvil, mostrando el `riskLevel` calculado y el `status` resultante (`Unverified`).
+
+<p align="center">
+  <img src="images-doc/execution-learning-path.png" alt="Ejecución - Generación de ruta" width="800">
+</p>
+
+*Nota.* Declaración de la meta en lenguaje natural y la ruta generada con sus nodos en estado `Locked`/`Available`.
+
+<p align="center">
+  <img src="images-doc/execution-assessment-case.png" alt="Ejecución - Caso de verificación" width="800">
+</p>
+
+*Nota.* Ciclo completo de un intento fallido: apertura del `VerificationCase`, asignación automática del Verificador, y resolución con `rubricNotes`.
+
+*Nota.* El video recorre en orden el flujo completo de punta a punta: (1) registro de una cuenta `Student` validando el dominio `.edu.pe`; (2) subida de un certificado y evaluación automática de riesgo; (3) declaración de la meta en lenguaje natural y generación de la ruta de aprendizaje; (4) generación de la evaluación de un nodo disponible y envío del intento; (5) apertura y asignación automática del `VerificationCase` cuando el intento no aprueba; (6) resolución del caso por el Verificador asignado, con la acreditación de SkillCredits y el recálculo de confiabilidad/empleabilidad como consecuencia.
+
+#### 4.2.1.7. Services Documentation Evidence for Sprint Review
+
+Todos los endpoints del Sprint 1 están documentados con **OpenAPI/Swagger**, accesible públicamente en: https://skillswap-webservices.onrender.com/swagger/index.html
+
+| Verbo | Endpoint | Acción | Descripción | Ejemplo de respuesta |
+|---|---|---|---|---|
+| POST | `/api/v1/authentication/sign-up` | sign-up | Registra una cuenta `Student`, validando el dominio `.edu.pe` | `201 Created`, header `Location: /api/v1/users/{id}` |
+| POST | `/api/v1/authentication/sign-in` | sign-in | Autentica y retorna un token JWT | `200 OK` con `AuthenticatedUserResource` |
+| GET | `/api/v1/users/me` | get-current-user | Retorna el perfil completo del usuario autenticado | `200 OK` con `UserResource` |
+| GET | `/api/v1/users/{id}` | get-user-by-id | Retorna el perfil público o completo según el solicitante | `200 OK` con `UserResource` / `PublicUserResource` |
+| PATCH | `/api/v1/users/{id}/bio` | update-bio | Actualiza la biografía del usuario dueño | `200 OK` / `403 NotProfileOwner` |
+| POST | `/api/v1/certificates` | upload-certificate | Registra un certificado (multipart/form-data) y evalúa su riesgo | `201 Created` con `CertificateResource` |
+| GET | `/api/v1/certificates/{id}` | get-certificate-by-id | Retorna el detalle de un certificado | `200 OK` / `403 NotCertificateOwner` |
+| GET | `/api/v1/certificates` | list-certificates | Lista los certificados del usuario autenticado (o de otro, si es `Coordinator`) | `200 OK` con un arreglo de `CertificateResource` |
+| POST | `/api/v1/learning-paths` | declare-goal | Declara la meta y genera la ruta de certificación | `201 Created` con `LearningPathResource` / `422 GoalNotInterpretable` |
+| GET | `/api/v1/learning-paths/{studentId}` | get-learning-path | Retorna la ruta activa, refrescando los vínculos de certificados | `200 OK` |
+| POST | `/api/v1/path-nodes/{nodeId}/assessment-blueprint` | generate-blueprint | Genera la evaluación de un nodo disponible | `201 Created` / `409 NodeNotAvailable` |
+| POST | `/api/v1/assessment-attempts` | submit-attempt | Registra el intento y califica en el servidor | `201 Created` con `passed` |
+| GET | `/api/v1/assessment-attempts/{id}` | get-attempt | Retorna el resultado de un intento | `200 OK` |
+| GET | `/api/v1/verification-cases` | list-my-cases | Lista los casos del Verificador autenticado | `200 OK` |
+| GET | `/api/v1/verification-cases/{id}` | get-case-detail | Retorna el detalle del caso, el intento y las preguntas falladas | `200 OK` |
+| PUT | `/api/v1/verification-cases/{id}/evidence` | attach-evidence | Registra o reemplaza la URL de evidencia | `200 OK` / `403 NotCaseOwner` |
+| PATCH | `/api/v1/verification-cases/{id}/decision` | resolve-case | Registra la decisión del Verificador asignado | `200 OK` / `403 NotAssignedVerifier` |
+| POST | `/api/v1/verifier-profiles` | create-or-update-verifier-profile | Habilita o amplía el perfil de Verificador | `201 Created` / `200 OK` |
+| GET | `/api/v1/verifier-profiles/me` | get-my-verifier-profile | Retorna el perfil de Verificador propio | `200 OK` |
+| PATCH | `/api/v1/verifier-profiles/me/availability` | update-availability | Actualiza la disponibilidad del Verificador | `200 OK` |
+| GET | `/api/v1/verifier-reliabilities/{verifierUserId}` | get-reliability | Consulta la confiabilidad del Verificador | `200 OK` / `404 ReputationNotFound` |
+| GET | `/api/v1/student-employability-scores/{studentId}` | get-employability | Consulta el Employability Score del estudiante | `200 OK` / `404 ReputationNotFound` |
+| GET | `/api/v1/wallets/{userId}` | get-wallet | Consulta el saldo de SkillCredits | `200 OK` |
+| GET | `/api/v1/wallets/{userId}/transactions` | list-transactions | Lista el historial de movimientos | `200 OK` |
+| POST | `/api/v1/credit-transactions/redeem` | redeem-credits | Canjea SkillCredits por un beneficio | `200 OK` / `409` saldo insuficiente |
+| GET | `/health` | health-check | Verifica disponibilidad del servicio (anónimo) | `200 OK` |
+
+<p align="center">
+  <img src="images-doc/swagger-public.png" alt="Swagger público del backend" width="900">
+</p>
+
+*Nota.* Captura de Swagger desplegado en Render [https://skillswap-webservices.onrender.com/swagger/index.html](https://skillswap-webservices.onrender.com/swagger/index.html), con el endpoint `POST /api/v1/certificates` expandido mostrando su esquema de request y las respuestas documentadas.
+
+#### 4.2.1.8. Software Deployment Evidence for Sprint Review
+
+Durante el Sprint 1 se configuró y verificó el despliegue completo del backend en Render: creación del servicio web, configuración de la base de datos PostgreSQL administrada, variables de entorno (ver 4.1.4), y automatización de migraciones y semilla del Coordinador al arrancar.
+
+<p align="center">
+  <img src="images-doc/render-dashboard.png" alt="Dashboard de Render - Servicio web activo" width="900">
+</p>
+
+*Nota.* Dashboard de Render mostrando el servicio `skillswap-webservices` en estado "Live", desplegado desde la rama `develop`.
+
+<p align="center">
+  <img src="images-doc/render-startup-logs.png" alt="Logs del primer arranque exitoso" width="900">
+</p>
+
+*Nota.* Logs del primer arranque, mostrando la secuencia "Applying pending database migrations." → "Database migrations applied." → "The Coordinator account ... was created.", confirmando que las migraciones y la semilla inicial corrieron correctamente.
+
+El backend está desplegado públicamente en: https://skillswap-webservices.onrender.com
+
+*(Limitación conocida, declarada también en Conclusiones: el plan gratuito de Render suspende el servicio tras 15 minutos de inactividad, con la primera petición posterior tardando hasta cerca de un minuto; se configuró un ping de mantenimiento cada 10 minutos a `/health` para mitigarlo. La base de datos PostgreSQL gratuita expira 30 días después de creada, con 14 días de gracia, por lo que deberá recrearse antes de AV2/TB2.)*
+
+#### 4.2.1.9. Team Collaboration Insights during Sprint
+
+<p align="center">
+  <img src="images-doc/github-insights-sprint1.png" alt="Analíticos de colaboración del Sprint 1 - SkillSwap-WebServices" width="900">
+</p>
+
+*Nota.* Pestaña Insights → Contributors del repositorio `SkillSwap-WebServices`, mostrando la totalidad de los commits del Sprint 1 concentrados en un único contribuyente.
+
+Durante el Sprint 1, el desarrollo del backend fue realizado íntegramente por Alberca Saavedra, Víctor Manuel, quien construyó los seis Bounded Contexts priorizados (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation y Recognition & Incentives) siguiendo el flujo GitFlow con un commit por capa, configuró el despliegue en Render, y actualizó el informe (Capítulos I, II y IV) para que reflejara con precisión las decisiones tomadas durante la implementación. El avance del Capítulo III (Landing Page y diseño UX/UI de la aplicación móvil) estuvo a cargo del resto del equipo, cuya evidencia de colaboración se documenta en el repositorio `SkillSwap-ProjectReport`.
+
+
+
+---
+
 
 # Conclusiones
 
 **Sobre el pivote del proyecto y lo que aprendimos de él**
 
-Uno de los aprendizajes más grandes del ciclo no vino del código, sino de una decisión de negocio. Nuestra idea original de SkillSwap giraba en torno a tutorías entre estudiantes de distintas universidades, con donaciones voluntarias y comisión de plataforma. Cuando el docente publicó el anexo de temas excluidos y "tutorías en línea" apareció ahí, tuvimos que replantear el core del producto ya iniciado el ciclo, no desde cero. Lo que nos salvó gran parte del trabajo fue haber construido la arquitectura de forma modular desde el principio: de los 7 Bounded Contexts originales, 4 se mantuvieron prácticamente intactos (Identity & Access, Reputation, Payments & Wallet, Moderation & Disputes) y solo tuvimos que rediseñar el core (Discovery, Workspace y Learning & Assessment se fusionaron y se dividieron en los nuevos Credential Verification, Learning Path Engine y Assessment & Peer Review). El aprendizaje concreto: diseñar con límites de contexto bien definidos no solo ayuda a repartir trabajo en equipo, también protege el proyecto cuando el negocio cambia a mitad de camino.
+Uno de los aprendizajes más grandes del ciclo no vino del código, sino de una decisión de negocio. Nuestra idea original de SkillSwap giraba en torno a tutorías entre estudiantes de distintas universidades, con donaciones voluntarias y comisión de plataforma. Cuando el docente publicó el anexo de temas excluidos y "tutorías en línea" apareció ahí, tuvimos que replantear el core del producto ya iniciado el ciclo, no desde cero. Lo que nos salvó gran parte del trabajo fue haber construido la arquitectura de forma modular desde el principio: de los 7 Bounded Contexts originales, 4 se mantuvieron prácticamente intactos (Identity & Access, Reputation, Recognition & Incentives, Moderation & Disputes) y solo tuvimos que rediseñar el core (Discovery, Workspace y Learning & Assessment se fusionaron y se dividieron en los nuevos Credential Verification, Learning Path Engine y Assessment & Peer Review). El aprendizaje concreto: diseñar con límites de contexto bien definidos no solo ayuda a repartir trabajo en equipo, también protege el proyecto cuando el negocio cambia a mitad de camino.
 
 **Sobre decidir conscientemente qué no implementar**
 
@@ -4137,6 +4613,18 @@ Cuando tuvimos que reestructurar el segmento de "personas que quieren enseñar",
 **Sobre el proceso Lean UX en contraste con el diseño técnico**
 
 Contrastar el Problem Statement con nuestro propio diseño de arquitectura nos obligó a revisar más de una vez si el texto seguía describiendo el problema o ya se había colado la solución —un error común que el propio docente del ciclo pasado ya nos había advertido. Ese ida y vuelta constante entre Capítulo I y Capítulo II terminó siendo, en la práctica, la forma más efectiva de detectar inconsistencias: cualquier mención a "comisión", "videollamada de enseñanza" o "mentor" en el texto de negocio era una señal inmediata de que ese párrafo todavía no reflejaba el modelo que ya habíamos cerrado en el diseño técnico.
+
+**Sobre lo que el diseño no puede anticipar hasta que se construye**
+
+Al implementar Assessment & Peer Review descubrimos que nuestro propio informe tenía dos versiones contradictorias del mismo Bounded Context: una en la sección táctica (un modelo simple, de rúbrica con notas libres) y otra en el EventStorming y las User Stories (tres intentos de quiz, examen de ingreso del Verificador, rúbrica por criterio, segundo revisor). Construir el backend nos obligó a decidir entre ambas versiones, y optamos por el modelo mínimo como el oficial: es el que de verdad resuelve el flujo completo dentro del tiempo del Sprint, y mantener el modelo largo solo como "visión" sin marcarlo como tal habría dejado un documento que describía un sistema distinto al que realmente funciona. Aprendimos que un informe de arquitectura puede estar internamente contradicho sin que nadie lo note hasta que alguien intenta implementarlo literalmente — la construcción real terminó siendo, en los hechos, la revisión más rigurosa que le hicimos al propio diseño.
+
+**Sobre investigar la tecnología externa antes de comprometerla en el diseño**
+
+La pasarela de pago pasó por tres decisiones distintas a lo largo del proyecto: primero Stripe (descartada porque no opera en Perú), luego Culqi o Mercado Pago (mencionados en el EventStorming), y finalmente Google Play Billing, que terminó siendo la opción correcta no por preferencia sino porque es un requisito real de Google para suscripciones distribuidas vía Play Store. Llegar a esa conclusión nos obligó además a corregir el propio modelo de dominio: a diferencia de Stripe, el backend nunca "cobra" directamente, solo verifica una compra ya realizada del lado del cliente, lo que cambió el método `charge()` original por `verifyPurchase()`. De forma parecida, al intentar desplegar en Render descubrimos que la plataforma no ofrece MySQL como base de datos administrada —solo PostgreSQL de forma nativa— y tuvimos que migrar todo el diseño de persistencia antes de escribir una sola línea de código de infraestructura. En ambos casos, la lección fue la misma: las restricciones reales de las tecnologías y plataformas externas solo aparecen cuando uno intenta usarlas de verdad, y conviene descubrirlas investigando a tiempo en vez de durante el despliegue.
+
+**Sobre mantener el informe honesto con el código a medida que el proyecto avanza**
+
+Terminado el Sprint 1, nos sentamos a comparar sistemáticamente lo que el backend realmente hacía contra lo que el informe decía, Bounded Context por Bounded Context. Encontramos decenas de diferencias pequeñas (nombres de clases, rutas de endpoints, campos que no existían) y varias de fondo (el certificado nunca completa un nodo por sí solo, la evidencia de un caso es solo una URL y no un archivo subido, Identity & Access exige el dominio institucional desde el registro y no mediante un código posterior). Ninguna de esas diferencias era un error del código: eran decisiones reales que tomamos durante la construcción y que el documento de diseño simplemente no había alcanzado a reflejar todavía. Corregirlas todas de una sola vez, en vez de ir parchando el informe mientras programábamos, nos permitió entregar un documento consistente de principio a fin — y nos dejó claro que, en un proyecto de este tamaño, el informe de arquitectura necesita su propio ciclo de mantenimiento, igual que el código.
 
 
 # Bibliografía
