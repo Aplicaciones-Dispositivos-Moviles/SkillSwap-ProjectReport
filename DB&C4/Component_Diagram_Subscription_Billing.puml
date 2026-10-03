@@ -5,16 +5,16 @@ LAYOUT_WITH_LEGEND()
 
 Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
 Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
-ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
-System_Ext(stripeApi, "Stripe", "Procesamiento de pagos")
+ContainerDb_Ext(mainDB, "SkillSwap Database", "PostgreSQL 16")
+System_Ext(googlePlayBilling, "Google Play Billing", "Procesamiento de pagos")
 
 Container_Boundary(subscriptionBC, "Subscription & Billing Bounded Context") {
     Component(subscriptionController, "Subscription Controller", "C# Class", "RESTful API Controller")
     Component(subscriptionCommandService, "Subscription CommandService", "C# Class", "Lógica de negocio")
     Component(subscriptionQueryService, "Subscription QueryService", "C# Class", "Consultas")
     Component(subscriptionRepository, "Subscription Repository", "C# Interface", "Interface persistencia")
-    Component(stripeGatewayExternal, "Stripe ExternalService", "C# Class", "Adaptador de cobro (PaymentGateway)")
-    Component(webhookHandler, "Stripe WebhookHandler", "C# Class", "Recibe confirmaciones asíncronas de renovación")
+    Component(googlePlayGatewayExternal, "GooglePlayBilling ExternalService", "C# Class", "Adaptador de verificación (PaymentGateway)")
+    Component(rtdnHandler, "GooglePlay RtdnHandler", "C# Class", "Recibe confirmaciones asíncronas de renovación vía Pub/Sub")
     Component(subscriptionContextFacade, "Subscription ContextFacade", "C# Class", "Punto de entrada interno")
 }
 
@@ -28,11 +28,11 @@ Rel(subscriptionCommandService, subscriptionRepository, "Usa")
 Rel(subscriptionQueryService, subscriptionRepository, "Usa")
 Rel(subscriptionRepository, mainDB, "SQL Transaction")
 
-Rel(subscriptionCommandService, stripeGatewayExternal, "Delega cobro (Payment Intent)")
-Rel(stripeGatewayExternal, stripeApi, "Procesa el cobro")
+Rel(subscriptionCommandService, googlePlayGatewayExternal, "Delega verificación (purchaseToken)")
+Rel(googlePlayGatewayExternal, googlePlayBilling, "Verifica la compra (Google Play Developer API)")
 
-Rel(stripeApi, webhookHandler, "Notifica confirmación de renovación", "Webhook")
-Rel(webhookHandler, subscriptionCommandService, "Dispara renovación")
+Rel(googlePlayBilling, rtdnHandler, "Notifica confirmación de renovación", "RTDN / Pub-Sub")
+Rel(rtdnHandler, subscriptionCommandService, "Dispara renovación")
 
 Rel(subscriptionContextFacade, subscriptionCommandService, "Delega")
 Rel(subscriptionContextFacade, subscriptionQueryService, "Delega")

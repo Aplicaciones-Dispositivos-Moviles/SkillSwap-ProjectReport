@@ -5,7 +5,7 @@ LAYOUT_WITH_LEGEND()
 
 Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
 Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
-ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
+ContainerDb_Ext(mainDB, "SkillSwap Database", "PostgreSQL 16")
 
 Container_Boundary(moderationBC, "Moderation & Disputes Bounded Context") {
     Component(disputeController, "Dispute Controller", "C# Class", "RESTful API Controller")
