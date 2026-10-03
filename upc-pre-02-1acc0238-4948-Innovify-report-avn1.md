@@ -4555,7 +4555,14 @@ Durante el Sprint 1 se implementaron y verificaron en ejecución los flujos core
 
 *Nota.* Ciclo completo de un intento fallido: apertura del `VerificationCase`, asignación automática del Verificador, y resolución con `rubricNotes`.
 
+<p align="center">
+  <img src="images-doc/execution-video-thumbnail.png" alt="Video de ejecución - Sprint 1" width="800">
+</p>
+
+**Video de ejecución:** [https://youtu.be/p7NnDLr2VXs](https://youtu.be/p7NnDLr2VXs)
+
 *Nota.* El video recorre en orden el flujo completo de punta a punta: (1) registro de una cuenta `Student` validando el dominio `.edu.pe`; (2) subida de un certificado y evaluación automática de riesgo; (3) declaración de la meta en lenguaje natural y generación de la ruta de aprendizaje; (4) generación de la evaluación de un nodo disponible y envío del intento; (5) apertura y asignación automática del `VerificationCase` cuando el intento no aprueba; (6) resolución del caso por el Verificador asignado, con la acreditación de SkillCredits y el recálculo de confiabilidad/empleabilidad como consecuencia.
+
 
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
@@ -4612,7 +4619,7 @@ Durante el Sprint 1 se configuró y verificó el despliegue completo del backend
 
 *Nota.* Logs del primer arranque, mostrando la secuencia "Applying pending database migrations." → "Database migrations applied." → "The Coordinator account ... was created.", confirmando que las migraciones y la semilla inicial corrieron correctamente.
 
-El backend está desplegado públicamente en: https://skillswap-webservices.onrender.com
+El backend está desplegado públicamente en: [https://skillswap-webservices.onrender.com](https://skillswap-webservices.onrender.com)
 
 *(Limitación conocida, declarada también en Conclusiones: el plan gratuito de Render suspende el servicio tras 15 minutos de inactividad, con la primera petición posterior tardando hasta cerca de un minuto; se configuró un ping de mantenimiento cada 10 minutos a `/health` para mitigarlo. La base de datos PostgreSQL gratuita expira 30 días después de creada, con 14 días de gracia, por lo que deberá recrearse antes de AV2/TB2.)*
 
@@ -4622,7 +4629,6 @@ El backend está desplegado públicamente en: https://skillswap-webservices.onre
   <img src="images-doc/github-insights-sprint1.png" alt="Analíticos de colaboración del Sprint 1 - SkillSwap-WebServices" width="900">
 </p>
 
-*Nota.* Pestaña Insights → Contributors del repositorio `SkillSwap-WebServices`, mostrando la totalidad de los commits del Sprint 1 concentrados en un único contribuyente.
 
 Durante el Sprint 1, el desarrollo del backend fue realizado íntegramente por Alberca Saavedra, Víctor Manuel, quien construyó los seis Bounded Contexts priorizados (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation y Recognition & Incentives) siguiendo el flujo GitFlow con un commit por capa, configuró el despliegue en Render, y actualizó el informe (Capítulos I, II y IV) para que reflejara con precisión las decisiones tomadas durante la implementación. El avance del Capítulo III (Landing Page y diseño UX/UI de la aplicación móvil) estuvo a cargo del resto del equipo, cuya evidencia de colaboración se documenta en el repositorio `SkillSwap-ProjectReport`.
 
