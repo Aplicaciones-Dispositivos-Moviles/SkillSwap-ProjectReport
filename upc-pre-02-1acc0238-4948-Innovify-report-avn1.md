@@ -56,6 +56,7 @@ Septiembre 2026
 | Versión | Fecha | Autor | Descripción de modificación |
 | :--- | :--- | :--- | :--- |
 | **v.01.Avn1** | 10/09/2026 | Alberca Saavedra, Víctor Manuel<br>Becerra Ninahuanca, Luis Angel<br>Lopez Montalvo, Kevin Edu<br>Komatsu Dueñas, David<br>Piero Sulca Sánchez | Se agregaron los siguientes tópicos:<br><br>**Student Outcome**<br>**Objetivos SMART**<br><br>**Capítulo I: Presentación**<br>1.1. Startup Profile<br>1.1.1. Descripción de la Startup<br>1.1.2. Perfiles de integrantes del equipo<br>1.2. Solution Profile<br>1.2.1. Antecedentes y problemática<br>1.2.2. Lean UX Process<br>1.2.2.1. Lean UX Problem Statements<br>1.2.2.2. Lean UX Assumptions<br>1.2.2.3. Lean UX Hypothesis Statements<br>1.2.2.4. Lean UX Canvas<br>1.3. Segmentos objetivo<br><br>**Capítulo II: Requirements Development and Software Solution Design**<br>2.1. Competidores<br>2.1.1. Análisis competitivo<br>2.1.2. Estrategias y tácticas frente a competidores<br>2.2. Entrevistas<br>2.2.1. Diseño de entrevistas<br>2.2.2. Registro de entrevistas<br>2.2.3. Análisis de entrevistas<br>2.3. Needfinding<br>2.3.1. User Personas<br>2.3.2. User Task Matrix<br>2.3.3. User Journey Mapping<br>2.3.4. Empathy Mapping<br>2.3.5. Big Picture EventStorming<br>2.3.6. Ubiquitous Language<br>2.4. Requirements specification<br>2.4.1. User Stories<br>2.4.2. Impact Mapping<br>2.4.3. Product Backlog<br>2.5. Strategic-Level Domain-Driven Design<br>2.5.1. EventStorming<br>2.5.1.1. Candidate Context Discovery<br>2.5.1.2. Domain Message Flows Modeling<br>2.5.1.3. Bounded Context Canvases<br>2.5.2. Context Mapping<br>2.5.3. Software Architecture<br>2.5.3.1. Software Architecture Context Level Diagrams<br>2.5.3.2. Software Architecture Container Level Diagrams<br>2.5.3.3. Software Architecture Deployment Diagrams<br>2.6. Tactical-Level Domain-Driven Design (los 7 Bounded Contexts: Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Moderation & Disputes)<br>2.6.x.1. Domain Layer<br>2.6.x.2. Interface Layer<br>2.6.x.3. Application Layer<br>2.6.x.4. Infrastructure Layer<br>2.6.x.5. Bounded Context Software Architecture Component Level Diagrams<br>2.6.x.6. Bounded Context Software Architecture Code Level Diagrams<br>2.6.x.6.1. Bounded Context Domain Layer Class Diagrams<br>2.6.x.6.2. Bounded Context Database Design Diagram<br><br>**Conclusiones**<br>**Bibliografía** |
+| **v.02.TB1** | 07/10/2026 |  Alberca Saavedra, Víctor Manuel<br>Becerra Ninahuanca, Luis Angel<br>Lopez Montalvo, Kevin Edu<br>Komatsu Dueñas, David<br>Piero Sulca Sánchez | Se corrigieron y actualizaron los siguientes tópicos, a partir de las decisiones reales tomadas durante la construcción del backend:<br><br>**Capítulo I: Presentación**<br>1.1.1. Descripción de la Startup (modelo de negocio: suscripción mensual vía Google Play Billing, SkillCredits no adquiribles)<br>1.1.2. Perfiles de integrantes del equipo<br>1.2.1. Antecedentes y problemática (corrección de Identity & Access: dominio institucional exigido desde el registro)<br>1.2.2. Lean UX Process (pasarela de pago unificada a Google Play Billing)<br>1.3. Segmentos objetivo<br><br>**Capítulo II: Requirements Development and Software Solution Design**<br>2.1. Competidores<br>2.3.5. Big Picture EventStorming (pasarela de pago y validación de correo institucional)<br>2.4.1. User Stories (corrección de US05, US06, US18, US22, US24, US25, US26; se difirieron US07, US19, US20; se agregaron TS11 y TS12)<br>2.4.3. Product Backlog (55 → 57 historias, 204 → 211 Story Points; columna Sprint completada)<br>2.5.2. Context Mapping (pasarela de pago, mecanismo de eventos de dominio entre Assessment & Peer Review, Reputation y Recognition & Incentives)<br>2.5.3.1. Software Architecture Context Level Diagrams<br>2.5.3.2. Software Architecture Container Level Diagrams (colapso de los ocho Bounded Contexts en un único contenedor de API, consistente con el nivel de un Container Diagram)<br>2.5.3.3. Software Architecture Deployment Diagrams (MySQL → PostgreSQL, corrección del origen de la llamada a ML Kit)<br>2.6.4. Bounded Context: Assessment & Peer Review (reescritura completa al modelo mínimo realmente implementado)<br>2.6.4.5. Component Diagram de Assessment & Peer Review<br>2.6.5.5. Component Diagram de Reputation<br>2.6.6. Bounded Context: Recognition & Incentives (renombrado de Wallet & Incentives) y su Component Diagram<br>2.6.8. Bounded Context: Subscription & Billing (pasarela renombrada a Google Play Billing; `charge()` corregido a `verifyPurchase()`)<br>Diagrama de Clases general (eliminación de la clase `CreditPurchase`, corrección de `VerifierProfile`, `VerificationCase`, `CreditTransaction`, `Subscription`)<br>Diagrama de Base de Datos general (migración completa a PostgreSQL, corrección de índices únicos parciales, eliminación de `credit_purchases`)<br><br>**Student Outcome** (acumulado con el aporte de TB1 de los cinco integrantes)<br>**Objetivos SMART** (ajuste del objetivo de Alberca Saavedra, Víctor Manuel)<br>**Project Report Collaboration Insights** (acumulado con la evidencia de TB1)<br>**Conclusiones** (tres párrafos nuevos sobre las contradicciones resueltas entre el diseño y la implementación real)<br><br>Se agregaron los siguientes tópicos nuevos:<br><br>**Capítulo III: Solution UI/UX Design**<br>3.1.1. Style Guidelines<br>3.1.2. Information Architecture<br>3.1.3. Landing Page UI Design<br>3.1.4. Mobile Applications UX/UI Design<br><br>**Capítulo IV: Product Implementation & Validation**<br>4.1. Software Configuration Management<br>4.1.1. Software Development Environment Configuration<br>4.1.2. Source Code Management<br>4.1.3. Source Code Style Guide & Coding Conventions<br>4.1.4. Software Deployment Configuration<br>4.2. Landing Page, Services & Applications Implementation<br>4.2.1. Sprint 1<br>4.2.1.1. Sprint Planning 1<br>4.2.1.2. Aspect Leaders and Collaborators<br>4.2.1.3. Sprint Backlog 1<br>4.2.1.4. Development Evidence for Sprint Review<br>4.2.1.5. Testing Suite Evidence for Sprint Review<br>4.2.1.6. Execution Evidence for Sprint Review<br>4.2.1.7. Services Documentation Evidence for Sprint Review<br>4.2.1.8. Software Deployment Evidence for Sprint Review<br>4.2.1.9. Team Collaboration Insights during Sprint |
 
 <div style="page-break-after: always;"></div>
 
@@ -1585,6 +1586,28 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><td colspan="4"><strong>Escenario 1: Registro de reporte</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/disputes/reports está disponible<br><strong>Cuando</strong> se envía un CreateUserReportResource válido<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> la disputa se registra con sourceType USER_REPORT y status PENDING<br><br><strong>Escenario 2: Listado de pendientes por un Coordinador</strong><br><strong>Dado que</strong> el usuario autenticado tiene el rol Coordinator<br><strong>Cuando</strong> se envía un request GET /api/v1/disputes?status=pending<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene únicamente disputas en estado PENDING<br><br><strong>Escenario 3: Acceso sin rol de Coordinador</strong><br><strong>Dado que</strong> el usuario autenticado tiene el rol Student<br><strong>Cuando</strong> se envía un request PATCH /api/v1/disputes/{disputeId}/resolve<br><strong>Entonces</strong> el response tiene el código 403 Forbidden<br><br><strong>Escenario 4: Resolución incoherente</strong><br><strong>Dado que</strong> el outcome enviado no es coherente con el sourceType de la disputa<br><strong>Cuando</strong> se envía el request PATCH /api/v1/disputes/{disputeId}/resolve<br><strong>Entonces</strong> el response tiene el código 400 Bad Request<br><strong>Y</strong> la disputa permanece en estado PENDING</td></tr>
 </table>
 
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS11</td><td>Developer</td><td>Media</td><td>EP05</td></tr>
+  <tr><th>Title</th><td colspan="3">Endpoints de consulta de reputación</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints de VerifierReliabilityController y StudentEmployabilityController, para que el cliente consulte la confiabilidad de un Verificador y el Employability Score de un Estudiante.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta de confiabilidad existente</strong><br><strong>Dado que</strong> existe un registro de confiabilidad para el verifierUserId solicitado<br><strong>Cuando</strong> se envía un request GET /api/v1/verifier-reliabilities/{verifierUserId}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el puntaje vigente<br><br><strong>Escenario 2: Verificador sin casos resueltos todavía</strong><br><strong>Dado que</strong> el verifierUserId solicitado no tiene ningún caso resuelto registrado<br><strong>Cuando</strong> se envía el mismo request<br><strong>Entonces</strong> el response tiene el código 404 Not Found<br><br><strong>Escenario 3: Consulta de empleabilidad existente</strong><br><strong>Dado que</strong> existe un registro de empleabilidad para el studentId solicitado<br><strong>Cuando</strong> se envía un request GET /api/v1/student-employability-scores/{studentId}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el puntaje vigente<br><br><strong>Escenario 4: Consulta sin ser el dueño del recurso</strong><br><strong>Dado que</strong> el usuario autenticado no es el dueño del recurso ni tiene el rol Coordinator<br><strong>Cuando</strong> intenta consultar la reputación de otro usuario<br><strong>Entonces</strong> el response tiene el código 403 Forbidden</td></tr>
+</table>
+
+<table>
+  <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
+  <tr><td>TS12</td><td>Developer</td><td>Alta</td><td>EP10</td></tr>
+  <tr><th>Title</th><td colspan="3">Despliegue del backend en producción</td></tr>
+  <tr><th colspan="4">Description</th></tr>
+  <tr><td colspan="4">Como developer, quiero desplegar el backend en un contenedor Docker sobre Render, con la base de datos PostgreSQL administrada y las migraciones aplicadas automáticamente al arrancar, para que el servicio esté disponible públicamente con su documentación OpenAPI.</td></tr>
+  <tr><th colspan="4">Acceptance Criteria</th></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Arranque con migraciones pendientes</strong><br><strong>Dado que</strong> la variable Database__MigrateOnStartup tiene el valor "true"<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> el sistema aplica las migraciones pendientes de Entity Framework Core antes de aceptar tráfico<br><br><strong>Escenario 2: Migración deshabilitada</strong><br><strong>Dado que</strong> la variable Database__MigrateOnStartup no está presente o no es exactamente "true"<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> el sistema omite la aplicación automática de migraciones<br><br><strong>Escenario 3: Semilla del Coordinador</strong><br><strong>Dado que</strong> no existe ninguna cuenta con el username configurado en Seed__Coordinator__Username<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> el sistema crea la cuenta Coordinator inicial de forma idempotente, sin modificar ninguna cuenta existente<br><br><strong>Escenario 4: Configuración de semilla inválida</strong><br><strong>Dado que</strong> la configuración de Seed__Coordinator__* es inválida o está incompleta<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> el sistema registra el error en el log y continúa arrancando con normalidad</td></tr>
+</table>
+
+*(Tabla 12. User Stories del proyecto - Elaboración propia.)*
+
 *(Tabla 12. User Stories del proyecto - Elaboración propia.)*
 
 ### 2.4.2. Impact Mapping
@@ -1720,6 +1743,8 @@ La estimación total del Product Backlog asciende a **204 Story Points**. De ell
 | 53 | US03 | Acceso mediante biometría del dispositivo | 3 | Sprint 1 |
 | 54 | US28 | Programación de la demostración final | 3 | Sprint 2 |
 | 55 | US29 | Demostración final por video | 8 | Sprint 2 |
+| 56 | TS11 | Endpoints de consulta de reputación | 2 | Sprint 1 |
+| 57 | TS12 | Despliegue del backend en producción | 5 | Sprint 1 |
 
 
 *(Tabla 13. Product Backlog - Elaboración propia.)*
@@ -4155,44 +4180,55 @@ En esta sección se presenta el diseño del producto como parte integral de la a
 
 ##### 3.1.1.1. General Style Guidelines
 
-
-| Elemento | Decisión |
-|---|---|
-| Paleta de colores | [Completar — colores primarios/secundarios con sus códigos hex] |
-| Tipografía | [Completar — familia tipográfica, pesos usados] |
-| Espaciado | [Completar — sistema de espaciado, ej. múltiplos de 8px] |
-| Tono de comunicación | [Completar — ej. profesional pero cercano, dado que el producto se dirige a estudiantes universitarios] |
+En esta sección se presentan las decisiones visuales base que rigen la identidad de SkillSwap, aplicadas de manera consistente tanto en el Landing Page como en las aplicaciones móviles: paleta de colores, tipografía, espaciado y tono de comunicación.
 
 <p align="center">
   <img src="images-doc/style-guidelines.png" alt="Style Guidelines de SkillSwap" width="900">
 </p>
 
+*Nota.* [Completar — descripción de lo que muestra la captura: paleta de colores con sus códigos hex, familia tipográfica y pesos usados, sistema de espaciado]. El tono de comunicación adoptado es [Completar — ej. "profesional pero cercano, evitando tecnicismos del dominio en el contenido dirigido al visitante"], coherente con el carácter riguroso pero accesible que busca transmitir la plataforma frente a sus dos segmentos objetivo (Estudiantes y Verificadores/Coordinadores).
+
 #### 3.1.2. Information Architecture
 
 ##### 3.1.2.1. Organization Systems
 
-*(Completar: en qué grupos de información se aplica organización jerárquica, secuencial o matricial; qué esquema de categorización usan — alfabético, cronológico, por tópicos, por audiencia (Estudiante vs. Verificador).)*
+Esta sección describe cómo se organiza el contenido en el Landing Page y en la aplicación móvil, de modo que el visitante o usuario encuentre la información sin esfuerzo.
+
+La información del Landing Page se organiza de forma **secuencial** en la sección "¿Cómo funciona SkillSwap?", que presenta el flujo en 3 pasos numerados (1. Sube tus certificados → 2. La IA arma tu ruta → 3. Demuestra la habilidad), reflejando el orden real en que el Estudiante interactúa con la plataforma. La sección de roles aplica una organización **por audiencia**, agrupando el contenido en dos tarjetas: Estudiante, y Verificador/Coordinador-Profesor (estos dos últimos unificados en una sola tarjeta, consistente con que ambos pertenecen al mismo segundo segmento objetivo definido en el Capítulo I). El resto del contenido (pitch de valor, socios institucionales, contacto) sigue una organización **jerárquica visual**, donde cada sección ocupa un bloque completo de pantalla en orden descendente de relevancia para el visitante.
 
 ##### 3.1.2.2. Labelling Systems
 
-*(Completar: etiquetas usadas para representar conjuntos de información, ej. cómo se nombran las secciones del menú — "Mi Ruta", "Certificados", "Casos Asignados" — y las asociaciones entre ellas.)*
+Esta sección detalla las etiquetas utilizadas para representar los conjuntos de información de la plataforma, buscando simplicidad y evitando confusión para el visitante o usuario.
+
+Las etiquetas del menú principal se mantienen como sustantivos cortos y directos: "Plataforma" (ancla a la demostración visual de la app), "Alianzas" (página para universidades), "Sobre nosotros" (equipo), "Iniciar Sesión" y "Registrarse" como acciones. Dentro del contenido, las etiquetas evitan tecnicismos del dominio (ej. no se usa "Bounded Context" ni "VerificationCase") y se comunican en lenguaje natural para el visitante: "Revisión automática con IA", "Employability Score", "Case review" (en la versión en inglés). La tarjeta de rol del Verificador se etiqueta explícitamente como "Verificador / Coordinador-Profesor" para que el visitante entienda que es un mismo segmento con dos niveles de participación, sin necesidad de explicar la distinción técnica interna.
 
 ##### 3.1.2.3. SEO Tags and Meta Tags
 
-*(Completar: Title, Meta Description, Keywords y Author del Landing Page. Para la app móvil, los elementos ASO — App Title, App Keywords, App Subtitle, App Description.)*
+Esta sección presenta los elementos de optimización para motores de búsqueda configurados en cada página del Landing Page, así como los elementos ASO (App Store Optimization) correspondientes a la publicación de la aplicación móvil.
 
-| Página / Producto | Title | Meta Description | Keywords |
+| Página | Title | Meta Description | Keywords |
 |---|---|---|---|
-| Landing Page — Home | [Completar] | [Completar] | [Completar] |
-| App Store Listing | [Completar] | [Completar] | [Completar] |
+| Home (`index.html`) | SkillSwap \| Verificación de Habilidades con IA | SkillSwap verifica tus habilidades con IA: sube tus certificados, recibe una ruta de certificación personalizada y demuestra lo que sabes. | verificación de habilidades, inteligencia artificial, certificaciones, ruta de aprendizaje, estudiantes universitarios, SkillSwap, Perú, empleabilidad |
+| Sobre Nosotros (`aboutUs.html`) | SkillSwap \| Sobre Nosotros | Conoce a Innovify, el equipo detrás de SkillSwap, nuestra misión, visión y las personas que hacen posible [Completar] | — |
+| Alianzas (`partnerships.html`) | SkillSwap \| Alianzas Institucionales | Afilia tu universidad a SkillSwap y ofrece a tus estudiantes verificación de habilidades con IA y certificaciones confiables. | — |
+| Registro (`signup.html`) | SkillSwap \| Registro | Regístrate en SkillSwap, sube tus certificados y deja que la IA arme tu ruta de certificación. | — |
+| Iniciar Sesión (`login.html`) | SkillSwap \| Iniciar Sesión [Completar — ver corrección pendiente en el repo] | Inicia sesión en SkillSwap y sigue tu ruta de certificación de habilidades generada por IA. | — |
+
+El Landing Page implementa además **SEO bilingüe** mediante etiquetas `hreflang` (es/en/x-default) y un selector de idioma (ES/EN) que actualiza dinámicamente el `<title>` y el `<meta name="description">` según el idioma seleccionado, persistiendo la preferencia en `localStorage`. El `author` declarado es "Innovify", nombre de la startup.
+
+*(Los elementos ASO —App Title, App Keywords, App Subtitle, App Description— corresponden a la publicación en la tienda de aplicaciones móvil, pendiente de completar junto con quien lleve esa parte del Capítulo III.)*
 
 ##### 3.1.2.4. Searching Systems
 
-*(Completar: qué opciones de búsqueda ofrece la app — ej. búsqueda de habilidades en el catálogo al declarar la meta — y con qué filtros.)*
+Esta sección describe los mecanismos de búsqueda disponibles para que el visitante o usuario encuentre información sin sentirse perdido entre el volumen de contenido.
+
+El Landing Page **no implementa un sistema de búsqueda**, por tratarse de un sitio informativo de una sola sección por pantalla (scroll continuo) más 3 páginas adicionales (Alianzas, Sobre Nosotros, Registro/Login) — el volumen de contenido no lo justifica. El sistema de búsqueda real del producto corresponde a la aplicación móvil, donde el Estudiante declara su meta en lenguaje natural y el motor de IA la relaciona con el catálogo interno de habilidades (ver 2.6.3, `SkillTaxonomyMatcher`); su documentación de UI queda pendiente de quien lleve el diseño de la app.
 
 ##### 3.1.2.5. Navigation Systems
 
-*(Completar: cómo se guía al Estudiante y al Verificador a través de la app y el Landing Page — navegación por pestañas, menú lateral, etc.)*
+Esta sección explica las acciones y técnicas que guían al visitante o usuario a través del Landing Page y la aplicación, permitiéndole cumplir sus metas de forma satisfactoria.
+
+La navegación del Landing Page combina una **barra superior persistente** (logo + menú horizontal, con versión de menú hamburguesa para mobile) con **anclas internas** dentro de la misma página (ej. "Plataforma" lleva a `#seccion-screenshots` sin cambiar de URL) y **enlaces a páginas independientes** para contenido extenso (Alianzas, Sobre Nosotros, Registro, Login). Los *call-to-action* ("¡Empieza tu ruta ahora!", "Empieza tu ruta — tarda 2 minutos", "Create my free account") se repiten en varios puntos de scroll para no depender de que el visitante recuerde volver al menú. El footer centraliza los enlaces legales (Términos y Condiciones, Política de Privacidad) y de contacto.
 
 #### 3.1.3. Landing Page UI Design
 
@@ -4200,23 +4236,21 @@ La sección presenta cómo se tradujeron las decisiones de diseño y arquitectur
 
 ##### 3.1.3.1. Landing Page Wireframe
 
-*(Completar: wireframes de Desktop y Mobile Web Browser, elaborados en Figma.)*
+Esta sección presenta los wireframes de baja fidelidad elaborados antes de definir el diseño visual final del Landing Page.
 
-<p align="center">
-  <img src="images-doc/landing-wireframe-desktop.png" alt="Wireframe Landing Page - Desktop" width="900">
-  <br>
-  <img src="images-doc/landing-wireframe-mobile.png" alt="Wireframe Landing Page - Mobile" width="400">
-</p>
+[Completar — si elaboraron wireframes en Figma antes de codear, insertar la captura aquí; si se trabajó directamente sobre mock-up/código, anotar "Se trabajó directamente sobre mock-up/código, sin wireframe de baja fidelidad previo".]
 
 ##### 3.1.3.2. Landing Page Mock-up
 
-*(Completar: mock-ups de Desktop y Mobile Web Browser, aplicando el Design System ya definido en 3.1.1.)*
+Esta sección presenta el mock-up final del Landing Page, resultado de aplicar el Design System definido en 3.1.1 sobre la arquitectura de información descrita en 3.1.2.
 
 <p align="center">
-  <img src="images-doc/landing-mockup-desktop.png" alt="Mock-up Landing Page - Desktop" width="900">
+  <img src="images-doc/index-new.png" alt="Mock-up Landing Page - Home" width="900">
   <br>
-  <img src="images-doc/landing-mockup-mobile.png" alt="Mock-up Landing Page - Mobile" width="400">
+  <img src="images-doc/index-responsive.png" alt="Mock-up Landing Page - Responsive" width="400">
 </p>
+
+*Nota.* Diseño final del Landing Page de SkillSwap, aplicando el Design System del proyecto: sección Hero con propuesta de valor ("Demuestra lo que sabes..."), flujo de 3 pasos (subir certificado → ruta por IA → demostrar la habilidad), presentación de los dos segmentos objetivo (Estudiante / Verificador-Coordinador), comparación de valor frente a otras plataformas, y sección de universidades aliadas. Implementado en HTML5/CSS3/JavaScript, con soporte bilingüe (ES/EN) y diseño responsive.
 
 El Landing Page está desplegado en: [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/)
 
@@ -4291,7 +4325,8 @@ Esta sección presenta el diseño visual y de interacción de las aplicaciones m
 | Docker Desktop | Construcción y prueba local de la imagen antes de desplegar en Render | [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/) |
 | Render | Hosting del backend (Web Service) y de la base de datos PostgreSQL administrada | [https://render.com/](https://render.com/) |
 | xUnit / Reqnroll | Pruebas unitarias y de integración (BDD con Gherkin) | Integrado en el proyecto |
-
+| Trello | Gestión del Product Backlog y Sprint Backlog | [https://trello.com/](https://trello.com/) |
+| Figma | Wireframes, mock-ups y prototipo navegable del Landing Page y la aplicación móvil | [https://www.figma.com/](https://www.figma.com/) |
 
 
 #### 4.1.2. Source Code Management
@@ -4407,9 +4442,9 @@ El equipo organizó el Sprint 1 por Bounded Context (backend) y por frente de di
 | TS06 | Endpoint de generación de evaluaciones | T06 | Integración con Gemini API | `AssessmentBlueprint`, `LlmQuestionGenerator` con modelo principal y cadena de respaldo | 9 | Alberca Saavedra, Víctor Manuel | Done |
 | TS07 / TS08 | Endpoints de intentos y casos de verificación | T07 | Domain Layer de Assessment & Peer Review | Agregados `AssessmentAttempt`, `VerificationCase`, `VerifierProfile`; `VerifierMatcher`, `CaseAssignmentService` | 14 | Alberca Saavedra, Víctor Manuel | Done |
 | TS07 / TS08 | Endpoints de intentos y casos de verificación | T08 | Application + Interface Layer de Assessment & Peer Review | Controllers, Command/Query Services, eventos `AssessmentAttemptPassed` / `VerificationCaseResolved` | 10 | Alberca Saavedra, Víctor Manuel | Done |
-| — | Historia técnica de Reputation (TS11) | T09 | Domain + Application Layer de Reputation | Agregados `VerifierReliability`, `StudentEmployabilityScore`; event handlers de BC4 | 8 | Alberca Saavedra, Víctor Manuel | Done |
-| TS09 | Endpoints de billetera y canje | T10 | Domain + Application Layer de Recognition & Incentives | Agregados `Wallet`, `CreditTransaction`; event handlers de Identity & Assessment | 8 | Alberca Saavedra, Víctor Manuel | Done |
-| — | Despliegue del backend | T11 | Dockerfile + configuración de Render | Build multi-etapa, variables de entorno, migraciones automáticas, seed del Coordinador | 6 | Alberca Saavedra, Víctor Manuel | Done |
+| TS11 | Endpoints de consulta de reputación | T09 | Domain + Application Layer de Reputation | Agregados `VerifierReliability`, `StudentEmployabilityScore`; event handlers de Assessment & Peer Review | 8 | Alberca Saavedra, Víctor Manuel | Done |
+| TS09 | Endpoints de billetera y canje | T10 | Domain + Application Layer de Recognition & Incentives | Agregados `Wallet`, `CreditTransaction`; event handlers de Identity & Access y Assessment & Peer Review | 8 | Alberca Saavedra, Víctor Manuel | Done |
+| TS12 | Despliegue del backend en producción | T11 | Dockerfile + configuración de Render | Build multi-etapa, variables de entorno, migraciones automáticas, seed del Coordinador | 6 | Alberca Saavedra, Víctor Manuel | Done |
 | US41–US45 | Landing Page | T12 | Wireframe + Mock-up + implementación de la Landing Page | HTML5/CSS3/JS, desplegado en GitHub Pages | 10 | Becerra Ninahuanca, Luis Angel | Done |
 | — | Pantallas core de la app móvil | T13 | Wireframes + Mock-ups + prototipo navegable en Figma | Pantallas de registro, ruta de aprendizaje, quiz y casos de verificación | 12 | Lopez Montalvo, Kevin Edu | In-Process |
 
@@ -4648,6 +4683,10 @@ Terminado el Sprint 1, nos sentamos a comparar sistemáticamente lo que el backe
 
 link: [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/)
 
+**Papers:**
+Alasmari, T. (2024). Reshaping vocational training: A study on the recognition of micro-credentials in job markets. Education + Training. [https://doi.org/10.1108/ET-07-2023-0282](https://doi.org/10.1108/ET-07-2023-0282)
+
+Grevisse, C., Pavlou, M. A., & Schneider, J. (2024). Docimological quality analysis of LLM-generated multiple choice questions in computer science and medicine. SN Computer Science, 5. [https://doi.org/10.1007/s42979-024-02963-6](https://doi.org/10.1007/s42979-024-02963-6)
 
 ---
 
