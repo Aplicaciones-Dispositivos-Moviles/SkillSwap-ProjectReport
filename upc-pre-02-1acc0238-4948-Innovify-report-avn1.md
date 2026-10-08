@@ -4654,10 +4654,10 @@ El equipo organizó el Sprint 1 por Bounded Context (backend) y por frente de di
 ##### 4.2.1.3. Sprint Backlog 1
 
 <p align="center">
-  <img src="images-doc/sprint1-board.png" alt="Sprint Backlog Board - Sprint 1" width="900">
+  <img src="images-doc/sprint1-board.png" alt="Sprint Backlog Board - Sprint 1" width="300">
 </p>
 
-*Nota.* Tablero del Sprint 1 en Trello, con las columnas To-Do / In-Process / To-Review / Done. URL público del Board: [https://trello.com/invite/b/68e353c594f09e671b636f51/ATTIb5441351e50cdc8914cef6195966155d23769D30/product-backlog](https://trello.com/invite/b/68e353c594f09e671b636f51/ATTIb5441351e50cdc8914cef6195966155d23769D30/product-backlog)
+*Nota.* Lista Sprint 1 del tablero del Product Backlog en Trello, con las 41 historias (145 Story Points) comprometidas para el Sprint 1. URL público del Board: [https://trello.com/b/sTMGwnPf/skillswap-product-backlog](https://trello.com/b/sTMGwnPf/skillswap-product-backlog)
 
 | Sprint # | Sprint 1 | | | | | | | |
 |---|---|---|---|---|---|---|---|---|
