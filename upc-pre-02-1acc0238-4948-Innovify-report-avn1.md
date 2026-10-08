@@ -164,11 +164,11 @@ Innovify plantea para SkillSwap un modelo de negocio B2C basado en una suscripci
 
 La asignación de casos se realiza automáticamente considerando la habilidad requerida, el historial y la disponibilidad de los Verificadores. Asimismo, SkillSwap incorpora mecanismos de confianza como la verificación del correo electrónico, el historial auditable de las evaluaciones y la habilitación de Verificadores a partir de las certificaciones obtenidas dentro de la plataforma. Estos mecanismos buscan reducir la dependencia de declaraciones no comprobadas y favorecer un proceso de validación consistente.
 
-### Visión
+#### Visión
 
 Ser una plataforma de referencia en la validación práctica de habilidades, reconocida por ofrecer a estudiantes universitarios y jóvenes profesionales un proceso confiable, trazable y sostenible de certificación y verificación entre pares.
 
-### Misión
+#### Misión
 
 Facilitar que estudiantes universitarios y jóvenes profesionales demuestren el dominio práctico de sus habilidades mediante rutas de certificación, evaluaciones aplicadas apoyadas por tecnología y revisiones estructuradas entre pares. Innovify reconoce la contribución de los Verificadores mediante SkillCredits y mantiene mecanismos de moderación para supervisar la confiabilidad y el seguimiento del proceso de validación.
 
@@ -882,7 +882,7 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
 
 ---
 
-### Conclusión
+#### Conclusión
 
 Las tareas más frecuentes e importantes son:
 
@@ -2858,6 +2858,8 @@ Estos componentes aseguran que la lógica de negocio de Credential Verification 
 
 *Nota.* Se detalla la segregación entre el Controller, el Command/Query Service y los adaptadores de Persistencia, extracción OCR (ML Kit on-device) y almacenamiento de archivos (Cloudinary), evidenciando la escalación de certificados en estado SUSPICIOUS hacia Moderation & Disputes y la solicitud entrante de certificados verificados desde Learning Path Engine. Elaboración propia.
 
+#### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
+
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
 **Figura 74**
@@ -3093,6 +3095,8 @@ Estos componentes garantizan que el algoritmo de matching de habilidades y el pr
 </p>
 
 *Nota.* Se detalla la segregación entre los Controllers de `LearningPath` y `AssessmentBlueprint`, el Command/Query Service, el componente interno `SkillTaxonomy Matcher` y el adaptador de generación de preguntas mediante una API de IA generativa (LLM), evidenciando la solicitud de certificados verificados hacia Credential Verification, la notificación entrante de certificados verificados desde ese mismo Bounded Context, y las solicitudes entrantes de Assessment & Peer Review (blueprint del nodo y notificación de nodo demostrado). Elaboración propia.
+
+#### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
@@ -3340,6 +3344,8 @@ Este Bounded Context no integra ningún servicio de almacenamiento de archivos: 
 
 *Nota.* Se detalla la segregación entre los Controllers de `AssessmentAttempt`, `VerificationCase` y `VerifierProfile`, el Command/Query Service y el componente interno `VerifierMatcher`, evidenciando la solicitud del blueprint hacia Learning Path Engine vía `ILearningPathContextFacade`, la publicación de los eventos de dominio consumidos por Reputation y Recognition & Incentives, y la exposición de `IVerifierProfileContextFacade` para que Reputation sincronice la confiabilidad del Verificador. Elaboración propia.
 
+#### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
+
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
 **Figura 80**
@@ -3536,6 +3542,8 @@ Este adaptador permite que Assessment & Peer Review mantenga sincronizado el `ra
 
 *Nota.* Se detalla la segregación entre los Controllers de solo lectura (`VerifierReliability`, `StudentEmployability`), el Command/Query Service y el adaptador de sincronización hacia Assessment & Peer Review, evidenciando que toda escritura ocurre exclusivamente mediante eventos entrantes de Assessment & Peer Review (resolución de caso/aprobación automática) y de Moderation & Disputes (reversión de decisión/sanción aplicada), sin ningún endpoint de creación consumido directamente por el cliente. Elaboración propia.
 
+#### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
+
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
 **Figura 83**
@@ -3727,6 +3735,8 @@ Este Bounded Context no incluye integraciones con pasarelas de pago externas ni 
 </p>
 
 *Nota.* Se detalla la segregación entre los Controllers de `Wallet` y `CreditTransaction`, el Command/Query Service y el Repository, evidenciando la creación de la billetera inicial solicitada por Identity & Access al registrarse, la acreditación de SkillCredits notificada por Assessment & Peer Review tras un caso aprobado, y la confirmación de biometría consultada hacia Identity & Access antes de un canje — sin ninguna integración con pasarelas de pago externas. Elaboración propia.
+
+#### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
@@ -3937,6 +3947,8 @@ Estos adaptadores permiten que Moderation & Disputes coordine la resolución ent
 
 *Nota.* Se detalla la segregación entre el Controller, el Command/Query Service y los adaptadores de consulta de evidencia hacia Credential Verification y Assessment & Peer Review, evidenciando la escalación automática de certificados en estado SUSPICIOUS, y las notificaciones salientes hacia Identity & Access (suspensión de cuenta) y Reputation (reversión de decisión/sanción aplicada) tras la resolución del Coordinador. Elaboración propia.
 
+#### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
+
 ##### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
 
 **Figura 89**
@@ -4122,6 +4134,8 @@ En la Application Layer de Subscription & Billing, `RenewSubscriptionCommandHand
 
 *Nota.* Se detalla la segregación entre el Controller, el Command/Query Service y el adaptador de verificación hacia Google Play Billing, evidenciando el manejo asíncrono de la confirmación de renovaciones mediante un RTDN Handler. Este Bounded Context opera de forma completamente independiente de Recognition & Incentives. Elaboración propia.
 
+#### 2.6.8.6. Bounded Context Software Architecture Code Level Diagrams
+
 ##### 2.6.8.6.1. Bounded Context Domain Layer Class Diagrams
 
 **Figura 92**
@@ -4184,16 +4198,16 @@ En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, do
 
 ---
 
-## Capítulo III: Solution UI/UX Design
+# Capítulo III: Solution UI/UX Design
 
 
-### 3.1. Product design
+## 3.1. Product design
 
 En esta sección se presenta el diseño del producto como parte integral de la arquitectura del sistema, detallando las decisiones que determinan la interacción entre los usuarios (Estudiante, Verificador y Coordinador) y SkillSwap, alineadas con los principios y elementos de diseño adoptados por el equipo.
 
-#### 3.1.1. Style Guidelines
+### 3.1.1. Style Guidelines
 
-##### 3.1.1.1. General Style Guidelines
+#### 3.1.1.1. General Style Guidelines
 
 En esta sección se presentan las decisiones visuales base que rigen la identidad de SkillSwap, aplicadas de manera consistente tanto en el Landing Page como en las aplicaciones móviles: paleta de colores, tipografía, espaciado y tono de comunicación.
 **Figura 96**
@@ -4206,9 +4220,9 @@ En esta sección se presentan las decisiones visuales base que rigen la identida
 
 *Nota.* La lámina resume el Design System del producto. En la aplicación móvil, el color primario es el azul `#0022AA` (contraste 11.6:1 sobre blanco), acompañado de un azul oscuro `#001580` para el onboarding y los encabezados, y un contenedor `#E6EAFF` para el indicador de la navbar y los chips seleccionados; el texto principal es `#111827` (17.7:1) y el secundario `#4B5563` (7.6:1). Los estados usan colores semánticos con ícono y texto, nunca solo color: éxito `#15803D`, error `#B91C1C`, advertencia y SkillCredits `#B45309`, y el violeta `#5B21B6` para todo lo generado por IA. El Landing Page usa el azul institucional `#193B69` con el ámbar `#FFC107` para los llamados a la acción. Ambos productos usan la familia **Inter**: en la app con la escala Display 28/36 (ExtraBold), H1 24/32 y H2 20/28 (Bold), Title 16/24 (SemiBold), Body 16/24 y Body-S 14/20 (Regular), Label 14/20 y Caption 12/16 (Medium); el código de los quizzes usa JetBrains Mono. El espaciado sigue una grilla de 8 px (margen lateral de 24 px, 32 px entre secciones, 24 px entre campos y 8–12 px entre un label y su componente) y los radios son de 8 px en chips, 12 px en inputs, 16 px en cards y 26 px en botones. El tono de comunicación adoptado es profesional pero cercano, en segunda persona y orientado a la acción, evitando tecnicismos del dominio en el contenido dirigido al usuario y comunicando los resultados negativos sin tono punitivo ("Aún no alcanzas el mínimo"), siempre con el siguiente paso a seguir, coherente con el carácter riguroso pero accesible que busca transmitir la plataforma frente a sus dos segmentos objetivo (Estudiantes y Verificadores/Coordinadores). Elaboración propia.
 
-#### 3.1.2. Information Architecture
+### 3.1.2. Information Architecture
 
-##### 3.1.2.1. Organization Systems
+#### 3.1.2.1. Organization Systems
 
 Esta sección describe cómo se organiza el contenido en el Landing Page y en la aplicación móvil, de modo que el visitante o usuario encuentre la información sin esfuerzo.
 
@@ -4216,7 +4230,7 @@ La información del Landing Page se organiza de forma **secuencial** en la secci
 
 En la aplicación móvil, la información se organiza **por rol**, ya que cada perfil tiene tareas distintas: Estudiante, Verificador y Coordinador. Dentro de cada rol, el contenido se agrupa **por tarea** en los cuatro destinos de la barra de navegación, y la ruta de aprendizaje del Estudiante sigue una organización **secuencial**, donde cada nodo se desbloquea al cumplir el anterior según sus prerrequisitos (US08). Los listados (casos del Verificador y disputas del Coordinador) se ordenan **por urgencia**, según el plazo o la prioridad, para que lo más importante aparezca primero.
 
-##### 3.1.2.2. Labelling Systems
+#### 3.1.2.2. Labelling Systems
 
 Esta sección detalla las etiquetas utilizadas para representar los conjuntos de información de la plataforma, buscando simplicidad y evitando confusión para el visitante o usuario.
 
@@ -4224,7 +4238,7 @@ Las etiquetas del menú principal se mantienen como sustantivos cortos y directo
 
 En la aplicación móvil se usa el mismo vocabulario del dominio en todas las pantallas, sin sinónimos: "ruta", "nodo", "certificado", "quiz", "caso", "rúbrica", "disputa", "sub-tema" y "SkillCredits". Las etiquetas de la barra de navegación son sustantivos cortos con ícono: "Mi ruta", "Certificados", "Evaluaciones" y "Perfil" (Estudiante); "Casos", "Historial", "SkillCredits" y "Perfil" (Verificador); y "Panel", "Disputas", "Verificadores" y "Métricas" (Coordinador). Los botones usan verbos de acción ("Generar mi ruta", "Rendir quiz", "Agregar evidencia"), y los formularios muestran labels visibles sobre cada campo, en lugar de usar el placeholder como etiqueta.
 
-##### 3.1.2.3. SEO Tags and Meta Tags
+#### 3.1.2.3. SEO Tags and Meta Tags
 
 Esta sección presenta los elementos de optimización para motores de búsqueda configurados en cada página del Landing Page, así como los elementos ASO (App Store Optimization) correspondientes a la publicación de la aplicación móvil.
 
@@ -4248,7 +4262,7 @@ Para la publicación de la aplicación móvil en Google Play se definieron los s
 | App Description | SkillSwap ayuda a los estudiantes universitarios a demostrar lo que saben, no solo lo que estudiaron. Declara tu meta profesional y la IA arma una ruta de certificación con tus certificados previos; valida cada habilidad con quizzes generados por IA y, si lo necesitas, con la revisión de un Verificador. Los Verificadores ganan SkillCredits por cada caso resuelto y las universidades supervisan la calidad del proceso. |
 | Categoría | Educación |
 
-##### 3.1.2.4. Searching Systems
+#### 3.1.2.4. Searching Systems
 
 Esta sección describe los mecanismos de búsqueda disponibles para que el visitante o usuario encuentre información sin sentirse perdido entre el volumen de contenido.
 
@@ -4256,7 +4270,7 @@ El Landing Page **no implementa un sistema de búsqueda**, por tratarse de un si
 
 En la aplicación, ese mecanismo se presenta en la pantalla **Declarar meta**: un campo de texto libre con dictado por voz y chips con metas de otros estudiantes, para que el Estudiante reconozca un ejemplo en lugar de tener que recordar el nombre exacto de un curso. La IA devuelve como máximo tres habilidades candidatas ordenadas por afinidad, con la opción de reformular la meta si ninguna se ajusta. Además, el Estudiante cuenta con una **búsqueda dentro de su ruta** (ícono de lupa en "Mi ruta") para encontrar un nodo o sub-tema sin recorrerla completa; si no hay resultados, la pantalla lo indica y sugiere otra palabra, y si el nodo encontrado está bloqueado, explica qué nodo debe completar antes. En los paneles del Verificador y del Coordinador se usan **filtros** (por ejemplo, "Con alertas" en la lista de Verificadores) en lugar de un buscador, porque el volumen de casos y disputas es acotado.
 
-##### 3.1.2.5. Navigation Systems
+#### 3.1.2.5. Navigation Systems
 
 Esta sección explica las acciones y técnicas que guían al visitante o usuario a través del Landing Page y la aplicación, permitiéndole cumplir sus metas de forma satisfactoria.
 
@@ -4264,11 +4278,11 @@ La navegación del Landing Page combina una **barra superior persistente** (logo
 
 En la aplicación móvil, cada rol cuenta con una **barra de navegación inferior** de Material Design 3 con cuatro destinos y un indicador del destino activo, de modo que el usuario siempre sabe dónde está. Los flujos de tarea (registro, subida de certificado, quiz, revisión de un caso o resolución de una disputa) ocultan la barra y usan una **app bar con "Volver" o "Cerrar"**, para que el usuario se concentre en terminar la tarea. Las acciones que avanzan una tarea se muestran como botón principal en la parte inferior, al alcance del pulgar, y las confirmaciones y errores se presentan con diálogos, hojas inferiores y snackbars que incluyen una acción directa para continuar (por ejemplo, "Rendir" cuando el certificado queda validado).
 
-#### 3.1.3. Landing Page UI Design
+### 3.1.3. Landing Page UI Design
 
 La sección presenta cómo se tradujeron las decisiones de diseño y arquitectura de información al Landing Page de SkillSwap, correspondiente a las historias US41 a US45 (propuesta de valor, planes y precios, descarga de la app, información para Verificadores, preguntas frecuentes).
 
-##### 3.1.3.1. Landing Page Wireframe
+#### 3.1.3.1. Landing Page Wireframe
 
 Esta sección presenta los wireframes de baja fidelidad elaborados antes de definir el diseño visual final del Landing Page.
 
@@ -4282,7 +4296,7 @@ Esta sección presenta los wireframes de baja fidelidad elaborados antes de defi
 
 *Nota.* Wireframe de baja fidelidad del Landing Page, elaborado en Figma, que define la estructura de bloques en el orden en que el visitante recorre la página: barra de navegación, sección Hero con la propuesta de valor y el llamado a la acción, flujo de 3 pasos, roles (Estudiante y Verificador/Coordinador), pitch de valor, capturas de la plataforma, universidades aliadas y contacto. Elaboración propia.
 
-##### 3.1.3.2. Landing Page Mock-up
+#### 3.1.3.2. Landing Page Mock-up
 
 Esta sección presenta el mock-up final del Landing Page, resultado de aplicar el Design System definido en 3.1.1 sobre la arquitectura de información descrita en 3.1.2.
 
@@ -4308,11 +4322,11 @@ Esta sección presenta el mock-up final del Landing Page, resultado de aplicar e
 
 El Landing Page está desplegado en: [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/)
 
-#### 3.1.4. Mobile Applications UX/UI Design
+### 3.1.4. Mobile Applications UX/UI Design
 
 Esta sección presenta el diseño visual y de interacción de las aplicaciones móviles (Android Nativo y Flutter), cubriendo las pantallas core de los tres roles: registro, suscripción e inicio de sesión, declaración de la meta, carga de certificado, consulta de la ruta de aprendizaje y resolución del quiz (Estudiante); gestión de casos de verificación y SkillCredits (Verificador); y resolución de disputas, supervisión de Verificadores y métricas (Coordinador).
 
-##### 3.1.4.1. Mobile Applications Wireframes
+#### 3.1.4.1. Mobile Applications Wireframes
 
 Esta sección presenta los wireframes de baja fidelidad de las pantallas principales de la aplicación, elaborados en Figma sobre un frame Android de 412 × 917 px. En esta etapa se definió la estructura de cada pantalla (jerarquía, ubicación de la barra de navegación, botones principales y campos de formulario) sin aplicar todavía colores ni tipografía final, para validar los flujos antes del diseño visual.
 
@@ -4326,7 +4340,7 @@ Esta sección presenta los wireframes de baja fidelidad de las pantallas princip
 
 *Nota.* Wireframes de las pantallas principales de los tres roles: onboarding, registro, inicio de sesión, declaración de meta, ruta de aprendizaje, detalle del nodo, quiz y resultados (Estudiante); casos y revisión con rúbrica (Verificador); y panel, disputas y métricas (Coordinador). Elaboración propia.
 
-##### 3.1.4.2. Mobile Applications Wireflow Diagrams
+#### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
 Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal relevante de los tres roles. Cada Wireflow combina los mock-ups de las pantallas con flechas que indican la acción que lleva de una pantalla a otra: en azul el camino principal (happy path) y en rojo las rutas alternativas y de error, con las pantallas de error resaltadas. En total se elaboraron 45 Wireflows en Figma; a continuación se presentan los correspondientes a los User Goals principales de cada rol.
 
@@ -4420,7 +4434,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Mantener la calidad del proceso actuando sobre Verificadores, métricas y plazos. Persona: Mariana (Coordinadora académica · UPC) · US38, US39, US40. Mariana detecta a un Verificador con baja confiabilidad y le exige un nuevo examen de ingreso. Luego revisa las métricas por habilidad y ajusta el plazo máximo de resolución. Si ingresa un plazo menor al mínimo de 12 h, el campo muestra el error y el botón Guardar queda deshabilitado. Elaboración propia.
 
-##### 3.1.4.3. Mobile Applications Mock-ups
+#### 3.1.4.3. Mobile Applications Mock-ups
 
 Esta sección presenta los mock-ups de alta fidelidad de la aplicación, resultado de aplicar el Design System de 3.1.1 sobre los wireframes. Las pantallas siguen los componentes de Material Design 3 (top app bar, botones filled y outlined, outlined text fields con label visible, chips, segmented buttons, switches, navigation bar y cards) y cumplen los criterios de accesibilidad WCAG 2.2 AA: contraste de texto de al menos 4.5:1, contraste de componentes de al menos 3:1, áreas táctiles de 48 px o más y estados comunicados con ícono y texto además del color.
 
@@ -4454,7 +4468,7 @@ Esta sección presenta los mock-ups de alta fidelidad de la aplicación, resulta
 
 *Nota.* Pantallas del Coordinador. El panel resume los KPIs con su tendencia (ícono, signo y texto) y lista las disputas por prioridad; el detalle de la disputa permite validar, rechazar o pedir más información, con confirmación antes de las acciones irreversibles; y las vistas de Verificadores, métricas y plazos permiten detectar problemas de calidad y ajustar los plazos de resolución. Elaboración propia.
 
-##### 3.1.4.4. Mobile Applications User Flow Diagrams
+#### 3.1.4.4. Mobile Applications User Flow Diagrams
 
 Esta sección presenta los User Flows de la aplicación, uno por cada User Goal principal, consistentes con los Wireflows de 3.1.4.2. Cada diagrama parte de un punto de inicio, muestra los mock-ups de las pantallas involucradas y representa con rombos las decisiones o condiciones del sistema, de modo que se distingue el happy path (en azul) de las rutas alternativas y de error (en rojo) hasta el punto de fin.
 
@@ -4518,7 +4532,7 @@ Esta sección presenta los User Flows de la aplicación, uno por cada User Goal 
 
 *Nota.* User goal: Decidir con evidencia si un certificado sospechoso es legítimo y cerrar la disputa (Coordinador · US34, US35, US36). Desde su panel, el Coordinador abre una disputa priorizada y revisa la evidencia. Si el certificado es legítimo, lo valida y la disputa se cierra notificando al Estudiante; si no lo es, confirma el rechazo antes de aplicar la sanción; y si falta evidencia, solicita información adicional y vuelve a revisar cuando el Estudiante la adjunta. Elaboración propia.
 
-##### 3.1.4.5. Mobile Applications Prototyping
+#### 3.1.4.5. Mobile Applications Prototyping
 
 Esta sección presenta el prototipo navegable de la aplicación, elaborado en Figma a partir de los mock-ups. El prototipo reúne 154 pantallas conectadas mediante 464 interacciones, que cubren tanto el happy path como las rutas alternativas y de error de los Wireflows. Cuenta con cinco puntos de inicio: "SkillSwap App" (desde el onboarding), "SkillSwap Landing", y un acceso directo por cada rol ("Rol Estudiante", "Rol Verificador" y "Rol Coordinador"). Después del inicio de sesión, la pantalla "¿Cómo quieres entrar?" permite elegir el rol cuando la cuenta tiene más de uno. Las pantallas de carga y confirmación avanzan de forma automática, y en las pantallas con varias salidas el clic sigue el happy path, mientras que las teclas 1, 2 y 3 muestran las rutas alternativas (por ejemplo, el error de credenciales en el inicio de sesión o el certificado duplicado durante la verificación).
 
@@ -4537,11 +4551,11 @@ Esta sección presenta el prototipo navegable de la aplicación, elaborado en Fi
 
 ---
 
-## Capítulo IV: Product Implementation & Validation
+# Capítulo IV: Product Implementation & Validation
 
-### 4.1. Software Configuration Management
+## 4.1. Software Configuration Management
 
-#### 4.1.1. Software Development Environment Configuration
+### 4.1.1. Software Development Environment Configuration
 
 | Herramienta | Propósito | Ruta de referencia / descarga |
 |---|---|---|
@@ -4559,7 +4573,7 @@ Esta sección presenta el prototipo navegable de la aplicación, elaborado en Fi
 | Figma | Wireframes, mock-ups y prototipo navegable del Landing Page y la aplicación móvil | [https://www.figma.com/](https://www.figma.com/) |
 
 
-#### 4.1.2. Source Code Management
+### 4.1.2. Source Code Management
 
 El equipo utiliza **GitHub** como plataforma y sistema de control de versiones, bajo la organización pública `Aplicaciones-Dispositivos-Moviles`. El repositorio del backend es [`SkillSwap-WebServices`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices).
 
@@ -4574,7 +4588,7 @@ El equipo utiliza **GitHub** como plataforma y sistema de control de versiones, 
 
 **Secretos:** las credenciales de desarrollo (connection string local, claves de API) se mantienen únicamente en `appsettings.Development.json`, excluido del repositorio mediante `.gitignore`; en producción se gestionan como variables de entorno en Render (ver 4.1.4).
 
-#### 4.1.3. Source Code Style Guide & Coding Conventions
+### 4.1.3. Source Code Style Guide & Coding Conventions
 
 El backend sigue las convenciones oficiales de **C# / .NET** (Microsoft C# Coding Conventions): clases, métodos e interfaces en `PascalCase`; parámetros y variables locales en `camelCase`; interfaces prefijadas con `I` (ej. `IPaymentGateway`). Toda la nomenclatura del código —clases, propiedades, namespaces, mensajes de commit— está en **inglés**, conforme al Anexo F del enunciado del curso.
 
@@ -4582,7 +4596,7 @@ Las tablas y columnas de la base de datos siguen `snake_case` (ej. `verifier_use
 
 Las pruebas de comportamiento (Gherkin/Reqnroll) se escriben en inglés, con escenarios etiquetados por historia de usuario (ej. `@US18`) o historia técnica (ej. `@TS07`) para trazabilidad directa con el Product Backlog.
 
-#### 4.1.4. Software Deployment Configuration
+### 4.1.4. Software Deployment Configuration
 
 El backend se despliega como contenedor **Docker** en **Render** (plan gratuito), junto con una base de datos **PostgreSQL 16** también administrada por Render (plan gratuito), en la misma región.
 
@@ -4609,11 +4623,11 @@ El backend se despliega como contenedor **Docker** en **Render** (plan gratuito)
 
 ---
 
-### 4.2. Landing Page, Services & Applications Implementation
+## 4.2. Landing Page, Services & Applications Implementation
 
-#### 4.2.1. Sprint 1
+### 4.2.1. Sprint 1
 
-##### 4.2.1.1. Sprint Planning 1
+#### 4.2.1.1. Sprint Planning 1
 
 El Sprint 1 corresponde a la primera iteración de desarrollo del proyecto, enfocada en construir la base funcional del backend (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation y Recognition & Incentives) y en avanzar el diseño UI/UX de la Landing Page y las pantallas core de la aplicación móvil.
 
@@ -4638,7 +4652,7 @@ El Sprint 1 corresponde a la primera iteración de desarrollo del proyecto, enfo
 
 *Nota.* [Completar — captura de la reunión de Sprint Planning 1 (Google Meet/Discord), mostrando a los asistentes presentes.]
 
-##### 4.2.1.2. Aspect Leaders and Collaborators
+#### 4.2.1.2. Aspect Leaders and Collaborators
 
 El equipo organizó el Sprint 1 por Bounded Context (backend) y por frente de diseño (Landing Page y aplicación móvil), con un Líder responsable de cada aspecto y el resto del equipo como colaborador cuando corresponde.
 
@@ -4652,7 +4666,7 @@ El equipo organizó el Sprint 1 por Bounded Context (backend) y por frente de di
 
 *(L = Leader, C = Collaborator.)*
 
-##### 4.2.1.3. Sprint Backlog 1
+#### 4.2.1.3. Sprint Backlog 1
 
 <p align="center">
   <img src="images-doc/sprint1-board.png" alt="Sprint Backlog Board - Sprint 1" width="300">
