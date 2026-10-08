@@ -4960,6 +4960,53 @@ La pasarela de pago pasó por tres decisiones distintas a lo largo del proyecto:
 Terminado el Sprint 1, nos sentamos a comparar sistemáticamente lo que el backend realmente hacía contra lo que el informe decía, Bounded Context por Bounded Context. Encontramos decenas de diferencias pequeñas (nombres de clases, rutas de endpoints, campos que no existían) y varias de fondo (el certificado nunca completa un nodo por sí solo, la evidencia de un caso es solo una URL y no un archivo subido, Identity & Access exige el dominio institucional desde el registro y no mediante un código posterior). Ninguna de esas diferencias era un error del código: eran decisiones reales que tomamos durante la construcción y que el documento de diseño simplemente no había alcanzado a reflejar todavía. Corregirlas todas de una sola vez, en vez de ir parchando el informe mientras programábamos, nos permitió entregar un documento consistente de principio a fin — y nos dejó claro que, en un proyecto de este tamaño, el informe de arquitectura necesita su propio ciclo de mantenimiento, igual que el código.
 
 
+# Glosario
+
+En esta sección se definen los términos técnicos, abreviaturas y acrónimos de ingeniería de software usados en el informe. Los términos propios del dominio de SkillSwap se definen en la sección 2.3.6 (Ubiquitous Language).
+
+* **a11y:** Abreviatura de *accessibility* (accesibilidad): práctica de diseñar productos que puedan usar personas con distintas capacidades.
+* **Aggregate (Agregado):** En Domain-Driven Design, grupo de objetos de dominio que se trata como una unidad de consistencia, con una entidad raíz que controla el acceso.
+* **Anti-Corruption Layer (ACL):** Patrón de Domain-Driven Design que traduce el modelo de otro contexto o sistema externo para no contaminar el modelo propio.
+* **API:** *Application Programming Interface*: conjunto de operaciones que un sistema expone para que otros sistemas lo consuman.
+* **ASO:** *App Store Optimization*: optimización de los textos y metadatos de una aplicación para mejorar su visibilidad en una tienda de aplicaciones.
+* **BDD:** *Behavior-Driven Development*: enfoque de desarrollo en el que las pruebas describen el comportamiento esperado en lenguaje natural, por ejemplo con Gherkin.
+* **Bounded Context:** En Domain-Driven Design, límite dentro del cual un modelo de dominio y su lenguaje tienen un significado único y consistente.
+* **C4 Model:** Modelo de diagramación de arquitectura de software en cuatro niveles: contexto, contenedores, componentes y código.
+* **Context Mapping:** Técnica de Domain-Driven Design que representa las relaciones entre Bounded Contexts mediante patrones como Customer/Supplier, Conformist o Anti-Corruption Layer.
+* **Conventional Commits:** Convención para redactar mensajes de commit con un tipo (feat, fix, docs, test, etc.) y una descripción breve.
+* **Docker:** Plataforma para empaquetar una aplicación y sus dependencias en contenedores que se ejecutan de forma aislada.
+* **Domain-Driven Design (DDD):** Enfoque de diseño de software que organiza el sistema alrededor del dominio del negocio y de su lenguaje.
+* **Domain Event (Evento de dominio):** Hecho relevante para el negocio que ya ocurrió, como un caso de verificación resuelto, y que otros contextos pueden consumir.
+* **Domain Storytelling:** Técnica de modelado que describe, mediante historias visuales, cómo colaboran los actores y los sistemas en un escenario del negocio.
+* **Epic:** Agrupación de User Stories relacionadas con un mismo objetivo funcional.
+* **EventStorming:** Técnica colaborativa que modela un dominio a partir de sus eventos, ordenados en el tiempo, para descubrir procesos, agregados y Bounded Contexts.
+* **Gherkin:** Lenguaje estructurado (Given-When-Then; en español, Dado que-Cuando-Entonces) para escribir criterios de aceptación y escenarios de prueba.
+* **GitFlow:** Modelo de ramas de Git que separa el trabajo en ramas main, develop, feature, release y hotfix.
+* **i18n:** Abreviatura de *internationalization* (internacionalización): preparación de un producto para varios idiomas y regiones.
+* **JWT:** *JSON Web Token*: token firmado que identifica a un usuario autenticado al consumir servicios protegidos.
+* **Landing Page:** Sitio web estático que presenta el modelo de negocio y la propuesta de valor del producto a los visitantes.
+* **Lean UX:** Enfoque de diseño centrado en el usuario que trabaja con supuestos e hipótesis que se validan de forma iterativa.
+* **ML Kit:** SDK de Google para ejecutar modelos de aprendizaje automático en el dispositivo; en SkillSwap se usa para reconocer el texto de los certificados.
+* **Mock-up:** Representación visual de alta fidelidad de una pantalla, con colores, tipografía y contenido finales.
+* **OCR:** *Optical Character Recognition*: reconocimiento óptico de caracteres, que convierte el texto de una imagen en texto editable.
+* **OpenAPI / Swagger:** Especificación estándar para documentar servicios REST; Swagger UI permite consultarla y probarla de forma interactiva.
+* **Product Backlog:** Lista ordenada por valor de negocio de todas las historias que forman el alcance del producto.
+* **Prototype (Prototipo):** Representación navegable de la aplicación que simula la interacción entre pantallas.
+* **REST / RESTful:** Estilo de arquitectura para servicios web basado en recursos identificados por URL y operaciones HTTP (GET, POST, PUT, PATCH, DELETE).
+* **Semantic Versioning:** Convención de versionado MAYOR.MENOR.PARCHE para identificar el tipo de cambio de cada versión.
+* **SEO:** *Search Engine Optimization*: optimización de un sitio web para mejorar su posición en los buscadores.
+* **Spike Story:** Historia orientada a investigar o probar la viabilidad de una tecnología antes de implementar una funcionalidad.
+* **Sprint:** Iteración de duración fija en Scrum, durante la cual el equipo construye un incremento del producto.
+* **Sprint Backlog:** Conjunto de historias y tareas que el equipo se compromete a completar en un Sprint.
+* **Story Points:** Unidad relativa de estimación del esfuerzo, la complejidad y la incertidumbre de una historia.
+* **Technical Story:** Historia que describe una funcionalidad sin interacción directa con el usuario final, como un endpoint REST, redactada con el rol Developer.
+* **User Flow:** Diagrama que muestra los pasos y decisiones que sigue un usuario para cumplir un objetivo, incluyendo rutas alternativas.
+* **User Story:** Descripción breve de una funcionalidad desde la perspectiva del usuario, con el formato Como… quiero… para…, acompañada de criterios de aceptación.
+* **Value Object (Objeto de valor):** En Domain-Driven Design, objeto sin identidad propia que se define por sus atributos, como un correo electrónico.
+* **WCAG:** *Web Content Accessibility Guidelines*: pautas internacionales de accesibilidad para contenidos digitales.
+* **Wireflow:** Diagrama que combina wireframes o mock-ups con flechas para mostrar cómo se pasa de una pantalla a otra.
+* **Wireframe:** Representación de baja fidelidad de una pantalla que define su estructura y jerarquía sin diseño visual final.
+
 # Bibliografía
 * Coursera. (2025). *Global skills report 2025*. [https://www.coursera.org/skills-reports/global](https://www.coursera.org/skills-reports/global)
 * Instituto Nacional de Estadística e Informática. (2025). *Estadísticas de las tecnologías de información y comunicación en los hogares: II trimestre 2025* (Informe Técnico N.° 03). [https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf](https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf)
