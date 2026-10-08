@@ -1682,9 +1682,9 @@ En conjunto, los cuatro Impact Maps muestran cómo cada funcionalidad de la apli
 
 ### 2.4.3. Product Backlog
 
-El Product Backlog de SkillSwap reúne las 55 historias definidas en la sección 2.4.1, ordenadas según el valor que aportan al negocio y estimadas en Story Points con la escala de Fibonacci (1, 2, 3, 5 y 8), donde el valor refleja la complejidad, el esfuerzo y la incertidumbre relativa de cada historia.
+El Product Backlog de SkillSwap reúne las 57 historias definidas en la sección 2.4.1, ordenadas según el valor que aportan al negocio y estimadas en Story Points con la escala de Fibonacci (1, 2, 3, 5 y 8), donde el valor refleja la complejidad, el esfuerzo y la incertidumbre relativa de cada historia.
 
-La estimación total del Product Backlog asciende a **204 Story Points**. De ellos, **112 SP (55%)** corresponden a historias completadas en el Sprint 1 (TB1); el resto se difiere a Sprint 2 en adelante, principalmente Subscription & Billing y Moderation & Disputes, ninguno de los cuales entraba en el alcance comprometido para esta entrega. Medido únicamente sobre las historias con componente de backend (excluyendo Landing Page y funcionalidades exclusivas del cliente móvil), el avance supera el 90%.
+La estimación total del Product Backlog asciende a **211 Story Points**. De ellos, **145 SP (69%)** corresponden a historias completadas en el Sprint 1 (TB1); el resto se difiere a Sprint 2 en adelante, principalmente Subscription & Billing y Moderation & Disputes, ninguno de los cuales entraba en el alcance comprometido para esta entrega. Medido únicamente sobre las historias con componente de backend (excluyendo Landing Page y funcionalidades exclusivas del cliente móvil), el avance supera el 90%.
 
 | # Orden | User Story Id | Título | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
 | :---: | :---: | :--- | :---: | :---: |
