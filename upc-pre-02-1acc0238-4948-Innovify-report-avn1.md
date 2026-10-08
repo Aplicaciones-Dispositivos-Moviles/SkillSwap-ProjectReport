@@ -982,6 +982,54 @@ En el mapa se observa que Valeria comienza identificando una habilidad que quier
 
 En el mapa se observa que Carlos quiere ayudar a otros con su habilidad pero no encuentra un modelo profesional que lo respalde. Coordina por WhatsApp con personas que llegan sin el nivel mínimo, hace la revisión por Zoom sin ninguna rúbrica ni criterio estructurado, y al terminar no tiene ninguna evidencia formal de lo que hizo. El principal punto de dolor es la ausencia de reconocimiento y estructura: dedica tiempo de calidad a revisar el trabajo de otros pero nadie puede verificarlo.
 
+
+### 2.3.6. Ubiquitous Language
+
+En esta sección se presenta el lenguaje ubicuo de SkillSwap: los términos del dominio de la validación de habilidades que el equipo y los stakeholders usan con un único significado, tanto en el informe como en el modelo de dominio y en la aplicación. Solo se incluyen términos del negocio, no términos técnicos de ingeniería de software. Cada término se presenta en inglés, con su equivalente en español y su definición.
+
+| Term | Término (español) | Definición |
+| :--- | :--- | :--- |
+| Student | Estudiante | Usuario universitario o joven profesional que declara una meta, sigue una ruta de certificación y demuestra sus habilidades en la plataforma. |
+| Verifier | Verificador | Estudiante que completó su propia ruta y aprobó el examen de ingreso de una habilidad, y que queda habilitado para revisar casos de esa habilidad. |
+| Coordinator | Coordinador | Docente o jefe de práctica que supervisa la calidad del proceso: resuelve disputas y apelaciones, revisa certificados sospechosos y controla a los Verificadores. |
+| Visitor | Visitante | Persona que consulta el Landing Page antes de descargar la aplicación o registrarse. |
+| Institutional Email | Correo institucional | Correo con dominio universitario (.edu.pe) que se exige para registrarse como Estudiante. |
+| Career Goal | Meta profesional | Habilidad u objetivo que el Estudiante describe con sus propias palabras y a partir del cual se construye su ruta. |
+| Skill | Habilidad | Capacidad concreta y demostrable (por ejemplo, análisis de datos con pandas) que forma parte del catálogo de la plataforma. |
+| Skill Taxonomy | Taxonomía de habilidades | Catálogo organizado de habilidades, con sus prerrequisitos, que se usa para interpretar la meta del Estudiante. |
+| Skill Gap | Brecha de habilidades | Conjunto de habilidades que le faltan demostrar al Estudiante para alcanzar su meta profesional. |
+| Learning Path | Ruta de certificación | Secuencia ordenada de nodos que el Estudiante debe completar para demostrar las habilidades de su meta. |
+| Path Node | Nodo de la ruta | Paso de la ruta asociado a una habilidad; puede estar bloqueado, disponible o completado. |
+| Prerequisite | Prerrequisito | Nodo que debe completarse antes de que otro nodo quede disponible. |
+| Certificate | Certificado | Credencial externa (por ejemplo, de Coursera) que el Estudiante registra como evidencia de una habilidad. |
+| Document Risk Assessment | Análisis de riesgo documental | Evaluación de un certificado que detecta inconsistencias, como un titular distinto o fechas incoherentes, y determina su nivel de riesgo. |
+| Suspicious Certificate | Certificado sospechoso | Certificado con riesgo documental alto que pasa a revisión de un Coordinador antes de ser aceptado. |
+| Duplicate Certificate | Certificado duplicado | Certificado cuyo archivo ya fue registrado antes en la plataforma y que no puede volver a usarse como evidencia. |
+| Assessment | Evaluación | Prueba que comprueba el dominio de la habilidad de un nodo; puede ser un quiz o un miniproyecto. |
+| Quiz | Quiz | Evaluación de preguntas generada para la habilidad de un nodo, que se aprueba con al menos 70%. |
+| Mini-project | Miniproyecto | Entrega práctica que el Estudiante desarrolla para demostrar una habilidad de forma aplicada. |
+| Assessment Attempt | Intento de evaluación | Cada vez que el Estudiante rinde la evaluación de un nodo, con su puntaje y resultado. |
+| Sub-topic | Sub-tema | Parte específica de una habilidad que se usa para indicar al Estudiante qué debe reforzar. |
+| Verification Case | Caso de verificación | Revisión que se abre cuando un intento no se aprueba y que se asigna a un Verificador habilitado. |
+| Rubric | Rúbrica | Conjunto de criterios con los que el Verificador evalúa el trabajo del Estudiante y justifica su decisión. |
+| Evidence | Evidencia | Material que respalda un caso, como el intento de evaluación o un enlace a un trabajo del Estudiante. |
+| Case Deadline | Plazo del caso | Tiempo máximo que tiene un Verificador para decidir un caso; al vencer, el caso se reasigna. |
+| Availability | Disponibilidad | Indicador de que un Verificador acepta recibir casos nuevos de sus habilidades habilitadas. |
+| Entrance Exam | Examen de ingreso | Prueba que un Estudiante aprueba para habilitarse como Verificador de una habilidad. |
+| Verifier Reliability | Confiabilidad del Verificador | Indicador de la calidad de las decisiones de un Verificador, calculado a partir de sus casos resueltos y revertidos. |
+| Employability Score | Puntaje de empleabilidad | Indicador que resume las habilidades demostradas por un Estudiante dentro de la plataforma. |
+| SkillCredits | SkillCredits | Unidades de reconocimiento no monetarias que recibe un Verificador por cada caso resuelto; no se pueden comprar. |
+| Wallet | Billetera | Registro del saldo de SkillCredits de un usuario y de sus movimientos. |
+| Rank | Rango | Nivel visible en el perfil del Verificador que se alcanza al acumular ciertos umbrales de SkillCredits. |
+| Subscription | Suscripción | Plan mensual que paga el Estudiante para acceder a las rutas, las evaluaciones y la verificación de sus casos. |
+| Dispute | Disputa | Caso que revisa un Coordinador, originado por un certificado sospechoso o por el reporte de una decisión. |
+| Appeal | Apelación | Solicitud del Estudiante para que un Coordinador revise la decisión de un Verificador. |
+| Re-evaluation | Reevaluación | Nuevo intento que un Coordinador habilita cuando existen dudas sobre un resultado. |
+| Sanction | Sanción | Medida que se aplica a una cuenta, como dejarla en seguimiento, cuando se confirma un certificado fraudulento. |
+| Final Demonstration | Demostración final | Prueba integral que el Estudiante presenta al completar su ruta y que califica un Verificador. |
+
+*(Tabla 10. Ubiquitous Language de SkillSwap - Elaboración propia.)*
+
 ---
 
 ## 2.4. Requirements specification
