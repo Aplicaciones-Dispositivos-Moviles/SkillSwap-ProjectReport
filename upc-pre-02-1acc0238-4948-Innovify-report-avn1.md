@@ -4257,21 +4257,13 @@ La sección presenta cómo se tradujeron las decisiones de diseño y arquitectur
 
 Esta sección presenta los wireframes de baja fidelidad elaborados antes de definir el diseño visual final del Landing Page.
 
-**Figura 96**
-
-*Wireframe del Landing Page de SkillSwap*
-
-<p align="center">
-  <img src="images-doc/landing-wireframe.png" alt="Wireframe del Landing Page" width="900">
-</p>
-
-*Nota.* Wireframe de baja fidelidad del Landing Page, elaborado en Figma, que define la estructura de bloques en el orden en que el visitante recorre la página: barra de navegación, sección Hero con la propuesta de valor y el llamado a la acción, flujo de 3 pasos, roles (Estudiante y Verificador/Coordinador), pitch de valor, capturas de la plataforma, universidades aliadas y contacto. Elaboración propia.
+Los wireframes del Landing Page se elaboraron en Figma y definen la estructura de bloques en el orden en que el visitante recorre la página: barra de navegación, sección Hero con la propuesta de valor y el llamado a la acción, flujo de 3 pasos, roles (Estudiante y Verificador/Coordinador), pitch de valor, capturas de la plataforma, universidades aliadas y contacto. Pueden consultarse en el archivo de diseño del proyecto: [https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo](https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo)
 
 ##### 3.1.3.2. Landing Page Mock-up
 
 Esta sección presenta el mock-up final del Landing Page, resultado de aplicar el Design System definido en 3.1.1 sobre la arquitectura de información descrita en 3.1.2.
 
-**Figura 97**
+**Figura 96**
 
 *Mock-up del Landing Page de SkillSwap (escritorio)*
 
@@ -4281,7 +4273,7 @@ Esta sección presenta el mock-up final del Landing Page, resultado de aplicar e
 
 *Nota.* Diseño final del Landing Page de SkillSwap, aplicando el Design System del proyecto: sección Hero con propuesta de valor ("Demuestra lo que sabes..."), flujo de 3 pasos (subir certificado → ruta por IA → demostrar la habilidad), presentación de los dos segmentos objetivo (Estudiante / Verificador-Coordinador), comparación de valor frente a otras plataformas, y sección de universidades aliadas. Implementado en HTML5/CSS3/JavaScript, con soporte bilingüe (ES/EN). Elaboración propia.
 
-**Figura 98**
+**Figura 97**
 
 *Mock-up del Landing Page de SkillSwap (versión responsive)*
 
@@ -4301,21 +4293,13 @@ Esta sección presenta el diseño visual y de interacción de las aplicaciones m
 
 Esta sección presenta los wireframes de baja fidelidad de las pantallas principales de la aplicación, elaborados en Figma sobre un frame Android de 412 × 917 px. En esta etapa se definió la estructura de cada pantalla (jerarquía, ubicación de la barra de navegación, botones principales y campos de formulario) sin aplicar todavía colores ni tipografía final, para validar los flujos antes del diseño visual.
 
-**Figura 99**
-
-*Wireframes de la aplicación móvil de SkillSwap*
-
-<p align="center">
-  <img src="images-doc/mobile-wireframes.png" alt="Wireframes de la aplicación móvil" width="900">
-</p>
-
-*Nota.* Wireframes de las pantallas principales de los tres roles: onboarding, registro, inicio de sesión, declaración de meta, ruta de aprendizaje, detalle del nodo, quiz y resultados (Estudiante); casos y revisión con rúbrica (Verificador); y panel, disputas y métricas (Coordinador). Elaboración propia.
+Los wireframes cubren las pantallas principales de los tres roles: onboarding, registro, inicio de sesión, declaración de meta, ruta de aprendizaje, detalle del nodo, quiz y resultados (Estudiante); casos y revisión con rúbrica (Verificador); y panel, disputas y métricas (Coordinador). Pueden consultarse en el archivo de diseño del proyecto: [https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo](https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo)
 
 ##### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
 Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal relevante de los tres roles. Cada Wireflow combina los mock-ups de las pantallas con flechas que indican la acción que lleva de una pantalla a otra: en azul el camino principal (happy path) y en rojo las rutas alternativas y de error, con las pantallas de error resaltadas. En total se elaboraron 45 Wireflows en Figma; a continuación se presentan los correspondientes a los User Goals principales de cada rol.
 
-**Figura 100**
+**Figura 98**
 
 *Wireflow de registro de nuevo usuario*
 
@@ -4325,7 +4309,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Crear una cuenta con su correo institucional para empezar a validar sus habilidades. Persona: Valeria Ramos (Estudiante) · US01. Valeria recorre las tres páginas del onboarding y completa el registro. Si usa un correo que no termina en .edu.pe, el campo mu Elaboración propia.
 
-**Figura 101**
+**Figura 99**
 
 *Wireflow de suscripción mensual*
 
@@ -4335,7 +4319,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Activar el plan mensual para acceder a rutas, evaluaciones y verificación. Persona: Valeria Ramos (nueva usuaria) · US05. Tras crear su cuenta, Valeria elige el plan y paga con Google Play Billing; con el pago aprobado, su suscripción queda activa y continúa a l Elaboración propia.
 
-**Figura 102**
+**Figura 100**
 
 *Wireflow de inicio de sesión y biometría*
 
@@ -4345,7 +4329,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Entrar a su cuenta de forma rápida y segura para continuar con su ruta. Persona: Valeria Ramos (Estudiante) · US02, US03. Desde el login, Valeria puede entrar con usuario y contraseña o con su huella; en ambos casos llega a la Home de su rol. Si las cre Elaboración propia.
 
-**Figura 103**
+**Figura 101**
 
 *Wireflow para declarar una meta de aprendizaje*
 
@@ -4355,7 +4339,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Describir con sus palabras lo que quiere aprender y obtener una ruta generada por IA. Persona: Valeria Ramos (Estudiante) · US06, US07. Valeria escribe su meta y la IA propone habilidades afines ordenadas por afinidad. Al confirmar una, se genera su Elaboración propia.
 
-**Figura 104**
+**Figura 102**
 
 *Wireflow para subir y validar un certificado*
 
@@ -4365,7 +4349,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Registrar su certificado de Coursera como evidencia del nodo para habilitar el quiz. Persona: Valeria Ramos (Estudiante) · US11, US12, US13, US14, US15, US16. Valeria sube la foto o el archivo y ML Kit extrae los datos en su dispositivo. Si todo es co Elaboración propia.
 
-**Figura 105**
+**Figura 103**
 
 *Wireflow para rendir el quiz de un nodo*
 
@@ -4375,7 +4359,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Demostrar con un quiz que domina la habilidad del nodo y saber qué reforzar. Persona: Valeria Ramos (Estudiante) · US17, US18, US20, US21. Con el certificado validado, Valeria rinde el quiz. Si obtiene 70% o más, aprueba y ve su diagnóstico por sub-tema. S Elaboración propia.
 
-**Figura 106**
+**Figura 104**
 
 *Wireflow para recibir y resolver casos (Verificador)*
 
@@ -4385,7 +4369,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Recibir casos de su especialidad y resolverlos con la rúbrica dentro del plazo. Persona: Rodrigo Castillo (Verificador) · US23, US24, US25. Rodrigo activa su disponibilidad y recibe por afinidad el caso SK-2041. Lo evalúa con la rúbrica, lo aprueba, suma Sk Elaboración propia.
 
-**Figura 107**
+**Figura 105**
 
 *Wireflow para resolver disputas de certificados (Coordinador)*
 
@@ -4395,7 +4379,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Decidir sobre un certificado sospechoso con evidencia, dejando registro auditable. Persona: Mariana (Coordinadora académica · UPC) · US34, US35, US36. Mariana abre una disputa priorizada desde su panel y compara los datos del certificado con el per Elaboración propia.
 
-**Figura 108**
+**Figura 106**
 
 *Wireflow de calidad de Verificadores, métricas y plazos (Coordinador)*
 
@@ -4409,7 +4393,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 Esta sección presenta los mock-ups de alta fidelidad de la aplicación, resultado de aplicar el Design System de 3.1.1 sobre los wireframes. Las pantallas siguen los componentes de Material Design 3 (top app bar, botones filled y outlined, outlined text fields con label visible, chips, segmented buttons, switches, navigation bar y cards) y cumplen los criterios de accesibilidad WCAG 2.2 AA: contraste de texto de al menos 4.5:1, contraste de componentes de al menos 3:1, áreas táctiles de 48 px o más y estados comunicados con ícono y texto además del color.
 
-**Figura 109**
+**Figura 107**
 
 *Mock-ups de la aplicación móvil · Estudiante*
 
@@ -4419,7 +4403,7 @@ Esta sección presenta los mock-ups de alta fidelidad de la aplicación, resulta
 
 *Nota.* Pantallas del Estudiante. El registro valida el dominio `.edu.pe` en línea para prevenir errores; la declaración de meta acepta lenguaje natural y voz, con chips de ejemplo; la ruta muestra los nodos completados, disponibles y bloqueados con ícono, número o candado; la verificación del certificado muestra en una checklist cada paso que realiza la IA; el quiz incluye temporizador y autoguardado visible; y los resultados entregan un diagnóstico por sub-tema, comunicando el no aprobado sin tono punitivo y con el caso de revisión ya abierto. Elaboración propia.
 
-**Figura 110**
+**Figura 108**
 
 *Mock-ups de la aplicación móvil · Verificador*
 
@@ -4429,7 +4413,7 @@ Esta sección presenta los mock-ups de alta fidelidad de la aplicación, resulta
 
 *Nota.* Pantallas del Verificador. El acceso al rol se obtiene con un examen de ingreso; el home prioriza los casos por urgencia del plazo y aplica revisión ciega ("Estudiante anónimo") para reducir el sesgo; la revisión del caso combina la evidencia, el puntaje preliminar de la IA con su nivel de confianza y una rúbrica de 4 niveles; y la billetera muestra los SkillCredits ganados, su historial y la tienda de beneficios. Elaboración propia.
 
-**Figura 111**
+**Figura 109**
 
 *Mock-ups de la aplicación móvil · Coordinador*
 
@@ -4443,7 +4427,7 @@ Esta sección presenta los mock-ups de alta fidelidad de la aplicación, resulta
 
 Esta sección presenta los User Flows de la aplicación, uno por cada User Goal principal, consistentes con los Wireflows de 3.1.4.2. Cada diagrama parte de un punto de inicio, muestra los mock-ups de las pantallas involucradas y representa con rombos las decisiones o condiciones del sistema, de modo que se distingue el happy path (en azul) de las rutas alternativas y de error (en rojo) hasta el punto de fin.
 
-**Figura 112**
+**Figura 110**
 
 *User Flow para registrarse y activar el plan*
 
@@ -4453,7 +4437,7 @@ Esta sección presenta los User Flows de la aplicación, uno por cada User Goal 
 
 *Nota.* User goal: Crear una cuenta con su correo institucional y activar el plan mensual para empezar su ruta (Estudiante · US01, US05). El flujo parte del registro. Si el correo no termina en `.edu.pe` o la contraseña es débil, se muestra la pantalla de error correspondiente y el Estudiante corrige el dato. Con datos válidos elige el plan: si no tiene un método de pago, lo agrega antes de continuar; si Google Play rechaza el pago, puede cambiar de método y reintentar. Con el pago aprobado, la suscripción queda activa y continúa a la selección de rol. Elaboración propia.
 
-**Figura 113**
+**Figura 111**
 
 *User Flow para declarar una meta y obtener la ruta*
 
@@ -4463,7 +4447,7 @@ Esta sección presenta los User Flows de la aplicación, uno por cada User Goal 
 
 *Nota.* User goal: Describir con sus palabras lo que quiere aprender y obtener una ruta de certificación personalizada (Estudiante · US06, US07). El Estudiante escribe su meta y la IA propone habilidades ordenadas por afinidad. Si alguna se ajusta, la confirma y se genera su ruta; si ninguna se ajusta o la meta es muy general, se le pide reformularla y vuelve a recibir propuestas. Elaboración propia.
 
-**Figura 114**
+**Figura 112**
 
 *User Flow para subir y validar un certificado*
 
@@ -4473,7 +4457,7 @@ Esta sección presenta los User Flows de la aplicación, uno por cada User Goal 
 
 *Nota.* User goal: Registrar su certificado para que la plataforma lo valide y le habilite el quiz del nodo (Estudiante · US11 a US16). Desde el nodo disponible, el Estudiante toma una foto o sube el archivo y la verificación avanza de forma automática. Si el certificado es validado, se habilita el quiz. Las rutas alternativas cubren un archivo ya usado (duplicado), un certificado que no cubre la habilidad del nodo (afinidad baja, con opción de subir otro) y un riesgo documental alto, que deriva el certificado a revisión manual del Coordinador. Elaboración propia.
 
-**Figura 115**
+**Figura 113**
 
 *User Flow para rendir el quiz de un nodo*
 
@@ -4483,7 +4467,7 @@ Esta sección presenta los User Flows de la aplicación, uno por cada User Goal 
 
 *Nota.* User goal: Demostrar con un quiz que domina la habilidad del nodo y saber exactamente qué reforzar (Estudiante · US17, US18, US20, US21). Con el certificado validado, el Estudiante rinde el quiz. Si pierde la conexión, sus respuestas se guardan en el dispositivo y el quiz continúa al recuperarla. Si obtiene 70% o más, aprueba el nodo; si no alcanza el mínimo, ve el sub-tema exacto a reforzar y se abre automáticamente un caso de revisión asignado a un Verificador. Elaboración propia.
 
-**Figura 116**
+**Figura 114**
 
 *User Flow para recibir y resolver un caso*
 
@@ -4493,7 +4477,7 @@ Esta sección presenta los User Flows de la aplicación, uno por cada User Goal 
 
 *Nota.* User goal: Recibir casos de su especialidad y resolverlos con la rúbrica dentro del plazo para ganar SkillCredits (Verificador · US23, US24, US25). El Verificador activa su disponibilidad y recibe un caso por afinidad. Si decide dentro del plazo, el caso queda resuelto y se le acreditan SkillCredits; si el plazo vence sin una decisión, el caso se marca como vencido y se reasigna a otro Verificador. Elaboración propia.
 
-**Figura 117**
+**Figura 115**
 
 *User Flow para resolver una disputa de certificado*
 
@@ -4507,7 +4491,7 @@ Esta sección presenta los User Flows de la aplicación, uno por cada User Goal 
 
 Esta sección presenta el prototipo navegable de la aplicación, elaborado en Figma a partir de los mock-ups. El prototipo reúne 154 pantallas conectadas mediante 464 interacciones, que cubren tanto el happy path como las rutas alternativas y de error de los Wireflows. Cuenta con cinco puntos de inicio: "SkillSwap App" (desde el onboarding), "SkillSwap Landing", y un acceso directo por cada rol ("Rol Estudiante", "Rol Verificador" y "Rol Coordinador"). Después del inicio de sesión, la pantalla "¿Cómo quieres entrar?" permite elegir el rol cuando la cuenta tiene más de uno. Las pantallas de carga y confirmación avanzan de forma automática, y en las pantallas con varias salidas el clic sigue el happy path, mientras que las teclas 1, 2 y 3 muestran las rutas alternativas (por ejemplo, el error de credenciales en el inicio de sesión o el certificado duplicado durante la verificación).
 
-**Figura 118**
+**Figura 116**
 
 *Vista del prototipo navegable de SkillSwap en Figma*
 
