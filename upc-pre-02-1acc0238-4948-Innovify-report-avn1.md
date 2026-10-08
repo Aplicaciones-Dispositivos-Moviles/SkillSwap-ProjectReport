@@ -123,6 +123,84 @@ Durante el desarrollo de la entrega TB1, el equipo mantuvo el mismo esquema de c
 
 ---
 
+## Contenido
+
+- [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
+- [Project Report Collaboration Insights](#project-report-collaboration-insights)
+  - [AV1](#av1)
+  - [TB1](#tb1)
+- [Student Outcome](#student-outcome)
+- [Objetivos SMART](#objetivos-smart)
+- [Capítulo I: Presentación](#capítulo-i-presentación)
+  - [1.1. Startup Profile](#11-startup-profile)
+    - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
+    - [1.1.2. Perfiles de integrantes del equipo](#112-perfiles-de-integrantes-del-equipo)
+  - [1.2. Solution Profile](#12-solution-profile)
+    - [1.2.1. Antecedentes y problemática](#121-antecedentes-y-problemática)
+    - [1.2.2. Lean UX Process](#122-lean-ux-process)
+  - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
+    - [1. Segmento: Personas que quieren aprender](#1-segmento-personas-que-quieren-aprender)
+    - [2. Segmento: Personas que validan el conocimiento](#2-segmento-personas-que-validan-el-conocimiento)
+- [Capítulo II: Requirements Development and Software Solution Design](#capítulo-ii-requirements-development-and-software-solution-design)
+  - [2.1. Competidores](#21-competidores)
+    - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
+    - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
+  - [2.2. Entrevistas](#22-entrevistas)
+    - [2.2.1. Diseño de entrevistas](#221-diseño-de-entrevistas)
+    - [2.2.2. Registro de entrevistas](#222-registro-de-entrevistas)
+    - [2.2.3. Análisis de entrevistas](#223-análisis-de-entrevistas)
+  - [2.3. Needfinding](#23-needfinding)
+    - [2.3.1. User Personas](#231-user-personas)
+    - [2.3.2. User Task Matrix](#232-user-task-matrix)
+    - [2.3.3. User Journey Mapping](#233-user-journey-mapping)
+    - [2.3.4. Empathy Mapping](#234-empathy-mapping)
+    - [2.3.5. As-Is Scenario Mapping](#235-as-is-scenario-mapping)
+    - [2.3.6. Ubiquitous Language](#236-ubiquitous-language)
+  - [2.4. Requirements specification](#24-requirements-specification)
+    - [2.4.1. User Stories](#241-user-stories)
+    - [2.4.2. Impact Mapping](#242-impact-mapping)
+    - [2.4.3. Product Backlog](#243-product-backlog)
+  - [2.5. Strategic-Level Domain-Driven Design](#25-strategic-level-domain-driven-design)
+    - [2.5.1. EventStorming](#251-eventstorming)
+    - [2.5.2. Context Mapping](#252-context-mapping)
+    - [2.5.3. Software Architecture](#253-software-architecture)
+  - [2.6. Tactical-Level Domain-Driven Design](#26-tactical-level-domain-driven-design)
+    - [2.6.1. Bounded Context: Identity & Access](#261-bounded-context-identity--access)
+    - [2.6.2. Bounded Context: Credential Verification](#262-bounded-context-credential-verification)
+    - [2.6.3. Bounded Context: Learning Path Engine](#263-bounded-context-learning-path-engine)
+    - [2.6.4. Bounded Context: Assessment & Peer Review](#264-bounded-context-assessment--peer-review)
+    - [2.6.5. Bounded Context: Reputation](#265-bounded-context-reputation)
+    - [2.6.6. Bounded Context: Recognition & Incentives](#266-bounded-context-recognition--incentives)
+    - [2.6.7. Bounded Context: Moderation & Disputes](#267-bounded-context-moderation--disputes)
+    - [2.6.8. Bounded Context: Subscription & Billing](#268-bounded-context-subscription--billing)
+- [Capítulo III: Solution UI/UX Design](#capítulo-iii-solution-uiux-design)
+  - [3.1. Product design](#31-product-design)
+    - [3.1.1. Style Guidelines](#311-style-guidelines)
+    - [3.1.2. Information Architecture](#312-information-architecture)
+    - [3.1.3. Landing Page UI Design](#313-landing-page-ui-design)
+    - [3.1.4. Mobile Applications UX/UI Design](#314-mobile-applications-uxui-design)
+- [Capítulo IV: Product Implementation & Validation](#capítulo-iv-product-implementation--validation)
+  - [4.1. Software Configuration Management](#41-software-configuration-management)
+    - [4.1.1. Software Development Environment Configuration](#411-software-development-environment-configuration)
+    - [4.1.2. Source Code Management](#412-source-code-management)
+    - [4.1.3. Source Code Style Guide & Coding Conventions](#413-source-code-style-guide--coding-conventions)
+    - [4.1.4. Software Deployment Configuration](#414-software-deployment-configuration)
+  - [4.2. Landing Page, Services & Applications Implementation](#42-landing-page-services--applications-implementation)
+    - [4.2.1. Sprint 1](#421-sprint-1)
+- [Conclusiones](#conclusiones)
+- [Glosario](#glosario)
+- [Bibliografía](#bibliografía)
+- [Anexos](#anexos)
+  - [Índice de Tablas](#índice-de-tablas)
+  - [Índice de Figuras](#índice-de-figuras)
+  - [Anexo A. Enlaces de Acceso a la Solución](#anexo-a-enlaces-de-acceso-a-la-solución)
+  - [Anexo B. Videos de Exposiciones](#anexo-b-videos-de-exposiciones)
+  - [Anexo C. Videos de la documentación](#anexo-c-videos-de-la-documentación)
+
+<div style="page-break-after: always;"></div>
+
+---
+
 ## Student Outcome
 
 El curso contribuye al cumplimiento del Student Outcome ABET:
@@ -5331,7 +5409,7 @@ Grevisse, C., Pavlou, M. A., & Schneider, J. (2024). Docimological quality analy
 
 ---
 
-### Índice de Tablas
+## Índice de Tablas
 
 Tabla 1. *Perfiles de los integrantes del equipo*<br>
 Tabla 2. *Análisis competitivo Landscape*<br>
@@ -5357,7 +5435,7 @@ Tabla 21. *Endpoints documentados en el Sprint 1*<br>
 
 ---
 
-### Índice de Figuras
+## Índice de Figuras
 
 Figura 1. *Gráfico de contribuciones al repositorio del Project Report durante AV1*<br>
 Figura 2. *Historial de commits en el repositorio del Project Report*<br>
