@@ -605,7 +605,7 @@ Respecto al modelo de Innovify, Carlos valora especialmente la idea de la ruta d
   <em>Figura 4. Entrevista 1: Segmento Personas que validan el conocimiento | Innovify. Nota: En esta figura se aprecia la primera entrevista al segmento de personas que validan el conocimiento.</em>
 </p>
 
-* **URL:** [Completar con URL de Microsoft Stream]
+* **URL:** [https://www.youtube.com/watch?v=n53WUVagpE4](https://www.youtube.com/watch?v=n53WUVagpE4)
 * **Inicio:** 0:00
 * **Duración:** [Completar]
 
@@ -628,7 +628,7 @@ Respecto al modelo de Innovify, Rodrigo está muy de acuerdo con que quien valid
   <em>Figura 5. Entrevista 2: Segmento Personas que validan el conocimiento | Innovify. Nota: En esta figura se aprecia la segunda entrevista al segmento de personas que validan el conocimiento.</em>
 </p>
 
-* **URL:** [Completar con URL de Microsoft Stream]
+* **URL:** [https://www.youtube.com/watch?v=h8Uh3w6U1qE](https://www.youtube.com/watch?v=h8Uh3w6U1qE)
 * **Inicio:** 0:00
 * **Duración:** [Completar]
 
@@ -4502,7 +4502,7 @@ Esta sección presenta el prototipo navegable de la aplicación, elaborado en Fi
 *Nota.* Vista de las conexiones del prototipo correspondientes al recorrido principal del Estudiante: onboarding, registro y suscripción, inicio de sesión, declaración de la meta, ruta, carga y verificación del certificado, quiz y resultados, junto con sus pantallas de error. Elaboración propia.
 
 * **URL del prototipo:** [https://www.figma.com/design/XRhtNjbOaSHmJAs4ebmPuR/Sin-t%C3%ADtulo?node-id=1-3310](https://www.figma.com/design/XRhtNjbOaSHmJAs4ebmPuR/Sin-t%C3%ADtulo?node-id=1-3310)
-* **URL del video de interacción (Microsoft Stream):** [Completar]
+* **URL del video de interacción:** [https://www.youtube.com/watch?v=5mdP8AJLp8Q](https://www.youtube.com/watch?v=5mdP8AJLp8Q)
 
 ---
 
