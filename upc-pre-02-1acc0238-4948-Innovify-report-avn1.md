@@ -176,6 +176,10 @@ Facilitar que estudiantes universitarios y jóvenes profesionales demuestren el 
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
+**Tabla 1**
+
+*Perfiles de los integrantes del equipo*
+
 <div align="center">
 
 | Foto | Integrante | Carrera | Descripción |
@@ -187,6 +191,9 @@ Facilitar que estudiantes universitarios y jóvenes profesionales demuestren el 
 | <img src="public/assets/images-doc/image-perfil-piero.jpg" width="100" alt="Fotografía de Piero Angel Sulca Sanchez"> | **Sulca Sanchez, Piero Angel**<br>(U202423711) | Ingeniería de Software | Cuenta con experiencia en desarrollo web y trabajo en equipos pequeños. Se especializa en frontend y muestra interés por el diseño creativo de interfaces, especialmente en experiencias 3D, animaciones y productos digitales diferenciados. Aporta conocimientos en levantamiento de requerimientos, diseño de interfaces, desarrollo web con React y TypeScript, y diseño de bases de datos, además de organización y colaboración en equipo. |
 
 </div>
+
+*Nota.* Elaboración propia.
+
 
 <br>
 
@@ -435,6 +442,10 @@ Kritik es una plataforma de evaluación entre pares con rúbrica estructurada us
 
 ### 2.1.1. Análisis competitivo
 
+**Tabla 2**
+
+*Análisis competitivo Landscape*
+
 | Criterio de Análisis | **Innovify / SkillSwap** | **Credly** | **Accredible** | **HackerRank** |
 | :--- | :--- | :--- | :--- | :--- |
 | **Overview** | Plataforma móvil que valida mediante evaluaciones prácticas generadas por IA y revisión de Verificadores certificados que el estudiante realmente domina una habilidad, y emite una credencial verificable respaldada por ese historial de evaluaciones y revisiones. | Plataforma de credenciales digitales verificables. Las instituciones o empresas emiten badges a sus usuarios tras completar programas. Badge exportable a LinkedIn. | Plataforma de credenciales digitales con blockchain. Emite badges y certificados verificables con rutas de aprendizaje visuales. Exportable a LinkedIn. | Plataforma de evaluaciones técnicas prácticas para selección empresarial. Evalúa a candidatos con retos de código reales y emite certificaciones técnicas verificables. |
@@ -450,7 +461,7 @@ Kritik es una plataforma de evaluación entre pares con rúbrica estructurada us
 | **Oportunidades (SWOT)** | Posicionarse como el estándar de validación práctica entre pares en Latinoamérica. | Añadir una capa de evaluación práctica real antes de emitir el badge. | Incorporar revisión humana entre pares para respaldar la credencial con dominio real. | Expandirse a habilidades no técnicas con revisión entre pares. |
 | **Amenazas (SWOT)** | Credly o Accredible podrían añadir una capa de evaluación práctica. HackerRank podría expandirse a habilidades no técnicas. | Plataformas que validen el dominio real antes de emitir la credencial. | Competidores con validación práctica real que hagan que el badge de Accredible pierda valor. | Plataformas que combinen evaluación técnica con revisión humana entre pares. |
 
-*(Tabla 3. Análisis competitivo Landscape — Elaboración propia. Nota: SkillSwap es la única propuesta que combina evaluación práctica por IA, revisión de Verificadores certificados, supervisión institucional y credencial verificable en un mismo proceso.)*
+*Nota.* SkillSwap es la única propuesta que combina evaluación práctica por IA, revisión de Verificadores certificados, supervisión institucional y credencial verificable en un mismo proceso. Elaboración propia.
 
 ---
 
@@ -800,6 +811,10 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 
 &nbsp;
 
+**Tabla 3**
+
+*Principales hallazgos de entrevistas a personas que quieren aprender*
+
 | Característica | % Entrevistados | Fuente / Frase de entrevista |
 | :--- | :--- | :--- |
 | Frustración por brecha certificado vs. dominio real | 100% | "Tenía el certificado pero en la entrevista técnica me bloqueé." |
@@ -812,7 +827,7 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Necesidad de ruta estructurada de aprendizaje | 66% | "Quiero que alguien me diga qué aprender, en qué orden." |
 | Inseguridad al aplicar lo aprendido en práctica real | 66% | "Aprendí Python pero no sé si lo que hago está bien o funciona de casualidad." |
 
-*(Tabla 4. Principales hallazgos de entrevistas a personas que quieren aprender - Elaboración propia.)*
+*Nota.* Elaboración propia.
 
 ---
 
@@ -839,6 +854,10 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
   * Consideran esencial la verificación de identidad, políticas claras y trazabilidad de las decisiones (100% — Armando, Jesús, Raúl).
   * Valoran un panel que permita resolver casos y disputas de forma centralizada, con historial de confiabilidad visible (100%).
 
+**Tabla 4**
+
+*Principales hallazgos de entrevistas al segmento de personas que validan el conocimiento*
+
 | Característica | % Entrevistados | Fuente / Frase de entrevista |
 | :--- | :--- | :--- |
 | Motivación principal: reconocimiento profesional (SkillCredits) | 50% (3/6) | "Lo que más me atrae es poder demostrar en LinkedIn que sé enseñar, no solo que sé hacer." |
@@ -852,7 +871,7 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Preferencia por panel centralizado de resolución de casos/disputas | 100% (6/6) | "El panel debería permitir buscar y resolver casos fácilmente, con historial de confiabilidad." |
 | Interés en supervisar proyectos avanzados o casos de mayor complejidad | 33% (2/6) | "Me interesaría supervisar proyectos finales, no solo revisiones puntuales." |
 
-*(Tabla 5. Principales hallazgos de entrevistas al segmento de personas que validan el conocimiento - Elaboración propia. Nota: La tabla sintetiza las motivaciones, frustraciones y necesidades expresadas por las 6 personas entrevistadas en este segmento. Las citas se conservan tal como fueron registradas durante la entrevista original.)*
+*Nota.* La tabla sintetiza las motivaciones, frustraciones y necesidades expresadas por las 6 personas entrevistadas en este segmento. Las citas se conservan tal como fueron registradas durante la entrevista original. Elaboración propia.
 
 ---
  
@@ -904,6 +923,10 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
 #### Segmento objetivo #1: Personas que quieren aprender
  
  
+**Tabla 5**
+
+*Tareas y prioridades de las personas que quieren aprender*
+
 | Tasks | Mireya<br>Frecuencia | Mireya<br>Importancia | Mathias<br>Frecuencia | Mathias<br>Importancia | Carlos<br>Frecuencia | Carlos<br>Importancia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Buscar recursos de aprendizaje en internet | Muy alta | Alta | Muy alta | Alta | Muy alta | Alta |
@@ -914,9 +937,13 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
 | Identificar exactamente en qué sub-tema está fallando | Baja | Muy alta | Baja | Muy alta | Baja | Alta |
 | Validar que lo que aprendió es suficiente para el mercado | Media | Muy alta | Alta | Muy alta | Media | Muy alta |
  
-*(Tabla 7. Tareas y prioridades de las personas que quieren aprender - Elaboración propia.)*
+*Nota.* Elaboración propia.
  
 #### Segmento objetivo #2: Personas que validan el conocimiento
+
+**Tabla 6**
+
+*Tareas y prioridades del segmento de personas que validan el conocimiento*
 
 | Tasks | Rodrigo<br>Frec. | Rodrigo<br>Imp. | Lucía<br>Frec. | Lucía<br>Imp. | Sebastián<br>Frec. | Sebastián<br>Imp. | Armando<br>Frec. | Armando<br>Imp. | Jesús<br>Frec. | Jesús<br>Imp. | Raúl<br>Frec. | Raúl<br>Imp. |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -930,7 +957,7 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
 | Acceder a métricas o historial agregado del proceso | Baja | Media | Baja | Media | Baja | Media | Media | Alta | Alta | Alta | Alta | Muy alta |
 | Gestionar logística/herramientas para ejercer el rol a distancia | Media | Media | Media | Alta | Media | Media | Media | Alta | Alta | Alta | Alta | Alta |
 
-*(Tabla 5. Tareas y prioridades del segmento de personas que validan el conocimiento - Elaboración propia. Nota: N/A indica que la tarea no aplica de forma directa al perfil de esa persona entrevistada, reflejando que el segmento agrupa dos dimensiones distintas del rol de validación.)*
+*Nota.* N/A indica que la tarea no aplica de forma directa al perfil de esa persona entrevistada, reflejando que el segmento agrupa dos dimensiones distintas del rol de validación. Elaboración propia.
 
 ---
 
@@ -1066,6 +1093,10 @@ En el mapa se observa que Carlos quiere ayudar a otros con su habilidad pero no 
 
 En esta sección se presenta el lenguaje ubicuo de SkillSwap: los términos del dominio de la validación de habilidades que el equipo y los stakeholders usan con un único significado, tanto en el informe como en el modelo de dominio y en la aplicación. Solo se incluyen términos del negocio, no términos técnicos de ingeniería de software. Cada término se presenta en inglés, con su equivalente en español y su definición.
 
+**Tabla 7**
+
+*Ubiquitous Language de SkillSwap*
+
 | Term | Término (español) | Definición |
 | :--- | :--- | :--- |
 | Student | Estudiante | Usuario universitario o joven profesional que declara una meta, sigue una ruta de certificación y demuestra sus habilidades en la plataforma. |
@@ -1107,7 +1138,7 @@ En esta sección se presenta el lenguaje ubicuo de SkillSwap: los términos del 
 | Sanction | Sanción | Medida que se aplica a una cuenta, como dejarla en seguimiento, cuando se confirma un certificado fraudulento. |
 | Final Demonstration | Demostración final | Prueba integral que el Estudiante presenta al completar su ruta y que califica un Verificador. |
 
-*(Tabla 10. Ubiquitous Language de SkillSwap - Elaboración propia.)*
+*Nota.* Elaboración propia.
 
 ---
 
@@ -1155,6 +1186,10 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
 
 #### Epics
 
+**Tabla 8**
+
+*Epics del proyecto*
+
 | Epic ID | Título | Descripción |
 | :--- | :--- | :--- |
 | EP01 | Gestión de cuenta institucional y suscripción | Como usuario, quiero registrarme con mi correo institucional, acceder de forma segura y gestionar mi suscripción, para formar parte de un ecosistema de estudiantes reales y acceder a los beneficios de la plataforma. |
@@ -1168,9 +1203,13 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
 | EP09 | Landing Page | Como visitante, quiero conocer la propuesta de valor, los planes y la forma de participar en SkillSwap desde un sitio web público, para decidir si descargo la aplicación y me registro. |
 | EP10 | Infraestructura y despliegue | Como developer, quiero desplegar los servicios RESTful y su base de datos en un entorno público, con migraciones automáticas y documentación OpenAPI accesible, para que la aplicación móvil consuma el backend en producción. |
 
-*(Tabla 11. Epics del proyecto - Elaboración propia.)*
+*Nota.* Elaboración propia.
 
 #### User Stories y Technical Stories
+
+**Tabla 9**
+
+*User Stories y Technical Stories del proyecto*
 
 <table>
   <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
@@ -1742,9 +1781,8 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><td colspan="4"><strong>Escenario 1: Arranque con migraciones pendientes</strong><br><strong>Dado que</strong> la variable Database__MigrateOnStartup tiene el valor "true"<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> el sistema aplica las migraciones pendientes de Entity Framework Core antes de aceptar tráfico<br><br><strong>Escenario 2: Migración deshabilitada</strong><br><strong>Dado que</strong> la variable Database__MigrateOnStartup no está presente o no es exactamente "true"<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> el sistema omite la aplicación automática de migraciones<br><br><strong>Escenario 3: Semilla del Coordinador</strong><br><strong>Dado que</strong> no existe ninguna cuenta con el username configurado en Seed__Coordinator__Username<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> el sistema crea la cuenta Coordinator inicial de forma idempotente, sin modificar ninguna cuenta existente<br><br><strong>Escenario 4: Configuración de semilla inválida</strong><br><strong>Dado que</strong> la configuración de Seed__Coordinator__* es inválida o está incompleta<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> el sistema registra el error en el log y continúa arrancando con normalidad</td></tr>
 </table>
 
-*(Tabla 12. User Stories del proyecto - Elaboración propia.)*
+*Nota.* Elaboración propia.
 
-*(Tabla 12. User Stories del proyecto - Elaboración propia.)*
 
 ### 2.4.2. Impact Mapping
 
@@ -1822,6 +1860,10 @@ El Product Backlog de SkillSwap reúne las 57 historias definidas en la sección
 
 La estimación total del Product Backlog asciende a **211 Story Points**. De ellos, **145 SP (69%)** corresponden a historias completadas en el Sprint 1 (TB1); el resto se difiere a Sprint 2 en adelante, principalmente Subscription & Billing y Moderation & Disputes, ninguno de los cuales entraba en el alcance comprometido para esta entrega. Medido únicamente sobre las historias con componente de backend (excluyendo Landing Page y funcionalidades exclusivas del cliente móvil), el avance supera el 90%.
 
+**Tabla 10**
+
+*Product Backlog*
+
 | # Orden | User Story Id | Título | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
 | :---: | :---: | :--- | :---: | :---: |
 | 1 | US41 | Propuesta de valor para estudiantes | 2 | Sprint 1 |
@@ -1883,7 +1925,7 @@ La estimación total del Product Backlog asciende a **211 Story Points**. De ell
 | 57 | TS12 | Despliegue del backend en producción | 5 | Sprint 1 |
 
 
-*(Tabla 13. Product Backlog - Elaboración propia.)*
+*Nota.* Elaboración propia.
 
 El Product Backlog se gestiona en Trello, en un tablero público organizado en una lista por Sprint. Cada tarjeta conserva el orden, el identificador, el título y los Story Points de la tabla anterior, e incluye en su descripción la historia, la prioridad, el usuario, el Epic y el Sprint asignado.
 
@@ -2286,6 +2328,10 @@ En la tercera iteración, los contextos candidatos se clasificaron según su apo
 
 El resultado del proceso son ocho contextos candidatos, que se resumen en la tabla siguiente y que se desarrollan en las secciones 2.5.1.2 y 2.5.1.3.
 
+**Tabla 11**
+
+*Contextos candidatos de SkillSwap*
+
 | Contexto candidato | Tipo | Responsabilidad | Eventos representativos |
 |---|---|---|---|
 | Learning Path Engine | Core | Convertir el objetivo del Estudiante en una ruta de certificación, seguir el avance de sus nodos y emitir la certificación | Ruta de certificación generada, Nodo completado, Ruta completada, Certificación emitida |
@@ -2296,6 +2342,9 @@ El resultado del proceso son ocho contextos candidatos, que se resumen en la tab
 | Moderation & Disputes | Soporte | Resolver disputas y revisiones de certificados desde el panel externo | Disputa abierta, Decisión revertida, Revisión de certificado resuelta |
 | Identity & Access | Genérico | Registrar al usuario, verificar su correo y autenticarlo | Estudiante registrado, Correo verificado |
 | Subscription & Billing | Genérico | Gestionar los planes gratuito y premium y el cobro de la suscripción | Plan gratuito asignado, Pago de suscripción cobrado, Suscripción vencida |
+
+*Nota.* Elaboración propia.
+
 
 #### 2.5.1.2. Domain Message Flows Modeling
 
@@ -4386,6 +4435,10 @@ En la aplicación móvil se usa el mismo vocabulario del dominio en todas las pa
 
 Esta sección presenta los elementos de optimización para motores de búsqueda configurados en cada página del Landing Page, así como los elementos ASO (App Store Optimization) correspondientes a la publicación de la aplicación móvil.
 
+**Tabla 12**
+
+*SEO Tags y Meta Tags del Landing Page*
+
 | Página | Title | Meta Description | Keywords |
 |---|---|---|---|
 | Home (`index.html`) | SkillSwap \| Verificación de Habilidades con IA | SkillSwap verifica tus habilidades con IA: sube tus certificados, recibe una ruta de certificación personalizada y demuestra lo que sabes. | verificación de habilidades, inteligencia artificial, certificaciones, ruta de aprendizaje, estudiantes universitarios, SkillSwap, Perú, empleabilidad |
@@ -4394,9 +4447,16 @@ Esta sección presenta los elementos de optimización para motores de búsqueda 
 | Registro (`signup.html`) | SkillSwap \| Registro | Regístrate en SkillSwap, sube tus certificados y deja que la IA arme tu ruta de certificación. | — |
 | Iniciar Sesión (`login.html`) | SkillSwap \| Verificación de Habilidades con IA | Inicia sesión en SkillSwap y sigue tu ruta de certificación de habilidades generada por IA. | — |
 
+*Nota.* Elaboración propia.
+
+
 El Landing Page implementa además **SEO bilingüe** mediante etiquetas `hreflang` (es/en/x-default) y un selector de idioma (ES/EN) que actualiza dinámicamente el `<title>` y el `<meta name="description">` según el idioma seleccionado, persistiendo la preferencia en `localStorage`. El `author` declarado es "Innovify", nombre de la startup.
 
 Para la publicación de la aplicación móvil en Google Play se definieron los siguientes elementos ASO:
+
+**Tabla 13**
+
+*Elementos ASO de la aplicación móvil*
 
 | Elemento ASO | Contenido |
 |---|---|
@@ -4405,6 +4465,9 @@ Para la publicación de la aplicación móvil en Google Play se definieron los s
 | App Keywords | verificación de habilidades, certificados, ruta de aprendizaje, quiz con IA, empleabilidad, estudiantes universitarios, prácticas, Perú |
 | App Description | SkillSwap ayuda a los estudiantes universitarios a demostrar lo que saben, no solo lo que estudiaron. Declara tu meta profesional y la IA arma una ruta de certificación con tus certificados previos; valida cada habilidad con quizzes generados por IA y, si lo necesitas, con la revisión de un Verificador. Los Verificadores ganan SkillCredits por cada caso resuelto y las universidades supervisan la calidad del proceso. |
 | Categoría | Educación |
+
+*Nota.* Elaboración propia.
+
 
 #### 3.1.2.4. Searching Systems
 
@@ -4701,6 +4764,10 @@ Esta sección presenta el prototipo navegable de la aplicación, elaborado en Fi
 
 ### 4.1.1. Software Development Environment Configuration
 
+**Tabla 14**
+
+*Herramientas del entorno de desarrollo de software*
+
 | Herramienta | Propósito | Ruta de referencia / descarga |
 |---|---|---|
 | JetBrains Rider | Desarrollo del backend en C# / ASP.NET Core | [https://www.jetbrains.com/es-es/rider/](https://www.jetbrains.com/es-es/rider/)|
@@ -4715,6 +4782,9 @@ Esta sección presenta el prototipo navegable de la aplicación, elaborado en Fi
 | xUnit / Reqnroll | Pruebas unitarias y de integración (BDD con Gherkin) | Integrado en el proyecto |
 | Trello | Gestión del Product Backlog y Sprint Backlog | [https://trello.com/](https://trello.com/) |
 | Figma | Wireframes, mock-ups y prototipo navegable del Landing Page y la aplicación móvil | [https://www.figma.com/](https://www.figma.com/) |
+
+*Nota.* Elaboración propia.
+
 
 
 ### 4.1.2. Source Code Management
@@ -4750,6 +4820,10 @@ El backend se despliega como contenedor **Docker** en **Render** (plan gratuito)
 
 **Variables de entorno en Render** (solo nombres; los valores no se exponen en el informe ni en el repositorio):
 
+**Tabla 15**
+
+*Variables de entorno del despliegue en Render*
+
 | Variable | Propósito |
 |---|---|
 | `DATABASE_URL` | URL interna de la base de datos PostgreSQL de Render |
@@ -4758,6 +4832,9 @@ El backend se despliega como contenedor **Docker** en **Render** (plan gratuito)
 | `Cloudinary__CloudName` / `ApiKey` / `ApiSecret` | Credenciales de la integración con Cloudinary |
 | `Gemini__ApiKey`, `Gemini__Model`, `Gemini__FallbackModels__0..N` | Credenciales y modelos de respaldo para la generación de preguntas con Gemini |
 | `Seed__Coordinator__Username` / `Email` / `Password` | Datos de la cuenta inicial del Coordinador, creada automáticamente al arrancar (idempotente, nunca modifica una cuenta existente) |
+
+*Nota.* Elaboración propia.
+
 
 **Migraciones y datos iniciales:** al arrancar, la aplicación convierte `DATABASE_URL` al formato de cadena de conexión de Npgsql, aplica las migraciones pendientes de Entity Framework Core y crea la cuenta del Coordinador inicial a partir de la configuración `Seed__Coordinator__*`, dado que los Coordinadores no pueden registrarse por su cuenta.
 
@@ -4775,6 +4852,10 @@ El backend se despliega como contenedor **Docker** en **Render** (plan gratuito)
 
 El Sprint 1 corresponde a la primera iteración de desarrollo del proyecto, enfocada en construir la base funcional del backend (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation y Recognition & Incentives) y en avanzar el diseño UI/UX de la Landing Page y las pantallas core de la aplicación móvil.
 
+**Tabla 16**
+
+*Sprint Planning 1*
+
 | Sprint # | Sprint 1 |
 |---|---|
 | **Sprint Planning Background** | |
@@ -4790,6 +4871,9 @@ El Sprint 1 corresponde a la primera iteración de desarrollo del proyecto, enfo
 | Sprint 1 Velocity | 145 SP |
 | Sum of Story Points | 145 |
 
+*Nota.* Elaboración propia.
+
+
 **Figura 125**
 
 *Reunión de Sprint Planning 1*
@@ -4804,6 +4888,10 @@ El Sprint 1 corresponde a la primera iteración de desarrollo del proyecto, enfo
 
 El equipo organizó el Sprint 1 por Bounded Context (backend) y por frente de diseño (Landing Page y aplicación móvil), con un Líder responsable de cada aspecto y el resto del equipo como colaborador cuando corresponde.
 
+**Tabla 17**
+
+*Leadership-and-Collaboration Matrix del Sprint 1*
+
 | Team Member (Last Name, First Name) | GitHub Username | Identity & Access | Credential Verification | Learning Path Engine | Assessment & Peer Review | Reputation | Recognition & Incentives | Despliegue (Render) | Landing Page UI | Mobile App UX/UI |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Alberca Saavedra, Víctor Manuel | Agnizzz  | L | | | L | L | | | C | C |
@@ -4812,7 +4900,7 @@ El equipo organizó el Sprint 1 por Bounded Context (backend) y por frente de di
 | Komatsu Dueñas, David | dakoduz | | | | | | L | | C | C |
 | Sulca Sánchez, Piero Angel | psulca | | | | | | | L | C | C |
 
-*(L = Leader, C = Collaborator.)*
+*Nota.* L = Leader, C = Collaborator. Elaboración propia.
 
 #### 4.2.1.3. Sprint Backlog 1
 
@@ -4825,6 +4913,10 @@ El equipo organizó el Sprint 1 por Bounded Context (backend) y por frente de di
 </p>
 
 *Nota.* Lista Sprint 1 del tablero del Product Backlog en Trello, con las 41 historias (145 Story Points) comprometidas para el Sprint 1. URL público del Board: [https://trello.com/b/sTMGwnPf/skillswap-product-backlog](https://trello.com/b/sTMGwnPf/skillswap-product-backlog)
+
+**Tabla 18**
+
+*Sprint Backlog 1*
 
 | Sprint # | Sprint 1 | | | | | | | |
 |---|---|---|---|---|---|---|---|---|
@@ -4844,9 +4936,16 @@ El equipo organizó el Sprint 1 por Bounded Context (backend) y por frente de di
 | US41–US45 | Landing Page | T12 | Wireframe + Mock-up + implementación de la Landing Page | HTML5/CSS3/JS, desplegado en GitHub Pages | 10 | Becerra Ninahuanca, Luis Angel | Done |
 | — | Pantallas core de la app móvil | T13 | Wireframes + Mock-ups + prototipo navegable en Figma | Pantallas de registro, ruta de aprendizaje, quiz y casos de verificación | 12 | Lopez Montalvo, Kevin Edu | In-Process |
 
+*Nota.* Elaboración propia.
+
+
 #### 4.2.1.4. Development Evidence for Sprint Review
 
 El equipo organizó el desarrollo del backend en una rama `feature/<contexto>-<tema>` por Bounded Context, siguiendo Conventional Commits con un commit por capa (Domain, Application, Infrastructure, Interface), integrados a `develop` mediante Pull Requests mergeados con la estrategia "Create a merge commit".
+
+**Tabla 19**
+
+*Commits de desarrollo del Sprint 1*
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |---|---|---|---|---|---|
@@ -4890,9 +4989,16 @@ El equipo organizó el desarrollo del backend en una rama `feature/<contexto>-<t
 | SkillSwap-WebServices | feature/recognition-incentives-wallet | `e9ae9c8` | feat(recognition): add rest interface | `WalletController`, `CreditTransactionController`, endpoint de canje. | 2026-10-02 |
 | SkillSwap-WebServices | feature/recognition-incentives-wallet | `f7e476f` | feat(recognition): add recognition and incentives bounded context | Cierre del Bounded Context Recognition & Incentives. | 2026-10-02 |
 
+*Nota.* Elaboración propia.
+
+
 #### 4.2.1.5. Testing Suite Evidence for Sprint Review
 
 El equipo utilizó **xUnit** para pruebas unitarias de dominio y **Reqnroll** (Gherkin) para pruebas de integración y aceptación, ejecutadas contra una instancia real de PostgreSQL en lugar de mocks de base de datos. Los archivos `.feature` están en inglés y etiquetados por historia de usuario o historia técnica.
+
+**Tabla 20**
+
+*Commits de testing del Sprint 1*
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |---|---|---|---|---|---|
@@ -4921,6 +5027,9 @@ El equipo utilizó **xUnit** para pruebas unitarias de dominio y **Reqnroll** (G
 | SkillSwap-WebServices | feature/reputation-reliability-employability | `e8ab705` | test(reputation): add integration and bdd tests | Cobertura de las fórmulas de confiabilidad y empleabilidad, e integración de los event handlers. | 2026-10-01 |
 | SkillSwap-WebServices | feature/recognition-incentives-wallet | `c9baf1b` | test(recognition): add integration and bdd tests | Escenarios Gherkin `@US30`, `@US31`, `@US32`; cobertura de `CHECK (balance >= 0)`. | 2026-10-02 |
 | SkillSwap-WebServices | feature/tests-bdd-generated-files | `0b58102` | test(bdd): add generated code-behind for the reputation and wallet features | Archivos `.feature.cs` generados por Reqnroll para Reputation y Recognition & Incentives. | 2026-10-02 |
+
+*Nota.* Elaboración propia.
+
 
 #### 4.2.1.6. Execution Evidence for Sprint Review
 
@@ -4984,6 +5093,10 @@ Durante el Sprint 1 se implementaron y verificaron en ejecución los flujos core
 
 Todos los endpoints del Sprint 1 están documentados con **OpenAPI/Swagger**, accesible públicamente en: https://skillswap-webservices.onrender.com/swagger/index.html
 
+**Tabla 21**
+
+*Endpoints documentados en el Sprint 1*
+
 | Verbo | Endpoint | Acción | Descripción | Ejemplo de respuesta |
 |---|---|---|---|---|
 | POST | `/api/v1/authentication/sign-up` | sign-up | Registra una cuenta `Student`, validando el dominio `.edu.pe` | `201 Created`, header `Location: /api/v1/users/{id}` |
@@ -5012,6 +5125,9 @@ Todos los endpoints del Sprint 1 están documentados con **OpenAPI/Swagger**, ac
 | GET | `/api/v1/wallets/{userId}/transactions` | list-transactions | Lista el historial de movimientos | `200 OK` |
 | POST | `/api/v1/credit-transactions/redeem` | redeem-credits | Canjea SkillCredits por un beneficio | `200 OK` / `409` saldo insuficiente |
 | GET | `/health` | health-check | Verifica disponibilidad del servicio (anónimo) | `200 OK` |
+
+*Nota.* Elaboración propia.
+
 
 **Figura 132**
 
@@ -5217,27 +5333,27 @@ Grevisse, C., Pavlou, M. A., & Schneider, J. (2024). Docimological quality analy
 
 ### Índice de Tablas
 
-1. Perfiles integrantes de equipo
-2. Lean UX Canvas
-3. Análisis competitivo Landscape
-4. Hallazgos entrevistas estudiantes universitarios
-5. Hallazgos estudiantes tutores
-6. Hallazgos coordinadores académicos
-7. Actividades de aprendizaje y valoración
-8. Actividades y motivaciones de estudiantes-tutores
-9. Funciones y prioridades de coordinadores académicos
-10. Ubiquitous Languages
-11. Epics del proyecto
-12. User Stories del proyecto
-13. Product Backlog
-14. Sistemas de búsqueda de la plataforma
-15. Configuración del entorno de desarrollo de software
-16. Sprint 1
-17. Sprint Planning 1
-18. Aspect Leaders and Collaborators
-19. Sprint Backlog 1
-20. Development Evidence for Sprint Review
-
+Tabla 1. *Perfiles de los integrantes del equipo*<br>
+Tabla 2. *Análisis competitivo Landscape*<br>
+Tabla 3. *Principales hallazgos de entrevistas a personas que quieren aprender*<br>
+Tabla 4. *Principales hallazgos de entrevistas al segmento de personas que validan el conocimiento*<br>
+Tabla 5. *Tareas y prioridades de las personas que quieren aprender*<br>
+Tabla 6. *Tareas y prioridades del segmento de personas que validan el conocimiento*<br>
+Tabla 7. *Ubiquitous Language de SkillSwap*<br>
+Tabla 8. *Epics del proyecto*<br>
+Tabla 9. *User Stories y Technical Stories del proyecto*<br>
+Tabla 10. *Product Backlog*<br>
+Tabla 11. *Contextos candidatos de SkillSwap*<br>
+Tabla 12. *SEO Tags y Meta Tags del Landing Page*<br>
+Tabla 13. *Elementos ASO de la aplicación móvil*<br>
+Tabla 14. *Herramientas del entorno de desarrollo de software*<br>
+Tabla 15. *Variables de entorno del despliegue en Render*<br>
+Tabla 16. *Sprint Planning 1*<br>
+Tabla 17. *Leadership-and-Collaboration Matrix del Sprint 1*<br>
+Tabla 18. *Sprint Backlog 1*<br>
+Tabla 19. *Commits de desarrollo del Sprint 1*<br>
+Tabla 20. *Commits de testing del Sprint 1*<br>
+Tabla 21. *Endpoints documentados en el Sprint 1*<br>
 
 ---
 
