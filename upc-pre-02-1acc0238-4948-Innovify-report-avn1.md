@@ -4338,7 +4338,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
   <img src="images-doc/wireflow-01-registro.png" alt="WF-01 - Registro de nuevo usuario" width="1000">
 </p>
 
-*Nota.* User goal: Crear una cuenta con su correo institucional para empezar a validar sus habilidades. Persona: Valeria Ramos (Estudiante) · US01. Valeria recorre las tres páginas del onboarding y completa el registro. Si usa un correo que no termina en .edu.pe, el campo mu Elaboración propia.
+*Nota.* User goal: Crear una cuenta con su correo institucional para empezar a validar sus habilidades. Persona: Valeria Ramos (Estudiante) · US01. Valeria recorre las tres páginas del onboarding y completa el registro. Si usa un correo que no termina en .edu.pe, el campo muestra el error en el mismo formulario; al corregirlo, la validación de la contraseña le pide reforzarla. Con los datos válidos llega a la selección de rol. Elaboración propia.
 
 **Figura 102**
 
@@ -4348,7 +4348,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
   <img src="images-doc/wireflow-39-suscripcion.png" alt="WF-39 - Suscripción mensual" width="1000">
 </p>
 
-*Nota.* User goal: Activar el plan mensual para acceder a rutas, evaluaciones y verificación. Persona: Valeria Ramos (nueva usuaria) · US05. Tras crear su cuenta, Valeria elige el plan y paga con Google Play Billing; con el pago aprobado, su suscripción queda activa y continúa a l Elaboración propia.
+*Nota.* User goal: Activar el plan mensual para acceder a rutas, evaluaciones y verificación. Persona: Valeria Ramos (nueva usuaria) · US05. Tras crear su cuenta, Valeria elige el plan y paga con Google Play Billing; con el pago aprobado, su suscripción queda activa y continúa a la selección de rol. Si el banco rechaza el pago, cambia de método y reintenta. Si no tiene método de pago, agrega una tarjeta en Google Play y continúa. Elaboración propia.
 
 **Figura 103**
 
@@ -4358,7 +4358,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
   <img src="images-doc/wireflow-02-login.png" alt="WF-02 - Inicio de sesión y biometría" width="1000">
 </p>
 
-*Nota.* User goal: Entrar a su cuenta de forma rápida y segura para continuar con su ruta. Persona: Valeria Ramos (Estudiante) · US02, US03. Desde el login, Valeria puede entrar con usuario y contraseña o con su huella; en ambos casos llega a la Home de su rol. Si las cre Elaboración propia.
+*Nota.* User goal: Entrar a su cuenta de forma rápida y segura para continuar con su ruta. Persona: Valeria Ramos (Estudiante) · US02, US03. Desde el login, Valeria puede entrar con usuario y contraseña o con su huella; en ambos casos llega a la Home de su rol. Si las credenciales no coinciden, un diálogo lo explica sin revelar qué dato falló y le ofrece reintentar o recuperar la contraseña. Elaboración propia.
 
 **Figura 104**
 
@@ -4368,7 +4368,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
   <img src="images-doc/wireflow-03-declarar-meta.png" alt="WF-03 - Declarar una meta de aprendizaje" width="1000">
 </p>
 
-*Nota.* User goal: Describir con sus palabras lo que quiere aprender y obtener una ruta generada por IA. Persona: Valeria Ramos (Estudiante) · US06, US07. Valeria escribe su meta y la IA propone habilidades afines ordenadas por afinidad. Al confirmar una, se genera su Elaboración propia.
+*Nota.* User goal: Describir con sus palabras lo que quiere aprender y obtener una ruta generada por IA. Persona: Valeria Ramos (Estudiante) · US06, US07. Valeria escribe su meta y la IA propone habilidades afines ordenadas por afinidad. Al confirmar una, se genera su ruta. Si ninguna se ajusta, o la meta es demasiado general, vuelve al campo con un mensaje que le pide precisarla. Elaboración propia.
 
 **Figura 105**
 
@@ -4378,7 +4378,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
   <img src="images-doc/wireflow-05-certificado.png" alt="WF-05 - Subir y validar un certificado" width="1000">
 </p>
 
-*Nota.* User goal: Registrar su certificado de Coursera como evidencia del nodo para habilitar el quiz. Persona: Valeria Ramos (Estudiante) · US11, US12, US13, US14, US15, US16. Valeria sube la foto o el archivo y ML Kit extrae los datos en su dispositivo. Si todo es co Elaboración propia.
+*Nota.* User goal: Registrar su certificado de Coursera como evidencia del nodo para habilitar el quiz. Persona: Valeria Ramos (Estudiante) · US11, US12, US13, US14, US15, US16. Valeria sube la foto o el archivo y ML Kit extrae los datos en su dispositivo. Si todo es correcto, el quiz se habilita. Hay tres caminos alternativos: el archivo ya estaba registrado (duplicado), el contenido no cubre la habilidad del nodo (afinidad baja) o el análisis detecta riesgo documental y el caso pasa a un Coordinador. Elaboración propia.
 
 **Figura 106**
 
@@ -4388,7 +4388,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
   <img src="images-doc/wireflow-06-quiz.png" alt="WF-06 - Rendir el quiz de un nodo" width="1000">
 </p>
 
-*Nota.* User goal: Demostrar con un quiz que domina la habilidad del nodo y saber qué reforzar. Persona: Valeria Ramos (Estudiante) · US17, US18, US20, US21. Con el certificado validado, Valeria rinde el quiz. Si obtiene 70% o más, aprueba y ve su diagnóstico por sub-tema. S Elaboración propia.
+*Nota.* User goal: Demostrar con un quiz que domina la habilidad del nodo y saber qué reforzar. Persona: Valeria Ramos (Estudiante) · US17, US18, US20, US21. Con el certificado validado, Valeria rinde el quiz. Si obtiene 70% o más, aprueba y ve su diagnóstico por sub-tema. Si pierde la conexión, sus respuestas se guardan en el dispositivo y se sincronizan al volver. Si no alcanza el mínimo, ve el sub-tema exacto a reforzar y se abre el caso SK-2057 para un Verificador. Elaboración propia.
 
 **Figura 107**
 
@@ -4398,7 +4398,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
   <img src="images-doc/wireflow-11-casos-verificador.png" alt="WF-11 - Recibir y resolver casos" width="1000">
 </p>
 
-*Nota.* User goal: Recibir casos de su especialidad y resolverlos con la rúbrica dentro del plazo. Persona: Rodrigo Castillo (Verificador) · US23, US24, US25. Rodrigo activa su disponibilidad y recibe por afinidad el caso SK-2041. Lo evalúa con la rúbrica, lo aprueba, suma Sk Elaboración propia.
+*Nota.* User goal: Recibir casos de su especialidad y resolverlos con la rúbrica dentro del plazo. Persona: Rodrigo Castillo (Verificador) · US23, US24, US25. Rodrigo activa su disponibilidad y recibe por afinidad el caso SK-2041. Lo evalúa con la rúbrica, lo aprueba, suma SkillCredits y el caso pasa a su historial. Si un caso vence sin decisión, se reasigna automáticamente a otro Verificador. Elaboración propia.
 
 **Figura 108**
 
@@ -4408,7 +4408,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
   <img src="images-doc/wireflow-13-disputas.png" alt="WF-13 - Resolver disputas de certificados" width="1000">
 </p>
 
-*Nota.* User goal: Decidir sobre un certificado sospechoso con evidencia, dejando registro auditable. Persona: Mariana (Coordinadora académica · UPC) · US34, US35, US36. Mariana abre una disputa priorizada desde su panel y compara los datos del certificado con el per Elaboración propia.
+*Nota.* User goal: Decidir sobre un certificado sospechoso con evidencia, dejando registro auditable. Persona: Mariana (Coordinadora académica · UPC) · US34, US35, US36. Mariana abre una disputa priorizada desde su panel y compara los datos del certificado con el perfil del estudiante. Si valida el certificado, el estudiante recibe una notificación. Si lo rechaza, confirma la sanción (cuenta en seguimiento) y el estudiante es notificado con el motivo. Elaboración propia.
 
 **Figura 109**
 
@@ -4418,7 +4418,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
   <img src="images-doc/wireflow-14-metricas.png" alt="WF-14 - Calidad de Verificadores, métricas y plazos" width="1000">
 </p>
 
-*Nota.* User goal: Mantener la calidad del proceso actuando sobre Verificadores, métricas y plazos. Persona: Mariana (Coordinadora académica · UPC) · US38, US39, US40. Mariana detecta a un Verificador con baja confiabilidad y le exige un nuevo examen de ing Elaboración propia.
+*Nota.* User goal: Mantener la calidad del proceso actuando sobre Verificadores, métricas y plazos. Persona: Mariana (Coordinadora académica · UPC) · US38, US39, US40. Mariana detecta a un Verificador con baja confiabilidad y le exige un nuevo examen de ingreso. Luego revisa las métricas por habilidad y ajusta el plazo máximo de resolución. Si ingresa un plazo menor al mínimo de 12 h, el campo muestra el error y el botón Guardar queda deshabilitado. Elaboración propia.
 
 ##### 3.1.4.3. Mobile Applications Mock-ups
 
