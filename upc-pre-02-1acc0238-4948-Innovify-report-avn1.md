@@ -4174,19 +4174,22 @@ En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, do
 
 ### 3.1. Product design
 
-En esta sección se presenta el diseño del producto como parte integral de la arquitectura del sistema, detallando las decisiones que determinan la interacción entre los usuarios (Estudiante, Verificador) y SkillSwap, alineadas con los principios y elementos de diseño adoptados por el equipo.
+En esta sección se presenta el diseño del producto como parte integral de la arquitectura del sistema, detallando las decisiones que determinan la interacción entre los usuarios (Estudiante, Verificador y Coordinador) y SkillSwap, alineadas con los principios y elementos de diseño adoptados por el equipo.
 
 #### 3.1.1. Style Guidelines
 
 ##### 3.1.1.1. General Style Guidelines
 
 En esta sección se presentan las decisiones visuales base que rigen la identidad de SkillSwap, aplicadas de manera consistente tanto en el Landing Page como en las aplicaciones móviles: paleta de colores, tipografía, espaciado y tono de comunicación.
+**Figura 95**
+
+*Style Guidelines de SkillSwap*
 
 <p align="center">
   <img src="images-doc/style-guidelines.png" alt="Style Guidelines de SkillSwap" width="900">
 </p>
 
-*Nota.* [Completar — descripción de lo que muestra la captura: paleta de colores con sus códigos hex, familia tipográfica y pesos usados, sistema de espaciado]. El tono de comunicación adoptado es [Completar — ej. "profesional pero cercano, evitando tecnicismos del dominio en el contenido dirigido al visitante"], coherente con el carácter riguroso pero accesible que busca transmitir la plataforma frente a sus dos segmentos objetivo (Estudiantes y Verificadores/Coordinadores).
+*Nota.* La lámina resume el Design System del producto. En la aplicación móvil, el color primario es el azul `#0022AA` (contraste 11.6:1 sobre blanco), acompañado de un azul oscuro `#001580` para el onboarding y los encabezados, y un contenedor `#E6EAFF` para el indicador de la navbar y los chips seleccionados; el texto principal es `#111827` (17.7:1) y el secundario `#4B5563` (7.6:1). Los estados usan colores semánticos con ícono y texto, nunca solo color: éxito `#15803D`, error `#B91C1C`, advertencia y SkillCredits `#B45309`, y el violeta `#5B21B6` para todo lo generado por IA. El Landing Page usa el azul institucional `#193B69` con el ámbar `#FFC107` para los llamados a la acción. Ambos productos usan la familia **Inter**: en la app con la escala Display 28/36 (ExtraBold), H1 24/32 y H2 20/28 (Bold), Title 16/24 (SemiBold), Body 16/24 y Body-S 14/20 (Regular), Label 14/20 y Caption 12/16 (Medium); el código de los quizzes usa JetBrains Mono. El espaciado sigue una grilla de 8 px (margen lateral de 24 px, 32 px entre secciones, 24 px entre campos y 8–12 px entre un label y su componente) y los radios son de 8 px en chips, 12 px en inputs, 16 px en cards y 26 px en botones. El tono de comunicación adoptado es profesional pero cercano, en segunda persona y orientado a la acción, evitando tecnicismos del dominio en el contenido dirigido al usuario y comunicando los resultados negativos sin tono punitivo ("Aún no alcanzas el mínimo"), siempre con el siguiente paso a seguir, coherente con el carácter riguroso pero accesible que busca transmitir la plataforma frente a sus dos segmentos objetivo (Estudiantes y Verificadores/Coordinadores). Elaboración propia.
 
 #### 3.1.2. Information Architecture
 
@@ -4196,11 +4199,15 @@ Esta sección describe cómo se organiza el contenido en el Landing Page y en la
 
 La información del Landing Page se organiza de forma **secuencial** en la sección "¿Cómo funciona SkillSwap?", que presenta el flujo en 3 pasos numerados (1. Sube tus certificados → 2. La IA arma tu ruta → 3. Demuestra la habilidad), reflejando el orden real en que el Estudiante interactúa con la plataforma. La sección de roles aplica una organización **por audiencia**, agrupando el contenido en dos tarjetas: Estudiante, y Verificador/Coordinador-Profesor (estos dos últimos unificados en una sola tarjeta, consistente con que ambos pertenecen al mismo segundo segmento objetivo definido en el Capítulo I). El resto del contenido (pitch de valor, socios institucionales, contacto) sigue una organización **jerárquica visual**, donde cada sección ocupa un bloque completo de pantalla en orden descendente de relevancia para el visitante.
 
+En la aplicación móvil, la información se organiza **por rol**, ya que cada perfil tiene tareas distintas: Estudiante, Verificador y Coordinador. Dentro de cada rol, el contenido se agrupa **por tarea** en los cuatro destinos de la barra de navegación, y la ruta de aprendizaje del Estudiante sigue una organización **secuencial**, donde cada nodo se desbloquea al cumplir el anterior según sus prerrequisitos (US08). Los listados (casos del Verificador y disputas del Coordinador) se ordenan **por urgencia**, según el plazo o la prioridad, para que lo más importante aparezca primero.
+
 ##### 3.1.2.2. Labelling Systems
 
 Esta sección detalla las etiquetas utilizadas para representar los conjuntos de información de la plataforma, buscando simplicidad y evitando confusión para el visitante o usuario.
 
 Las etiquetas del menú principal se mantienen como sustantivos cortos y directos: "Plataforma" (ancla a la demostración visual de la app), "Alianzas" (página para universidades), "Sobre nosotros" (equipo), "Iniciar Sesión" y "Registrarse" como acciones. Dentro del contenido, las etiquetas evitan tecnicismos del dominio (ej. no se usa "Bounded Context" ni "VerificationCase") y se comunican en lenguaje natural para el visitante: "Revisión automática con IA", "Employability Score", "Case review" (en la versión en inglés). La tarjeta de rol del Verificador se etiqueta explícitamente como "Verificador / Coordinador-Profesor" para que el visitante entienda que es un mismo segmento con dos niveles de participación, sin necesidad de explicar la distinción técnica interna.
+
+En la aplicación móvil se usa el mismo vocabulario del dominio en todas las pantallas, sin sinónimos: "ruta", "nodo", "certificado", "quiz", "caso", "rúbrica", "disputa", "sub-tema" y "SkillCredits". Las etiquetas de la barra de navegación son sustantivos cortos con ícono: "Mi ruta", "Certificados", "Evaluaciones" y "Perfil" (Estudiante); "Casos", "Historial", "SkillCredits" y "Perfil" (Verificador); y "Panel", "Disputas", "Verificadores" y "Métricas" (Coordinador). Los botones usan verbos de acción ("Generar mi ruta", "Rendir quiz", "Agregar evidencia"), y los formularios muestran labels visibles sobre cada campo, en lugar de usar el placeholder como etiqueta.
 
 ##### 3.1.2.3. SEO Tags and Meta Tags
 
@@ -4209,26 +4216,38 @@ Esta sección presenta los elementos de optimización para motores de búsqueda 
 | Página | Title | Meta Description | Keywords |
 |---|---|---|---|
 | Home (`index.html`) | SkillSwap \| Verificación de Habilidades con IA | SkillSwap verifica tus habilidades con IA: sube tus certificados, recibe una ruta de certificación personalizada y demuestra lo que sabes. | verificación de habilidades, inteligencia artificial, certificaciones, ruta de aprendizaje, estudiantes universitarios, SkillSwap, Perú, empleabilidad |
-| Sobre Nosotros (`aboutUs.html`) | SkillSwap \| Sobre Nosotros | Conoce a Innovify, el equipo detrás de SkillSwap, nuestra misión, visión y las personas que hacen posible [Completar] | — |
+| Sobre Nosotros (`aboutUs.html`) | SkillSwap \| Sobre Nosotros | Conoce a Innovify, el equipo detrás de SkillSwap, nuestra misión, visión y las personas que hacen posible la red interuniversitaria más grande del Perú. | — |
 | Alianzas (`partnerships.html`) | SkillSwap \| Alianzas Institucionales | Afilia tu universidad a SkillSwap y ofrece a tus estudiantes verificación de habilidades con IA y certificaciones confiables. | — |
 | Registro (`signup.html`) | SkillSwap \| Registro | Regístrate en SkillSwap, sube tus certificados y deja que la IA arme tu ruta de certificación. | — |
-| Iniciar Sesión (`login.html`) | SkillSwap \| Iniciar Sesión [Completar — ver corrección pendiente en el repo] | Inicia sesión en SkillSwap y sigue tu ruta de certificación de habilidades generada por IA. | — |
+| Iniciar Sesión (`login.html`) | SkillSwap \| Verificación de Habilidades con IA | Inicia sesión en SkillSwap y sigue tu ruta de certificación de habilidades generada por IA. | — |
 
 El Landing Page implementa además **SEO bilingüe** mediante etiquetas `hreflang` (es/en/x-default) y un selector de idioma (ES/EN) que actualiza dinámicamente el `<title>` y el `<meta name="description">` según el idioma seleccionado, persistiendo la preferencia en `localStorage`. El `author` declarado es "Innovify", nombre de la startup.
 
-*(Los elementos ASO —App Title, App Keywords, App Subtitle, App Description— corresponden a la publicación en la tienda de aplicaciones móvil, pendiente de completar junto con quien lleve esa parte del Capítulo III.)*
+Para la publicación de la aplicación móvil en Google Play se definieron los siguientes elementos ASO:
+
+| Elemento ASO | Contenido |
+|---|---|
+| App Title | SkillSwap: Valida tus habilidades |
+| App Subtitle (descripción corta) | Convierte tus certificados en habilidades verificadas con IA y revisión de pares. |
+| App Keywords | verificación de habilidades, certificados, ruta de aprendizaje, quiz con IA, empleabilidad, estudiantes universitarios, prácticas, Perú |
+| App Description | SkillSwap ayuda a los estudiantes universitarios a demostrar lo que saben, no solo lo que estudiaron. Declara tu meta profesional y la IA arma una ruta de certificación con tus certificados previos; valida cada habilidad con quizzes generados por IA y, si lo necesitas, con la revisión de un Verificador. Los Verificadores ganan SkillCredits por cada caso resuelto y las universidades supervisan la calidad del proceso. |
+| Categoría | Educación |
 
 ##### 3.1.2.4. Searching Systems
 
 Esta sección describe los mecanismos de búsqueda disponibles para que el visitante o usuario encuentre información sin sentirse perdido entre el volumen de contenido.
 
-El Landing Page **no implementa un sistema de búsqueda**, por tratarse de un sitio informativo de una sola sección por pantalla (scroll continuo) más 3 páginas adicionales (Alianzas, Sobre Nosotros, Registro/Login) — el volumen de contenido no lo justifica. El sistema de búsqueda real del producto corresponde a la aplicación móvil, donde el Estudiante declara su meta en lenguaje natural y el motor de IA la relaciona con el catálogo interno de habilidades (ver 2.6.3, `SkillTaxonomyMatcher`); su documentación de UI queda pendiente de quien lleve el diseño de la app.
+El Landing Page **no implementa un sistema de búsqueda**, por tratarse de un sitio informativo de una sola sección por pantalla (scroll continuo) más 3 páginas adicionales (Alianzas, Sobre Nosotros, Registro/Login) — el volumen de contenido no lo justifica. El sistema de búsqueda real del producto corresponde a la aplicación móvil, donde el Estudiante declara su meta en lenguaje natural y el motor de IA la relaciona con el catálogo interno de habilidades (ver 2.6.3, `SkillTaxonomyMatcher`).
+
+En la aplicación, ese mecanismo se presenta en la pantalla **Declarar meta**: un campo de texto libre con dictado por voz y chips con metas de otros estudiantes, para que el Estudiante reconozca un ejemplo en lugar de tener que recordar el nombre exacto de un curso. La IA devuelve como máximo tres habilidades candidatas ordenadas por afinidad, con la opción de reformular la meta si ninguna se ajusta. Además, el Estudiante cuenta con una **búsqueda dentro de su ruta** (ícono de lupa en "Mi ruta") para encontrar un nodo o sub-tema sin recorrerla completa; si no hay resultados, la pantalla lo indica y sugiere otra palabra, y si el nodo encontrado está bloqueado, explica qué nodo debe completar antes. En los paneles del Verificador y del Coordinador se usan **filtros** (por ejemplo, "Con alertas" en la lista de Verificadores) en lugar de un buscador, porque el volumen de casos y disputas es acotado.
 
 ##### 3.1.2.5. Navigation Systems
 
 Esta sección explica las acciones y técnicas que guían al visitante o usuario a través del Landing Page y la aplicación, permitiéndole cumplir sus metas de forma satisfactoria.
 
 La navegación del Landing Page combina una **barra superior persistente** (logo + menú horizontal, con versión de menú hamburguesa para mobile) con **anclas internas** dentro de la misma página (ej. "Plataforma" lleva a `#seccion-screenshots` sin cambiar de URL) y **enlaces a páginas independientes** para contenido extenso (Alianzas, Sobre Nosotros, Registro, Login). Los *call-to-action* ("¡Empieza tu ruta ahora!", "Empieza tu ruta — tarda 2 minutos", "Create my free account") se repiten en varios puntos de scroll para no depender de que el visitante recuerde volver al menú. El footer centraliza los enlaces legales (Términos y Condiciones, Política de Privacidad) y de contacto.
+
+En la aplicación móvil, cada rol cuenta con una **barra de navegación inferior** de Material Design 3 con cuatro destinos y un indicador del destino activo, de modo que el usuario siempre sabe dónde está. Los flujos de tarea (registro, subida de certificado, quiz, revisión de un caso o resolución de una disputa) ocultan la barra y usan una **app bar con "Volver" o "Cerrar"**, para que el usuario se concentre en terminar la tarea. Las acciones que avanzan una tarea se muestran como botón principal en la parte inferior, al alcance del pulgar, y las confirmaciones y errores se presentan con diálogos, hojas inferiores y snackbars que incluyen una acción directa para continuar (por ejemplo, "Rendir" cuando el certificado queda validado).
 
 #### 3.1.3. Landing Page UI Design
 
@@ -4238,71 +4257,267 @@ La sección presenta cómo se tradujeron las decisiones de diseño y arquitectur
 
 Esta sección presenta los wireframes de baja fidelidad elaborados antes de definir el diseño visual final del Landing Page.
 
-[Completar — si elaboraron wireframes en Figma antes de codear, insertar la captura aquí; si se trabajó directamente sobre mock-up/código, anotar "Se trabajó directamente sobre mock-up/código, sin wireframe de baja fidelidad previo".]
+**Figura 96**
+
+*Wireframe del Landing Page de SkillSwap*
+
+<p align="center">
+  <img src="images-doc/landing-wireframe.png" alt="Wireframe del Landing Page" width="900">
+</p>
+
+*Nota.* Wireframe de baja fidelidad del Landing Page, elaborado en Figma, que define la estructura de bloques en el orden en que el visitante recorre la página: barra de navegación, sección Hero con la propuesta de valor y el llamado a la acción, flujo de 3 pasos, roles (Estudiante y Verificador/Coordinador), pitch de valor, capturas de la plataforma, universidades aliadas y contacto. Elaboración propia.
 
 ##### 3.1.3.2. Landing Page Mock-up
 
 Esta sección presenta el mock-up final del Landing Page, resultado de aplicar el Design System definido en 3.1.1 sobre la arquitectura de información descrita en 3.1.2.
 
+**Figura 97**
+
+*Mock-up del Landing Page de SkillSwap (escritorio)*
+
 <p align="center">
   <img src="images-doc/index-new.png" alt="Mock-up Landing Page - Home" width="900">
-  <br>
-  <img src="images-doc/index-responsive.png" alt="Mock-up Landing Page - Responsive" width="400">
 </p>
 
-*Nota.* Diseño final del Landing Page de SkillSwap, aplicando el Design System del proyecto: sección Hero con propuesta de valor ("Demuestra lo que sabes..."), flujo de 3 pasos (subir certificado → ruta por IA → demostrar la habilidad), presentación de los dos segmentos objetivo (Estudiante / Verificador-Coordinador), comparación de valor frente a otras plataformas, y sección de universidades aliadas. Implementado en HTML5/CSS3/JavaScript, con soporte bilingüe (ES/EN) y diseño responsive.
+*Nota.* Diseño final del Landing Page de SkillSwap, aplicando el Design System del proyecto: sección Hero con propuesta de valor ("Demuestra lo que sabes..."), flujo de 3 pasos (subir certificado → ruta por IA → demostrar la habilidad), presentación de los dos segmentos objetivo (Estudiante / Verificador-Coordinador), comparación de valor frente a otras plataformas, y sección de universidades aliadas. Implementado en HTML5/CSS3/JavaScript, con soporte bilingüe (ES/EN). Elaboración propia.
+
+**Figura 98**
+
+*Mock-up del Landing Page de SkillSwap (versión responsive)*
+
+<p align="center">
+  <img src="images-doc/index-responsive.png" alt="Mock-up Landing Page - Responsive" width="900">
+</p>
+
+*Nota.* Versión móvil del Landing Page (390 px de ancho), con el menú hamburguesa, el Hero, la sección "¿Cómo funciona SkillSwap?", las tarjetas de roles y las universidades aliadas, reorganizadas en una sola columna. Elaboración propia.
 
 El Landing Page está desplegado en: [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/)
 
 #### 3.1.4. Mobile Applications UX/UI Design
 
-Esta sección presenta el diseño visual y de interacción de las aplicaciones móviles (Android Nativo y Flutter), cubriendo las pantallas core construidas en el Sprint 1: registro/inicio de sesión, carga de certificado, consulta de la ruta de aprendizaje, resolución del quiz, y gestión de casos de verificación (del lado del Verificador).
+Esta sección presenta el diseño visual y de interacción de las aplicaciones móviles (Android Nativo y Flutter), cubriendo las pantallas core de los tres roles: registro, suscripción e inicio de sesión, declaración de la meta, carga de certificado, consulta de la ruta de aprendizaje y resolución del quiz (Estudiante); gestión de casos de verificación y SkillCredits (Verificador); y resolución de disputas, supervisión de Verificadores y métricas (Coordinador).
 
 ##### 3.1.4.1. Mobile Applications Wireframes
 
-*(Completar: wireframes de las pantallas principales, en Figma.)*
+Esta sección presenta los wireframes de baja fidelidad de las pantallas principales de la aplicación, elaborados en Figma sobre un frame Android de 412 × 917 px. En esta etapa se definió la estructura de cada pantalla (jerarquía, ubicación de la barra de navegación, botones principales y campos de formulario) sin aplicar todavía colores ni tipografía final, para validar los flujos antes del diseño visual.
+
+**Figura 99**
+
+*Wireframes de la aplicación móvil de SkillSwap*
 
 <p align="center">
   <img src="images-doc/mobile-wireframes.png" alt="Wireframes de la aplicación móvil" width="900">
 </p>
 
+*Nota.* Wireframes de las pantallas principales de los tres roles: onboarding, registro, inicio de sesión, declaración de meta, ruta de aprendizaje, detalle del nodo, quiz y resultados (Estudiante); casos y revisión con rúbrica (Verificador); y panel, disputas y métricas (Coordinador). Elaboración propia.
+
 ##### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
-*(Completar: un Wireflow por cada User Goal relevante, por ejemplo: "Declarar mi meta y obtener mi ruta" (Estudiante), "Resolver el quiz de un nodo" (Estudiante), "Revisar un caso asignado" (Verificador). Herramienta: LucidChart u Overflow.)*
+Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal relevante de los tres roles. Cada Wireflow combina los mock-ups de las pantallas con flechas que indican la acción que lleva de una pantalla a otra: en azul el camino principal (happy path) y en rojo las rutas alternativas y de error, con las pantallas de error resaltadas. En total se elaboraron 45 Wireflows en Figma; a continuación se presentan los correspondientes a los User Goals principales de cada rol.
+
+**Figura 100**
+
+*Wireflow de registro de nuevo usuario*
 
 <p align="center">
-  <img src="images-doc/wireflow-declarar-meta.png" alt="Wireflow - Declarar meta y obtener ruta" width="900">
+  <img src="images-doc/wireflow-01-registro.png" alt="WF-01 - Registro de nuevo usuario" width="1000">
 </p>
 
-*Nota.* User goal: [Completar]. [Completar — explicación del flujo representado.]
+*Nota.* User goal: Crear una cuenta con su correo institucional para empezar a validar sus habilidades. Persona: Valeria Ramos (Estudiante) · US01. Valeria recorre las tres páginas del onboarding y completa el registro. Si usa un correo que no termina en .edu.pe, el campo mu Elaboración propia.
+
+**Figura 101**
+
+*Wireflow de suscripción mensual*
+
+<p align="center">
+  <img src="images-doc/wireflow-39-suscripcion.png" alt="WF-39 - Suscripción mensual" width="1000">
+</p>
+
+*Nota.* User goal: Activar el plan mensual para acceder a rutas, evaluaciones y verificación. Persona: Valeria Ramos (nueva usuaria) · US05. Tras crear su cuenta, Valeria elige el plan y paga con Google Play Billing; con el pago aprobado, su suscripción queda activa y continúa a l Elaboración propia.
+
+**Figura 102**
+
+*Wireflow de inicio de sesión y biometría*
+
+<p align="center">
+  <img src="images-doc/wireflow-02-login.png" alt="WF-02 - Inicio de sesión y biometría" width="1000">
+</p>
+
+*Nota.* User goal: Entrar a su cuenta de forma rápida y segura para continuar con su ruta. Persona: Valeria Ramos (Estudiante) · US02, US03. Desde el login, Valeria puede entrar con usuario y contraseña o con su huella; en ambos casos llega a la Home de su rol. Si las cre Elaboración propia.
+
+**Figura 103**
+
+*Wireflow para declarar una meta de aprendizaje*
+
+<p align="center">
+  <img src="images-doc/wireflow-03-declarar-meta.png" alt="WF-03 - Declarar una meta de aprendizaje" width="1000">
+</p>
+
+*Nota.* User goal: Describir con sus palabras lo que quiere aprender y obtener una ruta generada por IA. Persona: Valeria Ramos (Estudiante) · US06, US07. Valeria escribe su meta y la IA propone habilidades afines ordenadas por afinidad. Al confirmar una, se genera su Elaboración propia.
+
+**Figura 104**
+
+*Wireflow para subir y validar un certificado*
+
+<p align="center">
+  <img src="images-doc/wireflow-05-certificado.png" alt="WF-05 - Subir y validar un certificado" width="1000">
+</p>
+
+*Nota.* User goal: Registrar su certificado de Coursera como evidencia del nodo para habilitar el quiz. Persona: Valeria Ramos (Estudiante) · US11, US12, US13, US14, US15, US16. Valeria sube la foto o el archivo y ML Kit extrae los datos en su dispositivo. Si todo es co Elaboración propia.
+
+**Figura 105**
+
+*Wireflow para rendir el quiz de un nodo*
+
+<p align="center">
+  <img src="images-doc/wireflow-06-quiz.png" alt="WF-06 - Rendir el quiz de un nodo" width="1000">
+</p>
+
+*Nota.* User goal: Demostrar con un quiz que domina la habilidad del nodo y saber qué reforzar. Persona: Valeria Ramos (Estudiante) · US17, US18, US20, US21. Con el certificado validado, Valeria rinde el quiz. Si obtiene 70% o más, aprueba y ve su diagnóstico por sub-tema. S Elaboración propia.
+
+**Figura 106**
+
+*Wireflow para recibir y resolver casos (Verificador)*
+
+<p align="center">
+  <img src="images-doc/wireflow-11-casos-verificador.png" alt="WF-11 - Recibir y resolver casos" width="1000">
+</p>
+
+*Nota.* User goal: Recibir casos de su especialidad y resolverlos con la rúbrica dentro del plazo. Persona: Rodrigo Castillo (Verificador) · US23, US24, US25. Rodrigo activa su disponibilidad y recibe por afinidad el caso SK-2041. Lo evalúa con la rúbrica, lo aprueba, suma Sk Elaboración propia.
+
+**Figura 107**
+
+*Wireflow para resolver disputas de certificados (Coordinador)*
+
+<p align="center">
+  <img src="images-doc/wireflow-13-disputas.png" alt="WF-13 - Resolver disputas de certificados" width="1000">
+</p>
+
+*Nota.* User goal: Decidir sobre un certificado sospechoso con evidencia, dejando registro auditable. Persona: Mariana (Coordinadora académica · UPC) · US34, US35, US36. Mariana abre una disputa priorizada desde su panel y compara los datos del certificado con el per Elaboración propia.
+
+**Figura 108**
+
+*Wireflow de calidad de Verificadores, métricas y plazos (Coordinador)*
+
+<p align="center">
+  <img src="images-doc/wireflow-14-metricas.png" alt="WF-14 - Calidad de Verificadores, métricas y plazos" width="1000">
+</p>
+
+*Nota.* User goal: Mantener la calidad del proceso actuando sobre Verificadores, métricas y plazos. Persona: Mariana (Coordinadora académica · UPC) · US38, US39, US40. Mariana detecta a un Verificador con baja confiabilidad y le exige un nuevo examen de ing Elaboración propia.
 
 ##### 3.1.4.3. Mobile Applications Mock-ups
 
-*(Completar: mock-ups de las pantallas, aplicando el Design System de 3.1.1.)*
+Esta sección presenta los mock-ups de alta fidelidad de la aplicación, resultado de aplicar el Design System de 3.1.1 sobre los wireframes. Las pantallas siguen los componentes de Material Design 3 (top app bar, botones filled y outlined, outlined text fields con label visible, chips, segmented buttons, switches, navigation bar y cards) y cumplen los criterios de accesibilidad WCAG 2.2 AA: contraste de texto de al menos 4.5:1, contraste de componentes de al menos 3:1, áreas táctiles de 48 px o más y estados comunicados con ícono y texto además del color.
+
+**Figura 109**
+
+*Mock-ups de la aplicación móvil · Estudiante*
 
 <p align="center">
-  <img src="images-doc/mobile-mockups.png" alt="Mock-ups de la aplicación móvil" width="900">
+  <img src="images-doc/mobile-mockups-estudiante.png" alt="Mock-ups de la aplicación móvil - Estudiante" width="1000">
 </p>
+
+*Nota.* Pantallas del Estudiante. El registro valida el dominio `.edu.pe` en línea para prevenir errores; la declaración de meta acepta lenguaje natural y voz, con chips de ejemplo; la ruta muestra los nodos completados, disponibles y bloqueados con ícono, número o candado; la verificación del certificado muestra en una checklist cada paso que realiza la IA; el quiz incluye temporizador y autoguardado visible; y los resultados entregan un diagnóstico por sub-tema, comunicando el no aprobado sin tono punitivo y con el caso de revisión ya abierto. Elaboración propia.
+
+**Figura 110**
+
+*Mock-ups de la aplicación móvil · Verificador*
+
+<p align="center">
+  <img src="images-doc/mobile-mockups-verificador.png" alt="Mock-ups de la aplicación móvil - Verificador" width="1000">
+</p>
+
+*Nota.* Pantallas del Verificador. El acceso al rol se obtiene con un examen de ingreso; el home prioriza los casos por urgencia del plazo y aplica revisión ciega ("Estudiante anónimo") para reducir el sesgo; la revisión del caso combina la evidencia, el puntaje preliminar de la IA con su nivel de confianza y una rúbrica de 4 niveles; y la billetera muestra los SkillCredits ganados, su historial y la tienda de beneficios. Elaboración propia.
+
+**Figura 111**
+
+*Mock-ups de la aplicación móvil · Coordinador*
+
+<p align="center">
+  <img src="images-doc/mobile-mockups-coordinador.png" alt="Mock-ups de la aplicación móvil - Coordinador" width="1000">
+</p>
+
+*Nota.* Pantallas del Coordinador. El panel resume los KPIs con su tendencia (ícono, signo y texto) y lista las disputas por prioridad; el detalle de la disputa permite validar, rechazar o pedir más información, con confirmación antes de las acciones irreversibles; y las vistas de Verificadores, métricas y plazos permiten detectar problemas de calidad y ajustar los plazos de resolución. Elaboración propia.
 
 ##### 3.1.4.4. Mobile Applications User Flow Diagrams
 
-*(Completar: un User Flow por cada User Goal, consistente con los Wireflows de 3.1.4.2, incluyendo los mock-ups de las pantallas con el happy path y las rutas alternativas.)*
+Esta sección presenta los User Flows de la aplicación, uno por cada User Goal principal, consistentes con los Wireflows de 3.1.4.2. Cada diagrama parte de un punto de inicio, muestra los mock-ups de las pantallas involucradas y representa con rombos las decisiones o condiciones del sistema, de modo que se distingue el happy path (en azul) de las rutas alternativas y de error (en rojo) hasta el punto de fin.
+
+**Figura 112**
+
+*User Flow para registrarse y activar el plan*
 
 <p align="center">
-  <img src="images-doc/userflow-resolver-quiz.png" alt="User Flow - Resolver el quiz de un nodo" width="900">
+  <img src="images-doc/userflow-01-registro-suscripcion.png" alt="User Flow para registrarse y activar el plan" width="1000">
 </p>
 
-*Nota.* User goal: [Completar]. [Completar — explicación del flujo y condiciones especificadas, ej. qué pasa si el quiz no se aprueba (se abre un caso).]
+*Nota.* User goal: Crear una cuenta con su correo institucional y activar el plan mensual para empezar su ruta (Estudiante · US01, US05). El flujo parte del registro. Si el correo no termina en `.edu.pe` o la contraseña es débil, se muestra la pantalla de error correspondiente y el Estudiante corrige el dato. Con datos válidos elige el plan: si no tiene un método de pago, lo agrega antes de continuar; si Google Play rechaza el pago, puede cambiar de método y reintentar. Con el pago aprobado, la suscripción queda activa y continúa a la selección de rol. Elaboración propia.
+
+**Figura 113**
+
+*User Flow para declarar una meta y obtener la ruta*
+
+<p align="center">
+  <img src="images-doc/userflow-02-declarar-meta.png" alt="User Flow para declarar una meta y obtener la ruta" width="1000">
+</p>
+
+*Nota.* User goal: Describir con sus palabras lo que quiere aprender y obtener una ruta de certificación personalizada (Estudiante · US06, US07). El Estudiante escribe su meta y la IA propone habilidades ordenadas por afinidad. Si alguna se ajusta, la confirma y se genera su ruta; si ninguna se ajusta o la meta es muy general, se le pide reformularla y vuelve a recibir propuestas. Elaboración propia.
+
+**Figura 114**
+
+*User Flow para subir y validar un certificado*
+
+<p align="center">
+  <img src="images-doc/userflow-03-subir-certificado.png" alt="User Flow para subir y validar un certificado" width="1000">
+</p>
+
+*Nota.* User goal: Registrar su certificado para que la plataforma lo valide y le habilite el quiz del nodo (Estudiante · US11 a US16). Desde el nodo disponible, el Estudiante toma una foto o sube el archivo y la verificación avanza de forma automática. Si el certificado es validado, se habilita el quiz. Las rutas alternativas cubren un archivo ya usado (duplicado), un certificado que no cubre la habilidad del nodo (afinidad baja, con opción de subir otro) y un riesgo documental alto, que deriva el certificado a revisión manual del Coordinador. Elaboración propia.
+
+**Figura 115**
+
+*User Flow para rendir el quiz de un nodo*
+
+<p align="center">
+  <img src="images-doc/userflow-04-rendir-quiz.png" alt="User Flow para rendir el quiz de un nodo" width="1000">
+</p>
+
+*Nota.* User goal: Demostrar con un quiz que domina la habilidad del nodo y saber exactamente qué reforzar (Estudiante · US17, US18, US20, US21). Con el certificado validado, el Estudiante rinde el quiz. Si pierde la conexión, sus respuestas se guardan en el dispositivo y el quiz continúa al recuperarla. Si obtiene 70% o más, aprueba el nodo; si no alcanza el mínimo, ve el sub-tema exacto a reforzar y se abre automáticamente un caso de revisión asignado a un Verificador. Elaboración propia.
+
+**Figura 116**
+
+*User Flow para recibir y resolver un caso*
+
+<p align="center">
+  <img src="images-doc/userflow-05-resolver-caso.png" alt="User Flow para recibir y resolver un caso" width="1000">
+</p>
+
+*Nota.* User goal: Recibir casos de su especialidad y resolverlos con la rúbrica dentro del plazo para ganar SkillCredits (Verificador · US23, US24, US25). El Verificador activa su disponibilidad y recibe un caso por afinidad. Si decide dentro del plazo, el caso queda resuelto y se le acreditan SkillCredits; si el plazo vence sin una decisión, el caso se marca como vencido y se reasigna a otro Verificador. Elaboración propia.
+
+**Figura 117**
+
+*User Flow para resolver una disputa de certificado*
+
+<p align="center">
+  <img src="images-doc/userflow-06-resolver-disputa.png" alt="User Flow para resolver una disputa de certificado" width="1000">
+</p>
+
+*Nota.* User goal: Decidir con evidencia si un certificado sospechoso es legítimo y cerrar la disputa (Coordinador · US34, US35, US36). Desde su panel, el Coordinador abre una disputa priorizada y revisa la evidencia. Si el certificado es legítimo, lo valida y la disputa se cierra notificando al Estudiante; si no lo es, confirma el rechazo antes de aplicar la sanción; y si falta evidencia, solicita información adicional y vuelve a revisar cuando el Estudiante la adjunta. Elaboración propia.
 
 ##### 3.1.4.5. Mobile Applications Prototyping
 
-*(Completar: prototipo navegable en Figma para Desktop y Mobile Web Browser, con 1 screenshot y el enlace al video de demostración subido a Microsoft Stream, mostrando los principales flujos de interacción.)*
+Esta sección presenta el prototipo navegable de la aplicación, elaborado en Figma a partir de los mock-ups. El prototipo reúne 154 pantallas conectadas mediante 464 interacciones, que cubren tanto el happy path como las rutas alternativas y de error de los Wireflows. Cuenta con cinco puntos de inicio: "SkillSwap App" (desde el onboarding), "SkillSwap Landing", y un acceso directo por cada rol ("Rol Estudiante", "Rol Verificador" y "Rol Coordinador"). Después del inicio de sesión, la pantalla "¿Cómo quieres entrar?" permite elegir el rol cuando la cuenta tiene más de uno. Las pantallas de carga y confirmación avanzan de forma automática, y en las pantallas con varias salidas el clic sigue el happy path, mientras que las teclas 1, 2 y 3 muestran las rutas alternativas (por ejemplo, el error de credenciales en el inicio de sesión o el certificado duplicado durante la verificación).
+
+**Figura 118**
+
+*Vista del prototipo navegable de SkillSwap en Figma*
 
 <p align="center">
-  <img src="images-doc/prototype-screenshot.png" alt="Screenshot del prototipo navegable" width="900">
+  <img src="images-doc/prototype-screenshot.png" alt="Screenshot del prototipo navegable" width="1000">
 </p>
 
-* **URL del prototipo:** [Completar]
+*Nota.* Vista de las conexiones del prototipo correspondientes al recorrido principal del Estudiante: onboarding, registro y suscripción, inicio de sesión, declaración de la meta, ruta, carga y verificación del certificado, quiz y resultados, junto con sus pantallas de error. Elaboración propia.
+
+* **URL del prototipo:** [https://www.figma.com/design/XRhtNjbOaSHmJAs4ebmPuR/Sin-t%C3%ADtulo?node-id=1-3310](https://www.figma.com/design/XRhtNjbOaSHmJAs4ebmPuR/Sin-t%C3%ADtulo?node-id=1-3310)
 * **URL del video de interacción (Microsoft Stream):** [Completar]
 
 ---
