@@ -5009,13 +5009,53 @@ En esta sección se definen los términos técnicos, abreviaturas y acrónimos d
 * **Wireframe:** Representación de baja fidelidad de una pantalla que define su estructura y jerarquía sin diseño visual final.
 
 # Bibliografía
+
+Las referencias se organizan en las tres categorías de recursos bibliográficos que establece el enunciado del trabajo final: dominio de negocio; métodos y técnicas de ingeniería de software; y lenguajes, frameworks y herramientas.
+
+**Dominio de negocio**
+
 * Coursera. (2025). *Global skills report 2025*. [https://www.coursera.org/skills-reports/global](https://www.coursera.org/skills-reports/global)
 * Instituto Nacional de Estadística e Informática. (2025). *Estadísticas de las tecnologías de información y comunicación en los hogares: II trimestre 2025* (Informe Técnico N.° 03). [https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf](https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf)
 * Novella, R., Alvarado, A., Rosas, D., & González-Velosa, C. (2019). *Encuesta de habilidades al trabajo (ENHAT) 2017-2018: Causas y consecuencias de la brecha de habilidades en Perú* (Nota Técnica N.° IDB-TN-1652). Banco Interamericano de Desarrollo. [https://proyectos.inei.gob.pe/iinei/srienaho/Descarga/DocumentosMetodologicos/2017-18/6-ENHAT_2017-2018_Caus_y_consec_de_la_brecha_de_habil_en_Peru.pdf](https://proyectos.inei.gob.pe/iinei/srienaho/Descarga/DocumentosMetodologicos/2017-18/6-ENHAT_2017-2018_Caus_y_consec_de_la_brecha_de_habil_en_Peru.pdf)
 * Organisation for Economic Co-operation and Development. (2024). *Bridging talent shortages in tech: Skills-first hiring, micro-credentials and inclusive outreach*. OECD Publishing. [https://doi.org/10.1787/f35da44f-en](https://doi.org/10.1787/f35da44f-en)
 * Rivas Cossio, R. E. (2023). La inadecuación ocupacional de jóvenes en Perú. *Políticas Públicas, 16*(2), 39–59. [https://doi.org/10.35588/pp.v16i2.6201](https://doi.org/10.35588/pp.v16i2.6201)
-
 * World Economic Forum. (2025). *The future of jobs report 2025*. [https://www.weforum.org/publications/the-future-of-jobs-report-2025/](https://www.weforum.org/publications/the-future-of-jobs-report-2025/)
+
+**Métodos y técnicas de ingeniería de software**
+
+* Adzic, G. (2012). *Impact mapping: Making a big impact with software products and projects*. Provoking Thoughts.
+* Brandolini, A. (2021). *Introducing EventStorming*. Leanpub. [https://leanpub.com/introducing_eventstorming](https://leanpub.com/introducing_eventstorming)
+* Brown, S. (s. f.). *The C4 model for visualising software architecture*. Recuperado el 8 de octubre de 2026, de [https://c4model.com/](https://c4model.com/)
+* Cohn, M. (2004). *User stories applied: For agile software development*. Addison-Wesley.
+* Conventional Commits. (s. f.). *Conventional Commits 1.0.0*. Recuperado el 8 de octubre de 2026, de [https://www.conventionalcommits.org/en/v1.0.0/](https://www.conventionalcommits.org/en/v1.0.0/)
+* Driessen, V. (2010). *A successful Git branching model*. [https://nvie.com/posts/a-successful-git-branching-model/](https://nvie.com/posts/a-successful-git-branching-model/)
+* Evans, E. (2003). *Domain-driven design: Tackling complexity in the heart of software*. Addison-Wesley.
+* Gothelf, J., & Seiden, J. (2021). *Lean UX: Creating great products with agile teams* (3.ª ed.). O'Reilly Media.
+* Hofer, S., & Schwentner, H. (2021). *Domain storytelling: A collaborative, visual, and agile way to build domain-driven software*. Addison-Wesley.
+* Preston-Werner, T. (s. f.). *Semantic Versioning 2.0.0*. Recuperado el 8 de octubre de 2026, de [https://semver.org/](https://semver.org/)
+* Schwaber, K., & Sutherland, J. (2020). *The Scrum guide*. [https://scrumguides.org/scrum-guide.html](https://scrumguides.org/scrum-guide.html)
+* Vernon, V. (2013). *Implementing domain-driven design*. Addison-Wesley.
+* World Wide Web Consortium. (2023). *Web Content Accessibility Guidelines (WCAG) 2.2*. [https://www.w3.org/TR/WCAG22/](https://www.w3.org/TR/WCAG22/)
+
+**Lenguajes, frameworks y herramientas**
+
+* Android Developers. (s. f.). *Jetpack Compose*. Recuperado el 8 de octubre de 2026, de [https://developer.android.com/compose](https://developer.android.com/compose)
+* Android Developers. (s. f.). *Google Play's billing system*. Recuperado el 8 de octubre de 2026, de [https://developer.android.com/google/play/billing](https://developer.android.com/google/play/billing)
+* Cloudinary. (s. f.). *Cloudinary documentation*. Recuperado el 8 de octubre de 2026, de [https://cloudinary.com/documentation](https://cloudinary.com/documentation)
+* Docker. (s. f.). *Docker docs*. Recuperado el 8 de octubre de 2026, de [https://docs.docker.com/](https://docs.docker.com/)
+* Firebase. (s. f.). *Firebase App Distribution*. Recuperado el 8 de octubre de 2026, de [https://firebase.google.com/docs/app-distribution](https://firebase.google.com/docs/app-distribution)
+* Flutter. (s. f.). *Flutter documentation*. Recuperado el 8 de octubre de 2026, de [https://docs.flutter.dev/](https://docs.flutter.dev/)
+* Google. (s. f.). *Material Design 3*. Recuperado el 8 de octubre de 2026, de [https://m3.material.io/](https://m3.material.io/)
+* Google AI for Developers. (s. f.). *Gemini API documentation*. Recuperado el 8 de octubre de 2026, de [https://ai.google.dev/gemini-api/docs](https://ai.google.dev/gemini-api/docs)
+* Google for Developers. (s. f.). *Text recognition v2 | ML Kit*. Recuperado el 8 de octubre de 2026, de [https://developers.google.com/ml-kit/vision/text-recognition/v2](https://developers.google.com/ml-kit/vision/text-recognition/v2)
+* Microsoft. (s. f.). *ASP.NET Core documentation*. Recuperado el 8 de octubre de 2026, de [https://learn.microsoft.com/aspnet/core/](https://learn.microsoft.com/aspnet/core/)
+* Microsoft. (s. f.). *Entity Framework Core documentation*. Recuperado el 8 de octubre de 2026, de [https://learn.microsoft.com/ef/core/](https://learn.microsoft.com/ef/core/)
+* OpenAPI Initiative. (s. f.). *OpenAPI Specification*. Recuperado el 8 de octubre de 2026, de [https://spec.openapis.org/oas/latest.html](https://spec.openapis.org/oas/latest.html)
+* PostgreSQL Global Development Group. (s. f.). *PostgreSQL documentation*. Recuperado el 8 de octubre de 2026, de [https://www.postgresql.org/docs/](https://www.postgresql.org/docs/)
+* Reqnroll. (s. f.). *Reqnroll documentation*. Recuperado el 8 de octubre de 2026, de [https://docs.reqnroll.net/](https://docs.reqnroll.net/)
+* Render. (s. f.). *Render docs*. Recuperado el 8 de octubre de 2026, de [https://render.com/docs](https://render.com/docs)
+* xUnit.net. (s. f.). *xUnit.net documentation*. Recuperado el 8 de octubre de 2026, de [https://xunit.net/](https://xunit.net/)
+
 # Anexos
 
 * **Wireframes (Figma):** [https://www.figma.com/design/l6Z6APfbLoci4YMSaZkILK/Wireframes-camino-feliz?node-id=121-1250&t=91cAQ4Kz2gcFrsPc-1](https://www.figma.com/design/l6Z6APfbLoci4YMSaZkILK/Wireframes-camino-feliz?node-id=121-1250&t=91cAQ4Kz2gcFrsPc-1)
