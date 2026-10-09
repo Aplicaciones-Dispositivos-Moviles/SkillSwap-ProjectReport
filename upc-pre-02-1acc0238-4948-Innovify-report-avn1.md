@@ -5120,20 +5120,21 @@ El equipo utiliza **GitHub** como plataforma y sistema de control de versiones, 
 |---|---|
 | Web Services (backend Java / Spring Boot, incluye proyecto y pruebas unitarias y de integración) | [`SkillSwap-WebServices-Java`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices-Java) |
 | Landing Page | [`SkillSwap-LandingPage`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage) |
+| Aplicación móvil Android nativa (Kotlin) | [`SkillSwap-MobileApp`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp) |
+| Aplicación móvil cross-platform (Flutter) | [`SkillSwap-MobileApp-Flutter`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter) |
 | Informe del proyecto | [`SkillSwap-ProjectReport`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport) |
 
 El backend se construyó primero en C# / ASP.NET Core, en el repositorio [`SkillSwap-WebServices`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices); cuando el curso estableció Java con Spring Boot como tecnología obligatoria para los Web Services, el equipo lo migró a `SkillSwap-WebServices-Java`, conservando el mismo esquema de base de datos, los mismos endpoints y las mismas reglas de negocio. Desde esa migración, `SkillSwap-WebServices-Java` es el único repositorio vigente del backend y el anterior se conserva solo como historial.
 
-En el Sprint 1, el trabajo sobre la aplicación móvil consistió en el diseño de las pantallas core en Figma (ver 4.2.1.3, tarea T13), por lo que la tabla no incluye un repositorio de la aplicación móvil.
+En el Sprint 1, el trabajo sobre la aplicación móvil consistió en el diseño de las pantallas core en Figma (ver 4.2.1.3, tareas T20 y T21); los repositorios `SkillSwap-MobileApp` y `SkillSwap-MobileApp-Flutter` contienen únicamente su `README.md`.
 
 **Flujo de trabajo (GitFlow):**
-- `main`: rama de producción, desplegada en Render. Solo recibe merges desde `release/*` y `hotfix/*`, y cada merge lleva un tag de versión semántica (ej. `v0.1.0`).
-- `develop`: rama de integración, donde se mergean las ramas `feature/*` mediante Pull Request.
+- `main`: rama estable. En el Landing Page es la rama que publica GitHub Pages.
+- `develop`: rama de integración, donde se mergean las ramas `feature/*` mediante Pull Request. En el backend es la rama que despliega Render.
 - `feature/<bounded-context>`: una rama por Bounded Context (ej. `feature/iam-identity-access`, `feature/credential-verification`, `feature/learning-path-engine`, `feature/assessment-peer-review`, `feature/reputation`, `feature/recognition-incentives`). Los cambios transversales usan los prefijos `refactor/` y `chore/` (ej. `refactor/remove-coordinator-role`, `chore/deploy-render`, `chore/swagger`).
-- `release/x.y.z`: se crea desde `develop` al cerrar cada entrega; solo admite correcciones menores y se mergea a `main` y de vuelta a `develop`.
-- `hotfix/x.y.z`: se crea desde `main` para corregir errores críticos en producción; se mergea a `main` y a `develop`, y genera una nueva versión de parche.
+- `release/x.y.z` y `hotfix/x.y.z`: ramas que define GitFlow para preparar una entrega y para corregir errores críticos; se crean desde `develop` y `main`, respectivamente, y se mergean a ambas.
 
-**Versionado:** el equipo aplica *Semantic Versioning 2.0.0* (`MAJOR.MINOR.PATCH`). Las entregas previas al lanzamiento final usan versiones `0.y.z` (ej. TB1 = `v0.1.0`).
+**Versionado:** el equipo adopta *Semantic Versioning 2.0.0* (`MAJOR.MINOR.PATCH`) como convención de versionado.
 
 **Convenciones de commits:** Conventional Commits (`tipo(alcance): descripción`), con el Bounded Context y la capa como alcance (ej. `iam-domain`, `credential-infrastructure`, `learning-path-interfaces`, `assessment-application`, `reputation`, `recognition-incentives`, `shared`, `deploy`, `docs`). Tipos usados: `feat`, `refactor`, `test` y `chore`. El equipo sigue la convención de **un commit por capa** (Domain, Application, Infrastructure, Interface) dentro de cada Bounded Context, de modo que el historial de commits evidencie el proceso de construcción capa por capa; las pruebas automatizadas de cada capa se incluyen en el mismo commit que la capa que validan, y el tipo `test` se reserva para commits que solo agregan pruebas.
 
@@ -5162,12 +5163,12 @@ Todo el código —clases, métodos, variables, paquetes, tablas y nombres de la
 El despliegue abarca los tres productos digitales de la solución:
 
 - **Web Services:** contenedor **Docker** en **Render** (plan gratuito), junto con una base de datos **PostgreSQL 16** también administrada por Render (plan gratuito), en la misma región.
-- **Landing Page:** sitio estático (HTML5/CSS3/JavaScript) publicado con **GitHub Pages** desde el repositorio `SkillSwap-LandingPage`.
-- **Aplicación móvil:** aplicación Android nativa (Kotlin) distribuida como APK; consume el backend desplegado en Render. En el Sprint 1 se entregan sus pantallas core como prototipo en Figma.
+- **Landing Page:** sitio estático (HTML5/CSS3/JavaScript) publicado con **GitHub Pages** desde la rama `main` del repositorio `SkillSwap-LandingPage`.
+- **Aplicación móvil:** en el Sprint 1 se entregan sus pantallas core como prototipo en Figma; los repositorios `SkillSwap-MobileApp` y `SkillSwap-MobileApp-Flutter` contienen únicamente su `README.md`.
 
 **Dockerfile del backend:** build multi-etapa. La etapa de compilación parte de la imagen `maven:3.9-eclipse-temurin-21` y ejecuta `mvn -B -q -DskipTests package`, que genera un único JAR ejecutable de Spring Boot (`skillswap-platform-*.jar`); las pruebas no se ejecutan dentro de la imagen porque requieren Docker (Testcontainers) y se corren localmente antes de cada push. La etapa de ejecución usa la imagen `eclipse-temurin:21-jre`, que solo contiene el JRE y ese JAR, y ejecuta la aplicación con un usuario sin privilegios (`skillswap`). La variable `JAVA_TOOL_OPTIONS` limita la memoria de la JVM al 75 % de la disponible y reinicia el proceso ante un `OutOfMemoryError`, pensando en las instancias de 512 MB del plan gratuito. La aplicación escucha en el puerto de la variable de entorno `PORT` que asigna Render (`server.port=${PORT:8080}`, por defecto `8080`). El archivo `.dockerignore` excluye `target/`, `.git/`, `.idea/`, `.vscode/`, `docs/`, los archivos `.env` / `.env.*` y los logs.
 
-**Rama de despliegue:** `develop` durante el ciclo de pruebas; al cerrar cada entrega se promueve a `main` mediante `release/x.y.z` con su tag de versión semántica correspondiente, y Render se reconfigura para desplegar desde `main`.
+**Rama de despliegue:** Render construye la imagen Docker desde la rama `develop` del repositorio `SkillSwap-WebServices-Java`, y cada despliegue se lanza manualmente desde el panel de Render.
 
 **Variables de entorno del backend** (solo nombres; los valores no se exponen en el informe ni en el repositorio; en producción se definen en Render):
 
@@ -5206,7 +5207,7 @@ El despliegue abarca los tres productos digitales de la solución:
 
 **Observabilidad y disponibilidad:** el endpoint `GET /health` (anónimo, sin acceso a la base de datos) se usa tanto para el health check de Render como para un ping de mantenimiento cada 10 minutos, dado que el plan gratuito de Render suspende el servicio tras 15 minutos sin tráfico. Swagger UI permanece activo también en producción (`/swagger-ui/index.html`, con el documento OpenAPI en `/v3/api-docs`), y tanto la raíz (`/`) como `/swagger` redirigen automáticamente a la documentación.
 
-**Limitación conocida:** la base de datos PostgreSQL gratuita de Render expira 30 días después de creada, con 14 días de gracia, por lo que deberá recrearse antes de AV2/TB2.
+**Limitación conocida:** la base de datos PostgreSQL gratuita de Render expira 30 días después de creada, con 14 días de gracia.
 
 **Figura 122**
 
@@ -5249,19 +5250,19 @@ El Sprint 1 corresponde a la primera iteración de desarrollo del proyecto, enfo
 
 *Nota.* Elaboración propia.
 
-**Figura 123** *Reunión de Sprint Planning 1*
+**Figura 123**
 
-
+*Reunión de Sprint Planning 1*
 
 <p align="center">
   <img src="images-doc/sprint-planning-1-meeting.png" alt="Reunión de Sprint Planning 1" width="900">
 </p>
 
-*Nota.* Reunión de Sprint Planning 1 realizada por videollamada (Google Meet / Discord) el 2026-10-04, con la participación de los cinco integrantes del equipo.
+*Nota.* Reunión de Sprint Planning 1 realizada por Google Meet. Elaboración propia.
 
 #### 4.2.1.2. Aspect Leaders and Collaborators
 
-El equipo organizó el Sprint 1 en tres frentes: el backend, dividido por Bounded Context junto con su despliegue en Render; la Landing Page; y el diseño UX/UI de la aplicación móvil. Cada aspecto tiene un Líder responsable y, cuando corresponde, colaboradores. La matriz es coherente con la asignación de tasks del Sprint Backlog (4.2.1.3): la base del backend en seis Bounded Contexts y su despliegue (T01–T11 y T14) están a cargo de Alberca Saavedra, Víctor Manuel; Subscription & Billing, Moderation & Disputes, las migraciones con Flyway y las funcionalidades que se agregaron sobre los demás Bounded Contexts (T15–T35) están a cargo de Sulca Sánchez, Piero Angel; la Landing Page (T12) a cargo de su líder, y el diseño de la aplicación móvil (T13) a cargo del suyo.
+El equipo organizó el Sprint 1 en tres frentes: el backend, dividido por Bounded Context junto con su despliegue en Render; la Landing Page; y el diseño UX/UI de la aplicación móvil. Cada aspecto tiene un Líder responsable y, cuando corresponde, colaboradores. La matriz es coherente con la asignación de tasks del Sprint Backlog (4.2.1.3): la base del backend en seis Bounded Contexts y su despliegue (T01–T17 y T22) están a cargo de Alberca Saavedra, Víctor Manuel; Subscription & Billing, Moderation & Disputes, las migraciones con Flyway y las funcionalidades que se agregaron sobre los demás Bounded Contexts (T23–T43) están a cargo de Sulca Sánchez, Piero Angel; la implementación del Landing Page se repartió entre ambos (T18 y T19), y el diseño de la aplicación móvil en Figma (T20 y T21) estuvo a cargo de Becerra Ninahuanca, Luis Angel.
 
 **Tabla 17**
 
@@ -5270,8 +5271,8 @@ El equipo organizó el Sprint 1 en tres frentes: el backend, dividido por Bounde
 | Team Member (Last Name, First Name) | GitHub Username | Identity & Access | Credential Verification | Learning Path Engine | Assessment & Peer Review | Reputation | Recognition & Incentives | Subscription & Billing | Moderation & Disputes | Despliegue (Render) | Landing Page UI | Mobile App UX/UI |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Alberca Saavedra, Víctor Manuel | Agnizzz | L | L | L | L | L | L | | | L | C | C |
-| Becerra Ninahuanca, Luis Angel | blafyy | | | | | | | | | | L | C |
-| Lopez Montalvo, Kevin Edu | lopescamos | | | | | | | | | | C | L |
+| Becerra Ninahuanca, Luis Angel | blafyy | | | | | | | | | | L | L |
+| Lopez Montalvo, Kevin Edu | lopescamos | | | | | | | | | | C | C |
 | Komatsu Dueñas, David | dakoduz | | | | | | | | | | C | C |
 | Sulca Sánchez, Piero Angel | psulca | C | C | C | C | C | C | L | L | C | C | C |
 
@@ -5279,7 +5280,7 @@ El equipo organizó el Sprint 1 en tres frentes: el backend, dividido por Bounde
 
 #### 4.2.1.3. Sprint Backlog 1
 
-El objetivo del Sprint 1 es entregar el backend funcional de los seis Bounded Contexts priorizados, desplegado y documentado con OpenAPI, junto con la Landing Page y el diseño de las pantallas core de la aplicación móvil. El tablero del Sprint se gestionó en Trello con las columnas To-Do / In-Process / To-Review / Done.
+El objetivo del Sprint 1 es entregar el backend funcional de los ocho Bounded Contexts, desplegado y documentado con OpenAPI, junto con la Landing Page y el diseño de las pantallas core de la aplicación móvil. El tablero del Sprint se gestionó en Trello con las columnas To-Do / In-Process / To-Review / Done.
 
 **Figura 124**
 
@@ -5294,53 +5295,61 @@ El objetivo del Sprint 1 es entregar el backend funcional de los seis Bounded Co
 
 *Sprint Backlog 1*
 
-| Sprint # | Sprint 1 | | | | | | | |
-|---|---|---|---|---|---|---|---|---|
-| **User Story** | | **Work-Item / Task** | | | | | | |
+| Sprint # | Sprint 1 | | | | | | |
+|---|---|---|---|---|---|---|---|
+| **User Story** | | **Work-Item / Task** | | | | | |
 | Id | Title | Id | Title | Description | Estimation (Hours) | Assigned To | Status |
 | TS01 | Endpoint de registro de usuarios | T01 | Domain Layer de Identity & Access | Agregado `User`, Value Objects (`Username`, `Email`, `PasswordHash`, `DeviceToken`) y servicios de dominio (`PasswordHasher`, `EmailDomainValidator`) | 8 | Alberca Saavedra, Víctor Manuel | Done |
 | TS01 / TS02 | Endpoint de registro / autenticación JWT | T02 | Application + Interface Layer de autenticación | `UserCommandServiceImpl` (sign-up / sign-in), `AuthenticationController`, `JwtTokenGenerator`, `BCryptPasswordHasher`, `SecurityConfig` con `JwtAuthenticationFilter` | 8 | Alberca Saavedra, Víctor Manuel | Done |
-| TS03 | Endpoint de registro de certificados | T03 | Domain Layer de Credential Verification | Agregado `Certificate`, `RiskAssessment`, `CertificateRiskScorer` | 10 | Alberca Saavedra, Víctor Manuel | Done |
-| TS03 / TS04 | Endpoints de certificados | T04 | Application + Infrastructure Layer de Credential Verification | `CertificateCommandServiceImpl`, persistencia JPA y `CloudinaryStorageService` (almacenamiento privado, URL firmada) | 10 | Alberca Saavedra, Víctor Manuel | Done |
-| TS05 | Endpoints de generación y consulta de rutas | T05 | Domain Layer de Learning Path Engine | Agregados `LearningPath`, `PathNode`; catálogo de 55 habilidades (`skill-catalog.json`), puerto `SkillTaxonomyMatcher` con el adaptador `KeywordSkillTaxonomyMatcher` | 12 | Alberca Saavedra, Víctor Manuel | Done |
-| TS06 | Endpoint de generación de evaluaciones | T06 | Integración con Gemini API | `AssessmentBlueprint`, `GeminiQuestionGenerator` con modelo principal y cadena de respaldo | 9 | Alberca Saavedra, Víctor Manuel | Done |
-| TS07 / TS08 | Endpoints de intentos y casos de verificación | T07 | Domain Layer de Assessment & Peer Review | Agregados `AssessmentAttempt`, `VerificationCase`, `VerifierProfile` y servicio de dominio `VerifierMatcher` | 14 | Alberca Saavedra, Víctor Manuel | Done |
-| TS07 / TS08 | Endpoints de intentos y casos de verificación | T08 | Application + Interface Layer de Assessment & Peer Review | Controllers, Command/Query Services, `CaseAssignmentService` (servicio interno de la Application Layer), eventos `AssessmentAttemptPassed` / `VerificationCaseResolved` | 10 | Alberca Saavedra, Víctor Manuel | Done |
-| TS11 | Endpoints de consulta de reputación | T09 | Domain + Application Layer de Reputation | Agregados `VerifierReliability`, `StudentEmployabilityScore`; event handlers de Assessment & Peer Review | 8 | Alberca Saavedra, Víctor Manuel | Done |
-| TS09 | Endpoints de billetera y canje | T10 | Domain + Application Layer de Recognition & Incentives | Agregados `Wallet`, `CreditTransaction`; event handlers de Identity & Access y Assessment & Peer Review | 8 | Alberca Saavedra, Víctor Manuel | Done |
-| TS12 | Despliegue del backend en producción | T11 | Dockerfile + configuración de Render | Build multi-etapa (Maven + JRE 21), variables de entorno, validación del esquema al arrancar, `GET /health` y Swagger UI público | 6 | Alberca Saavedra, Víctor Manuel | Done |
-| US41–US45 | Landing Page | T12 | Wireframe + Mock-up + implementación de la Landing Page | HTML5/CSS3/JS, desplegado en GitHub Pages | 10 | Becerra Ninahuanca, Luis Angel | Done |
-| — | Pantallas core de la app móvil | T13 | Wireframes + Mock-ups + prototipo navegable en Figma | Pantallas de registro, ruta de aprendizaje, quiz y casos de verificación | 12 | Lopez Montalvo, Kevin Edu | In-Process |
-| US27 | Apelación de la decisión del Verificador | T14 | Apelación de casos de verificación | `AppealVerificationCaseCommand` y `VerificationCase.appeal()` (una sola apelación por caso), reasignación a otro Verificador habilitado mediante `CaseAssignmentService` y endpoint `POST /api/v1/verification-cases/{id}/appeal` | 6 | Alberca Saavedra, Víctor Manuel | Done |
-| TS12 | Despliegue del backend en producción | T15 | Migraciones versionadas con Flyway | `spring-boot-starter-flyway`, `V1__baseline_schema.sql` registrado como baseline sobre la base existente (`baseline-on-migrate`) y pruebas de integración con el esquema que crea Flyway | 5 | Sulca Sánchez, Piero Angel | Done |
-| US30 / US32 | Acreditación y canje de SkillCredits | T16 | Tipo de caso y economía de SkillCredits | `CaseType` (`Quiz` / `MiniProject`) en `VerificationCase`, 40 y 25 SkillCredits por caso resuelto, precios de canje de 200 y 120 SkillCredits y migración V2 | 6 | Sulca Sánchez, Piero Angel | Done |
-| US05 | Suscripción al plan mensual | T17 | Domain Layer de Subscription & Billing | Agregado `Subscription`, Value Objects `SubscriptionPlan`, `Money` y `PlanLimits`, eventos `SubscriptionActivated` / `SubscriptionExpired` y migración V3 | 8 | Sulca Sánchez, Piero Angel | Done |
-| US05 | Suscripción al plan mensual | T18 | Integración con RevenueCat | Puerto `PaymentGateway` con `RevenueCatGatewayAdapter` y `SimulatedPaymentGatewayAdapter`, `SubscriptionsController` (`POST /api/v1/subscriptions`, `GET /{studentId}`, `PATCH /{id}/cancel`) | 8 | Sulca Sánchez, Piero Angel | Done |
-| US05 | Suscripción al plan mensual | T19 | Webhook de RevenueCat y vencimiento de suscripciones | `RevenueCatWebhookController` idempotente (`processed_webhook_events`), `SubscriptionExpirationScheduler` y `SubscriptionContextFacade` con los límites del plan | 6 | Sulca Sánchez, Piero Angel | Done |
-| US05 | Suscripción al plan mensual | T20 | Límites del plan en las rutas | `PathStatus.PAUSED`, pausa y reanudación de rutas, `409 PlanLimitReached`, bloqueo `pg_advisory_xact_lock` por estudiante, `EnforcePlanLimitsEventHandler` y migración V4 | 8 | Sulca Sánchez, Piero Angel | Done |
-| US05 | Suscripción al plan mensual | T21 | Cupo de escalamientos y plazo de revisión por plan | Cupo mensual de 3 o 10 escalamientos, `planLimitReached` en la respuesta del intento y `review_due_at` según el plan (migración V5) | 6 | Sulca Sánchez, Piero Angel | Done |
-| US01 / US02 | Registro e inicio de sesión | T22 | Verificación del correo institucional | `EmailVerificationCommandService`, token de un solo uso guardado como SHA-256, `POST`/`GET /api/v1/authentication/verify-email`, `POST /resend-verification`, `403 EmailNotVerified` y migración V6 | 8 | Sulca Sánchez, Piero Angel | Done |
-| US01 | Registro con correo institucional | T23 | Envío de correos con Brevo | Puerto `EmailSender`, `BrevoEmailSenderAdapter`, `LoggingEmailSenderAdapter` y `VerificationEmailComposer` | 5 | Sulca Sánchez, Piero Angel | Done |
-| US16 | Consulta del estado de verificación | T24 | Notificaciones push con Firebase Cloud Messaging | Puerto `PushNotificationSender`, `FirebasePushNotificationAdapter`, `PUT`/`DELETE /api/v1/users/me/device-token`, `UserNotificationsContextFacade` y `NotifyCertificateResolutionEventHandler` | 8 | Sulca Sánchez, Piero Angel | Done |
-| US04 | Configuración del perfil de intereses | T25 | Perfil de intereses con vector de habilidades | `PUT /api/v1/users/{id}/interests`, cálculo del vector con `SkillCatalogContextFacade` y migración V7 | 5 | Sulca Sánchez, Piero Angel | Done |
-| US06 / TS05 | Declaración de la meta en lenguaje natural | T26 | Interpretación de la meta con Gemini | `GeminiSkillTaxonomyMatcher` con respaldo en `KeywordSkillTaxonomyMatcher` y `GeminiClient` compartido con el generador de preguntas | 8 | Sulca Sánchez, Piero Angel | Done |
-| US09 | Reconocimiento de habilidades ya certificadas | T27 | Certificados validados en la ruta | Evento `CertificateVerified`, `RecognizeValidatedCertificateEventHandler`, `completedByCertificate` y migración V8 | 6 | Sulca Sánchez, Piero Angel | Done |
-| US15 | Correspondencia del certificado con la habilidad | T28 | Vinculación del certificado a un nodo | `POST /api/v1/path-nodes/{nodeId}/certificate`, puerto `CertificateSkillAffinityScorer` con umbral 0,7 y `422 CertificateSkillMismatch` con los nodos sugeridos | 6 | Sulca Sánchez, Piero Angel | Done |
-| US17 | Generación del quiz de un nodo | T29 | Nuevo intento sin preguntas repetidas | Preguntas anteriores del nodo como exclusiones en `GeminiQuestionGenerator` y reemplazo de las repetidas | 4 | Sulca Sánchez, Piero Angel | Done |
-| US13 / US14 | Detección de certificados sospechosos | T30 | Titular distinto y archivo de otro estudiante | `HolderNameMatcher`, `users.full_name` y `PATCH /api/v1/users/{id}/full-name`, `certificates.holder_name_mismatch` y evento `CertificateFlaggedSuspicious` | 6 | Sulca Sánchez, Piero Angel | Done |
-| TS10 / US34 | Endpoints de gestión de disputas | T31 | Domain + Application Layer de Moderation & Disputes | Agregado `Dispute`, `DisputeReviewerSelector`, `DisputeResolutionValidator`, `EscalateCertificateReviewEventHandler`, `PendingDisputeAssignmentScheduler` y migración V9 | 8 | Sulca Sánchez, Piero Angel | Done |
-| TS10 / US34 / US35 | Consulta y resolución de disputas | T32 | Interface Layer de Moderation & Disputes | `DisputesController` (`GET /api/v1/disputes`, `GET /{id}/evidence`, `PATCH /{id}/resolve`) y resolución del certificado mediante `CredentialContextFacade` | 6 | Sulca Sánchez, Piero Angel | Done |
-| US05 | Suscripción al plan mensual | T33 | Ruta avanzada canjeada con SkillCredits | Agregado `AdvancedPathUnlock`, evento `AdvancedPathUnlockRedeemed`, `credit_transactions.redemption_item`, `"advanced": true` en `POST /api/v1/learning-paths` y `GET /api/v1/advanced-path-unlocks` | 8 | Sulca Sánchez, Piero Angel | Done |
-| US39 | Definición del plazo de actividad de los Verificadores | T34 | Plazo de revisión definido por el Verificador senior | Agregado `ReviewDeadlinePolicy`, `ReviewDeadlinePoliciesController` (`GET`/`PUT /api/v1/review-deadline-policies`), `SeniorVerifierPolicy` y migración V10 | 6 | Sulca Sánchez, Piero Angel | Done |
-| US39 | Definición del plazo de actividad de los Verificadores | T35 | Reasignación de casos vencidos | `OverdueCaseReassignmentScheduler`, evento `VerificationCaseDeadlineMissed` y descuento de 5 puntos de confiabilidad (`missed_deadlines_count`) | 6 | Sulca Sánchez, Piero Angel | Done |
+| TS03 | Endpoint de registro de certificados | T03 | Agregado `Certificate` de Credential Verification | Agregado `Certificate`, enumeración `VerificationStatus` y transiciones de estado del certificado | 5 | Alberca Saavedra, Víctor Manuel | Done |
+| TS03 | Endpoint de registro de certificados | T04 | Evaluación de riesgo del certificado | Value Object `RiskAssessment`, enumeración `RiskLevel` y servicio de dominio `CertificateRiskScorer` | 5 | Alberca Saavedra, Víctor Manuel | Done |
+| TS03 / TS04 | Endpoints de certificados | T05 | Application Layer de Credential Verification | `CertificateCommandServiceImpl`, `CertificateQueryService` y `CredentialContextFacade` para los demás Bounded Contexts | 5 | Alberca Saavedra, Víctor Manuel | Done |
+| TS03 / TS04 | Endpoints de certificados | T06 | Infrastructure Layer de Credential Verification | Persistencia JPA y `CloudinaryStorageService` (almacenamiento privado, URL firmada) | 5 | Alberca Saavedra, Víctor Manuel | Done |
+| TS05 | Endpoints de generación y consulta de rutas | T07 | Domain Layer de Learning Path Engine | Agregado `LearningPath`, entidad `PathNode` y servicios de dominio `LearningPathBuilder` y `SkillGapAnalyzer` | 6 | Alberca Saavedra, Víctor Manuel | Done |
+| TS05 | Endpoints de generación y consulta de rutas | T08 | Taxonomía de habilidades | Catálogo de 55 habilidades (`skill-catalog.json`), puerto `SkillTaxonomyMatcher` y adaptador `KeywordSkillTaxonomyMatcher` | 6 | Alberca Saavedra, Víctor Manuel | Done |
+| TS06 | Endpoint de generación de evaluaciones | T09 | Agregado `AssessmentBlueprint` | Agregado `AssessmentBlueprint` y endpoint `POST /api/v1/path-nodes/{nodeId}/assessment-blueprint` | 4 | Alberca Saavedra, Víctor Manuel | Done |
+| TS06 | Endpoint de generación de evaluaciones | T10 | Integración con Gemini API | `GeminiQuestionGenerator` con modelo principal y cadena de modelos de respaldo | 5 | Alberca Saavedra, Víctor Manuel | Done |
+| TS07 / TS08 | Endpoints de intentos y casos de verificación | T11 | Agregados de intentos y casos de verificación | Agregados `AssessmentAttempt` y `VerificationCase` con sus transiciones de estado | 7 | Alberca Saavedra, Víctor Manuel | Done |
+| TS07 / TS08 | Endpoints de intentos y casos de verificación | T12 | Perfil del Verificador y asignación | Agregado `VerifierProfile` y servicio de dominio `VerifierMatcher` | 7 | Alberca Saavedra, Víctor Manuel | Done |
+| TS07 / TS08 | Endpoints de intentos y casos de verificación | T13 | Application Layer de Assessment & Peer Review | Command/Query Services, `CaseAssignmentService` (servicio interno de la Application Layer) y eventos `AssessmentAttemptPassed` / `VerificationCaseResolved` | 5 | Alberca Saavedra, Víctor Manuel | Done |
+| TS07 / TS08 | Endpoints de intentos y casos de verificación | T14 | Interface Layer de Assessment & Peer Review | `AssessmentAttemptsController`, `VerificationCasesController` y `VerifierProfilesController`, con sus resources y assemblers | 5 | Alberca Saavedra, Víctor Manuel | Done |
+| TS11 | Endpoints de consulta de reputación | T15 | Domain + Application Layer de Reputation | Agregados `VerifierReliability`, `StudentEmployabilityScore`; event handlers de Assessment & Peer Review | 8 | Alberca Saavedra, Víctor Manuel | Done |
+| TS09 | Endpoints de billetera y canje | T16 | Domain + Application Layer de Recognition & Incentives | Agregados `Wallet`, `CreditTransaction`; event handlers de Identity & Access y Assessment & Peer Review | 8 | Alberca Saavedra, Víctor Manuel | Done |
+| TS12 | Despliegue del backend en producción | T17 | Dockerfile + configuración de Render | Build multi-etapa (Maven + JRE 21), variables de entorno, validación del esquema al arrancar, `GET /health` y Swagger UI público | 6 | Alberca Saavedra, Víctor Manuel | Done |
+| US41 / US42 / US45 | Landing Page | T18 | Implementación del Landing Page | HTML5/CSS3/JS, imágenes y diseño responsive, publicado en GitHub Pages desde `main` (PR #1 a #6 de `SkillSwap-LandingPage`) | 5 | Alberca Saavedra, Víctor Manuel | Done |
+| US43 / US44 | Consulta de planes y precios / Descarga de la aplicación | T19 | Sección de planes y llamado a descargar la app | Sección de precios del modelo freemium, CTA "Descarga la app" y flujo "¿Cómo funciona?" (PR #7 y #8 de `SkillSwap-LandingPage`) | 5 | Sulca Sánchez, Piero Angel | Done |
+| — | Pantallas core de la app móvil | T20 | Wireframes y mock-ups de la app móvil | Wireframes y mock-ups en Figma de las pantallas de registro, ruta de aprendizaje, quiz y casos de verificación | 6 | Becerra Ninahuanca, Luis Angel | Done |
+| — | Pantallas core de la app móvil | T21 | Prototipo navegable de la app móvil | Prototipo navegable en Figma con los flujos del Estudiante y del Verificador | 6 | Becerra Ninahuanca, Luis Angel | Done |
+| US27 | Apelación de la decisión del Verificador | T22 | Apelación de casos de verificación | `AppealVerificationCaseCommand` y `VerificationCase.appeal()` (una sola apelación por caso), reasignación a otro Verificador habilitado mediante `CaseAssignmentService` y endpoint `POST /api/v1/verification-cases/{id}/appeal` | 6 | Alberca Saavedra, Víctor Manuel | Done |
+| TS12 | Despliegue del backend en producción | T23 | Migraciones versionadas con Flyway | `spring-boot-starter-flyway`, `V1__baseline_schema.sql` registrado como baseline sobre la base existente (`baseline-on-migrate`) y pruebas de integración con el esquema que crea Flyway | 5 | Sulca Sánchez, Piero Angel | Done |
+| US30 / US32 | Acreditación y canje de SkillCredits | T24 | Tipo de caso y economía de SkillCredits | `CaseType` (`Quiz` / `MiniProject`) en `VerificationCase`, 40 y 25 SkillCredits por caso resuelto, precios de canje de 200 y 120 SkillCredits y migración V2 | 6 | Sulca Sánchez, Piero Angel | Done |
+| US05 | Suscripción al plan mensual | T25 | Domain Layer de Subscription & Billing | Agregado `Subscription`, Value Objects `SubscriptionPlan`, `Money` y `PlanLimits`, eventos `SubscriptionActivated` / `SubscriptionExpired` y migración V3 | 8 | Sulca Sánchez, Piero Angel | Done |
+| US05 | Suscripción al plan mensual | T26 | Integración con RevenueCat | Puerto `PaymentGateway` con `RevenueCatGatewayAdapter` y `SimulatedPaymentGatewayAdapter`, `SubscriptionsController` (`POST /api/v1/subscriptions`, `GET /{studentId}`, `PATCH /{id}/cancel`) | 8 | Sulca Sánchez, Piero Angel | Done |
+| US05 | Suscripción al plan mensual | T27 | Webhook de RevenueCat y vencimiento de suscripciones | `RevenueCatWebhookController` idempotente (`processed_webhook_events`), `SubscriptionExpirationScheduler` y `SubscriptionContextFacade` con los límites del plan | 6 | Sulca Sánchez, Piero Angel | Done |
+| US05 | Suscripción al plan mensual | T28 | Límites del plan en las rutas | `PathStatus.PAUSED`, pausa y reanudación de rutas, `409 PlanLimitReached`, bloqueo `pg_advisory_xact_lock` por estudiante, `EnforcePlanLimitsEventHandler` y migración V4 | 8 | Sulca Sánchez, Piero Angel | Done |
+| US05 | Suscripción al plan mensual | T29 | Cupo de escalamientos y plazo de revisión por plan | Cupo mensual de 3 o 10 escalamientos, `planLimitReached` en la respuesta del intento y `review_due_at` según el plan (migración V5) | 6 | Sulca Sánchez, Piero Angel | Done |
+| US01 / US02 | Registro e inicio de sesión | T30 | Verificación del correo institucional | `EmailVerificationCommandService`, token de un solo uso guardado como SHA-256, `POST`/`GET /api/v1/authentication/verify-email`, `POST /resend-verification`, `403 EmailNotVerified` y migración V6 | 8 | Sulca Sánchez, Piero Angel | Done |
+| US01 | Registro con correo institucional | T31 | Envío de correos con Brevo | Puerto `EmailSender`, `BrevoEmailSenderAdapter`, `LoggingEmailSenderAdapter` y `VerificationEmailComposer` | 5 | Sulca Sánchez, Piero Angel | Done |
+| US16 | Consulta del estado de verificación | T32 | Notificaciones push con Firebase Cloud Messaging | Puerto `PushNotificationSender`, `FirebasePushNotificationAdapter`, `PUT`/`DELETE /api/v1/users/me/device-token`, `UserNotificationsContextFacade` y `NotifyCertificateResolutionEventHandler` | 8 | Sulca Sánchez, Piero Angel | Done |
+| US04 | Configuración del perfil de intereses | T33 | Perfil de intereses con vector de habilidades | `PUT /api/v1/users/{id}/interests`, cálculo del vector con `SkillCatalogContextFacade` y migración V7 | 5 | Sulca Sánchez, Piero Angel | Done |
+| US06 / TS05 | Declaración de la meta en lenguaje natural | T34 | Interpretación de la meta con Gemini | `GeminiSkillTaxonomyMatcher` con respaldo en `KeywordSkillTaxonomyMatcher` y `GeminiClient` compartido con el generador de preguntas | 8 | Sulca Sánchez, Piero Angel | Done |
+| US09 | Reconocimiento de habilidades ya certificadas | T35 | Certificados validados en la ruta | Evento `CertificateVerified`, `RecognizeValidatedCertificateEventHandler`, `completedByCertificate` y migración V8 | 6 | Sulca Sánchez, Piero Angel | Done |
+| US15 | Correspondencia del certificado con la habilidad | T36 | Vinculación del certificado a un nodo | `POST /api/v1/path-nodes/{nodeId}/certificate`, puerto `CertificateSkillAffinityScorer` con umbral 0,7 y `422 CertificateSkillMismatch` con los nodos sugeridos | 6 | Sulca Sánchez, Piero Angel | Done |
+| US17 | Generación del quiz de un nodo | T37 | Nuevo intento sin preguntas repetidas | Preguntas anteriores del nodo como exclusiones en `GeminiQuestionGenerator` y reemplazo de las repetidas | 4 | Sulca Sánchez, Piero Angel | Done |
+| US13 / US14 | Detección de certificados sospechosos | T38 | Titular distinto y archivo de otro estudiante | `HolderNameMatcher`, `users.full_name` y `PATCH /api/v1/users/{id}/full-name`, `certificates.holder_name_mismatch` y evento `CertificateFlaggedSuspicious` | 6 | Sulca Sánchez, Piero Angel | Done |
+| TS10 / US34 | Endpoints de gestión de disputas | T39 | Domain + Application Layer de Moderation & Disputes | Agregado `Dispute`, `DisputeReviewerSelector`, `DisputeResolutionValidator`, `EscalateCertificateReviewEventHandler`, `PendingDisputeAssignmentScheduler` y migración V9 | 8 | Sulca Sánchez, Piero Angel | Done |
+| TS10 / US34 / US35 | Consulta y resolución de disputas | T40 | Interface Layer de Moderation & Disputes | `DisputesController` (`GET /api/v1/disputes`, `GET /{id}/evidence`, `PATCH /{id}/resolve`) y resolución del certificado mediante `CredentialContextFacade` | 6 | Sulca Sánchez, Piero Angel | Done |
+| US05 | Suscripción al plan mensual | T41 | Ruta avanzada canjeada con SkillCredits | Agregado `AdvancedPathUnlock`, evento `AdvancedPathUnlockRedeemed`, `credit_transactions.redemption_item`, `"advanced": true` en `POST /api/v1/learning-paths` y `GET /api/v1/advanced-path-unlocks` | 8 | Sulca Sánchez, Piero Angel | Done |
+| US39 | Definición del plazo de actividad de los Verificadores | T42 | Plazo de revisión definido por el Verificador senior | Agregado `ReviewDeadlinePolicy`, `ReviewDeadlinePoliciesController` (`GET`/`PUT /api/v1/review-deadline-policies`), `SeniorVerifierPolicy` y migración V10 | 6 | Sulca Sánchez, Piero Angel | Done |
+| US39 | Definición del plazo de actividad de los Verificadores | T43 | Reasignación de casos vencidos | `OverdueCaseReassignmentScheduler`, evento `VerificationCaseDeadlineMissed` y descuento de 5 puntos de confiabilidad (`missed_deadlines_count`) | 6 | Sulca Sánchez, Piero Angel | Done |
 
 *Nota.* Elaboración propia.
 
-Las tareas T01 a T11 y T14 construyeron la base del backend en seis Bounded Contexts, integrada a `develop` mediante los PR #1 a #10 del repositorio `SkillSwap-WebServices-Java`. Sobre esa base, las tareas T15 a T21 corresponden a los PR #11 a #14, apilados uno sobre otro: las migraciones con Flyway (#11, `chore/flyway-migrations`), el tipo de caso y la economía de SkillCredits (#12, `feature/verification-case-type`), Subscription & Billing con RevenueCat (#13, `feature/subscription-billing`) y la aplicación de los límites del plan (#14, `feature/plan-limits-enforcement`). Las tareas T22 a T35 se desarrollaron en tres ramas creadas desde `feature/plan-limits-enforcement`: `feature/iam-email-verification-push` (verificación del correo con Brevo, notificaciones push con Firebase Cloud Messaging y perfil de intereses), `feature/learning-path-gemini-matcher` (interpretación de la meta con Gemini, certificados validados en la ruta, correspondencia del certificado con el nodo y nuevos intentos sin preguntas repetidas) y `feature/certificate-escalation-and-deadlines` (escalamiento de certificados sospechosos mediante Moderation & Disputes, ruta avanzada canjeada con SkillCredits y plazos de revisión por plan con reasignación de casos vencidos). Las tres ramas se integraron en `feature/sprint1-acceptance-scenarios`, donde el esquema queda definido por las migraciones V1 a V10 y la suite completa suma 1978 pruebas.
+Las tareas T01 a T17 y T22 construyeron la base del backend en seis Bounded Contexts, integrada a `develop` mediante los PR #1 a #10 del repositorio `SkillSwap-WebServices-Java`. Sobre esa base, las tareas T23 a T29 corresponden a los PR #11 a #14, apilados uno sobre otro: las migraciones con Flyway (#11, `chore/flyway-migrations`), el tipo de caso y la economía de SkillCredits (#12, `feature/verification-case-type`), Subscription & Billing con RevenueCat (#13, `feature/subscription-billing`) y la aplicación de los límites del plan (#14, `feature/plan-limits-enforcement`). Las tareas T30 a T43 se desarrollaron en tres ramas creadas desde `feature/plan-limits-enforcement`: `feature/iam-email-verification-push` (verificación del correo con Brevo, notificaciones push con Firebase Cloud Messaging y perfil de intereses), `feature/learning-path-gemini-matcher` (interpretación de la meta con Gemini, certificados validados en la ruta, correspondencia del certificado con el nodo y nuevos intentos sin preguntas repetidas) y `feature/certificate-escalation-and-deadlines` (escalamiento de certificados sospechosos mediante Moderation & Disputes, ruta avanzada canjeada con SkillCredits y plazos de revisión por plan con reasignación de casos vencidos). Las tres ramas se integraron en `feature/complete-acceptance-scenarios`, que llegó a `develop` mediante el PR #15; con ello el esquema queda definido por las migraciones V1 a V10 y la suite completa suma 1978 pruebas. Las tareas T18 y T19 corresponden a los PR #1 a #6 y #7 a #8 del repositorio `SkillSwap-LandingPage`, respectivamente.
 
 #### 4.2.1.4. Development Evidence for Sprint Review
 
-El equipo organizó el desarrollo del backend Java / Spring Boot en una rama `feature/<bounded-context>` por Bounded Context, más ramas `refactor/` y `chore/` para los cambios transversales, siguiendo Conventional Commits con un commit por capa (Domain, Application, Infrastructure, Interface). Cada rama se integró a `develop` mediante un Pull Request mergeado con la estrategia "Create a merge commit" (PR #1 a #10 del repositorio `SkillSwap-WebServices-Java`). Sobre esa base, los PR #11 a #14 se apilan uno sobre otro, y las ramas `feature/iam-email-verification-push`, `feature/learning-path-gemini-matcher` y `feature/certificate-escalation-and-deadlines` se integran en `feature/sprint1-acceptance-scenarios`. La tabla incluye todos los commits de desarrollo del Sprint 1; los merge commits se omiten.
+El equipo organizó el desarrollo del backend Java / Spring Boot en una rama `feature/<bounded-context>` por Bounded Context, más ramas `refactor/` y `chore/` para los cambios transversales, siguiendo Conventional Commits con un commit por capa (Domain, Application, Infrastructure, Interface). Cada rama se integró a `develop` mediante un Pull Request mergeado con la estrategia "Create a merge commit" (PR #1 a #10 del repositorio `SkillSwap-WebServices-Java`). Sobre esa base, los PR #11 a #14 se apilan uno sobre otro, y las ramas `feature/iam-email-verification-push`, `feature/learning-path-gemini-matcher` y `feature/certificate-escalation-and-deadlines` se integran en `feature/complete-acceptance-scenarios`, que llega a `develop` mediante el PR #15. La tabla incluye todos los commits de desarrollo del Sprint 1 y los merges de los PR #1 a #15; los commits que solo agregan pruebas se detallan en 4.2.1.5.
 
 **Tabla 19**
 
@@ -5355,36 +5364,51 @@ El equipo organizó el desarrollo del backend Java / Spring Boot en una rama `fe
 | SkillSwap-WebServices-Java | feature/iam-identity-access | `88de188` | feat(iam-application): implementa UserCommandService y UserQueryService con mensajes en inglés y es-419 | Servicios de comando y consulta de usuarios; mensajes de error en `messages.properties` y `messages_es_419.properties`. | 2026-10-07 |
 | SkillSwap-WebServices-Java | feature/iam-identity-access | `9237915` | feat(iam-infrastructure): agrega persistencia JPA, BCrypt, JWT, seguridad stateless y seeder del coordinador | Repositorio JPA y converters, `BCryptPasswordHasher`, `JwtTokenGenerator`, `SecurityConfig` stateless con `JwtAuthenticationFilter`. El seeder se retiró después en `52ec296` y `de8709b`. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/iam-identity-access | `b8c0c0a` | feat(iam-interfaces): agrega AuthenticationController, UsersController, resources y manejo de errores ProblemDetail | Endpoints de sign-up, sign-in y perfil, resources, assemblers y `RestExceptionHandler` con respuestas ProblemDetail. | 2026-10-08 |
+| SkillSwap-WebServices-Java | develop | `9d19a92` | Merge pull request #1 from Aplicaciones-Dispositivos-Moviles/feature/iam-identity-access | Integración de `feature/iam-identity-access` a `develop`. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/credential-verification | `ed0c022` | feat(credential-domain): agrega agregado Certificate, evaluación de riesgo y puertos de dominio | Agregado `Certificate`, `RiskAssessment`, `RiskLevel`, `VerificationStatus` y `CertificateRiskScorer`. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/credential-verification | `e140823` | feat(credential-application): implementa servicios de comando y consulta, facade y mensajes de verificación de certificados | `CertificateCommandService`, `CertificateQueryService` y `CredentialContextFacade` para los demás Bounded Contexts. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/credential-verification | `5a0bc00` | feat(credential-infrastructure): agrega persistencia JPA, conversores y almacenamiento en Cloudinary vía REST | Repositorio JPA, converters y `CloudinaryStorageService` (archivo privado y URL firmada). | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/credential-verification | `7501882` | feat(credential-interfaces): expone endpoints REST de certificados con carga multipart y manejo de errores | `CertificatesController` con carga `multipart/form-data` y respuestas 409, 413 y 415. | 2026-10-08 |
+| SkillSwap-WebServices-Java | develop | `5f7f25f` | Merge pull request #2 from Aplicaciones-Dispositivos-Moviles/feature/credential-verification | Integración de `feature/credential-verification` a `develop`. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/learning-path-engine | `dab0945` | feat(learning-path-domain): agrega agregados, value objects y servicios de dominio de la ruta de aprendizaje | Agregados `LearningPath` y `AssessmentBlueprint`, entidad `PathNode`, `CareerGoal`, `SkillGap`, `LearningPathBuilder` y `SkillGapAnalyzer`. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/learning-path-engine | `73f6dd3` | feat(learning-path-application): agrega servicios de comando y consulta, fachada ACL y mensajes de la ruta de aprendizaje | Servicios de rutas y blueprints, `LearningPathContextFacade` y puerto `SkillTaxonomyMatcher`. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/learning-path-engine | `db58943` | feat(learning-path-infrastructure): agrega persistencia JPA, catalogo de skills, matcher y generador Gemini | Persistencia JPA, `skill-catalog.json` (55 habilidades), `KeywordSkillTaxonomyMatcher` y `GeminiQuestionGenerator` con modelos de respaldo. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/learning-path-engine | `88acb17` | feat(learning-path-interfaces): agrega controllers REST, resources y tests de la API | `LearningPathsController`, `AssessmentBlueprintsController`, resources y assemblers. | 2026-10-08 |
+| SkillSwap-WebServices-Java | develop | `d42fc4b` | Merge pull request #3 from Aplicaciones-Dispositivos-Moviles/feature/learning-path-engine | Integración de `feature/learning-path-engine` a `develop`. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/assessment-peer-review | `d7902d6` | feat(assessment-application): agrega servicios de comando, consulta, asignación de casos y ACL | Servicios de intentos, casos y perfiles de Verificador; `CaseAssignmentService` y `VerifierProfileContextFacade`. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/assessment-peer-review | `5be2825` | feat(assessment-infrastructure): agrega persistencia JPA, converters y repositorios del BC | Persistencia JPA de `AssessmentAttempt`, `VerificationCase` y `VerifierProfile`. | 2026-10-08 |
 | SkillSwap-WebServices-Java | refactor/remove-coordinator-role | `52ec296` | refactor(learning-path): leer el learning path solo como dueño | La ruta solo la consulta su dueño; se eliminan las clases de semilla de la cuenta Coordinator. | 2026-10-08 |
 | SkillSwap-WebServices-Java | refactor/remove-coordinator-role | `501df84` | refactor(credential): acceso a certificados solo para el dueño | El listado y el detalle de certificados quedan restringidos a su dueño. | 2026-10-08 |
 | SkillSwap-WebServices-Java | refactor/remove-coordinator-role | `de8709b` | refactor(iam): eliminar el rol Coordinator y su seed, Student es el único rol | `UserRole` queda solo con `Student`; el Verificador es un perfil adicional del Estudiante. | 2026-10-08 |
+| SkillSwap-WebServices-Java | develop | `e65c51d` | Merge pull request #4 from Aplicaciones-Dispositivos-Moviles/refactor/remove-coordinator-role | Integración de `refactor/remove-coordinator-role` a `develop`. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/assessment-peer-review | `48cdc39` | feat(assessment-peer-review): dominio y aplicación de la apelación de casos | `AppealVerificationCaseCommand`: el caso rechazado se reabre y se asigna a otro Verificador. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/assessment-peer-review | `ebfa3f3` | feat(assessment-peer-review): endpoints REST de intentos, casos de verificación, apelación y perfil de verificador | `AssessmentAttemptsController`, `VerificationCasesController` (incluye `POST /{id}/appeal`) y `VerifierProfilesController`. | 2026-10-08 |
+| SkillSwap-WebServices-Java | develop | `d827cfd` | Merge pull request #5 from Aplicaciones-Dispositivos-Moviles/feature/assessment-peer-review | Integración de `feature/assessment-peer-review` a `develop`. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/reputation | `37978e0` | feat(assessment-peer-review): publicar el verificador revertido en VerificationCaseResolved | El evento `VerificationCaseResolved` informa qué Verificador fue revertido por una apelación. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/reputation | `18dc046` | feat(reputation): dominio de confiabilidad del verificador y empleabilidad del estudiante | Agregados `VerifierReliability` y `StudentEmployabilityScore` con sus calculadoras. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/reputation | `5e0ff30` | feat(reputation): servicios de aplicación y handlers de eventos de reputación | `ReputationCommandService`, servicios de consulta y handlers de `AssessmentAttemptPassed` y `VerificationCaseResolved`. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/reputation | `5e5cb77` | feat(reputation): persistencia JPA y cableado de eventos de reputación | Persistencia JPA y suscripción de los handlers a los eventos de dominio. | 2026-10-08 |
 | SkillSwap-WebServices-Java | feature/reputation | `628a9a7` | feat(reputation): endpoints REST de empleabilidad y confiabilidad | `VerifierReliabilitiesController` y `StudentEmployabilityScoresController`. | 2026-10-09 |
+| SkillSwap-WebServices-Java | develop | `3b8a601` | Merge pull request #6 from Aplicaciones-Dispositivos-Moviles/feature/reputation | Integración de `feature/reputation` a `develop`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/recognition-incentives | `44ab707` | feat(recognition-incentives): dominio de wallet, créditos y canje | Agregado `Wallet`, entidad `CreditTransaction`, Value Objects `Credits` y `RedemptionItem`, servicio `RedemptionPricing`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/recognition-incentives | `e1d2dca` | feat(recognition-incentives): servicios de aplicación y handlers de eventos de billetera | Servicios de billetera y handlers que crean la wallet y acreditan SkillCredits al Verificador. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/recognition-incentives | `e7b63c5` | feat(recognition-incentives): persistencia JPA, bloqueo de wallet y cableado de eventos | Persistencia JPA con bloqueo de la wallet al actualizar el saldo. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/recognition-incentives | `6b4db93` | feat(recognition-incentives): endpoints REST de billetera y canje de beneficios | `WalletsController` y `CreditTransactionsController` (`POST /redeem`). | 2026-10-09 |
+| SkillSwap-WebServices-Java | develop | `db593a1` | Merge pull request #7 from Aplicaciones-Dispositivos-Moviles/feature/recognition-incentives | Integración de `feature/recognition-incentives` a `develop`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | chore/deploy-render | `a4a1d8a` | chore(deploy): Dockerfile y guía de despliegue en Render | `Dockerfile` multi-etapa (Maven + JRE 21), `.dockerignore` y guía `docs/deploy-render.md`. | 2026-10-09 |
+| SkillSwap-WebServices-Java | develop | `823c58b` | Merge pull request #8 from Aplicaciones-Dispositivos-Moviles/chore/deploy-render | Integración de `chore/deploy-render` a `develop`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | chore/swagger | `fba59d8` | feat(docs): documentación Swagger con autenticación JWT | `OpenApiConfig` con el esquema `bearerAuth` y `RootController`, que redirige `/` y `/swagger` a Swagger UI. | 2026-10-09 |
+| SkillSwap-WebServices-Java | develop | `61db21a` | Merge pull request #9 from Aplicaciones-Dispositivos-Moviles/chore/swagger | Integración de `chore/swagger` a `develop`. | 2026-10-09 |
+| SkillSwap-WebServices-Java | chore/swagger-tags | `c307b2a` | chore(swagger): group endpoints under readable names and descriptions | `OpenApiTagsConfig`, que agrupa los endpoints de Swagger UI por Bounded Context con nombres y descripciones legibles. | 2026-10-09 |
+| SkillSwap-WebServices-Java | develop | `654b9a7` | Merge pull request #10 from Aplicaciones-Dispositivos-Moviles/chore/swagger-tags | Integración de `chore/swagger-tags` a `develop`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | chore/flyway-migrations | `a23ed44` | chore(db): migraciones versionadas con Flyway y esquema base V1 | Dependencias de Flyway, `V1__baseline_schema.sql` con el esquema existente, `baseline-on-migrate` para la base de Render y pruebas de integración con el esquema de Flyway. | 2026-10-09 |
+| SkillSwap-WebServices-Java | develop | `5a75d49` | Merge pull request #11 from Aplicaciones-Dispositivos-Moviles/chore/flyway-migrations | Integración de `chore/flyway-migrations` a `develop`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/verification-case-type | `7daa868` | feat(assessment-peer-review): tipo de caso de verificación y recompensas por tipo | `CaseType` (`Quiz`, `MiniProject`) en `VerificationCase`, 40 y 25 SkillCredits por tipo de caso, precios de canje de 200 y 120 y migración V2. | 2026-10-09 |
+| SkillSwap-WebServices-Java | develop | `512dcd3` | Merge pull request #12 from Aplicaciones-Dispositivos-Moviles/feature/verification-case-type | Integración de `feature/verification-case-type` a `develop`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/subscription-billing | `03c29cd` | feat(subscription-billing): suscripción mensual con RevenueCat y límites por plan | Bounded Context Subscription & Billing: agregado `Subscription`, `PaymentGateway` con RevenueCat y adaptador simulado, endpoints de suscripción, webhook idempotente, revisión periódica de vencimientos y migración V3. | 2026-10-09 |
+| SkillSwap-WebServices-Java | develop | `20daffc` | Merge pull request #13 from Aplicaciones-Dispositivos-Moviles/feature/subscription-billing | Integración de `feature/subscription-billing` a `develop`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/plan-limits-enforcement | `7e86af6` | feat(plan-limits): límites del plan en rutas de aprendizaje y escalamientos | Estado `Paused`, pausa y reanudación de rutas, `PlanLimitReached`, bloqueo por estudiante, cupo mensual de escalamientos, `review_due_at` y migraciones V4 y V5. | 2026-10-09 |
+| SkillSwap-WebServices-Java | develop | `68e3161` | Merge pull request #14 from Aplicaciones-Dispositivos-Moviles/feature/plan-limits-enforcement | Integración de `feature/plan-limits-enforcement` a `develop`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/iam-email-verification-push | `e778439` | feat(iam): verificación del correo institucional con Brevo | Enlace de verificación de un solo uso (solo se guarda su SHA-256), `403 EmailNotVerified` con reenvío, endpoints `verify-email` y `resend-verification`, puerto `EmailSender` con Brevo y migración V6. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/iam-email-verification-push | `3f7ec24` | feat(notifications): notificaciones push con Firebase Cloud Messaging | Endpoints del token del dispositivo, puerto `PushNotificationSender` con Firebase, `UserNotificationsContextFacade` y notificación de la resolución de un certificado (US16). | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/iam-email-verification-push | `a7cd7ce` | feat(iam): perfil de intereses con vector de habilidades | `PUT /api/v1/users/{id}/interests`, vector de habilidades calculado con el catálogo interno y migración V7. | 2026-10-09 |
@@ -5393,13 +5417,17 @@ El equipo organizó el desarrollo del backend Java / Spring Boot en una rama `fe
 | SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `4babdcd` | feat(moderation-disputes): escalamiento de certificados sospechosos a un Verificador senior | Titular distinto del nombre registrado y archivo de otro estudiante como certificado sospechoso, Bounded Context Moderation & Disputes con asignación a un Verificador senior y endpoints de disputas. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `7175877` | feat(learning-path-engine): ruta avanzada canjeada con SkillCredits fuera de los límites del plan | `AdvancedPathUnlock` otorgado por el canje, ruta avanzada excluida de los límites del plan y `GET /api/v1/advanced-path-unlocks`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `ac2e271` | feat(assessment-peer-review): plazo de revisión por plan y reasignación de casos vencidos | `ReviewDeadlinePolicy` definida por un Verificador senior, `OverdueCaseReassignmentScheduler` y descuento de 5 puntos de confiabilidad por plazo incumplido. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/sprint1-acceptance-scenarios | `56f5a13` | refactor(moderation-disputes): rename coordinatorNotes to resolutionNotes | Las observaciones de la resolución de una disputa pasan a llamarse `resolutionNotes` (columna `resolution_notes`). | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/sprint1-acceptance-scenarios | `c95372b` | chore(db): renumber escalation and advanced path migrations to V9 and V10 | Las migraciones quedan numeradas de forma contigua de V1 a V10. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/sprint1-acceptance-scenarios | `8cb3afc` | test(moderation-disputes): end-to-end resolution of a certificate dispute | `CertificateDisputeResolutionFlowIntegrationTest`: la resolución de una disputa verifica o rechaza el certificado, notifica al estudiante y completa el nodo cubierto. | 2026-10-09 |
+| SkillSwap-WebServices-Java | feature/complete-acceptance-scenarios | `acbf0a5` | chore(merge): integrate IAM email verification, push notifications and interests | Merge de la rama de la funcionalidad en `feature/complete-acceptance-scenarios`. | 2026-10-09 |
+| SkillSwap-WebServices-Java | feature/complete-acceptance-scenarios | `b1b23b3` | chore(merge): integrate Learning Path Gemini matcher and CertificateVerified event | Merge de la rama de la funcionalidad en `feature/complete-acceptance-scenarios`. | 2026-10-09 |
+| SkillSwap-WebServices-Java | feature/complete-acceptance-scenarios | `b194d42` | chore(merge): integrate certificate escalation, disputes and review deadlines | Merge de la rama de la funcionalidad en `feature/complete-acceptance-scenarios`. | 2026-10-09 |
+| SkillSwap-WebServices-Java | feature/complete-acceptance-scenarios | `56f5a13` | refactor(moderation-disputes): rename coordinatorNotes to resolutionNotes | Las observaciones de la resolución de una disputa pasan a llamarse `resolutionNotes` (columna `resolution_notes`). | 2026-10-09 |
+| SkillSwap-WebServices-Java | feature/complete-acceptance-scenarios | `c95372b` | chore(db): renumber escalation and advanced path migrations to V9 and V10 | Las migraciones quedan numeradas de forma contigua de V1 a V10. | 2026-10-09 |
+| SkillSwap-WebServices-Java | feature/complete-acceptance-scenarios | `8cb3afc` | test(moderation-disputes): end-to-end resolution of a certificate dispute | `CertificateDisputeResolutionFlowIntegrationTest`: la resolución de una disputa verifica o rechaza el certificado, notifica al estudiante y completa el nodo cubierto. | 2026-10-09 |
+| SkillSwap-WebServices-Java | develop | `521486c` | Merge pull request #15 from Aplicaciones-Dispositivos-Moviles/feature/complete-acceptance-scenarios | Integración de `feature/complete-acceptance-scenarios` a `develop`. | 2026-10-09 |
 
-*Nota.* Commits del repositorio [`SkillSwap-WebServices-Java`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices-Java): de `04eb1ce` a `fba59d8`, de Alberca Saavedra, Víctor Manuel (`Agnizzz`); de `a23ed44` a `8cb3afc`, de Sulca Sánchez, Piero Angel (`psulca`). La columna *Commit Message Body* resume el contenido de cada commit. Elaboración propia.
+*Nota.* Commits del repositorio [`SkillSwap-WebServices-Java`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices-Java): de `04eb1ce` a `654b9a7` (PR #1 a #10), de Alberca Saavedra, Víctor Manuel (`Agnizzz`); de `a23ed44` a `521486c` (PR #11 a #15), de Sulca Sánchez, Piero Angel (`psulca`). La columna *Commit Message Body* resume el contenido de cada commit. Elaboración propia.
 
-El Landing Page se implementó en el repositorio `SkillSwap-LandingPage` y se publicó en GitHub Pages; su desarrollo (tarea T12) se integró a `main` mediante dos Pull Requests.
+El Landing Page se implementó en el repositorio `SkillSwap-LandingPage` y se publicó en GitHub Pages; su desarrollo (tareas T18 y T19) se integró mediante los Pull Requests #1 a #8, y GitHub Pages publica el sitio desde `main`.
 
 **Tabla 20**
 
@@ -5412,8 +5440,19 @@ El Landing Page se implementó en el repositorio `SkillSwap-LandingPage` y se pu
 | SkillSwap-LandingPage | main | `f10d4b3` | Merge pull request #1 from Aplicaciones-Dispositivos-Moviles/feature/initial-landing-setup | Integración del Landing Page inicial a `main`. | 2026-09-18 |
 | SkillSwap-LandingPage | feature/fix-pages-structure | `26ac21f` | fix: move public content to root for github pages | Mueve el contenido de `public/` a la raíz del repositorio para que GitHub Pages sirva el sitio. | 2026-09-18 |
 | SkillSwap-LandingPage | main | `c98fd9a` | Merge pull request #2 from Aplicaciones-Dispositivos-Moviles/feature/fix-pages-structure | Integración de la corrección de estructura, publicada en GitHub Pages. | 2026-09-18 |
+| SkillSwap-LandingPage | feature/victor/add-landing-images | `1bded7f` | feat(landing): add images and improve responsive design | Imágenes del Landing Page y mejoras del diseño responsive. | 2026-10-09 |
+| SkillSwap-LandingPage | develop | `d9ff904` | Merge pull request #3 from Aplicaciones-Dispositivos-Moviles/feature/victor/add-landing-images | Integración de las imágenes y el diseño responsive a `develop`. | 2026-10-09 |
+| SkillSwap-LandingPage | main | `135f997` | Merge pull request #4 from Aplicaciones-Dispositivos-Moviles/develop | Publicación de `develop` en `main` (GitHub Pages). | 2026-10-09 |
+| SkillSwap-LandingPage | fix/replace-coordinator-with-verifier | `767a8cd` | fix(landing): replace coordinator with verifier | Reemplaza el rol de Coordinador por el de Verificador en el contenido del sitio. | 2026-10-09 |
+| SkillSwap-LandingPage | develop | `abbcfd6` | Merge pull request #5 from Aplicaciones-Dispositivos-Moviles/fix/replace-coordinator-with-verifier | Integración de la corrección de roles a `develop`. | 2026-10-09 |
+| SkillSwap-LandingPage | main | `6940188` | Merge pull request #6 from Aplicaciones-Dispositivos-Moviles/develop | Publicación de `develop` en `main` (GitHub Pages). | 2026-10-09 |
+| SkillSwap-LandingPage | feature/pricing-section | `b19922f` | feat(landing): add freemium pricing section and drop coordinator role | Sección de planes y precios del modelo freemium (plan gratuito y suscripción mensual). | 2026-10-09 |
+| SkillSwap-LandingPage | feature/pricing-section | `6a0712b` | feat(landing): add optimized app screens in webp | Pantallas de la aplicación optimizadas en formato WebP. | 2026-10-09 |
+| SkillSwap-LandingPage | feature/pricing-section | `098e2ab` | feat(landing): add app download CTA and how-it-works flow | Llamado a la acción "Descarga la app", flujo "Cómo funciona" en 5 pasos y preguntas frecuentes sobre la disponibilidad. | 2026-10-09 |
+| SkillSwap-LandingPage | develop | `6f672f0` | Merge pull request #7 from Aplicaciones-Dispositivos-Moviles/feature/pricing-section | Integración de la sección de precios y el CTA de descarga a `develop`. | 2026-10-09 |
+| SkillSwap-LandingPage | main | `0674faf` | Merge pull request #8 from Aplicaciones-Dispositivos-Moviles/develop | Publicación de `develop` en `main` (GitHub Pages). | 2026-10-09 |
 
-*Nota.* Commits del repositorio [`SkillSwap-LandingPage`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage), de Alberca Saavedra, Víctor Manuel (`Agnizzz`). Elaboración propia.
+*Nota.* Commits del repositorio [`SkillSwap-LandingPage`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage): de `3a25955` a `6940188` (PR #1 a #6), de Alberca Saavedra, Víctor Manuel (`Agnizzz`); de `b19922f` a `0674faf` (PR #7 y #8), de Sulca Sánchez, Piero Angel (`psulca`). Elaboración propia.
 
 
 #### 4.2.1.5. Testing Suite Evidence for Sprint Review
@@ -5423,9 +5462,9 @@ El backend se valida con dos niveles de pruebas automatizadas, ubicadas en `src/
 - **Pruebas unitarias** de dominio y de aplicación con **JUnit 5** (incluidas pruebas parametrizadas con `@ParameterizedTest`) y **AssertJ**. Las pruebas de la capa de aplicación usan dobles de prueba escritos a mano (`FakeCertificateRepository`, `FakeDomainEventPublisher`, `FakeFileStorageService`, entre otros) en lugar de una librería de mocks.
 - **Pruebas de integración** con **Spring Boot Test** y **MockMvc** (con Spring Security Test), que levantan la aplicación completa y ejercitan la API REST con el filtro de seguridad, los servicios reales, BCrypt, JWT y una base **PostgreSQL 16** real creada por **Testcontainers** (imagen `postgres:16-alpine`). Estas pruebas heredan de `PostgresIntegrationTest`, crean el esquema con las mismas migraciones de Flyway que producción y Hibernate solo lo valida; los servicios externos (Cloudinary, Gemini, RevenueCat, Brevo y Firebase Cloud Messaging) se reemplazan por dobles en memoria o por un servidor falso local, como `FakeGeminiServer`. Si Docker no está disponible, se omiten automáticamente (`DockerAvailableCondition`).
 
-Todas las dependencias de prueba están declaradas en el `pom.xml` del repositorio (`spring-boot-starter-test`, los starters de prueba de Data JPA, Security, Validation y Web MVC, y `testcontainers-postgresql`). En la rama `feature/sprint1-acceptance-scenarios`, que integra el trabajo del Sprint 1, el repositorio contiene 158 clases de prueba con 1575 métodos de prueba (`@Test` y `@ParameterizedTest`), de las cuales 29 son pruebas de integración contra PostgreSQL, y la suite completa ejecuta 1978 pruebas sin fallos. Las pruebas se ejecutan con `./mvnw test` antes de cada push; la imagen Docker no las ejecuta porque requieren Docker.
+Todas las dependencias de prueba están declaradas en el `pom.xml` del repositorio (`spring-boot-starter-test`, los starters de prueba de Data JPA, Security, Validation y Web MVC, y `testcontainers-postgresql`). En la rama `develop`, que integra el trabajo del Sprint 1 tras el merge del PR #15, el repositorio contiene 158 clases de prueba con 1575 métodos de prueba (`@Test` y `@ParameterizedTest`), de las cuales 29 son pruebas de integración contra PostgreSQL, y la suite completa ejecuta 1978 pruebas sin fallos. Las pruebas se ejecutan con `./mvnw test` antes de cada push; la imagen Docker no las ejecuta porque requieren Docker.
 
-El backend no utiliza un framework BDD (Cucumber/Gherkin). Los criterios de aceptación de las historias del Sprint 1 se automatizan como pruebas de integración de la API; en las de Credential Verification y Learning Path Engine, cada método lleva en `@DisplayName` el nombre del escenario de aceptación que verifica.
+Los criterios de aceptación de las historias del Sprint 1 se automatizan como pruebas de integración de la API con JUnit 5, MockMvc y Testcontainers; en las de Credential Verification y Learning Path Engine, cada método lleva en `@DisplayName` el nombre del escenario de aceptación que verifica.
 
 **Tabla 21**
 
@@ -5560,7 +5599,7 @@ void appeal_goesToAnotherVerifierWhoseApprovalCompletesTheNode() throws Exceptio
 | Moderation & Disputes | Domain / Application / Integration | `DisputeTest`, `DisputeReviewerSelectorTest`, `DisputeCommandServiceImplTest`, `ModerationDisputesMessagesTest`, `CertificateEscalationApiIntegrationTest`, `CertificateDisputeResolutionFlowIntegrationTest` | Agregado `Dispute`, selección del revisor, escalamiento y resolución de certificados sospechosos de principio a fin |
 | Shared | — | `ResultTest`, `ErrorCodesTest`, `CorsPropertiesTest`, `SpringDomainEventPublisherTest`, `LatinAmericanSpanishLocaleResolverTest`, `JsonTest`, `DatabaseDefaultsTest`, `PostgresUrlConverterTest`, `HealthControllerTest`, `RootControllerTest`, `ApiDocumentationIntegrationTest` | Tipo `Result`, CORS, publicador de eventos, idioma es-419, conversión de `DATABASE_URL`, health check y documentación OpenAPI |
 
-*Nota.* La tabla corresponde a la rama `feature/sprint1-acceptance-scenarios`, que integra el trabajo del Sprint 1; las filas que siguen a las de cada Bounded Context original agrupan las clases de prueba agregadas en los PR #11 a #14 y en las ramas `feature/iam-email-verification-push`, `feature/learning-path-gemini-matcher` y `feature/certificate-escalation-and-deadlines`. Elaboración propia.
+*Nota.* La tabla corresponde a la rama `develop`, que integra el trabajo del Sprint 1; las filas que siguen a las de cada Bounded Context original agrupan las clases de prueba agregadas en los PR #11 a #14 y en las ramas `feature/iam-email-verification-push`, `feature/learning-path-gemini-matcher` y `feature/certificate-escalation-and-deadlines`. Elaboración propia.
 
 **Tabla 23**
 
@@ -5594,6 +5633,7 @@ void appeal_goesToAnotherVerifierWhoseApprovalCompletesTheNode() throws Exceptio
 | SkillSwap-WebServices-Java | feature/recognition-incentives | `e7b63c5` | feat(recognition-incentives): persistencia JPA, bloqueo de wallet y cableado de eventos | `RecognitionIncentivesEventWiringTest`, `RecognitionIncentivesPersistenceTest`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/recognition-incentives | `6b4db93` | feat(recognition-incentives): endpoints REST de billetera y canje de beneficios | `RecognitionIncentivesApiIntegrationTest`, `RecognitionIncentivesActionResultAssemblerTest`, `RecognitionIncentivesResourceAssemblersTest`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | chore/swagger | `fba59d8` | feat(docs): documentación Swagger con autenticación JWT | `ApiDocumentationIntegrationTest`, `RootControllerTest`. | 2026-10-09 |
+| SkillSwap-WebServices-Java | chore/swagger-tags | `c307b2a` | chore(swagger): group endpoints under readable names and descriptions | `ApiDocumentationIntegrationTest` valida la agrupación de los endpoints en el documento OpenAPI. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/subscription-billing | `03c29cd` | feat(subscription-billing): suscripción mensual con RevenueCat y límites por plan | `SubscriptionTest`, `BillingValueObjectsTest`, `SubscriptionCommandServiceImplTest`, `SubscriptionQueryServiceImplTest`, `SubscriptionBillingMessagesTest`, `RevenueCatGatewayAdapterTest`, `RevenueCatWebhookAuthorizationTest`, `SimulatedPaymentGatewayAdapterTest`, `SubscriptionBillingPersistenceTest`, `SubscriptionBillingActionResultAssemblerTest`, `SubscriptionBillingApiIntegrationTest`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/plan-limits-enforcement | `7e86af6` | feat(plan-limits): límites del plan en rutas de aprendizaje y escalamientos | `ReviewDeadlineTest`, `PlanLimitsEnforcementIntegrationTest`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/iam-email-verification-push | `e778439` | feat(iam): verificación del correo institucional con Brevo | `SendVerificationEmailEventHandlerTest`, `EmailVerificationCommandServiceImplTest`, `EmailVerificationIssuerTest`, `VerificationEmailComposerTest`, `IamConfigTest`, `BrevoEmailSenderAdapterTest`, `EmailSettingsTest`, `EmailVerificationIntegrationTest`. | 2026-10-09 |
@@ -5603,7 +5643,7 @@ void appeal_goesToAnotherVerifierWhoseApprovalCompletesTheNode() throws Exceptio
 | SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `4babdcd` | feat(moderation-disputes): escalamiento de certificados sospechosos a un Verificador senior | `HolderNameMatcherTest`, `ModerationDisputesMessagesTest`, `DisputeCommandServiceImplTest`, `DisputeReviewerSelectorTest`, `DisputeTest`, `CertificateEscalationApiIntegrationTest`, `ReputationContextFacadeImplTest`, `SeniorVerifierPolicyTest`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `7175877` | feat(learning-path-engine): ruta avanzada canjeada con SkillCredits fuera de los límites del plan | `AdvancedPathUnlockTest`, `AdvancedPathUnlockIntegrationTest`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `ac2e271` | feat(assessment-peer-review): plazo de revisión por plan y reasignación de casos vencidos | `ReviewDeadlinePolicyTest`, `ReviewDeadlinePolicyCommandServiceImplTest`, `ReviewDeadlinesIntegrationTest`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/sprint1-acceptance-scenarios | `8cb3afc` | test(moderation-disputes): end-to-end resolution of a certificate dispute | `CertificateDisputeResolutionFlowIntegrationTest`. | 2026-10-09 |
+| SkillSwap-WebServices-Java | feature/complete-acceptance-scenarios | `8cb3afc` | test(moderation-disputes): end-to-end resolution of a certificate dispute | `CertificateDisputeResolutionFlowIntegrationTest`. | 2026-10-09 |
 
 *Nota.* Por la convención de un commit por capa, las pruebas de cada capa se incorporan en el mismo commit que la capa que validan; `1b483a7` y `8cb3afc` son los únicos commits que solo agregan pruebas. La columna *Commit Message Body* lista las clases de prueba que agrega cada commit. Elaboración propia.
 
@@ -5621,7 +5661,7 @@ Durante el Sprint 1 se implementaron y verificaron en ejecución, sobre el backe
   <img src="images-doc/execution-sign-up.png" alt="Ejecución - Registro con correo institucional" width="800">
 </p>
 
-*Nota.* Registro de una cuenta `Student` validando el dominio `.edu.pe`, con el token JWT retornado en la respuesta.
+*Nota.* Registro de una cuenta `Student` con un correo `.edu.pe` (`201 Created`) e inicio de sesión con el token JWT retornado (`200 OK`), ejecutados desde Swagger UI con datos de demostración. Elaboración propia.
 
 **Figura 126**
 
@@ -5631,7 +5671,7 @@ Durante el Sprint 1 se implementaron y verificaron en ejecución, sobre el backe
   <img src="images-doc/execution-certificate-upload.png" alt="Ejecución - Subida de certificado" width="800">
 </p>
 
-*Nota.* Subida de un certificado desde Swagger UI, mostrando el `riskLevel` calculado y el `status` resultante (`Unverified`).
+*Nota.* Subida de un certificado de demostración desde Swagger UI, con el `riskLevel` calculado (`LowRisk`) y el estado resultante (`Unverified`). Elaboración propia.
 
 **Figura 127**
 
@@ -5641,9 +5681,19 @@ Durante el Sprint 1 se implementaron y verificaron en ejecución, sobre el backe
   <img src="images-doc/execution-learning-path.png" alt="Ejecución - Generación de ruta" width="800">
 </p>
 
-*Nota.* Declaración de la meta en lenguaje natural y la ruta generada con sus nodos en estado `Locked`/`Available`.
+*Nota.* Declaración de la meta en lenguaje natural y ruta generada: el nodo prerrequisito en estado `Available` y el nodo meta en estado `Locked`. Elaboración propia.
 
 **Figura 128**
+
+*Evaluación generada por IA para un nodo*
+
+<p align="center">
+  <img src="images-doc/execution-assessment-blueprint.png" alt="Ejecución - Evaluación generada por IA" width="800">
+</p>
+
+*Nota.* Evaluación de un nodo disponible generada por Gemini mediante `POST /api/v1/path-nodes/{nodeId}/assessment-blueprint`: la respuesta incluye las preguntas y sus alternativas sin exponer las respuestas correctas. Elaboración propia.
+
+**Figura 129**
 
 *Ciclo de un caso de verificación*
 
@@ -5651,9 +5701,19 @@ Durante el Sprint 1 se implementaron y verificaron en ejecución, sobre el backe
   <img src="images-doc/execution-assessment-case.png" alt="Ejecución - Caso de verificación" width="800">
 </p>
 
-*Nota.* Ciclo completo de un intento fallido: apertura del `VerificationCase`, asignación automática del Verificador, y resolución con `rubricNotes`.
+*Nota.* Intento no aprobado que abre un `VerificationCase`, asignado automáticamente a un Verificador y resuelto con sus observaciones en `rubricNotes`. Elaboración propia.
 
-**Figura 129**
+**Figura 130**
+
+*SkillCredits acreditados al Verificador*
+
+<p align="center">
+  <img src="images-doc/execution-wallet.png" alt="Ejecución - Billetera del Verificador" width="800">
+</p>
+
+*Nota.* Billetera del Verificador y su historial de movimientos tras resolver el caso de verificación: la transacción `Earned` registra los SkillCredits acreditados y el caso que los originó. Elaboración propia.
+
+**Figura 131**
 
 *Video de ejecución del Sprint 1*
 
@@ -5725,7 +5785,7 @@ Todos los endpoints del Sprint 1 están documentados con **OpenAPI 3.1** (`Skill
 | POST | `/api/v1/subscriptions/webhooks/revenuecat` | revenuecat-webhook | No (encabezado `Authorization` con el secreto configurado) | Body: evento del webhook de RevenueCat | `200` `{outcome: Processed\|Duplicate\|Ignored}` · `400` `InvalidWebhookEvent` · `401` `InvalidWebhookAuthorization` · `503` para que RevenueCat reintente |
 | GET | `/health` | health-check | No | — | `200` `HealthResource` |
 
-*Nota.* Endpoints de la rama `feature/sprint1-acceptance-scenarios` del repositorio `SkillSwap-WebServices-Java`, que integra el trabajo del Sprint 1. Elaboración propia.
+*Nota.* Endpoints de la rama `develop` del repositorio `SkillSwap-WebServices-Java`, que integra el trabajo del Sprint 1. Elaboración propia.
 
 **Ejemplos de uso con datos de muestra**
 
@@ -5761,7 +5821,7 @@ Respuesta `200 OK`: el caso pasa a estado resuelto con `decision: "Approved"`, e
 *Nota.* Elaboración propia.
 
 
-**Figura 130**
+**Figura 132**
 
 *Documentación de los Web Services en Swagger*
 
@@ -5769,7 +5829,17 @@ Respuesta `200 OK`: el caso pasa a estado resuelto con `decision: "Approved"`, e
   <img src="images-doc/swagger-public.png" alt="Swagger público del backend" width="900">
 </p>
 
-*Nota.* Captura de Swagger UI desplegado en Render [https://skillswap-webservices-java.onrender.com/swagger-ui/index.html](https://skillswap-webservices-java.onrender.com/swagger-ui/index.html), con el endpoint `POST /api/v1/certificates` expandido mostrando su esquema de request y las respuestas documentadas.
+*Nota.* Swagger UI del backend Java desplegado en Render, con los endpoints agrupados por Bounded Context. Elaboración propia.
+
+**Figura 133**
+
+*Autorización con JWT en Swagger UI*
+
+<p align="center">
+  <img src="images-doc/swagger-authorize.png" alt="Swagger UI - Autorización con JWT" width="900">
+</p>
+
+*Nota.* Autorización en Swagger UI con el esquema `bearerAuth`: el token JWT que devuelve `POST /api/v1/authentication/sign-in` se ingresa en *Authorize* para invocar los endpoints protegidos. Elaboración propia.
 
 
 **Commits relacionados con la documentación**
@@ -5789,6 +5859,7 @@ springdoc-openapi genera el documento OpenAPI automáticamente a partir de las a
 | SkillSwap-WebServices-Java | feature/reputation | `628a9a7` | feat(reputation): endpoints REST de empleabilidad y confiabilidad | Endpoints de solo lectura de confiabilidad del Verificador y Employability Score. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/recognition-incentives | `6b4db93` | feat(recognition-incentives): endpoints REST de billetera y canje de beneficios | Endpoints de billetera, historial de movimientos y canje. | 2026-10-09 |
 | SkillSwap-WebServices-Java | chore/swagger | `fba59d8` | feat(docs): documentación Swagger con autenticación JWT | `OpenApiConfig` (título, descripción y esquema `bearerAuth`), `RootController` y apertura de `/swagger-ui/**` y `/v3/api-docs/**` en `SecurityConfig`. | 2026-10-09 |
+| SkillSwap-WebServices-Java | chore/swagger-tags | `c307b2a` | chore(swagger): group endpoints under readable names and descriptions | `OpenApiTagsConfig`: los endpoints de Swagger UI se agrupan por Bounded Context con nombres y descripciones legibles. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/subscription-billing | `03c29cd` | feat(subscription-billing): suscripción mensual con RevenueCat y límites por plan | Endpoints de suscripción y webhook de RevenueCat. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/plan-limits-enforcement | `7e86af6` | feat(plan-limits): límites del plan en rutas de aprendizaje y escalamientos | Listado, pausa y reanudación de rutas y respuesta `PlanLimitReached`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/iam-email-verification-push | `e778439` | feat(iam): verificación del correo institucional con Brevo | Endpoints `verify-email` y `resend-verification`. | 2026-10-09 |
@@ -5798,7 +5869,7 @@ springdoc-openapi genera el documento OpenAPI automáticamente a partir de las a
 | SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `4babdcd` | feat(moderation-disputes): escalamiento de certificados sospechosos a un Verificador senior | Endpoints de disputas y del nombre completo del usuario. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `7175877` | feat(learning-path-engine): ruta avanzada canjeada con SkillCredits fuera de los límites del plan | Endpoint de desbloqueos de ruta avanzada y campo `advanced` al declarar la meta. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `ac2e271` | feat(assessment-peer-review): plazo de revisión por plan y reasignación de casos vencidos | Endpoints de plazos de revisión por plan. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/sprint1-acceptance-scenarios | `56f5a13` | refactor(moderation-disputes): rename coordinatorNotes to resolutionNotes | Campo `resolutionNotes` en la resolución de disputas. | 2026-10-09 |
+| SkillSwap-WebServices-Java | feature/complete-acceptance-scenarios | `56f5a13` | refactor(moderation-disputes): rename coordinatorNotes to resolutionNotes | Campo `resolutionNotes` en la resolución de disputas. | 2026-10-09 |
 
 *Nota.* Elaboración propia.
 
@@ -5806,7 +5877,7 @@ springdoc-openapi genera el documento OpenAPI automáticamente a partir de las a
 
 Durante el Sprint 1 se configuró y verificó el despliegue completo del backend Java en Render: creación del servicio web con *Runtime: Docker* a partir del `Dockerfile` del repositorio, conexión con la base de datos PostgreSQL administrada, variables de entorno (ver 4.1.4) y health check en `/health`. El procedimiento está documentado en `docs/deploy-render.md` del repositorio `SkillSwap-WebServices-Java`.
 
-**Figura 131**
+**Figura 134**
 
 *Servicio web desplegado en Render*
 
@@ -5814,9 +5885,9 @@ Durante el Sprint 1 se configuró y verificó el despliegue completo del backend
   <img src="images-doc/render-dashboard.png" alt="Dashboard de Render - Servicio web activo" width="900">
 </p>
 
-*Nota.* Dashboard de Render mostrando el servicio web del backend Java en estado "Live", desplegado desde el repositorio `SkillSwap-WebServices-Java`.
+*Nota.* Servicio web del backend en Render (*Runtime: Docker*, rama `develop`) y su historial de despliegues. Elaboración propia.
 
-**Figura 132**
+**Figura 135**
 
 *Logs del arranque en Render*
 
@@ -5824,26 +5895,56 @@ Durante el Sprint 1 se configuró y verificó el despliegue completo del backend
   <img src="images-doc/render-startup-logs.png" alt="Logs del arranque en Render" width="900">
 </p>
 
-*Nota.* Logs del arranque del contenedor, mostrando el inicio de Spring Boot, la validación del esquema por Hibernate y el servicio disponible en su URL pública.
+*Nota.* Logs del arranque del contenedor en Render: inicio de Spring Boot 4.1.1 sobre Java 21. Elaboración propia.
+
+**Figura 136**
+
+*Dockerfile del backend*
+
+<p align="center">
+  <img src="images-doc/deploy-dockerfile.png" alt="Dockerfile del backend" width="900">
+</p>
+
+*Nota.* `Dockerfile` multi-etapa de la rama `develop` del repositorio `SkillSwap-WebServices-Java`: compilación con Maven y JDK 21, y ejecución con el JRE 21 y un usuario sin privilegios. Elaboración propia.
+
+**Figura 137**
+
+*Health check del backend en Render*
+
+<p align="center">
+  <img src="images-doc/deploy-health.png" alt="Health check del backend" width="900">
+</p>
+
+*Nota.* Respuesta `200` de `GET /health` del backend desplegado en Render, con el estado `Healthy`. Elaboración propia.
+
+**Figura 138**
+
+*Landing Page publicado en GitHub Pages*
+
+<p align="center">
+  <img src="images-doc/landing-github-pages.png" alt="Landing Page en GitHub Pages" width="900">
+</p>
+
+*Nota.* Landing Page publicado en GitHub Pages desde la rama `main` del repositorio `SkillSwap-LandingPage`, con el llamado a la acción "Descarga la app". Elaboración propia.
 
 El backend está desplegado públicamente en: [https://skillswap-webservices-java.onrender.com](https://skillswap-webservices-java.onrender.com) (Swagger UI en `/swagger-ui/index.html`).
 
-*(Limitación conocida, declarada también en Conclusiones: el plan gratuito de Render suspende el servicio tras 15 minutos de inactividad, con la primera petición posterior tardando hasta cerca de un minuto; se configuró un ping de mantenimiento cada 10 minutos a `/health` para mitigarlo. La base de datos PostgreSQL gratuita expira 30 días después de creada, con 14 días de gracia, por lo que deberá recrearse antes de AV2/TB2.)*
+*(Limitación conocida, declarada también en Conclusiones: el plan gratuito de Render suspende el servicio tras 15 minutos de inactividad, con la primera petición posterior tardando hasta cerca de un minuto; se configuró un ping de mantenimiento cada 10 minutos a `/health` para mitigarlo. La base de datos PostgreSQL gratuita expira 30 días después de creada, con 14 días de gracia.)*
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
-**Figura 133**
+**Figura 139**
 
-*Analíticos de colaboración del repositorio SkillSwap-WebServices-Java durante el Sprint 1*
+*Historial de commits del repositorio SkillSwap-WebServices-Java durante el Sprint 1*
 
 <p align="center">
   <img src="images-doc/github-insights-sprint1.png" alt="Analíticos de colaboración del Sprint 1 - SkillSwap-WebServices-Java" width="900">
 </p>
 
-*Nota.* Analíticos de colaboración y commits del Sprint 1 en el repositorio del backend (GitHub Insights). Elaboración propia.
+*Nota.* Historial de commits de la rama `develop` del repositorio `SkillSwap-WebServices-Java` durante el Sprint 1 (GitHub Insights). Elaboración propia.
 
 
-Durante el Sprint 1, el desarrollo del backend fue realizado íntegramente por Alberca Saavedra, Víctor Manuel, quien construyó los seis Bounded Contexts priorizados (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation y Recognition & Incentives) siguiendo el flujo GitFlow con un commit por capa, migró el backend de C# / ASP.NET Core a Java / Spring Boot cuando el curso lo estableció como tecnología obligatoria, configuró el despliegue en Render, y actualizó el informe (Capítulos I, II y IV) para que reflejara con precisión las decisiones tomadas durante la implementación. El avance del Capítulo III (Landing Page y diseño UX/UI de la aplicación móvil) estuvo a cargo del resto del equipo, cuya evidencia de colaboración se documenta en el repositorio `SkillSwap-ProjectReport`.
+Durante el Sprint 1, el backend se construyó entre dos integrantes. Alberca Saavedra, Víctor Manuel migró el backend de C# / ASP.NET Core a Java / Spring Boot y construyó la base de seis Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation y Recognition & Incentives) con un commit por capa, junto con el despliegue en Render y la documentación con Swagger (PR #1 a #10). Sulca Sánchez, Piero Angel incorporó las migraciones con Flyway, Subscription & Billing, Moderation & Disputes y las funcionalidades agregadas sobre los demás Bounded Contexts —verificación del correo con Brevo, notificaciones push, interpretación de la meta con Gemini, escalamiento de certificados sospechosos, ruta avanzada y plazos de revisión— (PR #11 a #15), y la sección de precios y el CTA de descarga del Landing Page (PR #7 y #8 de `SkillSwap-LandingPage`). El diseño UX/UI de la aplicación móvil y el avance del Capítulo III se documentan en el repositorio `SkillSwap-ProjectReport` (ver Project Report Collaboration Insights).
 
 
 
@@ -6173,12 +6274,18 @@ Figura 124. *Sprint Backlog 1 en Trello*<br>
 Figura 125. *Registro con correo institucional*<br>
 Figura 126. *Subida de un certificado y evaluación de riesgo*<br>
 Figura 127. *Declaración de la meta y generación de la ruta*<br>
-Figura 128. *Ciclo de un caso de verificación*<br>
-Figura 129. *Video de ejecución del Sprint 1*<br>
-Figura 130. *Documentación de los Web Services en Swagger*<br>
-Figura 131. *Servicio web desplegado en Render*<br>
-Figura 132. *Logs del arranque en Render*<br>
-Figura 133. *Analíticos de colaboración del repositorio SkillSwap-WebServices-Java durante el Sprint 1*<br>
+Figura 128. *Evaluación generada por IA para un nodo*<br>
+Figura 129. *Ciclo de un caso de verificación*<br>
+Figura 130. *SkillCredits acreditados al Verificador*<br>
+Figura 131. *Video de ejecución del Sprint 1*<br>
+Figura 132. *Documentación de los Web Services en Swagger*<br>
+Figura 133. *Autorización con JWT en Swagger UI*<br>
+Figura 134. *Servicio web desplegado en Render*<br>
+Figura 135. *Logs del arranque en Render*<br>
+Figura 136. *Dockerfile del backend*<br>
+Figura 137. *Health check del backend en Render*<br>
+Figura 138. *Landing Page publicado en GitHub Pages*<br>
+Figura 139. *Historial de commits del repositorio SkillSwap-WebServices-Java durante el Sprint 1*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
