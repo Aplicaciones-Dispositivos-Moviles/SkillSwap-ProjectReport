@@ -2797,7 +2797,7 @@ Atributos
 | username | Username (VO) | Identificador de texto único utilizado para acceder al sistema. |
 | email | Email (VO) | Correo electrónico validado contra el dominio institucional `.edu.pe`. |
 | passwordHash | PasswordHash (VO) | Representación segura de la contraseña tras pasar por un algoritmo de encriptación. |
-| role | Role (VO) | Rol de la cuenta: `Student` (único rol de cuenta; el Verificador es un perfil adicional). |
+| role | UserRole (VO) | Rol de la cuenta: `Student` (único rol de cuenta; el Verificador es un perfil adicional). |
 | isVerified | boolean | Indica si el estudiante confirmó su correo institucional mediante el enlace de verificación; una cuenta sin verificar no puede iniciar sesión. |
 | fullName | string | Nombre completo registrado del estudiante (opcional, hasta 150 caracteres), con el que Credential Verification compara el titular leído en sus certificados. |
 | bio | string | Descripción libre del perfil del usuario. |
@@ -2834,7 +2834,7 @@ Métodos
 
 - `Email(String value)` (Constructor): Valida el formato del correo y que su dominio corresponda a `.edu.pe`, lanzando una excepción de dominio en caso contrario.
 
-**3. Value Object: Role**
+**3. Value Object: UserRole**
 
 Descripción: Enumeración que restringe los valores válidos para el rol de una cuenta.
 
@@ -2842,7 +2842,7 @@ Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| value | enum | Valor del rol: `Student`. Nota: el perfil de Verificador no es un valor de este enum — es un perfil adicional (`VerifierProfile`) que un usuario `Student` puede adquirir una vez completada su propia ruta de certificación, gestionado en el Bounded Context Assessment & Peer Review. |
+| value | enum | Valor del rol: `Student`. Nota: el perfil de Verificador no es un valor de este enum — es un perfil adicional (`VerifierProfile`) que un usuario `Student` adquiere al completar en su propia ruta el nodo de una habilidad, gestionado en el Bounded Context Assessment & Peer Review. |
 
 **4. Value Object: PasswordHash**
 
@@ -2924,6 +2924,9 @@ En la Interface Layer de SkillSwap, específicamente para el contexto de Identit
 | AuthenticationController | POST | `/api/v1/authentication/verify-email` (VerifyEmailResource) | Verifica la cuenta con el token del enlace enviado por correo (`400` si el token es inválido o ya se usó, `410` si venció). |
 | AuthenticationController | GET | `/api/v1/authentication/verify-email?token=` | Versión del mismo endpoint para el enlace del correo: verifica la cuenta y responde una página HTML con el resultado. |
 | AuthenticationController | POST | `/api/v1/authentication/resend-verification` (ResendVerificationResource) | Reenvía el enlace de verificación respetando el intervalo de espera; responde 202 sin revelar si el correo está registrado. |
+| UsersController | GET | `/api/v1/users/me` | Retorna el `UserResource` del usuario autenticado. |
+| UsersController | GET | `/api/v1/users/{id}` | Retorna el `UserResource` de un usuario por su identificador. |
+| UsersController | PATCH | `/api/v1/users/{id}/bio` | Actualiza la descripción del perfil del estudiante. |
 | UsersController | PUT | `/api/v1/users/{id}/interests` (UpdateInterestProfileResource) | Registra o reemplaza los temas de interés del estudiante y recalcula su vector de habilidades. |
 | UsersController | PATCH | `/api/v1/users/{id}/full-name` (UpdateUserFullNameResource) | Registra el nombre completo del estudiante, que se compara con el titular de sus certificados. |
 | UsersController | PUT / DELETE | `/api/v1/users/me/device-token` (RegisterDeviceTokenResource) | Registra u olvida el token de Firebase Cloud Messaging del dispositivo del estudiante autenticado. |
@@ -3013,7 +3016,7 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
   <img src="images-doc/IdentityComponent.svg" alt="Component Diagram - Identity & Access" width="800">
 </p>
 
-*Nota.* Se detalla la segregación entre el Controller, los Command/Query Services y los adaptadores de Persistencia y Seguridad (JWT), evidenciando las relaciones con los demás Bounded Contexts: la creación de la wallet inicial de SkillCredits en Recognition & Incentives al registrarse, la consulta de estado de sanción hacia Moderation & Disputes, y las solicitudes entrantes de Assessment & Peer Review (lista de Verificadores disponibles), Reputation (actualización de confiabilidad/Employability Score), Moderation & Disputes (datos de la cuenta reportada y actualización tras sanción) y Recognition & Incentives (confirmación de biometría antes de canjear SkillCredits). Elaboración propia.
+*Nota.* Se detalla la segregación entre `AuthenticationController` y `UsersController`, los Command/Query Services, `EmailVerificationIssuer` y los puertos `EmailSender` (Brevo) y `PushNotificationSender` (Firebase Cloud Messaging), evidenciando las relaciones con los demás Bounded Contexts: el evento `UserRegistered`, con el que Recognition & Incentives crea la billetera inicial; la consulta del catálogo de habilidades de Learning Path Engine para normalizar los intereses, y las fachadas `IamContextFacade` y `UserNotificationsContextFacade`, que Credential Verification usa para comparar el titular del certificado y notificar su resultado. La biometría se valida en el dispositivo. Elaboración propia.
 
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -3027,9 +3030,9 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
   <img src="images-doc/class-identity-mobile.png" alt="Class Diagram - Identity & Access" width="800">
 </p>
 
-*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama de clases del Domain Layer de este Bounded Context, alineado con el código del backend. Elaboración propia.
 
-El modelado de clases de Identity & Access pertenece al agregado raíz `User`, junto con sus Value Objects `Username`, `Email`, `PasswordHash` y `DeviceToken`, y la enumeración `Role`, debido a que estos elementos concentran de forma exclusiva la información de cuenta, credenciales y estado de verificación institucional de cada usuario de la plataforma. Se destaca el Value Object `DeviceToken`, que guarda el token de Firebase Cloud Messaging con el que se envían las notificaciones push al dispositivo del estudiante, y los puertos `EmailSender` y `PushNotificationSender`, que desacoplan el envío del correo de verificación y de las notificaciones de sus proveedores.
+El modelado de clases de Identity & Access pertenece al agregado raíz `User`, junto con sus Value Objects `Username`, `Email`, `PasswordHash` y `DeviceToken`, y la enumeración `UserRole`, debido a que estos elementos concentran de forma exclusiva la información de cuenta, credenciales y estado de verificación institucional de cada usuario de la plataforma. Se destaca el Value Object `DeviceToken`, que guarda el token de Firebase Cloud Messaging con el que se envían las notificaciones push al dispositivo del estudiante, y los puertos `EmailSender` y `PushNotificationSender`, que desacoplan el envío del correo de verificación y de las notificaciones de sus proveedores.
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
@@ -3041,7 +3044,7 @@ El modelado de clases de Identity & Access pertenece al agregado raíz `User`, j
   <img src="images-doc/db-identity-mobile.png" alt="Database Diagram - Identity & Access" width="800">
 </p>
 
-*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama elaborado en PlantUML a partir de las migraciones Flyway V1–V10. Elaboración propia.
 
 El modelado de base de datos de Identity & Access pertenece a la tabla `users`, debido a que es la única tabla que persiste el agregado raíz `User` junto con sus Value Objects embebidos (`username`, `email`, `password_hash`, `role`, `device_token`), sin requerir tablas adicionales: los temas de interés (`interest_topics`) y el vector de habilidades (`skill_vector`) se guardan como arreglos `jsonb` en la misma fila, por lo que un único registro por usuario es suficiente para representar el agregado completo. Se destacan las columnas `verification_token_hash`, `verification_token_expires_at` y `verification_email_sent_at` (migración V6), que soportan el enlace de verificación de un solo uso con un índice único parcial sobre el hash, `full_name` (V9), con el que se compara el titular de los certificados, y `device_token`, que guarda el token de Firebase Cloud Messaging para las notificaciones push.
 
@@ -3266,7 +3269,7 @@ Estos componentes aseguran que la lógica de negocio de Credential Verification 
   <img src="images-doc/class-credential-verification-mobile.png" alt="Class Diagram - Credential Verification" width="800">
 </p>
 
-*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama de clases del Domain Layer de este Bounded Context, alineado con el código del backend. Elaboración propia.
 
 El modelado de clases de Credential Verification pertenece al agregado raíz `Certificate`, junto con el Value Object `RiskAssessment` (y su enumeración asociada `RiskLevel`) y las enumeraciones `VerificationStatus` y `VerificationMethod`, debido a que estos elementos concentran de forma exclusiva el documento subido por el Estudiante, los datos extraídos mediante OCR, y el resultado explicable de la evaluación de riesgo — sin depender de la lógica específica de ningún emisor externo (SUNEDU, Coursera, etc.), la cual queda fuera del alcance implementado del curso y documentada únicamente a nivel de `VerificationMethod`.
 
@@ -3280,7 +3283,7 @@ El modelado de clases de Credential Verification pertenece al agregado raíz `Ce
   <img src="images-doc/db-credential-verification-mobile.png" alt="Database Diagram - Credential Verification" width="800">
 </p>
 
-*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama elaborado en PlantUML a partir de las migraciones Flyway V1–V10. Elaboración propia.
 
 El modelado de base de datos de Credential Verification pertenece a la tabla `certificates`, debido a que es la única tabla que persiste el agregado raíz `Certificate` junto con los datos extraídos por OCR, el hash del archivo y el resultado de la evaluación de riesgo — al igual que en Identity & Access, no existe ninguna entidad hija ni colección propia dentro de este agregado, por lo que un único registro por certificado es suficiente. Se destacan los campos `ocr_text`, `qr_payload`, `file_hash` y `storage_reference`, incorporados para el soporte de la captura desde cámara y el procesamiento on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto, y `holder_name_mismatch` (migración V9), que registra si el titular del certificado difiere del nombre registrado del estudiante.
 
@@ -3561,7 +3564,7 @@ En ambos adaptadores de `SkillTaxonomyMatcher`, el catálogo de habilidades es l
   <img src="images-doc/class-learning-path-engine-mobile.png" alt="Class Diagram - Learning Path Engine" width="800">
 </p>
 
-*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. El puerto `SkillTaxonomyMatcher` y sus adaptadores no aparecen porque pertenecen a las capas de aplicación e infraestructura. Elaboración propia.
+*Nota.* Diagrama de clases del Domain Layer de este Bounded Context, alineado con el código del backend. El puerto `SkillTaxonomyMatcher` y sus adaptadores no aparecen porque pertenecen a las capas de aplicación e infraestructura. Elaboración propia.
 
 El modelado de clases de Learning Path Engine pertenece a los agregados raíz `LearningPath` y `AssessmentBlueprint`, junto con la entidad `PathNode`, los Value Objects `CareerGoal` y `SkillGap`, y la entidad `Question` embebida en `AssessmentBlueprint`, debido a que estos elementos concentran de forma exclusiva el business core de la plataforma: la interpretación de la meta del estudiante, el cálculo de la brecha de habilidad, la secuencia de nodos de la ruta personalizada y el contenido evaluativo generado dinámicamente por IA para cada nodo.
 
@@ -3575,7 +3578,7 @@ El modelado de clases de Learning Path Engine pertenece a los agregados raíz `L
   <img src="images-doc/db-learning-path-engine-mobile.png" alt="Database Diagram - Learning Path Engine" width="800">
 </p>
 
-*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama elaborado en PlantUML a partir de las migraciones Flyway V1–V10. Elaboración propia.
 
 El modelado de base de datos de Learning Path Engine pertenece a las tablas `learning_paths`, `path_nodes`, `assessment_blueprints` y `advanced_path_unlocks`, debido a que persisten de forma normalizada la ruta de aprendizaje del estudiante (`learning_paths`), cada paso individual de dicha ruta con su estado de avance (`path_nodes`), la evaluación generada dinámicamente por IA para demostrar la habilidad de un nodo específico (`assessment_blueprints`) y los desbloqueos de ruta avanzada canjeados con SkillCredits (`advanced_path_unlocks`) — una relación uno a muchos entre rutas y nodos, y entre cada nodo y sus blueprints de evaluación. Se destacan `path_nodes.completed_by_certificate` (migración V8), que distingue un nodo completado con un certificado validado, y `learning_paths.is_advanced` (V10), que excluye la ruta avanzada de los límites del plan.
 
@@ -3853,7 +3856,7 @@ Este Bounded Context no integra ningún servicio de almacenamiento de archivos: 
   <img src="images-doc/class-assessment-peer-review-mobile.png" alt="Class Diagram - Assessment & Peer Review" width="800">
 </p>
 
-*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama de clases del Domain Layer de este Bounded Context, alineado con el código del backend. Elaboración propia.
 
 El modelado de clases de Assessment & Peer Review pertenece a los agregados raíz `AssessmentAttempt`, `VerifierProfile`, `VerificationCase` y `ReviewDeadlinePolicy`, junto con los Value Objects `Score` y `ReviewDeadline`, debido a que estos elementos concentran de forma exclusiva la ejecución del intento del estudiante sobre la evaluación generada por la IA, la elegibilidad de un Estudiante como Verificador de otros, y el flujo de escalamiento hacia revisión humana cuando dicho intento no es aprobado — sin depender de ninguna sesión de comunicación en tiempo real, a diferencia del modelo de tutorías original.
 
@@ -3867,7 +3870,7 @@ El modelado de clases de Assessment & Peer Review pertenece a los agregados raí
   <img src="images-doc/db-assessment-peer-review-mobile.png" alt="Database Diagram - Assessment & Peer Review" width="800">
 </p>
 
-*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama elaborado en PlantUML a partir de las migraciones Flyway V1–V10. Elaboración propia.
 
 El modelado de base de datos de Assessment & Peer Review pertenece a las tablas `assessment_attempts`, `verifier_profiles`, `verification_cases` y `review_deadline_policies`, debido a que estas tablas persisten de forma independiente los agregados raíz del Bounded Context. `assessment_attempts` guarda el `score` como texto (`"aciertos/total"`, ej. `"4/5"`) en una sola columna, con índice único en `blueprint_id`. `verification_cases` lleva un índice único **parcial** sobre `(student_id, path_node_id)` que solo aplica mientras `status <> 'Resolved'` — este índice es el que materializa la regla de negocio de un único caso abierto por estudiante y nodo. La tabla guarda además `case_type` (`Quiz` o `MiniProject`), `review_due_at`, el plazo con el que se abrió el caso (`review_deadline_amount` y `review_deadline_unit`), `deadline_missed_at` y `reassignment_count`; el índice `ix_verification_cases_student_id_opened_at` permite contar los casos que un estudiante abrió en el mes y el índice parcial `ix_verification_cases_assigned_review_due_at` permite encontrar los casos asignados vencidos. La tabla `review_deadline_policies` (migración V10) guarda el plazo definido por un Verificador senior para cada plan. Se destaca el campo `evidence_url`, que reemplaza por completo la infraestructura de chat en tiempo real del modelo de tutorías original, sin requerir integración con ningún servicio de almacenamiento de archivos.
 
@@ -4059,7 +4062,7 @@ Este adaptador permite que Assessment & Peer Review mantenga sincronizado el `ra
   <img src="images-doc/class-reputation-mobile.png" alt="Class Diagram - Reputation" width="800">
 </p>
 
-*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama de clases del Domain Layer de este Bounded Context, alineado con el código del backend. Elaboración propia.
 
 El modelado de clases de Reputation pertenece a los agregados raíz `VerifierReliability` y `StudentEmployabilityScore`, junto con los Value Objects `ReliabilityScore`, `EmployabilityScore` y `VerifierRank`, debido a que estos elementos concentran de forma exclusiva el recálculo explicable de la confiabilidad de un Verificador y del nivel de empleabilidad demostrado de un Estudiante, calculados ambos a partir de eventos internos del sistema — sin que ningún usuario califique directamente a otro, a diferencia del modelo de tutorías original.
 
@@ -4073,7 +4076,7 @@ El modelado de clases de Reputation pertenece a los agregados raíz `VerifierRel
   <img src="images-doc/db-reputation-mobile.png" alt="Database Diagram - Reputation" width="800">
 </p>
 
-*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama elaborado en PlantUML a partir de las migraciones Flyway V1–V10. Elaboración propia.
 
 El modelado de base de datos de Reputation pertenece a las tablas `verifier_reliabilities` y `student_employability_scores`, debido a que estas dos tablas persisten de forma independiente los dos agregados raíz del Bounded Context, cada uno con su propio puntaje y contadores recalculados por evento (incluido `missed_deadlines_count`, agregado en la migración V10) — sin una tabla intermedia de reseñas o calificaciones directas, ya que ese concepto no existe en el nuevo modelo.
 
@@ -4254,7 +4257,7 @@ Este Bounded Context no incluye integraciones con pasarelas de pago externas ni 
   <img src="images-doc/class-wallet-incentives-mobile.png" alt="Class Diagram - Recognition & Incentives" width="800">
 </p>
 
-*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama de clases del Domain Layer de este Bounded Context, alineado con el código del backend. Elaboración propia.
 
 El modelado de clases de Recognition & Incentives pertenece al agregado raíz `Wallet`, junto con la entidad `CreditTransaction` y el Value Object `Credits`, debido a que estos elementos concentran de forma exclusiva el saldo de SkillCredits de cada usuario y el historial de movimientos — créditos ganados al resolver un caso de verificación, o canjeados por un beneficio — sin que exista, en ningún punto del dominio, un concepto de moneda real ni de comisión de plataforma.
 
@@ -4268,7 +4271,7 @@ El modelado de clases de Recognition & Incentives pertenece al agregado raíz `W
   <img src="images-doc/db-wallet-incentives-mobile.png" alt="Database Diagram - Recognition & Incentives" width="800">
 </p>
 
-*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama elaborado en PlantUML a partir de las migraciones Flyway V1–V10. Elaboración propia.
 
 El modelado de base de datos de Recognition & Incentives pertenece a las tablas `wallets` y `credit_transactions`, debido a que la primera persiste el saldo vigente de SkillCredits de cada usuario y la segunda registra, en una relación uno a muchos, cada movimiento asociado a dicha billetera, con el beneficio canjeado en `redemption_item` (migración V10) — sin ninguna tabla de credenciales de tarjeta ni de integración con una pasarela de pago externa, a diferencia del modelo de tutorías original.
 
@@ -4450,7 +4453,7 @@ Estas fachadas permiten que Moderation & Disputes coordine la revisión de certi
   <img src="images-doc/class-moderation-disputes-mobile.png" alt="Class Diagram - Moderation & Disputes" width="800">
 </p>
 
-*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama de clases del Domain Layer de este Bounded Context, alineado con el código del backend. Elaboración propia.
 
 El modelado de clases de Moderation & Disputes pertenece al agregado raíz `Dispute`, junto con los Value Objects `DisputeSourceType`, `DisputeStatus` y `DisputeOutcome` y los servicios de dominio `DisputeResolutionValidator` y `DisputeReviewerSelector`, debido a que estos elementos modelan bajo un único concepto los orígenes de escalación hacia un Verificador senior (certificado sospechoso, apelación de una decisión de Verificador o reporte de usuario), evitando que Moderation dependa directamente de los modelos internos de `Certificate` o `VerificationCase` — el rol de Anticorruption Layer definido en el Context Mapping.
 
@@ -4464,7 +4467,7 @@ El modelado de clases de Moderation & Disputes pertenece al agregado raíz `Disp
   <img src="images-doc/db-moderation-disputes-mobile.png" alt="Database Diagram - Moderation & Disputes" width="800">
 </p>
 
-*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama elaborado en PlantUML a partir de las migraciones Flyway V1–V10. Elaboración propia.
 
 El modelado de base de datos de Moderation & Disputes pertenece a la tabla `disputes` (migración V9), que persiste en un único modelo unificado cualquier caso que requiera la decisión final de un Verificador senior, identificado mediante `source_type` y `source_reference_id`. El índice único parcial `ux_disputes_certificate_review` garantiza que un certificado se escale una sola vez, el CHECK `ck_disputes_not_reviewed_by_respondent` impide que el propietario del certificado revise su propia disputa, y los índices sobre `assigned_verifier_user_id` y sobre las disputas pendientes sin revisor soportan la consulta del revisor y el reintento periódico de la asignación. Las columnas `resolution_notes`, `assigned_to_senior` y `assigned_at` registran las observaciones de la resolución y la asignación.
 
@@ -4684,7 +4687,7 @@ RevenueCat no es un procesador de pagos ni reemplaza a Google Play Billing: el c
   <img src="images-doc/class-subscription-billing-mobile.png" alt="Class Diagram - Subscription & Billing" width="800">
 </p>
 
-*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama de clases del Domain Layer de este Bounded Context, alineado con el código del backend. Elaboración propia.
 
 El modelado de clases de Subscription & Billing pertenece únicamente al agregado raíz `Subscription`, junto con los Value Objects `SubscriptionPlan` y `Money`, debido a que este Bounded Context gestiona exclusivamente el ciclo de vida del cobro recurrente de la mensualidad, desacoplado del proveedor concreto de pagos mediante el Domain Service `PaymentGateway`, definido en el Context Mapping como el límite de Anticorruption Layer hacia Google Play Billing (vía RevenueCat). El atributo `storeTransactionId` guarda la referencia de la transacción de Google Play que informa RevenueCat.
 
@@ -4698,7 +4701,7 @@ El modelado de clases de Subscription & Billing pertenece únicamente al agregad
   <img src="images-doc/db-subscription-billing-mobile.png" alt="Database Diagram - Subscription & Billing" width="800">
 </p>
 
-*Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
+*Nota.* Diagrama elaborado en PlantUML a partir de las migraciones Flyway V1–V10. Elaboración propia.
 
 El modelado de base de datos de Subscription & Billing pertenece a la tabla `subscriptions`, debido a que es la única tabla que persiste el agregado raíz `Subscription`, incluyendo el plan contratado aplanado en columnas simples (`plan_name`, `plan_product_id`, `plan_price` de tipo `numeric(10,2)` y `plan_currency`) y la referencia `store_transaction_id` de la transacción de Google Play — al igual que en Identity & Access y Credential Verification, no existe ninguna entidad hija ni colección propia, por lo que un único registro por suscripción es suficiente. Un índice único parcial (`WHERE status <> 'Expired'`) garantiza una sola suscripción no vencida por Estudiante. A ella se suma la tabla `processed_webhook_events`, que registra cada evento del webhook ya aplicado con un índice único sobre `event_id`, para que los reintentos de RevenueCat no se apliquen dos veces. No se persiste el método de pago ni datos sensibles de tarjeta, delegados por completo a Google Play Billing.
 
@@ -4715,7 +4718,7 @@ A continuación se presenta el diagrama relacional completo de SkillSwap, mostra
   <img src="images-doc/db-full-mobile.svg" alt="Diagrama de Base de Datos Completo" width="1000">
 </p>
 
-*Nota.* Se muestra la totalidad de las tablas correspondientes a los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes), en el esquema que resulta de aplicar las migraciones Flyway V1 a V10: el campo device_token y las columnas de verificación del correo, intereses y nombre completo sobre la tabla users, los campos file_hash, storage_reference, ocr_text, qr_payload y holder_name_mismatch sobre la tabla certificates, las tablas subscriptions y processed_webhook_events de la suscripción mensual, advanced_path_unlocks, review_deadline_policies y disputes. Las líneas continuas representan las claves foráneas y las discontinuas las referencias por identificador entre Bounded Contexts. Elaborado en PlantUML. Elaboración propia.
+*Nota.* Se muestra la totalidad de las tablas correspondientes a los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes), en el esquema que resulta de aplicar las migraciones Flyway V1 a V10: el campo device_token y las columnas de verificación del correo, intereses y nombre completo sobre la tabla users, los campos file_hash, storage_reference, ocr_text, qr_payload y holder_name_mismatch sobre la tabla certificates, las tablas subscriptions y processed_webhook_events de la suscripción mensual, advanced_path_unlocks, review_deadline_policies y disputes. Las líneas continuas representan las dos únicas claves foráneas físicas (`path_nodes → learning_paths` y `credit_transactions → wallets`) y las discontinuas, las referencias por identificador entre Bounded Contexts. Elaborado en PlantUML a partir de las migraciones Flyway V1–V10. Elaboración propia.
 
 En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos PostgreSQL (`skillswap_db`) aloja de forma organizada las tablas de los ocho Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `assessment_attempts` y `verification_cases` en Assessment & Peer Review) y bajo acoplamiento entre ellos: las únicas claves foráneas unen tablas de un mismo agregado (`path_nodes` con `learning_paths` y `credit_transactions` con `wallets`), y entre Bounded Contexts las tablas se referencian solo por identificador (por ejemplo, `users.id`, `certificates.id` o `credit_transactions.id`). La incorporación del campo `device_token` y de los campos de extracción sobre `certificates` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, mientras que la tabla `subscriptions` evidencia el modelo de negocio freemium (suscripción mensual opcional sobre el plan gratuito), completamente independiente del sistema interno no monetario de SkillCredits, que solo se gana mediante participación como Verificador y no admite ninguna forma de adquisición directa.
 
@@ -4732,7 +4735,7 @@ A continuación se presenta el diagrama de clases UML completo de SkillSwap, mos
 
 *Nota.* Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el Value Object `DeviceToken` y los puertos `EmailSender` y `PushNotificationSender` en Identity & Access, los atributos de extracción OCR (`ocrText`, `qrPayload`, `fileHash`) en `Certificate` (Credential Verification), los agregados `AdvancedPathUnlock` (Learning Path Engine), `ReviewDeadlinePolicy` (Assessment & Peer Review), `Dispute` (Moderation & Disputes) y `Subscription` (Subscription & Billing). Elaborado en PlantUML. Elaboración propia.
 
-En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `Certificate`, `LearningPath`, `AssessmentBlueprint`, `AdvancedPathUnlock`, `AssessmentAttempt`, `VerifierProfile`, `VerificationCase`, `ReviewDeadlinePolicy`, `VerifierReliability`, `StudentEmployabilityScore`, `Wallet`, `Subscription`, `Dispute`) heredando de un `AbstractDomainAggregateRoot` compartido, manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos — toda referencia cruzada se resuelve mediante un identificador simple (`Long`). La incorporación del Value Object `DeviceToken` en Identity & Access y de los atributos de extracción de `Certificate` en Credential Verification demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, en particular la captura desde cámara y el procesamiento on-device mediante ML Kit que constituye el feature de aprendizaje autónomo del proyecto. Por su parte, el agregado `Subscription` en Subscription & Billing, junto con los Value Objects `SubscriptionPlan` y `Money`, evidencia el desacoplamiento entre el cobro recurrente al Estudiante y el sistema interno no monetario de SkillCredits en Recognition & Incentives, ambos Bounded Contexts operando de forma completamente independiente entre sí y desacoplados del proveedor concreto de pagos (Google Play Billing, integrado mediante RevenueCat) mediante el Domain Service `PaymentGateway`.
+En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `Certificate`, `LearningPath`, `AssessmentBlueprint`, `AdvancedPathUnlock`, `AssessmentAttempt`, `VerifierProfile`, `VerificationCase`, `ReviewDeadlinePolicy`, `VerifierReliability`, `StudentEmployabilityScore`, `Wallet`, `Subscription`, `Dispute`) manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos — toda referencia cruzada se resuelve mediante un identificador entero (`int`). La incorporación del Value Object `DeviceToken` en Identity & Access y de los atributos de extracción de `Certificate` en Credential Verification demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, en particular la captura desde cámara y el procesamiento on-device mediante ML Kit que constituye el feature de aprendizaje autónomo del proyecto. Por su parte, el agregado `Subscription` en Subscription & Billing, junto con los Value Objects `SubscriptionPlan` y `Money`, evidencia el desacoplamiento entre el cobro recurrente al Estudiante y el sistema interno no monetario de SkillCredits en Recognition & Incentives, ambos Bounded Contexts operando de forma completamente independiente entre sí y desacoplados del proveedor concreto de pagos (Google Play Billing, integrado mediante RevenueCat) mediante el Domain Service `PaymentGateway`.
 
 ---
 
