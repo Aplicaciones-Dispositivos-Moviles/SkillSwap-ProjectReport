@@ -2677,7 +2677,7 @@ El Context Mapping de SkillSwap evidencia las relaciones estructurales entre los
 
 **Moderation & Disputes** se relaciona como **Customer/Supplier** hacia **Identity & Access** (emite órdenes de sanción sobre la cuenta de un usuario que presentó certificados fraudulentos o incurrió en una falta) y hacia **Reputation** (ajusta la reputación del usuario tras una disputa resuelta). Adicionalmente, mantiene una relación de **Anticorruption Layer (ACL)** hacia **Assessment & Peer Review**: en lugar de depender directamente del modelo interno de `VerificationCase`, Moderation & Disputes traduce la información recibida a su propio modelo simplificado de "caso en disputa", evitando acoplarse a cambios futuros en la lógica interna de asignación y revisión de Verificadores.
 
-Finalmente, **Credential Verification** mantiene una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **ML Kit** (Text Recognition / Entity Extraction de Firebase, utilizado on-device para la extracción de datos del certificado), aislando el modelo de dominio interno `Certificate` de los contratos y formatos de respuesta propios del SDK externo.
+Finalmente, **Credential Verification** mantiene una relación de **Anticorruption Layer (ACL)** hacia el servicio externo de terceros **ML Kit** (Text Recognition / Entity Extraction de Firebase, utilizado on-device para la extracción de datos del certificado), aislando el modelo de dominio interno `Certificate` de los contratos y formatos de respuesta propios del SDK externo. Del mismo modo, **Learning Path Engine** mantiene una relación de **Anticorruption Layer (ACL)** hacia la **Gemini API**: sus adaptadores traducen la respuesta del modelo a `skillTag` del catálogo interno y a preguntas del `AssessmentBlueprint`, descartando cualquier habilidad que no pertenezca al catálogo.
 
 **Figura 71**
 
@@ -2687,7 +2687,7 @@ Finalmente, **Credential Verification** mantiene una relación de **Anticorrupti
   <img src="images-doc/context-mapping.png" alt="Context Mapping" width="900">
 </p>
 
-*Nota.* Se muestran las relaciones Conformist, Customer/Supplier y Anticorruption Layer entre los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes) y los sistemas externos ML Kit y Google Play Billing. Elaboración propia.
+*Nota.* Se muestran las relaciones Conformist, Customer/Supplier y Anticorruption Layer entre los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes) y los sistemas externos ML Kit, Gemini API y Google Play Billing (vía RevenueCat). Elaboración propia.
 
 ### 2.5.3. Software Architecture
 
@@ -2720,7 +2720,7 @@ A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), u
   <img src="images-doc/SkillSwapSystemContext.svg" alt="System Context Diagram - Mobile" width="800">
 </p>
 
-*Nota.* Diagrama de contexto que muestra el sistema SkillSwap en el centro y sus interacciones directas con los dos actores principales (Estudiante, Verificador) a través de la aplicación móvil nativa, la aplicación cross-platform y el Landing Page, así como con los sistemas externos de terceros (ML Kit, Google Play Billing vía RevenueCat, almacenamiento en la nube y servicio de correo electrónico). La figura aún no representa la Gemini API descrita en el texto. Elaboración propia.
+*Nota.* Diagrama de contexto que muestra el sistema SkillSwap en el centro y sus interacciones directas con los dos actores principales (Estudiante, Verificador) a través de la aplicación móvil nativa, la aplicación cross-platform y el Landing Page, así como con los sistemas externos de terceros (ML Kit, Google Play Billing vía RevenueCat, Gemini API, almacenamiento en la nube y servicio de correo electrónico). Elaboración propia.
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
@@ -2731,7 +2731,7 @@ Los contenedores identificados son los siguientes:
 - **Landing Page (Sitio Web Estático):** Presenta el modelo de negocio de SkillSwap al público general, implementado con HTML5, CSS3 y JavaScript.
 - **Android Native Application:** Aplicación móvil nativa dirigida a los dos actores (Estudiante, Verificador), desarrollada en Kotlin con Jetpack Compose, que consume los Web Services RESTful del backend.
 - **Cross-Platform Application (Flutter):** Aplicación móvil dirigida a Android, que replica las funcionalidades core para ambos actores, desarrollada en Flutter con Dart, consumiendo igualmente los Web Services RESTful expuestos por el backend.
-- **API / RESTful Web Services:** Backend desarrollado bajo arquitectura RESTful en Java 21 con Spring Boot (Spring Web MVC, Spring Data JPA/Hibernate y Spring Security con JWT), actuando como Published Language único para los tres clientes (Landing Page, Android Native App y Flutter App). Este contenedor expone los endpoints del dominio y orquesta la lógica de negocio de los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes); el detalle interno de cada Bounded Context se desarrolla en su propio Component Diagram (ver 2.6.x.5).
+- **API / RESTful Web Services:** Backend desarrollado bajo arquitectura RESTful en Java 21 con Spring Boot (Spring Web MVC, Spring Data JPA/Hibernate y Spring Security con JWT), actuando como Published Language único para los dos clientes móviles (Android Native App y Flutter App); el Landing Page es informativo y no consume la API. Este contenedor expone los endpoints del dominio y orquesta la lógica de negocio de los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes); el detalle interno de cada Bounded Context se desarrolla en su propio Component Diagram (ver 2.6.x.5).
 - **Database:** Repositorio central de persistencia (instancia única de PostgreSQL), donde cada Bounded Context mantiene sus propias tablas siguiendo los principios de Domain-Driven Design.
 
 Es importante resaltar que tanto la aplicación Android nativa como la aplicación Flutter cross-platform consumen el **mismo contrato de API RESTful** documentado con OpenAPI/Swagger, sin requerir endpoints adicionales ni lógica de backend duplicada, evidenciando así el desacoplamiento entre la capa de presentación y la capa de dominio/aplicación del sistema.
@@ -2744,7 +2744,7 @@ Es importante resaltar que tanto la aplicación Android nativa como la aplicaci�
   <img src="images-doc/SkillSwapContainer.svg" alt="Container Diagram - Mobile" width="900">
 </p>
 
-*Nota.* Diagrama de contenedores que muestra el Landing Page, la Aplicación Android Nativa, la Aplicación Cross-Platform (Flutter), el backend de API/RESTful Web Services y la Base de Datos, junto con sus interacciones y los sistemas externos ML Kit, Google Play Billing y el servicio de almacenamiento en la nube. Los ocho Bounded Contexts se detallan a nivel de Component Diagram, no en este nivel de contenedor. Elaboración propia.
+*Nota.* Diagrama de contenedores que muestra el Landing Page, la Aplicación Android Nativa, la Aplicación Cross-Platform (Flutter), el backend de API/RESTful Web Services y la Base de Datos, junto con sus interacciones y los sistemas externos ML Kit, Google Play Billing (vía RevenueCat), Gemini API, el servicio de correo electrónico y el servicio de almacenamiento en la nube. El Landing Page es informativo y no consume la API. Los ocho Bounded Contexts se detallan a nivel de Component Diagram, no en este nivel de contenedor. Elaboración propia.
 
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
@@ -2753,9 +2753,9 @@ El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física 
 
 - **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes y Verificadores alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y la Aplicación Cross-Platform (Flutter, dirigida a Android), instaladas mediante distribución interna vía **Firebase App Distribution** durante el ciclo de pruebas, y descargables desde el dispositivo físico para la sustentación del curso. En estos dispositivos se ejecuta además **ML Kit** de forma on-device para la extracción de datos de los certificados, sin requerir una llamada a un servicio en la nube para dicho procesamiento.
 - **Hosting estático:** Aloja el Landing Page, servido de forma estática desde **GitHub Pages**, de acceso público.
-- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (Java 21 / Spring Boot), empaquetado como contenedor Docker y desplegado en **Render**, donde se ejecuta la lógica de negocio de los ocho Bounded Contexts a través de un único API Gateway, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por los tres clientes (Landing Page, Android Native App, Flutter App).
+- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (Java 21 / Spring Boot), empaquetado como contenedor Docker y desplegado en **Render**, donde se ejecuta la lógica de negocio de los ocho Bounded Contexts a través de un único API Gateway, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por las dos aplicaciones móviles (Android Native App y Flutter App); el Landing Page es informativo y no consume la API.
 - **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de PostgreSQL desplegada en **Render**, compartida por los ocho Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
-- **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para las imágenes de certificados y evidencias adjuntas a un caso de verificación, servicio de correo electrónico para el envío de notificaciones (validación institucional, resultados de evaluación, estado de un caso de revisión), y **Google Play Billing (vía RevenueCat)** para el procesamiento del cobro recurrente de la suscripción mensual.
+- **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para las imágenes de certificados y evidencias adjuntas a un caso de verificación, servicio de correo electrónico para el envío de notificaciones (validación institucional, resultados de evaluación, estado de un caso de revisión), la **Gemini API** para interpretar la meta del Estudiante sobre el catálogo interno de habilidades y generar las preguntas de los quizzes, y **Google Play Billing (vía RevenueCat)** para el procesamiento del cobro recurrente de la suscripción mensual: la aplicación inicia la compra con el SDK de RevenueCat y RevenueCat notifica sus cambios al backend mediante un webhook.
 
 Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
 
@@ -2767,7 +2767,7 @@ Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la s
   <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram - Mobile" width="900">
 </p>
 
-*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution y ejecución on-device de ML Kit, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de PostgreSQL en Render y los servicios externos de almacenamiento en la nube y Google Play Billing. Elaborado en PlantUML. Elaboración propia.
+*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution y ejecución on-device de ML Kit, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de PostgreSQL en Render y los servicios externos Cloudinary, Email API, Gemini API y Google Play Billing (vía RevenueCat), este último con la compra desde la aplicación y el webhook hacia el backend. Elaborado en PlantUML. Elaboración propia.
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
@@ -3433,7 +3433,7 @@ En ambos adaptadores, el catálogo de habilidades es la fuente de verdad: ningun
   <img src="images-doc/LearningPathEngineComponent.svg" alt="Component Diagram - Learning Path Engine" width="800">
 </p>
 
-*Nota.* Se detalla la segregación entre los Controllers de `LearningPath` y `AssessmentBlueprint`, el Command/Query Service, el componente interno `SkillTaxonomy Matcher` (representado como un único componente; corresponde al puerto cuyos adaptadores Gemini y por palabras clave se describen en 2.6.3.4) y el adaptador de generación de preguntas mediante una API de IA generativa (LLM), evidenciando la solicitud de certificados verificados hacia Credential Verification, la notificación entrante de certificados verificados desde ese mismo Bounded Context, y las solicitudes entrantes de Assessment & Peer Review (blueprint del nodo y notificación de nodo demostrado). Elaboración propia.
+*Nota.* Se detalla la segregación entre los Controllers de `LearningPath` y `AssessmentBlueprint`, el Command/Query Service, el componente interno `SkillTaxonomy Matcher` (representado como un único componente; corresponde al puerto cuyos adaptadores Gemini y por palabras clave se describen en 2.6.3.4) y el adaptador de generación de preguntas `GeminiQuestionGenerator` hacia la Gemini API, evidenciando la solicitud de certificados verificados hacia Credential Verification, la notificación entrante de certificados verificados desde ese mismo Bounded Context, y las solicitudes entrantes de Assessment & Peer Review (blueprint del nodo y notificación de nodo demostrado), la consulta de los límites de rutas del plan a `SubscriptionContextFacade` y `EnforcePlanLimitsEventHandler`, que pausa las rutas activas adicionales al recibir `SubscriptionExpired`. Elaboración propia.
 
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -3447,7 +3447,7 @@ En ambos adaptadores, el catálogo de habilidades es la fuente de verdad: ningun
   <img src="images-doc/class-learning-path-engine-mobile.png" alt="Class Diagram - Learning Path Engine" width="800">
 </p>
 
-*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. El puerto `SkillTaxonomyMatcher` y sus adaptadores no aparecen porque pertenecen a las capas de aplicación e infraestructura. La figura aún no incluye el estado `PAUSED` de `PathStatus`, el atributo `lastProgressAt` ni los métodos `pause()` y `resume()`. Elaboración propia.
+*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. El puerto `SkillTaxonomyMatcher` y sus adaptadores no aparecen porque pertenecen a las capas de aplicación e infraestructura. Elaboración propia.
 
 El modelado de clases de Learning Path Engine pertenece a los agregados raíz `LearningPath` y `AssessmentBlueprint`, junto con la entidad `PathNode`, los Value Objects `CareerGoal` y `SkillGap`, y la entidad `Question` embebida en `AssessmentBlueprint`, debido a que estos elementos concentran de forma exclusiva el business core de la plataforma: la interpretación de la meta del estudiante, el cálculo de la brecha de habilidad, la secuencia de nodos de la ruta personalizada y el contenido evaluativo generado dinámicamente por IA para cada nodo.
 
@@ -3683,7 +3683,7 @@ Este Bounded Context no integra ningún servicio de almacenamiento de archivos: 
   <img src="images-doc/AssessmentPeerReviewComponent.svg" alt="Component Diagram - Assessment & Peer Review" width="800">
 </p>
 
-*Nota.* Se detalla la segregación entre los Controllers de `AssessmentAttempt`, `VerificationCase` y `VerifierProfile`, el Command/Query Service y el componente interno `VerifierMatcher`, evidenciando la solicitud del blueprint hacia Learning Path Engine vía `LearningPathContextFacade`, la publicación de los eventos de dominio consumidos por Reputation y Recognition & Incentives, y la exposición de `VerifierProfileContextFacade` para que Reputation sincronice la confiabilidad del Verificador. Elaboración propia.
+*Nota.* Se detalla la segregación entre los Controllers de `AssessmentAttempt`, `VerificationCase` y `VerifierProfile`, el Command/Query Service y el componente interno `VerifierMatcher`, evidenciando la solicitud del blueprint hacia Learning Path Engine vía `LearningPathContextFacade`, la publicación de los eventos de dominio consumidos por Reputation y Recognition & Incentives, la exposición de `VerifierProfileContextFacade` para que Reputation sincronice la confiabilidad del Verificador y la consulta del cupo de escalamientos y del plazo de revisión del plan a `SubscriptionContextFacade`. Elaboración propia.
 
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -3697,7 +3697,7 @@ Este Bounded Context no integra ningún servicio de almacenamiento de archivos: 
   <img src="images-doc/class-assessment-peer-review-mobile.png" alt="Class Diagram - Assessment & Peer Review" width="800">
 </p>
 
-*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. La figura aún no incluye los atributos `caseType` ni `reviewDueAt` de `VerificationCase`. Elaboración propia.
+*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
 
 El modelado de clases de Assessment & Peer Review pertenece a los agregados raíz `AssessmentAttempt`, `VerifierProfile` y `VerificationCase`, junto con el Value Object `Score`, debido a que estos elementos concentran de forma exclusiva la ejecución del intento del estudiante sobre la evaluación generada por la IA, la elegibilidad de un Estudiante como Verificador de otros, y el flujo de escalamiento hacia revisión humana cuando dicho intento no es aprobado — sin depender de ninguna sesión de comunicación en tiempo real, a diferencia del modelo de tutorías original.
 
@@ -4522,7 +4522,7 @@ RevenueCat no es un procesador de pagos ni reemplaza a Google Play Billing: el c
   <img src="images-doc/SubscriptionBillingComponent.svg" alt="Component Diagram - Subscription & Billing" width="800">
 </p>
 
-*Nota.* Se detalla la segregación entre el Controller, el Command/Query Service y el adaptador de verificación hacia Google Play Billing. La figura aún muestra el diseño anterior, con el adaptador de Google Play Billing y un manejador de RTDN sobre Pub/Sub; en el diseño vigente se reemplazan por `RevenueCatGatewayAdapter` y el webhook de RevenueCat descritos en 2.6.8.4. Tampoco muestra `SimulatedPaymentGatewayAdapter`, `SubscriptionExpirationScheduler`, la tabla `processed_webhook_events` ni `SubscriptionContextFacade`, por la que Learning Path Engine y Assessment & Peer Review leen los límites del plan. Este Bounded Context opera de forma completamente independiente de Recognition & Incentives. Elaboración propia.
+*Nota.* Se detalla la segregación entre `SubscriptionsController`, `RevenueCatWebhookController`, el Command/Query Service, `SubscriptionExpirationScheduler` y el puerto `PaymentGateway` con sus adaptadores `RevenueCatGatewayAdapter` y `SimulatedPaymentGatewayAdapter`, evidenciando el registro idempotente de los eventos del webhook en `processed_webhook_events`, la publicación de `SubscriptionExpired` hacia Learning Path Engine y `SubscriptionContextFacade`, por la que Learning Path Engine y Assessment & Peer Review leen los límites del plan. Este Bounded Context opera de forma completamente independiente de Recognition & Incentives. Elaboración propia.
 
 #### 2.6.8.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -4536,7 +4536,7 @@ RevenueCat no es un procesador de pagos ni reemplaza a Google Play Billing: el c
   <img src="images-doc/class-subscription-billing-mobile.png" alt="Class Diagram - Subscription & Billing" width="800">
 </p>
 
-*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. La figura aún muestra `renewsAt` en lugar de `currentPeriodEnd` y el agregado `CreditPurchase`, retirado del diseño; tampoco incluye `storeTransactionId`, `expiredAt`, `updatedAt`, el método `uncancel()`, el Value Object `PurchaseVerification` ni el Domain Service `PaymentGateway` con sus adaptadores `RevenueCatGatewayAdapter` y `SimulatedPaymentGatewayAdapter`. Elaboración propia.
+*Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
 
 El modelado de clases de Subscription & Billing pertenece únicamente al agregado raíz `Subscription`, junto con los Value Objects `SubscriptionPlan` y `Money`, debido a que este Bounded Context gestiona exclusivamente el ciclo de vida del cobro recurrente de la mensualidad, desacoplado del proveedor concreto de pagos mediante el Domain Service `PaymentGateway`, definido en el Context Mapping como el límite de Anticorruption Layer hacia Google Play Billing (vía RevenueCat). El atributo `storeTransactionId` guarda la referencia de la transacción de Google Play que informa RevenueCat.
 
@@ -4582,7 +4582,7 @@ A continuación se presenta el diagrama de clases UML completo de SkillSwap, mos
   <img src="images-doc/SkillSwap_ClassDiagram_Mobile.svg" alt="Diagrama de Clases Completo" width="1000">
 </p>
 
-*Nota.* Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el Value Object `DeviceToken` en Identity & Access, los atributos de extracción OCR (`ocrText`, `qrPayload`, `fileHash`) en `Certificate` (Credential Verification), y el agregado `Subscription` (Subscription & Billing) incorporado para el soporte del cobro recurrente de la mensualidad. La figura aún muestra en `Subscription` el atributo `googlePurchaseToken`, reemplazado por `storeTransactionId`, y no incluye el estado `PAUSED` de `PathStatus`, el atributo `lastProgressAt` de `LearningPath` ni los atributos `caseType` y `reviewDueAt` de `VerificationCase`. Elaborado en PlantUML. Elaboración propia.
+*Nota.* Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el Value Object `DeviceToken` en Identity & Access, los atributos de extracción OCR (`ocrText`, `qrPayload`, `fileHash`) en `Certificate` (Credential Verification), y el agregado `Subscription` (Subscription & Billing) incorporado para el soporte del cobro recurrente de la mensualidad. Elaborado en PlantUML. Elaboración propia.
 
 En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `Certificate`, `LearningPath`, `AssessmentBlueprint`, `AssessmentAttempt`, `VerifierProfile`, `VerificationCase`, `VerifierReliability`, `StudentEmployabilityScore`, `Wallet`, `Subscription`, `Dispute`) heredando de un `AbstractDomainAggregateRoot` compartido, manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos — toda referencia cruzada se resuelve mediante un identificador simple (`Long`). La incorporación del Value Object `DeviceToken` en Identity & Access y de los atributos de extracción de `Certificate` en Credential Verification demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, en particular la captura desde cámara y el procesamiento on-device mediante ML Kit que constituye el feature de aprendizaje autónomo del proyecto. Por su parte, el agregado `Subscription` en Subscription & Billing, junto con los Value Objects `SubscriptionPlan` y `Money`, evidencia el desacoplamiento entre el cobro recurrente al Estudiante y el sistema interno no monetario de SkillCredits en Recognition & Incentives, ambos Bounded Contexts operando de forma completamente independiente entre sí y desacoplados del proveedor concreto de pagos (Google Play Billing, integrado mediante RevenueCat) mediante el Domain Service `PaymentGateway`.
 
@@ -5052,7 +5052,7 @@ El PR #13 de `SkillSwap-WebServices-Java` (Subscription & Billing), aún no desp
   <img src="images-doc/c4-deployment-diagram.svg" alt="Deployment Diagram de SkillSwap" width="900">
 </p>
 
-*Nota.* Aplicación Android y Landing Page (GitHub Pages) como clientes, API Spring Boot en un contenedor Docker con JRE 21 sobre Render, PostgreSQL administrado, y los servicios externos Cloudinary, Gemini API y Google Play Billing. Elaboración propia.
+*Nota.* Aplicaciones Android nativa y cross-platform como clientes de la API y Landing Page estático en GitHub Pages, API Spring Boot en un contenedor Docker con JRE 21 sobre Render, PostgreSQL administrado, y los servicios externos Cloudinary, Email API, Gemini API y Google Play Billing (vía RevenueCat). Elaboración propia.
 
 ---
 
