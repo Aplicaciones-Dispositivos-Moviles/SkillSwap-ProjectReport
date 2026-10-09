@@ -1,57 +1,63 @@
 @startuml LearningPathEngineComponent
+!pragma layout smetana
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
 LAYOUT_WITH_LEGEND()
 
-Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
-Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
-ContainerDb_Ext(mainDB, "SkillSwap Database", "MySQL 8")
-System_Ext(llmApi, "LLM API", "Generación de preguntas por IA")
+Container_Ext(mobileApps, "Apps móviles", "Kotlin / Jetpack Compose y Flutter / Dart")
+ContainerDb_Ext(mainDB, "SkillSwap Database", "PostgreSQL 16")
+System_Ext(geminiApi, "Gemini API", "IA generativa")
 
 Container_Boundary(pathEngineBC, "Learning Path Engine Bounded Context") {
-    Component(learningPathController, "LearningPath Controller", "C# Class", "RESTful API Controller")
-    Component(assessmentBlueprintController, "AssessmentBlueprint Controller", "C# Class", "RESTful API Controller")
-    Component(pathEngineCommandService, "PathEngine CommandService", "C# Class", "Lógica de negocio")
-    Component(pathEngineQueryService, "PathEngine QueryService", "C# Class", "Consultas")
-    Component(skillTaxonomyMatcher, "SkillTaxonomy Matcher", "C# Class", "Resuelve CareerGoal contra la taxonomía interna de skills")
-    Component(learningPathRepository, "LearningPath Repository", "C# Interface", "Interface persistencia")
-    Component(assessmentBlueprintRepository, "AssessmentBlueprint Repository", "C# Interface", "Interface persistencia")
-    Component(llmGeneratorExternal, "LlmQuestionGenerator ExternalService", "C# Class", "Adaptador de generación de preguntas")
-    Component(pathEngineContextFacade, "PathEngine ContextFacade", "C# Class", "Punto de entrada interno")
+    Component(pathControllers, "LearningPaths / PathNodeCertificates / AdvancedPathUnlocks Controllers", "Java Class", "Declarar la meta, pausar o reanudar rutas, vincular certificados y listar desbloqueos")
+    Component(blueprintController, "AssessmentBlueprintsController", "Java Class", "Generar el quiz de 5 preguntas de un nodo")
+    Component(learningPathCommandService, "LearningPathCommandService", "Java Class", "Crea la ruta aplicando los límites del plan, completa nodos, pausa por downgrade")
+    Component(learningPathQueryService, "LearningPathQueryService", "Java Class", "Consultas")
+    Component(blueprintCommandService, "AssessmentBlueprintCommandService", "Java Class", "Genera el AssessmentBlueprint del nodo")
+    Component(pathBuilder, "LearningPathBuilder / SkillGapAnalyzer", "Domain Service", "Arma los nodos y la brecha sobre la taxonomía interna")
+    Component(geminiMatcher, "GeminiSkillTaxonomyMatcher", "Java Class", "Implementa SkillTaxonomyMatcher: Gemini elige solo habilidades del catálogo; si falla o excede el tiempo responde el matcher por palabras clave")
+    Component(geminiQuestionGenerator, "GeminiQuestionGenerator", "Java Class", "Implementa QuestionGenerationService")
+    Component(eventHandlers, "EventHandlers", "Java Class", "EnforcePlanLimits, GrantAdvancedPathUnlock y RecognizeValidatedCertificate")
+    Component(repositories, "LearningPath / AssessmentBlueprint / AdvancedPathUnlock Repositories", "Java Interface", "Interfaces de persistencia")
+    Component(learningPathFacade, "LearningPathContextFacade", "Java Class", "Blueprint del nodo, completar nodo y habilidad completada")
+    Component(skillCatalogFacade, "SkillCatalogContextFacade", "Java Class", "Habilidades del catálogo para un texto")
 }
 
-Component_Ext(credentialContextFacade, "Certificate ContextFacade", "C# Class", "Bounded Context: Credential Verification")
-Component_Ext(credentialCommandService, "Certificate CommandService", "C# Class", "Bounded Context: Credential Verification")
+Component_Ext(credentialFacade, "CredentialContextFacade", "Java Class", "Bounded Context: Credential Verification")
+Component_Ext(subscriptionFacade, "SubscriptionContextFacade", "Java Class", "Bounded Context: Subscription & Billing")
+Component_Ext(recognitionFacade, "RecognitionContextFacade", "Java Class", "Bounded Context: Recognition & Incentives")
+Component_Ext(eventPublishers, "DomainEventPublisher", "Java Class (Shared)", "Credential Verification, Recognition & Incentives y Subscription & Billing")
+Component_Ext(assessmentServices, "AssessmentAttempt / VerificationCase / VerifierProfile CommandServices", "Java Class", "Bounded Context: Assessment & Peer Review")
+Component_Ext(userCommandService, "UserCommandService", "Java Class", "Bounded Context: Identity & Access")
 
-Component_Ext(assessmentQueryService, "Assessment QueryService", "C# Class", "Bounded Context: Assessment & Peer Review")
-Component_Ext(assessmentCommandService, "Assessment CommandService", "C# Class", "Bounded Context: Assessment & Peer Review")
+Rel(mobileApps, pathControllers, "Request HTTP", "HTTPS/JSON")
+Rel(mobileApps, blueprintController, "Request HTTP", "HTTPS/JSON")
+Rel(pathControllers, learningPathCommandService, "Usa")
+Rel(pathControllers, learningPathQueryService, "Usa")
+Rel(blueprintController, blueprintCommandService, "Usa")
 
-Rel(androidApp, learningPathController, "Request HTTP a Learning Path Engine")
-Rel(flutterApp, learningPathController, "Request HTTP a Learning Path Engine")
-Rel(androidApp, assessmentBlueprintController, "Request HTTP a Learning Path Engine")
-Rel(flutterApp, assessmentBlueprintController, "Request HTTP a Learning Path Engine")
+Rel(learningPathCommandService, geminiMatcher, "Interpreta la meta (puerto SkillTaxonomyMatcher)")
+Rel(geminiMatcher, geminiApi, "Interpreta la meta sobre el catálogo", "HTTPS")
+Rel(learningPathCommandService, pathBuilder, "Construye la ruta")
+Rel(blueprintCommandService, geminiQuestionGenerator, "Genera preguntas (puerto QuestionGenerationService)")
+Rel(geminiQuestionGenerator, geminiApi, "Genera las preguntas", "HTTPS")
 
-Rel(learningPathController, pathEngineCommandService, "Usa")
-Rel(learningPathController, pathEngineQueryService, "Usa")
-Rel(assessmentBlueprintController, pathEngineCommandService, "Usa")
+Rel(learningPathCommandService, repositories, "Usa")
+Rel(learningPathQueryService, repositories, "Usa")
+Rel(blueprintCommandService, repositories, "Usa")
+Rel(repositories, mainDB, "SQL Transaction")
 
-Rel(pathEngineCommandService, learningPathRepository, "Usa")
-Rel(pathEngineCommandService, assessmentBlueprintRepository, "Usa")
-Rel(pathEngineQueryService, learningPathRepository, "Usa")
-Rel(learningPathRepository, mainDB, "SQL Transaction")
-Rel(assessmentBlueprintRepository, mainDB, "SQL Transaction")
+Rel_U(learningPathCommandService, subscriptionFacade, "Pedir PlanLimitsView (rutas activas y totales)")
+Rel_U(learningPathCommandService, credentialFacade, "Pedir certificados validados y evidencia")
+Rel_U(learningPathCommandService, recognitionFacade, "Pedir canjes de ruta avanzada")
 
-Rel(pathEngineCommandService, skillTaxonomyMatcher, "Resuelve el texto libre de la meta contra la taxonomía interna")
-Rel(pathEngineCommandService, llmGeneratorExternal, "Delega generación de preguntas")
-Rel(llmGeneratorExternal, llmApi, "Genera preguntas vía prompt estructurado por skillTag")
+Rel(eventPublishers, eventHandlers, "SubscriptionExpired, AdvancedPathUnlockRedeemed, CertificateVerified (tras el commit)")
+Rel(eventHandlers, learningPathCommandService, "Pausa rutas excedentes / otorga AdvancedPathUnlock / reconoce el certificado")
 
-Rel(pathEngineCommandService, credentialContextFacade, "Pedir certificados verificados del estudiante")
-
-Rel(pathEngineContextFacade, pathEngineCommandService, "Delega")
-Rel(pathEngineContextFacade, pathEngineQueryService, "Delega")
-
-Rel(credentialCommandService, pathEngineContextFacade, "Notificar certificado verificado (recalcular ruta)")
-Rel(assessmentQueryService, pathEngineContextFacade, "Pedir AssessmentBlueprint del nodo")
-Rel(assessmentCommandService, pathEngineContextFacade, "Notificar nodo demostrado / caso resuelto")
+Rel(learningPathFacade, learningPathCommandService, "Delega")
+Rel(learningPathFacade, repositories, "Usa")
+Rel(skillCatalogFacade, geminiMatcher, "Usa el mismo matcher")
+Rel(assessmentServices, learningPathFacade, "Pedir blueprint / completar nodo / ¿completó la habilidad?")
+Rel(userCommandService, skillCatalogFacade, "Vectoriza los intereses")
 
 @enduml

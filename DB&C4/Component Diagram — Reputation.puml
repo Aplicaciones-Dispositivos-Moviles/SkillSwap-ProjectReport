@@ -1,52 +1,45 @@
 @startuml ReputationComponent
+!pragma layout smetana
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
 LAYOUT_WITH_LEGEND()
 
-Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
-Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
+Container_Ext(mobileApps, "Apps móviles", "Kotlin / Jetpack Compose y Flutter / Dart")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "PostgreSQL 16")
 
 Container_Boundary(reputationBC, "Reputation Bounded Context") {
-    Component(verifierReliabilityController, "VerifierReliability Controller", "C# Class", "RESTful API Controller")
-    Component(studentEmployabilityController, "StudentEmployability Controller", "C# Class", "RESTful API Controller")
-    Component(reputationCommandService, "Reputation CommandService", "C# Class", "Lógica de negocio: recálculo por eventos")
-    Component(reputationQueryService, "Reputation QueryService", "C# Class", "Consultas")
-    Component(assessmentEventHandlers, "Assessment EventHandlers", "C# Class", "Reacciona a AssessmentAttemptPassed y VerificationCaseResolved")
-    Component(verifierReliabilityRepository, "VerifierReliability Repository", "C# Interface", "Interface persistencia")
-    Component(studentEmployabilityRepository, "StudentEmployabilityScore Repository", "C# Interface", "Interface persistencia")
-    Component(verifierProfileNotifierExternal, "VerifierProfile NotifierAdapter", "C# Class", "Sincronización con Assessment & Peer Review")
-    Component(reputationContextFacade, "Reputation ContextFacade", "C# Class", "Punto de entrada interno")
+    Component(reliabilityController, "VerifierReliabilitiesController", "Java Class", "Confiabilidad y rango del Verificador")
+    Component(employabilityController, "StudentEmployabilityScoresController", "Java Class", "Employability Score del estudiante")
+    Component(eventHandlers, "Assessment EventHandlers", "Java Class", "RecordCaseResolution, RecordMissedDeadline y RecordAutomaticApproval")
+    Component(reputationCommandService, "ReputationCommandService", "Java Class", "Recalcula confiabilidad y empleabilidad por eventos")
+    Component(queryServices, "VerifierReliability / StudentEmployability QueryServices", "Java Class", "Consultas")
+    Component(calculators, "VerifierReliabilityCalculator / EmployabilityScoreCalculator", "Domain Service", "Fórmulas de confiabilidad (0–100) y empleabilidad")
+    Component(seniorPolicy, "SeniorVerifierPolicy", "Domain Service", "Senior = rango Oro (≥ 100 casos resueltos) y confiabilidad ≥ 90")
+    Component(repositories, "VerifierReliability / StudentEmployabilityScore Repositories", "Java Interface", "Interfaces de persistencia")
+    Component(reputationFacade, "ReputationContextFacade", "Java Class", "isSeniorVerifier / findSeniorVerifiers")
 }
 
-Component_Ext(verifierProfileContextFacade, "VerifierProfile ContextFacade", "C# Class", "Bounded Context: Assessment & Peer Review")
-Component_Ext(assessmentDomainEventPublisher, "DomainEventPublisher", "C# Class (Shared)", "Bounded Context: Assessment & Peer Review")
-Component_Ext(moderationCommandService, "Moderation CommandService", "C# Class", "Bounded Context: Moderation & Disputes")
+Component_Ext(assessmentPublisher, "DomainEventPublisher", "Java Class (Shared)", "Bounded Context: Assessment & Peer Review")
+Component_Ext(verifierFacade, "VerifierProfileContextFacade", "Java Class", "Bounded Context: Assessment & Peer Review")
+Component_Ext(deadlinePolicyService, "ReviewDeadlinePolicyCommandService", "Java Class", "Bounded Context: Assessment & Peer Review")
+Component_Ext(disputeCommandService, "DisputeCommandService", "Java Class", "Bounded Context: Moderation & Disputes")
 
-Rel(androidApp, verifierReliabilityController, "Request HTTP a Reputation")
-Rel(flutterApp, verifierReliabilityController, "Request HTTP a Reputation")
-Rel(androidApp, studentEmployabilityController, "Request HTTP a Reputation")
-Rel(flutterApp, studentEmployabilityController, "Request HTTP a Reputation")
+Rel(mobileApps, reliabilityController, "Request HTTP", "HTTPS/JSON")
+Rel(mobileApps, employabilityController, "Request HTTP", "HTTPS/JSON")
+Rel(reliabilityController, queryServices, "Usa")
+Rel(employabilityController, queryServices, "Usa")
 
-Rel(verifierReliabilityController, reputationQueryService, "Usa")
-Rel(studentEmployabilityController, reputationQueryService, "Usa")
+Rel(assessmentPublisher, eventHandlers, "VerificationCaseResolved, VerificationCaseDeadlineMissed, AssessmentAttemptPassed (tras el commit)")
+Rel(eventHandlers, reputationCommandService, "Registra la resolución, el plazo incumplido o la aprobación automática")
+Rel(reputationCommandService, calculators, "Recalcula")
+Rel(reputationCommandService, repositories, "Usa")
+Rel(queryServices, repositories, "Usa")
+Rel(repositories, mainDB, "SQL Transaction")
+Rel_U(reputationCommandService, verifierFacade, "Sincronizar el rating (updateRating)")
 
-Rel(reputationCommandService, verifierReliabilityRepository, "Usa")
-Rel(reputationCommandService, studentEmployabilityRepository, "Usa")
-Rel(reputationQueryService, verifierReliabilityRepository, "Usa")
-Rel(reputationQueryService, studentEmployabilityRepository, "Usa")
-Rel(verifierReliabilityRepository, mainDB, "SQL Transaction")
-Rel(studentEmployabilityRepository, mainDB, "SQL Transaction")
-
-Rel(assessmentDomainEventPublisher, assessmentEventHandlers, "En proceso, tras el commit")
-Rel(assessmentEventHandlers, reputationCommandService, "Invoca recálculo de confiabilidad / empleabilidad")
-
-Rel(reputationCommandService, verifierProfileNotifierExternal, "Delega sincronización")
-Rel(verifierProfileNotifierExternal, verifierProfileContextFacade, "UpdateRating(score)")
-
-Rel(reputationContextFacade, reputationCommandService, "Delega")
-Rel(reputationContextFacade, reputationQueryService, "Delega")
-
-Rel(moderationCommandService, reputationContextFacade, "Notificar reversión de decisión / sanción aplicada")
+Rel(reputationFacade, repositories, "Usa")
+Rel(reputationFacade, seniorPolicy, "Evalúa")
+Rel(deadlinePolicyService, reputationFacade, "¿Es Verificador senior?")
+Rel(disputeCommandService, reputationFacade, "Filtrar Verificadores senior disponibles")
 
 @enduml

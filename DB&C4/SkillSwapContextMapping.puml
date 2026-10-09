@@ -1,4 +1,5 @@
 @startuml SkillSwapContextMapping
+!pragma layout smetana
 
 skinparam backgroundColor transparent
 skinparam rectangle {
@@ -25,62 +26,69 @@ skinparam rectangle<<external>> {
     BorderColor #5C5C5C
 }
 
-' ===== Fila superior =====
+skinparam nodesep 70
+skinparam ranksep 90
+
+' ===== Fila superior: sistemas externos =====
+rectangle "ML Kit" as MLK <<external>>
+rectangle "Gemini API" as GEM <<external>>
+
+' ===== Fila central: núcleo del dominio =====
 rectangle "Credential\nVerification" as CV <<upstream>>
 rectangle "Learning Path\nEngine" as LPE <<upstream>>
 rectangle "Assessment &\nPeer Review" as APR <<upstream>>
-rectangle "ML Kit" as MLK <<external>>
-
-' ===== Fila media =====
-rectangle "Identity & Access" as IAM <<upstream>>
 rectangle "Reputation" as REP <<downstream>>
 
-' ===== Fila inferior =====
+' ===== Fila inferior: soporte y genéricos =====
 rectangle "Moderation &\nDisputes" as MOD <<upstream>>
-rectangle "Recognition &\nIncentives" as REC <<downstream>>
+rectangle "Identity & Access" as IAM <<upstream>>
 rectangle "Subscription &\nBilling" as SUB <<upstream>>
-rectangle "Google Play\nBilling" as GPB <<external>>
+rectangle "Recognition &\nIncentives" as REC <<downstream>>
+rectangle "Google Play Billing\n(vía RevenueCat)" as GPB <<external>>
 
 ' ===== Layout: forzar filas con enlaces invisibles =====
-CV -[hidden]right-> LPE
-LPE -[hidden]right-> APR
-APR -[hidden]right-> MLK
-IAM -[hidden]right-> REP
-MOD -[hidden]right-> REC
-REC -[hidden]right-> SUB
-SUB -[hidden]right-> GPB
-CV -[hidden]down-> IAM
-IAM -[hidden]down-> MOD
+MLK -[hidden]right-> GEM
+MOD -[hidden]right-> IAM
+IAM -[hidden]right-> SUB
+SUB -[hidden]right-> REC
+REP -[hidden]down-> REC
 
 ' ===== Relaciones reales =====
 
-' Fila superior
+' Núcleo: Credential Verification -> Learning Path Engine -> Assessment & Peer Review
 CV -right-> LPE : [Customer/Supplier]
 LPE -right-> APR : [Customer/Supplier]
-CV ..> MLK : [Anticorruption\nLayer]
+CV .up.> MLK : [Anticorruption\nLayer]
+LPE .up.> GEM : [Anticorruption\nLayer]
 
 ' Identity & Access como Upstream/Conformist hacia todos
 IAM -up-> CV : [Conformist]
 IAM -up-> LPE : [Conformist]
 IAM -up-> APR : [Conformist]
 IAM -right-> REP : [Conformist]
-IAM -down-> REC : [Conformist]
+IAM -right-> REC : [Conformist]
 IAM -left-> MOD : [Conformist]
-IAM -down-> SUB : [Conformist]
+IAM -right-> SUB : [Conformist]
 
 ' Assessment & Peer Review hacia Reputation y Recognition & Incentives (eventos de dominio)
-APR ..> REP : [Published Language\n(eventos de dominio)]
-APR ..> REC : [Published Language\n(eventos de dominio)]
+APR .right.> REP : [Customer/Supplier]\n(eventos de dominio)
+APR .right.> REC : [Customer/Supplier]\n(eventos de dominio)
 
 ' Reputation hacia Assessment & Peer Review (sincroniza rating, vía ACL)
-REP ..> APR : [Anticorruption\nLayer]
+REP .left.> APR : [Anticorruption\nLayer]
 
 ' Moderation & Disputes
-MOD -up-> IAM : [Customer/Supplier]
+MOD -right-> IAM : [Customer/Supplier]
 MOD -right-> REP : [Customer/Supplier]
-MOD ..> APR : [Anticorruption\nLayer]
+MOD .up.> APR : [Anticorruption\nLayer]
 
 ' Subscription & Billing (independiente de Recognition & Incentives)
-SUB ..> GPB : [Anticorruption\nLayer]
+SUB .down.> GPB : [Anticorruption\nLayer]
+
+' Subscription & Billing expone los límites del plan vigente (SubscriptionContextFacade -> PlanLimitsView);
+' Learning Path Engine y Assessment & Peer Review los traducen a sus propias reglas (rutas activas/totales,
+' cupo mensual de escalamientos y plazo de revisión)
+SUB .up.> LPE : [Anticorruption Layer]\n(PlanLimitsView)
+SUB .up.> APR : [Anticorruption Layer]\n(PlanLimitsView)
 
 @enduml

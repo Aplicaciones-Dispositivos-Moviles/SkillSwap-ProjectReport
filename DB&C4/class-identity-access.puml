@@ -1,0 +1,87 @@
+@startuml class-identity-mobile
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam packageStyle folder
+skinparam dpi 110
+left to right direction
+
+' Fuente: SkillSwap-WebServices-Java, iam (domain/model, domain/services,
+' application/internal/outboundservices). Los ids son Integer (int si es obligatorio).
+!startsub BODY
+package "Identity & Access" {
+    class User <<Aggregate Root>> {
+        -id: Integer
+        -username: Username
+        -email: Email
+        -passwordHash: PasswordHash
+        -fullName: String
+        -role: UserRole
+        -verified: boolean
+        -bio: String
+        -deviceToken: DeviceToken
+        -interestTopics: List<String>
+        -skillVector: List<String>
+        -verificationTokenHash: String
+        -verificationTokenExpiresAt: Instant
+        -verificationEmailSentAt: Instant
+        +verify(): User
+        +issueVerificationToken(tokenHash: String, expiresAt: Instant, issuedAt: Instant): User
+        +canReceiveVerificationEmail(now: Instant, cooldown: Duration): boolean
+        +updateBio(bio: String): User
+        +updateFullName(fullName: String): User
+        +replaceInterestTopics(topics: List<String>): User
+        +updateSkillVector(skillTags: List<String>): User
+        +registerDeviceToken(token: String): User
+        +removeDeviceToken(): User
+    }
+
+    class Username <<Value Object>> {
+        +value: String
+    }
+
+    class Email <<Value Object>> {
+        +value: String
+    }
+
+    class PasswordHash <<Value Object>> {
+        +value: String
+    }
+
+    class DeviceToken <<Value Object>> {
+        +value: String
+    }
+
+    enum UserRole {
+        STUDENT
+    }
+
+    interface EmailDomainValidator <<Domain Service>> {
+        +isInstitutionalDomain(email: String): boolean
+    }
+
+    interface PasswordHasher <<Domain Service>> {
+        +hashPassword(plainPassword: String): PasswordHash
+        +verifyPassword(plainPassword: String, hash: PasswordHash): boolean
+    }
+
+    interface EmailSender <<Port>> {
+        +send(message: EmailMessage): void
+    }
+
+    interface PushNotificationSender <<Port>> {
+        +send(deviceToken: String, notification: PushNotification): PushDeliveryResult
+    }
+
+    class BrevoEmailSenderAdapter
+    class FirebasePushNotificationAdapter
+
+    User --> Username
+    User --> Email
+    User --> PasswordHash
+    User --> DeviceToken
+    User --> UserRole
+    BrevoEmailSenderAdapter ..|> EmailSender
+    FirebasePushNotificationAdapter ..|> PushNotificationSender
+}
+!endsub
+@enduml

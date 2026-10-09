@@ -1,0 +1,106 @@
+@startuml db-learning-path-engine
+!pragma layout smetana
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam linetype ortho
+skinparam ArrowColor #546E7A
+skinparam class {
+  BorderColor #2F5F8A
+  AttributeFontColor #1F2933
+  AttributeFontSize 11
+}
+skinparam package {
+  BorderColor #90A4AE
+  FontColor #37474F
+  FontStyle bold
+}
+skinparam note {
+  BackgroundColor #FFF8E1
+  BorderColor #C9A227
+  FontSize 10
+}
+skinparam legend {
+  BackgroundColor #FAFAFA
+  BorderColor #B0BEC5
+  FontSize 10
+}
+hide circle
+hide stereotype
+
+title <size:14>Base de datos · Learning Path Engine</size>
+package "Learning Path Engine" {
+entity "<color:#FFFFFF><b>learning_paths</b></color>" as learning_paths #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * student_id : integer <<ref>>
+  * career_goal : jsonb
+  * status : varchar(20)
+  * created_at : timestamptz
+  * updated_at : timestamptz
+  * last_progress_at : timestamptz
+  * is_advanced : boolean
+}
+entity "<color:#FFFFFF><b>path_nodes</b></color>" as path_nodes #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * learning_path_id : integer <<FK>>
+  * skill_tag : varchar(100)
+  * node_order : integer
+  * status : varchar(20)
+  * prerequisites : varchar(1000)
+    linked_certificate_id : integer <<ref>>
+    assessment_blueprint_id : integer <<ref>>
+  * completed_by_certificate : boolean
+}
+entity "<color:#FFFFFF><b>assessment_blueprints</b></color>" as assessment_blueprints #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * path_node_id : integer <<ref>>
+  * skill_tag : varchar(100)
+  * questions : jsonb
+  * generated_at : timestamptz
+}
+entity "<color:#FFFFFF><b>advanced_path_unlocks</b></color>" as advanced_path_unlocks #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * student_id : integer <<ref>>
+  * redemption_id : integer <<UK>> <<ref>>
+    learning_path_id : integer <<UK*>> <<ref>>
+  * granted_at : timestamptz
+    used_at : timestamptz
+}
+}
+entity "<b>users</b>\n<size:9>(Identity & Access)</size>" as users <<ref>> #back:F5F5F5;header:DADADA;line:9E9E9E {
+  * id : integer <<PK>>
+}
+entity "<b>certificates</b>\n<size:9>(Credential Verification)</size>" as certificates <<ref>> #back:F5F5F5;header:DADADA;line:9E9E9E {
+  * id : integer <<PK>>
+}
+entity "<b>credit_transactions</b>\n<size:9>(Recognition & Incentives)</size>" as credit_transactions <<ref>> #back:F5F5F5;header:DADADA;line:9E9E9E {
+  * id : integer <<PK>>
+}
+users ||..o{ learning_paths : "student_id"
+learning_paths ||--|{ path_nodes : "learning_path_id"
+certificates ||..o{ path_nodes : "linked_certificate_id"
+assessment_blueprints ||..o{ path_nodes : "assessment_blueprint_id"
+path_nodes ||..o{ assessment_blueprints : "path_node_id"
+users ||..o{ advanced_path_unlocks : "student_id"
+credit_transactions ||..o| advanced_path_unlocks : "redemption_id"
+learning_paths ||..o| advanced_path_unlocks : "learning_path_id"
+legend bottom left
+  <b>Notación</b>: <b>●</b> NOT NULL · <b><<PK>></b> clave primaria · <b><<FK>></b> FOREIGN KEY física ·
+  <b><<ref>></b> referencia por id sin FOREIGN KEY (otro agregado o Bounded Context) · <b><<UK>></b> único (<b>UK*</b> índice único parcial)
+  Línea continua: FOREIGN KEY física · Línea discontinua: referencia lógica por id · Tablas grises: tablas de otro Bounded Context
+  Esquema final de las migraciones Flyway V1–V10 (PostgreSQL). varchar = character varying · timestamptz = timestamp with time zone
+  <b>Restricciones e índices</b>
+  • learning_paths: CHECK status IN ('Active','Paused','Completed')
+  • INDEX (student_id, status): los límites de rutas por plan los aplica la aplicación
+  • path_nodes: UNIQUE (learning_path_id, node_order), UNIQUE (learning_path_id, skill_tag)
+  • CHECK completed_by_certificate ⇒ status = 'Completed' AND linked_certificate_id IS NOT NULL
+  • advanced_path_unlocks: UNIQUE (redemption_id), UNIQUE parcial (learning_path_id), CHECK (learning_path_id IS NULL) = (used_at IS NULL)
+endlegend
+
+@enduml

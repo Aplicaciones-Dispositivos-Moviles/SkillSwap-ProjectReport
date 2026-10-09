@@ -1,0 +1,87 @@
+@startuml class-moderation-disputes-mobile
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam packageStyle folder
+skinparam dpi 110
+left to right direction
+
+' Fuente: SkillSwap-WebServices-Java, moderationdisputes. La disputa la resuelve un Verificador
+' (se prefiere un Verificador senior: rango Oro y confiabilidad >= 90). No existe rol Coordinador.
+!startsub BODY
+package "Moderation & Disputes" {
+    class Dispute <<Aggregate Root>> {
+        -id: Integer
+        -sourceType: DisputeSourceType
+        -sourceReferenceId: int
+        -raisedByUserId: Integer
+        -respondentUserId: Integer
+        -reason: String
+        -status: DisputeStatus
+        -outcome: DisputeOutcome
+        -resolutionNotes: String
+        -assignedVerifierUserId: Integer
+        -assignedToSenior: boolean
+        -assignedAt: Instant
+        -raisedAt: Instant
+        -resolvedAt: Instant
+        +{static} certificateReview(certificateId: int, ownerId: int, reasons: List<String>): Dispute
+        +assignReviewer(verifierUserId: int, senior: boolean): Dispute
+        +resolve(outcome: DisputeOutcome, resolutionNotes: String, validator: DisputeResolutionValidator): Dispute
+        +isParty(userId: int): boolean
+        +hasReviewer(): boolean
+    }
+
+    enum DisputeSourceType {
+        CERTIFICATE_REVIEW
+        VERIFIER_DECISION_APPEAL
+        USER_REPORT
+    }
+
+    enum DisputeStatus {
+        PENDING
+        RESOLVED
+    }
+
+    enum DisputeOutcome {
+        UPHELD
+        OVERTURNED
+        DISMISSED
+        SANCTIONED
+    }
+
+    class DisputeResolutionValidator <<Domain Service>> {
+        +canResolve(dispute: Dispute): boolean
+        +isValidOutcome(sourceType: DisputeSourceType, outcome: DisputeOutcome): boolean
+    }
+
+    class DisputeReviewerSelector <<Domain Service>> {
+        +choose(excludedUserIds: Collection<Integer>, candidates: List<ReviewerCandidate>): Optional<ReviewerChoice>
+    }
+
+    class ReviewerCandidate <<Value Object>> {
+        +userId: int
+        +senior: boolean
+        +workload: int
+    }
+
+    class ReviewerChoice <<Value Object>> {
+        +userId: int
+        +senior: boolean
+    }
+
+    note as OutcomeNote
+        CERTIFICATE_REVIEW y VERIFIER_DECISION_APPEAL:
+        UPHELD u OVERTURNED.
+        USER_REPORT: DISMISSED o SANCTIONED.
+    end note
+
+    Dispute --> DisputeSourceType
+    Dispute --> DisputeStatus
+    Dispute --> DisputeOutcome
+    Dispute ..> DisputeResolutionValidator
+    DisputeReviewerSelector ..> ReviewerCandidate
+    DisputeReviewerSelector ..> ReviewerChoice
+    OutcomeNote .. DisputeResolutionValidator
+}
+!endsub
+@enduml

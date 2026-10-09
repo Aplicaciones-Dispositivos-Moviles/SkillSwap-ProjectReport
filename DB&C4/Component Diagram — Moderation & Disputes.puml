@@ -1,53 +1,46 @@
 @startuml ModerationDisputesComponent
+!pragma layout smetana
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
 LAYOUT_WITH_LEGEND()
 
-Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
-Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
+Container_Ext(mobileApps, "Apps móviles", "Kotlin / Jetpack Compose y Flutter / Dart", "Usadas por el Verificador senior")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "PostgreSQL 16")
 
 Container_Boundary(moderationBC, "Moderation & Disputes Bounded Context") {
-    Component(disputeController, "Dispute Controller", "C# Class", "RESTful API Controller")
-    Component(moderationCommandService, "Moderation CommandService", "C# Class", "Lógica de negocio")
-    Component(moderationQueryService, "Moderation QueryService", "C# Class", "Consultas")
-    Component(disputeRepository, "Dispute Repository", "C# Interface", "Interface persistencia")
-    Component(sanctionRepository, "Sanction Repository", "C# Interface", "Interface persistencia")
-    Component(certificateQueryClient, "Certificate QueryClient", "C# Class", "Consulta evidencia hacia Credential Verification")
-    Component(verificationCaseQueryClient, "VerificationCase QueryClient", "C# Class", "Consulta evidencia hacia Assessment & Peer Review")
-    Component(moderationContextFacade, "Moderation ContextFacade", "C# Class", "Punto de entrada interno")
+    Component(disputesController, "DisputesController", "Java Class", "Disputas asignadas, evidencia del certificado y resolución (outcome + resolutionNotes)")
+    Component(escalateHandler, "EscalateCertificateReviewEventHandler", "Java Class", "Abre una disputa CertificateReview por cada certificado sospechoso")
+    Component(pendingScheduler, "PendingDisputeAssignmentScheduler", "Java Class", "Reintenta asignar las disputas sin revisor")
+    Component(disputeCommandService, "DisputeCommandService", "Java Class", "Abre, asigna y resuelve disputas")
+    Component(disputeQueryService, "DisputeQueryService", "Java Class", "Disputas y evidencia del certificado")
+    Component(reviewerSelector, "DisputeReviewerSelector", "Domain Service", "Verificador senior con menos carga; si no hay, el Verificador disponible con menos carga (nunca una de las partes)")
+    Component(resolutionValidator, "DisputeResolutionValidator", "Domain Service", "Outcomes válidos según el origen (Upheld / Overturned para certificados)")
+    Component(disputeRepository, "DisputeRepository", "Java Interface", "Interface persistencia (disputes)")
 }
 
-Component_Ext(identityContextFacade, "Identity ContextFacade", "C# Class", "Bounded Context: Identity & Access")
-Component_Ext(reputationContextFacade, "Reputation ContextFacade", "C# Class", "Bounded Context: Reputation")
-Component_Ext(credentialContextFacade, "Certificate ContextFacade", "C# Class", "Bounded Context: Credential Verification")
-Component_Ext(credentialCommandService, "Certificate CommandService", "C# Class", "Bounded Context: Credential Verification")
-Component_Ext(assessmentContextFacade, "Assessment ContextFacade", "C# Class", "Bounded Context: Assessment & Peer Review")
+Component_Ext(credentialPublisher, "DomainEventPublisher", "Java Class (Shared)", "Bounded Context: Credential Verification")
+Component_Ext(credentialFacade, "CredentialContextFacade", "Java Class", "Bounded Context: Credential Verification")
+Component_Ext(verifierFacade, "VerifierProfileContextFacade", "Java Class", "Bounded Context: Assessment & Peer Review")
+Component_Ext(reputationFacade, "ReputationContextFacade", "Java Class", "Bounded Context: Reputation")
 
-Rel(androidApp, disputeController, "Request HTTP a Moderation & Disputes")
-Rel(flutterApp, disputeController, "Request HTTP a Moderation & Disputes")
+Rel(mobileApps, disputesController, "Request HTTP", "HTTPS/JSON")
+Rel(disputesController, disputeCommandService, "Usa")
+Rel(disputesController, disputeQueryService, "Usa")
+Rel(disputesController, verifierFacade, "¿Es Verificador habilitado?")
 
-Rel(disputeController, moderationCommandService, "Usa")
-Rel(disputeController, moderationQueryService, "Usa")
-Rel(moderationCommandService, disputeRepository, "Usa")
-Rel(moderationCommandService, sanctionRepository, "Usa")
-Rel(moderationQueryService, disputeRepository, "Usa")
+Rel(credentialPublisher, escalateHandler, "CertificateFlaggedSuspicious (tras el commit)")
+Rel(escalateHandler, disputeCommandService, "Abre la disputa")
+Rel(pendingScheduler, disputeCommandService, "Asigna las pendientes")
+
+Rel(disputeCommandService, reviewerSelector, "Elige al revisor")
+Rel(disputeCommandService, resolutionValidator, "Valida la resolución")
+Rel(disputeCommandService, disputeRepository, "Usa")
+Rel(disputeQueryService, disputeRepository, "Usa")
 Rel(disputeRepository, mainDB, "SQL Transaction")
-Rel(sanctionRepository, mainDB, "SQL Transaction")
 
-Rel(moderationQueryService, certificateQueryClient, "Delega consulta de evidencia")
-Rel(certificateQueryClient, credentialContextFacade, "Pedir datos OCR y RiskAssessment del certificado")
-
-Rel(moderationQueryService, verificationCaseQueryClient, "Delega consulta de evidencia")
-Rel(verificationCaseQueryClient, assessmentContextFacade, "Pedir notas de rúbrica y evidencia del caso")
-
-Rel(moderationCommandService, identityContextFacade, "Actualizar perfil en caso de sanción")
-Rel(moderationCommandService, reputationContextFacade, "Notificar reversión de decisión / sanción aplicada")
-Rel(moderationCommandService, credentialContextFacade, "Enviar resolución del certificado en disputa")
-
-Rel(moderationContextFacade, moderationCommandService, "Delega")
-Rel(moderationContextFacade, moderationQueryService, "Delega")
-
-Rel(credentialCommandService, moderationContextFacade, "Escalar certificado en estado SUSPICIOUS")
+Rel(disputeCommandService, verifierFacade, "Pedir Verificadores disponibles y su carga")
+Rel(disputeCommandService, reputationFacade, "¿Cuáles son senior?")
+Rel(disputeCommandService, credentialFacade, "Enviar la resolución (auténtico o fraudulento)")
+Rel(disputeQueryService, credentialFacade, "Pedir el certificado a revisar")
 
 @enduml

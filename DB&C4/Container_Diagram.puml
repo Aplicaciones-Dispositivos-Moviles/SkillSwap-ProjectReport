@@ -1,23 +1,26 @@
 @startuml SkillSwapContainer
+!pragma layout smetana
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
 LAYOUT_WITH_LEGEND()
 
-Person(student, "Estudiante", "Sube certificados, sigue su ruta de aprendizaje y demuestra sus habilidades.")
-Person(verifier, "Verificador", "Revisa los casos que la IA no puede resolver con suficiente confianza, y supervisa la calidad del proceso de verificación.")
+Person(student, "Estudiante", "Sube certificados, sigue su ruta de aprendizaje, rinde quizzes y escala los reprobados dentro del cupo de su plan.")
+Person(verifier, "Verificador", "Habilitado por cada nodo de habilidad completado; aprueba o rechaza los casos escalados. El Verificador senior revisa los certificados sospechosos.")
 
 System_Boundary(skillSwapSystem, "SkillSwap Platform") {
     Container(landingPage, "Landing Page (estática)", "HTML5 / CSS3 / JavaScript", "Sitio web estático que presenta el modelo de negocio de SkillSwap. Informativa; no consume la API.")
-    Container(androidApp, "Android Native Application", "Kotlin / Jetpack Compose", "Aplicación móvil nativa para Estudiantes y Verificadores.")
-    Container(flutterApp, "Cross-Platform Application", "Flutter / Dart (dirigido a Android)", "Aplicación móvil multiplataforma para Estudiantes y Verificadores.")
-    Container(apiGateway, "Api / RESTful Web Services", "ASP.NET Core 8 (C#)", "Expone los endpoints del dominio, aplica las reglas de negocio y orquesta la lógica de los ocho Bounded Contexts.")
-    ContainerDb(mainDB, "SkillSwap Database", "PostgreSQL 16", "Base de datos única compartida por los ocho Bounded Contexts (skillswap_db)")
+    Container(androidApp, "Android Native Application", "Kotlin / Jetpack Compose", "App móvil nativa para Estudiantes y Verificadores. Ejecuta el OCR (ML Kit) y la biometría en el dispositivo.")
+    Container(flutterApp, "Cross-Platform Application", "Flutter / Dart (dirigido a Android)", "App móvil multiplataforma para Estudiantes y Verificadores. Ejecuta el OCR (ML Kit) y la biometría en el dispositivo.")
+    Container(webApi, "RESTful Web Services", "Java 21 / Spring Boot", "Expone los endpoints del dominio, aplica las reglas de negocio y aloja los ocho Bounded Contexts.")
+    ContainerDb(mainDB, "SkillSwap Database", "PostgreSQL 16", "Base de datos única compartida por los ocho Bounded Contexts; esquema versionado con Flyway.")
 }
 
-System_Ext(emailService, "Email Api", "Integración con correos institucionales")
-System_Ext(mlKitService, "ML Kit (Firebase)", "SDK on-device de OCR/Entity Extraction")
-System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para las imágenes de certificados")
-System_Ext(googlePlayBilling, "Google Play Billing", "Procesamiento de suscripciones")
+System_Ext(emailService, "Brevo (Email API)", "API HTTP de correo transaccional")
+System_Ext(pushService, "Firebase Cloud Messaging", "Notificaciones push")
+System_Ext(mlKitService, "ML Kit (Firebase)", "SDK on-device de OCR")
+System_Ext(cloudStorage, "Cloudinary", "Almacenamiento de los archivos de certificados")
+System_Ext(googlePlayBilling, "Google Play Billing (vía RevenueCat)", "Cobro de la suscripción mensual; RevenueCat valida la compra y notifica sus cambios")
+System_Ext(geminiApi, "Gemini API", "IA generativa: interpreta la meta eligiendo solo habilidades del catálogo interno y genera las preguntas de los quizzes")
 
 Rel(student, androidApp, "Usa")
 Rel(verifier, androidApp, "Usa")
@@ -27,15 +30,21 @@ Rel(verifier, flutterApp, "Usa")
 Rel(student, landingPage, "Visita")
 Rel(verifier, landingPage, "Visita")
 
-Rel(androidApp, apiGateway, "Consume API RESTful vía HTTPS")
-Rel(flutterApp, apiGateway, "Consume API RESTful vía HTTPS")
-Rel(androidApp, mlKitService, "Extrae datos del certificado (OCR on-device)")
-Rel(flutterApp, mlKitService, "Extrae datos del certificado (OCR on-device)")
+Rel(androidApp, webApi, "Consume la API RESTful (multipart con los campos del OCR)", "HTTPS/JSON")
+Rel(flutterApp, webApi, "Consume la API RESTful (multipart con los campos del OCR)", "HTTPS/JSON")
+Rel(androidApp, mlKitService, "Lee el certificado (OCR on-device)")
+Rel(flutterApp, mlKitService, "Lee el certificado (OCR on-device)")
+Rel(androidApp, googlePlayBilling, "Compra el plan mensual (SDK de RevenueCat)")
+Rel(flutterApp, googlePlayBilling, "Compra el plan mensual (SDK de RevenueCat)")
 
-Rel(apiGateway, mainDB, "Lee/Escribe")
+Rel(webApi, mainDB, "Lee/Escribe", "JDBC")
 
-Rel(apiGateway, emailService, "Envía correo de validación / notificación de sanción o disputa")
-Rel(apiGateway, cloudStorage, "Guarda las imágenes de los certificados")
-Rel(apiGateway, googlePlayBilling, "Verifica y procesa el cobro de la suscripción")
+Rel(webApi, emailService, "Envía el correo de verificación", "HTTPS")
+Rel(webApi, pushService, "Envía notificaciones push", "HTTPS")
+Rel(pushService, androidApp, "Entrega la notificación")
+Rel(pushService, flutterApp, "Entrega la notificación")
+Rel(webApi, cloudStorage, "Guarda los archivos de los certificados", "HTTPS")
+BiRel(webApi, googlePlayBilling, "Verifica la compra y cancela la renovación; recibe sus cambios por webhook", "HTTPS")
+Rel(webApi, geminiApi, "Interpreta la meta y genera preguntas", "HTTPS")
 
 @enduml

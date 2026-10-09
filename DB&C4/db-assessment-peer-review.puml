@@ -1,0 +1,118 @@
+@startuml db-assessment-peer-review
+!pragma layout smetana
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam linetype ortho
+skinparam ArrowColor #546E7A
+skinparam class {
+  BorderColor #2F5F8A
+  AttributeFontColor #1F2933
+  AttributeFontSize 11
+}
+skinparam package {
+  BorderColor #90A4AE
+  FontColor #37474F
+  FontStyle bold
+}
+skinparam note {
+  BackgroundColor #FFF8E1
+  BorderColor #C9A227
+  FontSize 10
+}
+skinparam legend {
+  BackgroundColor #FAFAFA
+  BorderColor #B0BEC5
+  FontSize 10
+}
+hide circle
+hide stereotype
+
+title <size:14>Base de datos · Assessment & Peer Review</size>
+package "Assessment & Peer Review" {
+entity "<color:#FFFFFF><b>assessment_attempts</b></color>" as assessment_attempts #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * blueprint_id : integer <<UK>> <<ref>>
+  * student_id : integer <<ref>>
+  * selected_answers : jsonb
+  * score : varchar(10)
+  * passed : boolean
+  * completed_at : timestamptz
+}
+entity "<color:#FFFFFF><b>verification_cases</b></color>" as verification_cases #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * attempt_id : integer <<UK>> <<ref>>
+  * student_id : integer <<ref>>
+    verifier_user_id : integer <<ref>>
+    previous_verifier_user_id : integer <<ref>>
+  * path_node_id : integer <<ref>>
+  * skill_tag : varchar(100)
+  * case_type : varchar(20)
+  * status : varchar(20)
+    decision : varchar(20)
+    rubric_notes : varchar(2000)
+    evidence_url : varchar(500)
+  * opened_at : timestamptz
+    assigned_at : timestamptz
+    resolved_at : timestamptz
+  * appeal_count : integer
+    review_due_at : timestamptz
+    review_deadline_amount : integer
+    review_deadline_unit : varchar(20)
+    deadline_missed_at : timestamptz
+  * reassignment_count : integer
+}
+entity "<color:#FFFFFF><b>verifier_profiles</b></color>" as verifier_profiles #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * verifier_user_id : integer <<UK>> <<ref>>
+  * skill_tags : jsonb
+  * available : boolean
+  * verified : boolean
+  * rating : double precision
+  * review_count : integer
+  * created_at : timestamptz
+}
+entity "<color:#FFFFFF><b>review_deadline_policies</b></color>" as review_deadline_policies #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * plan : varchar(20) <<PK>>
+  --
+  * amount : integer
+  * unit : varchar(20)
+  * updated_by_user_id : integer <<ref>>
+  * updated_at : timestamptz
+}
+}
+entity "<b>assessment_blueprints</b>\n<size:9>(Learning Path Engine)</size>" as assessment_blueprints <<ref>> #back:F5F5F5;header:DADADA;line:9E9E9E {
+  * id : integer <<PK>>
+}
+entity "<b>users</b>\n<size:9>(Identity & Access)</size>" as users <<ref>> #back:F5F5F5;header:DADADA;line:9E9E9E {
+  * id : integer <<PK>>
+}
+entity "<b>path_nodes</b>\n<size:9>(Learning Path Engine)</size>" as path_nodes <<ref>> #back:F5F5F5;header:DADADA;line:9E9E9E {
+  * id : integer <<PK>>
+}
+assessment_blueprints ||..o| assessment_attempts : "blueprint_id"
+users ||..o{ assessment_attempts : "student_id"
+assessment_attempts ||..o| verification_cases : "attempt_id"
+users ||..o{ verification_cases : "student_id / verifier_user_id /\nprevious_verifier_user_id"
+path_nodes ||..o{ verification_cases : "path_node_id"
+users ||..o| verifier_profiles : "verifier_user_id"
+users ||..o{ review_deadline_policies : "updated_by_user_id"
+legend bottom left
+  <b>Notación</b>: <b>●</b> NOT NULL · <b><<PK>></b> clave primaria · <b><<FK>></b> FOREIGN KEY física ·
+  <b><<ref>></b> referencia por id sin FOREIGN KEY (otro agregado o Bounded Context) · <b><<UK>></b> único (<b>UK*</b> índice único parcial)
+  Línea continua: FOREIGN KEY física · Línea discontinua: referencia lógica por id · Tablas grises: tablas de otro Bounded Context
+  Esquema final de las migraciones Flyway V1–V10 (PostgreSQL). varchar = character varying · timestamptz = timestamp with time zone
+  <b>Restricciones e índices</b>
+  • verification_cases: UNIQUE (attempt_id), UNIQUE parcial (student_id, path_node_id) WHERE status <> 'Resolved'
+  • CHECK case_type IN ('Quiz','MiniProject'); review_deadline_unit IN ('Hours','BusinessDays')
+  • INDEX (student_id, opened_at): cuota mensual de escalamientos; INDEX parcial (review_due_at) WHERE status = 'Assigned'
+  • assessment_attempts: UNIQUE (blueprint_id)
+  • review_deadline_policies: CHECK plan IN ('Free','Premium'), amount > 0
+endlegend
+
+@enduml
