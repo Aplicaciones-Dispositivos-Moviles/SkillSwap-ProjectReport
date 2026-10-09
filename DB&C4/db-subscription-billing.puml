@@ -1,0 +1,77 @@
+@startuml db-subscription-billing
+!pragma layout smetana
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam linetype ortho
+skinparam ArrowColor #546E7A
+skinparam class {
+  BorderColor #2F5F8A
+  AttributeFontColor #1F2933
+  AttributeFontSize 11
+}
+skinparam package {
+  BorderColor #90A4AE
+  FontColor #37474F
+  FontStyle bold
+}
+skinparam note {
+  BackgroundColor #FFF8E1
+  BorderColor #C9A227
+  FontSize 10
+}
+skinparam legend {
+  BackgroundColor #FAFAFA
+  BorderColor #B0BEC5
+  FontSize 10
+}
+hide circle
+hide stereotype
+
+title <size:14>Base de datos · Subscription & Billing</size>
+package "Subscription & Billing" {
+entity "<color:#FFFFFF><b>subscriptions</b></color>" as subscriptions #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * student_id : integer <<UK*>> <<ref>>
+  * plan_name : varchar(50)
+  * plan_product_id : varchar(100)
+  * plan_price : numeric(10,2)
+  * plan_currency : varchar(3)
+  * status : varchar(20)
+    store_transaction_id : varchar(255)
+  * started_at : timestamptz
+  * current_period_end : timestamptz
+    cancelled_at : timestamptz
+    expired_at : timestamptz
+  * updated_at : timestamptz
+}
+entity "<color:#FFFFFF><b>processed_webhook_events</b></color>" as processed_webhook_events #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * event_id : varchar(255) <<UK>>
+  * event_type : varchar(50)
+    app_user_id : varchar(255)
+    environment : varchar(20)
+  * processed_at : timestamptz
+}
+}
+entity "<b>users</b>\n<size:9>(Identity & Access)</size>" as users <<ref>> #back:F5F5F5;header:DADADA;line:9E9E9E {
+  * id : integer <<PK>>
+}
+users ||..o{ subscriptions : "student_id"
+legend bottom left
+  <b>Notación</b>: <b>●</b> NOT NULL · <b><<PK>></b> clave primaria · <b><<FK>></b> FOREIGN KEY física ·
+  <b><<ref>></b> referencia por id sin FOREIGN KEY (otro agregado o Bounded Context) · <b><<UK>></b> único (<b>UK*</b> índice único parcial)
+  Línea continua: FOREIGN KEY física · Línea discontinua: referencia lógica por id · Tablas grises: tablas de otro Bounded Context
+  Esquema final de las migraciones Flyway V1–V10 (PostgreSQL). varchar = character varying · timestamptz = timestamp with time zone
+  <b>Restricciones e índices</b>
+  • subscriptions: CHECK status IN ('Active','Cancelled','Expired'), plan_price >= 0
+  • UNIQUE parcial (student_id) WHERE status <> 'Expired' (el plan gratuito no tiene filas)
+  • INDEX (status, current_period_end)
+  • processed_webhook_events: UNIQUE (event_id) (idempotencia de los webhooks de RevenueCat)
+endlegend
+
+@enduml

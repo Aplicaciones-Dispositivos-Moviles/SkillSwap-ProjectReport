@@ -1,0 +1,70 @@
+@startuml db-reputation
+!pragma layout smetana
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam linetype ortho
+skinparam ArrowColor #546E7A
+skinparam class {
+  BorderColor #2F5F8A
+  AttributeFontColor #1F2933
+  AttributeFontSize 11
+}
+skinparam package {
+  BorderColor #90A4AE
+  FontColor #37474F
+  FontStyle bold
+}
+skinparam note {
+  BackgroundColor #FFF8E1
+  BorderColor #C9A227
+  FontSize 10
+}
+skinparam legend {
+  BackgroundColor #FAFAFA
+  BorderColor #B0BEC5
+  FontSize 10
+}
+hide circle
+hide stereotype
+
+title <size:14>Base de datos · Reputation</size>
+package "Reputation" {
+entity "<color:#FFFFFF><b>verifier_reliabilities</b></color>" as verifier_reliabilities #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * verifier_user_id : integer <<UK>> <<ref>>
+  * resolved_cases_count : integer
+  * overturned_decisions_count : integer
+  * sanctions_count : integer
+  * missed_deadlines_count : integer
+  * score : integer
+  * updated_at : timestamptz
+}
+entity "<color:#FFFFFF><b>student_employability_scores</b></color>" as student_employability_scores #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * student_id : integer <<UK>> <<ref>>
+  * verified_skills_count : integer
+  * score : integer
+  * updated_at : timestamptz
+}
+}
+entity "<b>users</b>\n<size:9>(Identity & Access)</size>" as users <<ref>> #back:F5F5F5;header:DADADA;line:9E9E9E {
+  * id : integer <<PK>>
+}
+users ||..o| verifier_reliabilities : "verifier_user_id"
+users ||..o| student_employability_scores : "student_id"
+legend bottom left
+  <b>Notación</b>: <b>●</b> NOT NULL · <b><<PK>></b> clave primaria · <b><<FK>></b> FOREIGN KEY física ·
+  <b><<ref>></b> referencia por id sin FOREIGN KEY (otro agregado o Bounded Context) · <b><<UK>></b> único (<b>UK*</b> índice único parcial)
+  Línea continua: FOREIGN KEY física · Línea discontinua: referencia lógica por id · Tablas grises: tablas de otro Bounded Context
+  Esquema final de las migraciones Flyway V1–V10 (PostgreSQL). varchar = character varying · timestamptz = timestamp with time zone
+  <b>Restricciones e índices</b>
+  • UNIQUE (verifier_user_id), UNIQUE (student_id)
+  • Puntajes recalculados por eventos internos; no existe tabla de reseñas
+endlegend
+
+@enduml

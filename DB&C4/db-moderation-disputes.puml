@@ -1,0 +1,74 @@
+@startuml db-moderation-disputes
+!pragma layout smetana
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam linetype ortho
+skinparam ArrowColor #546E7A
+skinparam class {
+  BorderColor #2F5F8A
+  AttributeFontColor #1F2933
+  AttributeFontSize 11
+}
+skinparam package {
+  BorderColor #90A4AE
+  FontColor #37474F
+  FontStyle bold
+}
+skinparam note {
+  BackgroundColor #FFF8E1
+  BorderColor #C9A227
+  FontSize 10
+}
+skinparam legend {
+  BackgroundColor #FAFAFA
+  BorderColor #B0BEC5
+  FontSize 10
+}
+hide circle
+hide stereotype
+
+title <size:14>Base de datos · Moderation & Disputes</size>
+package "Moderation & Disputes" {
+entity "<color:#FFFFFF><b>disputes</b></color>" as disputes #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * source_type : varchar(40)
+  * source_reference_id : integer <<UK*>> <<ref>>
+    raised_by_user_id : integer <<ref>>
+    respondent_user_id : integer <<ref>>
+  * reason : varchar(500)
+  * status : varchar(20)
+    outcome : varchar(20)
+    resolution_notes : varchar(2000)
+    assigned_verifier_user_id : integer <<ref>>
+  * assigned_to_senior : boolean
+    assigned_at : timestamptz
+  * raised_at : timestamptz
+    resolved_at : timestamptz
+}
+}
+entity "<b>certificates</b>\n<size:9>(Credential Verification)</size>" as certificates <<ref>> #back:F5F5F5;header:DADADA;line:9E9E9E {
+  * id : integer <<PK>>
+}
+entity "<b>users</b>\n<size:9>(Identity & Access)</size>" as users <<ref>> #back:F5F5F5;header:DADADA;line:9E9E9E {
+  * id : integer <<PK>>
+}
+certificates ||..o| disputes : "source_reference_id\n(source_type = CertificateReview)"
+users ||..o{ disputes : "raised_by / respondent /\nassigned_verifier_user_id"
+legend bottom left
+  <b>Notación</b>: <b>●</b> NOT NULL · <b><<PK>></b> clave primaria · <b><<FK>></b> FOREIGN KEY física ·
+  <b><<ref>></b> referencia por id sin FOREIGN KEY (otro agregado o Bounded Context) · <b><<UK>></b> único (<b>UK*</b> índice único parcial)
+  Línea continua: FOREIGN KEY física · Línea discontinua: referencia lógica por id · Tablas grises: tablas de otro Bounded Context
+  Esquema final de las migraciones Flyway V1–V10 (PostgreSQL). varchar = character varying · timestamptz = timestamp with time zone
+  <b>Restricciones e índices</b>
+  • CHECK source_type IN ('CertificateReview', 'VerifierDecisionAppeal','UserReport')
+  • CHECK status IN ('Pending','Resolved'); outcome IN ('Upheld','Overturned', 'Dismissed','Sanctioned')
+  • CHECK assigned_verifier_user_id <> respondent_user_id
+  • UNIQUE parcial (source_reference_id) WHERE source_type = 'CertificateReview'
+  • Hoy solo se crean disputas CertificateReview (certificado sospechoso, V9)
+endlegend
+
+@enduml

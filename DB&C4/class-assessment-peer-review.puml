@@ -1,0 +1,127 @@
+@startuml class-assessment-peer-review-mobile
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam packageStyle folder
+skinparam dpi 110
+left to right direction
+
+' Fuente: SkillSwap-WebServices-Java, assessmentpeerreview. Un caso se abre cuando el Estudiante
+' escala un quiz desaprobado dentro del cupo de su plan; el Verificador lo aprueba o lo rechaza.
+!startsub BODY
+package "Assessment & Peer Review" {
+    class AssessmentAttempt <<Aggregate Root>> {
+        -id: Integer
+        -blueprintId: int
+        -studentId: int
+        -selectedAnswers: List<Integer>
+        -score: Score
+        -passed: boolean
+        -completedAt: Instant
+        +{static} PASSING_SCORE: int = 4
+        +incorrectQuestionIndexes(correctAnswers: List<Integer>): List<Integer>
+    }
+
+    class Score <<Value Object>> {
+        +value: int
+        +total: int
+    }
+
+    class VerifierProfile <<Aggregate Root>> {
+        -id: Integer
+        -verifierUserId: int
+        -skillTags: List<String>
+        -available: boolean
+        -verified: boolean
+        -rating: double
+        -reviewCount: int
+        -createdAt: Instant
+        +addSkill(skillTag: String): boolean
+        +canReview(skillTag: String): boolean
+        +setAvailability(available: boolean): VerifierProfile
+        +incrementReviewCount(): VerifierProfile
+        +updateRating(rating: double): VerifierProfile
+        +revoke(): VerifierProfile
+    }
+
+    class VerificationCase <<Aggregate Root>> {
+        -id: Integer
+        -attemptId: int
+        -studentId: int
+        -verifierUserId: Integer
+        -pathNodeId: int
+        -skillTag: String
+        -caseType: CaseType
+        -status: CaseStatus
+        -decision: ReviewDecision
+        -rubricNotes: String
+        -evidenceUrl: String
+        -openedAt: Instant
+        -reviewDueAt: Instant
+        -reviewDeadlineAmount: Integer
+        -reviewDeadlineUnit: String
+        -assignedAt: Instant
+        -resolvedAt: Instant
+        -deadlineMissedAt: Instant
+        -reassignmentCount: int
+        -appealCount: int
+        -previousVerifierUserId: Integer
+        +assignVerifier(verifierUserId: int): VerificationCase
+        +attachEvidence(evidenceUrl: String): VerificationCase
+        +resolve(decision: ReviewDecision, rubricNotes: String): VerificationCase
+        +appeal(): VerificationCase
+        +recordMissedDeadline(now: Instant): boolean
+        +reassignAfterMissedDeadline(newVerifierUserId: int, deadline: ReviewDeadline, now: Instant): VerificationCase
+    }
+
+    class ReviewDeadlinePolicy <<Aggregate Root>> {
+        -plan: String
+        -amount: int
+        -unit: String
+        -updatedByUserId: int
+        -updatedAt: Instant
+        +define(deadline: ReviewDeadline, definedByUserId: int): ReviewDeadlinePolicy
+        +{static} defaultFor(plan: String): ReviewDeadline
+    }
+
+    class ReviewDeadline <<Value Object>> {
+        +amount: int
+        +unit: DeadlineUnit
+        +dueFrom(openedAt: Instant): Instant
+    }
+
+    enum DeadlineUnit {
+        HOURS
+        BUSINESS_DAYS
+    }
+
+    enum CaseType {
+        QUIZ
+        MINI_PROJECT
+    }
+
+    enum CaseStatus {
+        PENDING
+        ASSIGNED
+        RESOLVED
+    }
+
+    enum ReviewDecision {
+        APPROVED
+        REJECTED
+    }
+
+    interface VerifierMatcher <<Domain Service>> {
+        +findVerifier(skillTag: String, excludedUserIds: Set<Integer>, candidates: Iterable<VerifierCandidate>): Optional<VerifierProfile>
+    }
+
+    AssessmentAttempt --> Score
+    VerificationCase --> CaseType
+    VerificationCase --> CaseStatus
+    VerificationCase --> ReviewDecision
+    VerificationCase ..> ReviewDeadline
+    ReviewDeadlinePolicy ..> ReviewDeadline
+    ReviewDeadline --> DeadlineUnit
+    VerifierMatcher ..> VerifierProfile
+}
+!endsub
+@enduml

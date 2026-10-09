@@ -1,0 +1,75 @@
+@startuml class-wallet-incentives-mobile
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam packageStyle folder
+skinparam dpi 110
+left to right direction
+
+' Fuente: SkillSwap-WebServices-Java, recognitionincentives. SkillCredits: 40 por miniproyecto y
+' 25 por quiz resuelto; canje de ruta avanzada (200) y certificado de contribucion (120).
+' No se compran con dinero ni se transfieren.
+!startsub BODY
+package "Recognition & Incentives" {
+    class Wallet <<Aggregate Root>> {
+        -id: Integer
+        -walletOwnerId: int
+        -balance: int
+        +canAfford(amount: Credits): boolean
+        +credit(amount: Credits): Wallet
+        +debit(amount: Credits): Wallet
+    }
+
+    class CreditTransaction <<Entity>> {
+        -id: Integer
+        -walletId: int
+        -amount: Credits
+        -type: TransactionType
+        -description: String
+        -relatedCaseId: Integer
+        -redemptionItem: RedemptionItem
+        -createdAt: Instant
+    }
+
+    class Credits <<Value Object>> {
+        +value: int
+    }
+
+    enum TransactionType {
+        EARNED
+        REDEEMED
+    }
+
+    enum RedemptionItem {
+        ADVANCED_PATH_UNLOCK
+        CONTRIBUTION_CERTIFICATE
+    }
+
+    enum ResolvedCaseType {
+        QUIZ
+        MINI_PROJECT
+    }
+
+    class CreditRewards <<Domain Service>> {
+        +{static} PER_RESOLVED_MINI_PROJECT: int = 40
+        +{static} PER_RESOLVED_QUIZ: int = 25
+        +{static} forResolvedCase(caseType: ResolvedCaseType): Credits
+    }
+
+    interface RedemptionPricing <<Domain Service>> {
+        +calculateCost(item: RedemptionItem): Credits
+    }
+
+    class DefaultRedemptionPricing {
+        +{static} ADVANCED_PATH_UNLOCK_COST: int = 200
+        +{static} CONTRIBUTION_CERTIFICATE_COST: int = 120
+    }
+
+    Wallet "1" o-- "0..*" CreditTransaction
+    CreditTransaction --> Credits
+    CreditTransaction --> TransactionType
+    CreditTransaction --> RedemptionItem
+    CreditRewards ..> ResolvedCaseType
+    DefaultRedemptionPricing ..|> RedemptionPricing
+}
+!endsub
+@enduml

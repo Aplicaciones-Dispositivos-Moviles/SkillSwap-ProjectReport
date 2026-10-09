@@ -1,0 +1,74 @@
+@startuml class-reputation-mobile
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam packageStyle folder
+skinparam dpi 110
+left to right direction
+
+' Fuente: SkillSwap-WebServices-Java, reputation. Rango por casos resueltos: Bronce 0-29,
+' Plata 30-99, Oro >= 100. Verificador senior: rango Oro y confiabilidad >= 90.
+!startsub BODY
+package "Reputation" {
+    class VerifierReliability <<Aggregate Root>> {
+        -id: Integer
+        -verifierUserId: int
+        -resolvedCasesCount: int
+        -overturnedDecisionsCount: int
+        -sanctionsCount: int
+        -missedDeadlinesCount: int
+        -score: ReliabilityScore
+        -updatedAt: Instant
+        +recordResolution(calculator: VerifierReliabilityCalculator): VerifierReliability
+        +recordOverturn(calculator: VerifierReliabilityCalculator): VerifierReliability
+        +applySanction(calculator: VerifierReliabilityCalculator): VerifierReliability
+        +recordMissedDeadline(calculator: VerifierReliabilityCalculator): VerifierReliability
+    }
+
+    class StudentEmployabilityScore <<Aggregate Root>> {
+        -id: Integer
+        -studentId: int
+        -verifiedSkillsCount: int
+        -score: EmployabilityScore
+        -updatedAt: Instant
+        +recordSkillVerified(calculator: EmployabilityScoreCalculator): StudentEmployabilityScore
+    }
+
+    class ReliabilityScore <<Value Object>> {
+        +value: int
+    }
+
+    class EmployabilityScore <<Value Object>> {
+        +value: int
+    }
+
+    enum VerifierRank {
+        BRONZE
+        SILVER
+        GOLD
+        +{static} fromResolvedCases(resolvedCasesCount: int): VerifierRank
+    }
+
+    class SeniorVerifierPolicy <<Domain Service>> {
+        +{static} MIN_RELIABILITY: int = 90
+        +{static} isSenior(resolvedCasesCount: int, reliability: ReliabilityScore): boolean
+    }
+
+    interface VerifierReliabilityCalculator <<Domain Service>> {
+        ..
+        +calculate(resolvedCasesCount: int, overturnedDecisionsCount: int,
+        \t sanctionsCount: int, missedDeadlinesCount: int): ReliabilityScore
+    }
+
+    interface EmployabilityScoreCalculator <<Domain Service>> {
+        +calculate(verifiedSkillsCount: int): EmployabilityScore
+    }
+
+    VerifierReliability --> ReliabilityScore
+    StudentEmployabilityScore --> EmployabilityScore
+    VerifierReliability ..> VerifierReliabilityCalculator
+    StudentEmployabilityScore ..> EmployabilityScoreCalculator
+    SeniorVerifierPolicy ..> VerifierRank
+    SeniorVerifierPolicy ..> ReliabilityScore
+}
+!endsub
+@enduml

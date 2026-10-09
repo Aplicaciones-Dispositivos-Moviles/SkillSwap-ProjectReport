@@ -1,49 +1,46 @@
 @startuml RecognitionIncentivesComponent
+!pragma layout smetana
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
 LAYOUT_WITH_LEGEND()
 
-Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
-Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
+Container_Ext(mobileApps, "Apps móviles", "Kotlin / Jetpack Compose y Flutter / Dart", "Confirman la biometría en el dispositivo antes de canjear")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "PostgreSQL 16")
 
 Container_Boundary(recognitionBC, "Recognition & Incentives Bounded Context") {
-    Component(walletController, "Wallet Controller", "C# Class", "RESTful API Controller")
-    Component(creditTransactionController, "CreditTransaction Controller", "C# Class", "RESTful API Controller")
-    Component(walletCommandService, "Wallet CommandService", "C# Class", "Lógica de negocio")
-    Component(walletQueryService, "Wallet QueryService", "C# Class", "Consultas")
-    Component(identityEventHandlers, "Identity EventHandlers", "C# Class", "Reacciona a UserRegistered creando la wallet")
-    Component(assessmentEventHandlers, "Assessment EventHandlers", "C# Class", "Reacciona a VerificationCaseResolved acreditando SkillCredits")
-    Component(walletRepository, "Wallet Repository", "C# Interface", "Interface persistencia")
-    Component(creditTransactionRepository, "CreditTransaction Repository", "C# Interface", "Interface persistencia")
-    Component(recognitionContextFacade, "Recognition ContextFacade", "C# Class", "Punto de entrada interno")
+    Component(walletsController, "WalletsController", "Java Class", "Saldo y movimientos de la wallet")
+    Component(creditTransactionsController, "CreditTransactionsController", "Java Class", "POST /redeem: canjear un beneficio")
+    Component(walletCommandService, "WalletCommandService", "Java Class", "Crea la wallet, acredita y canjea SkillCredits (no se compran ni se transfieren)")
+    Component(walletQueryService, "WalletQueryService", "Java Class", "Consultas")
+    Component(creditRewards, "CreditRewards", "Domain Service", "40 por miniproyecto / 25 por quiz resuelto")
+    Component(redemptionPricing, "RedemptionPricing", "Domain Service", "Ruta avanzada 200 / certificado de contribución 120")
+    Component(eventHandlers, "CreateWallet / CreditVerifier EventHandlers", "Java Class", "Reaccionan a UserRegistered y VerificationCaseResolved")
+    Component(repositories, "Wallet / CreditTransaction Repositories", "Java Interface", "Interfaces de persistencia")
+    Component(eventPublisher, "DomainEventPublisher", "Java Class (Shared)", "Publica tras el commit")
+    Component(recognitionFacade, "RecognitionContextFacade", "Java Class", "Canjes de ruta avanzada del usuario")
 }
 
-Component_Ext(identityDomainEventPublisher, "DomainEventPublisher", "C# Class (Shared)", "Bounded Context: Identity & Access")
-Component_Ext(assessmentDomainEventPublisher, "DomainEventPublisher", "C# Class (Shared)", "Bounded Context: Assessment & Peer Review")
+Component_Ext(otherPublishers, "DomainEventPublisher", "Java Class (Shared)", "Bounded Contexts: Identity & Access y Assessment & Peer Review")
+Component_Ext(grantUnlockHandler, "GrantAdvancedPathUnlockEventHandler", "Java Class", "Bounded Context: Learning Path Engine")
+Component_Ext(learningPathCommandService, "LearningPathCommandService", "Java Class", "Bounded Context: Learning Path Engine")
 
-Rel(androidApp, walletController, "Request HTTP a Recognition & Incentives")
-Rel(flutterApp, walletController, "Request HTTP a Recognition & Incentives")
-Rel(androidApp, creditTransactionController, "Request HTTP a Recognition & Incentives")
-Rel(flutterApp, creditTransactionController, "Request HTTP a Recognition & Incentives")
+Rel(mobileApps, walletsController, "Request HTTP", "HTTPS/JSON")
+Rel(mobileApps, creditTransactionsController, "Request HTTP", "HTTPS/JSON")
+Rel(walletsController, walletQueryService, "Usa")
+Rel(creditTransactionsController, walletCommandService, "Usa")
 
-Rel(walletController, walletQueryService, "Usa")
-Rel(creditTransactionController, walletCommandService, "Usa")
+Rel(otherPublishers, eventHandlers, "UserRegistered / VerificationCaseResolved (tras el commit)")
+Rel(eventHandlers, walletCommandService, "Crea la wallet en cero / acredita al Verificador asignado")
+Rel(walletCommandService, creditRewards, "Monto por tipo de caso")
+Rel(walletCommandService, redemptionPricing, "Costo del beneficio")
+Rel(walletCommandService, repositories, "Usa")
+Rel(walletQueryService, repositories, "Usa")
+Rel(repositories, mainDB, "SQL Transaction")
 
-Rel(walletCommandService, walletRepository, "Usa")
-Rel(walletCommandService, creditTransactionRepository, "Usa")
-Rel(walletQueryService, walletRepository, "Usa")
-Rel(walletQueryService, creditTransactionRepository, "Usa")
-Rel(walletRepository, mainDB, "SQL Transaction")
-Rel(creditTransactionRepository, mainDB, "SQL Transaction")
+Rel(walletCommandService, eventPublisher, "AdvancedPathUnlockRedeemed")
+Rel(eventPublisher, grantUnlockHandler, "Tras el commit: otorga el AdvancedPathUnlock")
 
-Rel(identityDomainEventPublisher, identityEventHandlers, "En proceso, tras el commit")
-Rel(identityEventHandlers, walletCommandService, "Crea la wallet inicial (balance en cero)")
-
-Rel(assessmentDomainEventPublisher, assessmentEventHandlers, "En proceso, tras el commit")
-Rel(assessmentEventHandlers, walletCommandService, "Acredita SkillCredits al Verificador asignado")
-
-Rel(recognitionContextFacade, walletCommandService, "Delega")
-Rel(recognitionContextFacade, walletQueryService, "Delega")
+Rel(recognitionFacade, repositories, "Usa")
+Rel(learningPathCommandService, recognitionFacade, "Pedir canjes de ruta avanzada")
 
 @enduml
