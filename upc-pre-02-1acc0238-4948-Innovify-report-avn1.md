@@ -717,7 +717,7 @@ Respecto al modelo de Innovify, Carlos valora especialmente la idea de la ruta d
 
 *Nota.* En esta figura se aprecia la primera entrevista al segmento de personas que validan el conocimiento.
 
-* **URL:** [Completar con URL de Microsoft Stream]
+* **URL:** [https://www.youtube.com/watch?v=n53WUVagpE4](https://www.youtube.com/watch?v=n53WUVagpE4)
 * **Inicio:** 0:00
 * **Duración:** [Completar]
 
@@ -744,7 +744,7 @@ Respecto al modelo de Innovify, Rodrigo está muy de acuerdo con que quien valid
 
 *Nota.* En esta figura se aprecia la segunda entrevista al segmento de personas que validan el conocimiento.
 
-* **URL:** [Completar con URL de Microsoft Stream]
+* **URL:** [https://www.youtube.com/watch?v=h8Uh3w6U1qE](https://www.youtube.com/watch?v=h8Uh3w6U1qE)
 * **Inicio:** 0:00
 * **Duración:** [Completar]
 
@@ -4571,21 +4571,13 @@ La sección presenta cómo se tradujeron las decisiones de diseño y arquitectur
 
 Esta sección presenta los wireframes de baja fidelidad elaborados antes de definir el diseño visual final del Landing Page.
 
-**Figura 102**
-
-*Wireframe del Landing Page de SkillSwap*
-
-<p align="center">
-  <img src="images-doc/landing-wireframe.png" alt="Wireframe del Landing Page" width="900">
-</p>
-
-*Nota.* Wireframe de baja fidelidad del Landing Page, elaborado en Figma, que define la estructura de bloques en el orden en que el visitante recorre la página: barra de navegación, sección Hero con la propuesta de valor y el llamado a la acción, flujo de 3 pasos, roles (Estudiante y Verificador/Coordinador), pitch de valor, capturas de la plataforma, universidades aliadas y contacto. Elaboración propia.
+Los wireframes del Landing Page se elaboraron en Figma y definen la estructura de bloques en el orden en que el visitante recorre la página: barra de navegación, sección Hero con la propuesta de valor y el llamado a la acción, flujo de 3 pasos, roles (Estudiante y Verificador/Coordinador), pitch de valor, capturas de la plataforma, universidades aliadas y contacto. Pueden consultarse en el archivo de diseño del proyecto: [https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo](https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo)
 
 #### 3.1.3.2. Landing Page Mock-up
 
 Esta sección presenta el mock-up final del Landing Page, resultado de aplicar el Design System definido en 3.1.1 sobre la arquitectura de información descrita en 3.1.2.
 
-**Figura 103**
+**Figura 102**
 
 *Mock-up del Landing Page de SkillSwap (escritorio)*
 
@@ -4595,7 +4587,7 @@ Esta sección presenta el mock-up final del Landing Page, resultado de aplicar e
 
 *Nota.* Diseño final del Landing Page de SkillSwap, aplicando el Design System del proyecto: sección Hero con propuesta de valor ("Demuestra lo que sabes..."), flujo de 3 pasos (subir certificado → ruta por IA → demostrar la habilidad), presentación de los dos segmentos objetivo (Estudiante / Verificador-Coordinador), comparación de valor frente a otras plataformas, y sección de universidades aliadas. Implementado en HTML5/CSS3/JavaScript, con soporte bilingüe (ES/EN). Elaboración propia.
 
-**Figura 104**
+**Figura 103**
 
 *Mock-up del Landing Page de SkillSwap (versión responsive)*
 
@@ -4615,21 +4607,13 @@ Esta sección presenta el diseño visual y de interacción de las aplicaciones m
 
 Esta sección presenta los wireframes de baja fidelidad de las pantallas principales de la aplicación, elaborados en Figma sobre un frame Android de 412 × 917 px. En esta etapa se definió la estructura de cada pantalla (jerarquía, ubicación de la barra de navegación, botones principales y campos de formulario) sin aplicar todavía colores ni tipografía final, para validar los flujos antes del diseño visual.
 
-**Figura 105**
-
-*Wireframes de la aplicación móvil de SkillSwap*
-
-<p align="center">
-  <img src="images-doc/mobile-wireframes.png" alt="Wireframes de la aplicación móvil" width="900">
-</p>
-
-*Nota.* Wireframes de las pantallas principales de los tres roles: onboarding, registro, inicio de sesión, declaración de meta, ruta de aprendizaje, detalle del nodo, quiz y resultados (Estudiante); casos y revisión con rúbrica (Verificador); y panel, disputas y métricas (Coordinador). Elaboración propia.
+Los wireframes cubren las pantallas principales de los tres roles: onboarding, registro, inicio de sesión, declaración de meta, ruta de aprendizaje, detalle del nodo, quiz y resultados (Estudiante); casos y revisión con rúbrica (Verificador); y panel, disputas y métricas (Coordinador). Pueden consultarse en el archivo de diseño del proyecto: [https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo](https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo)
 
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
 
 Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal relevante de los tres roles. Cada Wireflow combina los mock-ups de las pantallas con flechas que indican la acción que lleva de una pantalla a otra: en azul el camino principal (happy path) y en rojo las rutas alternativas y de error, con las pantallas de error resaltadas. En total se elaboraron 45 Wireflows en Figma; a continuación se presentan los correspondientes a los User Goals principales de cada rol.
 
-**Figura 106**
+**Figura 104**
 
 *Wireflow de registro de nuevo usuario*
 
@@ -4639,7 +4623,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Crear una cuenta con su correo institucional para empezar a validar sus habilidades. Persona: Valeria Ramos (Estudiante) · US01. Valeria recorre las tres páginas del onboarding y completa el registro. Si usa un correo que no termina en .edu.pe, el campo muestra el error en el mismo formulario; al corregirlo, la validación de la contraseña le pide reforzarla. Con los datos válidos llega a la selección de rol. Elaboración propia.
 
-**Figura 107**
+**Figura 105**
 
 *Wireflow de suscripción mensual*
 
@@ -4649,7 +4633,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Activar el plan mensual para acceder a rutas, evaluaciones y verificación. Persona: Valeria Ramos (nueva usuaria) · US05. Tras crear su cuenta, Valeria elige el plan y paga con Google Play Billing; con el pago aprobado, su suscripción queda activa y continúa a la selección de rol. Si el banco rechaza el pago, cambia de método y reintenta. Si no tiene método de pago, agrega una tarjeta en Google Play y continúa. Elaboración propia.
 
-**Figura 108**
+**Figura 106**
 
 *Wireflow de inicio de sesión y biometría*
 
@@ -4659,7 +4643,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Entrar a su cuenta de forma rápida y segura para continuar con su ruta. Persona: Valeria Ramos (Estudiante) · US02, US03. Desde el login, Valeria puede entrar con usuario y contraseña o con su huella; en ambos casos llega a la Home de su rol. Si las credenciales no coinciden, un diálogo lo explica sin revelar qué dato falló y le ofrece reintentar o recuperar la contraseña. Elaboración propia.
 
-**Figura 109**
+**Figura 107**
 
 *Wireflow para declarar una meta de aprendizaje*
 
@@ -4669,7 +4653,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Describir con sus palabras lo que quiere aprender y obtener una ruta generada por IA. Persona: Valeria Ramos (Estudiante) · US06, US07. Valeria escribe su meta y la IA propone habilidades afines ordenadas por afinidad. Al confirmar una, se genera su ruta. Si ninguna se ajusta, o la meta es demasiado general, vuelve al campo con un mensaje que le pide precisarla. Elaboración propia.
 
-**Figura 110**
+**Figura 108**
 
 *Wireflow para subir y validar un certificado*
 
@@ -4679,7 +4663,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Registrar su certificado de Coursera como evidencia del nodo para habilitar el quiz. Persona: Valeria Ramos (Estudiante) · US11, US12, US13, US14, US15, US16. Valeria sube la foto o el archivo y ML Kit extrae los datos en su dispositivo. Si todo es correcto, el quiz se habilita. Hay tres caminos alternativos: el archivo ya estaba registrado (duplicado), el contenido no cubre la habilidad del nodo (afinidad baja) o el análisis detecta riesgo documental y el caso pasa a un Coordinador. Elaboración propia.
 
-**Figura 111**
+**Figura 109**
 
 *Wireflow para rendir el quiz de un nodo*
 
@@ -4689,7 +4673,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Demostrar con un quiz que domina la habilidad del nodo y saber qué reforzar. Persona: Valeria Ramos (Estudiante) · US17, US18, US20, US21. Con el certificado validado, Valeria rinde el quiz. Si obtiene 70% o más, aprueba y ve su diagnóstico por sub-tema. Si pierde la conexión, sus respuestas se guardan en el dispositivo y se sincronizan al volver. Si no alcanza el mínimo, ve el sub-tema exacto a reforzar y se abre el caso SK-2057 para un Verificador. Elaboración propia.
 
-**Figura 112**
+**Figura 110**
 
 *Wireflow para recibir y resolver casos (Verificador)*
 
@@ -4699,7 +4683,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Recibir casos de su especialidad y resolverlos con la rúbrica dentro del plazo. Persona: Rodrigo Castillo (Verificador) · US23, US24, US25. Rodrigo activa su disponibilidad y recibe por afinidad el caso SK-2041. Lo evalúa con la rúbrica, lo aprueba, suma SkillCredits y el caso pasa a su historial. Si un caso vence sin decisión, se reasigna automáticamente a otro Verificador. Elaboración propia.
 
-**Figura 113**
+**Figura 111**
 
 *Wireflow para resolver disputas de certificados (Coordinador)*
 
@@ -4709,7 +4693,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 *Nota.* User goal: Decidir sobre un certificado sospechoso con evidencia, dejando registro auditable. Persona: Mariana (Coordinadora académica · UPC) · US34, US35, US36. Mariana abre una disputa priorizada desde su panel y compara los datos del certificado con el perfil del estudiante. Si valida el certificado, el estudiante recibe una notificación. Si lo rechaza, confirma la sanción (cuenta en seguimiento) y el estudiante es notificado con el motivo. Elaboración propia.
 
-**Figura 114**
+**Figura 112**
 
 *Wireflow de calidad de Verificadores, métricas y plazos (Coordinador)*
 
@@ -4723,7 +4707,7 @@ Esta sección presenta los Wireflows de la aplicación, uno por cada User Goal r
 
 Esta sección presenta los mock-ups de alta fidelidad de la aplicación, resultado de aplicar el Design System de 3.1.1 sobre los wireframes. Las pantallas siguen los componentes de Material Design 3 (top app bar, botones filled y outlined, outlined text fields con label visible, chips, segmented buttons, switches, navigation bar y cards) y cumplen los criterios de accesibilidad WCAG 2.2 AA: contraste de texto de al menos 4.5:1, contraste de componentes de al menos 3:1, áreas táctiles de 48 px o más y estados comunicados con ícono y texto además del color.
 
-**Figura 115**
+**Figura 113**
 
 *Mock-ups de la aplicación móvil · Estudiante*
 
@@ -4733,7 +4717,7 @@ Esta sección presenta los mock-ups de alta fidelidad de la aplicación, resulta
 
 *Nota.* Pantallas del Estudiante. El registro valida el dominio `.edu.pe` en línea para prevenir errores; la declaración de meta acepta lenguaje natural y voz, con chips de ejemplo; la ruta muestra los nodos completados, disponibles y bloqueados con ícono, número o candado; la verificación del certificado muestra en una checklist cada paso que realiza la IA; el quiz incluye temporizador y autoguardado visible; y los resultados entregan un diagnóstico por sub-tema, comunicando el no aprobado sin tono punitivo y con el caso de revisión ya abierto. Elaboración propia.
 
-**Figura 116**
+**Figura 114**
 
 *Mock-ups de la aplicación móvil · Verificador*
 
@@ -4743,7 +4727,7 @@ Esta sección presenta los mock-ups de alta fidelidad de la aplicación, resulta
 
 *Nota.* Pantallas del Verificador. El acceso al rol se obtiene con un examen de ingreso; el home prioriza los casos por urgencia del plazo y aplica revisión ciega ("Estudiante anónimo") para reducir el sesgo; la revisión del caso combina la evidencia, el puntaje preliminar de la IA con su nivel de confianza y una rúbrica de 4 niveles; y la billetera muestra los SkillCredits ganados, su historial y la tienda de beneficios. Elaboración propia.
 
-**Figura 117**
+**Figura 115**
 
 *Mock-ups de la aplicación móvil · Coordinador*
 
@@ -4757,7 +4741,7 @@ Esta sección presenta los mock-ups de alta fidelidad de la aplicación, resulta
 
 Esta sección presenta los User Flows de la aplicación, uno por cada User Goal principal, consistentes con los Wireflows de 3.1.4.2. Cada diagrama parte de un punto de inicio, muestra los mock-ups de las pantallas involucradas y representa con rombos las decisiones o condiciones del sistema, de modo que se distingue el happy path (en azul) de las rutas alternativas y de error (en rojo) hasta el punto de fin.
 
-**Figura 118**
+**Figura 116**
 
 *User Flow para registrarse y activar el plan*
 
@@ -4767,7 +4751,7 @@ Esta sección presenta los User Flows de la aplicación, uno por cada User Goal 
 
 *Nota.* User goal: Crear una cuenta con su correo institucional y activar el plan mensual para empezar su ruta (Estudiante · US01, US05). El flujo parte del registro. Si el correo no termina en `.edu.pe` o la contraseña es débil, se muestra la pantalla de error correspondiente y el Estudiante corrige el dato. Con datos válidos elige el plan: si no tiene un método de pago, lo agrega antes de continuar; si Google Play rechaza el pago, puede cambiar de método y reintentar. Con el pago aprobado, la suscripción queda activa y continúa a la selección de rol. Elaboración propia.
 
-**Figura 119**
+**Figura 117**
 
 *User Flow para declarar una meta y obtener la ruta*
 
@@ -4777,7 +4761,7 @@ Esta sección presenta los User Flows de la aplicación, uno por cada User Goal 
 
 *Nota.* User goal: Describir con sus palabras lo que quiere aprender y obtener una ruta de certificación personalizada (Estudiante · US06, US07). El Estudiante escribe su meta y la IA propone habilidades ordenadas por afinidad. Si alguna se ajusta, la confirma y se genera su ruta; si ninguna se ajusta o la meta es muy general, se le pide reformularla y vuelve a recibir propuestas. Elaboración propia.
 
-**Figura 120**
+**Figura 118**
 
 *User Flow para subir y validar un certificado*
 
@@ -4787,7 +4771,7 @@ Esta sección presenta los User Flows de la aplicación, uno por cada User Goal 
 
 *Nota.* User goal: Registrar su certificado para que la plataforma lo valide y le habilite el quiz del nodo (Estudiante · US11 a US16). Desde el nodo disponible, el Estudiante toma una foto o sube el archivo y la verificación avanza de forma automática. Si el certificado es validado, se habilita el quiz. Las rutas alternativas cubren un archivo ya usado (duplicado), un certificado que no cubre la habilidad del nodo (afinidad baja, con opción de subir otro) y un riesgo documental alto, que deriva el certificado a revisión manual del Coordinador. Elaboración propia.
 
-**Figura 121**
+**Figura 119**
 
 *User Flow para rendir el quiz de un nodo*
 
@@ -4797,7 +4781,7 @@ Esta sección presenta los User Flows de la aplicación, uno por cada User Goal 
 
 *Nota.* User goal: Demostrar con un quiz que domina la habilidad del nodo y saber exactamente qué reforzar (Estudiante · US17, US18, US20, US21). Con el certificado validado, el Estudiante rinde el quiz. Si pierde la conexión, sus respuestas se guardan en el dispositivo y el quiz continúa al recuperarla. Si obtiene 70% o más, aprueba el nodo; si no alcanza el mínimo, ve el sub-tema exacto a reforzar y se abre automáticamente un caso de revisión asignado a un Verificador. Elaboración propia.
 
-**Figura 122**
+**Figura 120**
 
 *User Flow para recibir y resolver un caso*
 
@@ -4807,7 +4791,7 @@ Esta sección presenta los User Flows de la aplicación, uno por cada User Goal 
 
 *Nota.* User goal: Recibir casos de su especialidad y resolverlos con la rúbrica dentro del plazo para ganar SkillCredits (Verificador · US23, US24, US25). El Verificador activa su disponibilidad y recibe un caso por afinidad. Si decide dentro del plazo, el caso queda resuelto y se le acreditan SkillCredits; si el plazo vence sin una decisión, el caso se marca como vencido y se reasigna a otro Verificador. Elaboración propia.
 
-**Figura 123**
+**Figura 121**
 
 *User Flow para resolver una disputa de certificado*
 
@@ -4821,7 +4805,7 @@ Esta sección presenta los User Flows de la aplicación, uno por cada User Goal 
 
 Esta sección presenta el prototipo navegable de la aplicación, elaborado en Figma a partir de los mock-ups. El prototipo reúne 154 pantallas conectadas mediante 464 interacciones, que cubren tanto el happy path como las rutas alternativas y de error de los Wireflows. Cuenta con cinco puntos de inicio: "SkillSwap App" (desde el onboarding), "SkillSwap Landing", y un acceso directo por cada rol ("Rol Estudiante", "Rol Verificador" y "Rol Coordinador"). Después del inicio de sesión, la pantalla "¿Cómo quieres entrar?" permite elegir el rol cuando la cuenta tiene más de uno. Las pantallas de carga y confirmación avanzan de forma automática, y en las pantallas con varias salidas el clic sigue el happy path, mientras que las teclas 1, 2 y 3 muestran las rutas alternativas (por ejemplo, el error de credenciales en el inicio de sesión o el certificado duplicado durante la verificación).
 
-**Figura 124**
+**Figura 122**
 
 *Vista del prototipo navegable de SkillSwap en Figma*
 
@@ -4832,7 +4816,7 @@ Esta sección presenta el prototipo navegable de la aplicación, elaborado en Fi
 *Nota.* Vista de las conexiones del prototipo correspondientes al recorrido principal del Estudiante: onboarding, registro y suscripción, inicio de sesión, declaración de la meta, ruta, carga y verificación del certificado, quiz y resultados, junto con sus pantallas de error. Elaboración propia.
 
 * **URL del prototipo:** [https://www.figma.com/design/XRhtNjbOaSHmJAs4ebmPuR/Sin-t%C3%ADtulo?node-id=1-3310](https://www.figma.com/design/XRhtNjbOaSHmJAs4ebmPuR/Sin-t%C3%ADtulo?node-id=1-3310)
-* **URL del video de interacción (Microsoft Stream):** [Completar]
+* **URL del video de interacción:** [https://www.youtube.com/watch?v=5mdP8AJLp8Q](https://www.youtube.com/watch?v=5mdP8AJLp8Q)
 
 ---
 
@@ -4952,7 +4936,7 @@ El Sprint 1 corresponde a la primera iteración de desarrollo del proyecto, enfo
 *Nota.* Elaboración propia.
 
 
-**Figura 125**
+**Figura 123**
 
 *Reunión de Sprint Planning 1*
 
@@ -4982,7 +4966,7 @@ El equipo organizó el Sprint 1 por Bounded Context (backend) y por frente de di
 
 #### 4.2.1.3. Sprint Backlog 1
 
-**Figura 126**
+**Figura 124**
 
 *Sprint Backlog 1 en Trello*
 
@@ -5114,7 +5098,7 @@ El equipo utilizó **xUnit** para pruebas unitarias de dominio y **Reqnroll** (G
 Durante el Sprint 1 se implementaron y verificaron en ejecución los flujos core del backend: registro y autenticación con dominio institucional, subida y evaluación de riesgo de un certificado, declaración de meta y generación de ruta de aprendizaje, generación y resolución de una evaluación, habilitación como Verificador, y el ciclo completo de un caso de verificación desde su apertura hasta su resolución.
 
 
-**Figura 127**
+**Figura 125**
 
 *Registro con correo institucional*
 
@@ -5124,7 +5108,7 @@ Durante el Sprint 1 se implementaron y verificaron en ejecución los flujos core
 
 *Nota.* Registro de una cuenta `Student` validando el dominio `.edu.pe`, con el token JWT retornado en la respuesta.
 
-**Figura 128**
+**Figura 126**
 
 *Subida de un certificado y evaluación de riesgo*
 
@@ -5134,7 +5118,7 @@ Durante el Sprint 1 se implementaron y verificaron en ejecución los flujos core
 
 *Nota.* Subida de un certificado desde Postman/la app móvil, mostrando el `riskLevel` calculado y el `status` resultante (`Unverified`).
 
-**Figura 129**
+**Figura 127**
 
 *Declaración de la meta y generación de la ruta*
 
@@ -5144,7 +5128,7 @@ Durante el Sprint 1 se implementaron y verificaron en ejecución los flujos core
 
 *Nota.* Declaración de la meta en lenguaje natural y la ruta generada con sus nodos en estado `Locked`/`Available`.
 
-**Figura 130**
+**Figura 128**
 
 *Ciclo de un caso de verificación*
 
@@ -5154,7 +5138,7 @@ Durante el Sprint 1 se implementaron y verificaron en ejecución los flujos core
 
 *Nota.* Ciclo completo de un intento fallido: apertura del `VerificationCase`, asignación automática del Verificador, y resolución con `rubricNotes`.
 
-**Figura 131**
+**Figura 129**
 
 *Video de ejecución del Sprint 1*
 
@@ -5207,7 +5191,7 @@ Todos los endpoints del Sprint 1 están documentados con **OpenAPI/Swagger**, ac
 *Nota.* Elaboración propia.
 
 
-**Figura 132**
+**Figura 130**
 
 *Documentación de los Web Services en Swagger*
 
@@ -5221,7 +5205,7 @@ Todos los endpoints del Sprint 1 están documentados con **OpenAPI/Swagger**, ac
 
 Durante el Sprint 1 se configuró y verificó el despliegue completo del backend en Render: creación del servicio web, configuración de la base de datos PostgreSQL administrada, variables de entorno (ver 4.1.4), y automatización de migraciones y semilla del Coordinador al arrancar.
 
-**Figura 133**
+**Figura 131**
 
 *Servicio web desplegado en Render*
 
@@ -5231,7 +5215,7 @@ Durante el Sprint 1 se configuró y verificó el despliegue completo del backend
 
 *Nota.* Dashboard de Render mostrando el servicio `skillswap-webservices` en estado "Live", desplegado desde la rama `develop`.
 
-**Figura 134**
+**Figura 132**
 
 *Logs del primer arranque en Render*
 
@@ -5247,7 +5231,7 @@ El backend está desplegado públicamente en: [https://skillswap-webservices.onr
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
-**Figura 135**
+**Figura 133**
 
 *Analíticos de colaboración del repositorio SkillSwap-WebServices durante el Sprint 1*
 
@@ -5538,40 +5522,38 @@ Figura 98. *Diagrama de Base de Datos del Bounded Context Subscription & Billing
 Figura 99. *Diagrama de Base de Datos completo de SkillSwap*<br>
 Figura 100. *Diagrama de Clases UML completo de SkillSwap*<br>
 Figura 101. *Style Guidelines de SkillSwap*<br>
-Figura 102. *Wireframe del Landing Page de SkillSwap*<br>
-Figura 103. *Mock-up del Landing Page de SkillSwap (escritorio)*<br>
-Figura 104. *Mock-up del Landing Page de SkillSwap (versión responsive)*<br>
-Figura 105. *Wireframes de la aplicación móvil de SkillSwap*<br>
-Figura 106. *Wireflow de registro de nuevo usuario*<br>
-Figura 107. *Wireflow de suscripción mensual*<br>
-Figura 108. *Wireflow de inicio de sesión y biometría*<br>
-Figura 109. *Wireflow para declarar una meta de aprendizaje*<br>
-Figura 110. *Wireflow para subir y validar un certificado*<br>
-Figura 111. *Wireflow para rendir el quiz de un nodo*<br>
-Figura 112. *Wireflow para recibir y resolver casos (Verificador)*<br>
-Figura 113. *Wireflow para resolver disputas de certificados (Coordinador)*<br>
-Figura 114. *Wireflow de calidad de Verificadores, métricas y plazos (Coordinador)*<br>
-Figura 115. *Mock-ups de la aplicación móvil · Estudiante*<br>
-Figura 116. *Mock-ups de la aplicación móvil · Verificador*<br>
-Figura 117. *Mock-ups de la aplicación móvil · Coordinador*<br>
-Figura 118. *User Flow para registrarse y activar el plan*<br>
-Figura 119. *User Flow para declarar una meta y obtener la ruta*<br>
-Figura 120. *User Flow para subir y validar un certificado*<br>
-Figura 121. *User Flow para rendir el quiz de un nodo*<br>
-Figura 122. *User Flow para recibir y resolver un caso*<br>
-Figura 123. *User Flow para resolver una disputa de certificado*<br>
-Figura 124. *Vista del prototipo navegable de SkillSwap en Figma*<br>
-Figura 125. *Reunión de Sprint Planning 1*<br>
-Figura 126. *Sprint Backlog 1 en Trello*<br>
-Figura 127. *Registro con correo institucional*<br>
-Figura 128. *Subida de un certificado y evaluación de riesgo*<br>
-Figura 129. *Declaración de la meta y generación de la ruta*<br>
-Figura 130. *Ciclo de un caso de verificación*<br>
-Figura 131. *Video de ejecución del Sprint 1*<br>
-Figura 132. *Documentación de los Web Services en Swagger*<br>
-Figura 133. *Servicio web desplegado en Render*<br>
-Figura 134. *Logs del primer arranque en Render*<br>
-Figura 135. *Analíticos de colaboración del repositorio SkillSwap-WebServices durante el Sprint 1*<br>
+Figura 102. *Mock-up del Landing Page de SkillSwap (escritorio)*<br>
+Figura 103. *Mock-up del Landing Page de SkillSwap (versión responsive)*<br>
+Figura 104. *Wireflow de registro de nuevo usuario*<br>
+Figura 105. *Wireflow de suscripción mensual*<br>
+Figura 106. *Wireflow de inicio de sesión y biometría*<br>
+Figura 107. *Wireflow para declarar una meta de aprendizaje*<br>
+Figura 108. *Wireflow para subir y validar un certificado*<br>
+Figura 109. *Wireflow para rendir el quiz de un nodo*<br>
+Figura 110. *Wireflow para recibir y resolver casos (Verificador)*<br>
+Figura 111. *Wireflow para resolver disputas de certificados (Coordinador)*<br>
+Figura 112. *Wireflow de calidad de Verificadores, métricas y plazos (Coordinador)*<br>
+Figura 113. *Mock-ups de la aplicación móvil · Estudiante*<br>
+Figura 114. *Mock-ups de la aplicación móvil · Verificador*<br>
+Figura 115. *Mock-ups de la aplicación móvil · Coordinador*<br>
+Figura 116. *User Flow para registrarse y activar el plan*<br>
+Figura 117. *User Flow para declarar una meta y obtener la ruta*<br>
+Figura 118. *User Flow para subir y validar un certificado*<br>
+Figura 119. *User Flow para rendir el quiz de un nodo*<br>
+Figura 120. *User Flow para recibir y resolver un caso*<br>
+Figura 121. *User Flow para resolver una disputa de certificado*<br>
+Figura 122. *Vista del prototipo navegable de SkillSwap en Figma*<br>
+Figura 123. *Reunión de Sprint Planning 1*<br>
+Figura 124. *Sprint Backlog 1 en Trello*<br>
+Figura 125. *Registro con correo institucional*<br>
+Figura 126. *Subida de un certificado y evaluación de riesgo*<br>
+Figura 127. *Declaración de la meta y generación de la ruta*<br>
+Figura 128. *Ciclo de un caso de verificación*<br>
+Figura 129. *Video de ejecución del Sprint 1*<br>
+Figura 130. *Documentación de los Web Services en Swagger*<br>
+Figura 131. *Servicio web desplegado en Render*<br>
+Figura 132. *Logs del primer arranque en Render*<br>
+Figura 133. *Analíticos de colaboración del repositorio SkillSwap-WebServices durante el Sprint 1*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
