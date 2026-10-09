@@ -1,0 +1,292 @@
+@startuml db-full
+!pragma layout smetana
+skinparam dpi 96
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam linetype ortho
+skinparam ArrowColor #546E7A
+skinparam class {
+  BorderColor #2F5F8A
+  AttributeFontColor #1F2933
+  AttributeFontSize 11
+}
+skinparam package {
+  BorderColor #90A4AE
+  FontColor #37474F
+  FontStyle bold
+}
+skinparam note {
+  BackgroundColor #FFF8E1
+  BorderColor #C9A227
+  FontSize 10
+}
+skinparam legend {
+  BackgroundColor #FAFAFA
+  BorderColor #B0BEC5
+  FontSize 10
+}
+hide circle
+hide stereotype
+
+title <size:16>SkillSwap · Diagrama de base de datos completo (PostgreSQL, Flyway V1–V10)</size>
+package "Identity & Access" {
+entity "<color:#FFFFFF><b>users</b></color>" as users #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * username : varchar(100) <<UK>>
+  * email : varchar(255) <<UK>>
+  * password_hash : varchar(255)
+  * role : varchar(20)
+  * is_verified : boolean
+  * bio : varchar(1000)
+    device_token : varchar(512)
+    verification_token_hash : varchar(64) <<UK*>>
+    verification_token_expires_at : timestamptz
+    verification_email_sent_at : timestamptz
+  * interest_topics : jsonb
+  * skill_vector : jsonb
+    full_name : varchar(150)
+}
+}
+package "Credential Verification" {
+entity "<color:#FFFFFF><b>certificates</b></color>" as certificates #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * owner_id : integer <<ref>>
+    holder_name : varchar(255)
+    institution_name : varchar(255)
+    course_name : varchar(255)
+    issue_date : date
+    duration_hours : integer
+    certificate_number : varchar(255)
+    verification_code : varchar(255)
+    verification_url : varchar(2048)
+    qr_payload : varchar(4096)
+  * ocr_text : text
+  * file_hash : varchar(64)
+  * storage_reference : varchar(512)
+  * status : varchar(20)
+  * verification_method : varchar(20)
+    risk_score : integer
+  * created_at : timestamptz
+    verified_at : timestamptz
+  * holder_name_mismatch : boolean
+}
+}
+package "Learning Path Engine" {
+entity "<color:#FFFFFF><b>learning_paths</b></color>" as learning_paths #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * student_id : integer <<ref>>
+  * career_goal : jsonb
+  * status : varchar(20)
+  * created_at : timestamptz
+  * updated_at : timestamptz
+  * last_progress_at : timestamptz
+  * is_advanced : boolean
+}
+entity "<color:#FFFFFF><b>path_nodes</b></color>" as path_nodes #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * learning_path_id : integer <<FK>>
+  * skill_tag : varchar(100)
+  * node_order : integer
+  * status : varchar(20)
+  * prerequisites : varchar(1000)
+    linked_certificate_id : integer <<ref>>
+    assessment_blueprint_id : integer <<ref>>
+  * completed_by_certificate : boolean
+}
+entity "<color:#FFFFFF><b>assessment_blueprints</b></color>" as assessment_blueprints #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * path_node_id : integer <<ref>>
+  * skill_tag : varchar(100)
+  * questions : jsonb
+  * generated_at : timestamptz
+}
+entity "<color:#FFFFFF><b>advanced_path_unlocks</b></color>" as advanced_path_unlocks #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * student_id : integer <<ref>>
+  * redemption_id : integer <<UK>> <<ref>>
+    learning_path_id : integer <<UK*>> <<ref>>
+  * granted_at : timestamptz
+    used_at : timestamptz
+}
+}
+package "Assessment & Peer Review" {
+entity "<color:#FFFFFF><b>assessment_attempts</b></color>" as assessment_attempts #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * blueprint_id : integer <<UK>> <<ref>>
+  * student_id : integer <<ref>>
+  * selected_answers : jsonb
+  * score : varchar(10)
+  * passed : boolean
+  * completed_at : timestamptz
+}
+entity "<color:#FFFFFF><b>verification_cases</b></color>" as verification_cases #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * attempt_id : integer <<UK>> <<ref>>
+  * student_id : integer <<ref>>
+    verifier_user_id : integer <<ref>>
+    previous_verifier_user_id : integer <<ref>>
+  * path_node_id : integer <<ref>>
+  * skill_tag : varchar(100)
+  * case_type : varchar(20)
+  * status : varchar(20)
+    decision : varchar(20)
+    rubric_notes : varchar(2000)
+    evidence_url : varchar(500)
+  * opened_at : timestamptz
+    assigned_at : timestamptz
+    resolved_at : timestamptz
+  * appeal_count : integer
+    review_due_at : timestamptz
+    review_deadline_amount : integer
+    review_deadline_unit : varchar(20)
+    deadline_missed_at : timestamptz
+  * reassignment_count : integer
+}
+entity "<color:#FFFFFF><b>verifier_profiles</b></color>" as verifier_profiles #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * verifier_user_id : integer <<UK>> <<ref>>
+  * skill_tags : jsonb
+  * available : boolean
+  * verified : boolean
+  * rating : double precision
+  * review_count : integer
+  * created_at : timestamptz
+}
+entity "<color:#FFFFFF><b>review_deadline_policies</b></color>" as review_deadline_policies #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * plan : varchar(20) <<PK>>
+  --
+  * amount : integer
+  * unit : varchar(20)
+  * updated_by_user_id : integer <<ref>>
+  * updated_at : timestamptz
+}
+}
+package "Reputation" {
+entity "<color:#FFFFFF><b>verifier_reliabilities</b></color>" as verifier_reliabilities #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * verifier_user_id : integer <<UK>> <<ref>>
+  * resolved_cases_count : integer
+  * overturned_decisions_count : integer
+  * sanctions_count : integer
+  * missed_deadlines_count : integer
+  * score : integer
+  * updated_at : timestamptz
+}
+entity "<color:#FFFFFF><b>student_employability_scores</b></color>" as student_employability_scores #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * student_id : integer <<UK>> <<ref>>
+  * verified_skills_count : integer
+  * score : integer
+  * updated_at : timestamptz
+}
+}
+package "Recognition & Incentives" {
+entity "<color:#FFFFFF><b>wallets</b></color>" as wallets #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * wallet_owner_id : integer <<UK>> <<ref>>
+  * balance : integer
+}
+entity "<color:#FFFFFF><b>credit_transactions</b></color>" as credit_transactions #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * wallet_id : integer <<FK>>
+  * amount : integer
+  * type : varchar(20)
+  * description : varchar(200)
+    related_case_id : integer <<ref>>
+    redemption_item : varchar(30)
+  * created_at : timestamptz
+}
+}
+package "Moderation & Disputes" {
+entity "<color:#FFFFFF><b>disputes</b></color>" as disputes #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * source_type : varchar(40)
+  * source_reference_id : integer <<UK*>> <<ref>>
+    raised_by_user_id : integer <<ref>>
+    respondent_user_id : integer <<ref>>
+  * reason : varchar(500)
+  * status : varchar(20)
+    outcome : varchar(20)
+    resolution_notes : varchar(2000)
+    assigned_verifier_user_id : integer <<ref>>
+  * assigned_to_senior : boolean
+    assigned_at : timestamptz
+  * raised_at : timestamptz
+    resolved_at : timestamptz
+}
+}
+package "Subscription & Billing" {
+entity "<color:#FFFFFF><b>subscriptions</b></color>" as subscriptions #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * student_id : integer <<UK*>> <<ref>>
+  * plan_name : varchar(50)
+  * plan_product_id : varchar(100)
+  * plan_price : numeric(10,2)
+  * plan_currency : varchar(3)
+  * status : varchar(20)
+    store_transaction_id : varchar(255)
+  * started_at : timestamptz
+  * current_period_end : timestamptz
+    cancelled_at : timestamptz
+    expired_at : timestamptz
+  * updated_at : timestamptz
+}
+entity "<color:#FFFFFF><b>processed_webhook_events</b></color>" as processed_webhook_events #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * event_id : varchar(255) <<UK>>
+  * event_type : varchar(50)
+    app_user_id : varchar(255)
+    environment : varchar(20)
+  * processed_at : timestamptz
+}
+}
+users ||..o{ certificates : "owner_id"
+users ||..o{ learning_paths : "student_id"
+learning_paths ||--|{ path_nodes : "learning_path_id"
+certificates ||..o{ path_nodes : "linked_certificate_id"
+assessment_blueprints ||..o{ path_nodes : "assessment_blueprint_id"
+path_nodes ||..o{ assessment_blueprints : "path_node_id"
+users ||..o{ advanced_path_unlocks : "student_id"
+credit_transactions ||..o| advanced_path_unlocks : "redemption_id"
+learning_paths ||..o| advanced_path_unlocks : "learning_path_id"
+assessment_blueprints ||..o| assessment_attempts : "blueprint_id"
+users ||..o{ assessment_attempts : "student_id"
+assessment_attempts ||..o| verification_cases : "attempt_id"
+users ||..o{ verification_cases : "student_id / verifier_user_id /\nprevious_verifier_user_id"
+path_nodes ||..o{ verification_cases : "path_node_id"
+users ||..o| verifier_profiles : "verifier_user_id"
+users ||..o{ review_deadline_policies : "updated_by_user_id"
+users ||..o| verifier_reliabilities : "verifier_user_id"
+users ||..o| student_employability_scores : "student_id"
+users ||..o| wallets : "wallet_owner_id"
+wallets ||--o{ credit_transactions : "wallet_id"
+verification_cases ||..o{ credit_transactions : "related_case_id"
+certificates ||..o| disputes : "source_reference_id\n(source_type = CertificateReview)"
+users ||..o{ disputes : "raised_by / respondent /\nassigned_verifier_user_id"
+users ||..o{ subscriptions : "student_id"
+legend bottom left
+  <b>Notación</b>: <b>●</b> NOT NULL · <b><<PK>></b> clave primaria · <b><<FK>></b> FOREIGN KEY física ·
+  <b><<ref>></b> referencia por id sin FOREIGN KEY (otro agregado o Bounded Context) · <b><<UK>></b> único (<b>UK*</b> índice único parcial)
+  Línea continua: FOREIGN KEY física · Línea discontinua: referencia lógica por id
+  Esquema final de las migraciones Flyway V1–V10 (PostgreSQL). varchar = character varying · timestamptz = timestamp with time zone
+endlegend
+
+@enduml

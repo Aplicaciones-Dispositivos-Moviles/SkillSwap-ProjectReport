@@ -1,0 +1,73 @@
+@startuml db-wallet-incentives
+!pragma layout smetana
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam linetype ortho
+skinparam ArrowColor #546E7A
+skinparam class {
+  BorderColor #2F5F8A
+  AttributeFontColor #1F2933
+  AttributeFontSize 11
+}
+skinparam package {
+  BorderColor #90A4AE
+  FontColor #37474F
+  FontStyle bold
+}
+skinparam note {
+  BackgroundColor #FFF8E1
+  BorderColor #C9A227
+  FontSize 10
+}
+skinparam legend {
+  BackgroundColor #FAFAFA
+  BorderColor #B0BEC5
+  FontSize 10
+}
+hide circle
+hide stereotype
+
+title <size:14>Base de datos · Recognition & Incentives</size>
+package "Recognition & Incentives" {
+entity "<color:#FFFFFF><b>wallets</b></color>" as wallets #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * wallet_owner_id : integer <<UK>> <<ref>>
+  * balance : integer
+}
+entity "<color:#FFFFFF><b>credit_transactions</b></color>" as credit_transactions #back:FFFFFF;header:2F5F8A;line:2F5F8A {
+  * id : integer <<PK>>
+  --
+  * wallet_id : integer <<FK>>
+  * amount : integer
+  * type : varchar(20)
+  * description : varchar(200)
+    related_case_id : integer <<ref>>
+    redemption_item : varchar(30)
+  * created_at : timestamptz
+}
+}
+entity "<b>users</b>\n<size:9>(Identity & Access)</size>" as users <<ref>> #back:F5F5F5;header:DADADA;line:9E9E9E {
+  * id : integer <<PK>>
+}
+entity "<b>verification_cases</b>\n<size:9>(Assessment & Peer Review)</size>" as verification_cases <<ref>> #back:F5F5F5;header:DADADA;line:9E9E9E {
+  * id : integer <<PK>>
+}
+users ||..o| wallets : "wallet_owner_id"
+wallets ||--o{ credit_transactions : "wallet_id"
+verification_cases ||..o{ credit_transactions : "related_case_id"
+legend bottom left
+  <b>Notación</b>: <b>●</b> NOT NULL · <b><<PK>></b> clave primaria · <b><<FK>></b> FOREIGN KEY física ·
+  <b><<ref>></b> referencia por id sin FOREIGN KEY (otro agregado o Bounded Context) · <b><<UK>></b> único (<b>UK*</b> índice único parcial)
+  Línea continua: FOREIGN KEY física · Línea discontinua: referencia lógica por id · Tablas grises: tablas de otro Bounded Context
+  Esquema final de las migraciones Flyway V1–V10 (PostgreSQL). varchar = character varying · timestamptz = timestamp with time zone
+  <b>Restricciones e índices</b>
+  • wallets: UNIQUE (wallet_owner_id), CHECK balance >= 0
+  • credit_transactions: CHECK amount > 0; UNIQUE parcial (wallet_id, related_case_id)
+  • CHECK redemption_item IS NULL OR (type = 'Redeemed' AND redemption_item IN ('AdvancedPathUnlock', 'ContributionCertificate'))
+endlegend
+
+@enduml
