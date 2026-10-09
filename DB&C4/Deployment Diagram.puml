@@ -24,8 +24,9 @@ Deployment_Node(cloudPlatform, "Render", "Plataforma Cloud"){
 
 Deployment_Node(externalCloud, "Servicios Externos en la Nube", "SaaS"){
     System_Ext(cloudStorage, "Cloudinary", "Almacenamiento de certificados")
-    System_Ext(geminiApi, "Gemini API", "Generación de rutas y evaluaciones con IA")
-    System_Ext(playBilling, "Google Play Billing", "Suscripción mensual")
+    System_Ext(emailService, "Email Api", "Correos de validación y notificaciones")
+    System_Ext(geminiApi, "Gemini API", "Interpretación de la meta sobre el catálogo interno y generación de preguntas")
+    System_Ext(playBilling, "Google Play Billing (vía RevenueCat)", "Suscripción mensual")
 }
 
 Rel(androidApp, mlKitSdk, "Invoca localmente", "SDK call")
@@ -33,12 +34,15 @@ Rel(flutterApp, mlKitSdk, "Invoca localmente", "SDK call")
 
 Rel(androidApp, api, "Consume API RESTful", "HTTPS")
 Rel(flutterApp, api, "Consume API RESTful", "HTTPS")
-Rel(landingPage, api, "Consume API RESTful", "HTTPS")
 
 Rel(api, mainDB, "Lee/Escribe", "JDBC")
 
 Rel(api, cloudStorage, "Guarda certificados", "HTTPS")
-Rel(api, geminiApi, "Genera rutas y preguntas", "HTTPS")
-Rel(api, playBilling, "Verifica compras (RTDN)", "HTTPS")
+Rel(api, emailService, "Envía correos", "HTTPS")
+Rel(api, geminiApi, "Interpreta la meta y genera preguntas", "HTTPS")
+Rel(api, playBilling, "Verifica la compra y cancela la renovación", "HTTPS")
+Rel(playBilling, api, "Notifica cambios de la suscripción (webhook)", "HTTPS")
+Rel(androidApp, playBilling, "Compra el plan mensual (SDK de RevenueCat)", "HTTPS")
+Rel(flutterApp, playBilling, "Compra el plan mensual (SDK de RevenueCat)", "HTTPS")
 
 @enduml

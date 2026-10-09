@@ -43,7 +43,6 @@ package "Identity & Access" {
 
     enum Role {
         STUDENT
-        COORDINATOR
     }
 
     User --> Username
@@ -115,6 +114,9 @@ package "Learning Path Engine" {
         +studentId: Long
         +careerGoal: CareerGoal
         +status: PathStatus
+        +lastProgressAt: Date
+        +pause(): void
+        +resume(): void
         +linkCertificate(nodeId: Long, certificateId: Long): void
         +linkCertificateToSkill(certificateId: Long, skillTag: String): void
         +completeNode(nodeId: Long): void
@@ -154,6 +156,7 @@ package "Learning Path Engine" {
 
     enum PathStatus {
         ACTIVE
+        PAUSED
         COMPLETED
     }
 
@@ -205,16 +208,26 @@ package "Assessment & Peer Review" {
         +verifierUserId: Long
         +pathNodeId: Long
         +skillTag: String
+        +caseType: CaseType
         +status: CaseStatus
         +decision: ReviewDecision
         +rubricNotes: String
         +evidenceUrl: String
         +openedAt: Date
+        +reviewDueAt: Date
         +assignedAt: Date
         +resolvedAt: Date
+        +appealCount: Integer
+        +previousVerifierUserId: Long
         +assignVerifier(verifierUserId: Long): void
         +attachEvidence(url: String): void
         +resolve(decision: ReviewDecision, rubricNotes: String): void
+        +appeal(): void
+    }
+
+    enum CaseType {
+        QUIZ
+        MINI_PROJECT
     }
 
     enum CaseStatus {
@@ -229,6 +242,7 @@ package "Assessment & Peer Review" {
     }
 
     AssessmentAttempt --> Score
+    VerificationCase --> CaseType
     VerificationCase --> CaseStatus
     VerificationCase --> ReviewDecision
 }
@@ -293,6 +307,7 @@ package "Recognition & Incentives" {
     }
 
     enum RedemptionItem {
+        ADVANCED_PATH_UNLOCK
         CONTRIBUTION_CERTIFICATE
     }
 
@@ -306,14 +321,34 @@ package "Subscription & Billing" {
         +studentId: Long
         +plan: SubscriptionPlan
         +status: SubscriptionStatus
-        +googlePurchaseToken: String
+        +storeTransactionId: String
         +startedAt: Date
-        +renewsAt: Date
+        +currentPeriodEnd: Date
         +cancelledAt: Date
-        +renew(): void
+        +expiredAt: Date
+        +grantsPremiumAt(moment: Date): Boolean
+        +renew(newPeriodEnd: Date, storeTransactionId: String): Boolean
         +cancel(): void
+        +uncancel(): void
         +expire(): void
     }
+
+    class PurchaseVerification <<Value Object>> {
+        +active: Boolean
+        +productId: String
+        +expiresAt: Date
+        +willRenew: Boolean
+        +storeTransactionId: String
+        +sandbox: Boolean
+    }
+
+    interface PaymentGateway <<Domain Service>> {
+        +verifyPurchase(studentId: Long, productId: String): PurchaseVerification
+        +cancelRenewal(studentId: Long, storeTransactionId: String): void
+    }
+
+    class RevenueCatGatewayAdapter
+    class SimulatedPaymentGatewayAdapter
 
     class SubscriptionPlan <<Value Object>> {
         +name: String
@@ -328,13 +363,16 @@ package "Subscription & Billing" {
 
     enum SubscriptionStatus {
         ACTIVE
-        EXPIRED
         CANCELLED
+        EXPIRED
     }
 
     Subscription --> SubscriptionPlan
     Subscription --> SubscriptionStatus
     SubscriptionPlan --> Money
+    PaymentGateway ..> PurchaseVerification
+    RevenueCatGatewayAdapter ..|> PaymentGateway
+    SimulatedPaymentGatewayAdapter ..|> PaymentGateway
 }
 
 package "Moderation & Disputes" {

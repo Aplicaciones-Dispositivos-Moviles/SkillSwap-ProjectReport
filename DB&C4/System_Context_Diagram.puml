@@ -12,6 +12,7 @@ System_Ext(emailService, "Email Api", "Integración con correos institucionales"
 System_Ext(mlKitService, "ML Kit (Firebase)", "SDK on-device de OCR/Entity Extraction para procesar certificados")
 System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para imágenes de certificados")
 System_Ext(googlePlayBilling, "Google Play Billing (vía RevenueCat)", "Procesamiento de la suscripción mensual")
+System_Ext(geminiApi, "Gemini API", "IA generativa: interpreta la meta seleccionando habilidades solo del catálogo interno y genera las preguntas de los quizzes")
 
 Rel(student, skillSwapSystem, "Usa (app móvil / landing page)")
 Rel(verifier, skillSwapSystem, "Usa (app móvil / landing page)")
@@ -20,5 +21,6 @@ Rel(skillSwapSystem, emailService, "Envía correos de validación y notificacion
 Rel(skillSwapSystem, mlKitService, "Extrae datos del certificado (OCR on-device)")
 Rel(skillSwapSystem, cloudStorage, "Guarda las imágenes de los certificados")
 Rel(skillSwapSystem, googlePlayBilling, "Verifica y procesa la suscripción")
+Rel(skillSwapSystem, geminiApi, "Interpreta la meta y genera preguntas")
 
 @enduml

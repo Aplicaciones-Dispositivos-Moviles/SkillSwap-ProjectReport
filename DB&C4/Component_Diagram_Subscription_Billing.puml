@@ -6,35 +6,49 @@ LAYOUT_WITH_LEGEND()
 Container_Ext(androidApp, "Android Native App", "Kotlin / Jetpack Compose")
 Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "PostgreSQL 16")
-System_Ext(googlePlayBilling, "Google Play Billing", "Procesamiento de pagos")
+System_Ext(revenueCat, "Google Play Billing (vía RevenueCat)", "Cobro de la suscripción mensual; RevenueCat valida la compra y notifica sus cambios")
 
 Container_Boundary(subscriptionBC, "Subscription & Billing Bounded Context") {
-    Component(subscriptionController, "Subscription Controller", "C# Class", "RESTful API Controller")
-    Component(subscriptionCommandService, "Subscription CommandService", "C# Class", "Lógica de negocio")
-    Component(subscriptionQueryService, "Subscription QueryService", "C# Class", "Consultas")
-    Component(subscriptionRepository, "Subscription Repository", "C# Interface", "Interface persistencia")
-    Component(googlePlayGatewayExternal, "GooglePlayBilling ExternalService", "C# Class", "Adaptador de verificación (PaymentGateway)")
-    Component(rtdnHandler, "GooglePlay RtdnHandler", "C# Class", "Recibe confirmaciones asíncronas de renovación vía Pub/Sub")
-    Component(subscriptionContextFacade, "Subscription ContextFacade", "C# Class", "Punto de entrada interno")
+    Component(subscriptionsController, "SubscriptionsController", "Java Class", "RESTful API Controller: plan vigente, suscribirse y cancelar")
+    Component(webhookController, "RevenueCatWebhookController", "Java Class", "Recibe el webhook de RevenueCat (encabezado Authorization)")
+    Component(subscriptionCommandService, "SubscriptionCommandService", "Java Class", "Lógica de negocio: crear, cancelar, vencer y procesar eventos")
+    Component(subscriptionQueryService, "SubscriptionQueryService", "Java Class", "Suscripción vigente y límites del plan")
+    Component(expirationScheduler, "SubscriptionExpirationScheduler", "Java Class", "Vence periódicamente las suscripciones cuyo periodo pagado terminó")
+    Component(paymentGateway, "PaymentGateway", "Java Interface", "Puerto: verifyPurchase y cancelRenewal")
+    Component(revenueCatAdapter, "RevenueCatGatewayAdapter", "Java Class", "Adaptador de PaymentGateway hacia la API REST de RevenueCat")
+    Component(simulatedAdapter, "SimulatedPaymentGatewayAdapter", "Java Class", "Adaptador en memoria para desarrollo y demostraciones")
+    Component(subscriptionRepository, "SubscriptionRepository", "Java Interface", "Interface persistencia (subscriptions)")
+    Component(webhookEventRepository, "ProcessedWebhookEventRepository", "Java Interface", "Interface persistencia (processed_webhook_events)")
+    Component(subscriptionContextFacade, "SubscriptionContextFacade", "Java Class", "Punto de entrada interno: límites del plan vigente")
 }
 
-Rel(androidApp, subscriptionController, "Request HTTP a Subscription & Billing")
-Rel(flutterApp, subscriptionController, "Request HTTP a Subscription & Billing")
+Component_Ext(learningPathCommandService, "LearningPath CommandService", "Java Class", "Bounded Context: Learning Path Engine")
+Component_Ext(enforcePlanLimitsHandler, "EnforcePlanLimitsEventHandler", "Java Class", "Bounded Context: Learning Path Engine")
+Component_Ext(assessmentCommandService, "AssessmentAttempt CommandService", "Java Class", "Bounded Context: Assessment & Peer Review")
 
-Rel(subscriptionController, subscriptionCommandService, "Usa")
-Rel(subscriptionController, subscriptionQueryService, "Usa")
+Rel(androidApp, subscriptionsController, "Request HTTP a Subscription & Billing")
+Rel(flutterApp, subscriptionsController, "Request HTTP a Subscription & Billing")
+Rel(revenueCat, webhookController, "Notifica compras, renovaciones, cancelaciones y vencimientos", "Webhook HTTPS")
+
+Rel(subscriptionsController, subscriptionCommandService, "Usa")
+Rel(subscriptionsController, subscriptionQueryService, "Usa")
+Rel(webhookController, subscriptionCommandService, "ProcessRevenueCatEventCommand")
+Rel(expirationScheduler, subscriptionCommandService, "ExpireSubscriptionCommand")
+
+Rel(subscriptionCommandService, paymentGateway, "Verifica la compra / cancela la renovación")
+Rel(revenueCatAdapter, paymentGateway, "Implementa")
+Rel(simulatedAdapter, paymentGateway, "Implementa")
+Rel(revenueCatAdapter, revenueCat, "Consulta el entitlement / cancela la renovación", "HTTPS")
 
 Rel(subscriptionCommandService, subscriptionRepository, "Usa")
+Rel(subscriptionCommandService, webhookEventRepository, "Registra el event_id (idempotencia)")
 Rel(subscriptionQueryService, subscriptionRepository, "Usa")
 Rel(subscriptionRepository, mainDB, "SQL Transaction")
+Rel(webhookEventRepository, mainDB, "SQL Transaction")
 
-Rel(subscriptionCommandService, googlePlayGatewayExternal, "Delega verificación (purchaseToken)")
-Rel(googlePlayGatewayExternal, googlePlayBilling, "Verifica la compra (Google Play Developer API)")
-
-Rel(googlePlayBilling, rtdnHandler, "Notifica confirmación de renovación", "RTDN / Pub-Sub")
-Rel(rtdnHandler, subscriptionCommandService, "Dispara renovación")
-
-Rel(subscriptionContextFacade, subscriptionCommandService, "Delega")
 Rel(subscriptionContextFacade, subscriptionQueryService, "Delega")
+Rel(learningPathCommandService, subscriptionContextFacade, "Pedir límites de rutas del plan")
+Rel(assessmentCommandService, subscriptionContextFacade, "Pedir cupo de escalamientos y plazo de revisión")
+Rel(subscriptionCommandService, enforcePlanLimitsHandler, "Publica SubscriptionExpired (pausa rutas adicionales)")
 
 @enduml

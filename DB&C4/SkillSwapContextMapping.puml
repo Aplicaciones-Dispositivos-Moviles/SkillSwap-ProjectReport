@@ -30,6 +30,7 @@ rectangle "Credential\nVerification" as CV <<upstream>>
 rectangle "Learning Path\nEngine" as LPE <<upstream>>
 rectangle "Assessment &\nPeer Review" as APR <<upstream>>
 rectangle "ML Kit" as MLK <<external>>
+rectangle "Gemini API" as GEM <<external>>
 
 ' ===== Fila media =====
 rectangle "Identity & Access" as IAM <<upstream>>
@@ -39,12 +40,13 @@ rectangle "Reputation" as REP <<downstream>>
 rectangle "Moderation &\nDisputes" as MOD <<upstream>>
 rectangle "Recognition &\nIncentives" as REC <<downstream>>
 rectangle "Subscription &\nBilling" as SUB <<upstream>>
-rectangle "Google Play\nBilling" as GPB <<external>>
+rectangle "Google Play Billing\n(vía RevenueCat)" as GPB <<external>>
 
 ' ===== Layout: forzar filas con enlaces invisibles =====
 CV -[hidden]right-> LPE
 LPE -[hidden]right-> APR
 APR -[hidden]right-> MLK
+LPE -[hidden]up-> GEM
 IAM -[hidden]right-> REP
 MOD -[hidden]right-> REC
 REC -[hidden]right-> SUB
@@ -58,6 +60,7 @@ IAM -[hidden]down-> MOD
 CV -right-> LPE : [Customer/Supplier]
 LPE -right-> APR : [Customer/Supplier]
 CV ..> MLK : [Anticorruption\nLayer]
+LPE ..> GEM : [Anticorruption\nLayer]
 
 ' Identity & Access como Upstream/Conformist hacia todos
 IAM -up-> CV : [Conformist]
@@ -69,8 +72,8 @@ IAM -left-> MOD : [Conformist]
 IAM -down-> SUB : [Conformist]
 
 ' Assessment & Peer Review hacia Reputation y Recognition & Incentives (eventos de dominio)
-APR ..> REP : [Published Language\n(eventos de dominio)]
-APR ..> REC : [Published Language\n(eventos de dominio)]
+APR ..> REP : [Customer/Supplier]\n(eventos de dominio)
+APR ..> REC : [Customer/Supplier]\n(eventos de dominio)
 
 ' Reputation hacia Assessment & Peer Review (sincroniza rating, vía ACL)
 REP ..> APR : [Anticorruption\nLayer]
