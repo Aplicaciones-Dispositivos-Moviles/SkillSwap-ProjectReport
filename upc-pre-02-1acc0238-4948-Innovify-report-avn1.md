@@ -4625,7 +4625,7 @@ El despliegue abarca los tres productos digitales de la solución:
 **Deployment Diagram (C4 Model):**
 
 <p align="center">
-  <img src="images-doc/c4-deployment-diagram.png" alt="Deployment Diagram de SkillSwap" width="900">
+  <img src="images-doc/c4-deployment-diagram.svg" alt="Deployment Diagram de SkillSwap" width="900">
 </p>
 
 *Figura.* Deployment Diagram de SkillSwap: aplicación Android y Landing Page (GitHub Pages) como clientes, API Spring Boot en contenedor Docker sobre Render, PostgreSQL administrado, y los servicios externos Cloudinary, Gemini API y Google Play Billing.
@@ -4757,21 +4757,21 @@ Los archivos `.feature` están organizados por Bounded Context dentro del proyec
 
 **Pruebas de aceptación (BDD, Gherkin + Reqnroll)**
 
-| Bounded Context | Archivo `.feature` | Historia relacionada | Comportamiento que valida |
+| Bounded Context | Archivo `.feature` | Historia | Comportamiento que valida |
 |---|---|---|---|
 | Identity & Access | `Registration.feature` | US01 | Registro de una cuenta `Student` con correo institucional `.edu.pe` |
-| Identity & Access | `SignIn.feature` | TS02 | Autenticación con usuario y contraseña y emisión del token JWT |
-| Identity & Access | `Profile.feature` | TS01 / TS02 | Consulta del perfil propio, consulta por id y actualización de la biografía |
+| Identity & Access | `SignIn.feature` | US02 | Autenticación con usuario y contraseña y emisión del token JWT |
+| Identity & Access | `Profile.feature` | US04 | Consulta del perfil propio y por id, y actualización de la biografía |
 | Credential Verification | `CertificateUpload.feature` | US12 | Registro de un certificado con su archivo y evaluación de riesgo |
-| Credential Verification | `CertificateDuplicates.feature` | TS03 | Rechazo (409) de un archivo ya subido por el mismo estudiante |
-| Credential Verification | `CertificateStatus.feature` | TS04 | Consulta del estado de verificación y listado de certificados |
-| Learning Path Engine | `LearningPathGoal.feature` | TS05 | Declaración de la meta en lenguaje natural y generación de la ruta |
-| Learning Path Engine | `LearningPathConsultation.feature` | TS05 | Consulta de la ruta con el estado de cada nodo |
-| Learning Path Engine | `AssessmentGeneration.feature` | TS06 | Generación de la evaluación de un nodo disponible |
-| Assessment & Peer Review | `AssessmentAttempt.feature` | TS07 | Calificación del intento (4 de 5 aprueba) y apertura de caso si no aprueba |
-| Assessment & Peer Review | `CaseReview.feature` | US24 / US25 / US26 | Evidencia, asignación y resolución del caso por el Verificador |
-| Assessment & Peer Review | `VerifierEnrollment.feature` | TS08 | Alta del perfil de Verificador y su disponibilidad |
-| Recognition & Incentives | `Wallet.feature` | TS09 | Saldo de SkillCredits, movimientos y canje de beneficios |
+| Credential Verification | `CertificateDuplicates.feature` | US14 | Rechazo (409) de un archivo ya subido por el mismo estudiante |
+| Credential Verification | `CertificateStatus.feature` | US16 | Consulta del estado de verificación y listado de certificados |
+| Learning Path Engine | `LearningPathGoal.feature` | US06 | Declaración de la meta en lenguaje natural y generación de la ruta |
+| Learning Path Engine | `LearningPathConsultation.feature` | US08 | Consulta de la ruta con el estado de cada nodo |
+| Learning Path Engine | `AssessmentGeneration.feature` | US17 | Generación de la evaluación de un nodo disponible |
+| Assessment & Peer Review | `AssessmentAttempt.feature` | US18 | Calificación del intento (4 de 5 aprueba) y apertura de caso si no aprueba |
+| Assessment & Peer Review | `VerifierEnrollment.feature` | US22, US23 | Alta del perfil de Verificador y gestión de su disponibilidad |
+| Assessment & Peer Review | `CaseReview.feature` | US24, US25, US26 | Asignación de casos, revisión con rúbrica y evidencia adjunta |
+| Recognition & Incentives | `Wallet.feature` | US30, US31, US32 | Saldo de SkillCredits, historial de movimientos y canje de beneficios |
 | Reputation | `ReliabilityAndEmployability.feature` | TS11 | Confiabilidad del Verificador y Employability Score del estudiante |
 
 *Tabla. Creación propia*
@@ -5097,6 +5097,23 @@ Respuesta `200 OK`: el caso pasa a estado resuelto con `decision: "Approved"`, e
 </p>
 
 *Nota.* Captura de Swagger desplegado en Render [https://skillswap-webservices.onrender.com/swagger/index.html](https://skillswap-webservices.onrender.com/swagger/index.html), con el endpoint `POST /api/v1/certificates` expandido mostrando su esquema de request y las respuestas documentadas.
+
+
+**Commits relacionados con la documentación (repositorio `SkillSwap-WebServices`)**
+
+La documentación OpenAPI (`summary`, `description` y códigos de respuesta de cada endpoint) se escribió junto con los controllers de cada Bounded Context, por lo que los commits de la capa Interface son los que la producen; dos commits de pruebas verifican el documento generado.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| SkillSwap-WebServices | feature/iam-identity-access | `95abd69` | feat(iam): add interface layer and application startup | `AuthenticationController`, `UsersController` documentados con OpenAPI y configuración de arranque de la API. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `b002841` | feat(credential): add interface layer for credential verification | `CertificatesController` y `CertificateResource` con su documentación OpenAPI. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `73cf8ab` | test(credential): add integration tests for certificate endpoints | Pruebas de integración de los endpoints de certificados, incluido el documento OpenAPI. | 2026-09-30 |
+| SkillSwap-WebServices | feature/credential-verification | `55cfda6` | test(credential): restrict openapi check to schema properties | Ajuste de la prueba que verifica el esquema OpenAPI de los endpoints de certificados. | 2026-09-30 |
+| SkillSwap-WebServices | feature/learning-path-engine | `ae460df` | test(learning-path): add bdd scenarios for goals, consultation and assessments | Incluye los controllers de rutas de aprendizaje y de generación de evaluaciones con su documentación OpenAPI, junto con los escenarios BDD de meta, consulta y evaluación. | 2026-10-01 |
+| SkillSwap-WebServices | feature/assessment-peer-review | `17f0d6d` | feat(assessment): add rest interface | Controllers de intentos, casos de verificación y perfiles de Verificador con sus resources, assemblers y mapeo de errores a ProblemDetails. | 2026-10-01 |
+| SkillSwap-WebServices | feature/reputation-reliability-employability | `7e59dd7` | feat(reputation): add rest interface | Controllers de solo lectura de confiabilidad de Verificadores y puntaje de empleabilidad, con sus resources, assemblers y mapeo de errores. | 2026-10-01 |
+| SkillSwap-WebServices | feature/shared-render-deployment | `18ccb28` | feat(shared): add health check endpoint and root redirect | Endpoint anónimo `GET /health` y redirección de la raíz del servicio a la documentación Swagger. | 2026-10-01 |
+| SkillSwap-WebServices | feature/recognition-incentives-wallet | `e9ae9c8` | feat(recognition): add rest interface | Controllers de billetera y de canje de beneficios, con sus resources, assemblers y mapeo de errores a ProblemDetails. | 2026-10-02 |
 
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
