@@ -1,0 +1,129 @@
+@startuml class-learning-path-engine-mobile
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam packageStyle folder
+skinparam dpi 110
+left to right direction
+
+' Fuente: SkillSwap-WebServices-Java, learningpathengine. Ruta hibrida: Gemini interpreta la meta
+' sobre el catalogo interno y, si falla, responde el matcher por palabras clave.
+!startsub BODY
+package "Learning Path Engine" {
+    class LearningPath <<Aggregate Root>> {
+        -id: Integer
+        -studentId: int
+        -careerGoal: CareerGoal
+        -nodes: List<PathNode>
+        -status: PathStatus
+        -advanced: boolean
+        -createdAt: Instant
+        -updatedAt: Instant
+        -lastProgressAt: Instant
+        +pause(): LearningPath
+        +resume(): LearningPath
+        +completeNode(nodeId: int): LearningPath
+        +associateCertificate(nodeId: int, certificateId: int): LearningPath
+        +linkCertificate(nodeId: int, certificateId: int): boolean
+        +linkCertificateToSkill(skillTag: String, certificateId: int): boolean
+        +recognizeCertifiedSkill(skillTag: String, certificateId: int): boolean
+        +pendingPrerequisitesOf(nodeId: int): List<String>
+        +attachBlueprint(nodeId: int, blueprintId: int): LearningPath
+    }
+
+    class PathNode <<Entity>> {
+        -id: Integer
+        -skillTag: String
+        -nodeOrder: int
+        -status: NodeStatus
+        -prerequisiteSkillTags: List<String>
+        -linkedCertificateId: Integer
+        -assessmentBlueprintId: Integer
+        -completedByCertificate: boolean
+        +unlock(): void
+        +complete(): void
+        +linkCertificate(certificateId: int): void
+        +completeWithCertificate(certificateId: int): void
+        +attachBlueprint(blueprintId: int): void
+    }
+
+    class CareerGoal <<Value Object>> {
+        +rawText: String
+        +mappedSkillTags: List<String>
+    }
+
+    class SkillGap <<Value Object>> {
+        +verifiedSkillTags: List<String>
+        +missingSkillTags: List<String>
+    }
+
+    class AssessmentBlueprint <<Aggregate Root>> {
+        -id: Integer
+        -pathNodeId: int
+        -skillTag: String
+        -questions: List<Question>
+        -generatedAt: Instant
+    }
+
+    class Question <<Entity>> {
+        -questionString: String
+        -answers: List<String>
+        -correctAnswer: int
+    }
+
+    class AdvancedPathUnlock <<Aggregate Root>> {
+        -id: Integer
+        -studentId: int
+        -redemptionId: int
+        -learningPathId: Integer
+        -grantedAt: Instant
+        -usedAt: Instant
+        +useFor(learningPathId: int): AdvancedPathUnlock
+        +isAvailable(): boolean
+    }
+
+    enum PathStatus {
+        ACTIVE
+        PAUSED
+        COMPLETED
+    }
+
+    enum NodeStatus {
+        LOCKED
+        AVAILABLE
+        COMPLETED
+    }
+
+    interface SkillGapAnalyzer <<Domain Service>> {
+        +analyze(goal: CareerGoal, verifiedSkillTags: Collection<String>): SkillGap
+    }
+
+    interface LearningPathBuilder <<Domain Service>> {
+        +buildPath(gap: SkillGap): List<PathNode>
+    }
+
+    interface QuestionGenerationService <<Domain Service>> {
+        +generateQuestions(skillTag: String, excludedQuestions: Collection<String>): List<Question>
+    }
+
+    interface SkillTaxonomyMatcher <<Port>> {
+        +match(text: String): List<String>
+    }
+
+    class GeminiSkillTaxonomyMatcher
+    class KeywordSkillTaxonomyMatcher
+    class GeminiQuestionGenerator
+
+    LearningPath "1" *-- "1..*" PathNode
+    LearningPath --> CareerGoal
+    LearningPath --> PathStatus
+    PathNode --> NodeStatus
+    AssessmentBlueprint "1" *-- "5" Question
+    SkillGapAnalyzer ..> SkillGap
+    LearningPathBuilder ..> PathNode
+    GeminiSkillTaxonomyMatcher ..|> SkillTaxonomyMatcher
+    KeywordSkillTaxonomyMatcher ..|> SkillTaxonomyMatcher
+    GeminiSkillTaxonomyMatcher --> KeywordSkillTaxonomyMatcher : fallback
+    GeminiQuestionGenerator ..|> QuestionGenerationService
+}
+!endsub
+@enduml

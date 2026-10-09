@@ -1,0 +1,104 @@
+@startuml class-subscription-billing-mobile
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam packageStyle folder
+skinparam dpi 110
+left to right direction
+
+' Fuente: SkillSwap-WebServices-Java, subscriptionbilling. Google Play Billing via RevenueCat.
+' Plan gratuito: 1 ruta activa, 3 en total, 3 escalamientos al mes, revision en 5 dias habiles.
+' Plan mensual (S/ 29,90 IGV incluido): 3 rutas activas, sin tope total, 10 escalamientos, 48 h.
+!startsub BODY
+package "Subscription & Billing" {
+    class Subscription <<Aggregate Root>> {
+        -id: Integer
+        -studentId: int
+        -plan: SubscriptionPlan
+        -status: SubscriptionStatus
+        -storeTransactionId: String
+        -startedAt: Instant
+        -currentPeriodEnd: Instant
+        -cancelledAt: Instant
+        -expiredAt: Instant
+        -updatedAt: Instant
+        +grantsPremiumAt(moment: Instant): boolean
+        +renew(newPeriodEnd: Instant, storeTransactionId: String): boolean
+        +cancel(): Subscription
+        +uncancel(): Subscription
+        +expire(): Subscription
+    }
+
+    class ProcessedWebhookEvent <<Entity>> {
+        -id: Integer
+        -eventId: String
+        -eventType: String
+        -appUserId: String
+        -environment: String
+        -processedAt: Instant
+    }
+
+    class SubscriptionPlan <<Value Object>> {
+        +name: String
+        +productId: String
+        +price: Money
+    }
+
+    class Money <<Value Object>> {
+        +amount: BigDecimal
+        +currency: String
+    }
+
+    class PlanLimits <<Value Object>> {
+        +plan: PlanType
+        +maxActiveRoutes: int
+        +maxTotalRoutes: Integer
+        +monthlyEscalations: int
+        +reviewDeadline: ReviewDeadline
+        +{static} of(plan: PlanType): PlanLimits
+        +capsTotalRoutes(): boolean
+    }
+
+    class "ReviewDeadline" as BillingReviewDeadline <<Value Object>> {
+        +amount: int
+        +unit: HOURS | BUSINESS_DAYS
+    }
+
+    class PurchaseVerification <<Value Object>> {
+        +active: boolean
+        +productId: String
+        +expiresAt: Instant
+        +willRenew: boolean
+        +storeTransactionId: String
+        +sandbox: boolean
+    }
+
+    enum SubscriptionStatus {
+        ACTIVE
+        CANCELLED
+        EXPIRED
+    }
+
+    enum PlanType {
+        FREE
+        PREMIUM
+    }
+
+    interface PaymentGateway <<Domain Service>> {
+        +verifyPurchase(studentId: int, productId: String): PurchaseVerification
+        +cancelRenewal(studentId: int, storeTransactionId: String): void
+    }
+
+    class RevenueCatGatewayAdapter
+    class SimulatedPaymentGatewayAdapter
+
+    Subscription --> SubscriptionPlan
+    Subscription --> SubscriptionStatus
+    SubscriptionPlan --> Money
+    PlanLimits --> PlanType
+    PlanLimits --> BillingReviewDeadline
+    PaymentGateway ..> PurchaseVerification
+    RevenueCatGatewayAdapter ..|> PaymentGateway
+    SimulatedPaymentGatewayAdapter ..|> PaymentGateway
+}
+!endsub
+@enduml
