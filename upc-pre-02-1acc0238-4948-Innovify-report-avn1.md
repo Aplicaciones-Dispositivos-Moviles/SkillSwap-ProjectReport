@@ -4703,7 +4703,7 @@ El objetivo del Sprint 1 es entregar el backend funcional de los seis Bounded Co
 | US41–US45 | Landing Page | T12 | Wireframe + Mock-up + implementación de la Landing Page | HTML5/CSS3/JS, desplegado en GitHub Pages | 10 | Becerra Ninahuanca, Luis Angel | Done |
 | — | Pantallas core de la app móvil | T13 | Wireframes + Mock-ups + prototipo navegable en Figma | Pantallas de registro, ruta de aprendizaje, quiz y casos de verificación | 12 | Lopez Montalvo, Kevin Edu | In-Process |
 
-#### 4.2.1.4. Development Evidence for Sprint Review
+##### 4.2.1.4. Development Evidence for Sprint Review
 
 El equipo organizó el desarrollo del backend en una rama `feature/<contexto>-<tema>` por Bounded Context, siguiendo Conventional Commits con un commit por capa (Domain, Application, Infrastructure, Interface), integrados a `develop` mediante Pull Requests mergeados con la estrategia "Create a merge commit".
 
@@ -5115,7 +5115,7 @@ La documentación OpenAPI (`summary`, `description` y códigos de respuesta de c
 | SkillSwap-WebServices | feature/shared-render-deployment | `18ccb28` | feat(shared): add health check endpoint and root redirect | Endpoint anónimo `GET /health` y redirección de la raíz del servicio a la documentación Swagger. | 2026-10-01 |
 | SkillSwap-WebServices | feature/recognition-incentives-wallet | `e9ae9c8` | feat(recognition): add rest interface | Controllers de billetera y de canje de beneficios, con sus resources, assemblers y mapeo de errores a ProblemDetails. | 2026-10-02 |
 
-#### 4.2.1.8. Software Deployment Evidence for Sprint Review
+##### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
 Durante el Sprint 1 se configuró y verificó el despliegue completo del backend en Render: creación del servicio web, configuración de la base de datos PostgreSQL administrada, variables de entorno (ver 4.1.4), y automatización de migraciones y semilla del Coordinador al arrancar.
 
