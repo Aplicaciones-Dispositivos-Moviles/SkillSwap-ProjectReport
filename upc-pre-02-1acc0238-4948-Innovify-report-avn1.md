@@ -3122,7 +3122,7 @@ Atributos
 
 **4. Value Object: VerificationMethod**
 
-Descripción: Enumeración que documenta los mecanismos de verificación contemplados en el diseño. Para el alcance implementado en el curso solo se ejecutan `OCR_ONLY` y `MANUAL`; `QR`, `ISSUER_URL` y `OFFICIAL_REGISTRY` quedan documentados como extensión futura, sin lógica de integración activa.
+Descripción: Enumeración que documenta los mecanismos de verificación contemplados en el diseño. Para el alcance implementado en el curso solo se ejecutan `OCR_ONLY` y `MANUAL`; `QR`, `ISSUER_URL` y `OFFICIAL_REGISTRY` se documentan en el modelo sin lógica de integración.
 
 Atributos
 
@@ -3243,7 +3243,7 @@ En la Infrastructure Layer de SkillSwap, para el contexto de Credential Verifica
 | MlKitCertificateExtractor | Implementación técnica de `CertificateExtractionService`. | Ejecuta el reconocimiento de texto (Text Recognition) y, cuando aplica, la decodificación de código QR (Barcode Scanning) de ML Kit, de forma on-device sobre el documento capturado desde la cámara del dispositivo. |
 | CloudinaryStorageAdapter | Servicio responsable de almacenar el archivo original del certificado. | Sube la imagen/PDF a Cloudinary y retorna la referencia (`storageReference`) persistida en el agregado. |
 
-Estos componentes aseguran que la lógica de negocio de Credential Verification permanezca independiente de ML Kit y de Cloudinary, de modo que ambos puedan sustituirse en el futuro sin modificar el Domain Layer ni la Application Layer.
+Estos componentes aseguran que la lógica de negocio de Credential Verification permanezca independiente de ML Kit y de Cloudinary, de modo que ambos puedan sustituirse sin modificar el Domain Layer ni la Application Layer.
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -4231,7 +4231,7 @@ En la Application Layer de Recognition & Incentives, `CreditVerifierCommandHandl
 | WalletRepositoryAdapter | Implementación concreta de `WalletRepository` sobre la tabla `wallets`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
 | CreditTransactionRepositoryAdapter | Implementación concreta de `CreditTransactionRepository` sobre la tabla `credit_transactions`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
 
-Este Bounded Context no incluye integraciones con pasarelas de pago externas ni siquiera como trabajo futuro: al ser SkillCredits un mecanismo puramente interno y no monetario, no existe punto de extensión hacia una pasarela de pago, a diferencia de Credential Verification, donde sí se documentaron mecanismos de verificación oficial pendientes de integración.
+Este Bounded Context no incluye integraciones con pasarelas de pago externas: al ser SkillCredits un mecanismo puramente interno y no monetario, no existe punto de extensión hacia una pasarela de pago, a diferencia de Credential Verification, donde el modelo documenta mecanismos de verificación oficial sin lógica de integración.
 
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -6293,16 +6293,14 @@ Figura 139. *Historial de commits del repositorio SkillSwap-WebServices-Java dur
 | :--- | :--- | :--- |
 | **Landing Page — Sitio desplegado** | Sitio web estático de presentación del modelo de negocio Innovify (SkillSwap), publicado en GitHub Pages. | [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/) |
 | **Landing Page — Repositorio** | Código fuente del Landing Page (HTML5, CSS3 y JavaScript). | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage) |
-| **Android Native Application** | Aplicación móvil nativa (Kotlin / Jetpack Compose) donde interactúan Estudiantes y Verificadores. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp) |
-| **Cross-Platform Application (Flutter)** | Aplicación móvil multiplataforma (Flutter / Dart, dirigida a Android). | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter) |
+| **Android Native Application** | Aplicación móvil nativa (Kotlin / Jetpack Compose) donde interactúan Estudiantes y Verificadores. En el Sprint 1, el repositorio contiene únicamente su `README.md`. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp) |
+| **Cross-Platform Application (Flutter)** | Aplicación móvil multiplataforma (Flutter / Dart, dirigida a Android). En el Sprint 1, el repositorio contiene únicamente su `README.md`. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter) |
 | **Prototipo y mock-ups (Figma)** | Archivo de diseño con el prototipo y los mock-ups de la aplicación móvil para los roles Estudiante y Verificador (Capítulo III). | [https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo?node-id=3-959](https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo?node-id=3-959) |
 | **Backend — Swagger UI** | Documentación interactiva (OpenAPI) de los Web Services RESTful (Java 21 / Spring Boot), desplegados en Render. | [https://skillswap-webservices-java.onrender.com/swagger-ui/index.html](https://skillswap-webservices-java.onrender.com/swagger-ui/index.html) |
-| **Backend — Repositorio** | Código fuente de los Web Services RESTful en Java / Spring Boot, organizados por Bounded Context (seis implementados en el Sprint 1). | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices-Java](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices-Java) |
+| **Backend — Repositorio** | Código fuente de los Web Services RESTful en Java / Spring Boot, organizados en los ocho Bounded Contexts. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices-Java](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices-Java) |
 | **Base de Datos** | Base de datos relacional única (PostgreSQL administrado en Render), compartida por los ocho Bounded Contexts. | Ver el Diagrama de Base de Datos completo de SkillSwap en la sección 2.6. |
 | **Product Backlog (Trello)** | Tablero público del Product Backlog, organizado por Sprint. | [https://trello.com/b/sTMGwnPf/skillswap-product-backlog](https://trello.com/b/sTMGwnPf/skillswap-product-backlog) |
 | **Project Report (GitHub)** | Repositorio del informe del proyecto. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport) |
-| **Video About-the-Team** | Video que resume el proceso de trabajo del equipo a lo largo del ciclo de vida del proyecto. | Pendiente (primera versión en AV2). |
-| **Video About-the-Product** | Video promocional dirigido a visitantes de la Landing Page y usuarios de la aplicación. | Pendiente (primera versión en AV2). |
 
 ---
 
