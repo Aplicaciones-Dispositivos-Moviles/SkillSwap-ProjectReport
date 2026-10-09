@@ -115,14 +115,17 @@ package "Learning Path Engine" {
         +studentId: Long
         +careerGoal: CareerGoal
         +status: PathStatus
-        +recalculate(updatedGap: SkillGap): void
+        +linkCertificate(nodeId: Long, certificateId: Long): void
+        +linkCertificateToSkill(certificateId: Long, skillTag: String): void
         +completeNode(nodeId: Long): void
+        +pendingPrerequisitesOf(nodeId: Long): List<String>
     }
 
     class PathNode <<Entity>> {
         +skillTag: String
         +order: Integer
         +status: NodeStatus
+        +prerequisiteSkillTags: List<String>
         +linkedCertificateId: Long
         +assessmentBlueprintId: Long
     }
@@ -189,13 +192,17 @@ package "Assessment & Peer Review" {
         +verified: Boolean
         +rating: Double
         +reviewCount: Integer
-        +updateAvailability(available: Boolean): void
-        +addSkillTag(skill: String): void
+        +AddSkill(skillTag: String): void
+        +SetAvailability(available: Boolean): void
+        +IncrementReviewCount(): void
+        +UpdateRating(rating: Double): void
+        +Revoke(): void
     }
 
     class VerificationCase <<Aggregate Root>> {
+        +attemptId: Long
         +studentId: Long
-        +verifierId: Long
+        +verifierUserId: Long
         +pathNodeId: Long
         +skillTag: String
         +status: CaseStatus
@@ -203,17 +210,16 @@ package "Assessment & Peer Review" {
         +rubricNotes: String
         +evidenceUrl: String
         +openedAt: Date
+        +assignedAt: Date
         +resolvedAt: Date
-        +assignVerifier(verifierId: Long): void
+        +assignVerifier(verifierUserId: Long): void
         +attachEvidence(url: String): void
-        +startReview(): void
         +resolve(decision: ReviewDecision, rubricNotes: String): void
     }
 
     enum CaseStatus {
         PENDING
         ASSIGNED
-        UNDER_REVIEW
         RESOLVED
     }
 
@@ -260,7 +266,7 @@ package "Reputation" {
     StudentEmployabilityScore --> EmployabilityScore
 }
 
-package "Wallet & Incentives" {
+package "Recognition & Incentives" {
     class Wallet <<Aggregate Root>> {
         +walletOwnerId: Long
         +balance: Integer
@@ -273,6 +279,7 @@ package "Wallet & Incentives" {
         +amount: Credits
         +type: TransactionType
         +description: String
+        +relatedCaseId: Long
         +createdAt: Date
     }
 
@@ -286,7 +293,6 @@ package "Wallet & Incentives" {
     }
 
     enum RedemptionItem {
-        ADVANCED_PATH_UNLOCK
         CONTRIBUTION_CERTIFICATE
     }
 
@@ -300,6 +306,7 @@ package "Subscription & Billing" {
         +studentId: Long
         +plan: SubscriptionPlan
         +status: SubscriptionStatus
+        +googlePurchaseToken: String
         +startedAt: Date
         +renewsAt: Date
         +cancelledAt: Date
@@ -310,6 +317,7 @@ package "Subscription & Billing" {
 
     class SubscriptionPlan <<Value Object>> {
         +name: String
+        +productId: String
         +price: Money
     }
 
@@ -328,23 +336,6 @@ package "Subscription & Billing" {
     Subscription --> SubscriptionStatus
     SubscriptionPlan --> Money
 }
-
-' --- Herencia hacia el Aggregate Root compartido ---
-User --|> AbstractDomainAggregateRoot
-Certificate --|> AbstractDomainAggregateRoot
-LearningPath --|> AbstractDomainAggregateRoot
-AssessmentBlueprint --|> AbstractDomainAggregateRoot
-AssessmentAttempt --|> AbstractDomainAggregateRoot
-VerifierProfile --|> AbstractDomainAggregateRoot
-VerificationCase --|> AbstractDomainAggregateRoot
-VerifierReliability --|> AbstractDomainAggregateRoot
-StudentEmployabilityScore --|> AbstractDomainAggregateRoot
-Wallet --|> AbstractDomainAggregateRoot
-CreditTransaction --|> AbstractDomainAggregateRoot
-Dispute --|> AbstractDomainAggregateRoot
-Sanction --|> AbstractDomainAggregateRoot
-Subscription --|> AbstractDomainAggregateRoot
-CreditPurchase --|> AbstractDomainAggregateRoot
 
 package "Moderation & Disputes" {
     class Dispute <<Aggregate Root>> {
@@ -400,13 +391,29 @@ package "Moderation & Disputes" {
     Sanction --> SanctionType
 }
 
+' --- Herencia hacia el Aggregate Root compartido ---
+User --|> AbstractDomainAggregateRoot
+Certificate --|> AbstractDomainAggregateRoot
+LearningPath --|> AbstractDomainAggregateRoot
+AssessmentBlueprint --|> AbstractDomainAggregateRoot
+AssessmentAttempt --|> AbstractDomainAggregateRoot
+VerifierProfile --|> AbstractDomainAggregateRoot
+VerificationCase --|> AbstractDomainAggregateRoot
+VerifierReliability --|> AbstractDomainAggregateRoot
+StudentEmployabilityScore --|> AbstractDomainAggregateRoot
+Wallet --|> AbstractDomainAggregateRoot
+CreditTransaction --|> AbstractDomainAggregateRoot
+Dispute --|> AbstractDomainAggregateRoot
+Sanction --|> AbstractDomainAggregateRoot
+Subscription --|> AbstractDomainAggregateRoot
+
 ' --- Enlaces invisibles para forzar layout en 2 filas ---
 "Identity & Access" -[hidden]right- "Credential Verification"
 "Credential Verification" -[hidden]right- "Learning Path Engine"
 "Learning Path Engine" -[hidden]right- "Assessment & Peer Review"
 
-"Reputation" -[hidden]right- "Wallet & Incentives"
-"Wallet & Incentives" -[hidden]right- "Subscription & Billing"
+"Reputation" -[hidden]right- "Recognition & Incentives"
+"Recognition & Incentives" -[hidden]right- "Subscription & Billing"
 "Subscription & Billing" -[hidden]right- "Moderation & Disputes"
 
 "Identity & Access" -[hidden]down- "Reputation"
