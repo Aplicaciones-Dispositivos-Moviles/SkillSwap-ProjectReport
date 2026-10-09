@@ -1046,7 +1046,7 @@ En el User Task Matrix se consideran los dos segmentos objetivo evaluando sus ta
 Las tareas más frecuentes e importantes son:
 
 * **Estudiantes:** Buscar recursos de aprendizaje y aplicar lo aprendido en proyectos prácticos son las más frecuentes. Identificar exactamente en qué sub-tema están fallando y validar que lo aprendido es suficiente para el mercado son las más importantes aunque poco frecuentes, porque actualmente no tienen herramientas para hacerlo.
-* **Personas que validan el conocimiento:** Mantener el dominio propio y revisar el caso de otra persona son las tareas más transversales al segmento completo. Resolver disputas y verificar la legitimidad de certificados destacan como las de mayor importancia para quienes supervisan el sistema, mientras que construir reputación y obtener SkillCredits destacan para quienes revisan casos puntuales — ambas dimensiones conviven dentro del mismo segmento sin ser excluyentes entre sí.
+* **Personas que validan el conocimiento:** Mantener el dominio propio y revisar el caso de otra persona son las tareas más transversales al segmento completo. Resolver disputas y verificar la legitimidad de certificados destacan como las de mayor importancia para la supervisión del sistema, mientras que construir reputación y obtener SkillCredits destacan en la revisión de casos puntuales — ambas tareas forman parte del mismo rol de Verificador.
 
 Todos los segmentos coinciden en el uso intensivo de herramientas digitales y en la necesidad de conexión con personas de nivel verificado, aunque cada perfil dentro del segundo segmento lo aplica desde un ángulo distinto de la misma labor de validación.
  
@@ -1058,7 +1058,7 @@ En esta sección se presentan los User Journey Maps As-Is de cada User Persona, 
 
 * **Segmento 1: Personas que quieren aprender.** Inicia con la decisión de aprender una habilidad específica, continúa con la búsqueda y toma de cursos online, la obtención de un certificado que no puede convertir en evidencia práctica, el bloqueo en sub-temas específicos sin saber a quién recurrir, y culmina con la frustración de no poder demostrar el dominio real ante empleadores o clientes.
 
-* **Segmento 2: Personas que validan el conocimiento.** Comienza con la motivación de compartir el dominio propio y garantizar la integridad del aprendizaje ajeno, pero enfrenta la falta de estructura en los modelos informales de revisión, la dificultad para llegar a personas con nivel mínimo adecuado y la ausencia de reconocimiento formal por esa labor, en el caso de quien revisa casos puntuales; y la sobrecarga operativa, el riesgo de fraude o certificados falsos, y la dificultad de medir el impacto real de sus esfuerzos, en el caso de quien supervisa el sistema completo. Ambas dimensiones conviven en un mismo recorrido: se comparte la falta de herramientas tecnológicas que automaticen y den estructura a la validación del conocimiento.
+* **Segmento 2: Personas que validan el conocimiento.** Comienza con la motivación de compartir el dominio propio y garantizar la integridad del aprendizaje ajeno, pero enfrenta la falta de estructura en los modelos informales de revisión, la dificultad para llegar a personas con nivel mínimo adecuado y la ausencia de reconocimiento formal por esa labor, al revisar casos puntuales; y la sobrecarga operativa, el riesgo de fraude o certificados falsos, y la dificultad de medir el impacto real de sus esfuerzos, al supervisar el sistema completo. Ambas tareas conviven en un mismo recorrido, el del Verificador: se comparte la falta de herramientas tecnológicas que automaticen y den estructura a la validación del conocimiento.
 
 #### Segmento #1: Personas que quieren aprender
  
@@ -1088,7 +1088,7 @@ En esta figura se observa el recorrido de Valeria a través de cinco etapas crí
 
 <br>
 
-En esta figura se visualiza la experiencia del segmento que valida el conocimiento, combinando ambas dimensiones que lo conforman. El mapa describe el proceso desde la motivación inicial de compartir el dominio propio o garantizar la calidad académica, pasando por la gestión informal y desorganizada de esa labor —ya sea revisando casos de forma no estructurada o validando manualmente certificados e integridad académica—, la frustración por recibir personas o casos sin nivel mínimo, el riesgo constante de fraude y certificados falsos, hasta la ausencia total de reconocimiento formal, herramientas automatizadas o un panel único que centralice la resolución de casos y disputas.
+En esta figura se visualiza la experiencia del segmento que valida el conocimiento, combinando las dos tareas que asume el Verificador. El mapa describe el proceso desde la motivación inicial de compartir el dominio propio o garantizar la calidad académica, pasando por la gestión informal y desorganizada de esa labor —ya sea revisando casos de forma no estructurada o validando manualmente certificados e integridad académica—, la frustración por recibir personas o casos sin nivel mínimo, el riesgo constante de fraude y certificados falsos, hasta la ausencia total de reconocimiento formal, herramientas automatizadas o un panel único que centralice la resolución de casos y disputas.
 
 <br>
 
@@ -1128,11 +1128,11 @@ Se observa el mapa de empatía de Valeria, arquetipo que representa al segmento 
 
 <br>
 
-En esta figura se detalla el mapa de empatía del segmento que valida el conocimiento, integrando las dos dimensiones que lo conforman: la revisión de casos puntuales entre pares y la supervisión de la integridad del sistema. El análisis subraya el deseo compartido de convertir el dominio propio —técnico o institucional— en un proceso de validación confiable y reconocido. Sus principales puntos de dolor son la falta de un mecanismo formal que acredite la capacidad de quien revisa, la desorganización de los modelos informales actuales, la frustración de recibir personas o casos sin nivel mínimo, y la preocupación constante por el fraude, los certificados falsos y la carga operativa de un proceso sin herramientas automatizadas. Sus ganancias esperadas son pertenecer a un ecosistema riguroso que eleve su estatus profesional o institucional, acumular reconocimiento verificable (SkillCredits o historial de confiabilidad, según el rol), y contar con un panel centralizado que facilite tanto la revisión de casos puntuales como la resolución de disputas y el monitoreo general del sistema.
+En esta figura se detalla el mapa de empatía del segmento que valida el conocimiento, integrando las dos tareas que asume el Verificador: la revisión de casos puntuales entre pares y la supervisión de la integridad del sistema. El análisis subraya el deseo compartido de convertir el dominio propio —técnico o institucional— en un proceso de validación confiable y reconocido. Sus principales puntos de dolor son la falta de un mecanismo formal que acredite la capacidad de quien revisa, la desorganización de los modelos informales actuales, la frustración de recibir personas o casos sin nivel mínimo, y la preocupación constante por el fraude, los certificados falsos y la carga operativa de un proceso sin herramientas automatizadas. Sus ganancias esperadas son pertenecer a un ecosistema riguroso que eleve su estatus profesional o institucional, acumular reconocimiento verificable (SkillCredits e historial de confiabilidad), y contar con un panel centralizado que facilite tanto la revisión de casos puntuales como la resolución de disputas y el monitoreo general del sistema.
 
 <br>
 
-**Entonces**, los mapas de empatía permiten profundizar en las necesidades emocionales, motivaciones y dificultades de los dos segmentos objetivo de Innovify. En el caso del estudiante, se evidencia una motivación fuerte orientada a la empleabilidad y al reconocimiento real de sus capacidades, enfrentando frustraciones relacionadas con la superficialidad del modelo de certificación actual y la dificultad de encontrar una validación específica cuando se bloquea. En el segmento que valida el conocimiento, la motivación combina el reconocimiento profesional de quien revisa casos puntuales con la responsabilidad institucional de quien supervisa la integridad del sistema, compartiendo ambos una fuerte preocupación por el fraude, la falta de estructura y la ausencia de herramientas tecnológicas que optimicen y centralicen el proceso de validación. En conjunto, estos mapas evidencian la importancia de diseñar una plataforma equilibrada que atienda tanto aspectos funcionales como emocionales, asegurando confianza, eficiencia y valor para todos los usuarios del ecosistema.
+**Entonces**, los mapas de empatía permiten profundizar en las necesidades emocionales, motivaciones y dificultades de los dos segmentos objetivo de Innovify. En el caso del estudiante, se evidencia una motivación fuerte orientada a la empleabilidad y al reconocimiento real de sus capacidades, enfrentando frustraciones relacionadas con la superficialidad del modelo de certificación actual y la dificultad de encontrar una validación específica cuando se bloquea. En el segmento que valida el conocimiento, la motivación del Verificador combina el reconocimiento profesional por revisar casos puntuales con la responsabilidad de supervisar la integridad del sistema, junto con una fuerte preocupación por el fraude, la falta de estructura y la ausencia de herramientas tecnológicas que optimicen y centralicen el proceso de validación. En conjunto, estos mapas evidencian la importancia de diseñar una plataforma equilibrada que atienda tanto aspectos funcionales como emocionales, asegurando confianza, eficiencia y valor para todos los usuarios del ecosistema.
 
 ### 2.3.5. As-Is Scenario Mapping
 
@@ -2043,7 +2043,7 @@ En este primer paso se realizó una lluvia de ideas de los eventos de dominio re
 
 **Paso 2. Timelines**
 
-En el segundo paso, los eventos identificados se ordenaron en el tiempo. Por la cantidad de eventos, la línea de tiempo se organizó en carriles, uno por actor o ciclo de vida (Suscripción, Estudiante, Verificador y Moderación), y se dividió en tres fases del proceso. En cada carril, la fila superior muestra el camino exitoso y debajo se ubican los escenarios alternativos que se desprenden de cada evento.
+En el segundo paso, los eventos identificados se ordenaron en el tiempo. Por la cantidad de eventos, la línea de tiempo se organizó en carriles, uno por actor o ciclo de vida (Suscripción, Estudiante, Verificador y Moderación), y se dividió en tres fases del proceso. El carril de Moderación agrupa las actividades de supervisión del proceso, que en el diseño final realiza el propio Verificador. En cada carril, la fila superior muestra el camino exitoso y debajo se ubican los escenarios alternativos que se desprenden de cada evento.
 
 No se modelaron caminos separados para el plan gratuito y el premium, porque los eventos son los mismos en ambos: lo que cambia son los límites de rutas y de escalamientos, que aparecen como ramas, y la duración de las esperas y los plazos de revisión. Mantener un solo camino deja a la vista que ningún plan ofrece más oportunidades de aprobar.
 
@@ -2165,7 +2165,7 @@ En la fase de demostración final, certificación y nuevo Verificador hay tres e
 
 **Paso 5. Commands**
 
-En el quinto paso se identificaron los comandos, es decir, las decisiones que producen cada evento. Cada comando se registró en un post-it azul a la izquierda del evento que dispara, con el actor que lo ejecuta en un post-it amarillo encima. En este paso solo se incluyen los comandos que ejecuta una persona; los que ejecuta el sistema se incorporan en el paso siguiente, junto con las políticas. El modelo tiene dos actores, el Estudiante y el Verificador. Moderación no aparece como actor, porque opera desde un panel externo a la aplicación.
+En el quinto paso se identificaron los comandos, es decir, las decisiones que producen cada evento. Cada comando se registró en un post-it azul a la izquierda del evento que dispara, con el actor que lo ejecuta en un post-it amarillo encima. En este paso solo se incluyen los comandos que ejecuta una persona; los que ejecuta el sistema se incorporan en el paso siguiente, junto con las políticas. El modelo tiene dos actores, el Estudiante y el Verificador. En esta sesión, la moderación se representó como un panel externo a la aplicación; en el diseño final, esas decisiones las toma el Verificador desde la propia aplicación, por lo que no se agrega un tercer actor.
 
 En la fase de registro, suscripción y certificados, todos los comandos los ejecuta el Estudiante: registrarse, verificar su correo, iniciar sesión, declarar su objetivo y subir certificados, además de iniciar o cancelar la suscripción premium. La suscripción vencida y la suscripción cancelada son desenlaces independientes: la primera se produce cuando falla el cobro y la segunda, cuando el Estudiante lo decide.
 
@@ -2285,7 +2285,7 @@ En la fase final, el Estudiante consulta el enunciado y la rúbrica de la demost
 
 **Paso 8. External Systems**
 
-En el octavo paso se incorporaron los sistemas externos, representados con post-its rojos. Algunos reciben órdenes del sistema, otros son notificados cuando ocurre un evento y uno de ellos, el panel de moderación, ejecuta comandos sobre el sistema.
+En el octavo paso se incorporaron los sistemas externos, representados con post-its rojos. Algunos reciben órdenes del sistema, otros son notificados cuando ocurre un evento y uno de ellos, el panel de moderación, ejecuta comandos sobre el sistema. Este panel corresponde al modelado inicial de la sesión; en el diseño final sus funciones forman parte del rol de Verificador dentro de la aplicación.
 
 En la primera fase intervienen el servicio de correo, que envía la verificación; el LLM, que genera la ruta de certificación; Cloudinary, que almacena los certificados; ML Kit, que extrae sus datos mediante OCR en el dispositivo, y Google Play Billing, que ejecuta el cobro de la suscripción. El panel de moderación aparece como el sistema que resuelve la revisión de un certificado sospechoso.
 
@@ -2299,7 +2299,7 @@ En la primera fase intervienen el servicio de correo, que envía la verificació
 
 *Nota.* Sistemas externos, en rojo, que intervienen en el registro, la suscripción y el registro de certificados. Elaboración propia.
 
-En la evaluación, el LLM genera las preguntas de cada intento, los enunciados prácticos y el enunciado nuevo cuando un nodo se reactiva. Cloudinary almacena los entregables y el servicio de correo notifica los criterios no cumplidos. El panel de moderación, externo a la aplicación, ejecuta la resolución de disputas y la aplicación de sanciones, apoyándose en una vista de reportes, disputas y confiabilidad.
+En la evaluación, el LLM genera las preguntas de cada intento, los enunciados prácticos y el enunciado nuevo cuando un nodo se reactiva. Cloudinary almacena los entregables y el servicio de correo notifica los criterios no cumplidos. La resolución de disputas y la aplicación de sanciones, apoyadas en una vista de reportes, disputas y confiabilidad, se modelaron en la sesión como un panel de moderación externo; en el diseño final las ejecuta el Verificador desde su panel de supervisión.
 
 **Figura 50**
 
@@ -2418,7 +2418,7 @@ El resultado del proceso son ocho contextos candidatos, que se resumen en la tab
 | Credential Verification | Soporte | Registrar los certificados previos del Estudiante y detectar los sospechosos | Certificado registrado, Certificado marcado como sospechoso |
 | Reputation | Soporte | Medir la confiabilidad de cada Verificador | Revisión calificada por el Estudiante, Confiabilidad del Verificador recalculada |
 | Recognition & Incentives | Soporte | Acreditar SkillCredits por cada revisión y otorgar rangos | SkillCredits acreditados, Rango de Verificador alcanzado |
-| Moderation & Disputes | Soporte | Resolver disputas y revisiones de certificados desde el panel externo | Disputa abierta, Decisión revertida, Revisión de certificado resuelta |
+| Moderation & Disputes | Soporte | Resolver disputas y revisiones de certificados mediante la supervisión de los Verificadores | Disputa abierta, Decisión revertida, Revisión de certificado resuelta |
 | Identity & Access | Genérico | Registrar al usuario, verificar su correo y autenticarlo | Estudiante registrado, Correo verificado |
 | Subscription & Billing | Genérico | Gestionar los planes gratuito y premium y el cobro de la suscripción | Plan gratuito asignado, Pago de suscripción cobrado, Suscripción vencida |
 
@@ -2469,7 +2469,7 @@ El tercer escenario corresponde al flujo central de SkillSwap. El entregable del
 
 *Nota.* Mensajes intercambiados entre actores, bounded contexts y sistemas externos en el escenario de revisión de un entregable práctico aprobado. Los números indican el orden de los mensajes. Elaboración propia.
 
-El cuarto escenario muestra la moderación. El Estudiante reporta la decisión de un Verificador y Moderation & Disputes abre la disputa. El panel de moderación, externo a la aplicación, consulta las disputas abiertas y ejecuta la resolución. Cuando la decisión se revierte, Moderation & Disputes publica el evento Decisión revertida, que Reputation usa para recalcular la confiabilidad del Verificador y Assessment & Peer Review para aprobar el entregable, lo que a su vez completa el nodo en Learning Path Engine.
+El cuarto escenario muestra la moderación. El Estudiante reporta la decisión de un Verificador y Moderation & Disputes abre la disputa. Un Verificador distinto del que tomó la decisión consulta las disputas abiertas y ejecuta la resolución desde su panel de supervisión (en el diagrama, este rol aparece como el panel de moderación del modelado inicial). Cuando la decisión se revierte, Moderation & Disputes publica el evento Decisión revertida, que Reputation usa para recalcular la confiabilidad del Verificador y Assessment & Peer Review para aprobar el entregable, lo que a su vez completa el nodo en Learning Path Engine.
 
 **Figura 60**
 
