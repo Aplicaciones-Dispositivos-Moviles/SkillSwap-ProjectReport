@@ -2117,7 +2117,7 @@ La segunda fase corresponde a la evaluación de los nodos de la ruta. En los nod
 
 *Nota.* Línea de tiempo en carriles de la evaluación de los nodos de quiz y de los nodos prácticos. Elaboración propia.
 
-La tercera fase cubre la demostración final, la certificación y la habilitación de nuevos Verificadores. Al completar la ruta, el Estudiante envía su demostración final, que califica un Verificador; esa calificación determina si la demostración se aprueba y se emite la certificación, o si se devuelven los criterios no cumplidos. Si el Estudiante reporta la calificación, se asigna un segundo revisor. La certificación emitida es, además, el requisito para que el Estudiante solicite el examen de ingreso y, al aprobarlo, quede habilitado como Verificador para esa habilidad.
+La tercera fase cubre la demostración final, la certificación y la habilitación de nuevos Verificadores. Al completar la ruta, el Estudiante envía su demostración final, que califica un Verificador; esa calificación determina si la demostración se aprueba y se emite la certificación, o si se devuelven los criterios no cumplidos. Si el Estudiante reporta la calificación, se asigna un segundo revisor. La certificación emitida es, además, el requisito para que el Estudiante quede habilitado como Verificador para esa habilidad.
 
 **Figura 33**
 
@@ -2157,7 +2157,7 @@ En la fase de evaluación de los nodos aparece el mayor número de puntos críti
 
 *Nota.* Puntos críticos, representados como rombos rosados, identificados sobre la línea de tiempo de la evaluación de los nodos de quiz y de los nodos prácticos. Elaboración propia.
 
-En la fase de demostración final, certificación y nuevo Verificador, los puntos críticos se relacionan con la disponibilidad y la imparcialidad de la revisión: qué ocurre si no hay Verificadores habilitados para la habilidad, quién define los criterios y el umbral de aprobación de la rúbrica y si un Verificador puede revisar a alguien que conoce. Estas tres dudas aplican también a la revisión de los nodos prácticos, pero se ubicaron en esta fase para no recargar la figura anterior. Por último, queda por definir quién diseña el examen de ingreso para Verificadores y cuándo puede repetirse.
+En la fase de demostración final, certificación y nuevo Verificador, los puntos críticos se relacionan con la disponibilidad y la imparcialidad de la revisión: qué ocurre si no hay Verificadores habilitados para la habilidad, quién define los criterios y el umbral de aprobación de la rúbrica y si un Verificador puede revisar a alguien que conoce. Estas tres dudas aplican también a la revisión de los nodos prácticos, pero se ubicaron en esta fase para no recargar la figura anterior. Por último, quedó por definir qué requisito habilita a un Estudiante como Verificador.
 
 **Figura 36**
 
@@ -2237,7 +2237,7 @@ En la evaluación de los nodos, el Estudiante envía los intentos de quiz, los e
 
 *Nota.* Comandos, en azul, y actores, en amarillo, de la evaluación de los nodos de quiz y de los nodos prácticos. Elaboración propia.
 
-En la fase final, el Estudiante envía la demostración final y puede reportar su calificación, y el Verificador la califica con la rúbrica. Los comandos para solicitar y rendir el examen de ingreso los ejecuta el Estudiante, aunque aparecen en el carril del Verificador, porque todavía no está habilitado como tal. Una vez habilitado, el Verificador actualiza su disponibilidad.
+En la fase final, el Estudiante envía la demostración final y puede reportar su calificación, y el Verificador la califica con la rúbrica. Los comandos de habilitación como Verificador los ejecuta el Estudiante, aunque aparecen en el carril del Verificador, porque todavía no está habilitado como tal. Una vez habilitado, el Verificador actualiza su disponibilidad.
 
 **Figura 42**
 
@@ -2277,7 +2277,7 @@ En la evaluación se concentran las reglas de negocio del modelo. El quiz se gen
 
 *Nota.* Políticas, en morado, y comandos del sistema de la evaluación de los nodos. Elaboración propia.
 
-En la fase final, completar todos los nodos completa la ruta y habilita la demostración final. La aprobación de la demostración también la calcula el sistema a partir de la calificación del Verificador y, cuando se aprueba, se emite la certificación. Si el Estudiante reporta la calificación, se asigna un segundo revisor. Por último, aprobar el examen de ingreso habilita al Verificador para esa habilidad.
+En la fase final, completar todos los nodos completa la ruta y habilita la demostración final. La aprobación de la demostración también la calcula el sistema a partir de la calificación del Verificador y, cuando se aprueba, se emite la certificación. Si el Estudiante reporta la calificación, se asigna un segundo revisor. Por último, cumplir el requisito de habilitación convierte al Estudiante en Verificador para esa habilidad.
 
 **Figura 45**
 
@@ -2317,7 +2317,7 @@ En la evaluación, el Estudiante consulta el quiz, el enunciado práctico con su
 
 *Nota.* Read models, en verde, que consultan el Estudiante y el Verificador durante la evaluación de los nodos. Elaboración propia.
 
-En la fase final, el Estudiante consulta el enunciado y la rúbrica de la demostración antes de enviarla, y su elegibilidad antes de solicitar el examen de ingreso. El Verificador califica la demostración sobre el formulario de la rúbrica.
+En la fase final, el Estudiante consulta el enunciado y la rúbrica de la demostración antes de enviarla, y su elegibilidad para habilitarse como Verificador. El Verificador califica la demostración sobre el formulario de la rúbrica.
 
 **Figura 48**
 
@@ -2327,7 +2327,7 @@ En la fase final, el Estudiante consulta el enunciado y la rúbrica de la demost
   <img src="public/assets/images-doc/eventstorming-paso-07c-certificacion.png" alt="EventStorming paso 7: Read Models, demostración final, certificación y nuevo Verificador" width="900">
 </p>
 
-*Nota.* Read models, en verde, de la demostración final y la solicitud del examen de ingreso. Elaboración propia.
+*Nota.* Read models, en verde, de la demostración final y la elegibilidad para habilitarse como Verificador. Elaboración propia.
 
 **Paso 8. External Systems**
 
@@ -2406,7 +2406,7 @@ Las flechas moradas representan las políticas que conectan los contextos, y las
 Al construir el backend del Sprint 1, el equipo simplificó dos decisiones modeladas en esta sesión, sin cambiar los eventos principales del dominio:
 
 * **Revisión del Verificador:** en la sesión se modeló una calificación por criterio, cuyo puntaje determinaba la aprobación, y la asignación de un segundo revisor cuando el Estudiante reporta la calificación. En el diseño final, el Verificador revisa el trabajo guiándose por la rúbrica y registra una decisión de aprobación o rechazo con sus observaciones (`rubricNotes`); si el Estudiante está en desacuerdo, puede apelar y otro Verificador revisa el caso (ver 2.6.4 y 2.6.7). Los "criterios no cumplidos" que aparecen en los pasos anteriores corresponden, en el diseño final, a esas observaciones.
-* **Intentos y habilitación:** en la sesión se modelaron tres intentos por nodo, un periodo de espera y un examen de ingreso para habilitar al Verificador. En la plataforma implementada no hay límite de intentos, periodo de espera ni examen de ingreso: cada intento no aprobado abre un caso, siempre que el plan del Estudiante tenga escalamientos disponibles en el mes, y la habilitación como Verificador exige completar en la propia ruta el nodo de la habilidad.
+* **Intentos y habilitación:** en la sesión se modelaron tres intentos por nodo, un periodo de espera y una prueba adicional para habilitar al Verificador. En la plataforma implementada no hay límite de intentos, periodo de espera ni prueba adicional: cada intento no aprobado abre un caso, siempre que el plan del Estudiante tenga escalamientos disponibles en el mes, y la habilitación como Verificador exige completar en la propia ruta el nodo de la habilidad.
 * **Reentregas, reportes y sanciones:** en la sesión se modelaron reenvíos de entregables, reportes de la decisión y sanciones a cuentas. En el diseño final, un caso rechazado deja el nodo disponible para una nueva evaluación, la apelación es el único mecanismo para cuestionar una decisión y una decisión revertida reduce la confiabilidad del Verificador original.
 * **Moderación:** el panel de moderación externo del modelado inicial se reemplaza por la supervisión que ejercen los Verificadores senior desde la aplicación.
 
@@ -3013,7 +3013,7 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
 *C4 Model: Component Diagram del Bounded Context Identity & Access*
 
 <p align="center">
-  <img src="images-doc/IdentityComponent.svg" alt="Component Diagram - Identity & Access" width="800">
+  <img src="images-doc/IdentityComponent.svg" alt="Component Diagram - Identity & Access" width="1000">
 </p>
 
 *Nota.* Se detalla la segregación entre `AuthenticationController` y `UsersController`, los Command/Query Services, `EmailVerificationIssuer` y los puertos `EmailSender` (Brevo) y `PushNotificationSender` (Firebase Cloud Messaging), evidenciando las relaciones con los demás Bounded Contexts: el evento `UserRegistered`, con el que Recognition & Incentives crea la billetera inicial; la consulta del catálogo de habilidades de Learning Path Engine para normalizar los intereses, y las fachadas `IamContextFacade` y `UserNotificationsContextFacade`, que Credential Verification usa para comparar el titular del certificado y notificar su resultado. La biometría se valida en el dispositivo. Elaboración propia.
@@ -3252,7 +3252,7 @@ Estos componentes aseguran que la lógica de negocio de Credential Verification 
 *C4 Model: Component Diagram del Bounded Context Credential Verification*
 
 <p align="center">
-  <img src="images-doc/CredentialVerificationComponent.svg" alt="Component Diagram - Credential Verification" width="800">
+  <img src="images-doc/CredentialVerificationComponent.svg" alt="Component Diagram - Credential Verification" width="1000">
 </p>
 
 *Nota.* Se detalla la segregación entre el Controller, el Command/Query Service y los adaptadores de Persistencia, extracción OCR (ML Kit on-device) y almacenamiento de archivos (Cloudinary), evidenciando la escalación de certificados en estado SUSPICIOUS hacia Moderation & Disputes y la solicitud entrante de certificados verificados desde Learning Path Engine. Elaboración propia.
@@ -3547,7 +3547,7 @@ En ambos adaptadores de `SkillTaxonomyMatcher`, el catálogo de habilidades es l
 *C4 Model: Component Diagram del Bounded Context Learning Path Engine*
 
 <p align="center">
-  <img src="images-doc/LearningPathEngineComponent.svg" alt="Component Diagram - Learning Path Engine" width="800">
+  <img src="images-doc/LearningPathEngineComponent.svg" alt="Component Diagram - Learning Path Engine" width="1000">
 </p>
 
 *Nota.* Se detalla la segregación entre los Controllers de `LearningPath` y `AssessmentBlueprint`, el Command/Query Service, el componente interno `SkillTaxonomy Matcher` (representado como un único componente; corresponde al puerto `SkillTaxonomyMatcher` descrito en 2.6.3.4, que solo selecciona habilidades del catálogo interno) y el adaptador de generación de preguntas `GeminiQuestionGenerator` hacia la Gemini API, evidenciando la solicitud de certificados verificados hacia Credential Verification, la notificación entrante de certificados verificados desde ese mismo Bounded Context, y las solicitudes entrantes de Assessment & Peer Review (blueprint del nodo y notificación de nodo demostrado), la consulta de los límites de rutas del plan a `SubscriptionContextFacade` y `EnforcePlanLimitsEventHandler`, que pausa las rutas activas adicionales al recibir `SubscriptionExpired`. Elaboración propia.
@@ -3643,7 +3643,7 @@ Métodos
 - `SetAvailability(boolean available)`: Actualiza si el Verificador puede recibir nuevos casos.
 - `IncrementReviewCount()`: Incrementa el conteo de casos resueltos. Lo invoca este mismo Bounded Context al resolver un `VerificationCase`.
 - `UpdateRating(double rating)`: Sincroniza la confiabilidad calculada por Reputation, vía `VerifierProfileContextFacade`.
-- `Revoke()`: Marca el perfil como no verificado (`verified = false`), impidiendo que reciba nuevos casos. Reservado para una futura integración con Moderation & Disputes.
+- `revoke()`: Marca el perfil como no verificado y no disponible (`verified = false`, `available = false`), impidiendo que reciba nuevos casos.
 
 **4. Aggregate Root: VerificationCase**
 
@@ -3718,7 +3718,7 @@ Métodos
 
 **8. Domain Service: VerifierMatcher**
 
-Descripción: Encapsula el algoritmo de asignación de un Verificador disponible a un `VerificationCase`, reemplazando la búsqueda dirigida por el usuario que existía en el modelo de tutorías.
+Descripción: Encapsula el algoritmo de asignación de un Verificador disponible a un `VerificationCase`: el Estudiante no elige a su revisor, sino que el sistema lo asigna automáticamente.
 
 Métodos
 
@@ -3839,7 +3839,7 @@ Este Bounded Context no integra ningún servicio de almacenamiento de archivos: 
 *C4 Model: Component Diagram del Bounded Context Assessment & Peer Review*
 
 <p align="center">
-  <img src="images-doc/AssessmentPeerReviewComponent.svg" alt="Component Diagram - Assessment & Peer Review" width="800">
+  <img src="images-doc/AssessmentPeerReviewComponent.svg" alt="Component Diagram - Assessment & Peer Review" width="1000">
 </p>
 
 *Nota.* Se detalla la segregación entre los Controllers de `AssessmentAttempt`, `VerificationCase` y `VerifierProfile`, el Command/Query Service y el componente interno `VerifierMatcher`, evidenciando la solicitud del blueprint hacia Learning Path Engine vía `LearningPathContextFacade`, la publicación de los eventos de dominio consumidos por Reputation y Recognition & Incentives, la exposición de `VerifierProfileContextFacade` para que Reputation sincronice la confiabilidad del Verificador y la consulta del cupo de escalamientos y del plazo de revisión del plan a `SubscriptionContextFacade`. Elaboración propia.
@@ -3998,7 +3998,7 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Reputation, `Veri
 | VerifierReliabilityResourceFromEntityAssembler | Convierte `VerifierReliability` en `VerifierReliabilityResource`. |
 | StudentEmployabilityResourceFromEntityAssembler | Convierte `StudentEmployabilityScore` en `StudentEmployabilityResource`. |
 
-A diferencia del BC de tutorías original, Reputation no expone ningún endpoint de creación consumido directamente por el cliente: ambos agregados se actualizan exclusivamente mediante los eventos descritos en la Application Layer.
+Reputation no expone ningún endpoint de creación consumido directamente por el cliente: ambos agregados se actualizan exclusivamente mediante los eventos descritos en la Application Layer.
 
 #### 2.6.5.3. Application Layer
 
@@ -4045,7 +4045,7 @@ Este adaptador permite que Assessment & Peer Review mantenga sincronizado el `ra
 *C4 Model: Component Diagram del Bounded Context Reputation*
 
 <p align="center">
-  <img src="images-doc/ReputationComponent.svg" alt="Component Diagram - Reputation" width="800">
+  <img src="images-doc/ReputationComponent.svg" alt="Component Diagram - Reputation" width="1000">
 </p>
 
 *Nota.* Se detalla la segregación entre los Controllers de solo lectura (`VerifierReliability`, `StudentEmployability`), el Command/Query Service y el adaptador de sincronización hacia Assessment & Peer Review, evidenciando que toda escritura ocurre exclusivamente mediante eventos entrantes de Assessment & Peer Review (resolución de caso, reversión tras una apelación, aprobación automática y plazo de revisión incumplido), sin ningún endpoint de creación consumido directamente por el cliente, y la fachada `ReputationContextFacade`, que consultan Assessment & Peer Review y Moderation & Disputes para identificar a los Verificadores senior. Elaboración propia.
@@ -4240,7 +4240,7 @@ Este Bounded Context no incluye integraciones con pasarelas de pago externas ni 
 *C4 Model: Component Diagram del Bounded Context Recognition & Incentives*
 
 <p align="center">
-  <img src="images-doc/WalletIncentivesComponent.svg" alt="Component Diagram - Recognition & Incentives" width="800">
+  <img src="images-doc/WalletIncentivesComponent.svg" alt="Component Diagram - Recognition & Incentives" width="1000">
 </p>
 
 *Nota.* Se detalla la segregación entre los Controllers de `Wallet` y `CreditTransaction`, el Command/Query Service y el Repository, evidenciando la creación de la billetera inicial solicitada por Identity & Access al registrarse, la acreditación de SkillCredits notificada por Assessment & Peer Review tras un caso resuelto, y la confirmación de biometría consultada hacia Identity & Access antes de un canje — sin ninguna integración con pasarelas de pago externas. Elaboración propia.
@@ -4436,7 +4436,7 @@ Estas fachadas permiten que Moderation & Disputes coordine la revisión de certi
 *C4 Model: Component Diagram del Bounded Context Moderation & Disputes*
 
 <p align="center">
-  <img src="images-doc/ModerationDisputesComponent.svg" alt="Component Diagram - Moderation & Disputes" width="800">
+  <img src="images-doc/ModerationDisputesComponent.svg" alt="Component Diagram - Moderation & Disputes" width="1000">
 </p>
 
 *Nota.* Se detalla la segregación entre `DisputesController`, el Command/Query Service, `EscalateCertificateReviewEventHandler`, `PendingDisputeAssignmentScheduler` y el repositorio, evidenciando la escalación automática de los certificados en estado SUSPICIOUS publicada por Credential Verification, la selección del revisor con las fachadas de Assessment & Peer Review (Verificadores disponibles) y Reputation (Verificadores senior), y la resolución final aplicada sobre el certificado mediante `CredentialContextFacade`. Elaboración propia.
@@ -4670,7 +4670,7 @@ RevenueCat no es un procesador de pagos ni reemplaza a Google Play Billing: el c
 *C4 Model: Component Diagram del Bounded Context Subscription & Billing*
 
 <p align="center">
-  <img src="images-doc/SubscriptionBillingComponent.svg" alt="Component Diagram - Subscription & Billing" width="800">
+  <img src="images-doc/SubscriptionBillingComponent.svg" alt="Component Diagram - Subscription & Billing" width="1000">
 </p>
 
 *Nota.* Se detalla la segregación entre `SubscriptionsController`, `RevenueCatWebhookController`, el Command/Query Service, `SubscriptionExpirationScheduler` y el puerto `PaymentGateway` con sus adaptadores `RevenueCatGatewayAdapter` y `SimulatedPaymentGatewayAdapter`, evidenciando el registro idempotente de los eventos del webhook en `processed_webhook_events`, la publicación de `SubscriptionExpired` hacia Learning Path Engine y `SubscriptionContextFacade`, por la que Learning Path Engine y Assessment & Peer Review leen los límites del plan. Este Bounded Context opera de forma completamente independiente de Recognition & Incentives. Elaboración propia.
@@ -5004,7 +5004,7 @@ Esta sección presenta los mock-ups de alta fidelidad de la aplicación, resulta
   <img src="images-doc/cap3-mobile-mockups-verificador.png" alt="Mock-ups de la aplicación móvil - Verificador" width="1000">
 </p>
 
-*Nota.* Pantallas del Verificador. El diseño de las pantallas incluye un examen de ingreso para acceder al rol (en la plataforma implementada basta con completar el nodo de la habilidad); el home prioriza los casos por urgencia del plazo y aplica revisión ciega ("Estudiante anónimo") para reducir el sesgo; la revisión del caso combina la evidencia, el puntaje preliminar de la IA con su nivel de confianza y una rúbrica de 4 niveles que sirve de guía para la decisión, que el Verificador registra como aprobación o rechazo con sus observaciones; y la billetera muestra los SkillCredits ganados, su historial y la tienda de beneficios, que ofrece dos beneficios canjeables: la ruta avanzada (200 SkillCredits) y el certificado de contribución (120 SkillCredits). Elaboración propia.
+*Nota.* Pantallas del Verificador. El acceso al rol se habilita al completar en la propia ruta el nodo de la habilidad; el home prioriza los casos por urgencia del plazo y aplica revisión ciega ("Estudiante anónimo") para reducir el sesgo; la revisión del caso combina la evidencia, el puntaje preliminar de la IA con su nivel de confianza y una rúbrica de 4 niveles que sirve de guía para la decisión, que el Verificador registra como aprobación o rechazo con sus observaciones; y la billetera muestra los SkillCredits ganados, su historial y la tienda de beneficios, que ofrece dos beneficios canjeables: la ruta avanzada (200 SkillCredits) y el certificado de contribución (120 SkillCredits). Elaboración propia.
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 
@@ -5974,7 +5974,6 @@ Las referencias se organizan en las tres categorías de recursos bibliográficos
 * AssertJ. (s. f.). *AssertJ documentation*. Recuperado el 9 de octubre de 2026, de [https://assertj.github.io/doc/](https://assertj.github.io/doc/)
 * Cloudinary. (s. f.). *Cloudinary documentation*. Recuperado el 8 de octubre de 2026, de [https://cloudinary.com/documentation](https://cloudinary.com/documentation)
 * Docker. (s. f.). *Docker docs*. Recuperado el 8 de octubre de 2026, de [https://docs.docker.com/](https://docs.docker.com/)
-* Firebase. (s. f.). *Firebase App Distribution*. Recuperado el 8 de octubre de 2026, de [https://firebase.google.com/docs/app-distribution](https://firebase.google.com/docs/app-distribution)
 * Flutter. (s. f.). *Flutter documentation*. Recuperado el 8 de octubre de 2026, de [https://docs.flutter.dev/](https://docs.flutter.dev/)
 * Google. (s. f.). *Material Design 3*. Recuperado el 8 de octubre de 2026, de [https://m3.material.io/](https://m3.material.io/)
 * Google AI for Developers. (s. f.). *Gemini API documentation*. Recuperado el 8 de octubre de 2026, de [https://ai.google.dev/gemini-api/docs](https://ai.google.dev/gemini-api/docs)
