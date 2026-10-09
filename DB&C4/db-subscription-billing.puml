@@ -1,0 +1,83 @@
+@startuml db-subscription-billing-mobile
+!pragma layout smetana
+hide circle
+hide stereotype
+skinparam shadowing false
+skinparam roundCorner 8
+skinparam dpi 150
+skinparam defaultFontSize 12
+skinparam nodesep 40
+skinparam ranksep 55
+skinparam ArrowColor #546E7A
+skinparam ArrowFontSize 11
+skinparam ArrowFontColor #37474F
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #546E7A
+  HeaderBackgroundColor #ECEFF1
+  FontStyle bold
+  FontSize 13
+  AttributeFontSize 12
+}
+skinparam class<<ext>> {
+  BackgroundColor #F5F5F5
+  BorderColor #9E9E9E
+  FontColor #616161
+  AttributeFontColor #757575
+}
+skinparam package {
+  BorderColor #90A4AE
+  FontSize 14
+  FontStyle bold
+}
+skinparam legend {
+  BackgroundColor #FAFAFA
+  BorderColor #B0BEC5
+  FontSize 11
+}
+
+title Base de datos — Subscription & Billing
+
+package "Subscription & Billing" #EDE7F6 {
+entity "subscriptions" as subscriptions {
+  * id : integer <<PK>>
+  --
+  * student_id : integer <<ref>>
+  * plan_name : varchar(50)
+  * plan_product_id : varchar(100)
+  * plan_price : numeric(10,2) <color:#6D4C41><size:11>{>= 0}</size></color>
+  * plan_currency : varchar(3)
+  * status : varchar(20) <color:#6D4C41><size:11>{Active | Cancelled | Expired}</size></color>
+    store_transaction_id : varchar(255)
+  * started_at : timestamptz
+  * current_period_end : timestamptz
+    cancelled_at : timestamptz
+    expired_at : timestamptz
+  * updated_at : timestamptz
+  .. restricciones ..
+  <size:11><color:#455A64>UK (student_id) WHERE status <> 'Expired'</color></size>
+}
+entity "processed_webhook_events" as processed_webhook_events {
+  * id : integer <<PK>>
+  --
+  * event_id : varchar(255) <<UK>>
+  * event_type : varchar(50)
+    app_user_id : varchar(255)
+    environment : varchar(20)
+  * processed_at : timestamptz
+}
+}
+
+entity "users\n<size:10>(Identity & Access)</size>" as ext_users <<ext>> #F5F5F5;line.dashed;line:9E9E9E {
+  * id : integer <<PK>>
+}
+
+ext_users ||..o{ subscriptions : "student_id"
+
+legend bottom left
+  <b>●</b> NOT NULL   <b>PK</b> clave primaria   <b>FK</b> clave foránea   <b>UK</b> única   <b>ref</b> id de otra tabla sin FK
+  <b>timestamptz</b> = timestamp with time zone. Entre llaves: valores o regla del CHECK de la columna.
+  Línea continua: FOREIGN KEY real.   Línea punteada: referencia por id sin FOREIGN KEY; en gris, tablas de otro Bounded Context (solo su id).
+endlegend
+
+@enduml

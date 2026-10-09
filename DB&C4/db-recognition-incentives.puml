@@ -1,0 +1,81 @@
+@startuml db-wallet-incentives-mobile
+!pragma layout smetana
+hide circle
+hide stereotype
+skinparam shadowing false
+skinparam roundCorner 8
+skinparam dpi 150
+skinparam defaultFontSize 12
+skinparam nodesep 40
+skinparam ranksep 55
+skinparam ArrowColor #546E7A
+skinparam ArrowFontSize 11
+skinparam ArrowFontColor #37474F
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #546E7A
+  HeaderBackgroundColor #ECEFF1
+  FontStyle bold
+  FontSize 13
+  AttributeFontSize 12
+}
+skinparam class<<ext>> {
+  BackgroundColor #F5F5F5
+  BorderColor #9E9E9E
+  FontColor #616161
+  AttributeFontColor #757575
+}
+skinparam package {
+  BorderColor #90A4AE
+  FontSize 14
+  FontStyle bold
+}
+skinparam legend {
+  BackgroundColor #FAFAFA
+  BorderColor #B0BEC5
+  FontSize 11
+}
+
+title Base de datos — Recognition & Incentives
+
+package "Recognition & Incentives" #E0F7FA {
+entity "wallets" as wallets {
+  * id : integer <<PK>>
+  --
+  * wallet_owner_id : integer <<UK, ref>>
+  * balance : integer <color:#6D4C41><size:11>{>= 0}</size></color>
+}
+entity "credit_transactions" as credit_transactions {
+  * id : integer <<PK>>
+  --
+  * wallet_id : integer <<FK>>
+  * amount : integer <color:#6D4C41><size:11>{> 0}</size></color>
+  * type : varchar(20)
+  * description : varchar(200)
+    related_case_id : integer <<ref>>
+  * created_at : timestamptz
+    redemption_item : varchar(30) <color:#6D4C41><size:11>{AdvancedPathUnlock | ContributionCertificate}</size></color>
+  .. restricciones ..
+  <size:11><color:#455A64>UK (wallet_id, related_case_id) WHERE related_case_id NOT NULL</color></size>
+  <size:11><color:#455A64>CHECK redemption_item only when type = 'Redeemed'</color></size>
+}
+}
+
+entity "users\n<size:10>(Identity & Access)</size>" as ext_users <<ext>> #F5F5F5;line.dashed;line:9E9E9E {
+  * id : integer <<PK>>
+}
+entity "verification_cases\n<size:10>(Assessment & Peer Review)</size>" as ext_verification_cases <<ext>> #F5F5F5;line.dashed;line:9E9E9E {
+  * id : integer <<PK>>
+}
+
+wallets ||--o{ credit_transactions : "wallet_id\nON DELETE CASCADE"
+ext_users ||..o| wallets : "wallet_owner_id"
+ext_verification_cases |o..o{ credit_transactions : "related_case_id"
+
+legend bottom left
+  <b>●</b> NOT NULL   <b>PK</b> clave primaria   <b>FK</b> clave foránea   <b>UK</b> única   <b>ref</b> id de otra tabla sin FK
+  <b>timestamptz</b> = timestamp with time zone. Entre llaves: valores o regla del CHECK de la columna.
+  Línea continua: FOREIGN KEY real.   Línea punteada: referencia por id sin FOREIGN KEY; en gris, tablas de otro Bounded Context (solo su id).
+endlegend
+
+@enduml

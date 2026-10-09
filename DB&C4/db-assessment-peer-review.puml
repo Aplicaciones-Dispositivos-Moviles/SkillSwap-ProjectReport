@@ -1,0 +1,128 @@
+@startuml db-assessment-peer-review-mobile
+!pragma layout smetana
+hide circle
+hide stereotype
+skinparam shadowing false
+skinparam roundCorner 8
+skinparam dpi 150
+skinparam defaultFontSize 12
+skinparam nodesep 40
+skinparam ranksep 55
+skinparam ArrowColor #546E7A
+skinparam ArrowFontSize 11
+skinparam ArrowFontColor #37474F
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #546E7A
+  HeaderBackgroundColor #ECEFF1
+  FontStyle bold
+  FontSize 13
+  AttributeFontSize 12
+}
+skinparam class<<ext>> {
+  BackgroundColor #F5F5F5
+  BorderColor #9E9E9E
+  FontColor #616161
+  AttributeFontColor #757575
+}
+skinparam package {
+  BorderColor #90A4AE
+  FontSize 14
+  FontStyle bold
+}
+skinparam legend {
+  BackgroundColor #FAFAFA
+  BorderColor #B0BEC5
+  FontSize 11
+}
+
+title Base de datos — Assessment & Peer Review
+
+left to right direction
+
+package "Assessment & Peer Review" #F3E5F5 {
+entity "assessment_attempts" as assessment_attempts {
+  * id : integer <<PK>>
+  --
+  * blueprint_id : integer <<UK, ref>>
+  * student_id : integer <<ref>>
+  * selected_answers : jsonb
+  * score : varchar(10)
+  * passed : boolean
+  * completed_at : timestamptz
+}
+entity "verification_cases" as verification_cases {
+  * id : integer <<PK>>
+  --
+  * attempt_id : integer <<UK, ref>>
+  * student_id : integer <<ref>>
+    verifier_user_id : integer <<ref>>
+  * path_node_id : integer <<ref>>
+  * skill_tag : varchar(100)
+  * status : varchar(20)
+    decision : varchar(20)
+    rubric_notes : varchar(2000)
+    evidence_url : varchar(500)
+  * opened_at : timestamptz
+    assigned_at : timestamptz
+    resolved_at : timestamptz
+  * appeal_count : integer <color:#6D4C41><size:11>{default 0}</size></color>
+    previous_verifier_user_id : integer <<ref>>
+  * case_type : varchar(20) <color:#6D4C41><size:11>{Quiz | MiniProject}</size></color>
+    review_due_at : timestamptz
+    review_deadline_amount : integer <color:#6D4C41><size:11>{> 0}</size></color>
+    review_deadline_unit : varchar(20) <color:#6D4C41><size:11>{Hours | BusinessDays}</size></color>
+    deadline_missed_at : timestamptz
+  * reassignment_count : integer <color:#6D4C41><size:11>{default 0}</size></color>
+  .. restricciones ..
+  <size:11><color:#455A64>UK (student_id, path_node_id) WHERE status <> 'Resolved'</color></size>
+  <size:11><color:#455A64>CHECK review_deadline_amount and _unit both NULL or both set</color></size>
+}
+entity "verifier_profiles" as verifier_profiles {
+  * id : integer <<PK>>
+  --
+  * verifier_user_id : integer <<UK, ref>>
+  * skill_tags : jsonb
+  * available : boolean
+  * verified : boolean
+  * rating : double precision
+  * review_count : integer
+  * created_at : timestamptz
+}
+entity "review_deadline_policies" as review_deadline_policies {
+  * plan : varchar(20) <<PK>> <color:#6D4C41><size:11>{Free | Premium}</size></color>
+  --
+  * amount : integer <color:#6D4C41><size:11>{> 0}</size></color>
+  * unit : varchar(20) <color:#6D4C41><size:11>{Hours | BusinessDays}</size></color>
+  * updated_by_user_id : integer <<ref>>
+  * updated_at : timestamptz
+}
+}
+
+entity "assessment_blueprints\n<size:10>(Learning Path Engine)</size>" as ext_assessment_blueprints <<ext>> #F5F5F5;line.dashed;line:9E9E9E {
+  * id : integer <<PK>>
+}
+entity "users\n<size:10>(Identity & Access)</size>" as ext_users <<ext>> #F5F5F5;line.dashed;line:9E9E9E {
+  * id : integer <<PK>>
+}
+entity "path_nodes\n<size:10>(Learning Path Engine)</size>" as ext_path_nodes <<ext>> #F5F5F5;line.dashed;line:9E9E9E {
+  * id : integer <<PK>>
+}
+
+ext_assessment_blueprints ||..o| assessment_attempts : "blueprint_id"
+ext_users ||..o{ assessment_attempts : "student_id"
+assessment_attempts ||..o| verification_cases : "attempt_id"
+ext_users ||..o{ verification_cases : "student_id"
+ext_users |o..o{ verification_cases : "verifier_user_id"
+ext_users |o..o{ verification_cases : "previous_verifier_user_id"
+ext_path_nodes ||..o{ verification_cases : "path_node_id"
+ext_users ||..o| verifier_profiles : "verifier_user_id"
+ext_users ||..o{ review_deadline_policies : "updated_by_user_id"
+
+legend bottom left
+  <b>●</b> NOT NULL   <b>PK</b> clave primaria   <b>FK</b> clave foránea   <b>UK</b> única   <b>ref</b> id de otra tabla sin FK
+  <b>timestamptz</b> = timestamp with time zone. Entre llaves: valores o regla del CHECK de la columna.
+  Línea continua: FOREIGN KEY real.   Línea punteada: referencia por id sin FOREIGN KEY; en gris, tablas de otro Bounded Context (solo su id).
+endlegend
+
+@enduml

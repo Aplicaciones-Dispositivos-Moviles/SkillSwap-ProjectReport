@@ -8,19 +8,21 @@ Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "PostgreSQL 16")
 
 Container_Boundary(recognitionBC, "Recognition & Incentives Bounded Context") {
-    Component(walletController, "Wallet Controller", "Java Class", "RESTful API Controller")
-    Component(creditTransactionController, "CreditTransaction Controller", "Java Class", "RESTful API Controller")
-    Component(walletCommandService, "Wallet CommandService", "Java Class", "Lógica de negocio")
+    Component(walletController, "Wallets Controller", "Java Class", "GET /wallets/{userId}, GET /wallets/{userId}/transactions")
+    Component(creditTransactionController, "CreditTransactions Controller", "Java Class", "POST /credit-transactions/redeem")
+    Component(walletCommandService, "Wallet CommandService", "Java Class", "Crea la wallet, acredita SkillCredits y canjea beneficios")
     Component(walletQueryService, "Wallet QueryService", "Java Class", "Consultas")
-    Component(identityEventHandlers, "Identity EventHandlers", "Java Class", "Reacciona a UserRegistered creando la wallet")
-    Component(assessmentEventHandlers, "Assessment EventHandlers", "Java Class", "Reacciona a VerificationCaseResolved acreditando SkillCredits")
+    Component(redemptionPricing, "RedemptionPricing", "Domain Service", "Precio en SkillCredits de cada RedemptionItem")
+    Component(createWalletHandler, "CreateWallet EventHandler", "Java Class", "Reacciona a UserRegistered creando la wallet")
+    Component(creditVerifierHandler, "CreditVerifier EventHandler", "Java Class", "Reacciona a VerificationCaseResolved acreditando SkillCredits")
     Component(walletRepository, "Wallet Repository", "Java Interface", "Interface persistencia")
     Component(creditTransactionRepository, "CreditTransaction Repository", "Java Interface", "Interface persistencia")
-    Component(recognitionContextFacade, "Recognition ContextFacade", "Java Class", "Punto de entrada interno")
+    Component(recognitionContextFacade, "Recognition ContextFacade", "Java Class", "getAdvancedPathUnlockRedemptionIds")
 }
 
-Component_Ext(identityDomainEventPublisher, "DomainEventPublisher", "Java Class (Shared)", "Bounded Context: Identity & Access")
-Component_Ext(assessmentDomainEventPublisher, "DomainEventPublisher", "Java Class (Shared)", "Bounded Context: Assessment & Peer Review")
+Component_Ext(domainEventPublisher, "DomainEventPublisher", "Java Class (Shared)", "Publica eventos en proceso tras el commit")
+Component_Ext(grantUnlockHandler, "GrantAdvancedPathUnlock EventHandler", "Java Class", "Bounded Context: Learning Path Engine")
+Component_Ext(pathEngineCommandService, "LearningPath CommandService", "Java Class", "Bounded Context: Learning Path Engine")
 
 Rel(androidApp, walletController, "Request HTTP a Recognition & Incentives")
 Rel(flutterApp, walletController, "Request HTTP a Recognition & Incentives")
@@ -28,8 +30,9 @@ Rel(androidApp, creditTransactionController, "Request HTTP a Recognition & Incen
 Rel(flutterApp, creditTransactionController, "Request HTTP a Recognition & Incentives")
 
 Rel(walletController, walletQueryService, "Usa")
-Rel(creditTransactionController, walletCommandService, "Usa")
+Rel(creditTransactionController, walletCommandService, "RedeemCommand")
 
+Rel(walletCommandService, redemptionPricing, "Usa")
 Rel(walletCommandService, walletRepository, "Usa")
 Rel(walletCommandService, creditTransactionRepository, "Usa")
 Rel(walletQueryService, walletRepository, "Usa")
@@ -37,13 +40,15 @@ Rel(walletQueryService, creditTransactionRepository, "Usa")
 Rel(walletRepository, mainDB, "SQL Transaction")
 Rel(creditTransactionRepository, mainDB, "SQL Transaction")
 
-Rel(identityDomainEventPublisher, identityEventHandlers, "En proceso, tras el commit")
-Rel(identityEventHandlers, walletCommandService, "Crea la wallet inicial (balance en cero)")
+Rel(domainEventPublisher, createWalletHandler, "UserRegistered (Identity & Access)")
+Rel(createWalletHandler, walletCommandService, "CreateWalletCommand (balance en cero)")
+Rel(domainEventPublisher, creditVerifierHandler, "VerificationCaseResolved (Assessment & Peer Review)")
+Rel(creditVerifierHandler, walletCommandService, "CreditVerifierCommand")
 
-Rel(assessmentDomainEventPublisher, assessmentEventHandlers, "En proceso, tras el commit")
-Rel(assessmentEventHandlers, walletCommandService, "Acredita SkillCredits al Verificador asignado")
+Rel(walletCommandService, domainEventPublisher, "AdvancedPathUnlockRedeemed")
+Rel(domainEventPublisher, grantUnlockHandler, "AdvancedPathUnlockRedeemed")
 
-Rel(recognitionContextFacade, walletCommandService, "Delega")
-Rel(recognitionContextFacade, walletQueryService, "Delega")
+Rel(recognitionContextFacade, creditTransactionRepository, "Usa")
+Rel(pathEngineCommandService, recognitionContextFacade, "Canjes de ruta avanzada del estudiante")
 
 @enduml

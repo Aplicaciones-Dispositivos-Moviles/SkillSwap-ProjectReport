@@ -8,7 +8,8 @@ Person(verifier, "Verificador", "Estudiante que ya completó su propia ruta de c
 
 System(skillSwapSystem, "SkillSwap Platform", "Plataforma central que verifica habilidades mediante certificados, evaluaciones generadas por IA y revisión de pares.")
 
-System_Ext(emailService, "Email Api", "Integración con correos institucionales")
+System_Ext(emailService, "Brevo (Email API)", "Envío transaccional del correo de verificación de la cuenta institucional")
+System_Ext(fcm, "Firebase Cloud Messaging", "Entrega de notificaciones push a las apps móviles")
 System_Ext(mlKitService, "ML Kit (Firebase)", "SDK on-device de OCR/Entity Extraction para procesar certificados")
 System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para imágenes de certificados")
 System_Ext(googlePlayBilling, "Google Play Billing (vía RevenueCat)", "Procesamiento de la suscripción mensual")
@@ -17,7 +18,8 @@ System_Ext(geminiApi, "Gemini API", "IA generativa: interpreta la meta seleccion
 Rel(student, skillSwapSystem, "Usa (app móvil / landing page)")
 Rel(verifier, skillSwapSystem, "Usa (app móvil / landing page)")
 
-Rel(skillSwapSystem, emailService, "Envía correos de validación y notificaciones")
+Rel(skillSwapSystem, emailService, "Envía el correo de verificación")
+Rel(skillSwapSystem, fcm, "Envía notificaciones push (resultado de la verificación del certificado)")
 Rel(skillSwapSystem, mlKitService, "Extrae datos del certificado (OCR on-device)")
 Rel(skillSwapSystem, cloudStorage, "Guarda las imágenes de los certificados")
 Rel(skillSwapSystem, googlePlayBilling, "Verifica y procesa la suscripción")

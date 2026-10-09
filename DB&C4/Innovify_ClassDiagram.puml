@@ -17,12 +17,26 @@ package "Identity & Access" {
         +username: Username
         +email: Email
         +passwordHash: PasswordHash
-        +role: Role
-        +isVerified: Boolean
+        +role: UserRole
+        +verified: Boolean
         +bio: String
+        +fullName: String
         +deviceToken: DeviceToken
-        +verify(): void
-        +registerDeviceToken(token: String): void
+        +interestTopics: List<String>
+        +skillVector: List<String>
+        +verificationTokenHash: String
+        +verificationTokenExpiresAt: Date
+        +verificationEmailSentAt: Date
+        +verify(): User
+        +issueVerificationToken(tokenHash: String, expiresAt: Date, issuedAt: Date): User
+        +canReceiveVerificationEmail(now: Date, cooldown: Duration): Boolean
+        +isVerificationTokenExpired(now: Date): Boolean
+        +updateBio(bio: String): User
+        +updateFullName(fullName: String): User
+        +replaceInterestTopics(topics: List<String>): User
+        +updateSkillVector(skillTags: List<String>): User
+        +registerDeviceToken(token: String): User
+        +removeDeviceToken(): User
     }
 
     class Username <<Value Object>> {
@@ -41,15 +55,39 @@ package "Identity & Access" {
         +value: String
     }
 
-    enum Role {
+    enum UserRole {
         STUDENT
     }
+
+    interface EmailSender <<Port>> {
+        +send(message: EmailMessage): void
+    }
+
+    interface PushNotificationSender <<Port>> {
+        +send(deviceToken: String, notification: PushNotification): PushDeliveryResult
+    }
+
+    enum PushDeliveryResult {
+        SENT
+        INVALID_TOKEN
+        FAILED
+    }
+
+    class BrevoEmailSenderAdapter
+    class LoggingEmailSenderAdapter
+    class FirebasePushNotificationAdapter
+    class LoggingPushNotificationAdapter
 
     User --> Username
     User --> Email
     User --> PasswordHash
     User --> DeviceToken
-    User --> Role
+    User --> UserRole
+    PushNotificationSender ..> PushDeliveryResult
+    BrevoEmailSenderAdapter ..|> EmailSender
+    LoggingEmailSenderAdapter ..|> EmailSender
+    FirebasePushNotificationAdapter ..|> PushNotificationSender
+    LoggingPushNotificationAdapter ..|> PushNotificationSender
 }
 
 package "Credential Verification" {
@@ -71,14 +109,22 @@ package "Credential Verification" {
         +verificationMethod: VerificationMethod
         +riskAssessment: RiskAssessment
         +verifiedAt: Date
-        +applyExtractedData(): void
-        +assessRisk(riskAssessment: RiskAssessment): void
-        +resolveDispute(isAuthentic: Boolean): void
+        +holderNameMismatch: Boolean
+        +applyExtractedData(): Certificate
+        +hasOcrInconsistencies(today: Date): Boolean
+        +flagHolderNameMismatch(): Certificate
+        +assessRisk(riskAssessment: RiskAssessment): Certificate
+        +resolveDispute(isAuthentic: Boolean): Certificate
     }
 
     class RiskAssessment <<Value Object>> {
         +score: Integer
-        +level: RiskLevel
+        +level(): RiskLevel
+    }
+
+    class HolderNameMatcher <<Domain Service>> {
+        +matches(certificateHolder: String, registeredName: String): Boolean
+        +isComparable(name: String): Boolean
     }
 
     enum RiskLevel {
@@ -107,6 +153,7 @@ package "Credential Verification" {
     Certificate --> VerificationStatus
     Certificate --> VerificationMethod
     RiskAssessment --> RiskLevel
+    HolderNameMatcher ..> Certificate : compara holderName
 }
 
 package "Learning Path Engine" {
@@ -114,12 +161,16 @@ package "Learning Path Engine" {
         +studentId: Long
         +careerGoal: CareerGoal
         +status: PathStatus
+        +advanced: Boolean
         +lastProgressAt: Date
-        +pause(): void
-        +resume(): void
-        +linkCertificate(nodeId: Long, certificateId: Long): void
-        +linkCertificateToSkill(certificateId: Long, skillTag: String): void
-        +completeNode(nodeId: Long): void
+        +pause(): LearningPath
+        +resume(): LearningPath
+        +completeNode(nodeId: Long): LearningPath
+        +recognizeCertifiedSkill(skillTag: String, certificateId: Long): Boolean
+        +associateCertificate(nodeId: Long, certificateId: Long): LearningPath
+        +linkCertificate(nodeId: Long, certificateId: Long): Boolean
+        +linkCertificateToSkill(skillTag: String, certificateId: Long): Boolean
+        +attachBlueprint(nodeId: Long, blueprintId: Long): LearningPath
         +pendingPrerequisitesOf(nodeId: Long): List<String>
     }
 
@@ -130,6 +181,22 @@ package "Learning Path Engine" {
         +prerequisiteSkillTags: List<String>
         +linkedCertificateId: Long
         +assessmentBlueprintId: Long
+        +completedByCertificate: Boolean
+        +unlock(): void
+        +complete(): void
+        +linkCertificate(certificateId: Long): void
+        +completeWithCertificate(certificateId: Long): void
+        +attachBlueprint(blueprintId: Long): void
+    }
+
+    class AdvancedPathUnlock <<Aggregate Root>> {
+        +studentId: Long
+        +redemptionId: Long
+        +learningPathId: Long
+        +grantedAt: Date
+        +usedAt: Date
+        +useFor(learningPathId: Long): AdvancedPathUnlock
+        +isAvailable(): Boolean
     }
 
     class CareerGoal <<Value Object>> {
@@ -154,6 +221,28 @@ package "Learning Path Engine" {
         +correctAnswer: Integer
     }
 
+    interface SkillTaxonomyMatcher <<Port>> {
+        +match(text: String): List<String>
+    }
+
+    class GeminiSkillTaxonomyMatcher {
+        +match(text: String): List<String>
+    }
+
+    class KeywordSkillTaxonomyMatcher {
+        +match(text: String): List<String>
+    }
+
+    interface QuestionGenerationService <<Domain Service>> {
+        +generateQuestions(skillTag: String, excludedQuestions: Collection<String>): List<Question>
+    }
+
+    class GeminiQuestionGenerator
+
+    class GeminiClient {
+        +generateJson(prompt: String): String
+    }
+
     enum PathStatus {
         ACTIVE
         PAUSED
@@ -171,6 +260,12 @@ package "Learning Path Engine" {
     LearningPath --> PathStatus
     PathNode --> NodeStatus
     AssessmentBlueprint "1" o-- "1..*" Question
+    GeminiSkillTaxonomyMatcher ..|> SkillTaxonomyMatcher
+    KeywordSkillTaxonomyMatcher ..|> SkillTaxonomyMatcher
+    GeminiSkillTaxonomyMatcher --> KeywordSkillTaxonomyMatcher : fallback
+    GeminiSkillTaxonomyMatcher --> GeminiClient
+    GeminiQuestionGenerator ..|> QuestionGenerationService
+    GeminiQuestionGenerator --> GeminiClient
 }
 
 package "Assessment & Peer Review" {
@@ -181,6 +276,7 @@ package "Assessment & Peer Review" {
         +score: Score
         +passed: Boolean
         +completedAt: Date
+        +incorrectQuestionIndexes(correctAnswers: List<Integer>): List<Integer>
     }
 
     class Score <<Value Object>> {
@@ -195,11 +291,12 @@ package "Assessment & Peer Review" {
         +verified: Boolean
         +rating: Double
         +reviewCount: Integer
-        +AddSkill(skillTag: String): void
-        +SetAvailability(available: Boolean): void
-        +IncrementReviewCount(): void
-        +UpdateRating(rating: Double): void
-        +Revoke(): void
+        +canReview(skillTag: String): Boolean
+        +addSkill(skillTag: String): Boolean
+        +setAvailability(available: Boolean): VerifierProfile
+        +incrementReviewCount(): VerifierProfile
+        +updateRating(rating: Double): VerifierProfile
+        +revoke(): VerifierProfile
     }
 
     class VerificationCase <<Aggregate Root>> {
@@ -215,14 +312,42 @@ package "Assessment & Peer Review" {
         +evidenceUrl: String
         +openedAt: Date
         +reviewDueAt: Date
+        +reviewDeadlineAmount: Integer
+        +reviewDeadlineUnit: String
+        +deadlineMissedAt: Date
+        +reassignmentCount: Integer
         +assignedAt: Date
         +resolvedAt: Date
         +appealCount: Integer
         +previousVerifierUserId: Long
-        +assignVerifier(verifierUserId: Long): void
-        +attachEvidence(url: String): void
-        +resolve(decision: ReviewDecision, rubricNotes: String): void
-        +appeal(): void
+        +assignVerifier(verifierUserId: Long): VerificationCase
+        +attachEvidence(url: String): VerificationCase
+        +resolve(decision: ReviewDecision, rubricNotes: String): VerificationCase
+        +appeal(): VerificationCase
+        +isOverdue(now: Date): Boolean
+        +recordMissedDeadline(now: Date): Boolean
+        +reassignAfterMissedDeadline(newVerifierUserId: Long, deadline: ReviewDeadline, now: Date): VerificationCase
+    }
+
+    class ReviewDeadlinePolicy <<Aggregate Root>> {
+        +plan: String
+        +amount: Integer
+        +unit: String
+        +updatedByUserId: Long
+        +updatedAt: Date
+        +define(deadline: ReviewDeadline, definedByUserId: Long): ReviewDeadlinePolicy
+        +{static} isValidFor(plan: String, deadline: ReviewDeadline): Boolean
+        +{static} defaultFor(plan: String): ReviewDeadline
+    }
+
+    class ReviewDeadline <<Value Object>> {
+        +amount: Integer
+        +unit: DeadlineUnit
+    }
+
+    enum DeadlineUnit {
+        HOURS
+        BUSINESS_DAYS
     }
 
     enum CaseType {
@@ -245,6 +370,9 @@ package "Assessment & Peer Review" {
     VerificationCase --> CaseType
     VerificationCase --> CaseStatus
     VerificationCase --> ReviewDecision
+    VerificationCase ..> ReviewDeadline
+    ReviewDeadlinePolicy --> ReviewDeadline
+    ReviewDeadline --> DeadlineUnit
 }
 
 package "Reputation" {
@@ -253,11 +381,15 @@ package "Reputation" {
         +resolvedCasesCount: Integer
         +overturnedDecisionsCount: Integer
         +sanctionsCount: Integer
+        +missedDeadlinesCount: Integer
         +score: ReliabilityScore
         +updatedAt: Date
-        +recordResolution(): void
-        +recordOverturn(): void
-        +applySanction(): void
+        +getRank(): VerifierRank
+        +isSeniorVerifier(): Boolean
+        +recordResolution(): VerifierReliability
+        +recordOverturn(): VerifierReliability
+        +applySanction(): VerifierReliability
+        +recordMissedDeadline(): VerifierReliability
     }
 
     class StudentEmployabilityScore <<Aggregate Root>> {
@@ -265,7 +397,7 @@ package "Reputation" {
         +verifiedSkillsCount: Integer
         +score: EmployabilityScore
         +updatedAt: Date
-        +recordSkillVerified(): void
+        +recordSkillVerified(): StudentEmployabilityScore
     }
 
     class ReliabilityScore <<Value Object>> {
@@ -276,7 +408,19 @@ package "Reputation" {
         +value: Integer
     }
 
+    enum VerifierRank {
+        BRONZE
+        SILVER
+        GOLD
+    }
+
+    class SeniorVerifierPolicy <<Domain Service>> {
+        +{static} isSenior(resolvedCasesCount: Integer, reliability: ReliabilityScore): Boolean
+    }
+
     VerifierReliability --> ReliabilityScore
+    VerifierReliability ..> VerifierRank
+    VerifierReliability ..> SeniorVerifierPolicy
     StudentEmployabilityScore --> EmployabilityScore
 }
 
@@ -284,8 +428,9 @@ package "Recognition & Incentives" {
     class Wallet <<Aggregate Root>> {
         +walletOwnerId: Long
         +balance: Integer
-        +credit(amount: Credits): void
-        +debit(amount: Credits): void
+        +canAfford(amount: Credits): Boolean
+        +credit(amount: Credits): Wallet
+        +debit(amount: Credits): Wallet
     }
 
     class CreditTransaction <<Entity>> {
@@ -294,6 +439,7 @@ package "Recognition & Incentives" {
         +type: TransactionType
         +description: String
         +relatedCaseId: Long
+        +redemptionItem: RedemptionItem
         +createdAt: Date
     }
 
@@ -314,6 +460,7 @@ package "Recognition & Incentives" {
     Wallet "1" o-- "0..*" CreditTransaction
     CreditTransaction --> Credits
     CreditTransaction --> TransactionType
+    CreditTransaction --> RedemptionItem
 }
 
 package "Subscription & Billing" {
@@ -384,18 +531,39 @@ package "Moderation & Disputes" {
         +reason: String
         +status: DisputeStatus
         +outcome: DisputeOutcome
-        +coordinatorNotes: String
+        +resolutionNotes: String
+        +assignedVerifierUserId: Long
+        +assignedToSenior: Boolean
+        +assignedAt: Date
         +raisedAt: Date
         +resolvedAt: Date
-        +resolve(outcome: DisputeOutcome, coordinatorNotes: String): void
+        +{static} certificateReview(certificateId: Long, ownerId: Long, reasons: List<String>): Dispute
+        +assignReviewer(verifierUserId: Long, senior: Boolean): Dispute
+        +resolve(outcome: DisputeOutcome, resolutionNotes: String, validator: DisputeResolutionValidator): Dispute
+        +isParty(userId: Long): Boolean
+        +isAssignedTo(userId: Long): Boolean
+        +isPending(): Boolean
+        +hasReviewer(): Boolean
     }
 
-    class Sanction <<Entity>> {
-        +disputeId: Long
-        +sanctionedUserId: Long
-        +type: SanctionType
-        +description: String
-        +durationDays: Integer
+    class DisputeReviewerSelector <<Domain Service>> {
+        +choose(excludedUserIds: Collection<Long>, candidates: List<ReviewerCandidate>): Optional<ReviewerChoice>
+    }
+
+    class DisputeResolutionValidator <<Domain Service>> {
+        +canResolve(dispute: Dispute): Boolean
+        +isValidOutcome(sourceType: DisputeSourceType, outcome: DisputeOutcome): Boolean
+    }
+
+    class ReviewerCandidate <<Value Object>> {
+        +userId: Long
+        +senior: Boolean
+        +workload: Integer
+    }
+
+    class ReviewerChoice <<Value Object>> {
+        +userId: Long
+        +senior: Boolean
     }
 
     enum DisputeSourceType {
@@ -416,33 +584,29 @@ package "Moderation & Disputes" {
         SANCTIONED
     }
 
-    enum SanctionType {
-        WARNING
-        SUSPENSION
-        BAN
-    }
-
-    Dispute "1" o-- "0..*" Sanction
     Dispute --> DisputeSourceType
     Dispute --> DisputeStatus
     Dispute --> DisputeOutcome
-    Sanction --> SanctionType
+    Dispute ..> DisputeResolutionValidator
+    DisputeReviewerSelector ..> ReviewerCandidate
+    DisputeReviewerSelector ..> ReviewerChoice
 }
 
 ' --- Herencia hacia el Aggregate Root compartido ---
 User --|> AbstractDomainAggregateRoot
 Certificate --|> AbstractDomainAggregateRoot
 LearningPath --|> AbstractDomainAggregateRoot
+AdvancedPathUnlock --|> AbstractDomainAggregateRoot
 AssessmentBlueprint --|> AbstractDomainAggregateRoot
 AssessmentAttempt --|> AbstractDomainAggregateRoot
 VerifierProfile --|> AbstractDomainAggregateRoot
 VerificationCase --|> AbstractDomainAggregateRoot
+ReviewDeadlinePolicy --|> AbstractDomainAggregateRoot
 VerifierReliability --|> AbstractDomainAggregateRoot
 StudentEmployabilityScore --|> AbstractDomainAggregateRoot
 Wallet --|> AbstractDomainAggregateRoot
 CreditTransaction --|> AbstractDomainAggregateRoot
 Dispute --|> AbstractDomainAggregateRoot
-Sanction --|> AbstractDomainAggregateRoot
 Subscription --|> AbstractDomainAggregateRoot
 
 ' --- Enlaces invisibles para forzar layout en 2 filas ---

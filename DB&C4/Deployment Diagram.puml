@@ -24,7 +24,8 @@ Deployment_Node(cloudPlatform, "Render", "Plataforma Cloud"){
 
 Deployment_Node(externalCloud, "Servicios Externos en la Nube", "SaaS"){
     System_Ext(cloudStorage, "Cloudinary", "Almacenamiento de certificados")
-    System_Ext(emailService, "Email Api", "Correos de validación y notificaciones")
+    System_Ext(emailService, "Brevo (Email API)", "Correo de verificación de la cuenta")
+    System_Ext(fcm, "Firebase Cloud Messaging", "Notificaciones push")
     System_Ext(geminiApi, "Gemini API", "Interpretación de la meta sobre el catálogo interno y generación de preguntas")
     System_Ext(playBilling, "Google Play Billing (vía RevenueCat)", "Suscripción mensual")
 }
@@ -38,7 +39,8 @@ Rel(flutterApp, api, "Consume API RESTful", "HTTPS")
 Rel(api, mainDB, "Lee/Escribe", "JDBC")
 
 Rel(api, cloudStorage, "Guarda certificados", "HTTPS")
-Rel(api, emailService, "Envía correos", "HTTPS")
+Rel(api, emailService, "Envía el correo de verificación", "HTTPS")
+Rel(api, fcm, "Envía notificaciones push", "HTTPS")
 Rel(api, geminiApi, "Interpreta la meta y genera preguntas", "HTTPS")
 Rel(api, playBilling, "Verifica la compra y cancela la renovación", "HTTPS")
 Rel(playBilling, api, "Notifica cambios de la suscripción (webhook)", "HTTPS")
