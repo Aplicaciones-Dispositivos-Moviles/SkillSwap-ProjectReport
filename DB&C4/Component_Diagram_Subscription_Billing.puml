@@ -1,4 +1,5 @@
 @startuml SubscriptionBillingComponent
+!pragma layout smetana
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
 LAYOUT_WITH_LEGEND()
@@ -19,12 +20,12 @@ Container_Boundary(subscriptionBC, "Subscription & Billing Bounded Context") {
     Component(simulatedAdapter, "SimulatedPaymentGatewayAdapter", "Java Class", "Adaptador en memoria para desarrollo y demostraciones")
     Component(subscriptionRepository, "SubscriptionRepository", "Java Interface", "Interface persistencia (subscriptions)")
     Component(webhookEventRepository, "ProcessedWebhookEventRepository", "Java Interface", "Interface persistencia (processed_webhook_events)")
-    Component(subscriptionContextFacade, "SubscriptionContextFacade", "Java Class", "Punto de entrada interno: límites del plan vigente")
+    Component(subscriptionContextFacade, "SubscriptionContextFacade", "Java Class", "Punto de entrada interno: PlanLimitsView del plan vigente")
 }
 
 Component_Ext(learningPathCommandService, "LearningPath CommandService", "Java Class", "Bounded Context: Learning Path Engine")
 Component_Ext(enforcePlanLimitsHandler, "EnforcePlanLimitsEventHandler", "Java Class", "Bounded Context: Learning Path Engine")
-Component_Ext(assessmentCommandService, "AssessmentAttempt CommandService", "Java Class", "Bounded Context: Assessment & Peer Review")
+Component_Ext(assessmentCommandService, "AssessmentAttemptCommandService / ReviewDeadlineResolver", "Java Class", "Bounded Context: Assessment & Peer Review")
 
 Rel(androidApp, subscriptionsController, "Request HTTP a Subscription & Billing")
 Rel(flutterApp, subscriptionsController, "Request HTTP a Subscription & Billing")
@@ -47,8 +48,8 @@ Rel(subscriptionRepository, mainDB, "SQL Transaction")
 Rel(webhookEventRepository, mainDB, "SQL Transaction")
 
 Rel(subscriptionContextFacade, subscriptionQueryService, "Delega")
-Rel(learningPathCommandService, subscriptionContextFacade, "Pedir límites de rutas del plan")
-Rel(assessmentCommandService, subscriptionContextFacade, "Pedir cupo de escalamientos y plazo de revisión")
+Rel(learningPathCommandService, subscriptionContextFacade, "Pedir PlanLimitsView (rutas activas y totales)")
+Rel(assessmentCommandService, subscriptionContextFacade, "Pedir PlanLimitsView (cupo de escalamientos y plazo de revisión)")
 Rel(subscriptionCommandService, enforcePlanLimitsHandler, "Publica SubscriptionExpired (pausa rutas adicionales)")
 
 @enduml

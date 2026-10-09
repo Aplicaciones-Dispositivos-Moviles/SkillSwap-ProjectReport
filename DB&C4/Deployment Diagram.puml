@@ -1,4 +1,5 @@
 @startuml SkillSwapDeployment
+!pragma layout smetana
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
 
 LAYOUT_WITH_LEGEND()
@@ -6,7 +7,7 @@ LAYOUT_WITH_LEGEND()
 Deployment_Node(userDevice, "Dispositivo Móvil del Usuario", "Android"){
     Container(androidApp, "Android Native App", "Kotlin / Jetpack Compose", "Cliente móvil nativo usado por Estudiantes y Verificadores.")
     Container(flutterApp, "Cross-Platform App", "Flutter / Dart (Android)", "Cliente móvil multiplataforma dirigido a Android.")
-    Container(mlKitSdk, "ML Kit SDK", "Firebase On-Device", "Extrae los datos del certificado directamente en el dispositivo, sin llamada a un servicio en la nube.")
+    Container(mlKitSdk, "ML Kit SDK", "Firebase On-Device", "Lee los datos del certificado en el dispositivo; la app los envía al backend en el multipart.")
 }
 
 Deployment_Node(staticHosting, "Hosting Estático", "GitHub Pages"){
@@ -14,31 +15,33 @@ Deployment_Node(staticHosting, "Hosting Estático", "GitHub Pages"){
 }
 
 Deployment_Node(cloudPlatform, "Render", "Plataforma Cloud"){
-    Deployment_Node(backendRuntime, "Backend Runtime", "Docker Container (JRE 21)"){
-        Container(api, "SkillSwap API", "Java 21 / Spring Boot", "API RESTful que aloja los Bounded Contexts de la lógica de negocio y publica la documentación OpenAPI.")
+    Deployment_Node(backendRuntime, "Web Service", "Docker Container (JRE 21)"){
+        Container(api, "SkillSwap API", "Java 21 / Spring Boot", "API RESTful que aloja los ocho Bounded Contexts y publica la documentación OpenAPI.")
     }
-    Deployment_Node(dbServer, "Servidor de Base de Datos Administrado", "Render Managed Database"){
-        ContainerDb(mainDB, "SkillSwap Database", "PostgreSQL 16", "Instancia única compartida por los Bounded Contexts.")
+    Deployment_Node(dbServer, "Render PostgreSQL", "Base de datos administrada"){
+        ContainerDb(mainDB, "SkillSwap Database", "PostgreSQL 16", "Instancia única compartida por los Bounded Contexts; migraciones Flyway.")
     }
 }
 
 Deployment_Node(externalCloud, "Servicios Externos en la Nube", "SaaS"){
-    System_Ext(cloudStorage, "Cloudinary", "Almacenamiento de certificados")
-    System_Ext(emailService, "Email Api", "Correos de validación y notificaciones")
-    System_Ext(geminiApi, "Gemini API", "Interpretación de la meta sobre el catálogo interno y generación de preguntas")
+    System_Ext(cloudStorage, "Cloudinary", "Archivos de certificados")
+    System_Ext(emailService, "Brevo (Email API)", "Correo de verificación")
+    System_Ext(pushService, "Firebase Cloud Messaging", "Entrega las notificaciones push al dispositivo")
+    System_Ext(geminiApi, "Gemini API", "Interpretación de la meta y generación de preguntas")
     System_Ext(playBilling, "Google Play Billing (vía RevenueCat)", "Suscripción mensual")
 }
 
 Rel(androidApp, mlKitSdk, "Invoca localmente", "SDK call")
 Rel(flutterApp, mlKitSdk, "Invoca localmente", "SDK call")
 
-Rel(androidApp, api, "Consume API RESTful", "HTTPS")
-Rel(flutterApp, api, "Consume API RESTful", "HTTPS")
+Rel(androidApp, api, "Consume la API RESTful", "HTTPS")
+Rel(flutterApp, api, "Consume la API RESTful", "HTTPS")
 
 Rel(api, mainDB, "Lee/Escribe", "JDBC")
 
 Rel(api, cloudStorage, "Guarda certificados", "HTTPS")
 Rel(api, emailService, "Envía correos", "HTTPS")
+Rel(api, pushService, "Envía notificaciones push", "HTTPS")
 Rel(api, geminiApi, "Interpreta la meta y genera preguntas", "HTTPS")
 Rel(api, playBilling, "Verifica la compra y cancela la renovación", "HTTPS")
 Rel(playBilling, api, "Notifica cambios de la suscripción (webhook)", "HTTPS")
