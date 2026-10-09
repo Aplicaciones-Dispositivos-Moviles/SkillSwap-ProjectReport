@@ -79,7 +79,7 @@ Octubre 2026
 En esta sección se indica el URL del repositorio utilizado para la elaboración colaborativa del Informe de Trabajo Final, así como las evidencias de participación de cada integrante del equipo durante el desarrollo de las entregas AV1 y TB1.
 
 **URL del repositorio del Project Report (GitHub):**
-[ https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport ]( https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport )
+[https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport)
 
 ### AV1
 
@@ -109,7 +109,12 @@ A continuación, se presentan las capturas de los analíticos de colaboración d
 
 ### TB1
 
-Durante el desarrollo de la entrega TB1, el equipo mantuvo el mismo esquema de colaboración de AV1, incorporando además la corrección sistemática del Capítulo I y II a partir de las decisiones reales tomadas durante la construcción del backend (pasarela de pago, modelo de Assessment & Peer Review, motor de matching, taxonomía de habilidades, entre otras), y la redacción del Capítulo IV con la evidencia del Sprint 1. Alberca Saavedra, Víctor Manuel lideró la actualización de los Capítulos I, II y IV; [Completar — resto del equipo, Capítulo III y evidencias complementarias].
+Durante el desarrollo de la entrega TB1, el equipo mantuvo el mismo esquema de colaboración de AV1, incorporando además la corrección sistemática del Capítulo I y II a partir de las decisiones reales tomadas durante la construcción del backend (pasarela de pago, modelo de Assessment & Peer Review, motor de matching, taxonomía de habilidades, entre otras), y la redacción del Capítulo IV con la evidencia del Sprint 1. Entre el 11 de septiembre y el 9 de octubre de 2026, sin contar los commits de merge, los aportes al repositorio se distribuyeron de la siguiente manera:
+
+* **Becerra Ninahuanca, Luis Angel (44 commits):** Capítulo II (competidores, entrevistas, needfinding y As-Is Scenario Mapping), perfiles del equipo y Capítulo III (wireframes, mock-ups y diseño de producto).
+* **Komatsu Dueñas, David (33 commits):** User Stories, épicas, Impact Mapping, Product Backlog, lenguaje ubicuo, numeración APA de figuras y tablas, índices, glosario, bibliografía y registro de versiones.
+* **Sulca Sánchez, Piero Angel (23 commits):** EventStorming (pasos 1 a 10), Candidate Context Discovery, Domain Message Flows, Bounded Context Canvases, Lean UX Canvas y alineación del informe con el backend Java y el modelo de negocio (Subscription & Billing, economía de SkillCredits y diagramas C4).
+* **Alberca Saavedra, Víctor Manuel (19 commits):** pivote de los Capítulos I y II al modelo de verificación de habilidades, diagramas C4, Capítulo IV (configuración del software, evidencias del Sprint 1 y despliegue) y migración del informe a Java / Spring Boot.
 
 **Figura 3**
 
@@ -119,7 +124,7 @@ Durante el desarrollo de la entrega TB1, el equipo mantuvo el mismo esquema de c
   <img src="public/assets/images-doc/PR3-tb1.png" alt="Analíticos de colaboración - Project Report TB1" width="800">
 </p>
 
-*Nota.* [Completar — captura de Insights → Contributors del repositorio, filtrada al período del TB1.]
+*Nota.* Contribuciones semanales a la rama `main` del repositorio SkillSwap-ProjectReport entre el 10 de septiembre y el 8 de octubre de 2026, sin commits de merge (GitHub Insights). Elaboración propia.
 
 **Figura 4**
 
@@ -128,6 +133,8 @@ Durante el desarrollo de la entrega TB1, el equipo mantuvo el mismo esquema de c
 <p align="center">
   <img src="public/assets/images-doc/PR4-tb1.png" alt="Historial de commits - Project Report TB1" width="800">
 </p>
+
+*Nota.* Historial de commits de la rama `main` del Project Report durante el TB1, con los merges de los Pull Requests de cada integrante. Elaboración propia.
 
 
 
@@ -271,7 +278,7 @@ SkillSwap organiza la experiencia a partir del objetivo declarado por el Estudia
 
 Para revisar casos de otros usuarios, el Estudiante debe habilitarse como Verificador de la habilidad que desea verificar, lo que ocurre al completar el nodo de esa habilidad en su propia ruta. Una vez habilitado, puede participar como Verificador y recibir SkillCredits por cada caso que resuelve, lo apruebe o lo rechace, según el tipo de caso: 40 SkillCredits por un miniproyecto y 25 por un *quiz*, porque revisar un miniproyecto exige más trabajo que revisar un *quiz*. Los SkillCredits constituyen unidades de reconocimiento no monetarias asociadas a su participación y experiencia como Verificador; nunca pueden comprarse con dinero ni transferirse, pero el Verificador puede canjearlos por beneficios dentro de la plataforma: una ruta avanzada, por 200 SkillCredits, o un certificado de contribución, por 120. Los precios se escalaron junto con los montos por caso para que obtener un beneficio siga requiriendo varios casos resueltos (5 miniproyectos u 8 *quizzes* para la ruta avanzada, y 3 miniproyectos o alrededor de 5 *quizzes* para el certificado); si solo hubieran subido los montos por caso, un beneficio costaría alrededor de un caso y perdería su valor. Por separado, el Verificador obtiene rangos visibles en su perfil profesional según la cantidad de casos de verificación que resuelve, no según su saldo de SkillCredits, de modo que canjear créditos nunca reduce su rango. Los rangos son tres: Bronce, de 0 a 29 casos resueltos; Plata, de 30 a 99; y Oro, desde 100 casos resueltos.
 
-Innovify plantea para SkillSwap un modelo de negocio B2C freemium. Todo Estudiante empieza con un plan gratuito (S/ 0), que le permite tener 1 ruta activa a la vez y hasta 3 rutas en total, y escalar 3 casos al mes a un Verificador, que se revisan en un plazo de hasta 5 días hábiles. Cuando llega a uno de esos límites, la aplicación le muestra la pantalla "Alcanzaste el límite de tu plan", donde puede pasar al plan mensual o continuar con el plan gratuito. El plan mensual cuesta S/ 29,90 al mes, IGV incluido, se cobra mediante Google Play Billing y amplía esos límites: hasta 3 rutas activas a la vez, sin tope de rutas en total, y 10 escalamientos al mes a un Verificador, cuyos casos se revisan en 48 horas; además, reduce los tiempos de espera. La ruta avanzada que un Verificador obtiene al canjear SkillCredits no consume el cupo de rutas del plan gratuito. Ningún plan compra la aprobación: las evaluaciones y los criterios son los mismos para todos. No existen pagos directos ni comisiones entre Estudiantes y Verificadores. Además, la supervisión del proceso la ejercen los Verificadores senior, es decir, los Verificadores que alcanzaron el rango Oro y mantienen una confiabilidad de 90 o más, en la escala de 0 a 100 con la que la plataforma la mide: monitorean la confiabilidad de las revisiones, resuelven las apelaciones y las situaciones que requieren reevaluación, revisan los certificados sospechosos y consultan métricas generales sobre la actividad del ecosistema.
+Innovify plantea para SkillSwap un modelo de negocio B2C freemium. Todo Estudiante empieza con un plan gratuito (S/ 0), que le permite tener 1 ruta activa a la vez y hasta 3 rutas en total, y escalar 3 casos al mes a un Verificador, que se revisan en un plazo de hasta 5 días hábiles. Cuando llega a uno de esos límites, la aplicación le muestra la pantalla "Alcanzaste el límite de tu plan", donde puede pasar al plan mensual o continuar con el plan gratuito. El plan mensual cuesta S/ 29,90 al mes, IGV incluido, se cobra mediante Google Play Billing, integrado a través de RevenueCat, y amplía esos límites: hasta 3 rutas activas a la vez, sin tope de rutas en total, y 10 escalamientos al mes a un Verificador, cuyos casos se revisan en 48 horas; además, reduce los tiempos de espera. La ruta avanzada que un Verificador obtiene al canjear SkillCredits no consume el cupo de rutas del plan gratuito. Ningún plan compra la aprobación: las evaluaciones y los criterios son los mismos para todos. No existen pagos directos ni comisiones entre Estudiantes y Verificadores. Además, la supervisión del proceso la ejercen los Verificadores senior, es decir, los Verificadores que alcanzaron el rango Oro y mantienen una confiabilidad de 90 o más, en la escala de 0 a 100 con la que la plataforma la mide: monitorean la confiabilidad de las revisiones, resuelven las disputas por certificados sospechosos y consultan métricas generales sobre la actividad del ecosistema. Las apelaciones, en cambio, las revisa un Verificador distinto del que tomó la decisión original.
 
 La asignación de casos se realiza automáticamente considerando la habilidad requerida, el historial y la disponibilidad de los Verificadores. Asimismo, SkillSwap incorpora mecanismos de confianza como la verificación del correo electrónico, el historial auditable de las evaluaciones y la habilitación de Verificadores a partir de las certificaciones obtenidas dentro de la plataforma. Estos mecanismos buscan reducir la dependencia de declaraciones no comprobadas y favorecer un proceso de validación consistente.
 
@@ -357,13 +364,13 @@ Para analizar los antecedentes y delimitar la problemática, se aplica la técni
 
 #### Objetivo de la solución
 
-Desarrollar una plataforma móvil que permita a Estudiantes universitarios y jóvenes profesionales complementar sus certificados con pruebas aplicadas, revisiones calificadas mediante rúbrica y una demostración final, todas provistas de un registro auditable, para demostrar el dominio práctico de sus habilidades. Asimismo, la solución organizará el proceso mediante rutas de certificación, reconocerá la participación de los Verificadores y ofrecerá mecanismos de calificación y reporte que permitan moderar el desempeño de los Verificadores.
+Desarrollar una plataforma móvil que permita a Estudiantes universitarios y jóvenes profesionales complementar sus certificados con pruebas aplicadas, revisiones calificadas mediante rúbrica y una demostración final, todas provistas de un registro auditable, para demostrar el dominio práctico de sus habilidades. Asimismo, la solución organizará el proceso mediante rutas de certificación, reconocerá la participación de los Verificadores y ofrecerá mecanismos de apelación y de seguimiento de la confiabilidad que permitan moderar el desempeño de los Verificadores.
 
 #### Restricciones del alcance
 
 * SkillSwap complementa la formación obtenida en universidades, plataformas educativas y otros medios; no reemplaza esas fuentes ni imparte cursos o tutorías.
 * La plataforma evalúa entregables dentro de su propio proceso, pero no garantiza la contratación laboral del Estudiante ni sustituye los procedimientos de selección de las organizaciones.
-* La extracción de datos mediante OCR facilita el registro y el análisis de riesgo documental, pero no equivale a una comprobación oficial ante la entidad emisora; las integraciones con registros externos quedan fuera del alcance implementado.
+* La extracción de datos mediante OCR facilita el registro y el análisis de riesgo documental, pero no equivale a una comprobación oficial ante la entidad emisora; la plataforma no consulta registros externos de las entidades emisoras.
 * La confiabilidad de la revisión entre pares depende de la disponibilidad de Verificadores previamente habilitados para cada habilidad.
 * La inteligencia artificial generativa se utiliza como apoyo para producir contenido evaluativo, pero los resultados del proceso deben mantenerse sujetos a las reglas de validación y supervisión de la plataforma.
 * El desarrollo se limita a las funcionalidades e integraciones seleccionadas para el periodo académico.
@@ -380,7 +387,7 @@ El estado actual de la formación en línea y la certificación de habilidades e
 
 Lo que los productos y servicios analizados no logran resolver de manera integrada es la validación práctica complementaria de una credencial previamente obtenida. Un certificado de finalización informa que una persona cumplió los criterios de su emisor, pero no necesariamente muestra cómo se desempeña ante un caso concreto. Las alternativas analizadas atienden por separado el aprendizaje, la presentación de proyectos o la comunicación de logros; la brecha consiste en articular la credencial con una prueba aplicada, una eventual revisión humana estructurada y la supervisión de la confiabilidad de la decisión. Esta necesidad es coherente con los enfoques basados en habilidades, que proponen complementar las calificaciones y credenciales con demostraciones de competencias específicas (OECD, 2024).
 
-Nuestro producto abordará esta brecha mediante una experiencia móvil en la que el Estudiante definirá un objetivo y seguirá una ruta de certificación relacionada con las habilidades requeridas, que incluirá un mínimo de nodos con entrega práctica. El reconocimiento óptico de caracteres facilitará el registro y análisis documental de los certificados, mientras que la inteligencia artificial generativa apoyará la creación de evaluaciones adaptadas a cada habilidad. Cuando la evaluación automática no resulte suficiente, el caso se asignará a un Verificador habilitado que revisará el trabajo guiándose por una rúbrica y registrará su decisión con observaciones, de modo que, si no lo aprueba, el Estudiante sepa qué debe reforzar. Al completar la ruta, una demostración final asíncrona, también calificada por un Verificador, garantizará que ninguna certificación se emita sin revisión humana. A su vez, el Estudiante podrá calificar la revisión recibida y reportar la decisión que considere incorrecta, de modo que el desempeño de cada Verificador quede a la vista y las revisiones deficientes se detecten a tiempo.
+Nuestro producto abordará esta brecha mediante una experiencia móvil en la que el Estudiante definirá un objetivo y seguirá una ruta de certificación relacionada con las habilidades requeridas, que incluirá un mínimo de nodos con entrega práctica. El reconocimiento óptico de caracteres facilitará el registro y análisis documental de los certificados, mientras que la inteligencia artificial generativa apoyará la creación de evaluaciones adaptadas a cada habilidad. Cuando la evaluación automática no resulte suficiente, el caso se asignará a un Verificador habilitado que revisará el trabajo guiándose por una rúbrica y registrará su decisión con observaciones, de modo que, si no lo aprueba, el Estudiante sepa qué debe reforzar. Al completar la ruta, una demostración final asíncrona, también calificada por un Verificador, garantizará que ninguna certificación se emita sin revisión humana. A su vez, el Estudiante podrá apelar una vez la decisión que considere incorrecta: un Verificador distinto revisará de nuevo el caso y, si la decisión se revierte, la confiabilidad del Verificador original disminuirá, de modo que las revisiones deficientes se detecten a tiempo.
 
 Nuestro foco inicial serán las personas que quieren aprender: Estudiantes universitarios y jóvenes profesionales de 18 a 30 años de Lima Metropolitana que utilizan recursos de formación en línea y necesitan presentar demostraciones prácticas con un registro verificable al incorporarse al mercado laboral.
 
@@ -407,7 +414,7 @@ Sabremos que tendremos éxito cuando, durante la validación del producto, al me
 * Creemos que la atención será oportuna cuando al menos el 85% de los casos escalados por Estudiantes del plan mensual sea resuelto por un Verificador en un plazo máximo de 48 horas.
 * Creemos que el sistema de reconocimiento será sostenible cuando al menos el 60% de los Verificadores habilitados resuelva un caso durante cada mes de actividad.
 * Creemos que la calidad del proceso será confiable cuando menos del 3% de las decisiones emitidas por Verificadores sea revertida en la moderación.
-* Creemos que la supervisión será oportuna cuando al menos el 90% de los reportes recibidos sea atendido en un plazo máximo de 72 horas.
+* Creemos que la supervisión será oportuna cuando al menos el 90% de las apelaciones sea resuelto en un plazo máximo de 72 horas.
 
 ##### User Assumptions
 
@@ -421,10 +428,10 @@ Sabremos que tendremos éxito cuando, durante la validación del producto, al me
 * Creemos que el Estudiante obtiene valor cuando una ruta le muestra qué habilidades debe demostrar para alcanzar el objetivo declarado.
 * Creemos que el Estudiante reduce esfuerzo y errores cuando puede incorporar un certificado sin transcribir manualmente todos sus datos.
 * Creemos que el Estudiante obtiene valor cuando una evaluación aplicada le permite comprobar su desempeño e identificar los aspectos que debe reforzar.
-* Creemos que el Estudiante confía más en una revisión cuando el Verificador ha demostrado previamente la misma habilidad y ha aprobado un examen de ingreso.
+* Creemos que el Estudiante confía más en una revisión cuando el Verificador ha demostrado previamente la misma habilidad en su propia ruta.
 * Creemos que el futuro Verificador obtiene valor cuando puede acreditar formalmente que está habilitado para revisar una habilidad específica.
 * Creemos que el Estudiante obtiene valor cuando recibe una revisión pertinente y oportuna si la evaluación automática no resulta suficiente.
-* Creemos que el Estudiante obtiene valor cuando puede calificar la revisión recibida y reportar la decisión que considere incorrecta, y ve reflejado ese desempeño en el perfil del Verificador.
+* Creemos que el Estudiante obtiene valor cuando puede apelar la decisión que considere incorrecta y ve reflejadas las decisiones revertidas en la confiabilidad del Verificador.
 * Creemos que el Verificador obtiene valor al construir una reputación comprobable mediante SkillCredits y un historial de casos resueltos.
 
 ##### Feature Assumptions
@@ -432,10 +439,10 @@ Sabremos que tendremos éxito cuando, durante la validación del producto, al me
 * Creemos que una ruta de certificación estructurada a partir del objetivo del Estudiante y de una taxonomía de habilidades ordenará las capacidades que debe demostrar.
 * Creemos que la extracción mediante OCR recuperará los campos requeridos en al menos el 90% de los certificados cargados, reducirá el esfuerzo de registro y producirá un historial documental auditable.
 * Creemos que los *quizzes* y miniproyectos adaptados a cada habilidad, con contenido evaluativo apoyado por inteligencia artificial generativa, permitirán observar el desempeño del Estudiante.
-* Creemos que exigir al futuro Verificador completar su propia ruta y aprobar un examen de ingreso permitirá habilitarlo únicamente para las habilidades que haya demostrado.
+* Creemos que habilitar al Verificador solo cuando completa el nodo de una habilidad en su propia ruta permitirá habilitarlo únicamente para las habilidades que haya demostrado.
 * Creemos que la asignación automática basada en la habilidad requerida, el historial y la disponibilidad reducirá el tiempo necesario para obtener una revisión pertinente.
 * Creemos que los SkillCredits y el historial de casos resueltos mantendrán activo al Verificador sin necesidad de un pago directo.
-* Creemos que permitir al Estudiante calificar la revisión recibida y reportar la decisión que considere incorrecta hará visible el desempeño de cada Verificador dentro de la aplicación y sostendrá la calidad de las revisiones.
+* Creemos que permitir al Estudiante apelar la decisión que considere incorrecta hará visible el desempeño de cada Verificador dentro de la aplicación y sostendrá la calidad de las revisiones.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
@@ -465,7 +472,7 @@ mediante *quizzes* y miniproyectos adaptados a la habilidad, con contenido evalu
 Creemos que lograremos que menos del 3% de las decisiones de los Verificadores sea revertida en la moderación<br>
 si los Estudiantes que aspiran a actuar como Verificadores<br>
 logran acreditar formalmente que están preparados para revisar una habilidad específica<br>
-mediante la exigencia de que el futuro Verificador complete su propia ruta y apruebe un examen de ingreso.
+mediante la habilitación del Verificador solo al completar el nodo de esa habilidad en su propia ruta.
 
 **Hipótesis 5: Asignación automática de Verificador**
 
@@ -481,12 +488,12 @@ si los Verificadores<br>
 logran construir una reputación comprobable por sus contribuciones<br>
 mediante SkillCredits y un historial de casos resueltos.
 
-**Hipótesis 7: Calificación y reporte de la revisión**
+**Hipótesis 7: Apelación de la decisión**
 
-Creemos que lograremos que al menos el 90% de los reportes recibidos sea atendido en un plazo máximo de 72 horas<br>
+Creemos que lograremos que al menos el 90% de las apelaciones sea resuelto en un plazo máximo de 72 horas<br>
 si los Estudiantes que reciben una revisión<br>
-logran calificarla y reportar la decisión que consideren incorrecta<br>
-mediante un sistema de calificación y reporte reflejado en el perfil del Verificador.
+logran apelar la decisión que consideren incorrecta<br>
+mediante una apelación que revisa un Verificador distinto y que se refleja en la confiabilidad del Verificador original.
 
 #### 1.2.2.4. Lean UX Canvas
 
@@ -524,7 +531,7 @@ Este segmento agrupa a las personas que sostienen la confiabilidad de las habili
 
 Para comenzar a verificar, la persona primero deberá completar su propia *ruta de certificaciones*, en la cual tendrá que demostrar —mediante certificados validados y evaluaciones aprobadas por la IA— que posee los conocimientos necesarios sobre la habilidad que desea verificar en otros. Una vez habilitada, podrá participar en la *revisión de casos de verificación puntuales*, evaluando el proyecto o portafolio que el estudiante presenta como evidencia frente a una rúbrica estructurada. Por cada caso revisado y resuelto, obtiene *SkillCredits*, un sistema de reconocimiento interno de la plataforma —no monetario y no adquirible— que representa su experiencia y participación, y que también sirve para *demostrar profesionalmente su experiencia* (ej. publicación en LinkedIn).
 
-Junto con esta labor de revisión caso por caso, el Verificador también necesita visibilidad y control a nivel de sistema: garantizar que las decisiones tomadas por los Verificadores sean confiables, resolver disputas cuando un certificado resulta sospechoso o un estudiante apela una decisión, y acceder a métricas agregadas de la plataforma —qué habilidades tienen mayor demanda, qué certificaciones son más frecuentes, qué áreas presentan mayor tasa de fallo— que solo tienen valor si el propio proceso de verificación detrás es confiable. Si se detecta que un estudiante no ha demostrado correctamente una habilidad, o existe una apelación sobre la decisión de un Verificador, un Verificador distinto del que tomó la decisión original puede resolver el caso y habilitar una reevaluación, protegiendo la integridad de todo lo que un estudiante certifica en la plataforma.
+Junto con esta labor de revisión caso por caso, el Verificador también necesita visibilidad y control a nivel de sistema: garantizar que las decisiones tomadas por los Verificadores sean confiables, resolver disputas cuando un certificado resulta sospechoso, revisar de nuevo un caso cuando un estudiante apela una decisión, y acceder a métricas agregadas de la plataforma —qué habilidades tienen mayor demanda, qué certificaciones son más frecuentes, qué áreas presentan mayor tasa de fallo— que solo tienen valor si el propio proceso de verificación detrás es confiable. Cuando un estudiante apela la decisión de un Verificador, un Verificador distinto del que tomó la decisión original revisa de nuevo el caso, protegiendo la integridad de todo lo que un estudiante certifica en la plataforma.
 
 En conjunto, este segmento es el que sostiene la credibilidad del ecosistema completo: el Verificador la sostiene tanto caso por caso como a nivel de sistema, con un mismo objetivo — que una habilidad verificada en SkillSwap realmente signifique algo.
 
@@ -585,11 +592,11 @@ A continuación se presentan las estrategias y tácticas que Innovify implementa
 
 * **Evaluación que ubica al estudiante en su ruta:** Pluralsight demuestra el valor de ubicar al usuario con un test de nivel, y Platzi y roadmap.sh evalúan con exámenes o quizzes automáticos. SkillSwap evalúa cada nodo de la ruta con un quiz o miniproyecto generado por IA, indica el sub-tema exacto que debe reforzar y, cuando la evaluación automática no basta, deriva el caso a un Verificador que ya demostró esa habilidad.
 
-* **Examen de ingreso como garantía de calidad:** Ningún competidor verifica que quien revisa realmente sepa lo que evalúa. SkillSwap elimina ese riesgo exigiendo que todo Verificador certifique su propia ruta y supere un examen de ingreso antes de poder revisar casos de otros. Eso crea un ecosistema de calidad garantizada que ningún competidor puede replicar sin cambiar radicalmente su modelo.
+* **Habilitación por habilidad demostrada como garantía de calidad:** Ningún competidor verifica que quien revisa realmente sepa lo que evalúa. SkillSwap reduce ese riesgo exigiendo que todo Verificador complete en su propia ruta el nodo de la habilidad que revisará antes de poder revisar casos de otros. Eso crea un ecosistema de calidad garantizada que ningún competidor puede replicar sin cambiar radicalmente su modelo.
 
 * **SkillCredits como incentivo único para el Verificador:** Ninguno de los competidores identificados ofrece un mecanismo de reconocimiento profesional verificable para quien revisa el trabajo de otros. Los SkillCredits son exportables a LinkedIn y acreditan experiencia de revisión técnica real — una credencial de liderazgo que los empleadores valoran y que actualmente no existe en el mercado.
 
-* **Supervisión institucional como capa de confianza:** roadmap.sh, Pluralsight y Platzi no tienen una capa de supervisión que resuelva disputas, revise certificados sospechosos ni acceda a métricas reales del proceso. En SkillSwap esa supervisión la ejercen los Verificadores senior, que alcanzaron el rango Oro (100 casos resueltos o más) y mantienen una confiabilidad de 90 o más, en una escala de 0 a 100, lo que hace que las credenciales de SkillSwap sean confiables no solo para el estudiante y el Verificador, sino también para empleadores e instituciones académicas.
+* **Supervisión de Verificadores senior como capa de confianza:** roadmap.sh, Pluralsight y Platzi no tienen una capa de supervisión que resuelva disputas, revise certificados sospechosos ni acceda a métricas reales del proceso. En SkillSwap esa supervisión la ejercen los Verificadores senior, que alcanzaron el rango Oro (100 casos resueltos o más) y mantienen una confiabilidad de 90 o más, en una escala de 0 a 100, lo que hace que las credenciales de SkillSwap sean confiables no solo para el estudiante y el Verificador, sino también para empleadores e instituciones académicas.
 
 #### Tácticas
 
@@ -630,7 +637,7 @@ A continuación se presentan las estrategias y tácticas que Innovify implementa
 3. ¿Cuáles son las principales frustraciones que has tenido al intentar validar que alguien realmente domina lo que dice saber?
 4. ¿Estarías dispuesto a demostrar previamente, mediante tu propia ruta de certificación, que realmente dominas la habilidad antes de poder revisar a otros en la plataforma? ¿Qué te parecería ese modelo?
 5. Si por cada caso resuelto acumularas SkillCredits que certifican tu nivel y puedes exhibirlos en LinkedIn como credencial verificable, ¿eso te motivaría más que recibir una compensación económica directa?
-6. ¿Qué tan importante es para ti que la persona que revisas o superviosas haya demostrado un nivel mínimo previo de conocimiento? ¿Por qué?
+6. ¿Qué tan importante es para ti que la persona que revisas o supervisas haya demostrado un nivel mínimo previo de conocimiento? ¿Por qué?
 7. ¿Qué herramientas usas actualmente cuando validas o supervisas el aprendizaje de alguien a distancia? ¿Qué limitaciones encuentras?
 8. ¿Te molestaría que la plataforma te asigne automáticamente el caso más adecuado para ti según tu especialidad y el error específico detectado, en vez de elegir tú directamente a quién ayudar?
 9. ¿Qué información necesitarías saber sobre el caso antes de revisarlo, para hacer tu evaluación más efectiva?
@@ -706,7 +713,7 @@ Mathias es egresado de Administración de la Universidad Nacional de San Agustí
  
 Cuando se estanca aprendiendo un tema nuevo, Mathias recurre a foros como Reddit y grupos de Facebook de marketing digital, aunque reconoce que los consejos que recibe son muy genéricos y a menudo no aplican a su situación específica. Ha intentado contactar a profesionales en LinkedIn pero rara vez recibe respuesta.
  
-Respecto al modelo de Innovify, Mathias lo ve como la solución directa a su problema principal: no quiere más teoría ni más certificados estándar, quiere que alguien con experiencia real confirme que lo que sabe es suficiente. Le parece especialmente valioso el sistema de quizzes y miniproyectos evaluados por Verificadores certificados, porque eso le daría una credencial con peso real ante empleadores. Mathias está dispuesto a pagar una suscripción mensual y considera que el modelo de examen de ingreso para Verificadores es un diferencial clave que lo haría confiar en la plataforma.
+Respecto al modelo de Innovify, Mathias lo ve como la solución directa a su problema principal: no quiere más teoría ni más certificados estándar, quiere que alguien con experiencia real confirme que lo que sabe es suficiente. Le parece especialmente valioso el sistema de quizzes y miniproyectos evaluados por Verificadores certificados, porque eso le daría una credencial con peso real ante empleadores. Mathias está dispuesto a pagar una suscripción mensual y considera que exigir a los Verificadores demostrar primero su propio dominio es un diferencial clave que lo haría confiar en la plataforma.
  
 **Entrevista 3**
 * **Nombres:** Carlos
@@ -917,7 +924,7 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 * **Valoración del modelo de validación práctica:**
   * Están dispuestos a pagar una suscripción mensual si garantiza evaluaciones prácticas y Verificadores certificados (100%).
   * Prefieren una credencial que muestre qué habilidades demostraron sobre un certificado estándar (100%).
-  * Valoran el modelo de examen de ingreso para Verificadores como garantía de calidad (100%).
+  * Valoran que los Verificadores demuestren su propio dominio antes de revisar a otros como garantía de calidad (100%).
 * **Preferencias sobre el Verificador:**
   * Priorizan que el Verificador tenga experiencia real en su área (proyectos, empresas) sobre la cantidad de casos resueltos (100%).
   * Prefieren una revisión enfocada en el sub-tema donde fallaron, no repetir el curso completo (100%).
@@ -934,7 +941,7 @@ El profesor Raúl Pardo, docente en la Universidad de Lima, considera una muy bu
 | Frustración por brecha certificado vs. dominio real | 100% | "Tenía el certificado pero en la entrevista técnica me bloqueé." |
 | Disposición a pagar suscripción mensual | 100% | "Pagaría si eso me garantiza Verificadores reales y evaluaciones prácticas." |
 | Preferencia por credencial verificable sobre certificado estándar | 100% | "Eso tendría más peso ante un empleador que un PDF de Coursera." |
-| Valoración del examen de ingreso para Verificadores | 100% | "Eso me daría confianza de que realmente sabe lo que evalúa." |
+| Valoración de la habilitación previa de los Verificadores | 100% | "Eso me daría confianza de que realmente sabe lo que evalúa." |
 | Preferencia por revisión quirúrgica (sub-tema específico) | 100% | "No quiero repasar todo el curso, solo donde fallé." |
 | Uso de ChatGPT como apoyo de aprendizaje | 100% | "Lo uso para resolver dudas, pero no sé si la respuesta está bien." |
 | Prioriza experiencia real del Verificador sobre cantidad de casos | 100% | "Prefiero que haya trabajado en mi área aunque tenga menos casos resueltos." |
@@ -1104,7 +1111,7 @@ En esta sección se presentan los User Journey Maps As-Is de cada User Persona, 
   <img src="public/assets/images-doc/jur1-app.png" alt="Journey Map Estudiante" width="800">
 </p>
 
-*Nota.* En esta figura se aprecia el Journey Mapping del primer segmento del nuevo proyecto Innovify. Elaboración propia.
+*Nota.* En esta figura se aprecia el Journey Mapping del primer segmento de SkillSwap. Elaboración propia.
 
 En esta figura se observa el recorrido de Valeria a través de cinco etapas críticas: decisión de aprender, búsqueda de recursos, obtención del certificado, bloqueo en la práctica real y búsqueda de validación. El diagrama detalla la curva emocional del arquetipo, identificando puntos de dolor como la incertidumbre sobre si está aprendiendo correctamente, la frustración al no poder demostrar el dominio en situaciones reales y la dificultad para encontrar una forma confiable de validar exactamente el sub-tema donde se bloqueó.
  
@@ -1118,7 +1125,7 @@ En esta figura se observa el recorrido de Valeria a través de cinco etapas crí
   <img src="public/assets/images-doc/jur2-app.png" alt="Journey Map Verificador" width="800">
 </p>
 
-*Nota.* En esta figura se aprecia el Journey Mapping del segundo segmento del nuevo proyecto Innovify. Elaboración propia.
+*Nota.* En esta figura se aprecia el Journey Mapping del segundo segmento de SkillSwap. Elaboración propia.
 
 <br>
 
@@ -1144,7 +1151,7 @@ Para profundizar en el entendimiento de los usuarios finales y diseñar una solu
   <img src="public/assets/images-doc/Empati1-app.png" alt="Empathy Map Estudiante" width="800">
 </p>
 
-*Nota.* En esta figura se aprecia el Empathy Mapping del primer segmento del nuevo proyecto Innovify. Elaboración propia.
+*Nota.* En esta figura se aprecia el Empathy Mapping del primer segmento de SkillSwap. Elaboración propia.
 
 Se observa el mapa de empatía de Valeria, arquetipo que representa al segmento de estudiantes. El diagrama detalla su necesidad de demostrar habilidades prácticas reales ante un mercado laboral que exige competencias verificables, no solo certificados. Sus principales puntos de dolor son la ansiedad por no saber si lo que aprendió es suficiente, la frustración de tener certificados que nadie toma en serio y la incapacidad de identificar exactamente en qué sub-tema está fallando para pedir una revisión específica. Sus ganancias esperadas son una credencial verificable con peso real ante empleadores y acceso a un Verificador que resuelva exactamente el bloqueo que tiene, sin tener que repasar todo el curso desde cero.
  
@@ -1158,7 +1165,7 @@ Se observa el mapa de empatía de Valeria, arquetipo que representa al segmento 
   <img src="public/assets/images-doc/Empati2-app.png" alt="Empathy Map Verificador" width="800">
 </p>
 
-*Nota.* En esta figura se aprecia el Empathy Mapping del segundo segmento del nuevo proyecto Innovify. Elaboración propia.
+*Nota.* En esta figura se aprecia el Empathy Mapping del segundo segmento de SkillSwap. Elaboración propia.
 
 <br>
 
@@ -1214,8 +1221,8 @@ En esta sección se presenta el lenguaje ubicuo de SkillSwap: los términos del 
 | Term | Término (español) | Definición |
 | :--- | :--- | :--- |
 | Student | Estudiante | Usuario universitario o joven profesional que declara una meta, sigue una ruta de certificación y demuestra sus habilidades en la plataforma. |
-| Verifier | Verificador | Estudiante que completó su propia ruta y aprobó el examen de ingreso de una habilidad; queda habilitado para revisar casos de esa habilidad. La supervisión de la calidad del proceso (resolver disputas y apelaciones, revisar certificados sospechosos y controlar a otros Verificadores) corresponde al Verificador senior. |
-| Senior Verifier | Verificador senior | Verificador que alcanzó el rango Oro y mantiene una confiabilidad de 90 o más, en la escala de 0 a 100; resuelve las apelaciones y revisa los certificados sospechosos. |
+| Verifier | Verificador | Estudiante que completó en su propia ruta el nodo de una habilidad; queda habilitado para revisar casos de esa habilidad. La supervisión de la calidad del proceso (resolver las disputas por certificados sospechosos y controlar la confiabilidad de otros Verificadores) corresponde al Verificador senior. |
+| Senior Verifier | Verificador senior | Verificador que alcanzó el rango Oro y mantiene una confiabilidad de 90 o más, en la escala de 0 a 100; resuelve las disputas por certificados sospechosos. |
 | Visitor | Visitante | Persona que consulta el Landing Page antes de descargar la aplicación o registrarse. |
 | Institutional Email | Correo institucional | Correo con dominio universitario (.edu.pe) que se exige para registrarse como Estudiante. |
 | Career Goal | Meta profesional | Habilidad u objetivo que el Estudiante describe con sus propias palabras y a partir del cual se construye su ruta. |
@@ -1226,9 +1233,9 @@ En esta sección se presenta el lenguaje ubicuo de SkillSwap: los términos del 
 | Paused Learning Path | Ruta pausada | Ruta de certificación que conserva su progreso, pero en la que el Estudiante no puede avanzar. Una ruta queda pausada cuando vence el plan mensual y el Estudiante tenía más rutas activas de las que permite el plan gratuito; vuelve a estar activa si el Estudiante pausa su ruta activa para reactivarla o si se suscribe de nuevo. |
 | Path Node | Nodo de la ruta | Paso de la ruta asociado a una habilidad; puede estar bloqueado, disponible o completado. |
 | Prerequisite | Prerrequisito | Nodo que debe completarse antes de que otro nodo quede disponible. |
-| Certificate | Certificado | Credencial externa (por ejemplo, de Coursera) que el Estudiante registra como evidencia de una habilidad. |
+| Certificate | Certificado | Credencial externa (por ejemplo, de Coursera) que el Estudiante registra como evidencia de una habilidad. Un certificado verificado completa el nodo de la habilidad que cubre; uno que solo superó el análisis de riesgo puede vincularse al nodo, pero no lo completa. |
 | Document Risk Assessment | Análisis de riesgo documental | Evaluación de un certificado que detecta inconsistencias, como un titular distinto o fechas incoherentes, y determina su nivel de riesgo. |
-| Suspicious Certificate | Certificado sospechoso | Certificado con riesgo documental alto que pasa a revisión de un Verificador antes de ser aceptado. |
+| Suspicious Certificate | Certificado sospechoso | Certificado con riesgo documental alto que se escala a un Verificador senior, quien lo confirma como verificado o lo rechaza. |
 | Duplicate Certificate | Certificado duplicado | Certificado cuyo archivo ya fue registrado antes en la plataforma y que no puede volver a usarse como evidencia. |
 | Assessment | Evaluación | Prueba que comprueba el dominio de la habilidad de un nodo; puede ser un quiz o un miniproyecto. |
 | Quiz | Quiz | Evaluación de cinco preguntas generada para la habilidad de un nodo, que se aprueba con al menos cuatro respuestas correctas (80%). |
@@ -1241,7 +1248,6 @@ En esta sección se presenta el lenguaje ubicuo de SkillSwap: los términos del 
 | Evidence | Evidencia | Material que respalda un caso, como el intento de evaluación o un enlace a un trabajo del Estudiante. |
 | Case Deadline | Plazo del caso | Tiempo máximo que tiene un Verificador para decidir un caso; al vencer, el caso se reasigna. |
 | Availability | Disponibilidad | Indicador de que un Verificador acepta recibir casos nuevos de sus habilidades habilitadas. |
-| Entrance Exam | Examen de ingreso | Prueba de ingreso para habilitarse como Verificador de una habilidad, incluida en el diseño de las pantallas del Verificador (ver 3.1.4); en la plataforma implementada, la habilitación exige completar el nodo de la habilidad. |
 | Verifier Reliability | Confiabilidad del Verificador | Indicador de la calidad de las decisiones de un Verificador, calculado a partir de sus casos resueltos y revertidos y expresado en una escala de 0 a 100. |
 | Employability Score | Puntaje de empleabilidad | Indicador que resume las habilidades demostradas por un Estudiante dentro de la plataforma. |
 | SkillCredits | SkillCredits | Unidades de reconocimiento no monetarias que recibe un Verificador por cada caso resuelto (40 SkillCredits por un miniproyecto y 25 por un quiz, lo apruebe o lo rechace); forman un saldo canjeable por beneficios de la plataforma y nunca se pueden comprar con dinero ni transferir. |
@@ -1250,10 +1256,9 @@ En esta sección se presenta el lenguaje ubicuo de SkillSwap: los términos del 
 | Redeemable Benefit | Beneficio canjeable | Beneficio que el Verificador obtiene al canjear SkillCredits: la ruta avanzada (200 SkillCredits), que pone a su disposición una ruta de certificación avanzada, o el certificado de contribución (120 SkillCredits), que acredita su labor como Verificador. |
 | Rank | Rango | Nivel visible en el perfil del Verificador que se alcanza según la cantidad de casos de verificación resueltos, no según el saldo de SkillCredits; por eso, canjear créditos no lo reduce. Hay tres rangos: Bronce (0 a 29 casos resueltos), Plata (30 a 99) y Oro (100 o más). |
 | Subscription | Suscripción | Plan mensual opcional, de S/ 29,90 con IGV incluido y cobrado mediante Google Play Billing, integrado a través de RevenueCat, que amplía los límites del plan gratuito (1 ruta activa a la vez, hasta 3 rutas en total y 3 escalamientos al mes, revisados en hasta 5 días hábiles) a hasta 3 rutas activas a la vez, sin tope de rutas en total, y 10 escalamientos al mes, revisados en 48 horas, y reduce los tiempos de espera. |
-| Dispute | Disputa | Caso que revisa un Verificador senior, originado por un certificado sospechoso o por el reporte de una decisión. |
-| Appeal | Apelación | Solicitud del Estudiante para que un Verificador senior revise la decisión del Verificador que resolvió su caso. |
+| Dispute | Disputa | Caso que revisa un Verificador senior y que se abre cuando un certificado se registra como sospechoso. |
+| Appeal | Apelación | Solicitud del Estudiante para que un Verificador distinto del original revise de nuevo un caso rechazado. Se permite una apelación por caso y, si la decisión se revierte, se registra en la confiabilidad del Verificador original. |
 | Re-evaluation | Reevaluación | Nuevo intento que un Verificador senior habilita cuando existen dudas sobre un resultado. |
-| Sanction | Sanción | Medida que se aplica a una cuenta, como dejarla en seguimiento, cuando se confirma un certificado fraudulento. |
 | Final Demonstration | Demostración final | Prueba integral que el Estudiante presenta al completar su ruta y que califica un Verificador. |
 
 *Nota.* Elaboración propia.
@@ -1294,7 +1299,7 @@ En el mapa se observa que con Innovify, Valeria se registra con su correo instit
 
 *Nota.* Elaborado con la herramienta Miro. Elaboración propia.
 
-En el mapa se observa que con Innovify, Rodrigo primero certifica su propia ruta y supera el examen de ingreso, lo que garantiza que quien revisa realmente sabe. Recibe casos asignados automáticamente con información precisa del punto donde falló el estudiante, los revisa frente a una rúbrica estructurada y acumula SkillCredits verificables por cada caso resuelto. Estos SkillCredits los exporta a LinkedIn como credencial profesional, transformando su labor de revisión en reconocimiento real y verificable.
+En el mapa se observa que con Innovify, Rodrigo primero completa en su propia ruta el nodo de la habilidad que revisará, lo que garantiza que quien revisa realmente sabe. Recibe casos asignados automáticamente con información precisa del punto donde falló el estudiante, los revisa frente a una rúbrica estructurada y acumula SkillCredits verificables por cada caso resuelto. Estos SkillCredits los exporta a LinkedIn como credencial profesional, transformando su labor de revisión en reconocimiento real y verificable.
 
 ---
 
@@ -1336,7 +1341,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><th colspan="4">Description</th></tr>
   <tr><td colspan="4">Como estudiante, quiero registrarme con mi correo institucional, para acceder a la plataforma como un usuario universitario verificado.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Registro con dominio institucional válido</strong><br><strong>Dado que</strong> el estudiante no tiene una cuenta registrada<br><strong>Cuando</strong> envía su nombre de usuario, contraseña y un correo con dominio .edu.pe<br><strong>Entonces</strong> el sistema crea la cuenta con el rol Student<br><strong>Y</strong> envía un correo de verificación a la dirección registrada<br><br><strong>Escenario 2: Registro con dominio no institucional</strong><br><strong>Dado que</strong> el estudiante no tiene una cuenta registrada<br><strong>Cuando</strong> envía un correo cuyo dominio no pertenece a una institución educativa (.edu.pe)<br><strong>Entonces</strong> el sistema rechaza el registro<br><strong>Y</strong> informa que solo se aceptan correos institucionales<br><br><strong>Escenario 3: Registro con correo ya utilizado</strong><br><strong>Dado que</strong> existe una cuenta asociada a un correo institucional<br><strong>Cuando</strong> otro registro se envía con ese mismo correo<br><strong>Entonces</strong> el sistema rechaza el registro<br><strong>Y</strong> informa que el correo ya se encuentra en uso</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Registro con dominio institucional válido</strong><br><strong>Dado que</strong> el estudiante no tiene una cuenta registrada<br><strong>Cuando</strong> envía su nombre de usuario, contraseña y un correo con dominio .edu.pe<br><strong>Entonces</strong> el sistema crea la cuenta con el rol Student<br><strong>Y</strong> envía a la dirección registrada un correo con un enlace de verificación de un solo uso, válido por 24 horas<br><br><strong>Escenario 2: Registro con dominio no institucional</strong><br><strong>Dado que</strong> el estudiante no tiene una cuenta registrada<br><strong>Cuando</strong> envía un correo cuyo dominio no pertenece a una institución educativa (.edu.pe)<br><strong>Entonces</strong> el sistema rechaza el registro<br><strong>Y</strong> informa que solo se aceptan correos institucionales<br><br><strong>Escenario 3: Registro con correo ya utilizado</strong><br><strong>Dado que</strong> existe una cuenta asociada a un correo institucional<br><strong>Cuando</strong> otro registro se envía con ese mismo correo<br><strong>Entonces</strong> el sistema rechaza el registro<br><strong>Y</strong> informa que el correo ya se encuentra en uso</td></tr>
 </table>
 
 <table>
@@ -1456,7 +1461,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><th colspan="4">Description</th></tr>
   <tr><td colspan="4">Como estudiante, quiero que la aplicación extraiga automáticamente los datos de mi certificado, para no transcribir manualmente el curso, la institución y la fecha.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Extracción completa</strong><br><strong>Dado que</strong> el estudiante registró la imagen de un certificado<br><strong>Cuando</strong> el reconocimiento de texto on-device procesa la imagen<br><strong>Entonces</strong> el sistema obtiene el titular, la institución, el curso y la fecha de emisión<br><strong>Y</strong> conserva el texto completo extraído para auditoría<br><br><strong>Escenario 2: Extracción parcial</strong><br><strong>Dado que</strong> el reconocimiento de texto no identifica uno o más campos obligatorios<br><strong>Cuando</strong> finaliza la extracción<br><strong>Entonces</strong> el sistema solicita al estudiante completar los campos faltantes<br><strong>Y</strong> marca dichos campos como ingresados manualmente<br><br><strong>Escenario 3: Titular distinto al usuario</strong><br><strong>Dado que</strong> el titular extraído no coincide con el nombre registrado del estudiante<br><strong>Cuando</strong> el sistema evalúa el riesgo del certificado<br><strong>Entonces</strong> el certificado se registra con estado sospechoso<br><strong>Y</strong> se escala a un Verificador</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Extracción completa</strong><br><strong>Dado que</strong> el estudiante registró la imagen de un certificado<br><strong>Cuando</strong> el reconocimiento de texto on-device procesa la imagen<br><strong>Entonces</strong> el sistema obtiene el titular, la institución, el curso y la fecha de emisión<br><strong>Y</strong> conserva el texto completo extraído para auditoría<br><br><strong>Escenario 2: Extracción parcial</strong><br><strong>Dado que</strong> el reconocimiento de texto no identifica uno o más campos obligatorios<br><strong>Cuando</strong> finaliza la extracción<br><strong>Entonces</strong> la aplicación solicita al estudiante completar los campos faltantes antes de enviar el certificado<br><br><strong>Escenario 3: Titular distinto al usuario</strong><br><strong>Dado que</strong> el titular extraído no coincide con el nombre registrado del estudiante<br><strong>Cuando</strong> el sistema evalúa el riesgo del certificado<br><strong>Entonces</strong> el certificado se registra con estado sospechoso<br><strong>Y</strong> se escala a un Verificador senior</td></tr>
 </table>
 
 <table>
@@ -1466,7 +1471,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><th colspan="4">Description</th></tr>
   <tr><td colspan="4">Como estudiante, quiero que la plataforma detecte certificados duplicados, para que ningún usuario obtenga una validación con un documento ya utilizado.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Certificado original</strong><br><strong>Dado que</strong> el hash del archivo no coincide con ningún certificado registrado<br><strong>Cuando</strong> el estudiante registra el certificado<br><strong>Entonces</strong> el sistema continúa con la evaluación de riesgo del certificado<br><br><strong>Escenario 2: Certificado duplicado del mismo usuario</strong><br><strong>Dado que</strong> el estudiante ya registró un archivo con el mismo hash<br><strong>Cuando</strong> intenta registrarlo nuevamente<br><strong>Entonces</strong> el sistema rechaza el registro<br><strong>Y</strong> referencia el certificado existente<br><br><strong>Escenario 3: Certificado registrado por otro usuario</strong><br><strong>Dado que</strong> otro usuario ya registró un archivo con el mismo hash<br><strong>Cuando</strong> el estudiante registra el certificado<br><strong>Entonces</strong> el sistema asigna el estado sospechoso al certificado<br><strong>Y</strong> escala el caso a un Verificador</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Certificado original</strong><br><strong>Dado que</strong> el hash del archivo no coincide con ningún certificado registrado<br><strong>Cuando</strong> el estudiante registra el certificado<br><strong>Entonces</strong> el sistema continúa con la evaluación de riesgo del certificado<br><br><strong>Escenario 2: Certificado duplicado del mismo usuario</strong><br><strong>Dado que</strong> el estudiante ya registró un archivo con el mismo hash<br><strong>Cuando</strong> intenta registrarlo nuevamente<br><strong>Entonces</strong> el sistema rechaza el registro<br><strong>Y</strong> referencia el certificado existente<br><br><strong>Escenario 3: Certificado registrado por otro usuario</strong><br><strong>Dado que</strong> otro usuario ya registró un archivo con el mismo hash<br><strong>Cuando</strong> el estudiante registra el certificado<br><strong>Entonces</strong> el sistema asigna el estado sospechoso al certificado<br><strong>Y</strong> escala el caso a un Verificador senior</td></tr>
 </table>
 
 <table>
@@ -1474,9 +1479,9 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><td>US15</td><td>Estudiante</td><td>Alta</td><td>EP03</td></tr>
   <tr><th>Title</th><td colspan="3">Correspondencia del certificado con la habilidad</td></tr>
   <tr><th colspan="4">Description</th></tr>
-  <tr><td colspan="4">Como estudiante, quiero que la IA confirme que mi certificado realmente cubre la habilidad del nodo al que lo asocio, para que mi avance refleje lo que efectivamente estudié.</td></tr>
+  <tr><td colspan="4">Como estudiante, quiero que la plataforma confirme que mi certificado realmente cubre la habilidad del nodo al que lo asocio, para que mi avance refleje lo que efectivamente estudié.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Certificado que cubre la habilidad</strong><br><strong>Dado que</strong> el estudiante asocia un certificado verificado a un nodo de su ruta<br><strong>Cuando</strong> el sistema compara el contenido extraído con la habilidad del nodo<br><strong>Y</strong> la similitud supera el umbral definido<br><strong>Entonces</strong> el sistema vincula el certificado al nodo<br><strong>Y</strong> habilita la evaluación práctica del nodo<br><br><strong>Escenario 2: Certificado que no cubre la habilidad</strong><br><strong>Dado que</strong> el estudiante asocia un certificado verificado a un nodo de su ruta<br><strong>Cuando</strong> la similitud entre el contenido extraído y la habilidad no supera el umbral definido<br><strong>Entonces</strong> el sistema no vincula el certificado al nodo<br><strong>Y</strong> sugiere los nodos de la ruta con los que el certificado sí guarda correspondencia</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Certificado que cubre la habilidad</strong><br><strong>Dado que</strong> el estudiante asocia a un nodo de su ruta un certificado que superó el análisis de riesgo<br><strong>Cuando</strong> el sistema compara el contenido extraído con la habilidad del nodo<br><strong>Y</strong> la similitud supera el umbral definido<br><strong>Entonces</strong> el sistema vincula el certificado al nodo<br><strong>Y</strong> mantiene la evaluación práctica como requisito para completar el nodo<br><br><strong>Escenario 2: Certificado que no cubre la habilidad</strong><br><strong>Dado que</strong> el estudiante asocia a un nodo de su ruta un certificado que superó el análisis de riesgo<br><strong>Cuando</strong> la similitud entre el contenido extraído y la habilidad no supera el umbral definido<br><strong>Entonces</strong> el sistema no vincula el certificado al nodo<br><strong>Y</strong> sugiere los nodos de la ruta con los que el certificado sí guarda correspondencia</td></tr>
 </table>
 
 <table>
@@ -1494,9 +1499,9 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><td>US17</td><td>Estudiante</td><td>Alta</td><td>EP04</td></tr>
   <tr><th>Title</th><td colspan="3">Generación del quiz de un nodo</td></tr>
   <tr><th colspan="4">Description</th></tr>
-  <tr><td colspan="4">Como estudiante, quiero que la IA genere un quiz basado en la habilidad de mi certificado, para demostrar que adquirí el conocimiento y no solo el documento.</td></tr>
+  <tr><td colspan="4">Como estudiante, quiero que la IA genere un quiz basado en la habilidad de mi nodo, para demostrar que adquirí el conocimiento y no solo el documento.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Generación de quiz</strong><br><strong>Dado que</strong> el estudiante tiene un nodo disponible con un certificado vinculado<br><strong>Cuando</strong> solicita su evaluación práctica<br><strong>Entonces</strong> el sistema genera un quiz sobre los sub-temas de la habilidad del nodo<br><strong>Y</strong> asocia el quiz al nodo<br><br><strong>Escenario 2: Nodo bloqueado</strong><br><strong>Dado que</strong> el nodo del estudiante se encuentra bloqueado<br><strong>Cuando</strong> solicita su evaluación práctica<br><strong>Entonces</strong> el sistema rechaza la solicitud<br><strong>Y</strong> indica el nodo prerrequisito pendiente<br><br><strong>Escenario 3: Nuevo intento con preguntas distintas</strong><br><strong>Dado que</strong> el estudiante ya rindió el quiz de un nodo<br><strong>Cuando</strong> se le habilita un nuevo intento<br><strong>Entonces</strong> el sistema genera un quiz con preguntas distintas a las del intento anterior</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Generación de quiz</strong><br><strong>Dado que</strong> el estudiante tiene un nodo disponible en su ruta<br><strong>Cuando</strong> solicita su evaluación práctica<br><strong>Entonces</strong> el sistema genera un quiz sobre los sub-temas de la habilidad del nodo<br><strong>Y</strong> asocia el quiz al nodo<br><br><strong>Escenario 2: Nodo bloqueado</strong><br><strong>Dado que</strong> el nodo del estudiante se encuentra bloqueado<br><strong>Cuando</strong> solicita su evaluación práctica<br><strong>Entonces</strong> el sistema rechaza la solicitud<br><strong>Y</strong> indica el nodo prerrequisito pendiente<br><br><strong>Escenario 3: Nuevo intento con preguntas distintas</strong><br><strong>Dado que</strong> el estudiante ya rindió el quiz de un nodo<br><strong>Cuando</strong> solicita un nuevo intento<br><strong>Entonces</strong> el sistema genera un quiz con preguntas distintas a las del intento anterior</td></tr>
 </table>
 
 <table>
@@ -1506,7 +1511,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><th colspan="4">Description</th></tr>
   <tr><td colspan="4">Como estudiante, quiero rendir el quiz y conocer mi resultado de inmediato, para saber si demostré la habilidad del nodo.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Quiz aprobado</strong><br><strong>Dado que</strong> el estudiante rinde el quiz de un nodo<br><strong>Cuando</strong> envía sus respuestas<br><strong>Y</strong> acierta al menos 4 de las 5 preguntas (puntaje calculado en el servidor)<br><strong>Entonces</strong> el sistema registra el intento como aprobado<br><strong>Y</strong> marca el nodo como completado<br><br><strong>Escenario 2: Quiz no aprobado</strong><br><strong>Dado que</strong> el estudiante rinde el quiz de un nodo<br><strong>Cuando</strong> acierta menos de 4 de las 5 preguntas<br><strong>Entonces</strong> el sistema registra el intento como no aprobado<br><strong>Y</strong> abre un caso de verificación asociado al intento<br><br><strong>Escenario 3: Reenvío sobre un blueprint ya resuelto</strong><br><strong>Dado que</strong> el estudiante ya envió respuestas para un blueprint<br><strong>Cuando</strong> intenta enviarlas nuevamente sobre el mismo blueprint<br><strong>Entonces</strong> el sistema rechaza el envío indicando que el intento ya fue registrado</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Quiz aprobado</strong><br><strong>Dado que</strong> el estudiante rinde el quiz de un nodo<br><strong>Cuando</strong> envía sus respuestas<br><strong>Y</strong> acierta al menos 4 de las 5 preguntas (puntaje calculado en el servidor)<br><strong>Entonces</strong> el sistema registra el intento como aprobado<br><strong>Y</strong> marca el nodo como completado<br><br><strong>Escenario 2: Quiz no aprobado</strong><br><strong>Dado que</strong> el estudiante rinde el quiz de un nodo<br><strong>Cuando</strong> acierta menos de 4 de las 5 preguntas<br><strong>Entonces</strong> el sistema registra el intento como no aprobado<br><strong>Y</strong> abre un caso de verificación asociado al intento, si el estudiante aún tiene escalamientos disponibles en el mes según su plan<br><br><strong>Escenario 3: Reenvío sobre un blueprint ya resuelto</strong><br><strong>Dado que</strong> el estudiante ya envió respuestas para un blueprint<br><strong>Cuando</strong> intenta enviarlas nuevamente sobre el mismo blueprint<br><strong>Entonces</strong> el sistema rechaza el envío indicando que el intento ya fue registrado</td></tr>
 </table>
 
 <table>
@@ -1626,7 +1631,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><th colspan="4">Description</th></tr>
   <tr><td colspan="4">Como Verificador, quiero recibir SkillCredits por cada caso que resuelvo, para que mi labor de verificación sea reconocida.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Acreditación tras resolver un miniproyecto</strong><br><strong>Dado que</strong> el Verificador resuelve un caso de verificación de tipo miniproyecto<br><strong>Cuando</strong> el sistema registra la resolución<br><strong>Entonces</strong> el sistema acredita 40 SkillCredits en su billetera, sea que el caso se apruebe o se rechace<br><strong>Y</strong> registra una transacción de tipo ganado<br><br><strong>Escenario 2: Acreditación tras resolver un quiz</strong><br><strong>Dado que</strong> el Verificador resuelve un caso de verificación de tipo quiz<br><strong>Cuando</strong> el sistema registra la resolución<br><strong>Entonces</strong> el sistema acredita 25 SkillCredits en su billetera, sea que el caso se apruebe o se rechace<br><strong>Y</strong> registra una transacción de tipo ganado<br><br><strong>Escenario 3: Decisión revertida</strong><br><strong>Dado que</strong> otro Verificador revierte la decisión del Verificador original tras una disputa<br><strong>Cuando</strong> el sistema registra la reversión<br><strong>Entonces</strong> el sistema no acredita SkillCredits adicionales por ese caso<br><strong>Y</strong> reduce la confiabilidad del Verificador</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Acreditación tras resolver un miniproyecto</strong><br><strong>Dado que</strong> el Verificador resuelve un caso de verificación de tipo miniproyecto<br><strong>Cuando</strong> el sistema registra la resolución<br><strong>Entonces</strong> el sistema acredita 40 SkillCredits en su billetera, sea que el caso se apruebe o se rechace<br><strong>Y</strong> registra una transacción de tipo ganado<br><br><strong>Escenario 2: Acreditación tras resolver un quiz</strong><br><strong>Dado que</strong> el Verificador resuelve un caso de verificación de tipo quiz<br><strong>Cuando</strong> el sistema registra la resolución<br><strong>Entonces</strong> el sistema acredita 25 SkillCredits en su billetera, sea que el caso se apruebe o se rechace<br><strong>Y</strong> registra una transacción de tipo ganado<br><br><strong>Escenario 3: Decisión revertida</strong><br><strong>Dado que</strong> otro Verificador aprueba, tras una apelación, un caso que el Verificador original había rechazado<br><strong>Cuando</strong> el sistema registra la reversión<br><strong>Entonces</strong> el sistema no acredita SkillCredits adicionales al Verificador original por ese caso<br><strong>Y</strong> reduce la confiabilidad del Verificador original</td></tr>
 </table>
 
 <table>
@@ -1664,9 +1669,9 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><td>US34</td><td>Verificador senior</td><td>Alta</td><td>EP08</td></tr>
   <tr><th>Title</th><td colspan="3">Consulta de disputas pendientes</td></tr>
   <tr><th colspan="4">Description</th></tr>
-  <tr><td colspan="4">Como Verificador senior, quiero consultar las disputas pendientes con su evidencia, para priorizar y resolver los casos que requieren mi decisión.</td></tr>
+  <tr><td colspan="4">Como Verificador senior, quiero consultar las disputas pendientes que tengo asignadas con su evidencia, para priorizar y resolver los casos que requieren mi decisión.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Listado de disputas pendientes</strong><br><strong>Dado que</strong> existen disputas en estado pendiente<br><strong>Cuando</strong> el Verificador senior consulta las disputas<br><strong>Entonces</strong> el sistema retorna las disputas pendientes ordenadas por antigüedad<br><strong>Y</strong> cada una indica su origen: certificado sospechoso, apelación o reporte de usuario<br><br><strong>Escenario 2: Consulta de evidencia</strong><br><strong>Dado que</strong> el Verificador senior consulta una disputa<br><strong>Cuando</strong> solicita su evidencia<br><strong>Entonces</strong> el sistema retorna los datos extraídos y la evaluación de riesgo del certificado, o la rúbrica y la evidencia del caso, según el origen</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Listado de disputas pendientes</strong><br><strong>Dado que</strong> existen disputas en estado pendiente asignadas al Verificador senior<br><strong>Cuando</strong> el Verificador senior consulta sus disputas<br><strong>Entonces</strong> el sistema retorna las disputas pendientes ordenadas de la más antigua a la más reciente<br><strong>Y</strong> cada una indica su origen: la revisión de un certificado sospechoso<br><br><strong>Escenario 2: Consulta de evidencia</strong><br><strong>Dado que</strong> el Verificador senior consulta una disputa<br><strong>Cuando</strong> solicita su evidencia<br><strong>Entonces</strong> el sistema retorna los datos extraídos, la evaluación de riesgo y un enlace temporal al archivo del certificado</td></tr>
 </table>
 
 <table>
@@ -1676,37 +1681,37 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><th colspan="4">Description</th></tr>
   <tr><td colspan="4">Como Verificador senior, quiero decidir sobre los certificados marcados como sospechosos, para evitar que documentos fraudulentos se validen en la plataforma.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Certificado legítimo</strong><br><strong>Dado que</strong> el Verificador senior revisa un certificado sospechoso<br><strong>Cuando</strong> lo resuelve como legítimo<br><strong>Entonces</strong> el certificado cambia a estado verificado<br><strong>Y</strong> se vincula a la ruta del estudiante<br><br><strong>Escenario 2: Certificado fraudulento</strong><br><strong>Dado que</strong> el Verificador senior revisa un certificado sospechoso<br><strong>Cuando</strong> lo resuelve como fraudulento<br><strong>Entonces</strong> el certificado cambia a estado rechazado<br><strong>Y</strong> el sistema registra una sanción sobre la cuenta del estudiante<br><br><strong>Escenario 3: Resolución sin observaciones</strong><br><strong>Dado que</strong> el Verificador senior resuelve una disputa<br><strong>Cuando</strong> no registra observaciones<br><strong>Entonces</strong> el sistema no aplica la resolución<br><strong>Y</strong> exige el registro de observaciones</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Certificado legítimo</strong><br><strong>Dado que</strong> el Verificador senior revisa un certificado sospechoso<br><strong>Cuando</strong> lo resuelve como legítimo<br><strong>Entonces</strong> el certificado cambia a estado verificado<br><strong>Y</strong> el sistema completa los nodos de las rutas del estudiante cuya habilidad cubre el certificado<br><br><strong>Escenario 2: Certificado fraudulento</strong><br><strong>Dado que</strong> el Verificador senior revisa un certificado sospechoso<br><strong>Cuando</strong> lo resuelve como fraudulento<br><strong>Entonces</strong> el certificado cambia a estado rechazado<br><strong>Y</strong> el sistema notifica al estudiante el rechazo<br><br><strong>Escenario 3: Resolución sin observaciones</strong><br><strong>Dado que</strong> el Verificador senior resuelve una disputa<br><strong>Cuando</strong> no registra observaciones<br><strong>Entonces</strong> el sistema no aplica la resolución<br><strong>Y</strong> exige el registro de observaciones</td></tr>
 </table>
 
 <table>
   <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-  <tr><td>US36</td><td>Verificador senior</td><td>Alta</td><td>EP08</td></tr>
-  <tr><th>Title</th><td colspan="3">Resolución de apelaciones</td></tr>
+  <tr><td>US36</td><td>Verificador</td><td>Alta</td><td>EP08</td></tr>
+  <tr><th>Title</th><td colspan="3">Revisión de casos apelados</td></tr>
   <tr><th colspan="4">Description</th></tr>
-  <tr><td colspan="4">Como Verificador senior, quiero resolver las apelaciones de los estudiantes sobre decisiones de otros Verificadores, para corregir decisiones incorrectas y mantener la confianza en el proceso.</td></tr>
+  <tr><td colspan="4">Como Verificador, quiero revisar los casos apelados que se me asignan, para corregir las decisiones incorrectas de otros Verificadores y mantener la confianza en el proceso.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Decisión confirmada</strong><br><strong>Dado que</strong> el Verificador senior revisa una apelación<br><strong>Cuando</strong> confirma la decisión del Verificador original<br><strong>Entonces</strong> la disputa se resuelve sin cambios sobre el caso original<br><br><strong>Escenario 2: Decisión revertida</strong><br><strong>Dado que</strong> el Verificador senior revisa una apelación<br><strong>Cuando</strong> revierte la decisión del Verificador original<br><strong>Entonces</strong> el caso original cambia a aprobado<br><strong>Y</strong> el sistema registra la reversión en la confiabilidad del Verificador original</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Decisión confirmada</strong><br><strong>Dado que</strong> un caso apelado está asignado a un Verificador distinto del que lo rechazó<br><strong>Cuando</strong> el Verificador lo resuelve como rechazado con sus notas de rúbrica<br><strong>Entonces</strong> el caso queda rechazado<br><strong>Y</strong> el estudiante ya no puede volver a apelarlo<br><br><strong>Escenario 2: Decisión revertida</strong><br><strong>Dado que</strong> un caso apelado está asignado a un Verificador distinto del que lo rechazó<br><strong>Cuando</strong> el Verificador lo resuelve como aprobado con sus notas de rúbrica<br><strong>Entonces</strong> el caso cambia a aprobado y el nodo del estudiante se completa<br><strong>Y</strong> el sistema registra la reversión en la confiabilidad del Verificador original</td></tr>
 </table>
 
 <table>
   <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
   <tr><td>US37</td><td>Verificador senior</td><td>Alta</td><td>EP08</td></tr>
-  <tr><th>Title</th><td colspan="3">Habilitación de reevaluación o nuevo intento</td></tr>
+  <tr><th>Title</th><td colspan="3">Reevaluación de un resultado aprobado</td></tr>
   <tr><th colspan="4">Description</th></tr>
-  <tr><td colspan="4">Como Verificador senior, quiero habilitar una reevaluación o un nuevo intento a un estudiante, para que vuelva a demostrar su habilidad cuando existan dudas sobre un resultado.</td></tr>
+  <tr><td colspan="4">Como Verificador senior, quiero ordenar la reevaluación de un resultado aprobado, para que el estudiante vuelva a demostrar su habilidad cuando existan dudas sobre ese resultado.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Habilitación de nuevo intento</strong><br><strong>Dado que</strong> un estudiante agotó los intentos de un nodo<br><strong>Cuando</strong> el Verificador senior habilita un nuevo intento con su justificación<br><strong>Entonces</strong> el sistema habilita una nueva evaluación en ese nodo<br><strong>Y</strong> registra la justificación del Verificador senior<br><br><strong>Escenario 2: Reevaluación de un resultado aprobado</strong><br><strong>Dado que</strong> el Verificador senior identifica dudas sobre un intento aprobado<br><strong>Cuando</strong> ordena una reevaluación<br><strong>Entonces</strong> el nodo del estudiante vuelve a estado disponible<br><strong>Y</strong> el sistema genera una nueva evaluación</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Reevaluación de un intento aprobado</strong><br><strong>Dado que</strong> el Verificador senior identifica dudas sobre un intento aprobado<br><strong>Cuando</strong> ordena una reevaluación con su justificación<br><strong>Entonces</strong> el nodo del estudiante vuelve a estado disponible<br><strong>Y</strong> el sistema genera una nueva evaluación y registra la justificación del Verificador senior<br><br><strong>Escenario 2: Reevaluación de un caso aprobado</strong><br><strong>Dado que</strong> el Verificador senior identifica dudas sobre un caso aprobado por un Verificador<br><strong>Cuando</strong> ordena su reevaluación con su justificación<br><strong>Entonces</strong> el sistema reabre el caso<br><strong>Y</strong> lo asigna a otro Verificador habilitado, distinto del que lo aprobó</td></tr>
 </table>
 
 <table>
   <tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
   <tr><td>US38</td><td>Verificador senior</td><td>Media</td><td>EP08</td></tr>
-  <tr><th>Title</th><td colspan="3">Exigencia de nuevo examen al Verificador</td></tr>
+  <tr><th>Title</th><td colspan="3">Suspensión de un Verificador con baja confiabilidad</td></tr>
   <tr><th colspan="4">Description</th></tr>
-  <tr><td colspan="4">Como Verificador senior, quiero exigir que un Verificador con baja confiabilidad vuelva a rendir su examen de ingreso, para asegurar la calidad de sus revisiones.</td></tr>
+  <tr><td colspan="4">Como Verificador senior, quiero suspender temporalmente la habilitación de un Verificador con baja confiabilidad, para asegurar la calidad de las revisiones.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Exigencia de nuevo examen</strong><br><strong>Dado que</strong> un Verificador tiene una confiabilidad menor al umbral definido<br><strong>Cuando</strong> el Verificador senior exige un nuevo examen de ingreso<br><strong>Entonces</strong> el sistema suspende su habilitación en la habilidad<br><strong>Y</strong> reasigna sus casos abiertos a otros Verificadores<br><br><strong>Escenario 2: Rehabilitación tras aprobar</strong><br><strong>Dado que</strong> un Verificador tiene la habilitación suspendida por exigencia de nuevo examen<br><strong>Cuando</strong> aprueba el examen de ingreso<br><strong>Entonces</strong> el sistema restablece su habilitación en la habilidad</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Suspensión por baja confiabilidad</strong><br><strong>Dado que</strong> un Verificador tiene una confiabilidad menor al umbral definido por la plataforma<br><strong>Cuando</strong> el Verificador senior suspende su habilitación y registra su justificación<br><strong>Entonces</strong> el sistema deja de asignarle casos nuevos<br><strong>Y</strong> reasigna sus casos abiertos a otros Verificadores habilitados<br><br><strong>Escenario 2: Rehabilitación</strong><br><strong>Dado que</strong> un Verificador tiene la habilitación suspendida<br><strong>Cuando</strong> el Verificador senior revisa su desempeño y restablece la habilitación<br><strong>Entonces</strong> el sistema vuelve a asignarle casos de sus habilidades habilitadas<br><strong>Y</strong> conserva su historial de confiabilidad</td></tr>
 </table>
 
 <table>
@@ -1746,7 +1751,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><th colspan="4">Description</th></tr>
   <tr><td colspan="4">Como visitante, quiero conocer los requisitos y beneficios de ser Verificador, para saber cómo participar y qué reconocimiento puedo obtener.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Requisitos para ser Verificador</strong><br><strong>Dado que</strong> el visitante accede a la landing page<br><strong>Cuando</strong> consulta la información dirigida a Verificadores<br><strong>Entonces</strong> el sitio presenta los requisitos de habilitación: completar la ruta de certificación y aprobar el examen de ingreso<br><br><strong>Escenario 2: Beneficios del Verificador</strong><br><strong>Dado que</strong> el visitante consulta la información dirigida a Verificadores<br><strong>Cuando</strong> revisa los beneficios<br><strong>Entonces</strong> el sitio explica qué son los SkillCredits, cómo se obtienen y cómo se comparten como credencial verificable</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Requisitos para ser Verificador</strong><br><strong>Dado que</strong> el visitante accede a la landing page<br><strong>Cuando</strong> consulta la información dirigida a Verificadores<br><strong>Entonces</strong> el sitio presenta el requisito de habilitación: haber certificado en su propia ruta la misma habilidad que desea revisar<br><br><strong>Escenario 2: Beneficios del Verificador</strong><br><strong>Dado que</strong> el visitante consulta la información dirigida a Verificadores<br><strong>Cuando</strong> revisa los beneficios<br><strong>Entonces</strong> el sitio explica qué son los SkillCredits, cómo se obtienen y cómo se comparten como credencial verificable</td></tr>
 </table>
 
 <table>
@@ -1766,7 +1771,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><th colspan="4">Description</th></tr>
   <tr><td colspan="4">Como visitante, quiero acceder a la descarga de la aplicación desde la landing page, para instalarla en mi dispositivo sin buscarla manualmente.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Redirección a la tienda</strong><br><strong>Dado que</strong> el visitante accede a la landing page desde cualquier dispositivo<br><strong>Cuando</strong> solicita descargar la aplicación<br><strong>Entonces</strong> el sitio lo redirige a la ficha de SkillSwap en Google Play<br><br><strong>Escenario 2: Requisito de correo institucional</strong><br><strong>Dado que</strong> el visitante solicita descargar la aplicación<br><strong>Cuando</strong> el sitio presenta la información de registro<br><strong>Entonces</strong> el sitio informa que el registro requiere un correo institucional con dominio .edu.pe</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Acceso a la descarga</strong><br><strong>Dado que</strong> el visitante accede a la landing page desde cualquier dispositivo<br><strong>Cuando</strong> selecciona "Descarga la app"<br><strong>Entonces</strong> el sitio lo lleva a la sección de descarga, que presenta la aplicación para Android y su disponibilidad en Google Play<br><br><strong>Escenario 2: Requisito de correo institucional</strong><br><strong>Dado que</strong> el visitante solicita descargar la aplicación<br><strong>Cuando</strong> el sitio presenta la información de registro<br><strong>Entonces</strong> el sitio informa que el registro requiere un correo institucional con dominio .edu.pe</td></tr>
 </table>
 
 <table>
@@ -1804,9 +1809,9 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><td>TS03</td><td>Developer</td><td>Alta</td><td>EP03</td></tr>
   <tr><th>Title</th><td colspan="3">Endpoint de registro de certificados</td></tr>
   <tr><th colspan="4">Description</th></tr>
-  <tr><td colspan="4">Como developer, quiero implementar el endpoint POST /api/v1/certificates, para registrar los certificados con los datos extraídos on-device y disparar su evaluación de riesgo.</td></tr>
+  <tr><td colspan="4">Como developer, quiero implementar el endpoint POST /api/v1/certificates, para registrar los certificados (archivo y datos extraídos on-device) y disparar su evaluación de riesgo.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Registro de certificado</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/certificates está disponible<br><strong>Cuando</strong> se envía un UploadCertificateResource válido con los datos extraídos, el fileHash y la storageReference<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene el certificado con su status y riskAssessment<br><br><strong>Escenario 2: Hash duplicado del mismo propietario</strong><br><strong>Dado que</strong> el propietario ya registró un certificado con el mismo fileHash<br><strong>Cuando</strong> se envía el request<br><strong>Entonces</strong> el response tiene el código 409 Conflict<br><br><strong>Escenario 3: Campos obligatorios ausentes</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/certificates está disponible<br><strong>Cuando</strong> se envía un request sin holderName, institutionName o courseName<br><strong>Entonces</strong> el response tiene el código 400 Bad Request</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Registro de certificado</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/certificates está disponible<br><strong>Cuando</strong> se envía un formulario multipart/form-data con el archivo (JPG, PNG o PDF de hasta 10 MB) y los datos extraídos on-device<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene el certificado con su status y su evaluación de riesgo<br><br><strong>Escenario 2: Archivo duplicado del mismo propietario</strong><br><strong>Dado que</strong> el propietario ya registró un certificado con el mismo archivo (mismo hash, calculado en el servidor)<br><strong>Cuando</strong> se envía el request<br><strong>Entonces</strong> el response tiene el código 409 Conflict<br><br><strong>Escenario 3: Archivo no permitido</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/certificates está disponible<br><strong>Cuando</strong> se envía un archivo con un formato distinto de JPG, PNG o PDF, o mayor a 10 MB<br><strong>Entonces</strong> el response tiene el código 415 Unsupported Media Type o 413 Payload Too Large, según el caso</td></tr>
 </table>
 
 <table>
@@ -1854,9 +1859,9 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><td>TS08</td><td>Developer</td><td>Alta</td><td>EP05</td></tr>
   <tr><th>Title</th><td colspan="3">Endpoints de gestión de casos de verificación</td></tr>
   <tr><th colspan="4">Description</th></tr>
-  <tr><td colspan="4">Como developer, quiero implementar los endpoints de VerificationCaseController y VerifierProfileController, para que los Verificadores consulten sus casos, gestionen su disponibilidad y registren sus decisiones.</td></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints de VerificationCasesController y VerifierProfilesController, para que los Verificadores consulten sus casos, gestionen su disponibilidad y registren sus decisiones.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Listado de casos asignados</strong><br><strong>Dado que</strong> un Verificador tiene casos asignados<br><strong>Cuando</strong> se envía un request GET /api/v1/verification-cases?verifierId={id}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene únicamente los casos asignados a ese Verificador<br><br><strong>Escenario 2: Registro de decisión</strong><br><strong>Dado que</strong> un caso está asignado al Verificador autenticado<br><strong>Cuando</strong> se envía un request PATCH /api/v1/verification-cases/{id}/decision con un ResolveCaseResource completo<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el caso cambia a estado resuelto<br><br><strong>Escenario 3: Decisión de un Verificador no asignado</strong><br><strong>Dado que</strong> un caso no está asignado al Verificador autenticado<br><strong>Cuando</strong> se envía el request PATCH /api/v1/verification-cases/{id}/decision<br><strong>Entonces</strong> el response tiene el código 403 Forbidden<br><br><strong>Escenario 4: Actualización de disponibilidad</strong><br><strong>Dado que</strong> existe un perfil de Verificador<br><strong>Cuando</strong> se envía un request PATCH /api/v1/verifier-profiles/{id}/availability<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el valor actualizado de available</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Listado de casos asignados</strong><br><strong>Dado que</strong> un Verificador tiene casos asignados<br><strong>Cuando</strong> el Verificador autenticado envía un request GET /api/v1/verification-cases<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene únicamente los casos asignados a ese Verificador<br><br><strong>Escenario 2: Registro de decisión</strong><br><strong>Dado que</strong> un caso está asignado al Verificador autenticado<br><strong>Cuando</strong> se envía un request PATCH /api/v1/verification-cases/{id}/decision con un ResolveCaseResource completo<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el caso cambia a estado resuelto<br><br><strong>Escenario 3: Decisión de un Verificador no asignado</strong><br><strong>Dado que</strong> un caso no está asignado al Verificador autenticado<br><strong>Cuando</strong> se envía el request PATCH /api/v1/verification-cases/{id}/decision<br><strong>Entonces</strong> el response tiene el código 403 Forbidden<br><br><strong>Escenario 4: Actualización de disponibilidad</strong><br><strong>Dado que</strong> el usuario autenticado tiene un perfil de Verificador<br><strong>Cuando</strong> se envía un request PATCH /api/v1/verifier-profiles/me/availability<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el valor actualizado de available</td></tr>
 </table>
 
 <table>
@@ -1864,9 +1869,9 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><td>TS09</td><td>Developer</td><td>Media</td><td>EP07</td></tr>
   <tr><th>Title</th><td colspan="3">Endpoints de billetera y canje de SkillCredits</td></tr>
   <tr><th colspan="4">Description</th></tr>
-  <tr><td colspan="4">Como developer, quiero implementar los endpoints de WalletController y CreditTransactionController, para consultar saldos, historial de movimientos y registrar canjes de SkillCredits.</td></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints de WalletsController y CreditTransactionsController, para consultar saldos, historial de movimientos y registrar canjes de SkillCredits.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Consulta de saldo</strong><br><strong>Dado que</strong> el usuario tiene una billetera<br><strong>Cuando</strong> se envía un request GET /api/v1/wallets/{userId}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el balance actual<br><br><strong>Escenario 2: Canje con saldo suficiente</strong><br><strong>Dado que</strong> el saldo del usuario cubre el costo del beneficio<br><strong>Cuando</strong> se envía un request POST /api/v1/credit-transactions/redeem<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene la transacción de tipo REDEEMED<br><br><strong>Escenario 3: Canje con saldo insuficiente</strong><br><strong>Dado que</strong> el saldo del usuario no cubre el costo del beneficio<br><strong>Cuando</strong> se envía un request POST /api/v1/credit-transactions/redeem<br><strong>Entonces</strong> el response tiene el código 409 Conflict<br><strong>Y</strong> el balance permanece sin cambios</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Consulta de saldo</strong><br><strong>Dado que</strong> el usuario tiene una billetera<br><strong>Cuando</strong> se envía un request GET /api/v1/wallets/{userId}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el balance actual<br><br><strong>Escenario 2: Consulta del historial</strong><br><strong>Dado que</strong> el usuario registra movimientos en su billetera<br><strong>Cuando</strong> se envía un request GET /api/v1/wallets/{userId}/transactions<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene los movimientos del más reciente al más antiguo<br><br><strong>Escenario 3: Canje con saldo suficiente</strong><br><strong>Dado que</strong> el saldo del usuario cubre el costo del beneficio<br><strong>Cuando</strong> se envía un request POST /api/v1/credit-transactions/redeem<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> el body contiene la transacción de tipo REDEEMED<br><br><strong>Escenario 4: Canje con saldo insuficiente</strong><br><strong>Dado que</strong> el saldo del usuario no cubre el costo del beneficio<br><strong>Cuando</strong> se envía un request POST /api/v1/credit-transactions/redeem<br><strong>Entonces</strong> el response tiene el código 409 Conflict<br><strong>Y</strong> el balance permanece sin cambios</td></tr>
 </table>
 
 <table>
@@ -1884,7 +1889,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><td>TS11</td><td>Developer</td><td>Media</td><td>EP05</td></tr>
   <tr><th>Title</th><td colspan="3">Endpoints de consulta de reputación</td></tr>
   <tr><th colspan="4">Description</th></tr>
-  <tr><td colspan="4">Como developer, quiero implementar los endpoints de VerifierReliabilityController y StudentEmployabilityController, para que el cliente consulte la confiabilidad de un Verificador y el Employability Score de un Estudiante.</td></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints de VerifierReliabilitiesController y StudentEmployabilityScoresController, para que el cliente consulte la confiabilidad de un Verificador y el Employability Score de un Estudiante.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
   <tr><td colspan="4"><strong>Escenario 1: Consulta de confiabilidad existente</strong><br><strong>Dado que</strong> existe un registro de confiabilidad para el verifierUserId solicitado<br><strong>Cuando</strong> se envía un request GET /api/v1/verifier-reliabilities/{verifierUserId}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el puntaje vigente<br><br><strong>Escenario 2: Verificador sin casos resueltos todavía</strong><br><strong>Dado que</strong> el verifierUserId solicitado no tiene ningún caso resuelto registrado<br><strong>Cuando</strong> se envía el mismo request<br><strong>Entonces</strong> el response tiene el código 404 Not Found<br><br><strong>Escenario 3: Consulta de empleabilidad existente</strong><br><strong>Dado que</strong> existe un registro de empleabilidad para el studentId solicitado<br><strong>Cuando</strong> se envía un request GET /api/v1/student-employability-scores/{studentId}<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene el puntaje vigente<br><br><strong>Escenario 4: Consulta sin ser el dueño del recurso</strong><br><strong>Dado que</strong> el usuario autenticado no es el dueño del recurso<br><strong>Cuando</strong> intenta consultar la reputación de otro usuario<br><strong>Entonces</strong> el response tiene el código 403 Forbidden</td></tr>
 </table>
@@ -1894,9 +1899,9 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><td>TS12</td><td>Developer</td><td>Alta</td><td>EP10</td></tr>
   <tr><th>Title</th><td colspan="3">Despliegue del backend en producción</td></tr>
   <tr><th colspan="4">Description</th></tr>
-  <tr><td colspan="4">Como developer, quiero desplegar el backend en un contenedor Docker sobre Render, con la base de datos PostgreSQL administrada y el esquema validado al arrancar, para que el servicio esté disponible públicamente con su documentación OpenAPI.</td></tr>
+  <tr><td colspan="4">Como developer, quiero desplegar el backend en un contenedor Docker sobre Render, con la base de datos PostgreSQL administrada, el esquema versionado con Flyway y validado al arrancar, para que el servicio esté disponible públicamente con su documentación OpenAPI.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Arranque con un esquema válido</strong><br><strong>Dado que</strong> la base de datos PostgreSQL contiene todas las tablas y columnas que mapean las entidades JPA<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> Hibernate valida el esquema (`spring.jpa.hibernate.ddl-auto=validate`) sin modificarlo<br><strong>Y</strong> el endpoint GET /health responde 200 OK<br><br><strong>Escenario 2: Esquema incompleto</strong><br><strong>Dado que</strong> falta una tabla o columna que alguna entidad JPA necesita<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> la validación de Hibernate falla y la aplicación no acepta tráfico, registrando el error en el log<br><br><strong>Escenario 3: Conversión de la URL de la base de datos</strong><br><strong>Dado que</strong> la variable DATABASE_URL tiene el formato postgres://usuario:clave@host:5432/db que entrega Render<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> el sistema la convierte a una URL JDBC y se conecta a la base de datos<br><br><strong>Escenario 4: Configuración obligatoria ausente</strong><br><strong>Dado que</strong> no está definida TOKEN_SETTINGS_SECRET, GEMINI_API_KEY o alguna de las credenciales CLOUDINARY_*<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> la aplicación no inicia y el log indica qué configuración falta</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Arranque con un esquema válido</strong><br><strong>Dado que</strong> la base de datos PostgreSQL está disponible<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> Flyway aplica las migraciones pendientes (V1 a V10)<br><strong>Y</strong> Hibernate valida el esquema (`spring.jpa.hibernate.ddl-auto=validate`) sin modificarlo<br><strong>Y</strong> el endpoint GET /health responde 200 OK<br><br><strong>Escenario 2: Esquema incompleto</strong><br><strong>Dado que</strong> falta una tabla o columna que alguna entidad JPA necesita<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> la validación de Hibernate falla y la aplicación no acepta tráfico, registrando el error en el log<br><br><strong>Escenario 3: Conversión de la URL de la base de datos</strong><br><strong>Dado que</strong> la variable DATABASE_URL tiene el formato postgres://usuario:clave@host:5432/db que entrega Render<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> el sistema la convierte a una URL JDBC y se conecta a la base de datos<br><br><strong>Escenario 4: Configuración obligatoria ausente</strong><br><strong>Dado que</strong> no está definida TOKEN_SETTINGS_SECRET, GEMINI_API_KEY o alguna de las credenciales CLOUDINARY_*<br><strong>Cuando</strong> el contenedor arranca<br><strong>Entonces</strong> la aplicación no inicia y el log indica qué configuración falta</td></tr>
 </table>
 
 *Nota.* Elaboración propia.
@@ -1942,7 +1947,7 @@ Esta meta mide la propuesta de valor central de SkillSwap: que el certificado se
 
 *Contar con 150 Verificadores habilitados que resuelvan el 85 % de los casos escalados por Estudiantes del plan mensual en menos de 48 horas, dentro de los primeros 8 meses desde el lanzamiento.*
 
-La capacidad de la plataforma para resolver los casos que la IA no puede cerrar depende de contar con suficientes Verificadores activos. Para ello se necesita que Rodrigo Castillo se habilite aprobando el examen de ingreso, resuelva a tiempo los casos que se le asignan y se mantenga activo gracias al reconocimiento profesional. La plataforma lo impulsa mediante el examen de ingreso por habilidad, la asignación automática de casos por afinidad, la rúbrica estructurada de evaluación, la acreditación de SkillCredits y la credencial verificable para compartir en LinkedIn (US22, US24, US25, US30 y US33).
+La capacidad de la plataforma para resolver los casos que la IA no puede cerrar depende de contar con suficientes Verificadores activos. Para ello se necesita que Rodrigo Castillo se habilite al completar en su propia ruta el nodo de la habilidad, resuelva a tiempo los casos que se le asignan y se mantenga activo gracias al reconocimiento profesional. La plataforma lo impulsa mediante la habilitación por nodo de habilidad, la asignación automática de casos por afinidad, la rúbrica estructurada de evaluación, la acreditación de SkillCredits y la credencial verificable para compartir en LinkedIn (US22, US24, US25, US30 y US33).
 
 **Figura 27**
 
@@ -1958,7 +1963,7 @@ La capacidad de la plataforma para resolver los casos que la IA no puede cerrar 
 
 *Mantener la tasa de disputas y reevaluaciones por debajo del 5 % del total de evaluaciones realizadas y resolver el 90 % de las disputas en menos de 72 horas, durante el primer año de operación.*
 
-Esta meta protege la credibilidad de todo lo que se certifica en la plataforma. Involucra a dos actores: Rodrigo Castillo, de quien se espera que, como Verificador senior, resuelva a tiempo las disputas pendientes y controle la calidad de las evaluaciones y de otros Verificadores; y Valeria, de quien se espera que confíe en el proceso y apele solo cuando lo considere necesario. Los deliverables correspondientes son el panel de disputas con evidencia, la resolución de apelaciones, la habilitación de reevaluaciones, el nuevo examen obligatorio para Verificadores con baja confiabilidad y la apelación con plazo definido (US34, US36, US37, US38 y US27).
+Esta meta protege la credibilidad de todo lo que se certifica en la plataforma. Involucra a dos actores: Rodrigo Castillo, de quien se espera que, como Verificador senior, resuelva a tiempo las disputas pendientes y controle la calidad de las evaluaciones y de otros Verificadores; y Valeria, de quien se espera que confíe en el proceso y apele solo cuando lo considere necesario. Los deliverables correspondientes son el panel de disputas con evidencia, la revisión de los casos apelados por un Verificador distinto del original, la reevaluación de resultados aprobados, la suspensión temporal de Verificadores con baja confiabilidad y la apelación de una decisión (US34, US36, US37, US38 y US27).
 
 **Figura 28**
 
@@ -1976,7 +1981,7 @@ En conjunto, los cuatro Impact Maps muestran cómo cada funcionalidad de la apli
 
 El Product Backlog de SkillSwap reúne las 57 historias definidas en la sección 2.4.1, ordenadas según el valor que aportan al negocio y estimadas en Story Points con la escala de Fibonacci (1, 2, 3, 5 y 8), donde el valor refleja la complejidad, el esfuerzo y la incertidumbre relativa de cada historia.
 
-La estimación total del Product Backlog asciende a **211 Story Points**. De ellos, **151 SP (72%)**, correspondientes a 43 de las 57 historias, se completaron en el Sprint 1 (TB1). Las 14 historias restantes (60 SP) no tienen Sprint asignado, lo que se indica con un guion (—) en la columna Sprint: cuatro corresponden a funcionalidades exclusivas del cliente móvil (US03, US10, US11 y US21) y diez a funcionalidades que el backend no implementa (US07, US19, US20, US28, US29, US33, US36, US37, US38 y US40).
+La estimación total del Product Backlog asciende a **211 Story Points**. De ellos, **154 SP (73%)**, correspondientes a 44 de las 57 historias, se completaron en el Sprint 1 (TB1). Las 13 historias restantes (57 SP) no tienen Sprint asignado, lo que se indica con un guion (—) en la columna Sprint: cuatro corresponden a funcionalidades exclusivas del cliente móvil (US03, US10, US11 y US21) y nueve a funcionalidades que el backend no implementa (US07, US19, US20, US28, US29, US33, US37, US38 y US40).
 
 **Tabla 10**
 
@@ -2022,13 +2027,13 @@ La estimación total del Product Backlog asciende a **211 Story Points**. De ell
 | 36 | US34 | Consulta de disputas pendientes | 3 | Sprint 1 |
 | 37 | US35 | Resolución de certificados sospechosos | 3 | Sprint 1 |
 | 38 | US27 | Apelación de la decisión del Verificador | 3 | Sprint 1 |
-| 39 | US36 | Resolución de apelaciones | 3 | — |
-| 40 | US37 | Habilitación de reevaluación o nuevo intento | 3 | — |
+| 39 | US36 | Revisión de casos apelados | 3 | Sprint 1 |
+| 40 | US37 | Reevaluación de un resultado aprobado | 3 | — |
 | 41 | TS09 | Endpoints de billetera y canje de SkillCredits | 3 | Sprint 1 |
 | 42 | US30 | Acreditación de SkillCredits por caso resuelto | 3 | Sprint 1 |
 | 43 | US31 | Consulta de billetera e historial | 2 | Sprint 1 |
 | 44 | US33 | Compartir logros en LinkedIn | 3 | — |
-| 45 | US38 | Exigencia de nuevo examen al Verificador | 3 | — |
+| 45 | US38 | Suspensión de un Verificador con baja confiabilidad | 3 | — |
 | 46 | US39 | Definición del plazo de actividad de los Verificadores | 3 | Sprint 1 |
 | 47 | US40 | Consulta de métricas de la plataforma | 5 | — |
 | 48 | US32 | Canje de SkillCredits en la tienda | 3 | Sprint 1 |
@@ -2045,7 +2050,7 @@ La estimación total del Product Backlog asciende a **211 Story Points**. De ell
 
 *Nota.* Elaboración propia.
 
-El Product Backlog se gestiona en Trello, en un tablero público organizado en listas, entre ellas la lista Sprint 1. Cada tarjeta conserva el orden, el identificador, el título y los Story Points de la tabla anterior, e incluye en su descripción la historia, la prioridad, el usuario y el Epic.
+El Product Backlog se gestiona en Trello, en un tablero público con la lista Sprint 1. Cada tarjeta conserva el orden, el identificador, el título y los Story Points de la tabla anterior, e incluye en su descripción la historia, la prioridad, el usuario y el Epic.
 
 **Figura 29**
 
@@ -5233,8 +5238,8 @@ El Sprint 1 corresponde a la primera iteración de desarrollo del proyecto, enfo
 | Sprint n − 1 Retrospective Summary | No aplica — es el primer Sprint del proyecto. |
 | **Sprint Goal & User Stories** | |
 | Sprint 1 Goal | Our focus is on construir el núcleo funcional de SkillSwap: registro con verificación del correo institucional y autenticación, carga y validación de certificados con escalamiento de los sospechosos a un Verificador senior, generación de rutas de aprendizaje a partir de la taxonomía de habilidades (con la meta interpretada por Gemini y la comparación por palabras clave como respaldo) con evaluaciones asistidas por IA, el ciclo completo de evaluación y revisión por pares con plazos de revisión por plan, la suscripción mensual con sus límites y la billetera de SkillCredits. We believe it delivers a un Estudiante la posibilidad de demostrar una habilidad de principio a fin dentro de la plataforma, y a un Verificador la posibilidad de revisar casos reales. This will be confirmed when el backend esté desplegado públicamente, documentado con OpenAPI, y un Estudiante pueda completar el flujo registro → certificado → ruta → evaluación → caso resuelto sin intervención manual. |
-| Sprint 1 Velocity | 151 SP |
-| Sum of Story Points | 151 SP |
+| Sprint 1 Velocity | 154 SP |
+| Sum of Story Points | 154 SP |
 
 *Nota.* Elaboración propia.
 
