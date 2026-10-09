@@ -669,7 +669,9 @@ Cuando tuvo la suerte de que una prima con experiencia laboral le revisara el CV
 Respecto al uso de herramientas digitales, usa Canva para el diseño del CV, ChatGPT para redactar mejor sus experiencias y LinkedIn para buscar ofertas y contactar reclutadores, aunque casi nunca recibe respuesta. Considera que la IA funciona bien como primer filtro antes de llegar a una persona, pero no reemplaza la orientación personalizada.
  
 Sobre el perfil del Verificador, Mireya es muy clara: prioriza que tenga experiencia real en su área — en qué empresa trabajó, cuánto tiempo lleva en el rubro y si estudió algo similar a su carrera — por encima de la cantidad de reseñas. Respecto al modelo de Innovify, valora especialmente la posibilidad de que la plataforma asigne automáticamente un mentor con conocimiento específico de su carrera, porque considera que buscar ayuda por su cuenta es lento y no siempre aplica a su situación. Está dispuesta a dar una donación voluntaria por la sesión si esta es realmente útil. Finalmente, prefiere que la videollamada esté integrada dentro de la misma plataforma, porque los links externos de Zoom se pierden en el chat y reducen el compromiso de ambas partes.
- 
+
+*Nota sobre esta entrevista.* La entrevista se realizó con la primera versión de la idea de negocio, basada en mentorías por videollamada y donaciones voluntarias. Por eso Mireya menciona un "mentor", la "donación" y la "videollamada". El modelo actual de SkillSwap reemplazó esas mentorías por la revisión de un Verificador con rúbrica y por la suscripción mensual. Aun así, sus respuestas se mantienen como evidencia, porque confirman dos necesidades que el modelo actual sí atiende: que una persona con experiencia real valide lo que el estudiante sabe y que la plataforma asigne automáticamente a esa persona según el área del estudiante.
+
 **Entrevista 2**
 * **Nombres:** Mathias
 * **Apellidos:** Véliz
@@ -742,7 +744,7 @@ Respecto al modelo de Innovify, Carlos valora especialmente la idea de la ruta d
 
 * **URL:** [https://www.youtube.com/watch?v=n53WUVagpE4](https://www.youtube.com/watch?v=n53WUVagpE4)
 * **Inicio:** 0:00
-* **Duración:** [Completar]
+* **Duración:** 7:52
 
 **Resumen descriptivo:**
 Rodrigo estudia Ingeniería de Software en la PUCP y está en séptimo ciclo. Domina React, Node.js, PostgreSQL y arquitectura de microservicios, conocimientos que desarrolló combinando su formación universitaria con proyectos freelance y contribuciones a repositorios open source. Ha ayudado informalmente a varios compañeros de ciclos menores a resolver dudas puntuales de programación, pero siempre de forma desorganizada — por WhatsApp, sin estructura, sin que la persona llegue con un nivel mínimo establecido.
@@ -769,7 +771,7 @@ Respecto al modelo de Innovify, Rodrigo está muy de acuerdo con que quien valid
 
 * **URL:** [https://www.youtube.com/watch?v=h8Uh3w6U1qE](https://www.youtube.com/watch?v=h8Uh3w6U1qE)
 * **Inicio:** 0:00
-* **Duración:** [Completar]
+* **Duración:** 5:29
 
 **Resumen descriptivo:**
 Lucía es egresada de Contabilidad de la Universidad de Lima y trabaja hace dos años en una firma de auditoría. Domina Excel avanzado, Power BI y análisis financiero, habilidades que desarrolló en su trabajo y que sabe que son muy demandadas en el mercado. Ha ayudado informalmente a compañeros universitarios con estas herramientas, pero el modelo le resulta poco profesional y difícil de gestionar: tiene que coordinar por WhatsApp, no hay estructura, y las personas a veces no vienen preparadas.
@@ -794,9 +796,9 @@ Está de acuerdo con que quien valida demuestre primero su propio dominio antes 
 
 *Nota.* En esta figura se aprecia la tercera entrevista al segmento de personas que validan el conocimiento.
 
-* **URL:** [Completar con URL de Microsoft Stream]
+* **URL:** [https://www.youtube.com/watch?v=wtCs-bESKhI](https://www.youtube.com/watch?v=wtCs-bESKhI)
 * **Inicio:** 0:00
-* **Duración:** [Completar]
+* **Duración:** 7:07
 
 **Resumen descriptivo:**
 Sebastián es egresado de Comunicaciones de la UPC y trabaja como freelance en marketing de contenidos. Domina SEO técnico, copywriting y estrategia de redes sociales, habilidades que desarrolló en proyectos reales con clientes. Intentó enseñar en Preply pero lo abandonó porque la plataforma permite que cualquiera enseñe sin verificación, lo que deteriora la calidad percibida de todos los que ofrecen ayuda ahí.
