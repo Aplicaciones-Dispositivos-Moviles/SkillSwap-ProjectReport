@@ -222,7 +222,7 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 | Criterio específico | Acciones realizadas | Conclusiones |
 | :--- | :--- | :--- |
 | **Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Lideré la investigación de la tecnología externa (ML Kit, SDK de reconocimiento de texto) a integrar en el proyecto móvil, evaluando sus requisitos técnicos y adaptándolos a la arquitectura móvil nativa. Participé en el diseño estratégico de los Bounded Contexts, incluyendo su rediseño tras el pivote del modelo de negocio.<br><br>**Alberca Saavedra, Víctor Manuel (TB1):** Implementé el backend de seis Bounded Contexts, primero en C# / ASP.NET Core y luego, cuando el curso exigió Java, lo migré a Java 21 con Spring Boot, Spring Data JPA (Hibernate), Spring Security con JWT y PostgreSQL, conservando el mismo esquema de base de datos y el mismo contrato de la API. En el proceso investigué y apliqué por primera vez tecnologías no vistas en clase: la API REST de Gemini para generación de contenido con reintentos y modelos de respaldo, la verificación de compras de Google Play Billing, almacenamiento privado de archivos con URLs firmadas en Cloudinary, y pruebas de integración con JUnit 5, MockMvc y Testcontainers contra una base PostgreSQL real. También investigué y resolví una limitación real de infraestructura: Render no ofrece MySQL administrado de forma nativa, lo que me llevó a migrar todo el diseño de persistencia a PostgreSQL antes de implementarlo.<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Investigué patrones de diseño UI/UX específicos para aplicaciones móviles multiplataforma y colaboré en el análisis competitivo y el diseño de entrevistas enfocadas en la experiencia de movilidad de los estudiantes.<br><br>**Becerra Ninahuanca, Luis Angel (TB1):** Al diseñar el Style Guide y los wireframes del Landing Page, tuve que investigar principios de Information Architecture (sistemas de organización, etiquetado y navegación) que no habíamos aplicado formalmente en AV1, y ajustar las decisiones visuales iniciales al constatar que algunas no se alineaban con el tono de comunicación definido para el segmento de Verificadores.<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Documenté el proceso Lean UX y apliqué el aprendizaje sobre persistencia de datos locales en dispositivos para el diseño de los requisitos, estructurando las User Stories bajo un enfoque Mobile-First.<br><br>**Lopez Montalvo, Kevin Edu (TB1):** Al construir los Wireflow y User Flow Diagrams de las pantallas core (ruta de aprendizaje, resolución del quiz), tuve que aprender a representar formalmente las rutas alternativas (unhappy paths) del flujo —como qué pantalla ve el estudiante cuando un quiz no se aprueba— lo cual exigió coordinar con el diseño real del backend en vez de asumir un flujo ideal.<br><br>**Komatsu Dueñas, David (AV1):** Evalué diferentes estrategias de integración de servicios RESTful y modelé el flujo de mensajes entre los Bounded Contexts aplicando Domain Storytelling adaptado al consumo de APIs desde aplicaciones móviles.<br><br>**Komatsu Dueñas, David (TB1):** Reconocí que parte del flujo de interacción que había modelado con Domain Storytelling en AV1 ya no aplicaba tal cual al construir los prototipos de UI, porque el backend terminó resolviendo ciertos pasos (como la vinculación de certificados) de forma automática y no mediante una pantalla explícita, por lo que tuve que simplificar los mock-ups correspondientes.<br><br>**Sulca Sánchez, Piero Angel (AV1):** Estudié los fundamentos del diseño estratégico con Domain-Driven Design a partir del material del curso y de las plantillas de la comunidad ddd-crew, y los apliqué para elaborar el EventStorming de SkillSwap en sus diez pasos, el Candidate Context Discovery, los Domain Message Flows y los Bounded Context Canvases, modelados en Excalidraw. Para sustentar el problema del Capítulo I, investigué datos estadísticos sobre la brecha entre la certificación y el dominio práctico, los verifiqué en sus fuentes originales y los cité en formato APA 7.<br><br>**Sulca Sánchez, Piero Angel (TB1):** Al revisar el Context Mapping y los Bounded Context Canvases contra lo realmente implementado en el backend, identifiqué que varias relaciones que había modelado en AV1 (Customer/Supplier directo entre Assessment y Reputation) no correspondían al mecanismo real de eventos de dominio, y tuve que aprender el patrón Published Language para corregir los diagramas de forma consistente con el código. | (AV1) El equipo reconoce la necesidad del aprendizaje permanente al investigar e integrar de manera autónoma tecnologías no vistas en clase, como SDKs externos de reconocimiento de texto y persistencia local en dispositivos, aplicando conceptos de Domain-Driven Design al entorno móvil.<br><br>(TB1) El equipo confirma que ese aprendizaje autónomo se sostuvo al pasar del diseño a la implementación real: construir el backend exigió investigar APIs externas completas (Gemini, Google Play Billing) y resolver restricciones de infraestructura no anticipadas en el diseño original (disponibilidad de motores de base de datos en el proveedor de hosting elegido), evidenciando que actualizar conocimientos no se limita a la etapa de diseño sino que continúa durante la construcción del software. |
-| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Al enfrentar el pivote del modelo de negocio a mitad de ciclo, tuve que reevaluar y rediseñar desde cero la estrategia de Bounded Contexts que ya había avanzado, reconociendo que el conocimiento adquirido durante la investigación previa (SUNEDU, matching por embeddings) no era aplicable al nuevo alcance del curso y debía sustituirse por soluciones más simples y viables.<br><br>**Alberca Saavedra, Víctor Manuel (TB1):** Al construir el backend real, reconocí que varias decisiones documentadas en el diseño (rúbrica por criterio, examen de ingreso del Verificador, tres intentos de quiz, pasarela de pago) no eran viables o necesarias dentro del tiempo del Sprint, y que insistir en implementarlas tal cual hubiera significado no entregar un flujo completo y funcional. Reemplacé esas decisiones por un modelo mínimo igualmente riguroso, y luego tuve que volver sobre el propio informe para que el diseño documentado reflejara honestamente lo construido, en vez de dejar un documento que describiera un sistema distinto al que realmente funciona.<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Reconocí la necesidad de actualizar el análisis competitivo y las preguntas de entrevista previamente diseñadas, dado que el modelo de negocio original ya no reflejaba la propuesta de valor vigente del proyecto.<br><br>**Becerra Ninahuanca, Luis Angel (TB1):** Reconocí que el Style Guide definido en una primera versión debía replantearse al validarlo contra las pantallas reales de la app, en vez de darlo por cerrado solo porque ya existía un documento.<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Identifiqué la necesidad de revisar y reestructurar la documentación de Lean UX ya elaborada para que reflejara el nuevo enfoque del proyecto, en lugar de darla por completa.<br><br>**Lopez Montalvo, Kevin Edu (TB1):** Reconocí que los User Flows no podían completarse sin antes confirmar con el backend qué reglas de negocio realmente existían (ej. que registrar un certificado no completa un nodo hasta que un Verificador lo valida), lo que me obligó a esperar y ajustar en vez de diseñar el flujo de forma aislada.<br><br>**Komatsu Dueñas, David (AV1):** Reconocí que los flujos de integración entre Bounded Contexts modelados inicialmente debían replantearse por completo tras el cambio de alcance, en vez de simplemente ajustar el software ya diseñado.<br><br>**Komatsu Dueñas, David (TB1):** Reconocí que modelar la interacción sin validarla contra la arquitectura final genera trabajo que luego hay que rehacer, y que coordinar antes con el equipo técnico habría evitado parte del reproceso en los mock-ups.<br><br>**Sulca Sánchez, Piero Angel (AV1):** Al alinear el Capítulo I con el modelo de negocio vigente, reconocí que partes ya redactadas del informe, como el segmento del Coordinador, el canje de SkillCredits y el enfoque en la deserción académica, respondían a un modelo anterior y debían reformularse en lugar de darse por terminadas. Durante el EventStorming, los puntos críticos identificados me llevaron a revisar decisiones del dominio, como la calificación por criterios y el segundo revisor, antes de trasladarlas al diseño, entendiendo que el modelo se refina de forma iterativa.<br><br>**Sulca Sánchez, Piero Angel (TB1):** Reconocí que un Context Mapping elaborado en una etapa temprana del diseño necesita revisarse una vez que el código revela el mecanismo real de comunicación entre contextos, y que mantenerlo actualizado es parte continua del trabajo, no una tarea de una sola vez. | (AV1) El equipo reconoce que el aprendizaje permanente no se limita a adquirir tecnologías nuevas, sino también a la capacidad de soltar y reformular conocimiento previamente validado cuando el contexto del proyecto cambia, como ocurrió tras el pivote del modelo de negocio de tutorías a verificación de habilidades.<br><br>(TB1) El equipo reconoce que ese mismo principio aplica entre el diseño y la implementación: un documento de arquitectura es una hipótesis de trabajo, no una verdad fija, y la disciplina de volver a corregirlo cuando la construcción revela una limitación real —en vez de dejarlo desactualizado— es en sí misma una forma de aprendizaje permanente aplicada al ciclo de vida completo del software. |
+| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Al enfrentar el pivote del modelo de negocio a mitad de ciclo, tuve que reevaluar y rediseñar desde cero la estrategia de Bounded Contexts que ya había avanzado, reconociendo que el conocimiento adquirido durante la investigación previa (SUNEDU, matching por embeddings) no era aplicable al nuevo alcance del curso y debía sustituirse por soluciones más simples y viables.<br><br>**Alberca Saavedra, Víctor Manuel (TB1):** Al construir el backend real, reconocí que varias decisiones documentadas en el diseño (rúbrica por criterio, examen de ingreso del Verificador, tres intentos de quiz, pasarela de pago) no eran viables o necesarias dentro del tiempo del Sprint, y que insistir en implementarlas tal cual hubiera significado no entregar un flujo completo y funcional. Reemplacé esas decisiones por un modelo mínimo igualmente riguroso, y luego tuve que volver sobre el propio informe para que el diseño documentado reflejara honestamente lo construido, en vez de dejar un documento que describiera un sistema distinto al que realmente funciona.<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Reconocí la necesidad de actualizar el análisis competitivo y las preguntas de entrevista previamente diseñadas, dado que el modelo de negocio original ya no reflejaba la propuesta de valor vigente del proyecto.<br><br>**Becerra Ninahuanca, Luis Angel (TB1):** Reconocí que el Style Guide definido en una primera versión debía replantearse al validarlo contra las pantallas reales de la app, en vez de darlo por cerrado solo porque ya existía un documento.<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Identifiqué la necesidad de revisar y reestructurar la documentación de Lean UX ya elaborada para que reflejara el nuevo enfoque del proyecto, en lugar de darla por completa.<br><br>**Lopez Montalvo, Kevin Edu (TB1):** Reconocí que los User Flows no podían completarse sin antes confirmar con el backend qué reglas de negocio realmente existían (ej. que un certificado no completa un nodo), lo que me obligó a esperar y ajustar en vez de diseñar el flujo de forma aislada.<br><br>**Komatsu Dueñas, David (AV1):** Reconocí que los flujos de integración entre Bounded Contexts modelados inicialmente debían replantearse por completo tras el cambio de alcance, en vez de simplemente ajustar el software ya diseñado.<br><br>**Komatsu Dueñas, David (TB1):** Reconocí que modelar la interacción sin validarla contra la arquitectura final genera trabajo que luego hay que rehacer, y que coordinar antes con el equipo técnico habría evitado parte del reproceso en los mock-ups.<br><br>**Sulca Sánchez, Piero Angel (AV1):** Al alinear el Capítulo I con el modelo de negocio vigente, reconocí que partes ya redactadas del informe, como el segmento del Coordinador, el canje de SkillCredits y el enfoque en la deserción académica, respondían a un modelo anterior y debían reformularse en lugar de darse por terminadas. Durante el EventStorming, los puntos críticos identificados me llevaron a revisar decisiones del dominio, como la calificación por criterios y el segundo revisor, antes de trasladarlas al diseño, entendiendo que el modelo se refina de forma iterativa.<br><br>**Sulca Sánchez, Piero Angel (TB1):** Reconocí que un Context Mapping elaborado en una etapa temprana del diseño necesita revisarse una vez que el código revela el mecanismo real de comunicación entre contextos, y que mantenerlo actualizado es parte continua del trabajo, no una tarea de una sola vez. | (AV1) El equipo reconoce que el aprendizaje permanente no se limita a adquirir tecnologías nuevas, sino también a la capacidad de soltar y reformular conocimiento previamente validado cuando el contexto del proyecto cambia, como ocurrió tras el pivote del modelo de negocio de tutorías a verificación de habilidades.<br><br>(TB1) El equipo reconoce que ese mismo principio aplica entre el diseño y la implementación: un documento de arquitectura es una hipótesis de trabajo, no una verdad fija, y la disciplina de volver a corregirlo cuando la construcción revela una limitación real —en vez de dejarlo desactualizado— es en sí misma una forma de aprendizaje permanente aplicada al ciclo de vida completo del software. |
 
 <div style="page-break-after: always;"></div>
 
@@ -1476,7 +1476,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><th colspan="4">Description</th></tr>
   <tr><td colspan="4">Como estudiante, quiero que la IA confirme que mi certificado realmente cubre la habilidad del nodo al que lo asocio, para que mi avance refleje lo que efectivamente estudié.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Certificado que cubre la habilidad</strong><br><strong>Dado que</strong> el estudiante asocia un certificado verificado a un nodo de su ruta<br><strong>Cuando</strong> el sistema compara el contenido extraído con la habilidad del nodo<br><strong>Y</strong> la similitud supera el umbral definido<br><strong>Entonces</strong> el sistema vincula el certificado al nodo<br><strong>Y</strong> habilita la evaluación práctica del nodo<br><br><strong>Escenario 2: Certificado que no cubre la habilidad</strong><br><strong>Dado que</strong> el estudiante asocia un certificado verificado a un nodo de su ruta<br><strong>Cuando</strong> la similitud entre el contenido extraído y la habilidad no supera el umbral definido<br><strong>Entonces</strong> el sistema no vincula el certificado al nodo<br><strong>Y</strong> sugiere los nodos de la ruta con los que el certificado sí guarda correspondencia</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Certificado que cubre la habilidad</strong><br><strong>Dado que</strong> el estudiante asocia un certificado verificado a un nodo de su ruta<br><strong>Cuando</strong> la IA compara el contenido extraído con la habilidad del nodo<br><strong>Y</strong> la similitud supera el umbral definido<br><strong>Entonces</strong> el sistema vincula el certificado al nodo<br><strong>Y</strong> habilita la evaluación práctica del nodo<br><br><strong>Escenario 2: Certificado que no cubre la habilidad</strong><br><strong>Dado que</strong> el estudiante asocia un certificado verificado a un nodo de su ruta<br><strong>Cuando</strong> la similitud entre el contenido extraído y la habilidad no supera el umbral definido<br><strong>Entonces</strong> el sistema no vincula el certificado al nodo<br><strong>Y</strong> sugiere los nodos de la ruta con los que el certificado sí guarda correspondencia</td></tr>
 </table>
 
 <table>
@@ -1874,9 +1874,9 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><td>TS10</td><td>Developer</td><td>Alta</td><td>EP08</td></tr>
   <tr><th>Title</th><td colspan="3">Endpoints de gestión de disputas</td></tr>
   <tr><th colspan="4">Description</th></tr>
-  <tr><td colspan="4">Como developer, quiero implementar los endpoints de DisputesController, para que el Verificador senior consulte las disputas que tiene asignadas, revise su evidencia y las resuelva.</td></tr>
+  <tr><td colspan="4">Como developer, quiero implementar los endpoints de DisputeController, para registrar reportes de usuarios y permitir que el Verificador consulte y resuelva las disputas pendientes.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Consulta de la evidencia</strong><br><strong>Dado que</strong> una disputa de revisión de certificado está asignada al Verificador autenticado<br><strong>Cuando</strong> se envía un request GET /api/v1/disputes/{disputeId}/evidence<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene la disputa con los datos extraídos, la evaluación de riesgo y el enlace temporal al archivo del certificado<br><br><strong>Escenario 2: Listado de pendientes por un Verificador</strong><br><strong>Dado que</strong> el usuario autenticado tiene un perfil de Verificador<br><strong>Cuando</strong> se envía un request GET /api/v1/disputes?status=pending<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene únicamente las disputas en estado PENDING asignadas a ese Verificador, de la más antigua a la más reciente<br><br><strong>Escenario 3: Acceso sin ser el revisor asignado</strong><br><strong>Dado que</strong> la disputa no está asignada al usuario autenticado<br><strong>Cuando</strong> se envía un request PATCH /api/v1/disputes/{disputeId}/resolve<br><strong>Entonces</strong> el response tiene el código 403 Forbidden<br><br><strong>Escenario 4: Resolución incoherente</strong><br><strong>Dado que</strong> el outcome enviado no es coherente con el sourceType de la disputa<br><strong>Cuando</strong> se envía el request PATCH /api/v1/disputes/{disputeId}/resolve<br><strong>Entonces</strong> el response tiene el código 400 Bad Request<br><strong>Y</strong> la disputa permanece en estado PENDING</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Registro de reporte</strong><br><strong>Dado que</strong> el endpoint POST /api/v1/disputes/reports está disponible<br><strong>Cuando</strong> se envía un CreateUserReportResource válido<br><strong>Entonces</strong> el response tiene el código 201 Created<br><strong>Y</strong> la disputa se registra con sourceType USER_REPORT y status PENDING<br><br><strong>Escenario 2: Listado de pendientes por un Verificador</strong><br><strong>Dado que</strong> el usuario autenticado tiene un perfil de Verificador<br><strong>Cuando</strong> se envía un request GET /api/v1/disputes?status=pending<br><strong>Entonces</strong> el response tiene el código 200 OK<br><strong>Y</strong> el body contiene únicamente disputas en estado PENDING<br><br><strong>Escenario 3: Acceso sin perfil de Verificador</strong><br><strong>Dado que</strong> el usuario autenticado no tiene un perfil de Verificador<br><strong>Cuando</strong> se envía un request PATCH /api/v1/disputes/{disputeId}/resolve<br><strong>Entonces</strong> el response tiene el código 403 Forbidden<br><br><strong>Escenario 4: Resolución incoherente</strong><br><strong>Dado que</strong> el outcome enviado no es coherente con el sourceType de la disputa<br><strong>Cuando</strong> se envía el request PATCH /api/v1/disputes/{disputeId}/resolve<br><strong>Entonces</strong> el response tiene el código 400 Bad Request<br><strong>Y</strong> la disputa permanece en estado PENDING</td></tr>
 </table>
 
 <table>
@@ -1976,7 +1976,7 @@ En conjunto, los cuatro Impact Maps muestran cómo cada funcionalidad de la apli
 
 El Product Backlog de SkillSwap reúne las 57 historias definidas en la sección 2.4.1, ordenadas según el valor que aportan al negocio y estimadas en Story Points con la escala de Fibonacci (1, 2, 3, 5 y 8), donde el valor refleja la complejidad, el esfuerzo y la incertidumbre relativa de cada historia.
 
-La estimación total del Product Backlog asciende a **211 Story Points**. De ellos, **151 SP (72%)**, correspondientes a 43 de las 57 historias, se completaron en el Sprint 1 (TB1). Las 14 historias restantes (60 SP) no tienen Sprint asignado, lo que se indica con un guion (—) en la columna Sprint: cuatro corresponden a funcionalidades exclusivas del cliente móvil (US03, US10, US11 y US21) y diez a funcionalidades que el backend no implementa (US07, US19, US20, US28, US29, US33, US36, US37, US38 y US40).
+La estimación total del Product Backlog asciende a **211 Story Points**. De ellos, **148 SP (70%)** corresponden a historias completadas en el Sprint 1 (TB1); el resto queda pendiente en el Product Backlog, fuera del alcance del Sprint 1, principalmente Subscription & Billing y Moderation & Disputes, ninguno de los cuales entraba en el alcance comprometido para esta entrega. Medido únicamente sobre las historias con componente de backend (excluyendo Landing Page y funcionalidades exclusivas del cliente móvil), el avance supera el 90%.
 
 **Tabla 10**
 
@@ -1994,15 +1994,15 @@ La estimación total del Product Backlog asciende a **211 Story Points**. De ell
 | 8 | US08 | Consulta de la ruta de aprendizaje | 3 | Sprint 1 |
 | 9 | TS03 | Endpoint de registro de certificados | 5 | Sprint 1 |
 | 10 | US12 | Carga del certificado desde un archivo | 3 | Sprint 1 |
-| 11 | US11 | Captura del certificado con la cámara | 3 | — |
+| 11 | US11 | Captura del certificado con la cámara | 3 | Sprint 1 |
 | 12 | US13 | Extracción automática de datos del certificado | 8 | Sprint 1 |
 | 13 | US15 | Correspondencia del certificado con la habilidad | 5 | Sprint 1 |
 | 14 | TS06 | Endpoint de generación de evaluaciones | 5 | Sprint 1 |
 | 15 | US17 | Generación del quiz de un nodo | 5 | Sprint 1 |
 | 16 | TS07 | Endpoints de registro de intentos | 3 | Sprint 1 |
 | 17 | US18 | Resolución del quiz con calificación en el servidor | 3 | Sprint 1 |
-| 18 | US20 | Identificación del sub-tema débil | 5 | — |
-| 19 | US05 | Suscripción al plan mensual | 5 | Sprint 1 |
+| 18 | US20 | Identificación del sub-tema débil | 5 | Sprint 2 |
+| 19 | US05 | Suscripción al plan mensual | 5 | Sprint 2 |
 | 20 | US09 | Reconocimiento de habilidades ya certificadas | 3 | Sprint 1 |
 | 21 | US14 | Detección de certificados duplicados | 3 | Sprint 1 |
 | 22 | TS04 | Endpoints de consulta de certificados | 2 | Sprint 1 |
@@ -2017,35 +2017,35 @@ La estimación total del Product Backlog asciende a **211 Story Points**. De ell
 | 31 | US01 | Registro con correo institucional | 3 | Sprint 1 |
 | 32 | TS02 | Endpoint de autenticación con JWT | 2 | Sprint 1 |
 | 33 | US02 | Inicio de sesión | 2 | Sprint 1 |
-| 34 | US19 | Entrega de un miniproyecto | 8 | — |
-| 35 | TS10 | Endpoints de gestión de disputas | 5 | Sprint 1 |
-| 36 | US34 | Consulta de disputas pendientes | 3 | Sprint 1 |
-| 37 | US35 | Resolución de certificados sospechosos | 3 | Sprint 1 |
+| 34 | US19 | Entrega de un miniproyecto | 8 | Sprint 2 |
+| 35 | TS10 | Endpoints de gestión de disputas | 5 | Sprint 2 |
+| 36 | US34 | Consulta de disputas pendientes | 3 | Sprint 2 |
+| 37 | US35 | Resolución de certificados sospechosos | 3 | Sprint 2 |
 | 38 | US27 | Apelación de la decisión del Verificador | 3 | Sprint 1 |
-| 39 | US36 | Resolución de apelaciones | 3 | — |
-| 40 | US37 | Habilitación de reevaluación o nuevo intento | 3 | — |
+| 39 | US36 | Resolución de apelaciones | 3 | Sprint 2 |
+| 40 | US37 | Habilitación de reevaluación o nuevo intento | 3 | Sprint 2 |
 | 41 | TS09 | Endpoints de billetera y canje de SkillCredits | 3 | Sprint 1 |
 | 42 | US30 | Acreditación de SkillCredits por caso resuelto | 3 | Sprint 1 |
 | 43 | US31 | Consulta de billetera e historial | 2 | Sprint 1 |
-| 44 | US33 | Compartir logros en LinkedIn | 3 | — |
-| 45 | US38 | Exigencia de nuevo examen al Verificador | 3 | — |
-| 46 | US39 | Definición del plazo de actividad de los Verificadores | 3 | Sprint 1 |
-| 47 | US40 | Consulta de métricas de la plataforma | 5 | — |
+| 44 | US33 | Compartir logros en LinkedIn | 3 | Sprint 2 |
+| 45 | US38 | Exigencia de nuevo examen al Verificador | 3 | Sprint 2 |
+| 46 | US39 | Definición del plazo de actividad de los Verificadores | 3 | Sprint 2 |
+| 47 | US40 | Consulta de métricas de la plataforma | 5 | Sprint 2 |
 | 48 | US32 | Canje de SkillCredits en la tienda | 3 | Sprint 1 |
 | 49 | US04 | Configuración del perfil de intereses | 2 | Sprint 1 |
-| 50 | US07 | Confirmación de la habilidad interpretada | 3 | — |
-| 51 | US10 | Consulta de la ruta sin conexión | 5 | — |
-| 52 | US21 | Conservación del avance ante pérdida de conexión | 5 | — |
-| 53 | US03 | Acceso mediante biometría del dispositivo | 3 | — |
-| 54 | US28 | Programación de la demostración final | 3 | — |
-| 55 | US29 | Demostración final por video | 8 | — |
+| 50 | US07 | Confirmación de la habilidad interpretada | 3 | Sprint 2 |
+| 51 | US10 | Consulta de la ruta sin conexión | 5 | Sprint 1 |
+| 52 | US21 | Conservación del avance ante pérdida de conexión | 5 | Sprint 1 |
+| 53 | US03 | Acceso mediante biometría del dispositivo | 3 | Sprint 1 |
+| 54 | US28 | Programación de la demostración final | 3 | Sprint 2 |
+| 55 | US29 | Demostración final por video | 8 | Sprint 2 |
 | 56 | TS11 | Endpoints de consulta de reputación | 2 | Sprint 1 |
 | 57 | TS12 | Despliegue del backend en producción | 5 | Sprint 1 |
 
 
 *Nota.* Elaboración propia.
 
-El Product Backlog se gestiona en Trello, en un tablero público organizado en listas, entre ellas la lista Sprint 1. Cada tarjeta conserva el orden, el identificador, el título y los Story Points de la tabla anterior, e incluye en su descripción la historia, la prioridad, el usuario y el Epic.
+El Product Backlog se gestiona en Trello, en un tablero público organizado en una lista por Sprint. Cada tarjeta conserva el orden, el identificador, el título y los Story Points de la tabla anterior, e incluye en su descripción la historia, la prioridad, el usuario, el Epic y el Sprint asignado.
 
 **Figura 29**
 
@@ -2055,7 +2055,7 @@ El Product Backlog se gestiona en Trello, en un tablero público organizado en l
   <img src="public/assets/images-doc/product-backlog-trello.png" alt="Product Backlog de SkillSwap en Trello" width="500">
 </p>
 
-*Nota.* Tablero público del Product Backlog en Trello, con la lista Sprint 1 y las tarjetas de cada historia con su identificador, título y Story Points. Elaboración propia.
+*Nota.* Tablero público del Product Backlog en Trello, con las listas Sprint 1 (42 historias, 148 Story Points) y Sprint 2 (15 historias, 63 Story Points). Elaboración propia.
 
 **URL público del Product Backlog (Trello):** [https://trello.com/b/sTMGwnPf/skillswap-product-backlog](https://trello.com/b/sTMGwnPf/skillswap-product-backlog)
 
@@ -2366,7 +2366,7 @@ En la fase final, Cloudinary almacena la demostración final y el servicio de co
 
 En el noveno paso, los comandos y los eventos se agruparon en agregados, es decir, en los objetos del dominio que reciben los comandos, protegen las reglas de negocio y producen los eventos. Se identificaron 12 agregados. En la figura, cada agregado aparece como un post-it alto de color amarillo pálido, con los comandos que recibe a la izquierda, los eventos que produce a la derecha y su regla principal debajo.
 
-Los agregados con más responsabilidad son VerificationCase, que concentra la revisión humana de los entregables y de la demostración final, incluidas la asignación, el plazo, el cálculo de la aprobación y las reentregas, y LearningPath, que gestiona la ruta y el avance de sus nodos. Certificate se mantiene separado de la ruta, porque registrar un certificado no completa ningún nodo (solo un certificado validado por un Verificador completa el nodo de la habilidad que cubre), y SkillCertification se modeló como un agregado propio, porque solo puede emitirse con la ruta completada y la demostración final aprobada. Wallet refleja que los SkillCredits solo se ganan revisando, que no se compran con dinero ni se transfieren y que solo se descuentan al canjearse por un beneficio.
+Los agregados con más responsabilidad son VerificationCase, que concentra la revisión humana de los entregables y de la demostración final, incluidas la asignación, el plazo, el cálculo de la aprobación y las reentregas, y LearningPath, que gestiona la ruta y el avance de sus nodos. Certificate se mantiene separado de la ruta, porque registrar un certificado no completa ningún nodo, y SkillCertification se modeló como un agregado propio, porque solo puede emitirse con la ruta completada y la demostración final aprobada. Wallet refleja que los SkillCredits solo se ganan revisando, que no se compran con dinero ni se transfieren y que solo se descuentan al canjearse por un beneficio.
 
 **Figura 52**
 
@@ -2589,7 +2589,7 @@ Learning Path Engine es el segundo contexto core. Su propósito es convertir el 
 
 *Nota.* Bounded Context Canvas del contexto Learning Path Engine, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
 
-Credential Verification se clasificó como un contexto de soporte orientado al cumplimiento, porque protege la confianza en el perfil del Estudiante. Su regla central es que registrar un certificado no completa ningún nodo: el certificado registrado complementa el perfil como evidencia, y solo cuando un Verificador lo valida cuenta como habilidad ya demostrada y completa el nodo que cubre. Su capacidad principal es el registro con evaluación del riesgo documental, apoyada en ML Kit para la extracción en el dispositivo y en Cloudinary para el almacenamiento. Su única dependencia de dominio es Moderation & Disputes, que revisa los certificados sospechosos. En la crítica quedó abierta la pregunta de si un certificado sospechoso debe bloquear la ruta.
+Credential Verification se clasificó como un contexto de soporte orientado al cumplimiento, porque protege la confianza en el perfil del Estudiante. Su regla central es que registrar un certificado no completa ningún nodo, de modo que el certificado previo complementa el perfil, pero no reemplaza la demostración. Su capacidad principal es el registro con evaluación del riesgo documental, apoyada en ML Kit para la extracción en el dispositivo y en Cloudinary para el almacenamiento. Su única dependencia de dominio es Moderation & Disputes, que revisa los certificados sospechosos. En la crítica quedó abierta la pregunta de si un certificado sospechoso debe bloquear la ruta.
 
 **Figura 65**
 
@@ -2692,7 +2692,7 @@ Finalmente, **Credential Verification** mantiene una relación de **Anticorrupti
 ### 2.5.3. Software Architecture
 
 **Software Architecture Context Level Diagram:**
-Muestra la interacción de los dos actores (Estudiante, Verificador) con el sistema central de SkillSwap y los servicios externos de terceros (extracción de datos de certificados vía ML Kit, procesamiento de la suscripción con Google Play Billing (vía RevenueCat), IA generativa con la Gemini API, almacenamiento de certificados en Cloudinary, envío de correos con Brevo y notificaciones push con Firebase Cloud Messaging).
+Muestra la interacción de los dos actores (Estudiante, Verificador) con el sistema central de SkillSwap y los servicios externos de terceros (extracción de datos de certificados vía ML Kit, procesamiento de la suscripción con Google Play Billing (vía RevenueCat), almacenamiento de evidencias y servicio de notificaciones).
 
 **Software Architecture Container Level Diagram:**
 Detalla la estructura de contenedores:
@@ -2710,7 +2710,7 @@ El diagrama de contexto (Context Diagram) bajo el enfoque C4 Model presenta al s
 
 El sistema es utilizado por dos actores principales: el **Estudiante**, quien sube sus certificados, demuestra sus habilidades a través de las evaluaciones generadas por la plataforma y la usa con el plan gratuito o con una suscripción mensual que amplía sus límites; y el **Verificador** (un perfil vinculado a un Estudiante que ya completó su propia ruta de certificación), quien revisa los casos que la IA no puede resolver con suficiente confianza y, como Verificador senior, supervisa la calidad e integridad del proceso de verificación, resolviendo disputas y consultando métricas agregadas del ecosistema. Ambos actores interactúan con el sistema a través de la **aplicación móvil nativa (Android) y cross-platform (Flutter)**, así como del Landing Page.
 
-A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), utilizado on-device para la extracción de datos de los certificados subidos por el Estudiante (institución, curso, fecha) — esta es la tecnología que satisface el requisito de aprendizaje autónomo del curso; **Google Play Billing (vía RevenueCat)**, utilizado para el cobro recurrente de la suscripción mensual: Google Play procesa el pago y RevenueCat valida la compra y notifica sus cambios de estado al backend; la **Gemini API**, servicio de IA generativa que interpreta la meta del Estudiante seleccionando habilidades solo del catálogo interno (con coincidencia por palabras clave como respaldo si no responde) y genera las preguntas de las evaluaciones; **Cloudinary**, servicio de almacenamiento en la nube para los archivos de los certificados; **Brevo (Email API)**, con el que el backend envía el correo con el enlace de verificación del correo institucional `.edu.pe`; y **Firebase Cloud Messaging**, con el que el backend envía notificaciones push al dispositivo del Estudiante cuando su certificado queda verificado o rechazado.
+A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), utilizado on-device para la extracción de datos de los certificados subidos por el Estudiante (institución, curso, fecha) — esta es la tecnología que satisface el requisito de aprendizaje autónomo del curso; **Google Play Billing (vía RevenueCat)**, utilizado para el cobro recurrente de la suscripción mensual: Google Play procesa el pago y RevenueCat valida la compra y notifica sus cambios de estado al backend; la **Gemini API**, servicio de IA generativa que interpreta la meta del Estudiante seleccionando habilidades solo del catálogo interno (con coincidencia por palabras clave como respaldo si no responde) y genera las preguntas de las evaluaciones; un **servicio de almacenamiento en la nube** para las imágenes de certificados y evidencias adjuntas a un caso de revisión; y un **servicio de correo electrónico** para el envío de notificaciones institucionales (validación de dominio `.edu.pe`, resultado de una evaluación, apertura o resolución de un caso de verificación).
 
 **Figura 72**
 
@@ -2720,7 +2720,7 @@ A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), u
   <img src="images-doc/SkillSwapSystemContext.svg" alt="System Context Diagram - Mobile" width="800">
 </p>
 
-*Nota.* Diagrama de contexto que muestra el sistema SkillSwap en el centro y sus interacciones directas con los dos actores principales (Estudiante, Verificador) a través de la aplicación móvil nativa, la aplicación cross-platform y el Landing Page, así como con los sistemas externos de terceros (ML Kit, Google Play Billing vía RevenueCat, Gemini API, Cloudinary, Brevo y Firebase Cloud Messaging). Elaboración propia.
+*Nota.* Diagrama de contexto que muestra el sistema SkillSwap en el centro y sus interacciones directas con los dos actores principales (Estudiante, Verificador) a través de la aplicación móvil nativa, la aplicación cross-platform y el Landing Page, así como con los sistemas externos de terceros (ML Kit, Google Play Billing vía RevenueCat, Gemini API, almacenamiento en la nube y servicio de correo electrónico). Elaboración propia.
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
@@ -2744,7 +2744,7 @@ Es importante resaltar que tanto la aplicación Android nativa como la aplicaci�
   <img src="images-doc/SkillSwapContainer.svg" alt="Container Diagram - Mobile" width="900">
 </p>
 
-*Nota.* Diagrama de contenedores que muestra el Landing Page, la Aplicación Android Nativa, la Aplicación Cross-Platform (Flutter), el backend de API/RESTful Web Services y la Base de Datos, junto con sus interacciones y los sistemas externos ML Kit, Google Play Billing (vía RevenueCat), Gemini API, Cloudinary, Brevo (Email API) y Firebase Cloud Messaging, este último con las notificaciones push hacia las aplicaciones móviles. El Landing Page es informativo y no consume la API. Los ocho Bounded Contexts se detallan a nivel de Component Diagram, no en este nivel de contenedor. Elaboración propia.
+*Nota.* Diagrama de contenedores que muestra el Landing Page, la Aplicación Android Nativa, la Aplicación Cross-Platform (Flutter), el backend de API/RESTful Web Services y la Base de Datos, junto con sus interacciones y los sistemas externos ML Kit, Google Play Billing (vía RevenueCat), Gemini API, el servicio de correo electrónico y el servicio de almacenamiento en la nube. El Landing Page es informativo y no consume la API. Los ocho Bounded Contexts se detallan a nivel de Component Diagram, no en este nivel de contenedor. Elaboración propia.
 
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
@@ -2755,7 +2755,7 @@ El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física 
 - **Hosting estático:** Aloja el Landing Page, servido de forma estática desde **GitHub Pages**, de acceso público.
 - **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (Java 21 / Spring Boot), empaquetado como contenedor Docker y desplegado en **Render**, donde se ejecuta la lógica de negocio de los ocho Bounded Contexts a través de un único API Gateway, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por las dos aplicaciones móviles (Android Native App y Flutter App); el Landing Page es informativo y no consume la API.
 - **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de PostgreSQL desplegada en **Render**, compartida por los ocho Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
-- **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para los archivos de los certificados, **Brevo (Email API)** para el envío del correo de verificación del correo institucional, **Firebase Cloud Messaging** para las notificaciones push al dispositivo del Estudiante, la **Gemini API** para interpretar la meta del Estudiante sobre el catálogo interno de habilidades y generar las preguntas de los quizzes, y **Google Play Billing (vía RevenueCat)** para el procesamiento del cobro recurrente de la suscripción mensual: la aplicación inicia la compra con el SDK de RevenueCat y RevenueCat notifica sus cambios al backend mediante un webhook.
+- **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para las imágenes de certificados y evidencias adjuntas a un caso de verificación, servicio de correo electrónico para el envío de notificaciones (validación institucional, resultados de evaluación, estado de un caso de revisión), la **Gemini API** para interpretar la meta del Estudiante sobre el catálogo interno de habilidades y generar las preguntas de los quizzes, y **Google Play Billing (vía RevenueCat)** para el procesamiento del cobro recurrente de la suscripción mensual: la aplicación inicia la compra con el SDK de RevenueCat y RevenueCat notifica sus cambios al backend mediante un webhook.
 
 Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
 
@@ -2767,7 +2767,7 @@ Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la s
   <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram - Mobile" width="900">
 </p>
 
-*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution y ejecución on-device de ML Kit, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de PostgreSQL en Render y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat), este último con la compra desde la aplicación y el webhook hacia el backend. Elaborado en PlantUML. Elaboración propia.
+*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con distribución vía Firebase App Distribution y ejecución on-device de ML Kit, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de PostgreSQL en Render y los servicios externos Cloudinary, Email API, Gemini API y Google Play Billing (vía RevenueCat), este último con la compra desde la aplicación y el webhook hacia el backend. Elaborado en PlantUML. Elaboración propia.
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
@@ -2790,27 +2790,15 @@ Atributos
 | email | Email (VO) | Correo electrónico validado contra el dominio institucional `.edu.pe`. |
 | passwordHash | PasswordHash (VO) | Representación segura de la contraseña tras pasar por un algoritmo de encriptación. |
 | role | Role (VO) | Rol de la cuenta: `Student` (único rol de cuenta; el Verificador es un perfil adicional). |
-| isVerified | boolean | Indica si el estudiante confirmó su correo institucional mediante el enlace de verificación; una cuenta sin verificar no puede iniciar sesión. |
-| fullName | string | Nombre completo registrado del estudiante (opcional, hasta 150 caracteres), con el que Credential Verification compara el titular leído en sus certificados. |
+| isVerified | boolean | Indica si la cuenta ha completado la validación institucional. |
 | bio | string | Descripción libre del perfil del usuario. |
-| interestTopics | List&lt;string&gt; | Temas de interés del estudiante (de 1 a 10, hasta 60 caracteres cada uno, sin repetidos). |
-| skillVector | List&lt;string&gt; | Etiquetas del catálogo interno de habilidades a las que se refieren los temas de interés y la descripción; se recalcula cada vez que cambian. |
-| verificationTokenHash | string | Hash SHA-256 del token del enlace de verificación vigente; el token en claro nunca se almacena. |
-| verificationTokenExpiresAt | Instant | Vencimiento del enlace de verificación vigente (24 horas por defecto). |
-| verificationEmailSentAt | Instant | Momento del último correo de verificación enviado, que limita el reenvío a uno por intervalo de espera. |
-| deviceToken | DeviceToken (VO) | Token de Firebase Cloud Messaging del dispositivo móvil del estudiante; es nulo cuando no concedió el permiso de notificaciones. |
+| deviceToken | DeviceToken (VO) | Identificador del dispositivo móvil, reservado para una futura integración de notificaciones — pendiente de definir el proveedor/tecnología específica. |
 
 Métodos
 
 - `User(username, email, password, role)` (Constructor): Inicializa las propiedades del usuario y valida que el correo pertenezca al dominio institucional antes de crear la instancia.
-- `verify()`: Cambia `isVerified` a `true` al confirmarse el correo institucional y elimina el token de verificación, de modo que cada enlace funciona una sola vez.
-- `issueVerificationToken(String tokenHash, Instant expiresAt, Instant issuedAt)`: Registra el hash del nuevo token de verificación, su vencimiento y el momento del envío; un token nuevo reemplaza al anterior.
-- `canReceiveVerificationEmail(Instant now, Duration cooldown)`: Indica si ya transcurrió el intervalo de espera desde el último correo de verificación.
-- `isVerificationTokenExpired(Instant now)`: Indica si el enlace de verificación vigente ya venció.
-- `updateBio(String bio)` y `replaceInterestTopics(List<String> topics)`: Actualizan la descripción y reemplazan los temas de interés del perfil.
-- `updateSkillVector(List<String> skillTags)`: Reemplaza el vector de habilidades calculado a partir de los temas de interés y la descripción.
-- `updateFullName(String fullName)`: Registra o elimina el nombre completo del estudiante.
-- `registerDeviceToken(String token)` / `removeDeviceToken()`: Asocian u olvidan el token de Firebase Cloud Messaging del dispositivo móvil del estudiante.
+- `verify()`: Cambia `isVerified` a `true` una vez confirmada la validación institucional.
+- `registerDeviceToken(String token)`: Asocia o actualiza el `deviceToken` del dispositivo móvil desde el cual el usuario inició sesión.
 
 **2. Value Object: Email**
 
@@ -2848,13 +2836,13 @@ Atributos
 
 **5. Value Object: DeviceToken**
 
-Descripción: Token de registro que Firebase Cloud Messaging asigna a la instalación de la aplicación en el dispositivo del estudiante, usado para enviarle notificaciones push.
+Descripción: Identificador opaco del dispositivo móvil del usuario, reservado como punto de extensión para una futura funcionalidad de notificaciones.
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| value | string | Token de Firebase Cloud Messaging (hasta 512 caracteres). Si otra cuenta registra el mismo token, este pasa a la última cuenta que lo registró. |
+| value | string | Token del dispositivo, nulo hasta que se defina la tecnología de notificación a integrar. |
 
 **6. Domain Service: PasswordHasher**
 
@@ -2881,12 +2869,10 @@ Métodos
 
 - `findByUsername(String username)`: Recupera un usuario por su nombre de usuario único.
 - `findByEmail(Email email)`: Recupera un usuario por su correo electrónico.
-- `findByVerificationTokenHash(String tokenHash)`: Recupera la cuenta a la que pertenece un enlace de verificación, a partir del hash de su token.
-- `findByDeviceToken(DeviceToken deviceToken)`: Recupera las cuentas que registraron un token de dispositivo.
 - `existsByEmail(Email email)`: Verifica la unicidad de un correo antes del registro.
 - `save(User user)`: Persiste un usuario nuevo o actualizado.
 
-En la Domain Layer de SkillSwap, específicamente dentro del Bounded Context de Identity & Access, se ha definido la gestión de identidades bajo un modelo de Domain-Driven Design (DDD). La clase `User` actúa como el Agregado raíz que centraliza la información de la cuenta y su asociación con su rol de cuenta (Student, el único rol; el perfil de Verificador se gestiona en Assessment & Peer Review), garantizando que el acceso y las credenciales se validen estrictamente a través de servicios de dominio como `PasswordHasher` y `EmailDomainValidator`. El agregado también controla la verificación del correo institucional (token de un solo uso con vencimiento), el perfil de intereses con su vector de habilidades, el nombre completo registrado y el token del dispositivo para las notificaciones push. Finalmente, la recuperación y persistencia de estas identidades se gestiona mediante el repositorio `UserRepository`.
+En la Domain Layer de SkillSwap, específicamente dentro del Bounded Context de Identity & Access, se ha definido la gestión de identidades bajo un modelo de Domain-Driven Design (DDD). La clase `User` actúa como el Agregado raíz que centraliza la información de la cuenta y su asociación con su rol de cuenta (Student, el único rol; el perfil de Verificador se gestiona en Assessment & Peer Review), garantizando que el acceso y las credenciales se validen estrictamente a través de servicios de dominio como `PasswordHasher` y `EmailDomainValidator`. Finalmente, la recuperación y persistencia de estas identidades se gestiona mediante el repositorio `UserRepository`.
 
 #### 2.6.1.2. Interface Layer
 
@@ -2896,29 +2882,17 @@ En la Interface Layer de SkillSwap, específicamente para el contexto de Identit
 
 | Nombre | Descripción |
 |---|---|
-| SignUpResource | DTO que encapsula los datos de entrada (username, email, password y, opcionalmente, fullName) para el registro de una nueva cuenta. |
+| SignUpResource | DTO que encapsula los datos de entrada (username, email, password) para el registro de una nueva cuenta. |
 | SignInResource | DTO que contiene las credenciales necesarias (username, password) para validar el acceso al sistema. |
-| UserResource | DTO de salida que representa la información del usuario (id, username, email, role, isVerified, bio, fullName, interests y skillVector) tras una consulta exitosa. |
+| UserResource | DTO de salida que representa la información pública del usuario (id, username, email, role, isVerified) tras una consulta exitosa. |
 | AuthenticatedUserResource | Recurso que devuelve el token JWT generado y la información básica del usuario tras un inicio de sesión correcto. |
-| VerifyEmailResource | DTO con el token del enlace de verificación del correo institucional. |
-| ResendVerificationResource | DTO con el correo de la cuenta a la que se reenvía el enlace de verificación. |
-| UpdateInterestProfileResource | DTO con los temas de interés del estudiante y, opcionalmente, su descripción. |
-| UpdateUserFullNameResource | DTO con el nombre completo del estudiante. |
-| RegisterDeviceTokenResource | DTO con el token de Firebase Cloud Messaging del dispositivo. |
-| MessageResource | DTO de salida con un mensaje informativo, como la confirmación del reenvío del enlace de verificación. |
 
 **Controllers**
 
 | Nombre | Método HTTP | Ruta / Resource | Descripción |
 |---|---|---|---|
 | AuthenticationController | POST | `/api/v1/authentication/sign-up` (SignUpResource) | Expone el endpoint para crear una nueva cuenta, validando previamente el dominio institucional del correo. |
-| AuthenticationController | POST | `/api/v1/authentication/sign-in` (SignInResource) | Gestiona la autenticación, verificando las credenciales y devolviendo el token de acceso JWT. Una cuenta sin verificar recibe 403 `EmailNotVerified` y se le reenvía el enlace de verificación. |
-| AuthenticationController | POST | `/api/v1/authentication/verify-email` (VerifyEmailResource) | Verifica la cuenta con el token del enlace enviado por correo (`400` si el token es inválido o ya se usó, `410` si venció). |
-| AuthenticationController | GET | `/api/v1/authentication/verify-email?token=` | Versión del mismo endpoint para el enlace del correo: verifica la cuenta y responde una página HTML con el resultado. |
-| AuthenticationController | POST | `/api/v1/authentication/resend-verification` (ResendVerificationResource) | Reenvía el enlace de verificación respetando el intervalo de espera; responde 202 sin revelar si el correo está registrado. |
-| UsersController | PUT | `/api/v1/users/{id}/interests` (UpdateInterestProfileResource) | Registra o reemplaza los temas de interés del estudiante y recalcula su vector de habilidades. |
-| UsersController | PATCH | `/api/v1/users/{id}/full-name` (UpdateUserFullNameResource) | Registra el nombre completo del estudiante, que se compara con el titular de sus certificados. |
-| UsersController | PUT / DELETE | `/api/v1/users/me/device-token` (RegisterDeviceTokenResource) | Registra u olvida el token de Firebase Cloud Messaging del dispositivo del estudiante autenticado. |
+| AuthenticationController | POST | `/api/v1/authentication/sign-in` (SignInResource) | Gestiona la autenticación, verificando las credenciales y devolviendo el token de acceso JWT. |
 
 **Transformers / Assemblers**
 
@@ -2939,24 +2913,7 @@ En la Application Layer de SkillSwap, para el contexto de Identity & Access, los
 | Nombre | Descripción | Resumen de Lógica |
 |---|---|---|
 | SignUpCommandHandler | Procesa la creación de nuevas cuentas de usuario. | Valida que el email pertenezca al dominio institucional y no esté en uso, cifra la contraseña mediante `PasswordHasher`, instancia el agregado `User` y lo persiste a través de `UserRepository`. |
-| SignInCommandHandler | Gestiona el proceso de inicio de sesión y autenticación. | Busca al usuario por `username`, verifica la contraseña comparándola con el hash almacenado mediante `PasswordHasher` y, si la cuenta está verificada, genera un token JWT para la sesión autenticada; si no lo está, deniega el acceso y reenvía el correo de verificación. |
-| SendVerificationEmailEventHandler | Envía el correo de verificación tras el registro. | Reacciona al evento `EmailVerificationRequested`, emite un token aleatorio de 256 bits (`EmailVerificationIssuer`), guarda solo su hash SHA-256 con su vencimiento y envía el enlace mediante el puerto `EmailSender`. |
-| VerifyEmailCommandHandler / ResendVerificationEmailCommandHandler | Procesan la verificación del correo y el reenvío del enlace (`EmailVerificationCommandServiceImpl`). | Buscan la cuenta por el hash del token y la verifican si el enlace no venció; el reenvío emite un token nuevo que reemplaza al anterior, como máximo una vez por intervalo de espera. |
-| UpdateInterestProfileCommandHandler | Procesa la actualización del perfil de intereses. | Reemplaza los temas de interés y recalcula el vector de habilidades consultando el catálogo de habilidades a través de `SkillCatalogContextFacade` (Learning Path Engine). |
-| RegisterDeviceTokenCommandHandler / RemoveDeviceTokenCommandHandler | Gestionan el token de notificaciones del dispositivo. | Asocian el token a la cuenta autenticada (retirándolo de otra cuenta que lo tuviera) o lo eliminan. |
-
-**Outbound Services (puertos)**
-
-| Nombre | Descripción |
-|---|---|
-| EmailSender | Puerto para enviar correos transaccionales (`EmailMessage`), que desacopla la aplicación del proveedor de correo. |
-| PushNotificationSender | Puerto para enviar notificaciones push (`PushNotification`) a un token de dispositivo; nunca lanza excepciones y reporta el resultado como `PushDeliveryResult`. |
-
-**Anti-Corruption Layer (fachada)**
-
-| Nombre | Descripción |
-|---|---|
-| UserNotificationsContextFacade | Permite a los demás Bounded Contexts notificar a un usuario en su dispositivo sin depender del agregado `User`, de su token ni del proveedor de notificaciones. No envía nada si el usuario no registró un token y olvida los tokens que Firebase Cloud Messaging reporta como no registrados. Credential Verification la usa para avisar al estudiante cuando su certificado queda verificado o rechazado. |
+| SignInCommandHandler | Gestiona el proceso de inicio de sesión y autenticación. | Busca al usuario por `username`, verifica la contraseña comparándola con el hash almacenado mediante `PasswordHasher`, y genera un token JWT para la sesión autenticada. |
 
 **Internal DTOs**
 
@@ -2984,16 +2941,7 @@ En la Infrastructure Layer de SkillSwap, para el contexto de Identity & Access, 
 | BCryptPasswordHasher | Implementación técnica de `PasswordHasher` encargada de proteger las contraseñas de los usuarios. | Utiliza el algoritmo BCrypt para generar hashes seguros y validar contraseñas durante el acceso. |
 | JwtTokenGenerator | Servicio responsable de la generación de tokens de seguridad para sesiones autenticadas. | Implementa la generación de tokens JWT, codificando el `userId` y el `role` para la autorización de peticiones en los clientes móviles (Android Nativo, Flutter). |
 
-**External Services Integration**
-
-| Nombre | Descripción | Resumen de Implementación |
-|---|---|---|
-| BrevoEmailSenderAdapter | Implementación de `EmailSender` mediante la API HTTP de correo transaccional de Brevo. | Se usa la API HTTP porque el plan gratuito de Render bloquea el tráfico SMTP saliente. Requiere `BREVO_API_KEY` y `EMAIL_SENDER_ADDRESS`. |
-| LoggingEmailSenderAdapter | Implementación de respaldo de `EmailSender`. | Cuando no se configura `BREVO_API_KEY`, escribe el correo con su enlace de verificación en el log en lugar de enviarlo. |
-| FirebasePushNotificationAdapter | Implementación de `PushNotificationSender` con el SDK de Firebase Admin. | Envía la notificación al token del dispositivo mediante Firebase Cloud Messaging, con las credenciales de la cuenta de servicio en `FIREBASE_CREDENTIALS_BASE64`. |
-| LoggingPushNotificationAdapter | Implementación de respaldo de `PushNotificationSender`. | Cuando no se configuran credenciales de Firebase válidas, escribe la notificación en el log. |
-
-Estos componentes aseguran que la lógica de negocio de Identity & Access se ejecute sobre una infraestructura robusta, con los proveedores de correo (Brevo) y de notificaciones push (Firebase Cloud Messaging) aislados detrás de los puertos `EmailSender` y `PushNotificationSender`.
+Estos componentes aseguran que la lógica de negocio de Identity & Access se ejecute sobre una infraestructura robusta, con el campo `deviceToken` del agregado `User` quedando reservado como punto de extensión hasta definir la tecnología concreta de notificaciones a integrar.
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -3021,7 +2969,7 @@ Estos componentes aseguran que la lógica de negocio de Identity & Access se eje
 
 *Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
 
-El modelado de clases de Identity & Access pertenece al agregado raíz `User`, junto con sus Value Objects `Username`, `Email`, `PasswordHash` y `DeviceToken`, y la enumeración `Role`, debido a que estos elementos concentran de forma exclusiva la información de cuenta, credenciales y estado de verificación institucional de cada usuario de la plataforma. Se destaca el Value Object `DeviceToken`, que guarda el token de Firebase Cloud Messaging con el que se envían las notificaciones push al dispositivo del estudiante, y los puertos `EmailSender` y `PushNotificationSender`, que desacoplan el envío del correo de verificación y de las notificaciones de sus proveedores.
+El modelado de clases de Identity & Access pertenece al agregado raíz `User`, junto con sus Value Objects `Username`, `Email`, `PasswordHash` y `DeviceToken`, y la enumeración `Role`, debido a que estos elementos concentran de forma exclusiva la información de cuenta, credenciales y estado de verificación institucional de cada usuario de la plataforma. Se destaca el Value Object `DeviceToken`, incorporado sobre el agregado `User` como punto de extensión para una futura integración de notificaciones push en los clientes móviles nativo y cross-platform.
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
@@ -3035,7 +2983,7 @@ El modelado de clases de Identity & Access pertenece al agregado raíz `User`, j
 
 *Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
 
-El modelado de base de datos de Identity & Access pertenece a la tabla `users`, debido a que es la única tabla que persiste el agregado raíz `User` junto con sus Value Objects embebidos (`username`, `email`, `password_hash`, `role`, `device_token`), sin requerir tablas adicionales: los temas de interés (`interest_topics`) y el vector de habilidades (`skill_vector`) se guardan como arreglos `jsonb` en la misma fila, por lo que un único registro por usuario es suficiente para representar el agregado completo. Se destacan las columnas `verification_token_hash`, `verification_token_expires_at` y `verification_email_sent_at` (migración V6), que soportan el enlace de verificación de un solo uso con un índice único parcial sobre el hash, `full_name` (V9), con el que se compara el titular de los certificados, y `device_token`, que guarda el token de Firebase Cloud Messaging para las notificaciones push.
+El modelado de base de datos de Identity & Access pertenece a la tabla `users`, debido a que es la única tabla que persiste el agregado raíz `User` junto con sus Value Objects embebidos (`username`, `email`, `password_hash`, `role`, `device_token`), sin requerir tablas adicionales — a diferencia de otros Bounded Contexts del proyecto, `User` no compone ninguna entidad hija ni colección propia, por lo que un único registro por usuario es suficiente para representar el agregado completo. Se destaca el campo `device_token`, incorporado sobre la tabla `users` para el soporte de una futura integración de notificaciones push en los clientes móviles.
 
 
 ---
@@ -3072,7 +3020,6 @@ Atributos
 | status | VerificationStatus (VO) | Estado actual del certificado dentro del flujo de verificación. |
 | verificationMethod | VerificationMethod (VO) | Mecanismo mediante el cual se intentó verificar el certificado. |
 | riskAssessment | RiskAssessment (VO) | Resultado de la evaluación de riesgo aplicada al certificado. |
-| holderNameMismatch | boolean | Indica si el titular leído en el certificado no coincide con el nombre completo registrado del estudiante. |
 | createdAt | datetime | Fecha de registro del certificado en la plataforma. |
 | verifiedAt | datetime (nullable) | Fecha en la que el certificado alcanzó un estado definitivo (`VERIFIED` o `REJECTED`). |
 
@@ -3081,8 +3028,7 @@ Métodos
 - `Certificate(ownerId, fileHash, storageReference)` (Constructor): Registra el documento subido con estado inicial `PENDING`, antes de que se ejecute la extracción OCR.
 - `applyExtractedData(holderName, institutionName, courseName, issueDate, durationHours, certificateNumber, verificationCode, verificationUrl, qrPayload, ocrText)`: Completa el agregado con los datos obtenidos por el servicio de extracción, una vez procesado el documento.
 - `assessRisk(RiskAssessment riskAssessment)`: Asigna el resultado de la evaluación de riesgo y transiciona el estado del certificado: a `SUSPICIOUS` si el nivel es `HIGH_RISK`, o a `UNVERIFIED` si es `LOW_RISK` o `REVIEW` (a la espera de que el nivel `REVIEW` sea tratado manualmente en una futura iteración).
-- `flagHolderNameMismatch()`: Marca que el titular leído en el certificado no coincide con el nombre completo registrado del estudiante; solo aplica a un certificado `PENDING` con titular.
-- `resolveDispute(boolean isAuthentic)`: Aplica la decisión del Verificador senior tras la escalación a Moderation & Disputes, transicionando el certificado a `VERIFIED` o `REJECTED` y registrando `verifiedAt`.
+- `resolveDispute(boolean isAuthentic)`: Aplica la decisión del Verificador tras la escalación a Moderation & Disputes, transicionando el certificado a `VERIFIED` o `REJECTED` y registrando `verifiedAt`.
 
 **2. Value Object: RiskAssessment**
 
@@ -3133,17 +3079,9 @@ Descripción: Define el contrato para calcular el `RiskAssessment` de un certifi
 
 Métodos
 
-- `calculateRisk(boolean duplicateCertificateNumber, boolean duplicateVerificationCode, boolean duplicateFileHash, boolean ocrInconsistencies, boolean holderNameMismatch)`: Aplica las reglas de riesgo (+30 número de certificado duplicado, +30 código de verificación duplicado, +15 inconsistencias detectadas por OCR, +50 archivo ya registrado por otro estudiante y +50 titular distinto del nombre registrado del estudiante) y retorna el `RiskAssessment` resultante. Las dos últimas reglas bastan por sí solas para alcanzar el nivel `HIGH_RISK`.
+- `calculateRisk(boolean duplicateCertificateNumber, boolean duplicateVerificationCode, boolean duplicateFileHash, boolean ocrInconsistencies)`: Aplica las reglas de riesgo (+30 número de certificado duplicado, +30 código de verificación duplicado, +15 inconsistencias detectadas por OCR, +10 archivo idéntico a otro certificado) y retorna el `RiskAssessment` resultante.
 
-**7. Domain Service: HolderNameMatcher**
-
-Descripción: Compara el titular leído en el certificado con el nombre completo registrado del estudiante sin considerar tildes, mayúsculas ni el orden de los nombres, y admite un segundo nombre o apellido omitido y las iniciales. Si alguno de los dos nombres falta, no hay comparación.
-
-**8. Domain Events: CertificateFlaggedSuspicious, CertificateVerified y CertificateVerificationResolved**
-
-Descripción: `CertificateFlaggedSuspicious` se publica cuando un certificado queda `SUSPICIOUS`, con los motivos de la sospecha, y lo consume Moderation & Disputes para escalarlo a un Verificador senior. `CertificateVerified` se publica cuando un certificado queda `VERIFIED`, y lo consume Learning Path Engine para completar los nodos que el certificado cubre. `CertificateVerificationResolved` se publica cuando el certificado alcanza un estado definitivo (`VERIFIED` o `REJECTED`) y dispara la notificación push al estudiante.
-
-**9. Repository: CertificateRepository**
+**7. Repository: CertificateRepository**
 
 Descripción: Interfaz para la persistencia y recuperación de datos del agregado `Certificate`, incluyendo las consultas necesarias para la detección de duplicados.
 
@@ -3154,7 +3092,6 @@ Métodos
 - `existsByCertificateNumber(String certificateNumber)`: Verifica si un número de certificado ya fue registrado por otro usuario.
 - `existsByVerificationCode(String verificationCode)`: Verifica si un código de verificación ya fue registrado.
 - `existsByFileHash(String fileHash)`: Verifica si el archivo ya fue registrado previamente.
-- `existsByFileHashExcludingOwner(String fileHash, int ownerId)`: Verifica si otro estudiante ya registró el mismo archivo.
 - `save(Certificate certificate)`: Persiste un certificado nuevo o actualizado.
 
 En la Domain Layer de SkillSwap, dentro del Bounded Context de Credential Verification, la clase `Certificate` actúa como Agregado raíz que centraliza el documento subido y su estado de verificación, apoyándose en los servicios de dominio `CertificateExtractionService` para la extracción de datos y `CertificateRiskScorer` para la evaluación explicable de riesgo. La separación conceptual entre "qué certificado presentó el usuario" (`Certificate`), "qué mecanismo se usó para intentar verificarlo" (`VerificationMethod`) y "qué señales de riesgo se detectaron" (`RiskAssessment`) permite incorporar en el futuro nuevos verificadores oficiales sin modificar el agregado principal.
@@ -3196,15 +3133,8 @@ En la Application Layer de SkillSwap, para el contexto de Credential Verificatio
 
 | Nombre | Descripción | Resumen de Lógica |
 |---|---|---|
-| UploadCertificateCommandHandler | Procesa la subida de un nuevo certificado. | Almacena el archivo mediante el servicio de infraestructura de almacenamiento, calcula el `fileHash`, consulta `CertificateRepository` para detectar duplicados (número de certificado, código de verificación y archivo registrado por otro estudiante), compara el titular con el nombre completo registrado del estudiante mediante `HolderNameMatcher`, invoca `CertificateRiskScorer` con dichos resultados, aplica `assessRisk` sobre el agregado y lo persiste. Si el estado resultante es `SUSPICIOUS`, publica `CertificateFlaggedSuspicious` para que Moderation & Disputes lo escale a un Verificador senior. |
-| ResolveCertificateDisputeCommandHandler | Aplica la resolución de un certificado escalado. | Recibida la decisión del Verificador senior desde Moderation & Disputes (a través de `CredentialContextFacade`), invoca `resolveDispute` sobre el agregado y lo persiste con su estado definitivo (`VERIFIED` o `REJECTED`); publica `CertificateVerified` cuando queda verificado y `CertificateVerificationResolved` en ambos casos. |
-| NotifyCertificateResolutionEventHandler | Notifica al estudiante la resolución de su certificado. | Reacciona a `CertificateVerificationResolved` y envía una notificación push en español mediante `UserNotificationsContextFacade` (Identity & Access), con el motivo cuando el certificado es rechazado; si el estudiante no concedió el permiso de notificaciones no se envía nada y el estado sigue disponible en la consulta de sus certificados. |
-
-**Anti-Corruption Layer (fachada)**
-
-| Nombre | Descripción |
-|---|---|
-| CredentialContextFacade | Expone a los demás Bounded Contexts los certificados validados de un estudiante y el contenido de un certificado (`CertificateEvidence`) para Learning Path Engine, la vista de un certificado en revisión (`CertificateReviewView`: datos extraídos, evaluación de riesgo y enlace temporal al archivo) y la resolución de un certificado sospechoso para Moderation & Disputes. |
+| UploadCertificateCommandHandler | Procesa la subida de un nuevo certificado. | Almacena el archivo mediante el servicio de infraestructura de almacenamiento, calcula el `fileHash`, invoca `CertificateExtractionService` para obtener los datos del documento, consulta `CertificateRepository` para detectar duplicados (número de certificado, código de verificación, hash de archivo), invoca `CertificateRiskScorer` con dichos resultados, aplica `assessRisk` sobre el agregado y lo persiste. Si el estado resultante es `SUSPICIOUS`, notifica al Bounded Context Moderation & Disputes para su escalación. |
+| ResolveCertificateDisputeCommandHandler | Aplica la resolución de un certificado escalado. | Recibido el resultado de la revisión del Verificador desde Moderation & Disputes, invoca `resolveDispute` sobre el agregado y lo persiste con su estado definitivo (`VERIFIED` o `REJECTED`). |
 
 **Internal DTOs**
 
@@ -3274,7 +3204,7 @@ El modelado de clases de Credential Verification pertenece al agregado raíz `Ce
 
 *Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
 
-El modelado de base de datos de Credential Verification pertenece a la tabla `certificates`, debido a que es la única tabla que persiste el agregado raíz `Certificate` junto con los datos extraídos por OCR, el hash del archivo y el resultado de la evaluación de riesgo — al igual que en Identity & Access, no existe ninguna entidad hija ni colección propia dentro de este agregado, por lo que un único registro por certificado es suficiente. Se destacan los campos `ocr_text`, `qr_payload`, `file_hash` y `storage_reference`, incorporados para el soporte de la captura desde cámara y el procesamiento on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto, y `holder_name_mismatch` (migración V9), que registra si el titular del certificado difiere del nombre registrado del estudiante.
+El modelado de base de datos de Credential Verification pertenece a la tabla `certificates`, debido a que es la única tabla que persiste el agregado raíz `Certificate` junto con los datos extraídos por OCR, el hash del archivo y el resultado de la evaluación de riesgo — al igual que en Identity & Access, no existe ninguna entidad hija ni colección propia dentro de este agregado, por lo que un único registro por certificado es suficiente. Se destacan los campos `ocr_text`, `qr_payload`, `file_hash` y `storage_reference`, incorporados para el soporte de la captura desde cámara y el procesamiento on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto.
 
 
 ---
@@ -3301,15 +3231,12 @@ Atributos
 | createdAt | timestamp | Fecha de generación de la ruta. |
 | updatedAt | timestamp | Fecha de la última recalculación de la ruta. |
 | lastProgressAt | timestamp | Fecha del último avance del Estudiante en la ruta. Cuando vence el plan mensual, se mantiene activa la ruta con el valor más reciente. |
-| advanced | boolean | Indica si la ruta se inició con un desbloqueo de ruta avanzada canjeado con SkillCredits. Una ruta avanzada no se cuenta en las rutas activas ni en el total del plan, y nunca se pausa al volver al plan gratuito. |
 
 Métodos
 
 - `LearningPath(studentId, careerGoal, nodes)` (Constructor): Crea la ruta en estado `active` a partir del resultado de `LearningPathBuilder`.
 - `recalculate(SkillGap updatedGap)`: Regenera la secuencia de nodos pendientes cuando el estudiante certifica una nueva habilidad (por ejemplo, al aprobar un `Certificate` en Credential Verification), sin alterar los nodos ya completados.
 - `completeNode(int nodeId)`: Marca un `PathNode` como `completed` y, si era el último nodo pendiente, transiciona la ruta completa a `completed`.
-- `recognizeCertifiedSkill(String skillTag, int certificateId)`: Completa el nodo pendiente de esa habilidad con un certificado validado por un Verificador, lo vincula al certificado y desbloquea los nodos siguientes, sin alterar los nodos ya completados.
-- `associateCertificate(int nodeId, int certificateId)`: Vincula a un nodo pendiente un certificado cuyo contenido corresponde a su habilidad, como evidencia que habilita su evaluación práctica.
 - `pause()`: Transiciona la ruta de `active` a `paused`, conservando el estado de sus nodos; se usa cuando el Estudiante vuelve al plan gratuito con más rutas activas de las que permite ese plan, o cuando pausa su ruta activa para reactivar otra.
 - `resume()`: Transiciona la ruta de `paused` a `active`, siempre que el plan del Estudiante admita otra ruta activa.
 
@@ -3325,8 +3252,7 @@ Atributos
 | skillTag | string | Habilidad asociada al nodo, referenciada contra la taxonomía interna de skills. |
 | order | int | Posición del nodo dentro de la secuencia de la ruta. |
 | status | NodeStatus (VO) | Estado del nodo: `locked`, `available`, `completed`. |
-| linkedCertificateId | int (nullable) | Referencia al `Certificate` (Credential Verification) vinculado al nodo, como evidencia o como habilidad ya demostrada. |
-| completedByCertificate | boolean | Indica si el nodo se completó con un certificado validado por un Verificador, a diferencia de un nodo completado al aprobar su evaluación. |
+| linkedCertificateId | int (nullable) | Referencia al `Certificate` (Credential Verification) que ya satisface este nodo, si existía previamente. |
 | assessmentBlueprintId | int (nullable) | Referencia al `AssessmentBlueprint` generado para demostrar este nodo, una vez solicitado. |
 
 **3. Value Object: CareerGoal**
@@ -3373,28 +3299,7 @@ Métodos
 
 - `AssessmentBlueprint(pathNodeId, skillTag, questions)` (Constructor): Registra el resultado producido por `QuestionGenerationService` para un nodo específico.
 
-**6. Aggregate Root: AdvancedPathUnlock**
-
-Descripción: Representa el derecho a iniciar una ruta avanzada que el estudiante obtiene al canjear ese beneficio con SkillCredits en Recognition & Incentives. Se crea un desbloqueo por canje y queda disponible hasta que el estudiante inicia la ruta avanzada con él.
-
-Atributos
-
-| Atributo | Tipo | Descripción |
-|---|---|---|
-| id | int | Identificador único del desbloqueo. |
-| studentId | int | Estudiante que canjeó el beneficio. |
-| redemptionId | int | Transacción de canje de Recognition & Incentives que otorgó el desbloqueo (referencia por id). |
-| learningPathId | int (nullable) | Ruta avanzada iniciada con el desbloqueo; nula mientras está disponible. |
-| grantedAt | timestamp | Fecha en que se otorgó el desbloqueo. |
-| usedAt | timestamp (nullable) | Fecha en que se inició la ruta avanzada. |
-
-Métodos
-
-- `AdvancedPathUnlock(studentId, redemptionId)` (Constructor): Registra el desbloqueo disponible otorgado por un canje.
-- `useFor(int learningPathId)`: Consume el desbloqueo al iniciar la ruta avanzada.
-- `isAvailable()`: Indica si el desbloqueo todavía no se usó.
-
-**7. Entity: Question**
+**6. Entity: Question**
 
 Atributos
 
@@ -3404,7 +3309,7 @@ Atributos
 | answers | List\<String\> | Lista de 4 posibles respuestas. |
 | correctAnswer | int | Índice (0 a 3) de la respuesta correcta. |
 
-**8. Domain Service: SkillGapAnalyzer**
+**7. Domain Service: SkillGapAnalyzer**
 
 Descripción: Define el contrato para calcular el `SkillGap` de un estudiante comparando sus habilidades verificadas contra los requisitos de su `CareerGoal`.
 
@@ -3412,7 +3317,7 @@ Métodos
 
 - `analyze(CareerGoal goal, List<String> verifiedSkillTags)`: Retorna el `SkillGap` resultante.
 
-**9. Domain Service: LearningPathBuilder**
+**8. Domain Service: LearningPathBuilder**
 
 Descripción: Define el contrato para construir la secuencia ordenada de `PathNode` a partir de un `SkillGap`, respetando las dependencias/prerequisitos entre habilidades de la taxonomía interna.
 
@@ -3420,23 +3325,22 @@ Métodos
 
 - `buildPath(SkillGap gap)`: Retorna la lista ordenada de `PathNode` en estado `locked`/`available` según sus dependencias.
 
-**10. Domain Service: QuestionGenerationService**
+**9. Domain Service: QuestionGenerationService**
 
 Descripción: Define el contrato para generar dinámicamente las preguntas de un `AssessmentBlueprint` a partir de una habilidad declarada, desacoplando el dominio del proveedor concreto de IA generativa.
 
 Métodos
 
-- `generateQuestions(String skillTag)`: Retorna una lista de `Question` generadas para evaluar la habilidad indicada. En un nuevo intento recibe como exclusiones las preguntas de los blueprints anteriores del nodo, de modo que el estudiante no reciba preguntas repetidas.
+- `generateQuestions(String skillTag)`: Retorna una lista de `Question` generadas para evaluar la habilidad indicada.
 
-**11. Repository: LearningPathRepository, AssessmentBlueprintRepository, AdvancedPathUnlockRepository**
+**10. Repository: LearningPathRepository, AssessmentBlueprintRepository**
 
 Métodos
 
 - `findByStudentId(int studentId)`, `save(LearningPath path)` (LearningPathRepository).
 - `findByPathNodeId(int pathNodeId)`, `save(AssessmentBlueprint blueprint)` (AssessmentBlueprintRepository).
-- `findByStudentId(int studentId)`, `existsByRedemptionId(int redemptionId)` y `save(AdvancedPathUnlock unlock)` (AdvancedPathUnlockRepository).
 
-En la Domain Layer de SkillSwap, dentro del Bounded Context de Learning Path Engine, el agregado `LearningPath` centraliza la ruta personalizada del estudiante apoyándose en `SkillGapAnalyzer` y `LearningPathBuilder` para su construcción y recálculo, mientras que `AssessmentBlueprint` encapsula la generación de contenido evaluativo mediante `QuestionGenerationService`, manteniendo la separación entre "qué ruta necesita el estudiante" y "qué evaluación demuestra cada paso de esa ruta". `AdvancedPathUnlock` registra el beneficio canjeado con SkillCredits que permite iniciar una ruta avanzada fuera de los límites del plan.
+En la Domain Layer de SkillSwap, dentro del Bounded Context de Learning Path Engine, el agregado `LearningPath` centraliza la ruta personalizada del estudiante apoyándose en `SkillGapAnalyzer` y `LearningPathBuilder` para su construcción y recálculo, mientras que `AssessmentBlueprint` encapsula la generación de contenido evaluativo mediante `QuestionGenerationService`, manteniendo la separación entre "qué ruta necesita el estudiante" y "qué evaluación demuestra cada paso de esa ruta".
 
 #### 2.6.3.2. Interface Layer
 
@@ -3448,22 +3352,17 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Learning Path Eng
 | LearningPathResource | DTO de salida que representa la ruta completa con sus nodos y estados. |
 | PathNodeResource | DTO de salida que representa un nodo individual de la ruta. |
 | AssessmentBlueprintResource | DTO de salida que representa las preguntas generadas para un nodo, sin exponer `correctAnswer`. |
-| LinkCertificateResource | DTO de entrada con el `certificateId` que el estudiante asocia a un nodo. |
-| CertificateLinkResource | DTO de salida con la afinidad calculada, el umbral y si la evaluación del nodo quedó habilitada. |
-| AdvancedPathUnlockResource | DTO de salida que representa un desbloqueo de ruta avanzada y si está disponible. |
 
 **Controllers**
 
 | Nombre | Método HTTP | Ruta / Resource | Descripción |
 |---|---|---|---|
-| LearningPathsController | POST | `/api/v1/learning-paths` (DeclareGoalResource) | Recibe la meta del estudiante, genera el `SkillGap` inicial y construye la ruta, siempre que el plan admita otra ruta activa y otra ruta en total (`409 PlanLimitReached` en caso contrario). Con `"advanced": true` inicia una ruta avanzada con un desbloqueo disponible, sin contarla en los límites del plan (`409 AdvancedPathUnlockRequired` si no tiene uno). |
+| LearningPathsController | POST | `/api/v1/learning-paths` (DeclareGoalResource) | Recibe la meta del estudiante, genera el `SkillGap` inicial y construye la ruta, siempre que el plan admita otra ruta activa y otra ruta en total (`409 PlanLimitReached` en caso contrario). |
 | LearningPathsController | GET | `/api/v1/learning-paths/{studentId}` | Retorna la ruta más reciente del estudiante con el estado de cada nodo. |
 | LearningPathsController | GET | `/api/v1/learning-paths?studentId={studentId}` | Retorna todas las rutas del estudiante (activas, pausadas y completadas), de la más reciente a la más antigua. Solo el propio estudiante. |
 | LearningPathsController | PATCH | `/api/v1/learning-paths/{pathId}/pause` | Pausa una ruta activa del estudiante, que conserva su progreso. `409 PathNotActive` si la ruta no está activa. |
 | LearningPathsController | PATCH | `/api/v1/learning-paths/{pathId}/resume` | Reactiva una ruta pausada si el plan admite otra ruta activa; en el plan gratuito, primero debe pausarse la ruta activa. `409 PathNotPaused` o `409 PlanLimitReached`. |
 | AssessmentBlueprintsController | POST | `/api/v1/path-nodes/{nodeId}/assessment-blueprint` | Solicita la generación de la evaluación correspondiente a un nodo `available`. |
-| PathNodeCertificatesController | POST | `/api/v1/path-nodes/{nodeId}/certificate` (LinkCertificateResource) | Compara el contenido del certificado verificado (curso y texto OCR) con la habilidad del nodo: con una afinidad de al menos 0,7 lo vincula y habilita la evaluación práctica; por debajo del umbral responde `422 CertificateSkillMismatch` con los nodos pendientes que el certificado sí cubre. |
-| AdvancedPathUnlocksController | GET | `/api/v1/advanced-path-unlocks` | Lista los desbloqueos de ruta avanzada del estudiante autenticado, indicando cuáles están disponibles. |
 
 **Transformers / Assemblers**
 
@@ -3484,13 +3383,11 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Learning Path Eng
 | Nombre | Descripción | Resumen de Lógica |
 |---|---|---|
 | DeclareGoalCommandHandler | Procesa la declaración inicial de la meta del estudiante. | Interpreta el texto libre contra la taxonomía interna de skills mediante el puerto `SkillTaxonomyMatcher`, consulta a Credential Verification las habilidades ya respaldadas por certificados válidos, invoca `SkillGapAnalyzer` y `LearningPathBuilder`, instancia `LearningPath` y lo persiste. |
-| RecognizeValidatedCertificateEventHandler | Procesa la actualización de la ruta tras un certificado validado. | Reacciona al evento `CertificateVerified` de Credential Verification y completa, en las rutas no completadas del estudiante, los nodos pendientes cuya habilidad cubre el certificado, desbloqueando los siguientes y conservando los nodos ya completados. |
-| LinkCertificateToNodeCommandHandler | Procesa la asociación de un certificado a un nodo. | Obtiene el contenido del certificado mediante `CredentialContextFacade`, calcula su afinidad con la habilidad del nodo mediante el puerto `CertificateSkillAffinityScorer` y lo vincula si alcanza el umbral, o sugiere los nodos que sí cubre. |
-| GrantAdvancedPathUnlockEventHandler | Otorga el desbloqueo de ruta avanzada. | Reacciona al evento `AdvancedPathUnlockRedeemed` de Recognition & Incentives y crea un `AdvancedPathUnlock` por canje, de forma idempotente. |
-| GenerateAssessmentBlueprintCommandHandler | Procesa la solicitud de evaluación para un nodo. | Invoca `QuestionGenerationService` con el `skillTag` del nodo y las preguntas de los intentos anteriores como exclusiones, instancia `AssessmentBlueprint` y lo persiste, dejándolo disponible para que Assessment & Peer Review lo consuma. Si la variable `LEARNING_PATH_ASSESSMENT_REQUIRE_LINKED_CERTIFICATE` está activa, exige un certificado vinculado al nodo (`409 CertificateRequired`). |
+| RecalculatePathCommandHandler | Procesa la actualización de la ruta tras un evento de certificado verificado. | Recibe el evento desde Credential Verification, recalcula el `SkillGap` y ejecuta `recalculate()` sobre el `LearningPath` correspondiente. |
+| GenerateAssessmentBlueprintCommandHandler | Procesa la solicitud de evaluación para un nodo. | Invoca `QuestionGenerationService` con el `skillTag` del nodo, instancia `AssessmentBlueprint` y lo persiste, dejándolo disponible para que Assessment & Peer Review lo consuma. |
 | GetLearningPathQueryHandler | Recupera la ruta activa de un estudiante. | Consulta `LearningPathRepository.findByStudentId()`. |
 | LearningPathCommandService.handle(PauseLearningPathCommand / ResumeLearningPathCommand) | Procesa la pausa y la reanudación de una ruta. | Valida que el estudiante sea el dueño y el estado de la ruta; al reanudar, consulta los límites del plan vigente y responde `PlanLimitReached` si el estudiante ya tiene el máximo de rutas activas. |
-| EnforcePlanLimitsEventHandler | Reacciona al evento `SubscriptionExpired` de Subscription & Billing. | En una transacción propia, envía `EnforcePlanLimitsCommand`: mantiene activa la ruta con el `lastProgressAt` más reciente y pausa las demás rutas activas, sin eliminar nada; las rutas avanzadas nunca se pausan. |
+| EnforcePlanLimitsEventHandler | Reacciona al evento `SubscriptionExpired` de Subscription & Billing. | En una transacción propia, envía `EnforcePlanLimitsCommand`: mantiene activa la ruta con el `lastProgressAt` más reciente y pausa las demás rutas activas, sin eliminar nada. |
 
 **Internal DTOs**
 
@@ -3504,9 +3401,8 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Learning Path Eng
 | Nombre | Descripción |
 |---|---|
 | SkillTaxonomyMatcher | Puerto (interfaz) que traduce el texto libre de la meta a los `skillTag` de la taxonomía interna, desacoplando la Application Layer de la técnica de interpretación. Retorna una lista vacía cuando el texto no corresponde a ninguna habilidad del catálogo. Sus adaptadores se describen en la Infrastructure Layer. |
-| CertificateSkillAffinityScorer | Puerto que calcula la afinidad (`SkillAffinity`, de 0 a 1) entre el contenido de un certificado y la habilidad de un nodo. |
 
-Los límites del plan no se garantizan en la base de datos: la migración V4 eliminó el índice único parcial `ux_learning_paths_one_active_per_student`, y el servicio de aplicación valida, al declarar una meta y al reanudar una ruta, el límite de rutas activas y de rutas en total del plan vigente (1 activa y 3 en total en el plan gratuito; 3 activas y sin tope en el plan mensual). Las rutas completadas cuentan para el total de 3 del plan gratuito, y las rutas avanzadas iniciadas con un desbloqueo canjeado con SkillCredits no cuentan en ninguno de los dos límites. Los límites se obtienen de Subscription & Billing mediante `SubscriptionContextFacade.getPlanLimits(studentId)`, que retorna `PlanLimitsView` (Anticorruption Layer), y cada operación toma un bloqueo transaccional de PostgreSQL por estudiante (`pg_advisory_xact_lock`) para que dos solicitudes simultáneas no superen el límite. Una ruta pausada no admite nuevas evaluaciones ni intentos, pero acepta que se complete un nodo cuando se resuelve un caso de verificación que ya estaba en curso.
+Los límites del plan ya no se garantizan en la base de datos: la migración V4 eliminó el índice único parcial `ux_learning_paths_one_active_per_student`, y el servicio de aplicación valida, al declarar una meta y al reanudar una ruta, el límite de rutas activas y de rutas en total del plan vigente (1 activa y 3 en total en el plan gratuito; 3 activas y sin tope en el plan mensual). Las rutas completadas cuentan para el total de 3 del plan gratuito. Los límites se obtienen de Subscription & Billing mediante `SubscriptionContextFacade.getPlanLimits(studentId)`, que retorna `PlanLimitsView` (Anticorruption Layer), y cada operación toma un bloqueo transaccional de PostgreSQL por estudiante (`pg_advisory_xact_lock`) para que dos solicitudes simultáneas no superen el límite. Una ruta pausada no admite nuevas evaluaciones ni intentos, pero acepta que se complete un nodo cuando se resuelve un caso de verificación que ya estaba en curso.
 
 #### 2.6.3.4. Infrastructure Layer
 
@@ -3521,13 +3417,10 @@ Los límites del plan no se garantizan en la base de datos: la migración V4 eli
 
 | Nombre | Descripción | Resumen de Implementación |
 |---|---|---|
-| GeminiSkillTaxonomyMatcher | Adaptador principal del puerto `SkillTaxonomyMatcher` (Anticorruption Layer hacia la Gemini API), con el que el backend resuelve `CareerGoal.mappedSkillTags`. | Envía a Gemini la meta junto con el catálogo interno (`skill-catalog.json`), solicita una respuesta JSON con los `skillTag` seleccionados, descarta toda habilidad que no figure en el catálogo y conserva hasta 8. Si Gemini falla, excede el tiempo de espera (`GEMINI_GOAL_INTERPRETATION_TIMEOUT_SECONDS`, 20 segundos por defecto) o no selecciona ninguna habilidad válida, delega en `KeywordSkillTaxonomyMatcher`. |
-| KeywordSkillTaxonomyMatcher | Adaptador de respaldo del puerto `SkillTaxonomyMatcher`; es el único que se usa cuando `GEMINI_GOAL_INTERPRETATION_ENABLED=false` o no hay clave de Gemini. | Compara el texto libre, normalizado sin mayúsculas ni tildes, contra las palabras clave de cada habilidad del catálogo interno, solo por palabra o frase completa, sin depender de un motor de embeddings/vector search ni de un servicio externo. |
-| GeminiClient | Cliente compartido de la Gemini API. | Concentra la clave, la cadena de modelos de respaldo (`GEMINI_FALLBACK_MODELS`), los reintentos y los tiempos de espera; lo usan `GeminiSkillTaxonomyMatcher` y `GeminiQuestionGenerator`. |
-| GeminiQuestionGenerator | Implementación técnica de `QuestionGenerationService`. | Invoca la Gemini API mediante `GeminiClient` con un prompt estructurado por `skillTag`, que incluye las preguntas ya usadas en el nodo como exclusiones, y solicita un formato de respuesta JSON con las preguntas, alternativas y respuesta correcta, para su conversión directa en objetos `Question`. Las preguntas repetidas se reemplazan con una nueva solicitud (hasta 2) y, si siguen faltando preguntas nuevas, responde `503 QuestionGenerationFailed` sin cambiar el nodo. |
-| KeywordCertificateSkillAffinityScorer | Implementación de `CertificateSkillAffinityScorer` con las palabras clave del catálogo. | Afinidad 1,0 si el nombre del curso menciona la habilidad, 0,75 si el texto OCR menciona dos o más de sus palabras clave, 0,5 con una sola mención y 0 sin menciones; el umbral de correspondencia es 0,7. |
+| KeywordSkillTaxonomyMatcher | Adaptador del puerto `SkillTaxonomyMatcher` con el que el backend resuelve `CareerGoal.mappedSkillTags`. | Compara el texto libre, normalizado sin mayúsculas ni tildes, contra las palabras clave de cada habilidad del catálogo interno, solo por palabra o frase completa, sin depender de un motor de embeddings/vector search ni de un servicio externo. |
+| GeminiQuestionGenerator | Implementación técnica de `QuestionGenerationService`. | Invoca la Gemini API con un prompt estructurado por `skillTag`, recorriendo una cadena de modelos configurada si uno no está disponible, y solicitando un formato de respuesta JSON con las preguntas, alternativas y respuesta correcta, para su conversión directa en objetos `Question`. |
 
-En ambos adaptadores de `SkillTaxonomyMatcher`, el catálogo de habilidades es la fuente de verdad: ninguna habilidad que no figure en él llega a la ruta, y el cálculo de la brecha y el orden de los nodos siguen a cargo de `SkillGapAnalyzer` y `LearningPathBuilder`, de forma determinista. Estos componentes garantizan que el algoritmo de matching de habilidades y el proveedor de IA generativa puedan sustituirse (por ejemplo, por un motor de embeddings) sin modificar el Domain Layer ni la Application Layer.
+En `KeywordSkillTaxonomyMatcher`, el catálogo de habilidades es la fuente de verdad: ninguna habilidad que no figure en él llega a la ruta, y el cálculo de la brecha y el orden de los nodos siguen a cargo de `SkillGapAnalyzer` y `LearningPathBuilder`, de forma determinista. Estos componentes garantizan que el algoritmo de matching de habilidades y el proveedor de IA generativa puedan sustituirse (por ejemplo, por un motor de embeddings) sin modificar el Domain Layer ni la Application Layer.
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -3569,7 +3462,7 @@ El modelado de clases de Learning Path Engine pertenece a los agregados raíz `L
 
 *Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
 
-El modelado de base de datos de Learning Path Engine pertenece a las tablas `learning_paths`, `path_nodes`, `assessment_blueprints` y `advanced_path_unlocks`, debido a que persisten de forma normalizada la ruta de aprendizaje del estudiante (`learning_paths`), cada paso individual de dicha ruta con su estado de avance (`path_nodes`), la evaluación generada dinámicamente por IA para demostrar la habilidad de un nodo específico (`assessment_blueprints`) y los desbloqueos de ruta avanzada canjeados con SkillCredits (`advanced_path_unlocks`) — una relación uno a muchos entre rutas y nodos, y entre cada nodo y sus blueprints de evaluación. Se destacan `path_nodes.completed_by_certificate` (migración V8), que distingue un nodo completado con un certificado validado, y `learning_paths.is_advanced` (V10), que excluye la ruta avanzada de los límites del plan.
+El modelado de base de datos de Learning Path Engine pertenece a las tablas `learning_paths`, `path_nodes` y `assessment_blueprints`, debido a que estas tres tablas persisten de forma normalizada la ruta de aprendizaje del estudiante (`learning_paths`), cada paso individual de dicha ruta con su estado de avance (`path_nodes`), y la evaluación generada dinámicamente por IA para demostrar la habilidad de un nodo específico (`assessment_blueprints`) — una relación uno a muchos en ambos casos, ya que una ruta se compone de varios nodos y cada nodo puede requerir su propio blueprint de evaluación.
 
 ---
 
@@ -3656,10 +3549,7 @@ Atributos
 | openedAt | timestamp | Fecha de apertura del caso. |
 | assignedAt | timestamp (nullable) | Fecha en que se asignó un Verificador. |
 | resolvedAt | timestamp (nullable) | Fecha de resolución del caso. |
-| reviewDueAt | timestamp (nullable) | Plazo de revisión del caso, fijado al abrirlo según el plan del Estudiante: el plazo que un Verificador senior definió para ese plan (`ReviewDeadlinePolicy`) o, si no definió ninguno, 48 horas en el plan mensual y 5 días hábiles en el plan gratuito. Los días hábiles excluyen sábados y domingos en la zona horaria `America/Lima`, sin considerar feriados. Un cambio de plan posterior no lo modifica; los casos abiertos antes de los planes no tienen plazo. |
-| reviewDeadline | ReviewDeadline (VO, nullable) | Plazo con el que se abrió el caso (`reviewDeadlineAmount` y `reviewDeadlineUnit`: `Hours` o `BusinessDays`), que se vuelve a contar desde la reasignación cuando el caso pasa a otro Verificador. |
-| deadlineMissedAt | timestamp (nullable) | Momento en que el Verificador asignado incumplió el plazo; se limpia al reasignar el caso. |
-| reassignmentCount | int | Cantidad de veces que el caso se reasignó por un plazo vencido. |
+| reviewDueAt | timestamp (nullable) | Plazo de revisión del caso, fijado al abrirlo según el plan del Estudiante: 48 horas en el plan mensual y 5 días hábiles en el plan gratuito. Los días hábiles excluyen sábados y domingos en la zona horaria `America/Lima`, sin considerar feriados. Un cambio de plan posterior no lo modifica; los casos abiertos antes de los planes no tienen plazo. |
 
 Métodos
 
@@ -3667,9 +3557,6 @@ Métodos
 - `assignVerifier(int verifierUserId)`: Asigna un Verificador disponible, transiciona el estado a `ASSIGNED` y registra `assignedAt`. Sin candidatos disponibles, el caso permanece `PENDING`.
 - `attachEvidence(String url)`: Registra o reemplaza la URL de evidencia aportada por el estudiante. Solo el estudiante dueño puede invocarlo, y solo mientras el caso siga abierto.
 - `resolve(ReviewDecision decision, String rubricNotes)`: Registra la decisión del Verificador asignado, transiciona el estado a `RESOLVED` y registra `resolvedAt`. Solo el Verificador asignado puede resolverlo.
-- `isOverdue(Instant now)`: Indica si el caso asignado superó su `reviewDueAt` sin resolverse.
-- `recordMissedDeadline(Instant now)`: Registra el incumplimiento del plazo una sola vez por asignación.
-- `reassignAfterMissedDeadline(int newVerifierUserId, ReviewDeadline deadline, Instant now)`: Asigna el caso vencido a otro Verificador con el mismo plazo, contado desde la reasignación, e incrementa `reassignmentCount`.
 
 **5. Value Object: CaseStatus**
 
@@ -3687,25 +3574,7 @@ Atributos
 |---|---|---|
 | value | enum | `APPROVED`, `REJECTED`. |
 
-**7. Aggregate Root: ReviewDeadlinePolicy**
-
-Descripción: Representa el plazo de revisión que un Verificador senior define para un plan y que se aplica a los casos abiertos desde ese momento. Sin una política definida, cada plan conserva su plazo por defecto.
-
-Atributos
-
-| Atributo | Tipo | Descripción |
-|---|---|---|
-| plan | string | Plan al que aplica: `Free` o `Premium` (identificador de la política). |
-| deadline | ReviewDeadline (VO) | Plazo definido (`amount` y `unit`): hasta 48 horas en el plan mensual y hasta 5 días hábiles en el plan gratuito. |
-| updatedByUserId | int | Verificador senior que definió el plazo vigente. |
-| updatedAt | timestamp | Fecha de la última definición. |
-
-Métodos
-
-- `ReviewDeadlinePolicy(plan, deadline, definedByUserId)` (Constructor) y `define(deadline, definedByUserId)`: Registran o actualizan el plazo del plan, validando que no supere el máximo permitido (`isValidFor`).
-- `defaultFor(String plan)`: Retorna el plazo por defecto del plan (48 horas o 5 días hábiles).
-
-**8. Domain Service: VerifierMatcher**
+**7. Domain Service: VerifierMatcher**
 
 Descripción: Encapsula el algoritmo de asignación de un Verificador disponible a un `VerificationCase`, reemplazando la búsqueda dirigida por el usuario que existía en el modelo de tutorías.
 
@@ -3713,22 +3582,17 @@ Métodos
 
 - `findAvailableVerifier(String skillTag, int excludedStudentId, List<VerifierProfile> candidates)`: Filtra candidatos disponibles y verificados con el `skillTag` requerido, **excluyendo siempre al propio estudiante** que generó el caso (aunque tenga el perfil habilitado). Elige al candidato con **menos casos abiertos** en ese momento; en caso de empate, desempata por el `verifierUserId` menor (criterio determinístico). Retorna nulo si no hay candidatos, dejando el caso en `PENDING`.
 
-**9. Application Service: CaseAssignmentService**
+**8. Application Service: CaseAssignmentService**
 
-Descripción: Servicio interno de la Application Layer (`application/internal`) que orquesta la asignación inicial de un caso recién abierto, la reasignación de casos que quedaron `PENDING` sin Verificador disponible, activándose cuando un Verificador cambia su disponibilidad o habilita una nueva habilidad, y la reasignación de los casos vencidos al Verificador habilitado menos cargado, excluyendo al estudiante, al Verificador que incumplió y al que resolvió el caso antes de una apelación.
+Descripción: Orquesta la asignación inicial de un caso recién abierto y la reasignación de casos que quedaron `PENDING` sin Verificador disponible, activándose cuando un Verificador cambia su disponibilidad o habilita una nueva habilidad.
 
-**10. Domain Event: VerificationCaseDeadlineMissed**
-
-Descripción: Se publica una sola vez por asignación cuando el Verificador asignado no resuelve el caso dentro del plazo; Reputation lo consume para descontar 5 puntos de su confiabilidad.
-
-**11. Repository: AssessmentAttemptRepository, VerifierProfileRepository, VerificationCaseRepository, ReviewDeadlinePolicyRepository**
+**9. Repository: AssessmentAttemptRepository, VerifierProfileRepository, VerificationCaseRepository**
 
 Métodos
 
 - `findById(int id)`, `save(AssessmentAttempt attempt)` (AssessmentAttemptRepository).
 - `findByVerifierUserId(int verifierUserId)`, `findAvailableBySkillTag(String skillTag)`, `save(VerifierProfile profile)` (VerifierProfileRepository).
-- `findById(int id)`, `findByVerifierUserId(int verifierUserId)`, `findOpenByStudentAndNode(int studentId, int pathNodeId)`, `findOverdueAssignedIds(Instant now)` y `save(VerificationCase verificationCase)` (VerificationCaseRepository).
-- `findByPlan(String plan)` y `save(ReviewDeadlinePolicy policy)` (ReviewDeadlinePolicyRepository).
+- `findById(int id)`, `findByVerifierUserId(int verifierUserId)`, `findOpenByStudentAndNode(int studentId, int pathNodeId)`, `save(VerificationCase verificationCase)` (VerificationCaseRepository).
 
 En la Domain Layer de SkillSwap, dentro del Bounded Context de Assessment & Peer Review, `AssessmentAttempt` centraliza el cálculo del puntaje sobre el blueprint generado por Learning Path Engine, mientras que `VerificationCase` gobierna el flujo de escalamiento hacia un humano cuando dicho intento no es aprobado, apoyándose en `VerifierMatcher` para la asignación algorítmica — que excluye siempre al propio estudiante y desempata de forma determinística — de un `VerifierProfile` disponible, sin recurrir a ninguna sesión de comunicación en tiempo real ni a la subida de archivos.
 
@@ -3745,8 +3609,6 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Assessment & Peer
 | AttachEvidenceResource | DTO de entrada con la URL de evidencia adjunta por el estudiante. |
 | CreateVerifierProfileResource | DTO de entrada con el `skillTag` a habilitar. |
 | VerifierAvailabilityResource | DTO de entrada para actualizar la disponibilidad del Verificador. |
-| DefineReviewDeadlinesResource | DTO de entrada con el plazo de revisión de cada plan (cantidad y unidad). |
-| ReviewDeadlinePolicyResource | DTO de salida con el plazo vigente de un plan, quién lo definió y cuándo. |
 
 **Controllers**
 
@@ -3761,8 +3623,6 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Assessment & Peer
 | VerifierProfilesController | POST | `/api/v1/verifier-profiles` (CreateVerifierProfileResource) | Habilita al estudiante como Verificador de una habilidad, o agrega una habilidad a un perfil existente. |
 | VerifierProfilesController | GET | `/api/v1/verifier-profiles/me` | Retorna el perfil de Verificador del usuario autenticado. |
 | VerifierProfilesController | PATCH | `/api/v1/verifier-profiles/me/availability` (VerifierAvailabilityResource) | Actualiza la disponibilidad del propio Verificador. |
-| ReviewDeadlinePoliciesController | GET | `/api/v1/review-deadline-policies` | Retorna el plazo de revisión vigente de cada plan a cualquier usuario autenticado. |
-| ReviewDeadlinePoliciesController | PUT | `/api/v1/review-deadline-policies` (DefineReviewDeadlinesResource) | Define el plazo de revisión de cada plan, aplicado a los casos abiertos desde ese momento: hasta 48 horas en el plan mensual y hasta 5 días hábiles en el plan gratuito (`400` fuera de rango, `403` si no es un Verificador senior). |
 
 **Transformers / Assemblers**
 
@@ -3790,8 +3650,6 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Assessment & Peer
 | CreateOrUpdateVerifierProfileCommandHandler | Procesa la habilitación como Verificador. | Exige que el nodo de esa habilidad esté `COMPLETED` en la ruta del estudiante. Crea el perfil (`201`) o agrega la habilidad a uno existente (`200`); un perfil revocado no se reactiva por este camino. |
 | UpdateVerifierAvailabilityCommandHandler | Procesa el cambio de disponibilidad. | Recupera el `VerifierProfile` del usuario autenticado, invoca `SetAvailability()` y lo persiste; dispara `CaseAssignmentService` para reasignar casos `PENDING` compatibles. |
 | GetVerificationCaseQueryHandler / GetAssessmentAttemptQueryHandler / ListCasesByVerifierQueryHandler | Recuperan el detalle o listado solicitado. | Consultan el repositorio correspondiente, filtrando siempre por el usuario del token. |
-| DefineReviewDeadlinesCommandHandler | Procesa la definición del plazo de revisión por plan. | Verifica mediante `ReputationContextFacade.isSeniorVerifier()` que el usuario sea un Verificador senior (perfil habilitado, rango Oro y confiabilidad de al menos 90), valida el rango de cada plazo y persiste las `ReviewDeadlinePolicy`. `ReviewDeadlineResolver` aplica el plazo vigente al abrir cada caso. |
-| ReassignOverdueCaseCommandHandler | Procesa un caso con el plazo vencido. | Invocado periódicamente por `OverdueCaseReassignmentScheduler`, bloquea el caso (`SELECT ... FOR UPDATE`), registra el incumplimiento, publica `VerificationCaseDeadlineMissed` y lo reasigna mediante `CaseAssignmentService`; sin reemplazo disponible, el caso sigue con su Verificador y se reintenta sin un segundo descuento. |
 
 **Internal DTOs**
 
@@ -3811,13 +3669,6 @@ En la Application Layer de Assessment & Peer Review, `SubmitAssessmentAttemptCom
 | AssessmentAttemptRepositoryAdapter | Implementación concreta de `AssessmentAttemptRepository` sobre la tabla `assessment_attempts`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
 | VerifierProfileRepositoryAdapter | Implementación concreta de `VerifierProfileRepository` sobre la tabla `verifier_profiles`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
 | VerificationCaseRepositoryAdapter | Implementación concreta de `VerificationCaseRepository` sobre la tabla `verification_cases`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
-| ReviewDeadlinePolicyRepositoryAdapter | Implementación concreta de `ReviewDeadlinePolicyRepository` sobre la tabla `review_deadline_policies`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
-
-**Scheduling**
-
-| Nombre | Descripción |
-|---|---|
-| OverdueCaseReassignmentScheduler | Busca periódicamente (cada `REVIEW_DEADLINE_CHECK_INTERVAL`, 15 minutos por defecto) los casos asignados cuyo `reviewDueAt` venció y envía su reasignación. |
 
 Este Bounded Context no integra ningún servicio de almacenamiento de archivos: la evidencia del estudiante es una URL externa que el propio dominio valida como texto (`evidenceUrl`), sin que el backend descargue, almacene o procese ningún archivo — a diferencia de Credential Verification, que sí integra Cloudinary para los certificados.
 
@@ -3847,7 +3698,7 @@ Este Bounded Context no integra ningún servicio de almacenamiento de archivos: 
 
 *Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
 
-El modelado de clases de Assessment & Peer Review pertenece a los agregados raíz `AssessmentAttempt`, `VerifierProfile`, `VerificationCase` y `ReviewDeadlinePolicy`, junto con los Value Objects `Score` y `ReviewDeadline`, debido a que estos elementos concentran de forma exclusiva la ejecución del intento del estudiante sobre la evaluación generada por la IA, la elegibilidad de un Estudiante como Verificador de otros, y el flujo de escalamiento hacia revisión humana cuando dicho intento no es aprobado — sin depender de ninguna sesión de comunicación en tiempo real, a diferencia del modelo de tutorías original.
+El modelado de clases de Assessment & Peer Review pertenece a los agregados raíz `AssessmentAttempt`, `VerifierProfile` y `VerificationCase`, junto con el Value Object `Score`, debido a que estos elementos concentran de forma exclusiva la ejecución del intento del estudiante sobre la evaluación generada por la IA, la elegibilidad de un Estudiante como Verificador de otros, y el flujo de escalamiento hacia revisión humana cuando dicho intento no es aprobado — sin depender de ninguna sesión de comunicación en tiempo real, a diferencia del modelo de tutorías original.
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
@@ -3861,7 +3712,7 @@ El modelado de clases de Assessment & Peer Review pertenece a los agregados raí
 
 *Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
 
-El modelado de base de datos de Assessment & Peer Review pertenece a las tablas `assessment_attempts`, `verifier_profiles`, `verification_cases` y `review_deadline_policies`, debido a que estas tablas persisten de forma independiente los agregados raíz del Bounded Context. `assessment_attempts` guarda el `score` como texto (`"aciertos/total"`, ej. `"4/5"`) en una sola columna, con índice único en `blueprint_id`. `verification_cases` lleva un índice único **parcial** sobre `(student_id, path_node_id)` que solo aplica mientras `status <> 'Resolved'` — este índice es el que materializa la regla de negocio de un único caso abierto por estudiante y nodo. La tabla guarda además `case_type` (`Quiz` o `MiniProject`), `review_due_at`, el plazo con el que se abrió el caso (`review_deadline_amount` y `review_deadline_unit`), `deadline_missed_at` y `reassignment_count`; el índice `ix_verification_cases_student_id_opened_at` permite contar los casos que un estudiante abrió en el mes y el índice parcial `ix_verification_cases_assigned_review_due_at` permite encontrar los casos asignados vencidos. La tabla `review_deadline_policies` (migración V10) guarda el plazo definido por un Verificador senior para cada plan. Se destaca el campo `evidence_url`, que reemplaza por completo la infraestructura de chat en tiempo real del modelo de tutorías original, sin requerir integración con ningún servicio de almacenamiento de archivos.
+El modelado de base de datos de Assessment & Peer Review pertenece a las tablas `assessment_attempts`, `verifier_profiles` y `verification_cases`, debido a que estas tres tablas persisten de forma independiente los tres agregados raíz del Bounded Context. `assessment_attempts` guarda el `score` como texto (`"aciertos/total"`, ej. `"4/5"`) en una sola columna, con índice único en `blueprint_id`. `verification_cases` lleva un índice único **parcial** sobre `(student_id, path_node_id)` que solo aplica mientras `status <> 'Resolved'` — este índice es el que materializa la regla de negocio de un único caso abierto por estudiante y nodo. La tabla guarda además `case_type` (`Quiz` o `MiniProject`) y `review_due_at`, y el índice `ix_verification_cases_student_id_opened_at` permite contar los casos que un estudiante abrió en el mes. Se destaca el campo `evidence_url`, que reemplaza por completo la infraestructura de chat en tiempo real del modelo de tutorías original, sin requerir integración con ningún servicio de almacenamiento de archivos.
 
 
 ---
@@ -3875,7 +3726,7 @@ La capa de dominio de Reputation concentra las reglas de negocio relacionadas co
 
 **1. Aggregate Root: VerifierReliability**
 
-Descripción: El agregado `VerifierReliability` representa la confiabilidad acumulada de un Verificador, calculada de forma explicable a partir de los casos que resolvió, las veces que su decisión fue revertida en una apelación, las sanciones aplicadas sobre su cuenta y los plazos de revisión que incumplió. También determina su rango y si es un Verificador senior.
+Descripción: El agregado `VerifierReliability` representa la confiabilidad acumulada de un Verificador, calculada de forma explicable a partir de los casos que resolvió, las veces que su decisión fue revertida por Moderation & Disputes, y las sanciones aplicadas sobre su cuenta.
 
 Atributos
 
@@ -3884,9 +3735,8 @@ Atributos
 | id | int | Identificador único del registro de confiabilidad (autogenerado). |
 | verifierUserId | int | Referencia al usuario `Student` (Identity & Access) con perfil de Verificador. |
 | resolvedCasesCount | int | Cantidad total de `VerificationCase` resueltos por el Verificador. |
-| overturnedDecisionsCount | int | Cantidad de decisiones revertidas por otro Verificador tras una apelación. |
+| overturnedDecisionsCount | int | Cantidad de decisiones revertidas por Moderation & Disputes tras una disputa. |
 | sanctionsCount | int | Cantidad de sanciones aplicadas sobre la cuenta del Verificador. |
-| missedDeadlinesCount | int | Cantidad de casos que el Verificador no resolvió dentro del plazo de revisión y que se reasignaron. |
 | score | ReliabilityScore (VO) | Puntaje de confiabilidad vigente. |
 | updatedAt | timestamp | Fecha del último recálculo. |
 
@@ -3896,9 +3746,6 @@ Métodos
 - `recordResolution()`: Incrementa `resolvedCasesCount` y recalcula el `score` mediante `VerifierReliabilityCalculator`.
 - `recordOverturn()`: Incrementa `overturnedDecisionsCount` y recalcula el `score`, aplicando la penalización correspondiente.
 - `applySanction()`: Incrementa `sanctionsCount` y recalcula el `score`, aplicando la penalización más severa del modelo.
-- `recordMissedDeadline()`: Incrementa `missedDeadlinesCount` y recalcula el `score`, descontando 5 puntos.
-- `getRank()`: Retorna el rango del Verificador (`VerifierRank`) según sus casos resueltos: Bronce de 0 a 29, Plata de 30 a 99 y Oro desde 100.
-- `isSeniorVerifier()`: Indica si es un Verificador senior: rango Oro y confiabilidad de al menos 90.
 
 **2. Aggregate Root: StudentEmployabilityScore**
 
@@ -3941,7 +3788,7 @@ Descripción: Calcula el `ReliabilityScore` de un Verificador mediante un conjun
 
 Métodos
 
-- `calculate(int resolvedCasesCount, int overturnedDecisionsCount, int sanctionsCount, int missedDeadlinesCount)`: Retorna el `ReliabilityScore` resultante, partiendo de un puntaje base de 100 y descontando 15 puntos por cada decisión revertida, 25 puntos por cada sanción y 5 puntos por cada plazo incumplido, sin bajar de 0.
+- `calculate(int resolvedCasesCount, int overturnedDecisionsCount, int sanctionsCount)`: Retorna el `ReliabilityScore` resultante, partiendo de un puntaje base de 100 y descontando 15 puntos por cada decisión revertida y 25 puntos por cada sanción, sin bajar de 0.
 
 **6. Domain Service: EmployabilityScoreCalculator**
 
@@ -3951,18 +3798,14 @@ Métodos
 
 - `calculate(int verifiedSkillsCount)`: Retorna el `EmployabilityScore` resultante, proporcional a `verifiedSkillsCount`.
 
-**7. Value Object: VerifierRank y Domain Service: SeniorVerifierPolicy**
-
-Descripción: `VerifierRank` (`Bronze`, `Silver`, `Gold`) se alcanza por la cantidad de casos resueltos, nunca por los SkillCredits, de modo que canjearlos no reduce el rango. `SeniorVerifierPolicy` define al Verificador senior (rango Oro y confiabilidad de al menos 90), criterio que consultan Assessment & Peer Review y Moderation & Disputes.
-
-**8. Repository: VerifierReliabilityRepository, StudentEmployabilityScoreRepository**
+**7. Repository: VerifierReliabilityRepository, StudentEmployabilityScoreRepository**
 
 Métodos
 
 - `findByVerifierUserId(int verifierUserId)`, `save(VerifierReliability reliability)` (VerifierReliabilityRepository).
 - `findByStudentId(int studentId)`, `save(StudentEmployabilityScore score)` (StudentEmployabilityScoreRepository).
 
-En la Domain Layer de SkillSwap, dentro del Bounded Context de Reputation, `VerifierReliability` y `StudentEmployabilityScore` centralizan el recálculo explicable de sus respectivos puntajes mediante `VerifierReliabilityCalculator` y `EmployabilityScoreCalculator`, apoyándose exclusivamente en eventos internos generados por Assessment & Peer Review, sin exponer ningún endpoint donde un usuario califique directamente a otro.
+En la Domain Layer de SkillSwap, dentro del Bounded Context de Reputation, `VerifierReliability` y `StudentEmployabilityScore` centralizan el recálculo explicable de sus respectivos puntajes mediante `VerifierReliabilityCalculator` y `EmployabilityScoreCalculator`, apoyándose exclusivamente en eventos internos generados por Assessment & Peer Review y Moderation & Disputes, sin exponer ningún endpoint donde un usuario califique directamente a otro.
 
 #### 2.6.5.2. Interface Layer
 
@@ -3977,8 +3820,8 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Reputation, `Veri
 
 | Nombre | Método HTTP | Ruta / Resource | Descripción |
 |---|---|---|---|
-| VerifierReliabilitiesController | GET | `/api/v1/verifier-reliabilities/{verifierUserId}` | Retorna el puntaje de confiabilidad vigente de un Verificador, con su rango y sus contadores (incluidos los plazos incumplidos). |
-| StudentEmployabilityScoresController | GET | `/api/v1/student-employability-scores/{studentId}` | Retorna el puntaje de empleabilidad vigente de un Estudiante. |
+| VerifierReliabilityController | GET | `/api/v1/verifier-reliability/{verifierUserId}` | Retorna el puntaje de confiabilidad vigente de un Verificador. |
+| StudentEmployabilityController | GET | `/api/v1/student-employability/{studentId}` | Retorna el puntaje de empleabilidad vigente de un Estudiante. |
 
 **Transformers / Assemblers**
 
@@ -3997,8 +3840,8 @@ A diferencia del BC de tutorías original, Reputation no expone ningún endpoint
 |---|---|---|
 | RecordCaseResolutionEventHandler | Procesa la resolución de un `VerificationCase` por un Verificador. | Recibe el evento desde Assessment & Peer Review, invoca `recordResolution()` sobre el `VerifierReliability` del Verificador; si la decisión fue `APPROVED`, invoca además `recordSkillVerified()` sobre el `StudentEmployabilityScore` del Estudiante. |
 | RecordAutomaticApprovalEventHandler | Procesa la aprobación automática de un `AssessmentAttempt` sin intervención de un Verificador. | Recibe el evento desde Assessment & Peer Review, invoca `recordSkillVerified()` sobre el `StudentEmployabilityScore` del Estudiante. |
-| RecordCaseResolutionEventHandler (reversión) | Procesa la reversión de una decisión de un Verificador. | Cuando el evento `VerificationCaseResolved` informa el Verificador cuya decisión se revirtió en una apelación, invoca `recordOverturn()` sobre su `VerifierReliability`. |
-| RecordMissedDeadlineEventHandler | Procesa un plazo de revisión incumplido. | Recibe el evento `VerificationCaseDeadlineMissed` desde Assessment & Peer Review e invoca `recordMissedDeadline()` sobre el `VerifierReliability` del Verificador original. |
+| RecordDisputeOverturnEventHandler | Procesa la reversión de una decisión de un Verificador. | Recibe el evento desde Moderation & Disputes, invoca `recordOverturn()` sobre el `VerifierReliability` correspondiente. |
+| RecordSanctionEventHandler | Procesa una sanción aplicada sobre una cuenta. | Recibe el evento desde Moderation & Disputes; si la cuenta sancionada posee un `VerifierReliability`, invoca `applySanction()`. |
 | GetVerifierReliabilityQueryHandler / GetStudentEmployabilityQueryHandler | Recuperan el puntaje vigente solicitado. | Consultan el repositorio correspondiente. |
 
 **Internal DTOs**
@@ -4008,7 +3851,7 @@ A diferencia del BC de tutorías original, Reputation no expone ningún endpoint
 | VerifierReliabilityDto | Objeto que transporta el puntaje de confiabilidad entre capas. |
 | StudentEmployabilityDto | Objeto que transporta el puntaje de empleabilidad entre capas. |
 
-En la Application Layer de Reputation, los event handlers aseguran que tanto la confiabilidad del Verificador como la empleabilidad del Estudiante permanezcan sincronizadas con cada evento relevante ocurrido en Assessment & Peer Review, sin que Reputation dependa de una acción explícita del usuario final. La fachada `ReputationContextFacade` (`isSeniorVerifier`, `findSeniorVerifiers`) permite a Assessment & Peer Review y a Moderation & Disputes identificar a los Verificadores senior sin depender del agregado.
+En la Application Layer de Reputation, los cuatro event handlers aseguran que tanto la confiabilidad del Verificador como la empleabilidad del Estudiante permanezcan sincronizadas con cada evento relevante ocurrido en Assessment & Peer Review y Moderation & Disputes, sin que Reputation dependa de una acción explícita del usuario final.
 
 #### 2.6.5.4. Infrastructure Layer
 
@@ -4037,7 +3880,7 @@ Este adaptador permite que Assessment & Peer Review mantenga sincronizado el `ra
   <img src="images-doc/ReputationComponent.svg" alt="Component Diagram - Reputation" width="800">
 </p>
 
-*Nota.* Se detalla la segregación entre los Controllers de solo lectura (`VerifierReliability`, `StudentEmployability`), el Command/Query Service y el adaptador de sincronización hacia Assessment & Peer Review, evidenciando que toda escritura ocurre exclusivamente mediante eventos entrantes de Assessment & Peer Review (resolución de caso, reversión tras una apelación, aprobación automática y plazo de revisión incumplido), sin ningún endpoint de creación consumido directamente por el cliente, y la fachada `ReputationContextFacade`, que consultan Assessment & Peer Review y Moderation & Disputes para identificar a los Verificadores senior. Elaboración propia.
+*Nota.* Se detalla la segregación entre los Controllers de solo lectura (`VerifierReliability`, `StudentEmployability`), el Command/Query Service y el adaptador de sincronización hacia Assessment & Peer Review, evidenciando que toda escritura ocurre exclusivamente mediante eventos entrantes de Assessment & Peer Review (resolución de caso/aprobación automática) y de Moderation & Disputes (reversión de decisión/sanción aplicada), sin ningún endpoint de creación consumido directamente por el cliente. Elaboración propia.
 
 #### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -4053,7 +3896,7 @@ Este adaptador permite que Assessment & Peer Review mantenga sincronizado el `ra
 
 *Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
 
-El modelado de clases de Reputation pertenece a los agregados raíz `VerifierReliability` y `StudentEmployabilityScore`, junto con los Value Objects `ReliabilityScore`, `EmployabilityScore` y `VerifierRank`, debido a que estos elementos concentran de forma exclusiva el recálculo explicable de la confiabilidad de un Verificador y del nivel de empleabilidad demostrado de un Estudiante, calculados ambos a partir de eventos internos del sistema — sin que ningún usuario califique directamente a otro, a diferencia del modelo de tutorías original.
+El modelado de clases de Reputation pertenece a los agregados raíz `VerifierReliability` y `StudentEmployabilityScore`, junto con los Value Objects `ReliabilityScore` y `EmployabilityScore`, debido a que estos elementos concentran de forma exclusiva el recálculo explicable de la confiabilidad de un Verificador y del nivel de empleabilidad demostrado de un Estudiante, calculados ambos a partir de eventos internos del sistema — sin que ningún usuario califique directamente a otro, a diferencia del modelo de tutorías original.
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
@@ -4067,7 +3910,7 @@ El modelado de clases de Reputation pertenece a los agregados raíz `VerifierRel
 
 *Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
 
-El modelado de base de datos de Reputation pertenece a las tablas `verifier_reliabilities` y `student_employability_scores`, debido a que estas dos tablas persisten de forma independiente los dos agregados raíz del Bounded Context, cada uno con su propio puntaje y contadores recalculados por evento (incluido `missed_deadlines_count`, agregado en la migración V10) — sin una tabla intermedia de reseñas o calificaciones directas, ya que ese concepto no existe en el nuevo modelo.
+El modelado de base de datos de Reputation pertenece a las tablas `verifier_reliabilities` y `student_employability_scores`, debido a que estas dos tablas persisten de forma independiente los dos agregados raíz del Bounded Context, cada uno con su propio puntaje y contadores recalculados por evento — sin una tabla intermedia de reseñas o calificaciones directas, ya que ese concepto no existe en el nuevo modelo.
 
 
 ---
@@ -4109,7 +3952,6 @@ Atributos
 | amount | Credits (VO) | Cantidad de créditos del movimiento. |
 | type | TransactionType (VO) | Tipo de movimiento: `EARNED` o `REDEEMED`. |
 | description | string | Descripción del movimiento (ej. "Caso de verificación resuelto", "Canje: certificado de contribución"). |
-| redemptionItem | RedemptionItem (VO, nullable) | Beneficio comprado por un canje (solo en transacciones `REDEEMED`), que permite entregarlo. |
 | createdAt | timestamp | Fecha y hora de la transacción. |
 
 Métodos
@@ -4199,7 +4041,7 @@ Del lado del cliente móvil, el endpoint de canje (`redeem`) requiere que el usu
 |---|---|---|
 | CreateWalletCommandHandler | Procesa la creación de la billetera inicial. | Recibe el evento desde Identity & Access tras el registro de un nuevo usuario, instancia `Wallet` con saldo en cero y lo persiste. |
 | CreditVerifierCommandHandler | Procesa la acreditación de créditos ganados. | Recibe el evento desde Assessment & Peer Review tras la resolución de un `VerificationCase`, sea `APPROVED` o `REJECTED`, ejecuta `credit()` con el monto que `CreditRewards` asigna al `caseType` del caso (40 SkillCredits para `MINI_PROJECT` y 25 para `QUIZ`) sobre el `Wallet` del Verificador y registra la `CreditTransaction` de tipo `EARNED`. |
-| RedeemCommandHandler | Procesa el canje de un beneficio. | Calcula el costo mediante `RedemptionPricing`, valida saldo suficiente, ejecuta `debit()` sobre el `Wallet` y registra la `CreditTransaction` de tipo `REDEEMED` con su `redemptionItem`. Si el beneficio es `ADVANCED_PATH_UNLOCK`, publica `AdvancedPathUnlockRedeemed`, con el que Learning Path Engine otorga el desbloqueo de la ruta avanzada; `RecognitionContextFacade` permite además sincronizar los canjes cuyo evento no llegó a procesarse. |
+| RedeemCommandHandler | Procesa el canje de un beneficio. | Calcula el costo mediante `RedemptionPricing`, valida saldo suficiente, ejecuta `debit()` sobre el `Wallet` y registra la `CreditTransaction` de tipo `REDEEMED`. |
 | GetWalletBalanceQueryHandler / GetWalletTransactionsQueryHandler | Recuperan el saldo o historial solicitado. | Consultan el repositorio correspondiente. |
 
 **Internal DTOs**
@@ -4262,7 +4104,7 @@ El modelado de clases de Recognition & Incentives pertenece al agregado raíz `W
 
 *Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
 
-El modelado de base de datos de Recognition & Incentives pertenece a las tablas `wallets` y `credit_transactions`, debido a que la primera persiste el saldo vigente de SkillCredits de cada usuario y la segunda registra, en una relación uno a muchos, cada movimiento asociado a dicha billetera, con el beneficio canjeado en `redemption_item` (migración V10) — sin ninguna tabla de credenciales de tarjeta ni de integración con una pasarela de pago externa, a diferencia del modelo de tutorías original.
+El modelado de base de datos de Recognition & Incentives pertenece a las tablas `wallets` y `credit_transactions`, debido a que la primera persiste el saldo vigente de SkillCredits de cada usuario y la segunda registra, en una relación uno a muchos, cada movimiento asociado a dicha billetera — sin ninguna tabla de credenciales de tarjeta ni de integración con una pasarela de pago externa, a diferencia del modelo de tutorías original.
 
 ---
 
@@ -4270,11 +4112,11 @@ El modelado de base de datos de Recognition & Incentives pertenece a las tablas 
 
 #### 2.6.7.1. Domain Layer
 
-La capa de dominio de Moderation & Disputes concentra las reglas de negocio de la escalación final ante un Verificador senior, es decir, un Verificador con rango Oro (100 casos resueltos o más) y una confiabilidad de 90 o más, en la escala de 0 a 100 que calcula Reputation. El modelo de `Dispute` contempla tres orígenes de escalación (un certificado marcado como `SUSPICIOUS` por Credential Verification, una apelación sobre la decisión de un Verificador y un reporte entre usuarios); el backend crea disputas del primer origen, la revisión de certificados sospechosos (US13 y US14), mientras que la apelación de un caso rechazado (US27) se resuelve dentro de Assessment & Peer Review, reasignando el caso a otro Verificador.
+La capa de dominio de Moderation & Disputes concentra las reglas de negocio de la escalación final ante un Verificador senior, es decir, un Verificador con rango Oro (100 casos resueltos o más) y una confiabilidad de 90 o más, en la escala de 0 a 100 que calcula Reputation. A diferencia del modelo de tutorías original —donde solo existía un tipo de denuncia asociada a una sesión de chat—, este Bounded Context ahora generaliza **tres orígenes distintos de escalación**: un certificado marcado como `SUSPICIOUS` por Credential Verification, una apelación de un Estudiante sobre la decisión de un Verificador, y un reporte directo de mal comportamiento entre usuarios.
 
 **1. Aggregate Root: Dispute**
 
-Descripción: El agregado `Dispute` representa un caso que requiere la decisión final de un Verificador senior. Gobierna su asignación a un revisor y su resolución con observaciones obligatorias, sin depender de los modelos internos de `Certificate` o `VerificationCase`.
+Descripción: El agregado `Dispute` representa cualquier caso que requiere la decisión final del Verificador senior, gobernando su ciclo de vida sin importar si fue originado por el sistema (escalación automática) o por un usuario (reporte o apelación).
 
 Atributos
 
@@ -4282,28 +4124,37 @@ Atributos
 |---|---|---|
 | id | int | Identificador único del caso (autogenerado). |
 | sourceType | DisputeSourceType (VO) | Origen de la escalación: `CERTIFICATE_REVIEW`, `VERIFIER_DECISION_APPEAL` o `USER_REPORT`. |
-| sourceReferenceId | int | Identificador del `Certificate` (o del caso) en revisión, según el `sourceType`. Un certificado se escala una sola vez. |
+| sourceReferenceId | int | Identificador del `Certificate` o `VerificationCase` referenciado, según el `sourceType`. |
 | raisedByUserId | int (nullable) | Usuario que originó el caso; nulo cuando la escalación es automática (`CERTIFICATE_REVIEW`). |
-| respondentUserId | int (nullable) | Usuario cuyo certificado, decisión o conducta se cuestiona; en una revisión de certificado, su propietario. |
-| reason | string | Motivos de la escalación (hasta 500 caracteres), por ejemplo, el archivo ya registrado por otro estudiante o el titular distinto del nombre registrado. |
+| respondentUserId | int (nullable) | Usuario cuya conducta, certificado o decisión está siendo cuestionada. |
+| reason | string | Motivo detallado del caso. |
 | status | DisputeStatus (VO) | Estado actual: `PENDING` o `RESOLVED`. |
-| outcome | DisputeOutcome (VO, nullable) | Resultado de la resolución, nulo hasta que el revisor decide. |
-| resolutionNotes | string (nullable) | Observaciones del revisor al resolver (obligatorias, hasta 2000 caracteres). |
-| assignedVerifierUserId | int (nullable) | Verificador que revisa el caso; nulo mientras espera un revisor disponible. Nunca es el `respondentUserId`. |
-| assignedToSenior | boolean | Indica si el revisor era un Verificador senior al asignarse o el Verificador de respaldo. |
-| assignedAt | timestamp (nullable) | Fecha de asignación del revisor. |
+| outcome | DisputeOutcome (VO, nullable) | Resultado de la resolución, nulo hasta que el Verificador decide. |
+| coordinatorNotes | string (nullable) | Observaciones del Verificador al resolver. |
 | raisedAt | timestamp | Fecha de apertura del caso. |
 | resolvedAt | timestamp (nullable) | Fecha de resolución del caso. |
 
 Métodos
 
 - `Dispute(sourceType, sourceReferenceId, raisedByUserId, respondentUserId, reason)` (Constructor): Crea el caso en estado `PENDING`.
-- `certificateReview(int certificateId, int ownerId, List<String> reasons)`: Crea la disputa de revisión de un certificado sospechoso, con su propietario como `respondentUserId`.
-- `assignReviewer(int verifierUserId, boolean senior)`: Asigna el revisor y registra si es un Verificador senior; rechaza a las partes de la disputa.
-- `resolve(DisputeOutcome outcome, String resolutionNotes, DisputeResolutionValidator validator)`: Valida que el caso siga `PENDING` y que el `outcome` sea coherente con el `sourceType`, exige las observaciones, transiciona el estado a `RESOLVED` y registra `resolvedAt`.
-- `isAssignedTo(int userId)` / `isParty(int userId)`: Indican si el usuario es el revisor asignado o una de las partes.
+- `resolve(DisputeOutcome outcome, String coordinatorNotes)`: Valida mediante `DisputeResolutionValidator` que el `outcome` sea coherente con el `sourceType` del caso, transiciona el estado a `RESOLVED` y registra `resolvedAt`.
 
-**2. Value Object: DisputeSourceType**
+**2. Entity: Sanction**
+
+Descripción: Representa la sanción aplicada a un usuario como resultado de un `Dispute` resuelto con `outcome = SANCTIONED`.
+
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| id | int | Identificador único de la sanción. |
+| disputeId | int | Caso que originó la sanción. |
+| sanctionedUserId | int | Usuario sancionado. |
+| type | SanctionType (VO) | Tipo de sanción: `WARNING`, `SUSPENSION` o `BAN`. |
+| description | string | Motivo detallado de la sanción. |
+| durationDays | int (nullable) | Duración de la sanción en días, si aplica. |
+
+**3. Value Object: DisputeSourceType**
 
 Atributos
 
@@ -4311,7 +4162,7 @@ Atributos
 |---|---|---|
 | value | enum | `CERTIFICATE_REVIEW`, `VERIFIER_DECISION_APPEAL`, `USER_REPORT`. |
 
-**3. Value Object: DisputeStatus**
+**4. Value Object: DisputeStatus**
 
 Atributos
 
@@ -4319,38 +4170,39 @@ Atributos
 |---|---|---|
 | value | enum | `PENDING`, `RESOLVED`. |
 
-**4. Value Object: DisputeOutcome**
+**5. Value Object: DisputeOutcome**
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| value | enum | `UPHELD` (se confirma la decisión o el certificado original; en una revisión de certificado, el certificado es legítimo), `OVERTURNED` (se revierte; en una revisión de certificado, el certificado es fraudulento), `DISMISSED` (el reporte no amerita sanción), `SANCTIONED` (el reporte amerita sanción). |
+| value | enum | `UPHELD` (se confirma la decisión/certificado original), `OVERTURNED` (se revierte la decisión del Verificador), `DISMISSED` (el reporte no amerita sanción), `SANCTIONED` (el reporte amerita sanción). |
 
-**5. Domain Service: DisputeResolutionValidator**
+**6. Value Object: SanctionType**
 
-Descripción: Valida que un caso solo pueda resolverse estando en estado `PENDING`, y que el `outcome` aplicado sea coherente con su `sourceType`: `CERTIFICATE_REVIEW` y `VERIFIER_DECISION_APPEAL` admiten `UPHELD` u `OVERTURNED`, y `USER_REPORT` admite `DISMISSED` o `SANCTIONED`.
+Atributos
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| value | enum | `WARNING`, `SUSPENSION`, `BAN`. |
+
+**7. Domain Service: DisputeResolutionValidator**
+
+Descripción: Valida que un caso solo pueda resolverse estando en estado `PENDING`, y que el `outcome` aplicado sea coherente con su `sourceType` (por ejemplo, un `CERTIFICATE_REVIEW` no puede resolverse con `SANCTIONED`, ya que ese outcome es exclusivo de `USER_REPORT`).
 
 Métodos
 
 - `canResolve(Dispute dispute)`: Retorna verdadero si el caso se encuentra en estado `PENDING`.
 - `isValidOutcome(DisputeSourceType sourceType, DisputeOutcome outcome)`: Retorna verdadero si la combinación es coherente según las reglas de negocio.
 
-**6. Domain Service: DisputeReviewerSelector**
-
-Descripción: Elige al revisor de una disputa entre los Verificadores disponibles (`ReviewerCandidate`, con su carga de casos de verificación abiertos y disputas pendientes): el Verificador senior menos cargado; si no hay ninguno disponible, el Verificador habilitado menos cargado, registrando que no es senior. Nunca elige a las partes de la disputa, y los empates se resuelven por el menor identificador de usuario.
+**8. Repository: DisputeRepository, SanctionRepository**
 
 Métodos
 
-- `choose(Collection<Integer> excludedUserIds, List<ReviewerCandidate> candidates)`: Retorna la elección (`ReviewerChoice`: usuario y si es senior), o vacío si no hay candidatos.
+- `findById(int id)`, `findByStatus(DisputeStatus status)`, `save(Dispute dispute)` (DisputeRepository).
+- `save(Sanction sanction)`, `findByUserId(int userId)` (SanctionRepository).
 
-**7. Repository: DisputeRepository**
-
-Métodos
-
-- `findById(int id)`, `findByIdForUpdate(int id)`, `findBySource(DisputeSourceType sourceType, int sourceReferenceId)`, `findByAssignedVerifier(int verifierUserId, DisputeStatus status)`, `findUnassignedPendingIds()`, `countPendingByVerifierUserIds(Collection<Integer> verifierUserIds)` y `save(Dispute dispute)`.
-
-En la Domain Layer de SkillSwap, dentro del Bounded Context de Moderation & Disputes, el agregado `Dispute` modela bajo un único concepto los orígenes de escalación posibles, evitando que Moderation dependa directamente de los modelos internos de `Certificate` o `VerificationCase` — exactamente el rol de Anticorruption Layer que se definió en el Context Mapping. Las transiciones se validan mediante `DisputeResolutionValidator`, y `DisputeReviewerSelector` garantiza que la decisión final llegue a un Verificador senior siempre que exista uno disponible.
+En la Domain Layer de SkillSwap, dentro del Bounded Context de Moderation & Disputes, el agregado `Dispute` generaliza los tres orígenes de escalación posibles bajo un único modelo, evitando que Moderation dependa directamente de los modelos internos de `Certificate` o `VerificationCase` — exactamente el rol de Anticorruption Layer que se definió en el Context Mapping. Las transiciones se validan mediante `DisputeResolutionValidator`, y la entidad `Sanction` registra la consecuencia únicamente cuando el origen fue un reporte de usuario.
 
 #### 2.6.7.2. Interface Layer
 
@@ -4358,26 +4210,28 @@ En la Domain Layer de SkillSwap, dentro del Bounded Context de Moderation & Disp
 
 | Nombre | Descripción |
 |---|---|
-| DisputeResource | DTO de salida que representa un caso (sourceType, sourceReferenceId, reason, status, outcome, resolutionNotes, assignedVerifierUserId, assignedToSenior y sus fechas). |
-| DisputeEvidenceResource | DTO de salida con la disputa y la evidencia del certificado en revisión (`CertificateEvidenceResource`: datos extraídos por OCR, evaluación de riesgo, si el titular difiere del nombre registrado y un enlace temporal al archivo). |
-| ResolveDisputeResource | DTO de entrada con la decisión del revisor (`outcome`, `resolutionNotes`). |
+| DisputeResource | DTO de salida que representa un caso (sourceType, reason, status, outcome). |
+| CreateUserReportResource | DTO de entrada para que un usuario reporte una conducta inapropiada. |
+| ResolveDisputeResource | DTO de entrada con la decisión del Verificador (`outcome`, `coordinatorNotes`). |
 
 **Controllers**
 
 | Nombre | Método HTTP | Ruta / Resource | Descripción |
 |---|---|---|---|
-| DisputesController | GET | `/api/v1/disputes?status=` | Retorna las disputas asignadas al Verificador autenticado, de la más antigua a la más reciente: las pendientes por defecto, o las resueltas o todas (`Resolved`, `All`). `403` si el usuario no es un Verificador habilitado. |
-| DisputesController | GET | `/api/v1/disputes/{id}/evidence` | Retorna la disputa con la evidencia del certificado en revisión. Solo su revisor (`403` en otro caso). |
-| DisputesController | PATCH | `/api/v1/disputes/{id}/resolve` (ResolveDisputeResource) | Aplica la resolución del revisor: en una revisión de certificado, `Upheld` lo verifica y `Overturned` lo rechaza. `400` si el `outcome` no es coherente con el origen o faltan las observaciones, `403` si no es el revisor asignado y `409` si la disputa ya se resolvió o el certificado ya no está en estado sospechoso. |
+| DisputeController | POST | `/api/v1/disputes/reports` (CreateUserReportResource) | Registra un nuevo reporte de usuario (`sourceType = USER_REPORT`). Los casos de `CERTIFICATE_REVIEW` y `VERIFIER_DECISION_APPEAL` se crean internamente vía eventos, no por este endpoint. |
+| DisputeController | GET | `/api/v1/disputes?status=pending` | Retorna el listado de casos pendientes, consumido por el panel del Verificador. |
+| DisputeController | GET | `/api/v1/disputes/{disputeId}/evidence` | *(Ver Infrastructure Layer)* Retorna la evidencia asociada al caso: datos OCR/riesgo del certificado, o notas de rúbrica/evidencia del `VerificationCase`, según el `sourceType`. |
+| DisputeController | PATCH | `/api/v1/disputes/{disputeId}/resolve` (ResolveDisputeResource) | Aplica la resolución del Verificador sobre un caso. |
 
 **Transformers / Assemblers**
 
 | Nombre | Descripción |
 |---|---|
-| DisputeResourceAssemblers | Convierten `Dispute` (y la vista del certificado en revisión) en `DisputeResource` y `DisputeEvidenceResource`. |
-| ModerationDisputesActionResultAssembler | Traduce el resultado de cada comando en la respuesta HTTP y su código de error. |
+| DisputeResourceFromEntityAssembler | Convierte `Dispute` en `DisputeResource`. |
+| CreateUserReportCommandFromResourceAssembler | Transforma `CreateUserReportResource` en `CreateUserReportCommand`. |
+| ResolveDisputeCommandFromResourceAssembler | Transforma `ResolveDisputeResource` en `ResolveDisputeCommand`. |
 
-El endpoint de evidencia consulta directamente a Credential Verification, sin copiar en Moderation & Disputes la información del certificado.
+A diferencia del modelo original, ya no existe el endpoint `/api/v1/sessions/{sessionId}/messages` para revisar el historial de chat como evidencia — no hay sesión ni chat en el nuevo modelo. En su lugar, el endpoint de evidencia consulta directamente al Bounded Context de origen (Credential Verification o Assessment & Peer Review) según corresponda.
 
 #### 2.6.7.3. Application Layer
 
@@ -4385,14 +4239,23 @@ El endpoint de evidencia consulta directamente a Credential Verification, sin co
 
 | Nombre | Descripción | Resumen de Lógica |
 |---|---|---|
-| EscalateCertificateReviewEventHandler | Procesa la escalación automática de un certificado `SUSPICIOUS`. | Reacciona al evento `CertificateFlaggedSuspicious` de Credential Verification y envía `EscalateCertificateReviewCommand`: crea la disputa con `sourceType = CERTIFICATE_REVIEW` (una sola por certificado, aunque el evento se entregue más de una vez) y le asigna un revisor mediante `DisputeReviewerSelector`, consultando a Assessment & Peer Review los Verificadores disponibles y su carga (`VerifierProfileContextFacade`) y a Reputation quiénes son senior (`ReputationContextFacade`). Sin revisor disponible, la disputa queda pendiente. |
-| ResolveDisputeCommandHandler | Procesa la resolución del revisor. | Bloquea la disputa, valida que el usuario sea el revisor asignado y el `outcome` con `DisputeResolutionValidator`, invoca `resolve()` y, en la misma transacción, aplica la decisión sobre el certificado mediante `CredentialContextFacade.resolveSuspiciousCertificate()`: `VERIFIED` si es legítimo o `REJECTED` si es fraudulento. Un certificado verificado completa en Learning Path Engine los nodos que cubre, y el estudiante recibe la notificación push de la resolución. |
-| AssignPendingDisputesCommandHandler | Reintenta la asignación de las disputas sin revisor. | Invocado periódicamente por `PendingDisputeAssignmentScheduler`, recorre las disputas pendientes sin revisor y les asigna uno cuando ya hay Verificadores disponibles. |
-| GetDisputesByReviewerQueryHandler / GetDisputeByIdQueryHandler | Recuperan las disputas del revisor o una disputa con su evidencia. | Consultan `DisputeRepository` y, para la evidencia, la vista del certificado (`CertificateReviewView`) mediante `CredentialContextFacade`. |
+| CreateUserReportCommandHandler | Procesa un reporte directo de un usuario. | Instancia `Dispute` con `sourceType = USER_REPORT` y lo persiste mediante `DisputeRepository`. |
+| EscalateCertificateReviewCommandHandler | Procesa la escalación automática de un certificado `SUSPICIOUS`. | Recibe el evento desde Credential Verification, instancia `Dispute` con `sourceType = CERTIFICATE_REVIEW` (`raisedByUserId = null`) y lo persiste. |
+| EscalateVerifierDecisionAppealCommandHandler | Procesa la apelación de un Estudiante sobre una decisión `REJECTED` de un `VerificationCase`. | Instancia `Dispute` con `sourceType = VERIFIER_DECISION_APPEAL` y lo persiste. |
+| ResolveDisputeCommandHandler | Procesa la resolución del Verificador. | Valida con `DisputeResolutionValidator`, invoca `resolve()` sobre el agregado y despacha el efecto correspondiente según `sourceType`: si es `CERTIFICATE_REVIEW`, notifica a Credential Verification (`resolveDispute`); si es `VERIFIER_DECISION_APPEAL` con `outcome = OVERTURNED`, notifica a Reputation (reversión de decisión); si es `USER_REPORT` con `outcome = SANCTIONED`, crea la `Sanction` y notifica a Identity & Access (suspensión de cuenta) y a Reputation (sanción aplicada). |
+| GetPendingDisputesQueryHandler | Recupera los casos pendientes para el panel del Verificador. | Consulta `DisputeRepository.findByStatus(PENDING)`. |
+| GetDisputeEvidenceQueryHandler | Recupera la evidencia asociada a un caso. | Según el `sourceType`, consulta a Credential Verification (datos del certificado) o a Assessment & Peer Review (rúbrica/evidencia del caso) mediante los adaptadores de integración. |
 
-En la Application Layer de Moderation & Disputes, `ResolveDisputeCommandHandler` es el único punto donde la decisión del revisor se traduce en efectos sobre otro Bounded Context, de modo que Credential Verification no necesita conocer la existencia de `Dispute` como concepto.
+**Internal DTOs**
 
-La apelación (US27) se implementa dentro de Assessment & Peer Review: `POST /api/v1/verification-cases/{id}/appeal` reabre el caso rechazado, que solo puede apelarse una vez, y lo reasigna a otro Verificador habilitado, distinto del que lo rechazó y del propio Estudiante.
+| Nombre | Descripción |
+|---|---|
+| DisputeDto | Objeto que transporta el detalle operativo de un caso entre capas. |
+| DisputeEvidenceDto | Objeto que transporta la evidencia obtenida del Bounded Context de origen. |
+
+En la Application Layer de Moderation & Disputes, `ResolveDisputeCommandHandler` es el único punto donde una decisión del Verificador se traduce en efectos concretos sobre los demás Bounded Contexts, y lo hace de forma distinta según el origen del caso — evitando que Identity & Access, Reputation, Credential Verification o Assessment & Peer Review necesiten conocer la existencia de `Dispute` como concepto.
+
+En el Sprint 1, la apelación (US27) se implementó dentro de Assessment & Peer Review, sin pasar todavía por `Dispute`: `POST /api/v1/verification-cases/{id}/appeal` reabre el caso rechazado, que solo puede apelarse una vez, y lo reasigna a otro Verificador habilitado, distinto del que lo rechazó y del propio Estudiante.
 
 #### 2.6.7.4. Infrastructure Layer
 
@@ -4400,23 +4263,19 @@ La apelación (US27) se implementa dentro de Assessment & Peer Review: `POST /ap
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| DisputeRepositoryAdapter | Implementación concreta de `DisputeRepository` sobre la tabla `disputes`, con bloqueo de fila (`SELECT ... FOR UPDATE`) al asignar o resolver. | Spring Data JPA, PostgreSQL. |
+| DisputeRepositoryAdapter | Implementación concreta de `DisputeRepository` sobre la tabla `disputes`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| SanctionRepositoryAdapter | Implementación concreta de `SanctionRepository` sobre la tabla `sanctions`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
 
-**Scheduling**
-
-| Nombre | Descripción |
-|---|---|
-| PendingDisputeAssignmentScheduler | Reintenta cada `MODERATION_ASSIGNMENT_RETRY_INTERVAL` (15 minutos por defecto) la asignación de las disputas que se escalaron sin revisor disponible. |
-
-**Integration (Anti-Corruption Layer)**
+**Integration Services**
 
 | Nombre | Descripción |
 |---|---|
-| CredentialContextFacade | Fachada de Credential Verification con la que Moderation & Disputes consulta la vista del certificado en revisión y aplica la resolución final. |
-| VerifierProfileContextFacade | Fachada de Assessment & Peer Review con la que obtiene los Verificadores disponibles, su carga de trabajo y si un usuario es un Verificador habilitado. |
-| ReputationContextFacade | Fachada de Reputation con la que identifica a los Verificadores senior. |
+| AccountSuspensionNotifierAdapter | Comunica la orden de sanción hacia Identity & Access para suspender la cuenta del usuario sancionado. |
+| ReputationAdjustmentNotifierAdapter | Comunica hacia Reputation la reversión de una decisión de Verificador o la sanción aplicada, consumido por `RecordDisputeOverturnEventHandler` / `RecordSanctionEventHandler`. |
+| CertificateQueryClient | Consulta hacia Credential Verification los datos OCR y el `RiskAssessment` del certificado en disputa, y envía la resolución final (`resolveDispute`) una vez decidida. |
+| VerificationCaseQueryClient | Consulta hacia Assessment & Peer Review las notas de rúbrica y la evidencia adjuntada del `VerificationCase` apelado, como fuente de evidencia para el Verificador. |
 
-Estas fachadas permiten que Moderation & Disputes coordine la revisión de certificados sospechosos con Credential Verification, Assessment & Peer Review y Reputation sin duplicar en su propio modelo de persistencia la información de certificados, perfiles de Verificador ni confiabilidad.
+Estos adaptadores permiten que Moderation & Disputes coordine la resolución entre los cuatro Bounded Contexts afectados (Identity & Access, Reputation, Credential Verification y Assessment & Peer Review) sin duplicar en su propio modelo de persistencia la información de certificados, casos de verificación o cuentas.
 
 #### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -4428,7 +4287,7 @@ Estas fachadas permiten que Moderation & Disputes coordine la revisión de certi
   <img src="images-doc/ModerationDisputesComponent.svg" alt="Component Diagram - Moderation & Disputes" width="800">
 </p>
 
-*Nota.* Se detalla la segregación entre `DisputesController`, el Command/Query Service, `EscalateCertificateReviewEventHandler`, `PendingDisputeAssignmentScheduler` y el repositorio, evidenciando la escalación automática de los certificados en estado SUSPICIOUS publicada por Credential Verification, la selección del revisor con las fachadas de Assessment & Peer Review (Verificadores disponibles) y Reputation (Verificadores senior), y la resolución final aplicada sobre el certificado mediante `CredentialContextFacade`. Elaboración propia.
+*Nota.* Se detalla la segregación entre el Controller, el Command/Query Service y los adaptadores de consulta de evidencia hacia Credential Verification y Assessment & Peer Review, evidenciando la escalación automática de certificados en estado SUSPICIOUS, y las notificaciones salientes hacia Identity & Access (suspensión de cuenta) y Reputation (reversión de decisión/sanción aplicada) tras la resolución del Verificador. Elaboración propia.
 
 #### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -4444,7 +4303,7 @@ Estas fachadas permiten que Moderation & Disputes coordine la revisión de certi
 
 *Nota.* Recorte del diagrama de clases general correspondiente a este Bounded Context. Elaboración propia.
 
-El modelado de clases de Moderation & Disputes pertenece al agregado raíz `Dispute`, junto con los Value Objects `DisputeSourceType`, `DisputeStatus` y `DisputeOutcome` y los servicios de dominio `DisputeResolutionValidator` y `DisputeReviewerSelector`, debido a que estos elementos modelan bajo un único concepto los orígenes de escalación hacia un Verificador senior (certificado sospechoso, apelación de una decisión de Verificador o reporte de usuario), evitando que Moderation dependa directamente de los modelos internos de `Certificate` o `VerificationCase` — el rol de Anticorruption Layer definido en el Context Mapping.
+El modelado de clases de Moderation & Disputes pertenece al agregado raíz `Dispute`, junto con la entidad `Sanction`, debido a que estos elementos generalizan bajo un único modelo los tres orígenes de escalación posibles hacia un Verificador (certificado sospechoso, apelación de una decisión de Verificador, o reporte directo de usuario), evitando que Moderation dependa directamente de los modelos internos de `Certificate` o `VerificationCase` — el rol de Anticorruption Layer definido en el Context Mapping.
 
 ##### 2.6.7.6.2. Bounded Context Database Design Diagram
 
@@ -4458,7 +4317,7 @@ El modelado de clases de Moderation & Disputes pertenece al agregado raíz `Disp
 
 *Nota.* Recorte del diagrama relacional general correspondiente a este Bounded Context. Elaboración propia.
 
-El modelado de base de datos de Moderation & Disputes pertenece a la tabla `disputes` (migración V9), que persiste en un único modelo unificado cualquier caso que requiera la decisión final de un Verificador senior, identificado mediante `source_type` y `source_reference_id`. El índice único parcial `ux_disputes_certificate_review` garantiza que un certificado se escale una sola vez, el CHECK `ck_disputes_not_reviewed_by_respondent` impide que el propietario del certificado revise su propia disputa, y los índices sobre `assigned_verifier_user_id` y sobre las disputas pendientes sin revisor soportan la consulta del revisor y el reintento periódico de la asignación. Las columnas `resolution_notes`, `assigned_to_senior` y `assigned_at` registran las observaciones de la resolución y la asignación.
+El modelado de base de datos de Moderation & Disputes pertenece a las tablas `disputes` y `sanctions`, debido a que la primera persiste, en un único modelo unificado, cualquier caso que requiera la decisión final del Verificador —identificado mediante `source_type` y `source_reference_id`—, y la segunda registra, en una relación uno a muchos, la sanción aplicada únicamente cuando el origen del caso fue un reporte de usuario resuelto con el outcome `SANCTIONED`.
 
 ---
 
@@ -4707,9 +4566,9 @@ A continuación se presenta el diagrama relacional completo de SkillSwap, mostra
   <img src="images-doc/db-full-mobile.svg" alt="Diagrama de Base de Datos Completo" width="1000">
 </p>
 
-*Nota.* Se muestra la totalidad de las tablas correspondientes a los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes), en el esquema que resulta de aplicar las migraciones Flyway V1 a V10: el campo device_token y las columnas de verificación del correo, intereses y nombre completo sobre la tabla users, los campos file_hash, storage_reference, ocr_text, qr_payload y holder_name_mismatch sobre la tabla certificates, las tablas subscriptions y processed_webhook_events de la suscripción mensual, advanced_path_unlocks, review_deadline_policies y disputes. Las líneas continuas representan las claves foráneas y las discontinuas las referencias por identificador entre Bounded Contexts. Elaborado en PlantUML. Elaboración propia.
+*Nota.* Se muestra la totalidad de las tablas correspondientes a los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el campo device_token sobre la tabla users para el soporte de notificaciones push, los campos file_hash, storage_reference, ocr_text y qr_payload incorporados sobre la tabla certificates para el soporte de la captura desde cámara y la extracción on-device mediante ML Kit, feature de aprendizaje autónomo del proyecto, y la tabla subscriptions incorporada para el soporte del cobro recurrente de la suscripción mensual. Elaborado en dbdiagram.io. Elaboración propia.
 
-En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos PostgreSQL (`skillswap_db`) aloja de forma organizada las tablas de los ocho Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `assessment_attempts` y `verification_cases` en Assessment & Peer Review) y bajo acoplamiento entre ellos: las únicas claves foráneas unen tablas de un mismo agregado (`path_nodes` con `learning_paths` y `credit_transactions` con `wallets`), y entre Bounded Contexts las tablas se referencian solo por identificador (por ejemplo, `users.id`, `certificates.id` o `credit_transactions.id`). La incorporación del campo `device_token` y de los campos de extracción sobre `certificates` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, mientras que la tabla `subscriptions` evidencia el modelo de negocio freemium (suscripción mensual opcional sobre el plan gratuito), completamente independiente del sistema interno no monetario de SkillCredits, que solo se gana mediante participación como Verificador y no admite ninguna forma de adquisición directa.
+En síntesis, el diagrama relacional evidencia una estructura de base de datos coherente, donde una única base de datos PostgreSQL (`skillswap_db`) aloja de forma organizada las tablas de los ocho Bounded Contexts, manteniendo alta cohesión dentro de cada contexto (por ejemplo, `assessment_attempts` y `verification_cases` en Assessment & Peer Review) y bajo acoplamiento entre ellos, referenciándose únicamente a través del identificador de usuario (`users.id`) como dato compartido. La incorporación del campo `device_token` y de los campos de extracción sobre `certificates` demuestra la extensión del modelo de datos original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, mientras que la tabla `subscriptions` evidencia el modelo de negocio freemium (suscripción mensual opcional sobre el plan gratuito), completamente independiente del sistema interno no monetario de SkillCredits, que solo se gana mediante participación como Verificador y no admite ninguna forma de adquisición directa.
 
 
 A continuación se presenta el diagrama de clases UML completo de SkillSwap, mostrando la totalidad del modelo de dominio y su segmentación entre los ocho Bounded Contexts.
@@ -4722,9 +4581,9 @@ A continuación se presenta el diagrama de clases UML completo de SkillSwap, mos
   <img src="images-doc/SkillSwap_ClassDiagram_Mobile.svg" alt="Diagrama de Clases Completo" width="1000">
 </p>
 
-*Nota.* Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el Value Object `DeviceToken` y los puertos `EmailSender` y `PushNotificationSender` en Identity & Access, los atributos de extracción OCR (`ocrText`, `qrPayload`, `fileHash`) en `Certificate` (Credential Verification), los agregados `AdvancedPathUnlock` (Learning Path Engine), `ReviewDeadlinePolicy` (Assessment & Peer Review), `Dispute` (Moderation & Disputes) y `Subscription` (Subscription & Billing). Elaborado en PlantUML. Elaboración propia.
+*Nota.* Se presenta la totalidad del modelo de dominio, evidenciando cómo el modelo global ha sido segmentado en los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes), incluyendo el Value Object `DeviceToken` en Identity & Access, los atributos de extracción OCR (`ocrText`, `qrPayload`, `fileHash`) en `Certificate` (Credential Verification), y el agregado `Subscription` (Subscription & Billing) incorporado para el soporte del cobro recurrente de la mensualidad. Elaborado en PlantUML. Elaboración propia.
 
-En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `Certificate`, `LearningPath`, `AssessmentBlueprint`, `AdvancedPathUnlock`, `AssessmentAttempt`, `VerifierProfile`, `VerificationCase`, `ReviewDeadlinePolicy`, `VerifierReliability`, `StudentEmployabilityScore`, `Wallet`, `Subscription`, `Dispute`) heredando de un `AbstractDomainAggregateRoot` compartido, manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos — toda referencia cruzada se resuelve mediante un identificador simple (`Long`). La incorporación del Value Object `DeviceToken` en Identity & Access y de los atributos de extracción de `Certificate` en Credential Verification demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, en particular la captura desde cámara y el procesamiento on-device mediante ML Kit que constituye el feature de aprendizaje autónomo del proyecto. Por su parte, el agregado `Subscription` en Subscription & Billing, junto con los Value Objects `SubscriptionPlan` y `Money`, evidencia el desacoplamiento entre el cobro recurrente al Estudiante y el sistema interno no monetario de SkillCredits en Recognition & Incentives, ambos Bounded Contexts operando de forma completamente independiente entre sí y desacoplados del proveedor concreto de pagos (Google Play Billing, integrado mediante RevenueCat) mediante el Domain Service `PaymentGateway`.
+En síntesis, el diagrama de clases evidencia un modelo de dominio coherente, donde cada Bounded Context mantiene sus propios agregados raíz (`User`, `Certificate`, `LearningPath`, `AssessmentBlueprint`, `AssessmentAttempt`, `VerifierProfile`, `VerificationCase`, `VerifierReliability`, `StudentEmployabilityScore`, `Wallet`, `Subscription`, `Dispute`) heredando de un `AbstractDomainAggregateRoot` compartido, manteniendo alta cohesión dentro de cada contexto y bajo acoplamiento entre ellos, sin referencias directas de clase a clase entre Bounded Contexts distintos — toda referencia cruzada se resuelve mediante un identificador simple (`Long`). La incorporación del Value Object `DeviceToken` en Identity & Access y de los atributos de extracción de `Certificate` en Credential Verification demuestra la extensión del modelo de dominio original para soportar las funcionalidades propias de los clientes móviles nativo y cross-platform, en particular la captura desde cámara y el procesamiento on-device mediante ML Kit que constituye el feature de aprendizaje autónomo del proyecto. Por su parte, el agregado `Subscription` en Subscription & Billing, junto con los Value Objects `SubscriptionPlan` y `Money`, evidencia el desacoplamiento entre el cobro recurrente al Estudiante y el sistema interno no monetario de SkillCredits en Recognition & Incentives, ambos Bounded Contexts operando de forma completamente independiente entre sí y desacoplados del proveedor concreto de pagos (Google Play Billing, integrado mediante RevenueCat) mediante el Domain Service `PaymentGateway`.
 
 ---
 
@@ -5158,11 +5017,11 @@ El despliegue abarca los tres productos digitales de la solución:
 
 **Rama de despliegue:** `develop` durante el ciclo de pruebas; al cerrar cada entrega se promueve a `main` mediante `release/x.y.z` con su tag de versión semántica correspondiente, y Render se reconfigura para desplegar desde `main`.
 
-**Variables de entorno del backend** (solo nombres; los valores no se exponen en el informe ni en el repositorio; en producción se definen en Render):
+**Variables de entorno en Render** (solo nombres; los valores no se exponen en el informe ni en el repositorio):
 
 **Tabla 15**
 
-*Variables de entorno del backend*
+*Variables de entorno del despliegue en Render*
 
 | Variable | Propósito |
 |---|---|
@@ -5170,28 +5029,15 @@ El despliegue abarca los tres productos digitales de la solución:
 | `TOKEN_SETTINGS_SECRET` | Secreto para la firma de los tokens JWT (obligatorio, mínimo 32 caracteres) |
 | `TOKEN_SETTINGS_EXPIRATION_DAYS` | Vigencia del token en días (opcional, por defecto 7) |
 | `CLOUDINARY_CLOUD_NAME` / `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` | Credenciales de la integración con Cloudinary (obligatorias: sin ellas la aplicación no arranca) |
-| `GEMINI_API_KEY` | Clave de la API de Gemini para la generación de preguntas y la interpretación de la meta (obligatoria) |
+| `GEMINI_API_KEY` | Clave de la API de Gemini para la generación de preguntas (obligatoria) |
 | `GEMINI_MODEL`, `GEMINI_FALLBACK_MODELS` | Modelo principal (por defecto `gemini-3.5-flash`) y modelos de respaldo, separados por comas (opcionales) |
-| `GEMINI_GOAL_INTERPRETATION_ENABLED` | Si la meta se interpreta con Gemini (por defecto `true`); con `false` solo se usa la comparación por palabras clave |
-| `GEMINI_GOAL_INTERPRETATION_TIMEOUT_SECONDS` | Tiempo máximo de espera de la interpretación de la meta con Gemini (por defecto 20 segundos) |
-| `LEARNING_PATH_ASSESSMENT_REQUIRE_LINKED_CERTIFICATE` | Si la evaluación de un nodo exige un certificado vinculado (por defecto `false`) |
-| `BREVO_API_KEY` | Clave de la API de correo transaccional de Brevo; sin ella, los correos de verificación se escriben en el log |
-| `EMAIL_SENDER_ADDRESS` / `EMAIL_SENDER_NAME` | Dirección remitente verificada en Brevo (obligatoria junto con `BREVO_API_KEY`) y nombre del remitente (por defecto `SkillSwap`) |
-| `APP_VERIFICATION_BASE_URL` | URL pública del backend con la que se arma el enlace de verificación (`<url>/api/v1/authentication/verify-email`) |
-| `APP_VERIFICATION_TOKEN_TTL` | Vigencia del enlace de verificación (por defecto `24h`) |
-| `APP_VERIFICATION_RESEND_COOLDOWN` | Tiempo mínimo entre dos correos de verificación a una misma cuenta (por defecto `2m`) |
-| `FIREBASE_CREDENTIALS_BASE64` | JSON de la cuenta de servicio del proyecto de Firebase, en Base64, para enviar notificaciones push con Firebase Cloud Messaging; sin ella, las notificaciones se escriben en el log |
-| `REVENUECAT_API_KEY` | Clave secreta de RevenueCat; sin ella, las compras se simulan con `SimulatedPaymentGatewayAdapter` y no se cobra nada |
-| `REVENUECAT_WEBHOOK_AUTH` | Valor exacto del encabezado `Authorization` del webhook; sin ella se rechazan todas las notificaciones |
-| `REVENUECAT_ENTITLEMENT_ID` / `REVENUECAT_ACCEPT_SANDBOX` | Entitlement que otorga el plan mensual (por defecto `premium`) y si se aplican las compras de prueba (por defecto `true`) |
-| `BILLING_EXPIRATION_CHECK_INTERVAL` / `BILLING_SIMULATED_PERIOD` | Frecuencia de la revisión de suscripciones vencidas (por defecto `1h`) y duración del período del adaptador simulado (por defecto `30d`) |
-| `REVIEW_DEADLINE_CHECK_INTERVAL` | Frecuencia de la búsqueda de casos con el plazo de revisión vencido (por defecto `15m`) |
-| `MODERATION_ASSIGNMENT_RETRY_INTERVAL` | Frecuencia del reintento de asignación de las disputas sin revisor (por defecto `15m`) |
 | `CORS_ALLOWED_ORIGINS` | Orígenes permitidos para el consumo de la API desde el Landing Page y la aplicación |
 
 *Nota.* Elaboración propia.
 
-**Esquema de base de datos:** al arrancar, la aplicación convierte `DATABASE_URL` al formato JDBC; el esquema se gestiona con **Flyway** mediante las migraciones versionadas V1 a V10 (`src/main/resources/db/migration`), y Hibernate valida que las tablas y columnas coincidan con las entidades JPA (`spring.jpa.hibernate.ddl-auto=validate`), sin crear ni modificar el esquema; si falta algo, la aplicación no arranca. V1 es el esquema base que creó la primera versión del backend en la base de PostgreSQL de Render, por lo que Flyway lo registra como baseline sin ejecutarlo (`spring.flyway.baseline-on-migrate=true`, `baseline-version=1`); en una base vacía, como la de las pruebas o la local, V1 crea todo el esquema. Las demás migraciones agregan `case_type` (V2), `subscriptions` y `processed_webhook_events` (V3), el estado `Paused`, `last_progress_at` y la eliminación del índice de una sola ruta activa (V4), `review_due_at` (V5), las columnas de verificación del correo (V6), los intereses y el vector de habilidades (V7), `completed_by_certificate` (V8), `full_name`, `holder_name_mismatch` y la tabla `disputes` (V9), y `redemption_item`, `is_advanced`, `advanced_path_unlocks`, `review_deadline_policies` y las columnas de plazo e incumplimiento (V10). No se crea ninguna cuenta inicial: toda cuenta se registra como `Student` mediante `POST /api/v1/authentication/sign-up`.
+El PR #13 de `SkillSwap-WebServices-Java` (Subscription & Billing), aún no desplegado, agrega variables opcionales que se configurarán en Render al desplegarlo: `REVENUECAT_API_KEY` (sin ella las compras se simulan con `SimulatedPaymentGatewayAdapter` y no se cobra nada), `REVENUECAT_WEBHOOK_AUTH` (valor exacto del encabezado `Authorization` del webhook; sin ella se rechazan todas las notificaciones), `REVENUECAT_ENTITLEMENT_ID` (por defecto `premium`), `REVENUECAT_ACCEPT_SANDBOX` (si se aplican las compras de prueba; por defecto `true`), `BILLING_EXPIRATION_CHECK_INTERVAL` (frecuencia de la revisión de suscripciones vencidas; por defecto `1h`) y `BILLING_SIMULATED_PERIOD` (duración del período del adaptador simulado; por defecto `30d`).
+
+**Esquema de base de datos:** al arrancar, la aplicación convierte `DATABASE_URL` al formato JDBC y Hibernate valida que las tablas y columnas coincidan con las entidades JPA (`spring.jpa.hibernate.ddl-auto=validate`), sin crear ni modificar el esquema; si falta algo, la aplicación no arranca. El esquema de la base de PostgreSQL de Render es el que crearon las migraciones de la primera versión del backend, y el backend Java lo reutiliza sin cambios. Los PR #11 a #14 de `SkillSwap-WebServices-Java`, pendientes de integración, incorporan **Flyway**: se mantiene `ddl-auto=validate` y el esquema pasa a gestionarse con migraciones versionadas V1–V5 (`src/main/resources/db/migration`). V1 es el esquema base que ya existe en la base de Render, por lo que Flyway lo registra como baseline sin ejecutarlo (`spring.flyway.baseline-on-migrate=true`, `baseline-version=1`) y solo aplica V2 (`case_type`), V3 (`subscriptions` y `processed_webhook_events`), V4 (estado `Paused`, `last_progress_at` y eliminación del índice de una sola ruta activa) y V5 (`review_due_at`); en una base vacía, como la de las pruebas o la local, V1 crea todo el esquema. No se crea ninguna cuenta inicial: toda cuenta se registra como `Student` mediante `POST /api/v1/authentication/sign-up`.
 
 **Observabilidad y disponibilidad:** el endpoint `GET /health` (anónimo, sin acceso a la base de datos) se usa tanto para el health check de Render como para un ping de mantenimiento cada 10 minutos, dado que el plan gratuito de Render suspende el servicio tras 15 minutos sin tráfico. Swagger UI permanece activo también en producción (`/swagger-ui/index.html`, con el documento OpenAPI en `/v3/api-docs`), y tanto la raíz (`/`) como `/swagger` redirigen automáticamente a la documentación.
 
@@ -5205,7 +5051,7 @@ El despliegue abarca los tres productos digitales de la solución:
   <img src="images-doc/c4-deployment-diagram.svg" alt="Deployment Diagram de SkillSwap" width="900">
 </p>
 
-*Nota.* Aplicaciones Android nativa y cross-platform como clientes de la API y Landing Page estático en GitHub Pages, API Spring Boot en un contenedor Docker con JRE 21 sobre Render, PostgreSQL administrado, y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat). Elaboración propia.
+*Nota.* Aplicaciones Android nativa y cross-platform como clientes de la API y Landing Page estático en GitHub Pages, API Spring Boot en un contenedor Docker con JRE 21 sobre Render, PostgreSQL administrado, y los servicios externos Cloudinary, Email API, Gemini API y Google Play Billing (vía RevenueCat). Elaboración propia.
 
 ---
 
@@ -5215,7 +5061,7 @@ El despliegue abarca los tres productos digitales de la solución:
 
 #### 4.2.1.1. Sprint Planning 1
 
-El Sprint 1 corresponde a la primera iteración de desarrollo del proyecto, enfocada en construir la base funcional del backend en sus ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes) y en avanzar el diseño UI/UX de la Landing Page y las pantallas core de la aplicación móvil. La reunión de planificación definió el Sprint Goal, la velocidad del equipo y las historias que entran al Sprint.
+El Sprint 1 corresponde a la primera iteración de desarrollo del proyecto, enfocada en construir la base funcional del backend (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation y Recognition & Incentives) y en avanzar el diseño UI/UX de la Landing Page y las pantallas core de la aplicación móvil. La reunión de planificación definió el Sprint Goal, la velocidad del equipo y las historias que entran al Sprint.
 
 **Tabla 16**
 
@@ -5232,9 +5078,9 @@ El Sprint 1 corresponde a la primera iteración de desarrollo del proyecto, enfo
 | Sprint n − 1 Review Summary | No aplica — es el primer Sprint del proyecto. |
 | Sprint n − 1 Retrospective Summary | No aplica — es el primer Sprint del proyecto. |
 | **Sprint Goal & User Stories** | |
-| Sprint 1 Goal | Our focus is on construir el núcleo funcional de SkillSwap: registro con verificación del correo institucional y autenticación, carga y validación de certificados con escalamiento de los sospechosos a un Verificador senior, generación de rutas de aprendizaje a partir de la taxonomía de habilidades (con la meta interpretada por Gemini y la comparación por palabras clave como respaldo) con evaluaciones asistidas por IA, el ciclo completo de evaluación y revisión por pares con plazos de revisión por plan, la suscripción mensual con sus límites y la billetera de SkillCredits. We believe it delivers a un Estudiante la posibilidad de demostrar una habilidad de principio a fin dentro de la plataforma, y a un Verificador la posibilidad de revisar casos reales. This will be confirmed when el backend esté desplegado públicamente, documentado con OpenAPI, y un Estudiante pueda completar el flujo registro → certificado → ruta → evaluación → caso resuelto sin intervención manual. |
-| Sprint 1 Velocity | 151 SP |
-| Sum of Story Points | 151 SP |
+| Sprint 1 Goal | Our focus is on construir el núcleo funcional de SkillSwap: registro y autenticación, carga y validación de certificados, generación de rutas de aprendizaje a partir de la taxonomía de habilidades (en este sprint, mediante el adaptador de palabras clave que actúa como respaldo de la interpretación con Gemini; el adaptador Gemini queda fuera del alcance del Sprint 1) con evaluaciones asistidas por IA, y el ciclo completo de evaluación y revisión por pares. We believe it delivers a un Estudiante la posibilidad de demostrar una habilidad de principio a fin dentro de la plataforma, y a un Verificador la posibilidad de revisar casos reales. This will be confirmed when el backend esté desplegado públicamente, documentado con OpenAPI, y un Estudiante pueda completar el flujo registro → certificado → ruta → evaluación → caso resuelto sin intervención manual. |
+| Sprint 1 Velocity | 148 SP |
+| Sum of Story Points | 148 SP |
 
 *Nota.* Elaboración propia.
 
@@ -5250,19 +5096,19 @@ El Sprint 1 corresponde a la primera iteración de desarrollo del proyecto, enfo
 
 #### 4.2.1.2. Aspect Leaders and Collaborators
 
-El equipo organizó el Sprint 1 en tres frentes: el backend, dividido por Bounded Context junto con su despliegue en Render; la Landing Page; y el diseño UX/UI de la aplicación móvil. Cada aspecto tiene un Líder responsable y, cuando corresponde, colaboradores. La matriz es coherente con la asignación de tasks del Sprint Backlog (4.2.1.3): la base del backend en seis Bounded Contexts y su despliegue (T01–T11 y T14) están a cargo de Alberca Saavedra, Víctor Manuel; Subscription & Billing, Moderation & Disputes, las migraciones con Flyway y las funcionalidades que se agregaron sobre los demás Bounded Contexts (T15–T35) están a cargo de Sulca Sánchez, Piero Angel; la Landing Page (T12) a cargo de su líder, y el diseño de la aplicación móvil (T13) a cargo del suyo.
+El equipo organizó el Sprint 1 en tres frentes: el backend, dividido por Bounded Context junto con su despliegue en Render; la Landing Page; y el diseño UX/UI de la aplicación móvil. Cada aspecto tiene un Líder responsable y, cuando corresponde, colaboradores. La matriz es coherente con la asignación de tasks del Sprint Backlog (4.2.1.3): el backend (T01–T11 y T14) está a cargo del líder de los seis Bounded Contexts, la Landing Page (T12) a cargo de su líder, y el diseño de la aplicación móvil (T13) a cargo del suyo.
 
 **Tabla 17**
 
 *Leadership-and-Collaboration Matrix del Sprint 1*
 
-| Team Member (Last Name, First Name) | GitHub Username | Identity & Access | Credential Verification | Learning Path Engine | Assessment & Peer Review | Reputation | Recognition & Incentives | Subscription & Billing | Moderation & Disputes | Despliegue (Render) | Landing Page UI | Mobile App UX/UI |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Alberca Saavedra, Víctor Manuel | Agnizzz | L | L | L | L | L | L | | | L | C | C |
-| Becerra Ninahuanca, Luis Angel | blafyy | | | | | | | | | | L | C |
-| Lopez Montalvo, Kevin Edu | lopescamos | | | | | | | | | | C | L |
-| Komatsu Dueñas, David | dakoduz | | | | | | | | | | C | C |
-| Sulca Sánchez, Piero Angel | psulca | C | C | C | C | C | C | L | L | C | C | C |
+| Team Member (Last Name, First Name) | GitHub Username | Identity & Access | Credential Verification | Learning Path Engine | Assessment & Peer Review | Reputation | Recognition & Incentives | Despliegue (Render) | Landing Page UI | Mobile App UX/UI |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Alberca Saavedra, Víctor Manuel | Agnizzz | L | L | L | L | L | L | L | C | C |
+| Becerra Ninahuanca, Luis Angel | blafyy | | | | | | | | L | C |
+| Lopez Montalvo, Kevin Edu | lopescamos | | | | | | | | C | L |
+| Komatsu Dueñas, David | dakoduz | | | | | | | | C | C |
+| Sulca Sánchez, Piero Angel | psulca | | | | | | | | C | C |
 
 *Nota.* L = Leader, C = Collaborator. Elaboración propia.
 
@@ -5277,7 +5123,7 @@ El objetivo del Sprint 1 es entregar el backend funcional de los seis Bounded Co
   <img src="images-doc/sprint1-board.png" alt="Sprint Backlog Board - Sprint 1" width="300">
 </p>
 
-*Nota.* Lista Sprint 1 del tablero del Product Backlog en Trello, con las historias del Sprint 1. URL público del Board: [https://trello.com/b/sTMGwnPf/skillswap-product-backlog](https://trello.com/b/sTMGwnPf/skillswap-product-backlog)
+*Nota.* Lista Sprint 1 del tablero del Product Backlog en Trello, con las 42 historias (148 Story Points) comprometidas para el Sprint 1. URL público del Board: [https://trello.com/b/sTMGwnPf/skillswap-product-backlog](https://trello.com/b/sTMGwnPf/skillswap-product-backlog)
 
 **Tabla 18**
 
@@ -5291,45 +5137,24 @@ El objetivo del Sprint 1 es entregar el backend funcional de los seis Bounded Co
 | TS01 / TS02 | Endpoint de registro / autenticación JWT | T02 | Application + Interface Layer de autenticación | `UserCommandServiceImpl` (sign-up / sign-in), `AuthenticationController`, `JwtTokenGenerator`, `BCryptPasswordHasher`, `SecurityConfig` con `JwtAuthenticationFilter` | 8 | Alberca Saavedra, Víctor Manuel | Done |
 | TS03 | Endpoint de registro de certificados | T03 | Domain Layer de Credential Verification | Agregado `Certificate`, `RiskAssessment`, `CertificateRiskScorer` | 10 | Alberca Saavedra, Víctor Manuel | Done |
 | TS03 / TS04 | Endpoints de certificados | T04 | Application + Infrastructure Layer de Credential Verification | `CertificateCommandServiceImpl`, persistencia JPA y `CloudinaryStorageService` (almacenamiento privado, URL firmada) | 10 | Alberca Saavedra, Víctor Manuel | Done |
-| TS05 | Endpoints de generación y consulta de rutas | T05 | Domain Layer de Learning Path Engine | Agregados `LearningPath`, `PathNode`; catálogo de 55 habilidades (`skill-catalog.json`), puerto `SkillTaxonomyMatcher` con el adaptador `KeywordSkillTaxonomyMatcher` | 12 | Alberca Saavedra, Víctor Manuel | Done |
+| TS05 | Endpoints de generación y consulta de rutas | T05 | Domain Layer de Learning Path Engine | Agregados `LearningPath`, `PathNode`; catálogo de 55 habilidades (`skill-catalog.json`), puerto `SkillTaxonomyMatcher` con el adaptador `KeywordSkillTaxonomyMatcher` (`GeminiSkillTaxonomyMatcher` no se implementa en el Sprint 1) | 12 | Alberca Saavedra, Víctor Manuel | Done |
 | TS06 | Endpoint de generación de evaluaciones | T06 | Integración con Gemini API | `AssessmentBlueprint`, `GeminiQuestionGenerator` con modelo principal y cadena de respaldo | 9 | Alberca Saavedra, Víctor Manuel | Done |
-| TS07 / TS08 | Endpoints de intentos y casos de verificación | T07 | Domain Layer de Assessment & Peer Review | Agregados `AssessmentAttempt`, `VerificationCase`, `VerifierProfile` y servicio de dominio `VerifierMatcher` | 14 | Alberca Saavedra, Víctor Manuel | Done |
-| TS07 / TS08 | Endpoints de intentos y casos de verificación | T08 | Application + Interface Layer de Assessment & Peer Review | Controllers, Command/Query Services, `CaseAssignmentService` (servicio interno de la Application Layer), eventos `AssessmentAttemptPassed` / `VerificationCaseResolved` | 10 | Alberca Saavedra, Víctor Manuel | Done |
+| TS07 / TS08 | Endpoints de intentos y casos de verificación | T07 | Domain Layer de Assessment & Peer Review | Agregados `AssessmentAttempt`, `VerificationCase`, `VerifierProfile`; `VerifierMatcher`, `CaseAssignmentService` | 14 | Alberca Saavedra, Víctor Manuel | Done |
+| TS07 / TS08 | Endpoints de intentos y casos de verificación | T08 | Application + Interface Layer de Assessment & Peer Review | Controllers, Command/Query Services, eventos `AssessmentAttemptPassed` / `VerificationCaseResolved` | 10 | Alberca Saavedra, Víctor Manuel | Done |
 | TS11 | Endpoints de consulta de reputación | T09 | Domain + Application Layer de Reputation | Agregados `VerifierReliability`, `StudentEmployabilityScore`; event handlers de Assessment & Peer Review | 8 | Alberca Saavedra, Víctor Manuel | Done |
 | TS09 | Endpoints de billetera y canje | T10 | Domain + Application Layer de Recognition & Incentives | Agregados `Wallet`, `CreditTransaction`; event handlers de Identity & Access y Assessment & Peer Review | 8 | Alberca Saavedra, Víctor Manuel | Done |
 | TS12 | Despliegue del backend en producción | T11 | Dockerfile + configuración de Render | Build multi-etapa (Maven + JRE 21), variables de entorno, validación del esquema al arrancar, `GET /health` y Swagger UI público | 6 | Alberca Saavedra, Víctor Manuel | Done |
 | US41–US45 | Landing Page | T12 | Wireframe + Mock-up + implementación de la Landing Page | HTML5/CSS3/JS, desplegado en GitHub Pages | 10 | Becerra Ninahuanca, Luis Angel | Done |
 | — | Pantallas core de la app móvil | T13 | Wireframes + Mock-ups + prototipo navegable en Figma | Pantallas de registro, ruta de aprendizaje, quiz y casos de verificación | 12 | Lopez Montalvo, Kevin Edu | In-Process |
 | US27 | Apelación de la decisión del Verificador | T14 | Apelación de casos de verificación | `AppealVerificationCaseCommand` y `VerificationCase.appeal()` (una sola apelación por caso), reasignación a otro Verificador habilitado mediante `CaseAssignmentService` y endpoint `POST /api/v1/verification-cases/{id}/appeal` | 6 | Alberca Saavedra, Víctor Manuel | Done |
-| TS12 | Despliegue del backend en producción | T15 | Migraciones versionadas con Flyway | `spring-boot-starter-flyway`, `V1__baseline_schema.sql` registrado como baseline sobre la base existente (`baseline-on-migrate`) y pruebas de integración con el esquema que crea Flyway | 5 | Sulca Sánchez, Piero Angel | Done |
-| US30 / US32 | Acreditación y canje de SkillCredits | T16 | Tipo de caso y economía de SkillCredits | `CaseType` (`Quiz` / `MiniProject`) en `VerificationCase`, 40 y 25 SkillCredits por caso resuelto, precios de canje de 200 y 120 SkillCredits y migración V2 | 6 | Sulca Sánchez, Piero Angel | Done |
-| US05 | Suscripción al plan mensual | T17 | Domain Layer de Subscription & Billing | Agregado `Subscription`, Value Objects `SubscriptionPlan`, `Money` y `PlanLimits`, eventos `SubscriptionActivated` / `SubscriptionExpired` y migración V3 | 8 | Sulca Sánchez, Piero Angel | Done |
-| US05 | Suscripción al plan mensual | T18 | Integración con RevenueCat | Puerto `PaymentGateway` con `RevenueCatGatewayAdapter` y `SimulatedPaymentGatewayAdapter`, `SubscriptionsController` (`POST /api/v1/subscriptions`, `GET /{studentId}`, `PATCH /{id}/cancel`) | 8 | Sulca Sánchez, Piero Angel | Done |
-| US05 | Suscripción al plan mensual | T19 | Webhook de RevenueCat y vencimiento de suscripciones | `RevenueCatWebhookController` idempotente (`processed_webhook_events`), `SubscriptionExpirationScheduler` y `SubscriptionContextFacade` con los límites del plan | 6 | Sulca Sánchez, Piero Angel | Done |
-| US05 | Suscripción al plan mensual | T20 | Límites del plan en las rutas | `PathStatus.PAUSED`, pausa y reanudación de rutas, `409 PlanLimitReached`, bloqueo `pg_advisory_xact_lock` por estudiante, `EnforcePlanLimitsEventHandler` y migración V4 | 8 | Sulca Sánchez, Piero Angel | Done |
-| US05 | Suscripción al plan mensual | T21 | Cupo de escalamientos y plazo de revisión por plan | Cupo mensual de 3 o 10 escalamientos, `planLimitReached` en la respuesta del intento y `review_due_at` según el plan (migración V5) | 6 | Sulca Sánchez, Piero Angel | Done |
-| US01 / US02 | Registro e inicio de sesión | T22 | Verificación del correo institucional | `EmailVerificationCommandService`, token de un solo uso guardado como SHA-256, `POST`/`GET /api/v1/authentication/verify-email`, `POST /resend-verification`, `403 EmailNotVerified` y migración V6 | 8 | Sulca Sánchez, Piero Angel | Done |
-| US01 | Registro con correo institucional | T23 | Envío de correos con Brevo | Puerto `EmailSender`, `BrevoEmailSenderAdapter`, `LoggingEmailSenderAdapter` y `VerificationEmailComposer` | 5 | Sulca Sánchez, Piero Angel | Done |
-| US16 | Consulta del estado de verificación | T24 | Notificaciones push con Firebase Cloud Messaging | Puerto `PushNotificationSender`, `FirebasePushNotificationAdapter`, `PUT`/`DELETE /api/v1/users/me/device-token`, `UserNotificationsContextFacade` y `NotifyCertificateResolutionEventHandler` | 8 | Sulca Sánchez, Piero Angel | Done |
-| US04 | Configuración del perfil de intereses | T25 | Perfil de intereses con vector de habilidades | `PUT /api/v1/users/{id}/interests`, cálculo del vector con `SkillCatalogContextFacade` y migración V7 | 5 | Sulca Sánchez, Piero Angel | Done |
-| US06 / TS05 | Declaración de la meta en lenguaje natural | T26 | Interpretación de la meta con Gemini | `GeminiSkillTaxonomyMatcher` con respaldo en `KeywordSkillTaxonomyMatcher` y `GeminiClient` compartido con el generador de preguntas | 8 | Sulca Sánchez, Piero Angel | Done |
-| US09 | Reconocimiento de habilidades ya certificadas | T27 | Certificados validados en la ruta | Evento `CertificateVerified`, `RecognizeValidatedCertificateEventHandler`, `completedByCertificate` y migración V8 | 6 | Sulca Sánchez, Piero Angel | Done |
-| US15 | Correspondencia del certificado con la habilidad | T28 | Vinculación del certificado a un nodo | `POST /api/v1/path-nodes/{nodeId}/certificate`, puerto `CertificateSkillAffinityScorer` con umbral 0,7 y `422 CertificateSkillMismatch` con los nodos sugeridos | 6 | Sulca Sánchez, Piero Angel | Done |
-| US17 | Generación del quiz de un nodo | T29 | Nuevo intento sin preguntas repetidas | Preguntas anteriores del nodo como exclusiones en `GeminiQuestionGenerator` y reemplazo de las repetidas | 4 | Sulca Sánchez, Piero Angel | Done |
-| US13 / US14 | Detección de certificados sospechosos | T30 | Titular distinto y archivo de otro estudiante | `HolderNameMatcher`, `users.full_name` y `PATCH /api/v1/users/{id}/full-name`, `certificates.holder_name_mismatch` y evento `CertificateFlaggedSuspicious` | 6 | Sulca Sánchez, Piero Angel | Done |
-| TS10 / US34 | Endpoints de gestión de disputas | T31 | Domain + Application Layer de Moderation & Disputes | Agregado `Dispute`, `DisputeReviewerSelector`, `DisputeResolutionValidator`, `EscalateCertificateReviewEventHandler`, `PendingDisputeAssignmentScheduler` y migración V9 | 8 | Sulca Sánchez, Piero Angel | Done |
-| TS10 / US34 / US35 | Consulta y resolución de disputas | T32 | Interface Layer de Moderation & Disputes | `DisputesController` (`GET /api/v1/disputes`, `GET /{id}/evidence`, `PATCH /{id}/resolve`) y resolución del certificado mediante `CredentialContextFacade` | 6 | Sulca Sánchez, Piero Angel | Done |
-| US05 | Suscripción al plan mensual | T33 | Ruta avanzada canjeada con SkillCredits | Agregado `AdvancedPathUnlock`, evento `AdvancedPathUnlockRedeemed`, `credit_transactions.redemption_item`, `"advanced": true` en `POST /api/v1/learning-paths` y `GET /api/v1/advanced-path-unlocks` | 8 | Sulca Sánchez, Piero Angel | Done |
-| US39 | Definición del plazo de actividad de los Verificadores | T34 | Plazo de revisión definido por el Verificador senior | Agregado `ReviewDeadlinePolicy`, `ReviewDeadlinePoliciesController` (`GET`/`PUT /api/v1/review-deadline-policies`), `SeniorVerifierPolicy` y migración V10 | 6 | Sulca Sánchez, Piero Angel | Done |
-| US39 | Definición del plazo de actividad de los Verificadores | T35 | Reasignación de casos vencidos | `OverdueCaseReassignmentScheduler`, evento `VerificationCaseDeadlineMissed` y descuento de 5 puntos de confiabilidad (`missed_deadlines_count`) | 6 | Sulca Sánchez, Piero Angel | Done |
 
 *Nota.* Elaboración propia.
 
-Las tareas T01 a T11 y T14 construyeron la base del backend en seis Bounded Contexts, integrada a `develop` mediante los PR #1 a #10 del repositorio `SkillSwap-WebServices-Java`. Sobre esa base, las tareas T15 a T21 corresponden a los PR #11 a #14, apilados uno sobre otro: las migraciones con Flyway (#11, `chore/flyway-migrations`), el tipo de caso y la economía de SkillCredits (#12, `feature/verification-case-type`), Subscription & Billing con RevenueCat (#13, `feature/subscription-billing`) y la aplicación de los límites del plan (#14, `feature/plan-limits-enforcement`). Las tareas T22 a T35 se desarrollaron en tres ramas creadas desde `feature/plan-limits-enforcement`: `feature/iam-email-verification-push` (verificación del correo con Brevo, notificaciones push con Firebase Cloud Messaging y perfil de intereses), `feature/learning-path-gemini-matcher` (interpretación de la meta con Gemini, certificados validados en la ruta, correspondencia del certificado con el nodo y nuevos intentos sin preguntas repetidas) y `feature/certificate-escalation-and-deadlines` (escalamiento de certificados sospechosos mediante Moderation & Disputes, ruta avanzada canjeada con SkillCredits y plazos de revisión por plan con reasignación de casos vencidos). Las tres ramas se integraron en `feature/sprint1-acceptance-scenarios`, donde el esquema queda definido por las migraciones V1 a V10 y la suite completa suma 1978 pruebas.
+En el backend desplegado del Sprint 1 (rama `develop`), el enum `PathStatus` de Learning Path Engine tiene solo los valores `ACTIVE` y `COMPLETED`, y el índice único parcial `ux_learning_paths_one_active_per_student` garantiza una sola ruta activa por Estudiante. Sobre esa base, los PR #11 a #14 del repositorio `SkillSwap-WebServices-Java`, apilados uno sobre otro, implementan las migraciones con Flyway (#11, `chore/flyway-migrations`), el tipo de caso y la economía de SkillCredits (#12, `feature/verification-case-type`: `CaseType` `QUIZ`/`MINI_PROJECT`, 25 y 40 SkillCredits por caso resuelto y canjes de 200 y 120), Subscription & Billing con RevenueCat (#13, `feature/subscription-billing`) y la aplicación de los límites del plan (#14, `feature/plan-limits-enforcement`: estado `PAUSED`, pausa y reanudación de rutas, `PlanLimitReached`, cupo mensual de escalamientos y `review_due_at`). Los cuatro están pendientes de revisión del equipo e integración a `develop`, y aún no se despliegan en Render.
 
 #### 4.2.1.4. Development Evidence for Sprint Review
 
-El equipo organizó el desarrollo del backend Java / Spring Boot en una rama `feature/<bounded-context>` por Bounded Context, más ramas `refactor/` y `chore/` para los cambios transversales, siguiendo Conventional Commits con un commit por capa (Domain, Application, Infrastructure, Interface). Cada rama se integró a `develop` mediante un Pull Request mergeado con la estrategia "Create a merge commit" (PR #1 a #10 del repositorio `SkillSwap-WebServices-Java`). Sobre esa base, los PR #11 a #14 se apilan uno sobre otro, y las ramas `feature/iam-email-verification-push`, `feature/learning-path-gemini-matcher` y `feature/certificate-escalation-and-deadlines` se integran en `feature/sprint1-acceptance-scenarios`. La tabla incluye todos los commits de desarrollo del Sprint 1; los merge commits se omiten.
+El equipo organizó el desarrollo del backend Java / Spring Boot en una rama `feature/<bounded-context>` por Bounded Context, más ramas `refactor/` y `chore/` para los cambios transversales, siguiendo Conventional Commits con un commit por capa (Domain, Application, Infrastructure, Interface). Cada rama se integró a `develop` mediante un Pull Request mergeado con la estrategia "Create a merge commit" (PR #1 a #9 del repositorio `SkillSwap-WebServices-Java`). La tabla incluye todos los commits de desarrollo del Sprint 1; los merge commits de los Pull Requests se omiten.
 
 **Tabla 19**
 
@@ -5370,23 +5195,8 @@ El equipo organizó el desarrollo del backend Java / Spring Boot en una rama `fe
 | SkillSwap-WebServices-Java | feature/recognition-incentives | `6b4db93` | feat(recognition-incentives): endpoints REST de billetera y canje de beneficios | `WalletsController` y `CreditTransactionsController` (`POST /redeem`). | 2026-10-09 |
 | SkillSwap-WebServices-Java | chore/deploy-render | `a4a1d8a` | chore(deploy): Dockerfile y guía de despliegue en Render | `Dockerfile` multi-etapa (Maven + JRE 21), `.dockerignore` y guía `docs/deploy-render.md`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | chore/swagger | `fba59d8` | feat(docs): documentación Swagger con autenticación JWT | `OpenApiConfig` con el esquema `bearerAuth` y `RootController`, que redirige `/` y `/swagger` a Swagger UI. | 2026-10-09 |
-| SkillSwap-WebServices-Java | chore/flyway-migrations | `a23ed44` | chore(db): migraciones versionadas con Flyway y esquema base V1 | Dependencias de Flyway, `V1__baseline_schema.sql` con el esquema existente, `baseline-on-migrate` para la base de Render y pruebas de integración con el esquema de Flyway. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/verification-case-type | `7daa868` | feat(assessment-peer-review): tipo de caso de verificación y recompensas por tipo | `CaseType` (`Quiz`, `MiniProject`) en `VerificationCase`, 40 y 25 SkillCredits por tipo de caso, precios de canje de 200 y 120 y migración V2. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/subscription-billing | `03c29cd` | feat(subscription-billing): suscripción mensual con RevenueCat y límites por plan | Bounded Context Subscription & Billing: agregado `Subscription`, `PaymentGateway` con RevenueCat y adaptador simulado, endpoints de suscripción, webhook idempotente, revisión periódica de vencimientos y migración V3. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/plan-limits-enforcement | `7e86af6` | feat(plan-limits): límites del plan en rutas de aprendizaje y escalamientos | Estado `Paused`, pausa y reanudación de rutas, `PlanLimitReached`, bloqueo por estudiante, cupo mensual de escalamientos, `review_due_at` y migraciones V4 y V5. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/iam-email-verification-push | `e778439` | feat(iam): verificación del correo institucional con Brevo | Enlace de verificación de un solo uso (solo se guarda su SHA-256), `403 EmailNotVerified` con reenvío, endpoints `verify-email` y `resend-verification`, puerto `EmailSender` con Brevo y migración V6. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/iam-email-verification-push | `3f7ec24` | feat(notifications): notificaciones push con Firebase Cloud Messaging | Endpoints del token del dispositivo, puerto `PushNotificationSender` con Firebase, `UserNotificationsContextFacade` y notificación de la resolución de un certificado (US16). | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/iam-email-verification-push | `a7cd7ce` | feat(iam): perfil de intereses con vector de habilidades | `PUT /api/v1/users/{id}/interests`, vector de habilidades calculado con el catálogo interno y migración V7. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/learning-path-gemini-matcher | `bebe9d8` | feat(credential-verification): evento CertificateVerified y certificados como evidencia para Learning Path Engine | Evento `CertificateVerified` y consultas de certificados validados y de su contenido en `CredentialContextFacade`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/learning-path-gemini-matcher | `ec51fa9` | feat(learning-path): meta interpretada con Gemini, certificados validados y quiz sin preguntas repetidas | `GeminiSkillTaxonomyMatcher` con respaldo por palabras clave y `GeminiClient` compartido, nodos completados por certificados validados (V8), `POST /api/v1/path-nodes/{nodeId}/certificate` y exclusión de preguntas repetidas. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `4babdcd` | feat(moderation-disputes): escalamiento de certificados sospechosos a un Verificador senior | Titular distinto del nombre registrado y archivo de otro estudiante como certificado sospechoso, Bounded Context Moderation & Disputes con asignación a un Verificador senior y endpoints de disputas. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `7175877` | feat(learning-path-engine): ruta avanzada canjeada con SkillCredits fuera de los límites del plan | `AdvancedPathUnlock` otorgado por el canje, ruta avanzada excluida de los límites del plan y `GET /api/v1/advanced-path-unlocks`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `ac2e271` | feat(assessment-peer-review): plazo de revisión por plan y reasignación de casos vencidos | `ReviewDeadlinePolicy` definida por un Verificador senior, `OverdueCaseReassignmentScheduler` y descuento de 5 puntos de confiabilidad por plazo incumplido. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/sprint1-acceptance-scenarios | `56f5a13` | refactor(moderation-disputes): rename coordinatorNotes to resolutionNotes | Las observaciones de la resolución de una disputa pasan a llamarse `resolutionNotes` (columna `resolution_notes`). | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/sprint1-acceptance-scenarios | `c95372b` | chore(db): renumber escalation and advanced path migrations to V9 and V10 | Las migraciones quedan numeradas de forma contigua de V1 a V10. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/sprint1-acceptance-scenarios | `8cb3afc` | test(moderation-disputes): end-to-end resolution of a certificate dispute | `CertificateDisputeResolutionFlowIntegrationTest`: la resolución de una disputa verifica o rechaza el certificado, notifica al estudiante y completa el nodo cubierto. | 2026-10-09 |
 
-*Nota.* Commits del repositorio [`SkillSwap-WebServices-Java`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices-Java): de `04eb1ce` a `fba59d8`, de Alberca Saavedra, Víctor Manuel (`Agnizzz`); de `a23ed44` a `8cb3afc`, de Sulca Sánchez, Piero Angel (`psulca`). La columna *Commit Message Body* resume el contenido de cada commit. Elaboración propia.
+*Nota.* Commits del repositorio [`SkillSwap-WebServices-Java`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices-Java), todos de Alberca Saavedra, Víctor Manuel (`Agnizzz`). Los commits no incluyen cuerpo de mensaje, por lo que la columna *Commit Message Body* resume el contenido de cada commit. Elaboración propia.
 
 El Landing Page se implementó en el repositorio `SkillSwap-LandingPage` y se publicó en GitHub Pages; su desarrollo (tarea T12) se integró a `main` mediante dos Pull Requests.
 
@@ -5410,9 +5220,9 @@ El Landing Page se implementó en el repositorio `SkillSwap-LandingPage` y se pu
 El backend se valida con dos niveles de pruebas automatizadas, ubicadas en `src/test/java/com/innovify/skillswap/` y organizadas por Bounded Context y por capa, igual que el código de producción:
 
 - **Pruebas unitarias** de dominio y de aplicación con **JUnit 5** (incluidas pruebas parametrizadas con `@ParameterizedTest`) y **AssertJ**. Las pruebas de la capa de aplicación usan dobles de prueba escritos a mano (`FakeCertificateRepository`, `FakeDomainEventPublisher`, `FakeFileStorageService`, entre otros) en lugar de una librería de mocks.
-- **Pruebas de integración** con **Spring Boot Test** y **MockMvc** (con Spring Security Test), que levantan la aplicación completa y ejercitan la API REST con el filtro de seguridad, los servicios reales, BCrypt, JWT y una base **PostgreSQL 16** real creada por **Testcontainers** (imagen `postgres:16-alpine`). Estas pruebas heredan de `PostgresIntegrationTest`, crean el esquema con las mismas migraciones de Flyway que producción y Hibernate solo lo valida; los servicios externos (Cloudinary, Gemini, RevenueCat, Brevo y Firebase Cloud Messaging) se reemplazan por dobles en memoria o por un servidor falso local, como `FakeGeminiServer`. Si Docker no está disponible, se omiten automáticamente (`DockerAvailableCondition`).
+- **Pruebas de integración** con **Spring Boot Test** y **MockMvc** (con Spring Security Test), que levantan la aplicación completa y ejercitan la API REST con el filtro de seguridad, los servicios reales, BCrypt, JWT y una base **PostgreSQL 16** real creada por **Testcontainers** (imagen `postgres:16-alpine`). Estas pruebas heredan de `PostgresIntegrationTest`, cargan el esquema desde los scripts `*-test-schema.sql` y Hibernate solo lo valida; los servicios externos (Cloudinary y Gemini) se reemplazan por dobles en memoria. Si Docker no está disponible, se omiten automáticamente (`DockerAvailableCondition`).
 
-Todas las dependencias de prueba están declaradas en el `pom.xml` del repositorio (`spring-boot-starter-test`, los starters de prueba de Data JPA, Security, Validation y Web MVC, y `testcontainers-postgresql`). En la rama `feature/sprint1-acceptance-scenarios`, que integra el trabajo del Sprint 1, el repositorio contiene 158 clases de prueba con 1575 métodos de prueba (`@Test` y `@ParameterizedTest`), de las cuales 29 son pruebas de integración contra PostgreSQL, y la suite completa ejecuta 1978 pruebas sin fallos. Las pruebas se ejecutan con `./mvnw test` antes de cada push; la imagen Docker no las ejecuta porque requieren Docker.
+Todas las dependencias de prueba están declaradas en el `pom.xml` del repositorio (`spring-boot-starter-test`, los starters de prueba de Data JPA, Security, Validation y Web MVC, y `testcontainers-postgresql`). En total, el repositorio contiene 110 clases de prueba con 1010 métodos de prueba (`@Test` y `@ParameterizedTest`), de las cuales 18 son pruebas de integración contra PostgreSQL. Las pruebas se ejecutan con `./mvnw test` antes de cada push; la imagen Docker no las ejecuta porque requieren Docker. Con los PR #11 a #14 (pendientes de integración a `develop`), la suite completa pasa con 1551 pruebas, y las pruebas de integración crean el esquema con las mismas migraciones de Flyway que producción, en lugar de los scripts `*-test-schema.sql`.
 
 El backend no utiliza un framework BDD (Cucumber/Gherkin). Los criterios de aceptación de las historias del Sprint 1 se automatizan como pruebas de integración de la API; en las de Credential Verification y Learning Path Engine, cada método lleva en `@DisplayName` el nombre del escenario de aceptación que verifica.
 
@@ -5428,12 +5238,6 @@ El backend no utiliza un framework BDD (Cucumber/Gherkin). Los criterios de acep
 | Assessment & Peer Review | `AssessmentPeerReviewApiIntegrationTest` | US18, US22, US23, US24, US25, US26, US27, TS07, TS08 | Calificación del intento, apertura y asignación del caso, perfil y disponibilidad del Verificador, revisión sin exponer las respuestas correctas, decisión, evidencia y apelación ante otro Verificador |
 | Reputation | `ReputationApiIntegrationTest` | TS11 | Employability Score tras una aprobación o un rechazo y confiabilidad del Verificador, incluido el descuento cuando su decisión se revierte por apelación |
 | Recognition & Incentives | `RecognitionIncentivesApiIntegrationTest` | US30, US31, US32, TS09 | Acreditación de SkillCredits al resolver un caso (apruebe o rechace), billetera vacía al registrarse, historial de movimientos y canje con saldo suficiente o insuficiente (409) |
-| Identity & Access | `EmailVerificationIntegrationTest` | US01, US02 | Envío del enlace de verificación al registrarse, verificación con el token, reenvío con intervalo de espera y rechazo (403 `EmailNotVerified`) del inicio de sesión de una cuenta sin verificar |
-| Credential Verification | `CertificateNotificationsIntegrationTest` | US16 | Notificación push al quedar un certificado verificado o rechazado, con el motivo del rechazo, y ausencia de notificación sin token de dispositivo |
-| Learning Path Engine | `GoalInterpretationApiIntegrationTest`, `CertificateEvidenceApiIntegrationTest`, `PlanLimitsEnforcementIntegrationTest`, `AdvancedPathUnlockIntegrationTest` | US05, US06, US09, US15, US17, TS05 | Meta interpretada por Gemini con respaldo por palabras clave, nodos completados por certificados validados, correspondencia del certificado con el nodo (umbral 0,7), límites de rutas del plan y ruta avanzada fuera de esos límites |
-| Assessment & Peer Review | `ReviewDeadlinesIntegrationTest` | US39 | Definición del plazo de cada plan por un Verificador senior (403 si no lo es) y reasignación de un caso vencido con descuento de confiabilidad |
-| Subscription & Billing | `SubscriptionBillingApiIntegrationTest` | US05 | Activación de la suscripción a partir del estado de RevenueCat, webhook idempotente (un mismo evento se aplica una vez), vencimiento que devuelve al plan gratuito, cancelación que conserva el plan mensual hasta el fin del periodo y consulta del plan con sus límites |
-| Moderation & Disputes | `CertificateEscalationApiIntegrationTest`, `CertificateDisputeResolutionFlowIntegrationTest` | US13, US14, US34, US35, TS10 | Escalamiento del certificado con titular distinto o archivo de otro estudiante a un Verificador senior, consulta de disputas y evidencia, observaciones obligatorias y resolución que verifica o rechaza el certificado |
 | Shared | `ApiDocumentationIntegrationTest` | TS12 | Redirección de la raíz a Swagger UI, documento OpenAPI accesible sin token y endpoints de la API protegidos |
 
 *Nota.* Elaboración propia a partir de las clases de prueba del repositorio `SkillSwap-WebServices-Java`.
@@ -5520,7 +5324,7 @@ void appeal_goesToAnotherVerifierWhoseApprovalCompletesTheNode() throws Exceptio
 }
 ```
 
-*Las 158 clases de prueba completas se encuentran en el repositorio del backend, dentro de `src/test/java/com/innovify/skillswap/<bounded-context>/`.*
+*Las 110 clases de prueba completas se encuentran en el repositorio del backend, dentro de `src/test/java/com/innovify/skillswap/<bounded-context>/`.*
 
 **Tabla 22**
 
@@ -5540,16 +5344,9 @@ void appeal_goesToAnotherVerifierWhoseApprovalCompletesTheNode() throws Exceptio
 | Reputation | Application / Infrastructure / Interface | `ReputationCommandServiceImplTest`, `ReputationQueryServicesImplTest`, `ReputationEventHandlersTest`, `ReputationMessagesTest`, `ReputationEventWiringTest`, `ReputationPersistenceTest`, `ReputationActionResultAssemblerTest`, `ReputationResourceAssemblersTest`, `ReputationApiIntegrationTest` | Reacción a eventos de dominio, persistencia y endpoints |
 | Recognition & Incentives | Domain | `WalletTest`, `CreditTransactionTest`, `CreditsTest`, `RecognitionIncentivesServicesTest` | Agregado `Wallet`, movimientos y precios de canje (200 y 120 SkillCredits) |
 | Recognition & Incentives | Application / Infrastructure / Interface | `WalletCommandServiceImplTest`, `WalletQueryServiceImplTest`, `RecognitionIncentivesEventHandlersTest`, `RecognitionIncentivesMessagesTest`, `RecognitionIncentivesEventWiringTest`, `RecognitionIncentivesPersistenceTest`, `RecognitionIncentivesActionResultAssemblerTest`, `RecognitionIncentivesResourceAssemblersTest`, `RecognitionIncentivesApiIntegrationTest` | Acreditación por eventos, canje, persistencia y endpoints |
-| Identity & Access | Application / Infrastructure / Interface | `SendVerificationEmailEventHandlerTest`, `EmailVerificationCommandServiceImplTest`, `EmailVerificationIssuerTest`, `VerificationEmailComposerTest`, `IamConfigTest`, `BrevoEmailSenderAdapterTest`, `EmailSettingsTest`, `EmailVerificationIntegrationTest`, `UserNotificationsContextFacadeImplTest`, `FirebasePushNotificationAdapterTest` | Verificación del correo institucional, envío con Brevo y su respaldo en el log, notificaciones push con Firebase Cloud Messaging |
-| Credential Verification | Domain / Application / Integration | `HolderNameMatcherTest`, `NotifyCertificateResolutionEventHandlerTest`, `CertificateNotificationsIntegrationTest` | Comparación del titular con el nombre registrado y notificación de la resolución del certificado |
-| Learning Path Engine | Domain / Application / Infrastructure / Interface | `GeminiSkillTaxonomyMatcherTest`, `SkillTaxonomyMatcherWiringTest`, `GoalInterpretationApiIntegrationTest`, `CertificateRecognitionTest`, `LearningPathCertificateCommandsTest`, `KeywordCertificateSkillAffinityScorerTest`, `CertificateEvidenceApiIntegrationTest`, `AssessmentRetakeAndCertificateConditionTest`, `SkillCatalogContextFacadeImplTest`, `AdvancedPathUnlockTest`, `AdvancedPathUnlockIntegrationTest`, `PlanLimitsEnforcementIntegrationTest` | Interpretación de la meta con Gemini y respaldo por palabras clave, certificados validados y su correspondencia con el nodo, nuevos intentos sin preguntas repetidas, ruta avanzada y límites del plan |
-| Assessment & Peer Review | Domain / Application / Integration | `ReviewDeadlineTest`, `ReviewDeadlinePolicyTest`, `ReviewDeadlinePolicyCommandServiceImplTest`, `ReviewDeadlinesIntegrationTest` | Plazo de revisión por plan, definición por un Verificador senior y reasignación de casos vencidos |
-| Reputation | Domain / Application | `SeniorVerifierPolicyTest`, `ReputationContextFacadeImplTest` | Criterio del Verificador senior (rango Oro y confiabilidad de al menos 90) |
-| Subscription & Billing | Domain / Application / Infrastructure / Interface | `SubscriptionTest`, `BillingValueObjectsTest`, `SubscriptionCommandServiceImplTest`, `SubscriptionQueryServiceImplTest`, `SubscriptionBillingMessagesTest`, `RevenueCatGatewayAdapterTest`, `RevenueCatWebhookAuthorizationTest`, `SimulatedPaymentGatewayAdapterTest`, `SubscriptionBillingPersistenceTest`, `SubscriptionBillingActionResultAssemblerTest`, `SubscriptionBillingApiIntegrationTest` | Agregado `Subscription`, verificación de compras con RevenueCat, webhook idempotente, vencimiento y endpoints |
-| Moderation & Disputes | Domain / Application / Integration | `DisputeTest`, `DisputeReviewerSelectorTest`, `DisputeCommandServiceImplTest`, `ModerationDisputesMessagesTest`, `CertificateEscalationApiIntegrationTest`, `CertificateDisputeResolutionFlowIntegrationTest` | Agregado `Dispute`, selección del revisor, escalamiento y resolución de certificados sospechosos de principio a fin |
 | Shared | — | `ResultTest`, `ErrorCodesTest`, `CorsPropertiesTest`, `SpringDomainEventPublisherTest`, `LatinAmericanSpanishLocaleResolverTest`, `JsonTest`, `DatabaseDefaultsTest`, `PostgresUrlConverterTest`, `HealthControllerTest`, `RootControllerTest`, `ApiDocumentationIntegrationTest` | Tipo `Result`, CORS, publicador de eventos, idioma es-419, conversión de `DATABASE_URL`, health check y documentación OpenAPI |
 
-*Nota.* La tabla corresponde a la rama `feature/sprint1-acceptance-scenarios`, que integra el trabajo del Sprint 1; las filas que siguen a las de cada Bounded Context original agrupan las clases de prueba agregadas en los PR #11 a #14 y en las ramas `feature/iam-email-verification-push`, `feature/learning-path-gemini-matcher` y `feature/certificate-escalation-and-deadlines`. Elaboración propia.
+*Nota.* La tabla corresponde a la rama `develop`. Los montos por tipo de caso (40 SkillCredits por un miniproyecto y 25 por un quiz), los precios de canje de 200 y 120 SkillCredits y el tipo de caso se implementan en el PR #12 del repositorio `SkillSwap-WebServices-Java`, sobre las migraciones con Flyway del PR #11; los PR #13 y #14 agregan Subscription & Billing con RevenueCat y la aplicación de los límites del plan, con sus pruebas. Los cuatro PR están pendientes de revisión del equipo e integración a `develop`, y aún no se despliegan en Render. Elaboración propia.
 
 **Tabla 23**
 
@@ -5583,18 +5380,8 @@ void appeal_goesToAnotherVerifierWhoseApprovalCompletesTheNode() throws Exceptio
 | SkillSwap-WebServices-Java | feature/recognition-incentives | `e7b63c5` | feat(recognition-incentives): persistencia JPA, bloqueo de wallet y cableado de eventos | `RecognitionIncentivesEventWiringTest`, `RecognitionIncentivesPersistenceTest`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/recognition-incentives | `6b4db93` | feat(recognition-incentives): endpoints REST de billetera y canje de beneficios | `RecognitionIncentivesApiIntegrationTest`, `RecognitionIncentivesActionResultAssemblerTest`, `RecognitionIncentivesResourceAssemblersTest`. | 2026-10-09 |
 | SkillSwap-WebServices-Java | chore/swagger | `fba59d8` | feat(docs): documentación Swagger con autenticación JWT | `ApiDocumentationIntegrationTest`, `RootControllerTest`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/subscription-billing | `03c29cd` | feat(subscription-billing): suscripción mensual con RevenueCat y límites por plan | `SubscriptionTest`, `BillingValueObjectsTest`, `SubscriptionCommandServiceImplTest`, `SubscriptionQueryServiceImplTest`, `SubscriptionBillingMessagesTest`, `RevenueCatGatewayAdapterTest`, `RevenueCatWebhookAuthorizationTest`, `SimulatedPaymentGatewayAdapterTest`, `SubscriptionBillingPersistenceTest`, `SubscriptionBillingActionResultAssemblerTest`, `SubscriptionBillingApiIntegrationTest`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/plan-limits-enforcement | `7e86af6` | feat(plan-limits): límites del plan en rutas de aprendizaje y escalamientos | `ReviewDeadlineTest`, `PlanLimitsEnforcementIntegrationTest`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/iam-email-verification-push | `e778439` | feat(iam): verificación del correo institucional con Brevo | `SendVerificationEmailEventHandlerTest`, `EmailVerificationCommandServiceImplTest`, `EmailVerificationIssuerTest`, `VerificationEmailComposerTest`, `IamConfigTest`, `BrevoEmailSenderAdapterTest`, `EmailSettingsTest`, `EmailVerificationIntegrationTest`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/iam-email-verification-push | `3f7ec24` | feat(notifications): notificaciones push con Firebase Cloud Messaging | `NotifyCertificateResolutionEventHandlerTest`, `CertificateNotificationsIntegrationTest`, `UserNotificationsContextFacadeImplTest`, `FirebasePushNotificationAdapterTest`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/iam-email-verification-push | `a7cd7ce` | feat(iam): perfil de intereses con vector de habilidades | `SkillCatalogContextFacadeImplTest`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/learning-path-gemini-matcher | `ec51fa9` | feat(learning-path): meta interpretada con Gemini, certificados validados y quiz sin preguntas repetidas | `AssessmentRetakeAndCertificateConditionTest`, `LearningPathCertificateCommandsTest`, `CertificateRecognitionTest`, `GeminiSkillTaxonomyMatcherTest`, `SkillTaxonomyMatcherWiringTest`, `KeywordCertificateSkillAffinityScorerTest`, `CertificateEvidenceApiIntegrationTest`, `GoalInterpretationApiIntegrationTest`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `4babdcd` | feat(moderation-disputes): escalamiento de certificados sospechosos a un Verificador senior | `HolderNameMatcherTest`, `ModerationDisputesMessagesTest`, `DisputeCommandServiceImplTest`, `DisputeReviewerSelectorTest`, `DisputeTest`, `CertificateEscalationApiIntegrationTest`, `ReputationContextFacadeImplTest`, `SeniorVerifierPolicyTest`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `7175877` | feat(learning-path-engine): ruta avanzada canjeada con SkillCredits fuera de los límites del plan | `AdvancedPathUnlockTest`, `AdvancedPathUnlockIntegrationTest`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `ac2e271` | feat(assessment-peer-review): plazo de revisión por plan y reasignación de casos vencidos | `ReviewDeadlinePolicyTest`, `ReviewDeadlinePolicyCommandServiceImplTest`, `ReviewDeadlinesIntegrationTest`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/sprint1-acceptance-scenarios | `8cb3afc` | test(moderation-disputes): end-to-end resolution of a certificate dispute | `CertificateDisputeResolutionFlowIntegrationTest`. | 2026-10-09 |
 
-*Nota.* Por la convención de un commit por capa, las pruebas de cada capa se incorporan en el mismo commit que la capa que validan; `1b483a7` y `8cb3afc` son los únicos commits que solo agregan pruebas. La columna *Commit Message Body* lista las clases de prueba que agrega cada commit. Elaboración propia.
+*Nota.* Por la convención de un commit por capa, las pruebas de cada capa se incorporan en el mismo commit que la capa que validan; `1b483a7` es el único commit que solo agrega pruebas. La columna *Commit Message Body* lista las clases de prueba que agrega cada commit. Elaboración propia.
 
 
 #### 4.2.1.6. Execution Evidence for Sprint Review
@@ -5630,7 +5417,7 @@ Durante el Sprint 1 se implementaron y verificaron en ejecución, sobre el backe
   <img src="images-doc/execution-learning-path.png" alt="Ejecución - Generación de ruta" width="800">
 </p>
 
-*Nota.* Declaración de la meta en lenguaje natural y la ruta generada con sus nodos en estado `Locked`/`Available`.
+*Nota.* Declaración de la meta en lenguaje natural y la ruta generada con sus nodos en estado `Locked`/`Available`. En el Sprint 1, la meta se interpreta con el adaptador de palabras clave (`KeywordSkillTaxonomyMatcher`) sobre el catálogo de habilidades.
 
 **Figura 128**
 
@@ -5665,30 +5452,21 @@ Todos los endpoints del Sprint 1 están documentados con **OpenAPI 3.1** (`Skill
 
 | Verbo | Endpoint | Acción | Auth | Parámetros | Respuestas |
 |---|---|---|---|---|---|
-| POST | `/api/v1/authentication/sign-up` | sign-up | No | Body: `username`, `email` (`.edu.pe`), `password`, `fullName` (opcional) | `201` `UserResource` (cuenta sin verificar; se envía el enlace de verificación) · `400` datos inválidos · `409` usuario o correo ya existe |
-| POST | `/api/v1/authentication/sign-in` | sign-in | No | Body: `username`, `password` | `200` `AuthenticatedUserResource` (incluye `token`) · `401` credenciales inválidas · `403` `EmailNotVerified` (se reenvía el enlace de verificación) |
-| POST | `/api/v1/authentication/verify-email` | verify-email | No | Body: `token` | `200` `UserResource` verificado · `400` `InvalidVerificationToken` · `410` `VerificationTokenExpired` |
-| GET | `/api/v1/authentication/verify-email` | verify-email-link | No | Query: `token` | `200` página HTML con el resultado de la verificación |
-| POST | `/api/v1/authentication/resend-verification` | resend-verification | No | Body: `email` | `202` `MessageResource` (la misma respuesta para cualquier correo) |
+| POST | `/api/v1/authentication/sign-up` | sign-up | No | Body: `username`, `email` (`.edu.pe`), `password` | `201` `UserResource` · `400` datos inválidos · `409` usuario o correo ya existe |
+| POST | `/api/v1/authentication/sign-in` | sign-in | No | Body: `username`, `password` | `200` `AuthenticatedUserResource` (incluye `token`) · `401` credenciales inválidas |
 | GET | `/api/v1/users/me` | get-current-user | Sí | — | `200` `UserResource` |
 | GET | `/api/v1/users/{id}` | get-user-by-id | Sí | Path: `id` | `200` `UserResource` si es el dueño; `PublicUserResource` (sin email) para cualquier otro usuario autenticado · `404` |
 | PATCH | `/api/v1/users/{id}/bio` | update-bio | Sí | Path: `id`; Body: `bio` | `200` `UserResource` · `400` · `403` no es el dueño · `404` |
-| PUT | `/api/v1/users/{id}/interests` | update-interests | Sí | Path: `id`; Body: `topics` (1 a 10 temas), `description` (opcional) | `200` `UserResource` con `interests` y `skillVector` · `400` · `403` · `404` |
-| PATCH | `/api/v1/users/{id}/full-name` | update-full-name | Sí | Path: `id`; Body: `fullName` (máx. 150) | `200` `UserResource` · `400` · `403` · `404` |
-| PUT | `/api/v1/users/me/device-token` | register-device-token | Sí | Body: `token` (token de Firebase Cloud Messaging) | `204` · `400` `InvalidDeviceToken` |
-| DELETE | `/api/v1/users/me/device-token` | remove-device-token | Sí | — | `204` |
 | POST | `/api/v1/certificates` | upload-certificate | Sí (Student) | `multipart/form-data`: `file` (JPG, PNG o PDF, máx. 10 MB) y, opcionalmente, `holderName`, `institutionName`, `courseName`, `issueDate`, `durationHours`, `certificateNumber`, `verificationCode`, `verificationUrl`, `qrPayload`, `ocrText` | `201` `CertificateResource` · `400` · `403` · `409` archivo duplicado · `413` · `415` |
 | GET | `/api/v1/certificates` | list-certificates | Sí | Query: `ownerId` (opcional; debe ser el id del propio estudiante) | `200` arreglo de `CertificateResource` · `403` |
 | GET | `/api/v1/certificates/{id}` | get-certificate-by-id | Sí | Path: `id` | `200` `CertificateResource` · `403` · `404` |
-| POST | `/api/v1/learning-paths` | declare-goal | Sí (Student) | Body: `goal` (texto libre, máx. 500), `advanced` (opcional) | `201` `LearningPathResource` · `400` · `403` · `409` `PlanLimitReached` (con `limit`, `plan`, `max`, `current` y `upgradeAvailable`) o `AdvancedPathUnlockRequired` · `422` meta sin habilidades en la taxonomía |
+| POST | `/api/v1/learning-paths` | declare-goal | Sí (Student) | Body: `goal` (texto libre, máx. 500) | `201` `LearningPathResource` · `400` · `403` · `409` ya tiene ruta activa (con los PR, `PlanLimitReached` con `limit`, `plan`, `max`, `current` y `upgradeAvailable`) · `422` meta sin habilidades en la taxonomía |
 | GET | `/api/v1/learning-paths/{studentId}` | get-learning-path | Sí | Path: `studentId` | `200` `LearningPathResource` · `403` · `404` |
-| GET | `/api/v1/learning-paths` | list-learning-paths | Sí | Query: `studentId` (debe ser el id del propio estudiante) | `200` arreglo de `LearningPathResource` (activas, pausadas y completadas) · `403` |
-| PATCH | `/api/v1/learning-paths/{pathId}/pause` | pause-learning-path | Sí (Student dueño) | Path: `pathId` | `200` `LearningPathResource` · `403` · `404` · `409` `PathNotActive` |
-| PATCH | `/api/v1/learning-paths/{pathId}/resume` | resume-learning-path | Sí (Student dueño) | Path: `pathId` | `200` `LearningPathResource` · `403` · `404` · `409` `PathNotPaused` o `PlanLimitReached` |
-| POST | `/api/v1/path-nodes/{nodeId}/assessment-blueprint` | generate-blueprint | Sí (Student) | Path: `nodeId` | `201` `AssessmentBlueprintResource` (sin respuestas correctas ni preguntas de intentos anteriores) · `403` · `404` · `409` nodo bloqueado o completado · `503` IA no disponible |
-| POST | `/api/v1/path-nodes/{nodeId}/certificate` | link-certificate | Sí (Student dueño) | Path: `nodeId`; Body: `certificateId` | `200` `CertificateLinkResource` (`affinity`, `threshold`, `assessmentEnabled`) · `403` · `404` · `409` `CertificateNotVerified` o `NodeAlreadyCompleted` · `422` `CertificateSkillMismatch` con `suggestedNodes` |
-| GET | `/api/v1/advanced-path-unlocks` | list-advanced-path-unlocks | Sí (Student) | — | `200` arreglo de `AdvancedPathUnlockResource` |
-| POST | `/api/v1/assessment-attempts` | submit-attempt | Sí (Student) | Body: `blueprintId`, `selectedAnswers` (5 enteros entre 0 y 3) | `201` `AssessmentAttemptResource` (con `passed` y, si no aprueba, `verificationCaseId`; con `planLimitReached` y sin caso si se agotaron los escalamientos del mes) · `400` · `403` · `404` · `409` |
+| GET | `/api/v1/learning-paths` | list-learning-paths (*) | Sí | Query: `studentId` (debe ser el id del propio estudiante) | `200` arreglo de `LearningPathResource` (activas, pausadas y completadas) · `403` |
+| PATCH | `/api/v1/learning-paths/{pathId}/pause` | pause-learning-path (*) | Sí (Student dueño) | Path: `pathId` | `200` `LearningPathResource` · `403` · `404` · `409` `PathNotActive` |
+| PATCH | `/api/v1/learning-paths/{pathId}/resume` | resume-learning-path (*) | Sí (Student dueño) | Path: `pathId` | `200` `LearningPathResource` · `403` · `404` · `409` `PathNotPaused` o `PlanLimitReached` |
+| POST | `/api/v1/path-nodes/{nodeId}/assessment-blueprint` | generate-blueprint | Sí (Student) | Path: `nodeId` | `201` `AssessmentBlueprintResource` (sin respuestas correctas) · `403` · `404` · `409` nodo bloqueado o completado · `503` IA no disponible |
+| POST | `/api/v1/assessment-attempts` | submit-attempt | Sí (Student) | Body: `blueprintId`, `selectedAnswers` (5 enteros entre 0 y 3) | `201` `AssessmentAttemptResource` (con `passed` y, si no aprueba, `verificationCaseId`; con los PR, `planLimitReached` y sin caso si se agotaron los escalamientos del mes) · `400` · `403` · `404` · `409` |
 | GET | `/api/v1/assessment-attempts/{attemptId}` | get-attempt | Sí | Path: `attemptId` | `200` `AssessmentAttemptResource` · `403` · `404` |
 | GET | `/api/v1/verification-cases` | list-my-cases | Sí (Verificador) | — | `200` arreglo de `VerificationCaseResource` |
 | GET | `/api/v1/verification-cases/{caseId}` | get-case-detail | Sí | Path: `caseId` | `200` `VerificationCaseDetailResource` (caso, intento y preguntas falladas) · `403` · `404` |
@@ -5698,23 +5476,18 @@ Todos los endpoints del Sprint 1 están documentados con **OpenAPI 3.1** (`Skill
 | POST | `/api/v1/verifier-profiles` | create-verifier-profile | Sí (Student) | Body: `skillTag` | `201` perfil creado · `200` habilidad agregada · `400` · `403` · `409` |
 | GET | `/api/v1/verifier-profiles/me` | get-my-verifier-profile | Sí | — | `200` `VerifierProfileResource` · `404` |
 | PATCH | `/api/v1/verifier-profiles/me/availability` | update-availability | Sí (Verificador) | Body: `available` (booleano) | `200` `VerifierProfileResource` · `400` · `403` |
-| GET | `/api/v1/review-deadline-policies` | get-review-deadlines | Sí | — | `200` arreglo de `ReviewDeadlinePolicyResource` (plazo vigente de cada plan) |
-| PUT | `/api/v1/review-deadline-policies` | define-review-deadlines | Sí (Verificador senior) | Body: `premiumPlanHours` (máx. 48), `freePlanBusinessDays` (máx. 5) | `200` arreglo de `ReviewDeadlinePolicyResource` · `400` fuera de rango · `403` no es Verificador senior |
-| GET | `/api/v1/disputes` | list-my-disputes | Sí (Verificador) | Query: `status` (`Pending` por defecto, `Resolved` o `All`) | `200` arreglo de `DisputeResource` asignadas al usuario · `400` · `403` no es Verificador habilitado |
-| GET | `/api/v1/disputes/{id}/evidence` | get-dispute-evidence | Sí (revisor asignado) | Path: `id` | `200` `DisputeEvidenceResource` (disputa y certificado en revisión) · `403` · `404` |
-| PATCH | `/api/v1/disputes/{id}/resolve` | resolve-dispute | Sí (revisor asignado) | Path: `id`; Body: `outcome` (`Upheld` u `Overturned` en una revisión de certificado), `resolutionNotes` (obligatorias, máx. 2000) | `200` `DisputeResource` · `400` `InvalidOutcome`, `ResolutionNotesRequired` o `ResolutionNotesTooLong` · `403` · `404` · `409` ya resuelta o certificado no sospechoso |
 | GET | `/api/v1/verifier-reliabilities/{verifierUserId}` | get-reliability | Sí | Path: `verifierUserId` | `200` `VerifierReliabilityResource` · `403` · `404` |
 | GET | `/api/v1/student-employability-scores/{studentId}` | get-employability | Sí | Path: `studentId` | `200` `StudentEmployabilityResource` · `403` · `404` |
 | GET | `/api/v1/wallets/{userId}` | get-wallet | Sí | Path: `userId` | `200` `WalletResource` · `403` · `404` |
 | GET | `/api/v1/wallets/{userId}/transactions` | list-transactions | Sí | Path: `userId` | `200` arreglo de `CreditTransactionResource` · `403` · `404` |
 | POST | `/api/v1/credit-transactions/redeem` | redeem-credits | Sí | Body: `item` (`AdvancedPathUnlock` = 200 o `ContributionCertificate` = 120 SkillCredits) | `201` `CreditTransactionResource` · `400` · `404` · `409` saldo insuficiente |
-| POST | `/api/v1/subscriptions` | create-subscription | Sí (Student) | Body: `productId` (opcional) | `201` `SubscriptionResource` · `400` `InvalidProduct` · `422` `PurchaseNotVerified` · `503` `PaymentGatewayUnavailable` |
-| GET | `/api/v1/subscriptions/{studentId}` | get-student-plan | Sí (Student) | Path: `studentId` (debe ser el id del propio estudiante) | `200` `StudentPlanResource` (plan, límites y suscripción no vencida o `null`) · `403` |
-| PATCH | `/api/v1/subscriptions/{id}/cancel` | cancel-subscription | Sí (Student dueño) | Path: `id` | `200` `SubscriptionResource` (idempotente) · `403` · `404` · `409` `SubscriptionNotActive` · `503` |
-| POST | `/api/v1/subscriptions/webhooks/revenuecat` | revenuecat-webhook | No (encabezado `Authorization` con el secreto configurado) | Body: evento del webhook de RevenueCat | `200` `{outcome: Processed\|Duplicate\|Ignored}` · `400` `InvalidWebhookEvent` · `401` `InvalidWebhookAuthorization` · `503` para que RevenueCat reintente |
+| POST | `/api/v1/subscriptions` | create-subscription (*) | Sí (Student) | Body: `productId` (opcional) | `201` `SubscriptionResource` · `400` `InvalidProduct` · `422` `PurchaseNotVerified` · `503` `PaymentGatewayUnavailable` |
+| GET | `/api/v1/subscriptions/{studentId}` | get-student-plan (*) | Sí (Student) | Path: `studentId` (debe ser el id del propio estudiante) | `200` `StudentPlanResource` (plan, límites y suscripción no vencida o `null`) · `403` |
+| PATCH | `/api/v1/subscriptions/{id}/cancel` | cancel-subscription (*) | Sí (Student dueño) | Path: `id` | `200` `SubscriptionResource` (idempotente) · `403` · `404` · `409` `SubscriptionNotActive` · `503` |
+| POST | `/api/v1/subscriptions/webhooks/revenuecat` | revenuecat-webhook (*) | No (encabezado `Authorization` con el secreto configurado) | Body: evento del webhook de RevenueCat | `200` `{outcome: Processed\|Duplicate\|Ignored}` · `400` `InvalidWebhookEvent` · `401` `InvalidWebhookAuthorization` · `503` para que RevenueCat reintente |
 | GET | `/health` | health-check | No | — | `200` `HealthResource` |
 
-*Nota.* Endpoints de la rama `feature/sprint1-acceptance-scenarios` del repositorio `SkillSwap-WebServices-Java`, que integra el trabajo del Sprint 1. Elaboración propia.
+*Nota.* Los endpoints marcados con (*) se implementan en los PR #13 y #14 del repositorio `SkillSwap-WebServices-Java`, junto con las respuestas indicadas como "con los PR"; los montos por tipo de caso (40 SkillCredits por un miniproyecto y 25 por un quiz), los precios de canje de 200 y 120 SkillCredits y el tipo de caso, en el PR #12, y las migraciones con Flyway, en el PR #11. Los cuatro PR están pendientes de revisión del equipo e integración a `develop`, y aún no se despliegan en Render, por lo que estos endpoints todavía no aparecen en el Swagger UI público. Elaboración propia.
 
 **Ejemplos de uso con datos de muestra**
 
@@ -5725,9 +5498,9 @@ Todos los endpoints del Sprint 1 están documentados con **OpenAPI 3.1** (`Skill
 ```
 Respuesta `201 Created`:
 ```json
-{ "id": 7, "username": "maria.quispe", "email": "maria.quispe@upc.edu.pe", "role": "Student", "isVerified": false, "bio": "", "fullName": null, "interests": [], "skillVector": [] }
+{ "id": 7, "username": "maria.quispe", "email": "maria.quispe@upc.edu.pe", "role": "Student", "isVerified": false, "bio": null }
 ```
-La cuenta se crea con rol `Student` y sin verificar, y se envía el enlace de verificación al correo institucional; con un correo fuera del dominio `.edu.pe` la API responde `400`.
+La cuenta se crea con rol `Student`; con un correo fuera del dominio `.edu.pe` la API responde `400`.
 
 *Intento de evaluación fallido (`POST /api/v1/assessment-attempts`).*
 
@@ -5778,16 +5551,6 @@ springdoc-openapi genera el documento OpenAPI automáticamente a partir de las a
 | SkillSwap-WebServices-Java | feature/reputation | `628a9a7` | feat(reputation): endpoints REST de empleabilidad y confiabilidad | Endpoints de solo lectura de confiabilidad del Verificador y Employability Score. | 2026-10-09 |
 | SkillSwap-WebServices-Java | feature/recognition-incentives | `6b4db93` | feat(recognition-incentives): endpoints REST de billetera y canje de beneficios | Endpoints de billetera, historial de movimientos y canje. | 2026-10-09 |
 | SkillSwap-WebServices-Java | chore/swagger | `fba59d8` | feat(docs): documentación Swagger con autenticación JWT | `OpenApiConfig` (título, descripción y esquema `bearerAuth`), `RootController` y apertura de `/swagger-ui/**` y `/v3/api-docs/**` en `SecurityConfig`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/subscription-billing | `03c29cd` | feat(subscription-billing): suscripción mensual con RevenueCat y límites por plan | Endpoints de suscripción y webhook de RevenueCat. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/plan-limits-enforcement | `7e86af6` | feat(plan-limits): límites del plan en rutas de aprendizaje y escalamientos | Listado, pausa y reanudación de rutas y respuesta `PlanLimitReached`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/iam-email-verification-push | `e778439` | feat(iam): verificación del correo institucional con Brevo | Endpoints `verify-email` y `resend-verification`. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/iam-email-verification-push | `3f7ec24` | feat(notifications): notificaciones push con Firebase Cloud Messaging | Endpoints del token del dispositivo. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/iam-email-verification-push | `a7cd7ce` | feat(iam): perfil de intereses con vector de habilidades | Endpoint de intereses. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/learning-path-gemini-matcher | `ec51fa9` | feat(learning-path): meta interpretada con Gemini, certificados validados y quiz sin preguntas repetidas | Endpoint de vinculación de un certificado a un nodo. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `4babdcd` | feat(moderation-disputes): escalamiento de certificados sospechosos a un Verificador senior | Endpoints de disputas y del nombre completo del usuario. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `7175877` | feat(learning-path-engine): ruta avanzada canjeada con SkillCredits fuera de los límites del plan | Endpoint de desbloqueos de ruta avanzada y campo `advanced` al declarar la meta. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/certificate-escalation-and-deadlines | `ac2e271` | feat(assessment-peer-review): plazo de revisión por plan y reasignación de casos vencidos | Endpoints de plazos de revisión por plan. | 2026-10-09 |
-| SkillSwap-WebServices-Java | feature/sprint1-acceptance-scenarios | `56f5a13` | refactor(moderation-disputes): rename coordinatorNotes to resolutionNotes | Campo `resolutionNotes` en la resolución de disputas. | 2026-10-09 |
 
 *Nota.* Elaboración propia.
 
@@ -5871,7 +5634,7 @@ El backend del Sprint 1 se construyó primero en C# / ASP.NET Core, y cuando el 
 
 **Sobre mantener el informe honesto con el código a medida que el proyecto avanza**
 
-Terminado el Sprint 1, nos sentamos a comparar sistemáticamente lo que el backend realmente hacía contra lo que el informe decía, Bounded Context por Bounded Context. Encontramos decenas de diferencias pequeñas (nombres de clases, rutas de endpoints, campos que no existían) y varias de fondo (registrar un certificado no completa un nodo por sí solo, sino solo cuando un Verificador lo valida; la evidencia de un caso es solo una URL y no un archivo subido, Identity & Access exige el dominio institucional desde el registro y no mediante un código posterior). Ninguna de esas diferencias era un error del código: eran decisiones reales que tomamos durante la construcción y que el documento de diseño simplemente no había alcanzado a reflejar todavía. Corregirlas todas de una sola vez, en vez de ir parchando el informe mientras programábamos, nos permitió entregar un documento consistente de principio a fin — y nos dejó claro que, en un proyecto de este tamaño, el informe de arquitectura necesita su propio ciclo de mantenimiento, igual que el código.
+Terminado el Sprint 1, nos sentamos a comparar sistemáticamente lo que el backend realmente hacía contra lo que el informe decía, Bounded Context por Bounded Context. Encontramos decenas de diferencias pequeñas (nombres de clases, rutas de endpoints, campos que no existían) y varias de fondo (el certificado nunca completa un nodo por sí solo, la evidencia de un caso es solo una URL y no un archivo subido, Identity & Access exige el dominio institucional desde el registro y no mediante un código posterior). Ninguna de esas diferencias era un error del código: eran decisiones reales que tomamos durante la construcción y que el documento de diseño simplemente no había alcanzado a reflejar todavía. Corregirlas todas de una sola vez, en vez de ir parchando el informe mientras programábamos, nos permitió entregar un documento consistente de principio a fin — y nos dejó claro que, en un proyecto de este tamaño, el informe de arquitectura necesita su propio ciclo de mantenimiento, igual que el código.
 
 
 # Glosario
@@ -6020,7 +5783,7 @@ Tabla 11. *Contextos candidatos de SkillSwap*<br>
 Tabla 12. *SEO Tags y Meta Tags del Landing Page*<br>
 Tabla 13. *Elementos ASO de la aplicación móvil*<br>
 Tabla 14. *Herramientas del entorno de desarrollo de software*<br>
-Tabla 15. *Variables de entorno del backend*<br>
+Tabla 15. *Variables de entorno del despliegue en Render*<br>
 Tabla 16. *Sprint Planning 1*<br>
 Tabla 17. *Leadership-and-Collaboration Matrix del Sprint 1*<br>
 Tabla 18. *Sprint Backlog 1*<br>

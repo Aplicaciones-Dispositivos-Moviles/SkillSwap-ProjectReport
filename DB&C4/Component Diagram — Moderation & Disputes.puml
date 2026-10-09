@@ -8,41 +8,46 @@ Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "PostgreSQL 16")
 
 Container_Boundary(moderationBC, "Moderation & Disputes Bounded Context") {
-    Component(disputesController, "Disputes Controller", "Java Class", "GET /api/v1/disputes, GET /{id}/evidence, PATCH /{id}/resolve")
-    Component(disputeCommandService, "Dispute CommandService", "Java Class", "Escala, asigna revisor y resuelve la disputa")
-    Component(disputeQueryService, "Dispute QueryService", "Java Class", "Disputas del revisor y evidencia del certificado")
-    Component(escalateHandler, "EscalateCertificateReview EventHandler", "Java Class", "Reacciona a CertificateFlaggedSuspicious")
-    Component(pendingScheduler, "PendingDisputeAssignment Scheduler", "Java Class (@Scheduled)", "Reintenta asignar las disputas sin revisor")
-    Component(reviewerSelector, "DisputeReviewerSelector", "Domain Service", "Verificador senior con menor carga; si no hay, otro Verificador habilitado")
-    Component(resolutionValidator, "DisputeResolutionValidator", "Domain Service", "Outcome válido según el origen de la disputa")
+    Component(disputeController, "Dispute Controller", "Java Class", "RESTful API Controller")
+    Component(moderationCommandService, "Moderation CommandService", "Java Class", "Lógica de negocio")
+    Component(moderationQueryService, "Moderation QueryService", "Java Class", "Consultas")
     Component(disputeRepository, "Dispute Repository", "Java Interface", "Interface persistencia")
+    Component(sanctionRepository, "Sanction Repository", "Java Interface", "Interface persistencia")
+    Component(certificateQueryClient, "Certificate QueryClient", "Java Class", "Consulta evidencia hacia Credential Verification")
+    Component(verificationCaseQueryClient, "VerificationCase QueryClient", "Java Class", "Consulta evidencia hacia Assessment & Peer Review")
+    Component(moderationContextFacade, "Moderation ContextFacade", "Java Class", "Punto de entrada interno")
 }
 
-Component_Ext(domainEventPublisher, "DomainEventPublisher", "Java Class (Shared)", "Evento publicado por Credential Verification")
-Component_Ext(credentialContextFacade, "Credential ContextFacade", "Java Class", "Bounded Context: Credential Verification")
+Component_Ext(identityContextFacade, "Identity ContextFacade", "Java Class", "Bounded Context: Identity & Access")
 Component_Ext(reputationContextFacade, "Reputation ContextFacade", "Java Class", "Bounded Context: Reputation")
-Component_Ext(verifierProfileContextFacade, "VerifierProfile ContextFacade", "Java Class", "Bounded Context: Assessment & Peer Review")
+Component_Ext(credentialContextFacade, "Certificate ContextFacade", "Java Class", "Bounded Context: Credential Verification")
+Component_Ext(credentialCommandService, "Certificate CommandService", "Java Class", "Bounded Context: Credential Verification")
+Component_Ext(assessmentContextFacade, "Assessment ContextFacade", "Java Class", "Bounded Context: Assessment & Peer Review")
 
-Rel(androidApp, disputesController, "Request HTTP a Moderation & Disputes")
-Rel(flutterApp, disputesController, "Request HTTP a Moderation & Disputes")
+Rel(androidApp, disputeController, "Request HTTP a Moderation & Disputes")
+Rel(flutterApp, disputeController, "Request HTTP a Moderation & Disputes")
 
-Rel(disputesController, disputeQueryService, "Usa")
-Rel(disputesController, disputeCommandService, "ResolveDisputeCommand (outcome, resolutionNotes)")
-Rel(disputesController, verifierProfileContextFacade, "isEnabledVerifier")
-
-Rel(domainEventPublisher, escalateHandler, "CertificateFlaggedSuspicious")
-Rel(escalateHandler, disputeCommandService, "EscalateCertificateReviewCommand")
-Rel(pendingScheduler, disputeCommandService, "AssignPendingDisputesCommand")
-
-Rel(disputeCommandService, reviewerSelector, "Elige el revisor")
-Rel(disputeCommandService, resolutionValidator, "Valida la resolución")
-Rel(disputeCommandService, disputeRepository, "Usa")
-Rel(disputeQueryService, disputeRepository, "Usa")
+Rel(disputeController, moderationCommandService, "Usa")
+Rel(disputeController, moderationQueryService, "Usa")
+Rel(moderationCommandService, disputeRepository, "Usa")
+Rel(moderationCommandService, sanctionRepository, "Usa")
+Rel(moderationQueryService, disputeRepository, "Usa")
 Rel(disputeRepository, mainDB, "SQL Transaction")
+Rel(sanctionRepository, mainDB, "SQL Transaction")
 
-Rel(disputeCommandService, verifierProfileContextFacade, "getAvailableVerifiers (carga de trabajo)")
-Rel(disputeCommandService, reputationContextFacade, "findSeniorVerifiers")
-Rel(disputeCommandService, credentialContextFacade, "resolveSuspiciousCertificate (Upheld: Verified / Overturned: Rejected)")
-Rel(disputeQueryService, credentialContextFacade, "getCertificateForReview (evidencia)")
+Rel(moderationQueryService, certificateQueryClient, "Delega consulta de evidencia")
+Rel(certificateQueryClient, credentialContextFacade, "Pedir datos OCR y RiskAssessment del certificado")
+
+Rel(moderationQueryService, verificationCaseQueryClient, "Delega consulta de evidencia")
+Rel(verificationCaseQueryClient, assessmentContextFacade, "Pedir notas de rúbrica y evidencia del caso")
+
+Rel(moderationCommandService, identityContextFacade, "Actualizar perfil en caso de sanción")
+Rel(moderationCommandService, reputationContextFacade, "Notificar reversión de decisión / sanción aplicada")
+Rel(moderationCommandService, credentialContextFacade, "Enviar resolución del certificado en disputa")
+
+Rel(moderationContextFacade, moderationCommandService, "Delega")
+Rel(moderationContextFacade, moderationQueryService, "Delega")
+
+Rel(credentialCommandService, moderationContextFacade, "Escalar certificado en estado SUSPICIOUS")
 
 @enduml

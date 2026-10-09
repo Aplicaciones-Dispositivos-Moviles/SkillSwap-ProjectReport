@@ -8,50 +8,45 @@ Container_Ext(flutterApp, "Cross-Platform App", "Flutter / Dart")
 ContainerDb_Ext(mainDB, "SkillSwap Database", "PostgreSQL 16")
 
 Container_Boundary(reputationBC, "Reputation Bounded Context") {
-    Component(verifierReliabilityController, "VerifierReliabilities Controller", "Java Class", "GET /verifier-reliabilities/{verifierUserId}")
-    Component(studentEmployabilityController, "StudentEmployabilityScores Controller", "Java Class", "GET /student-employability-scores/{studentId}")
-    Component(reputationCommandService, "Reputation CommandService", "Java Class", "Recalcula confiabilidad y empleabilidad por eventos")
-    Component(reputationQueryServices, "Reputation QueryServices", "Java Class", "VerifierReliability y StudentEmployability")
-    Component(automaticApprovalHandler, "RecordAutomaticApproval EventHandler", "Java Class", "AssessmentAttemptPassed")
-    Component(caseResolutionHandler, "RecordCaseResolution EventHandler", "Java Class", "VerificationCaseResolved (resolución y decisión revertida)")
-    Component(missedDeadlineHandler, "RecordMissedDeadline EventHandler", "Java Class", "VerificationCaseDeadlineMissed: penaliza el plazo incumplido")
-    Component(calculators, "Reliability / Employability Calculators", "Domain Service", "Puntajes; SeniorVerifierPolicy define al Verificador senior")
+    Component(verifierReliabilityController, "VerifierReliability Controller", "Java Class", "RESTful API Controller")
+    Component(studentEmployabilityController, "StudentEmployability Controller", "Java Class", "RESTful API Controller")
+    Component(reputationCommandService, "Reputation CommandService", "Java Class", "Lógica de negocio: recálculo por eventos")
+    Component(reputationQueryService, "Reputation QueryService", "Java Class", "Consultas")
+    Component(assessmentEventHandlers, "Assessment EventHandlers", "Java Class", "Reacciona a AssessmentAttemptPassed y VerificationCaseResolved")
     Component(verifierReliabilityRepository, "VerifierReliability Repository", "Java Interface", "Interface persistencia")
     Component(studentEmployabilityRepository, "StudentEmployabilityScore Repository", "Java Interface", "Interface persistencia")
-    Component(reputationContextFacade, "Reputation ContextFacade", "Java Class", "isSeniorVerifier, findSeniorVerifiers")
+    Component(verifierProfileNotifierExternal, "VerifierProfile NotifierAdapter", "Java Class", "Sincronización con Assessment & Peer Review")
+    Component(reputationContextFacade, "Reputation ContextFacade", "Java Class", "Punto de entrada interno")
 }
 
-Component_Ext(domainEventPublisher, "DomainEventPublisher", "Java Class (Shared)", "Eventos de Assessment & Peer Review")
 Component_Ext(verifierProfileContextFacade, "VerifierProfile ContextFacade", "Java Class", "Bounded Context: Assessment & Peer Review")
-Component_Ext(deadlinePolicyCommandService, "ReviewDeadlinePolicy CommandService", "Java Class", "Bounded Context: Assessment & Peer Review")
-Component_Ext(disputeCommandService, "Dispute CommandService", "Java Class", "Bounded Context: Moderation & Disputes")
+Component_Ext(assessmentDomainEventPublisher, "DomainEventPublisher", "Java Class (Shared)", "Bounded Context: Assessment & Peer Review")
+Component_Ext(moderationCommandService, "Moderation CommandService", "Java Class", "Bounded Context: Moderation & Disputes")
 
 Rel(androidApp, verifierReliabilityController, "Request HTTP a Reputation")
 Rel(flutterApp, verifierReliabilityController, "Request HTTP a Reputation")
 Rel(androidApp, studentEmployabilityController, "Request HTTP a Reputation")
 Rel(flutterApp, studentEmployabilityController, "Request HTTP a Reputation")
 
-Rel(verifierReliabilityController, reputationQueryServices, "Usa")
-Rel(studentEmployabilityController, reputationQueryServices, "Usa")
+Rel(verifierReliabilityController, reputationQueryService, "Usa")
+Rel(studentEmployabilityController, reputationQueryService, "Usa")
 
-Rel(domainEventPublisher, automaticApprovalHandler, "AssessmentAttemptPassed")
-Rel(domainEventPublisher, caseResolutionHandler, "VerificationCaseResolved")
-Rel(domainEventPublisher, missedDeadlineHandler, "VerificationCaseDeadlineMissed")
-Rel(automaticApprovalHandler, reputationCommandService, "RecordAutomaticApprovalCommand")
-Rel(caseResolutionHandler, reputationCommandService, "RecordCaseResolution / RecordOverturn")
-Rel(missedDeadlineHandler, reputationCommandService, "RecordMissedDeadlineCommand")
-
-Rel(reputationCommandService, calculators, "Usa")
 Rel(reputationCommandService, verifierReliabilityRepository, "Usa")
 Rel(reputationCommandService, studentEmployabilityRepository, "Usa")
-Rel(reputationQueryServices, verifierReliabilityRepository, "Usa")
-Rel(reputationQueryServices, studentEmployabilityRepository, "Usa")
+Rel(reputationQueryService, verifierReliabilityRepository, "Usa")
+Rel(reputationQueryService, studentEmployabilityRepository, "Usa")
 Rel(verifierReliabilityRepository, mainDB, "SQL Transaction")
 Rel(studentEmployabilityRepository, mainDB, "SQL Transaction")
 
-Rel(reputationCommandService, verifierProfileContextFacade, "updateRating (sincroniza la confiabilidad)")
-Rel(reputationContextFacade, verifierReliabilityRepository, "Usa")
-Rel(deadlinePolicyCommandService, reputationContextFacade, "isSeniorVerifier")
-Rel(disputeCommandService, reputationContextFacade, "findSeniorVerifiers")
+Rel(assessmentDomainEventPublisher, assessmentEventHandlers, "En proceso, tras el commit")
+Rel(assessmentEventHandlers, reputationCommandService, "Invoca recálculo de confiabilidad / empleabilidad")
+
+Rel(reputationCommandService, verifierProfileNotifierExternal, "Delega sincronización")
+Rel(verifierProfileNotifierExternal, verifierProfileContextFacade, "UpdateRating(score)")
+
+Rel(reputationContextFacade, reputationCommandService, "Delega")
+Rel(reputationContextFacade, reputationQueryService, "Delega")
+
+Rel(moderationCommandService, reputationContextFacade, "Notificar reversión de decisión / sanción aplicada")
 
 @enduml

@@ -14,8 +14,7 @@ System_Boundary(skillSwapSystem, "SkillSwap Platform") {
     ContainerDb(mainDB, "SkillSwap Database", "PostgreSQL 16", "Base de datos única compartida por los ocho Bounded Contexts (skillswap_db)")
 }
 
-System_Ext(emailService, "Brevo (Email API)", "Envío transaccional del correo de verificación de la cuenta institucional")
-System_Ext(fcm, "Firebase Cloud Messaging", "Entrega de notificaciones push a las apps móviles")
+System_Ext(emailService, "Email Api", "Integración con correos institucionales")
 System_Ext(mlKitService, "ML Kit (Firebase)", "SDK on-device de OCR/Entity Extraction")
 System_Ext(cloudStorage, "Cloudinary", "Cloud Storage para las imágenes de certificados")
 System_Ext(googlePlayBilling, "Google Play Billing (vía RevenueCat)", "Cobro de la suscripción mensual; RevenueCat valida la compra y notifica sus cambios")
@@ -38,10 +37,7 @@ Rel(flutterApp, googlePlayBilling, "Compra el plan mensual (SDK de RevenueCat)")
 
 Rel(apiGateway, mainDB, "Lee/Escribe")
 
-Rel(apiGateway, emailService, "Envía el correo de verificación", "HTTPS")
-Rel(apiGateway, fcm, "Envía notificaciones push al device token", "HTTPS")
-Rel(fcm, androidApp, "Entrega la notificación push")
-Rel(fcm, flutterApp, "Entrega la notificación push")
+Rel(apiGateway, emailService, "Envía correo de validación / notificación de sanción o disputa")
 Rel(apiGateway, cloudStorage, "Guarda las imágenes de los certificados")
 BiRel(apiGateway, googlePlayBilling, "Verifica la compra y cancela la renovación; recibe sus cambios por webhook")
 Rel(apiGateway, geminiApi, "Interpreta la meta y genera preguntas")
