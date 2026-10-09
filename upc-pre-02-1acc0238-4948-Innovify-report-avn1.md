@@ -4759,22 +4759,184 @@ Los archivos `.feature` están organizados por Bounded Context dentro del proyec
 
 | Bounded Context | Archivo `.feature` | Historia relacionada | Comportamiento que valida |
 |---|---|---|---|
-| Identity & Access | `Registration.feature` | TS01 | Registro de una cuenta `Student` con correo institucional `.edu.pe` |
+| Identity & Access | `Registration.feature` | US01 | Registro de una cuenta `Student` con correo institucional `.edu.pe` |
 | Identity & Access | `SignIn.feature` | TS02 | Autenticación con usuario y contraseña y emisión del token JWT |
 | Identity & Access | `Profile.feature` | TS01 / TS02 | Consulta del perfil propio, consulta por id y actualización de la biografía |
-| Credential Verification | `CertificateUpload.feature` | TS03 | Registro de un certificado con su archivo y evaluación de riesgo |
+| Credential Verification | `CertificateUpload.feature` | US12 | Registro de un certificado con su archivo y evaluación de riesgo |
 | Credential Verification | `CertificateDuplicates.feature` | TS03 | Rechazo (409) de un archivo ya subido por el mismo estudiante |
 | Credential Verification | `CertificateStatus.feature` | TS04 | Consulta del estado de verificación y listado de certificados |
 | Learning Path Engine | `LearningPathGoal.feature` | TS05 | Declaración de la meta en lenguaje natural y generación de la ruta |
 | Learning Path Engine | `LearningPathConsultation.feature` | TS05 | Consulta de la ruta con el estado de cada nodo |
 | Learning Path Engine | `AssessmentGeneration.feature` | TS06 | Generación de la evaluación de un nodo disponible |
 | Assessment & Peer Review | `AssessmentAttempt.feature` | TS07 | Calificación del intento (4 de 5 aprueba) y apertura de caso si no aprueba |
-| Assessment & Peer Review | `CaseReview.feature` | TS08 | Evidencia, asignación y resolución del caso por el Verificador |
+| Assessment & Peer Review | `CaseReview.feature` | US24 / US25 / US26 | Evidencia, asignación y resolución del caso por el Verificador |
 | Assessment & Peer Review | `VerifierEnrollment.feature` | TS08 | Alta del perfil de Verificador y su disponibilidad |
 | Recognition & Incentives | `Wallet.feature` | TS09 | Saldo de SkillCredits, movimientos y canje de beneficios |
 | Reputation | `ReliabilityAndEmployability.feature` | TS11 | Confiabilidad del Verificador y Employability Score del estudiante |
 
 *Tabla. Creación propia*
+
+**Código de los `.feature` (selección representativa)**
+
+*Identity & Access — `Registration.feature` (@US01).* Cubre el registro con correo institucional. Verifica el caso feliz (201 con rol `Student`), el rechazo de correos no institucionales (400 `InvalidInstitutionalEmail`), los duplicados de correo o usuario (409), la contraseña débil (400) y que un cliente no puede elegir su propio rol.
+
+```gherkin
+@US01
+Feature: Registration with an institutional email
+  As a student
+  I want to register with my institutional email
+  So that I can access the platform as a university user
+
+  Scenario: Register with a valid institutional email
+    When I sign up as "ana" with the email "ana@upc.edu.pe" and the password "password123"
+    Then the response status is 201
+    And the created account has the role "Student"
+
+  Scenario Outline: Reject a registration with a non-institutional email
+    When I sign up as "ana" with the email "<email>" and the password "password123"
+    Then the response status is 400
+    And the error is "InvalidInstitutionalEmail"
+
+    Examples:
+      | email         |
+      | ana@gmail.com |
+      | ana@upc.edu   |
+      | ana@edu.pe    |
+
+  Scenario: Reject a registration with an email already in use
+    Given an account exists for "ana" with the email "ana@upc.edu.pe"
+    When I sign up as "bob" with the email "ana@upc.edu.pe" and the password "password123"
+    Then the response status is 409
+    And the error is "EmailAlreadyTaken"
+
+  Scenario: Reject a registration with a username already in use
+    Given an account exists for "ana"
+    When I sign up as "ana" with the email "another@upc.edu.pe" and the password "password123"
+    Then the response status is 409
+    And the error is "UsernameAlreadyTaken"
+
+  Scenario: Reject a registration with a weak password
+    When I sign up as "ana" with the email "ana@upc.edu.pe" and the password "short"
+    Then the response status is 400
+    And the error is "WeakPassword"
+
+  Scenario: A client cannot choose its own role
+    When I sign up as "mallory" with the email "mallory@upc.edu.pe", the password "password123" and the role "Coordinator"
+    Then the response status is 201
+    And the created account has the role "Student"
+```
+
+*Credential Verification — `CertificateUpload.feature` (@US12).* Valida la carga de certificados: los tres formatos aceptados (JPEG, PNG, PDF) terminan en estado `Unverified`, y se rechazan los formatos no permitidos (415), los archivos de más de 10 MB (413) y las solicitudes sin archivo (400).
+
+```gherkin
+@US12
+Feature: Upload a certificate from a file
+  As a student
+  I want to upload my certificate from a file
+  So that it is stored and registered for verification
+
+  Background:
+    Given a signed-in student "ana"
+
+  Scenario Outline: Upload a file in an accepted format
+    When "ana" uploads a <format> certificate file
+    Then the response status is 201
+    And the certificate status is "Unverified"
+
+    Examples:
+      | format |
+      | JPEG   |
+      | PNG    |
+      | PDF    |
+
+  Scenario: Reject a file in a format that is not allowed
+    When "ana" uploads a text certificate file
+    Then the response status is 415
+    And the error is "InvalidFileType"
+    And the error message is "Only JPG, PNG and PDF files are accepted."
+
+  Scenario: Reject a file larger than 10 MB
+    When "ana" uploads a certificate file larger than 10 MB
+    Then the response status is 413
+    And the error is "FileTooLarge"
+
+  Scenario: Reject a request without a file
+    When "ana" uploads a request without a file
+    Then the response status is 400
+    And the error is "FileRequired"
+```
+
+*Assessment & Peer Review — `CaseReview.feature` (@US24, @US25, @US26).* Es el archivo más completo del Sprint: valida la asignación automática de casos al Verificador (US24), su revisión con rúbrica sin exponer las respuestas correctas (US25) y la evidencia adjunta por el estudiante (US26). A continuación se muestran los escenarios principales de cada historia.
+
+```gherkin
+Feature: Review the verification cases
+  As a verifier
+  I want to review the cases assigned to me following the rubric
+  So that the students get a fair decision from a peer
+
+  Background:
+    Given a signed-in student "ana"
+    And a signed-in student "bob"
+    And a signed-in student "carl"
+    And "ana" has declared the goal "quiero aprender a construir APIs REST con autenticación JWT"
+    And "bob" has declared the goal "quiero aprender a construir APIs REST con autenticación JWT"
+    And "bob" has completed the skill "networking-basics"
+    And "bob" is a verifier of the skill "networking-basics"
+
+  @US24
+  Scenario: A failed attempt is assigned to an available verifier
+    Given "ana" has failed the assessment of the skill "networking-basics"
+    When "bob" consults the cases assigned to them
+    Then the response status is 200
+    And the number of assigned cases is 1
+    And the case of "ana" is "Assigned" to "bob"
+
+  @US24
+  Scenario: The case waits when no verifier is available
+    Given "bob" switches their availability off
+    When "ana" has failed the assessment of the skill "networking-basics"
+    Then the case of "ana" is "Pending"
+
+  @US25
+  Scenario: The verifier sees the failed questions without the correct answers
+    Given "ana" has failed the assessment of the skill "networking-basics"
+    When "bob" consults the case of "ana"
+    Then the response status is 200
+    And the case lists 5 failed questions
+    And the case does not reveal the correct answers
+
+  @US25
+  Scenario: The verifier approves the case and the node is completed
+    Given "ana" has failed the assessment of the skill "networking-basics"
+    When "bob" resolves the case of "ana" as "Approved" with the notes "Solid understanding of the network layers."
+    Then the response status is 200
+    And the case is resolved as "Approved" with the notes "Solid understanding of the network layers."
+    And the skill "networking-basics" of "ana" is "Completed"
+
+  @US25
+  Scenario: Only the assigned verifier can resolve the case
+    Given "ana" has failed the assessment of the skill "networking-basics"
+    When "carl" resolves the case of "ana" as "Approved" with the notes "Looks fine."
+    Then the response status is 403
+    And the error is "NotAssignedVerifier"
+
+  @US26
+  Scenario: The student attaches evidence to the case
+    Given "ana" has failed the assessment of the skill "networking-basics"
+    When "ana" attaches the evidence "https://github.com/ana/network-lab" to the case of "ana"
+    Then the response status is 200
+    And the case has the evidence "https://github.com/ana/network-lab"
+
+  @US26
+  Scenario: A resolved case does not accept evidence
+    Given "ana" has failed the assessment of the skill "networking-basics"
+    And "bob" has resolved the case of "ana" as "Rejected" with the notes "Needs more work."
+    When "ana" attaches the evidence "https://github.com/ana/network-lab" to the case of "ana"
+    Then the response status is 409
+    And the error is "CaseAlreadyResolved"
+```
+
+*Los 14 archivos `.feature` completos se encuentran en el repositorio del backend, dentro de `SkillSwap.Platform.Tests/<ContextoDelBC>/Features/`.*
 
 **Pruebas unitarias y de integración (xUnit)**
 
