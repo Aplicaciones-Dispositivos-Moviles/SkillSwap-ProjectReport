@@ -2710,7 +2710,7 @@ Detalla la estructura de contenedores:
 4. **Database:** Repositorio central de información, compartido por los ocho Bounded Contexts.
 
 **Software Architecture Deployment Diagram:**
-Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de los usuarios (Android), el Landing Page en un servicio de hosting estático, y el backend junto con la base de datos en infraestructura Cloud.
+Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de los usuarios (Android) y el backend junto con la base de datos en infraestructura Cloud.
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
@@ -2757,15 +2757,14 @@ Es importante resaltar que tanto la aplicación Android nativa como la aplicaci�
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
-El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física de los contenedores de SkillSwap sobre la infraestructura de hardware y los entornos de ejecución, evidenciando cómo se despliega la solución en un ambiente real.
+El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física de los contenedores de SkillSwap sobre la infraestructura de hardware y los entornos de ejecución, evidenciando cómo se despliega la solución en un ambiente real. El Landing Page, al ser un sitio web estático independiente de la aplicación móvil, no forma parte de este diagrama.
 
 - **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes y Verificadores alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y la Aplicación Cross-Platform (Flutter, dirigida a Android), instaladas en el dispositivo físico. En estos dispositivos se ejecutan además **ML Kit**, de forma on-device, para la extracción de datos de los certificados, sin requerir una llamada a un servicio en la nube para dicho procesamiento, y la autenticación biométrica del sistema operativo.
-- **Hosting estático:** Aloja el Landing Page, servido de forma estática desde **GitHub Pages**, de acceso público.
 - **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (Java 21 / Spring Boot), empaquetado como contenedor Docker y desplegado en **Render**, donde se ejecuta la lógica de negocio de los ocho Bounded Contexts en un único servicio, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por las dos aplicaciones móviles (Android Native App y Flutter App); el Landing Page es informativo y no consume la API.
 - **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de PostgreSQL desplegada en **Render**, compartida por los ocho Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
 - **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para los archivos de los certificados, **Brevo (Email API)** para el envío del correo de verificación del correo institucional, **Firebase Cloud Messaging** para las notificaciones push al dispositivo del Estudiante, la **Gemini API** para interpretar la meta del Estudiante sobre el catálogo interno de habilidades y generar las preguntas de los quizzes, y **Google Play Billing (vía RevenueCat)** para el procesamiento del cobro recurrente de la suscripción mensual: la aplicación inicia la compra con el SDK de RevenueCat y RevenueCat notifica sus cambios al backend mediante un webhook.
 
-Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
+Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos móviles y los servidores desplegados en la nube.
 
 **Figura 74**
 
@@ -2775,7 +2774,7 @@ Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la s
   <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram - Mobile" width="900">
 </p>
 
-*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con ejecución on-device de ML Kit y de la biometría, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de PostgreSQL en Render y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat), este último con la compra desde la aplicación y el webhook hacia el backend. Elaborado en PlantUML. Elaboración propia.
+*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con ejecución on-device de ML Kit y de la biometría, el servidor de aplicación en Render, la instancia única de PostgreSQL en Render y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat), este último con la compra desde la aplicación y el webhook hacia el backend. Elaborado en PlantUML. Elaboración propia.
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
@@ -5166,6 +5165,8 @@ El despliegue abarca los tres productos digitales de la solución:
 - **Landing Page:** sitio estático (HTML5/CSS3/JavaScript) publicado con **GitHub Pages** desde la rama `main` del repositorio `SkillSwap-LandingPage`.
 - **Aplicación móvil:** en el Sprint 1 se entregan sus pantallas core como prototipo en Figma; los repositorios `SkillSwap-MobileApp` y `SkillSwap-MobileApp-Flutter` contienen únicamente su `README.md`.
 
+El Landing Page es un sitio estático independiente de la aplicación móvil, por lo que no se incluye en el Deployment Diagram de este apartado.
+
 **Dockerfile del backend:** build multi-etapa. La etapa de compilación parte de la imagen `maven:3.9-eclipse-temurin-21` y ejecuta `mvn -B -q -DskipTests package`, que genera un único JAR ejecutable de Spring Boot (`skillswap-platform-*.jar`); las pruebas no se ejecutan dentro de la imagen porque requieren Docker (Testcontainers) y se corren localmente antes de cada push. La etapa de ejecución usa la imagen `eclipse-temurin:21-jre`, que solo contiene el JRE y ese JAR, y ejecuta la aplicación con un usuario sin privilegios (`skillswap`). La variable `JAVA_TOOL_OPTIONS` limita la memoria de la JVM al 75 % de la disponible y reinicia el proceso ante un `OutOfMemoryError`, pensando en las instancias de 512 MB del plan gratuito. La aplicación escucha en el puerto de la variable de entorno `PORT` que asigna Render (`server.port=${PORT:8080}`, por defecto `8080`). El archivo `.dockerignore` excluye `target/`, `.git/`, `.idea/`, `.vscode/`, `docs/`, los archivos `.env` / `.env.*` y los logs.
 
 **Rama de despliegue:** Render construye la imagen Docker desde la rama `develop` del repositorio `SkillSwap-WebServices-Java`, y cada despliegue se lanza manualmente desde el panel de Render.
@@ -5214,10 +5215,10 @@ El despliegue abarca los tres productos digitales de la solución:
 *Deployment Diagram de SkillSwap (C4 Model)*
 
 <p align="center">
-  <img src="images-doc/c4-deployment-diagram.svg" alt="Deployment Diagram de SkillSwap" width="900">
+  <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram de SkillSwap" width="900">
 </p>
 
-*Nota.* Aplicaciones Android nativa y cross-platform como clientes de la API y Landing Page estático en GitHub Pages, API Spring Boot en un contenedor Docker con JRE 21 sobre Render, PostgreSQL administrado, y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat). Elaboración propia.
+*Nota.* Aplicaciones Android nativa y cross-platform como clientes de la API, API Spring Boot en un contenedor Docker con JRE 21 sobre Render, PostgreSQL administrado, y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat). Elaboración propia.
 
 ---
 

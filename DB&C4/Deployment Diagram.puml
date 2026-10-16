@@ -10,10 +10,6 @@ Deployment_Node(userDevice, "Dispositivo Móvil del Usuario", "Android"){
     Container(mlKitSdk, "ML Kit SDK", "Firebase On-Device", "Lee los datos del certificado en el dispositivo; la app los envía al backend en el multipart.")
 }
 
-Deployment_Node(staticHosting, "Hosting Estático", "GitHub Pages"){
-    Container(landingPage, "Landing Page", "HTML5 / CSS3 / JavaScript", "Sitio web estático que presenta el modelo de negocio de SkillSwap.")
-}
-
 Deployment_Node(cloudPlatform, "Render", "Plataforma Cloud"){
     Deployment_Node(backendRuntime, "Web Service", "Docker Container (JRE 21)"){
         Container(api, "SkillSwap API", "Java 21 / Spring Boot", "API RESTful que aloja los ocho Bounded Contexts y publica la documentación OpenAPI.")
