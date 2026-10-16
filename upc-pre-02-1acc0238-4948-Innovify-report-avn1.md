@@ -5990,11 +5990,11 @@ El Sprint 2 es la segunda iteración de desarrollo. Se concentra en llevar al di
 | Sprint # | Sprint 2 |
 |---|---|
 | **Sprint Planning Background** | |
-| Date | `[YYYY-MM-DD]` |
-| Time | `[HH:MM AM/PM]` |
-| Location | `[Virtual (Google Meet / Discord)]` |
+| Date | 2026-10-17 |
+| Time | 09:00 PM |
+| Location | Virtual (Google Meet) |
 | Prepared By | Alberca Saavedra, Víctor Manuel |
-| Attendees (to planning meeting) | `[Completar con los asistentes a la reunión]` |
+| Attendees (to planning meeting) | Alberca Saavedra, Víctor Manuel<br>Becerra Ninahuanca, Luis Angel<br>Lopez Montalvo, Kevin Edu<br>Komatsu Dueñas, David<br>Sulca Sánchez, Piero Angel |
 | Sprint n − 1 Review Summary | En el Sprint 1 se completaron 44 historias (154 SP): el backend de los ocho Bounded Contexts desplegado en Render y documentado con OpenAPI, el Landing Page publicado en GitHub Pages y el prototipo en Figma de las pantallas core de la aplicación móvil. |
 | Sprint n − 1 Retrospective Summary | `[Completar con los aciertos y oportunidades de mejora de la retrospectiva del Sprint 1]` |
 | **Sprint Goal & User Stories** | |
@@ -6022,15 +6022,10 @@ El equipo organiza el Sprint 2 en los aspectos que se muestran en la matriz: cua
 
 | Team Member (Last Name, First Name) | GitHub Username | Learning Path Engine | Assessment & Peer Review | Moderation & Disputes | Reputation & Recognition | App móvil: Estudiante | App móvil: Verificador | Despliegue (Render) | Landing Page |
 |---|---|---|---|---|---|---|---|---|---|
-
 | Alberca Saavedra, Víctor Manuel | Agnizzz |  | L | C |  |  |  | L |  |
-
 | Becerra Ninahuanca, Luis Angel | blafyy |  |  |  |  | C | L |  | L |
-
 | Lopez Montalvo, Kevin Edu | lopescamos |  |  |  |  | L | C |  |  |
-
 | Komatsu Dueñas, David | dakoduz |  | C |  |  | C |  |  |  |
-
 | Sulca Sánchez, Piero Angel | psulca | L |  | L | L |  | C |  |  |
 
 *Nota.* L = Leader, C = Collaborator. La matriz se deriva de la asignación de tasks del Sprint Backlog 2 (4.2.2.3): el líder de cada aspecto es el integrante con más horas asignadas en él. En los dos aspectos con empate de horas (App móvil: Estudiante, entre Lopez Montalvo y Komatsu Dueñas; Moderation & Disputes, entre Alberca Saavedra y Sulca Sánchez) se propone como líder a Lopez Montalvo y a Sulca Sánchez, respectivamente, a confirmar en el Sprint Planning 2. En el Despliegue (Render) y el Landing Page el Sprint 2 no agrega tasks, por lo que se mantienen los líderes del Sprint 1. Elaboración propia.
@@ -6055,47 +6050,26 @@ El objetivo del Sprint 2 es entregar en la aplicación móvil las funcionalidade
 |---|---|---|---|---|---|---|---|
 | **User Story** | | **Work-Item / Task** | | | | | |
 | Id | Title | Id | Title | Description | Estimation (Hours) | Assigned To | Status |
-
 | US11 | Captura del certificado con la cámara | T44 | Captura con la cámara | Pantalla de captura del certificado con la cámara del dispositivo y solicitud del permiso de cámara | 8 | Lopez Montalvo, Kevin Edu | To-Do |
-
 | US11 | Captura del certificado con la cámara | T45 | OCR on-device y envío al backend | Extracción de institución, curso y fecha con ML Kit y envío de los campos en el multipart de registro del certificado | 8 | Komatsu Dueñas, David | To-Do |
-
 | US07 | Confirmación de la habilidad interpretada | T46 | Opciones de habilidad interpretada | Respuesta del backend con las habilidades candidatas del catálogo cuando la meta admite varias interpretaciones | 5 | Sulca Sánchez, Piero Angel | To-Do |
-
 | US07 | Confirmación de la habilidad interpretada | T47 | Pantalla de confirmación de habilidad | Pantalla para elegir y confirmar la habilidad antes de construir la ruta | 5 | Becerra Ninahuanca, Luis Angel | To-Do |
-
 | US10 | Consulta de la ruta sin conexión | T48 | Almacenamiento local de la ruta | Persistencia local de la ruta de aprendizaje y sus nodos para consultarla sin conexión | 8 | Lopez Montalvo, Kevin Edu | To-Do |
-
 | US10 | Consulta de la ruta sin conexión | T49 | Modo sin conexión | Indicador de falta de conexión y actualización de la ruta al recuperarla | 5 | Lopez Montalvo, Kevin Edu | To-Do |
-
 | US21 | Conservación del avance ante pérdida de conexión | T50 | Persistencia local de respuestas del quiz | Guardado local de las respuestas del intento en curso | 8 | Komatsu Dueñas, David | To-Do |
-
 | US21 | Conservación del avance ante pérdida de conexión | T51 | Reenvío del intento al recuperar la conexión | Envío de las respuestas conservadas cuando vuelve la conexión | 5 | Komatsu Dueñas, David | To-Do |
-
-| US20 | Identificación del sub-tema débil | T52 | Sub-tema débil en el resultado del intento | Cálculo del sub-tema donde falló el Estudiante y su inclusión en el resultado del intento (backend) | 8 | Alberca Saavedra, Víctor Manuel | To-Do |
-
+| US20 | Identificación del sub-tema débil | T52 | Sub-tema débil en el resultado del intento | Cálculo del sub-tema donde falló el Estudiante y su inclusión en el resultado del intento (backend) | 8 | Alberca Saavedra, Víctor Manuel | Done |
 | US20 | Identificación del sub-tema débil | T53 | Pantalla de resultado con sub-tema a reforzar | Presentación del sub-tema débil en el resultado del quiz | 5 | Becerra Ninahuanca, Luis Angel | To-Do |
-
-| US19 | Entrega de un miniproyecto | T54 | Generación y entrega del miniproyecto | Miniproyecto generado para el nodo y endpoint de entrega de la evidencia (backend) | 13 | Alberca Saavedra, Víctor Manuel | To-Do |
-
+| US19 | Entrega de un miniproyecto | T54 | Generación y entrega del miniproyecto | Miniproyecto generado para el nodo y endpoint de entrega de la evidencia (backend) | 13 | Alberca Saavedra, Víctor Manuel | To-Review |
 | US19 | Entrega de un miniproyecto | T55 | Pantalla de entrega del miniproyecto | Pantalla para ver el enunciado y entregar el miniproyecto | 8 | Becerra Ninahuanca, Luis Angel | To-Do |
-
 | US19 | Entrega de un miniproyecto | T56 | Caso de verificación del miniproyecto | Apertura del caso de verificación al entregar el miniproyecto, con el tipo de caso correspondiente | 5 | Komatsu Dueñas, David | To-Do |
-
 | US33 | Compartir logros en LinkedIn | T57 | Contenido compartible de logros | Generación del texto y enlace con los SkillCredits y las habilidades verificadas del Verificador | 5 | Lopez Montalvo, Kevin Edu | To-Do |
-
 | US33 | Compartir logros en LinkedIn | T58 | Compartir en redes profesionales | Acción de compartir desde la aplicación hacia LinkedIn u otras redes | 3 | Becerra Ninahuanca, Luis Angel | To-Do |
-
-| US37 | Reevaluación de un resultado aprobado | T59 | Endpoint de reevaluación | Orden de reevaluación de un resultado aprobado por parte del Verificador senior (backend) | 5 | Alberca Saavedra, Víctor Manuel | To-Do |
-
+| US37 | Reevaluación de un resultado aprobado | T59 | Endpoint de reevaluación | Orden de reevaluación de un resultado aprobado por parte del Verificador senior (backend) | 5 | Alberca Saavedra, Víctor Manuel | Done |
 | US37 | Reevaluación de un resultado aprobado | T60 | Pantalla de reevaluación | Pantalla del Verificador senior para ordenar la reevaluación | 3 | Sulca Sánchez, Piero Angel | To-Do |
-
 | US38 | Suspensión de un Verificador con baja confiabilidad | T61 | Endpoint de suspensión | Suspensión temporal de la habilitación de un Verificador con su justificación (backend) | 5 | Sulca Sánchez, Piero Angel | To-Do |
-
 | US38 | Suspensión de un Verificador con baja confiabilidad | T62 | Pantalla de suspensión | Pantalla del Verificador senior para suspender a un Verificador | 3 | Sulca Sánchez, Piero Angel | To-Do |
-
 | US40 | Consulta de métricas de la plataforma | T63 | Consultas agregadas de métricas | Métricas agregadas de Estudiantes y Verificadores (backend) | 8 | Sulca Sánchez, Piero Angel | To-Do |
-
 | US40 | Consulta de métricas de la plataforma | T64 | Pantalla de métricas | Pantalla de métricas para el Verificador senior | 5 | Becerra Ninahuanca, Luis Angel | To-Do |
 
 *Nota.* Las 21 tasks suman 128 horas de estimación. La asignación fue acordada por el equipo; las estimaciones se ajustan en el Sprint Planning 2. Las tasks de pantallas y almacenamiento local del Estudiante (T44, T45, T47 a T51, T53 y T55) corresponden a la aplicación nativa (Kotlin / Jetpack Compose); las pantallas del Verificador (T57, T58, T60, T62 y T64), a la aplicación Flutter; el resto corresponde al backend (Java / Spring Boot). Elaboración propia.
@@ -6110,9 +6084,23 @@ Esta sección presenta los avances de implementación del Sprint 2 en los reposi
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |---|---|---|---|---|---|
-| `[repositorio]` | `[rama]` | `[hash]` | `[mensaje]` | `[cuerpo]` | `[fecha]` |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `046973c` | feat(learning-path): add optional sub-topic to assessment questions | `Question` incorpora un sub-tema opcional por pregunta. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `d8174d6` | feat(learning-path): persist and generate question sub-topics | Persistencia del sub-tema de cada pregunta (`QuestionListConverter`) y su generación con Gemini (`GeminiQuestionGenerator`). | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `02207be` | feat(assessment): add weak sub-topic analyzer | `WeakSubTopicAnalyzer` y `QuestionOutcome`: calculan el sub-tema donde el Estudiante falló más. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `98a7a6a` | feat(assessment): include weak sub-topic in attempt result | El resultado del intento incluye el sub-tema débil (`WeakSubTopicResolver`, `AssessmentAttemptDetail`) y la facade de Learning Path Engine expone los sub-temas de las preguntas. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `0bd71ab` | feat(assessment): expose weakSubTopic in attempt resource | `AssessmentAttemptResource` expone `weakSubTopic` en `POST` y `GET /api/v1/assessment-attempts`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `8b1f969` | feat(learning-path): expose node reopening in the context facade | La facade de Learning Path Engine expone la reapertura de un nodo (`ReopenPathNodeCommand`, `NodeReopenOutcome`) para la reevaluación. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `51ac917` | feat(assessment): add reevaluation record and case reopening | Agregado `Reevaluation`, tabla `reevaluations` (V11) y reapertura de un `VerificationCase` aprobado. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `4279fb0` | feat(assessment): order the reevaluation of an approved result | `ReevaluationCommandService`: el Verificador senior ordena la reevaluación de un resultado aprobado, con sus errores y mensajes. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `1e93cae` | feat(assessment): add the reevaluations endpoint | `POST /api/v1/reevaluations` con `ReevaluationsController` y sus resources. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `f27cd92` | feat(learning-path): add the mini-project aggregate and its persistence | Agregado `MiniProject` con su rúbrica (`RubricCriterion`) y persistencia JPA. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `9db1f0b` | feat(learning-path): generate mini-projects with AI and expose them in the context facade | Generación del miniproyecto con IA (`MiniProjectCommandService`) y su exposición en la facade del contexto (`MiniProjectView`). | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `d6fe2a8` | feat(learning-path): add the mini-project endpoints | `MiniProjectsController`: `POST` y `GET /api/v1/path-nodes/{nodeId}/mini-project`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `e183dce` | feat(assessment): add the mini-project submission and its persistence | Agregado `MiniProjectSubmission`, evento `MiniProjectSubmitted` y tabla `mini_project_submissions` (V13). | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `b08f956` | feat(assessment): receive the delivery of a mini-project | `MiniProjectSubmissionCommandService`: recepción de la entrega con validación de dueño, vigencia y plazo. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `17f11ca` | feat(assessment): add the mini-project submissions endpoint | `MiniProjectSubmissionsController`: `POST /api/v1/mini-projects/{miniProjectId}/submissions`. | 2026-10-16 |
 
-*Nota.* Completar con `git log` de cada repositorio al cierre del Sprint 2. Elaboración propia.
+*Nota.* Commits del repositorio `SkillSwap-WebServices-Java` a la fecha, correspondientes a las tasks T52, T54 y T59; las ramas `feature/assessment-weak-subtopic` y `feature/assessment-reevaluation` ya se integraron en `develop` (PR #16 y #17) y `feature/miniproject-delivery` tiene su Pull Request abierto. Se completa con los demás repositorios y commits al cierre del Sprint 2. Elaboración propia.
 
 #### 4.2.2.5. Testing Suite Evidence for Sprint Review
 
@@ -6124,9 +6112,23 @@ Se presentan las pruebas unitarias y de integración que cubren las historias de
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |---|---|---|---|---|---|
-| `[repositorio]` | `[rama]` | `[hash]` | `[mensaje]` | `[cuerpo]` | `[fecha]` |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `046973c` | feat(learning-path): add optional sub-topic to assessment questions | Pruebas: `QuestionAndBlueprintTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `d8174d6` | feat(learning-path): persist and generate question sub-topics | Pruebas: `GeminiQuestionGeneratorTest`, `LearningPathConvertersTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `02207be` | feat(assessment): add weak sub-topic analyzer | Pruebas: `WeakSubTopicAnalyzerTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `98a7a6a` | feat(assessment): include weak sub-topic in attempt result | Pruebas: `WeakSubTopicResolverTest`, `AssessmentAttemptCommandServiceImplTest`, `QueryServicesImplTest`, `LearningPathContextFacadeImplTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `0bd71ab` | feat(assessment): expose weakSubTopic in attempt resource | Pruebas: `AssessmentPeerReviewApiIntegrationTest`, `AssessmentPeerReviewResourceAssemblersTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `8b1f969` | feat(learning-path): expose node reopening in the context facade | Pruebas: `LearningPathContextFacadeImplTest`, `LearningPathCommandServiceImplTest`, `LearningPathErrorTest`, `LearningPathTest`, `LearningPathActionResultAssemblerTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `51ac917` | feat(assessment): add reevaluation record and case reopening | Pruebas: `ReevaluationTest`, `VerificationCaseTest`, `AssessmentPeerReviewPersistenceTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `4279fb0` | feat(assessment): order the reevaluation of an approved result | Pruebas: `ReevaluationCommandServiceImplTest`, `AssessmentPeerReviewActionResultAssemblerTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `1e93cae` | feat(assessment): add the reevaluations endpoint | Pruebas: `AssessmentPeerReviewResourceAssemblersTest`, `ReevaluationsIntegrationTest`, `PostgresIntegrationTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `f27cd92` | feat(learning-path): add the mini-project aggregate and its persistence | Pruebas: `LearningPathErrorTest`, `MiniProjectTest`, `LearningPathPersistenceTest`, `LearningPathActionResultAssemblerTest`, `PostgresIntegrationTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `9db1f0b` | feat(learning-path): generate mini-projects with AI and expose them in the context facade | Pruebas: `LearningPathContextFacadeImplTest`, `MiniProjectCommandServiceImplTest`, `MiniProjectQueryServiceImplTest`, `GeminiMiniProjectGeneratorTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `d6fe2a8` | feat(learning-path): add the mini-project endpoints | Pruebas: `MiniProjectApiIntegrationTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `e183dce` | feat(assessment): add the mini-project submission and its persistence | Pruebas: `MiniProjectSubmissionTest`, `AssessmentPeerReviewPersistenceTest`, `AssessmentPeerReviewActionResultAssemblerTest`, `PostgresIntegrationTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `b08f956` | feat(assessment): receive the delivery of a mini-project | Pruebas: `MiniProjectSubmissionCommandServiceImplTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `17f11ca` | feat(assessment): add the mini-project submissions endpoint | Pruebas: `MiniProjectSubmissionsIntegrationTest`. | 2026-10-16 |
 
-*Nota.* Completar con los commits de pruebas del Sprint 2. Elaboración propia.
+*Nota.* Commits del backend a la fecha que incluyen pruebas automatizadas (unitarias y de integración). Se completa al cierre del Sprint 2. Elaboración propia.
 
 #### 4.2.2.6. Execution Evidence for Sprint Review
 
@@ -6198,22 +6200,17 @@ Los endpoints incorporados en el Sprint 2 se documentan con OpenAPI 3.1 mediante
 
 | Verbo | Endpoint | Acción | Auth | Parámetros | Respuestas |
 |---|---|---|---|---|---|
-
 | `[verbo]` | `[endpoint]` | Confirmar la habilidad interpretada (US07) | `[Auth]` | `[parámetros]` | `[respuestas]` |
-
-| `[verbo]` | `[endpoint]` | Consultar el sub-tema débil de un intento (US20) | `[Auth]` | `[parámetros]` | `[respuestas]` |
-
-| `[verbo]` | `[endpoint]` | Entregar un miniproyecto (US19) | `[Auth]` | `[parámetros]` | `[respuestas]` |
-
+| GET | `/api/v1/assessment-attempts/{id}` | Consultar el sub-tema débil de un intento (US20) | Sí (Student dueño) | Path: `id` | `200` `AssessmentAttemptResource` (incluye `weakSubTopic`, nulo si no hay un sub-tema débil) · `403` intento de otro Estudiante · `404` intento inexistente |
+| POST | `/api/v1/path-nodes/{nodeId}/mini-project` | Generar el miniproyecto de un nodo, o devolver el vigente (US19) | Sí (Student) | Path: `nodeId` · Query: `regenerate` (opcional, por defecto `false`) | `200` miniproyecto vigente · `201` miniproyecto generado con IA (enunciado, rúbrica de 4 a 6 criterios y plazo de 5 días) · `403` nodo de otro Estudiante · `404` · `409` nodo bloqueado, ruta completada o en pausa · `503` `MiniProjectGenerationFailed` |
+| GET | `/api/v1/path-nodes/{nodeId}/mini-project` | Consultar el último miniproyecto de un nodo (US19) | Sí (Student) | Path: `nodeId` | `200` miniproyecto · `404` `MiniProjectNotFound` |
+| POST | `/api/v1/mini-projects/{miniProjectId}/submissions` | Entregar un miniproyecto (US19) | Sí (Student dueño) | Path: `miniProjectId` · Body: `repositoryUrl` (http o https, hasta 500 caracteres) | `201` entrega recibida (publica el evento `MiniProjectSubmitted`) · `400` `InvalidRepositoryUrl` · `403` `NotMiniProjectOwner` · `404` · `409` `MiniProjectOutdated`, `MiniProjectExpired` o `MiniProjectAlreadySubmitted` |
 | `[verbo]` | `[endpoint]` | Obtener el contenido compartible de logros (US33) | `[Auth]` | `[parámetros]` | `[respuestas]` |
-
-| `[verbo]` | `[endpoint]` | Ordenar la reevaluación de un resultado aprobado (US37) | `[Auth]` | `[parámetros]` | `[respuestas]` |
-
+| POST | `/api/v1/reevaluations` | Ordenar la reevaluación de un resultado aprobado (US37) | Sí (Verificador senior) | Body: `sourceType` (`Attempt` o `Case`), `sourceId`, `justification` (hasta 2000 caracteres) | `201` reevaluación registrada (el nodo vuelve a disponible o el caso se reabre) · `400` tipo de origen o justificación inválidos · `403` no es Verificador senior, o es su propio resultado · `404` · `409` resultado no aprobado, nodo que no puede reabrirse o caso en curso |
 | `[verbo]` | `[endpoint]` | Suspender a un Verificador (US38) | `[Auth]` | `[parámetros]` | `[respuestas]` |
-
 | `[verbo]` | `[endpoint]` | Consultar métricas de la plataforma (US40) | `[Auth]` | `[parámetros]` | `[respuestas]` |
 
-*Nota.* Completar con los endpoints reales del backend. Elaboración propia.
+*Nota.* Endpoints implementados a la fecha (tasks T52, T54 y T59); los demás se completan conforme avance el Sprint 2. Elaboración propia.
 
 **Figura 149**
 
