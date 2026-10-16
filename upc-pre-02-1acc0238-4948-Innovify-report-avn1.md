@@ -205,6 +205,7 @@ Durante el desarrollo de la entrega TB1, el equipo mantuvo el mismo esquema de c
     - [4.1.4. Software Deployment Configuration](#414-software-deployment-configuration)
   - [4.2. Landing Page, Services & Applications Implementation](#42-landing-page-services--applications-implementation)
     - [4.2.1. Sprint 1](#421-sprint-1)
+    - [4.2.2. Sprint 2](#422-sprint-2)
 - [Conclusiones](#conclusiones)
 - [Glosario](#glosario)
 - [Bibliografía](#bibliografía)
@@ -281,6 +282,16 @@ Para revisar casos de otros usuarios, el Estudiante debe habilitarse como Verifi
 Innovify plantea para SkillSwap un modelo de negocio B2C freemium. Todo Estudiante empieza con un plan gratuito (S/ 0), que le permite tener 1 ruta activa a la vez y hasta 3 rutas en total, y escalar 3 casos al mes a un Verificador, que se revisan en un plazo de hasta 5 días hábiles. Cuando llega a uno de esos límites, la aplicación le muestra la pantalla "Alcanzaste el límite de tu plan", donde puede pasar al plan mensual o continuar con el plan gratuito. El plan mensual cuesta S/ 29,90 al mes, IGV incluido, se cobra mediante Google Play Billing, integrado a través de RevenueCat, y amplía esos límites: hasta 3 rutas activas a la vez, sin tope de rutas en total, y 10 escalamientos al mes a un Verificador, cuyos casos se revisan en 48 horas; además, reduce los tiempos de espera. La ruta avanzada que un Verificador obtiene al canjear SkillCredits no consume el cupo de rutas del plan gratuito. Ningún plan compra la aprobación: las evaluaciones y los criterios son los mismos para todos. No existen pagos directos ni comisiones entre Estudiantes y Verificadores. Además, la supervisión del proceso la ejercen los Verificadores senior, es decir, los Verificadores que alcanzaron el rango Oro y mantienen una confiabilidad de 90 o más, en la escala de 0 a 100 con la que la plataforma la mide: monitorean la confiabilidad de las revisiones, resuelven las disputas por certificados sospechosos y consultan métricas generales sobre la actividad del ecosistema. Las apelaciones, en cambio, las revisa un Verificador distinto del que tomó la decisión original.
 
 La asignación de casos se realiza automáticamente considerando la habilidad requerida, el historial y la disponibilidad de los Verificadores. Asimismo, SkillSwap incorpora mecanismos de confianza como la verificación del correo electrónico, el historial auditable de las evaluaciones y la habilitación de Verificadores a partir de las certificaciones obtenidas dentro de la plataforma. Estos mecanismos buscan reducir la dependencia de declaraciones no comprobadas y favorecer un proceso de validación consistente.
+
+#### Rol del Verificador
+
+El Verificador es el actor que sostiene la confiabilidad de las habilidades certificadas en SkillSwap. No es un perfil aparte: es un Estudiante habilitado para una habilidad concreta, cuya tarea es decidir, con criterios estructurados, si el trabajo de otro Estudiante demuestra realmente esa habilidad.
+
+* **Cómo se habilita:** completando, en su propia ruta, el nodo de la habilidad que desea verificar. La habilitación es por habilidad, no general.
+* **Qué hace:** revisa los casos de verificación que se abren cuando un intento de evaluación (*quiz* o miniproyecto) no se aprueba. El sistema se los asigna según la habilidad requerida, su historial y su disponibilidad, que el Verificador activa o desactiva. Evalúa la evidencia con la rúbrica y registra su decisión (aprobar o rechazar) con observaciones, dentro del plazo del caso; si el plazo vence, el caso se reasigna a otro Verificador.
+* **Qué recibe:** SkillCredits por cada caso resuelto, lo apruebe o lo rechace (40 por un miniproyecto y 25 por un *quiz*). No son dinero: no se compran ni se transfieren, y se canjean por beneficios de la plataforma (ruta avanzada o certificado de contribución).
+* **Cómo se supervisa su trabajo:** su confiabilidad, de 0 a 100, se calcula con sus casos resueltos y revertidos, y su rango (Bronce, Plata u Oro) depende de la cantidad de casos resueltos. Si un Estudiante apela un rechazo (una apelación por caso), lo revisa un Verificador distinto del original; si la decisión se revierte, queda registrada en la confiabilidad del Verificador original.
+* **Verificador senior:** es el Verificador con rango Oro y confiabilidad de 90 o más. Además de revisar casos, resuelve las disputas por certificados sospechosos (los confirma como verificados o los rechaza), ordena la reevaluación de resultados aprobados cuando hay dudas, suspende temporalmente a los Verificadores con baja confiabilidad y consulta las métricas agregadas de la plataforma.
 
 #### Visión
 
@@ -5949,6 +5960,295 @@ Durante el Sprint 1, el backend se construyó entre dos integrantes. Alberca Saa
 
 
 
+### 4.2.2. Sprint 2
+
+#### 4.2.2.1. Sprint Planning 2
+
+El Sprint 2 es la segunda iteración de desarrollo. Se concentra en llevar al dispositivo móvil la experiencia del Estudiante (captura del certificado con la cámara, confirmación de la habilidad interpretada, consulta de la ruta sin conexión y conservación del avance del quiz), en completar el ciclo de evaluación práctica con el miniproyecto y la identificación del sub-tema débil, y en incorporar las herramientas de supervisión del Verificador senior y el logro compartible del Verificador. Entran al Sprint las 10 historias de mayor prioridad que seguían sin sprint en el Product Backlog (43 SP); las tres restantes (US03, US28 y US29, 14 SP) quedan para el Sprint 3, de modo que la demostración final y el cierre de la aplicación se trabajen en la semana 14.
+
+**Tabla 26**
+
+*Sprint Planning 2*
+
+| Sprint # | Sprint 2 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | `[YYYY-MM-DD]` |
+| Time | `[HH:MM AM/PM]` |
+| Location | `[Virtual (Google Meet / Discord)]` |
+| Prepared By | Alberca Saavedra, Víctor Manuel |
+| Attendees (to planning meeting) | `[Completar con los asistentes a la reunión]` |
+| Sprint n − 1 Review Summary | En el Sprint 1 se completaron 44 historias (154 SP): el backend de los ocho Bounded Contexts desplegado en Render y documentado con OpenAPI, el Landing Page publicado en GitHub Pages y el prototipo en Figma de las pantallas core de la aplicación móvil. |
+| Sprint n − 1 Retrospective Summary | `[Completar con los aciertos y oportunidades de mejora de la retrospectiva del Sprint 1]` |
+| **Sprint Goal & User Stories** | |
+| Sprint 2 Goal | Our focus is on llevar la experiencia del Estudiante a la aplicación móvil, completar el ciclo de evaluación práctica y dotar al Verificador senior de las herramientas de supervisión. We believe it delivers una verificación de habilidades utilizable desde el celular, incluso sin conexión estable, y un proceso de verificación supervisado, a los Estudiantes y Verificadores. This will be confirmed when un Estudiante puede, desde la aplicación instalada en un dispositivo físico, capturar un certificado, completar un quiz y consultar su ruta sin conexión, y un Verificador senior puede reevaluar un resultado, suspender a un Verificador y consultar las métricas de la plataforma desde el backend desplegado. |
+| Sprint 2 Velocity | 43 SP |
+| Sum of Story Points | 43 SP |
+
+*Nota.* Historias del Sprint 2: US11, US07, US10, US21, US20, US19, US33, US37, US38, US40. Elaboración propia.
+
+**Figura 140**
+
+*Reunión de Sprint Planning 2*
+
+`[INSERTAR CAPTURA: reunión de Sprint Planning 2 (captura de la videollamada)]`
+
+*Nota.* Reunión de Sprint Planning 2. Elaboración propia.
+
+#### 4.2.2.2. Aspect Leaders and Collaborators
+
+El equipo organiza el Sprint 2 en los aspectos que se muestran en la matriz: cuatro frentes del backend, las dos experiencias de la aplicación móvil (Estudiante y Verificador), el despliegue y el Landing Page. La asignación de líderes y colaboradores debe ser coherente con la de las tasks del Sprint Backlog 2 (4.2.2.3).
+
+**Tabla 27**
+
+*Leadership-and-Collaboration Matrix del Sprint 2*
+
+| Team Member (Last Name, First Name) | GitHub Username | Learning Path Engine | Assessment & Peer Review | Moderation & Disputes | Reputation & Recognition | App móvil: Estudiante | App móvil: Verificador | Despliegue (Render) | Landing Page |
+|---|---|---|---|---|---|---|---|---|---|
+
+| Alberca Saavedra, Víctor Manuel | Agnizzz | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` |
+
+| Becerra Ninahuanca, Luis Angel | blafyy | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` |
+
+| Lopez Montalvo, Kevin Edu | lopescamos | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` |
+
+| Komatsu Dueñas, David | dakoduz | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` |
+
+| Sulca Sánchez, Piero Angel | psulca | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` |
+
+*Nota.* L = Leader, C = Collaborator. Completar con la asignación acordada en el Sprint Planning 2. Elaboración propia.
+
+#### 4.2.2.3. Sprint Backlog 2
+
+El objetivo del Sprint 2 es entregar en la aplicación móvil las funcionalidades core del Estudiante, completar en el backend el ciclo de evaluación práctica y habilitar la supervisión del Verificador senior. El tablero del Sprint 2 se gestiona en el mismo tablero de Trello del Product Backlog.
+
+**Figura 141**
+
+*Sprint Backlog 2 en Trello*
+
+`[INSERTAR CAPTURA: lista Sprint 2 del tablero de Trello con las 10 historias]`
+
+*Nota.* Lista Sprint 2 del tablero del Product Backlog en Trello. URL público del Board: [https://trello.com/b/sTMGwnPf/skillswap-product-backlog](https://trello.com/b/sTMGwnPf/skillswap-product-backlog). Elaboración propia.
+
+**Tabla 28**
+
+*Sprint Backlog 2*
+
+| Sprint # | Sprint 2 | | | | | | |
+|---|---|---|---|---|---|---|---|
+| **User Story** | | **Work-Item / Task** | | | | | |
+| Id | Title | Id | Title | Description | Estimation (Hours) | Assigned To | Status |
+
+| US11 | Captura del certificado con la cámara | T44 | Captura con la cámara | Pantalla de captura del certificado con la cámara del dispositivo y solicitud del permiso de cámara | 8 | `[Asignar]` | To-Do |
+
+| US11 | Captura del certificado con la cámara | T45 | OCR on-device y envío al backend | Extracción de institución, curso y fecha con ML Kit y envío de los campos en el multipart de registro del certificado | 8 | `[Asignar]` | To-Do |
+
+| US07 | Confirmación de la habilidad interpretada | T46 | Opciones de habilidad interpretada | Respuesta del backend con las habilidades candidatas del catálogo cuando la meta admite varias interpretaciones | 5 | `[Asignar]` | To-Do |
+
+| US07 | Confirmación de la habilidad interpretada | T47 | Pantalla de confirmación de habilidad | Pantalla para elegir y confirmar la habilidad antes de construir la ruta | 5 | `[Asignar]` | To-Do |
+
+| US10 | Consulta de la ruta sin conexión | T48 | Almacenamiento local de la ruta | Persistencia local de la ruta de aprendizaje y sus nodos para consultarla sin conexión | 8 | `[Asignar]` | To-Do |
+
+| US10 | Consulta de la ruta sin conexión | T49 | Modo sin conexión | Indicador de falta de conexión y actualización de la ruta al recuperarla | 5 | `[Asignar]` | To-Do |
+
+| US21 | Conservación del avance ante pérdida de conexión | T50 | Persistencia local de respuestas del quiz | Guardado local de las respuestas del intento en curso | 8 | `[Asignar]` | To-Do |
+
+| US21 | Conservación del avance ante pérdida de conexión | T51 | Reenvío del intento al recuperar la conexión | Envío de las respuestas conservadas cuando vuelve la conexión | 5 | `[Asignar]` | To-Do |
+
+| US20 | Identificación del sub-tema débil | T52 | Sub-tema débil en el resultado del intento | Cálculo del sub-tema donde falló el Estudiante y su inclusión en el resultado del intento (backend) | 8 | `[Asignar]` | To-Do |
+
+| US20 | Identificación del sub-tema débil | T53 | Pantalla de resultado con sub-tema a reforzar | Presentación del sub-tema débil en el resultado del quiz | 5 | `[Asignar]` | To-Do |
+
+| US19 | Entrega de un miniproyecto | T54 | Generación y entrega del miniproyecto | Miniproyecto generado para el nodo y endpoint de entrega de la evidencia (backend) | 13 | `[Asignar]` | To-Do |
+
+| US19 | Entrega de un miniproyecto | T55 | Pantalla de entrega del miniproyecto | Pantalla para ver el enunciado y entregar el miniproyecto | 8 | `[Asignar]` | To-Do |
+
+| US19 | Entrega de un miniproyecto | T56 | Caso de verificación del miniproyecto | Apertura del caso de verificación al entregar el miniproyecto, con el tipo de caso correspondiente | 5 | `[Asignar]` | To-Do |
+
+| US33 | Compartir logros en LinkedIn | T57 | Contenido compartible de logros | Generación del texto y enlace con los SkillCredits y las habilidades verificadas del Verificador | 5 | `[Asignar]` | To-Do |
+
+| US33 | Compartir logros en LinkedIn | T58 | Compartir en redes profesionales | Acción de compartir desde la aplicación hacia LinkedIn u otras redes | 3 | `[Asignar]` | To-Do |
+
+| US37 | Reevaluación de un resultado aprobado | T59 | Endpoint de reevaluación | Orden de reevaluación de un resultado aprobado por parte del Verificador senior (backend) | 5 | `[Asignar]` | To-Do |
+
+| US37 | Reevaluación de un resultado aprobado | T60 | Pantalla de reevaluación | Pantalla del Verificador senior para ordenar la reevaluación | 3 | `[Asignar]` | To-Do |
+
+| US38 | Suspensión de un Verificador con baja confiabilidad | T61 | Endpoint de suspensión | Suspensión temporal de la habilitación de un Verificador con su justificación (backend) | 5 | `[Asignar]` | To-Do |
+
+| US38 | Suspensión de un Verificador con baja confiabilidad | T62 | Pantalla de suspensión | Pantalla del Verificador senior para suspender a un Verificador | 3 | `[Asignar]` | To-Do |
+
+| US40 | Consulta de métricas de la plataforma | T63 | Consultas agregadas de métricas | Métricas agregadas de Estudiantes y Verificadores (backend) | 8 | `[Asignar]` | To-Do |
+
+| US40 | Consulta de métricas de la plataforma | T64 | Pantalla de métricas | Pantalla de métricas para el Verificador senior | 5 | `[Asignar]` | To-Do |
+
+*Nota.* Las 21 tasks suman 128 horas de estimación. Las estimaciones y las asignaciones se ajustan en el Sprint Planning 2. Elaboración propia.
+
+#### 4.2.2.4. Development Evidence for Sprint Review
+
+Esta sección presenta los avances de implementación del Sprint 2 en los repositorios `SkillSwap-WebServices-Java`, `SkillSwap-MobileApp`, `SkillSwap-MobileApp-Flutter` y `SkillSwap-LandingPage`, con sus commits bajo Conventional Commits y un Pull Request por rama de feature integrado en `develop`.
+
+**Tabla 29**
+
+*Commits de desarrollo en el Sprint 2*
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| `[repositorio]` | `[rama]` | `[hash]` | `[mensaje]` | `[cuerpo]` | `[fecha]` |
+
+*Nota.* Completar con `git log` de cada repositorio al cierre del Sprint 2. Elaboración propia.
+
+#### 4.2.2.5. Testing Suite Evidence for Sprint Review
+
+Se presentan las pruebas unitarias y de integración que cubren las historias del Sprint 2, con la misma estrategia del Sprint 1 (JUnit 5, AssertJ, MockMvc y Testcontainers en el backend) y las pruebas de la aplicación móvil que correspondan.
+
+**Tabla 30**
+
+*Commits del Sprint 2 que incorporan pruebas automatizadas*
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| `[repositorio]` | `[rama]` | `[hash]` | `[mensaje]` | `[cuerpo]` | `[fecha]` |
+
+*Nota.* Completar con los commits de pruebas del Sprint 2. Elaboración propia.
+
+#### 4.2.2.6. Execution Evidence for Sprint Review
+
+Esta sección presenta las vistas principales implementadas en el Sprint 2, ejecutadas en un dispositivo físico, junto con el video que muestra la navegación lograda: `[INSERTAR ENLACE DEL VIDEO]`.
+
+**Figura 142**
+
+*Captura del certificado con la cámara y lectura con ML Kit*
+
+`[INSERTAR CAPTURA: captura del certificado con la cámara y datos extraídos (US11)]`
+
+*Nota.* Elaboración propia.
+
+**Figura 143**
+
+*Confirmación de la habilidad interpretada*
+
+`[INSERTAR CAPTURA: pantalla de confirmación de la habilidad (US07)]`
+
+*Nota.* Elaboración propia.
+
+**Figura 144**
+
+*Consulta de la ruta sin conexión*
+
+`[INSERTAR CAPTURA: ruta de aprendizaje consultada sin conexión (US10)]`
+
+*Nota.* Elaboración propia.
+
+**Figura 145**
+
+*Quiz con respuestas conservadas ante la pérdida de conexión*
+
+`[INSERTAR CAPTURA: quiz con el avance conservado (US21)]`
+
+*Nota.* Elaboración propia.
+
+**Figura 146**
+
+*Resultado del quiz con el sub-tema débil*
+
+`[INSERTAR CAPTURA: resultado con el sub-tema a reforzar (US20)]`
+
+*Nota.* Elaboración propia.
+
+**Figura 147**
+
+*Entrega de un miniproyecto*
+
+`[INSERTAR CAPTURA: pantalla de entrega del miniproyecto (US19)]`
+
+*Nota.* Elaboración propia.
+
+**Figura 148**
+
+*Herramientas del Verificador senior*
+
+`[INSERTAR CAPTURA: reevaluación, suspensión y métricas (US37, US38, US40) y compartir logros (US33)]`
+
+*Nota.* Elaboración propia.
+
+#### 4.2.2.7. Services Documentation Evidence for Sprint Review
+
+Los endpoints incorporados en el Sprint 2 se documentan con OpenAPI 3.1 mediante springdoc-openapi, en la misma documentación interactiva del backend desplegado (`/swagger-ui/index.html`).
+
+**Tabla 31**
+
+*Endpoints documentados en el Sprint 2*
+
+| Verbo | Endpoint | Acción | Auth | Parámetros | Respuestas |
+|---|---|---|---|---|---|
+
+| `[verbo]` | `[endpoint]` | Confirmar la habilidad interpretada (US07) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+| `[verbo]` | `[endpoint]` | Consultar el sub-tema débil de un intento (US20) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+| `[verbo]` | `[endpoint]` | Entregar un miniproyecto (US19) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+| `[verbo]` | `[endpoint]` | Obtener el contenido compartible de logros (US33) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+| `[verbo]` | `[endpoint]` | Ordenar la reevaluación de un resultado aprobado (US37) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+| `[verbo]` | `[endpoint]` | Suspender a un Verificador (US38) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+| `[verbo]` | `[endpoint]` | Consultar métricas de la plataforma (US40) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+*Nota.* Completar con los endpoints reales del backend. Elaboración propia.
+
+**Figura 149**
+
+*Documentación Swagger de los endpoints del Sprint 2*
+
+`[INSERTAR CAPTURA: Swagger UI con los endpoints del Sprint 2 y un ejemplo de request/response]`
+
+*Nota.* Elaboración propia.
+
+**Tabla 32**
+
+*Commits relacionados con la documentación de los Web Services en el Sprint 2*
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| `[repositorio]` | `[rama]` | `[hash]` | `[mensaje]` | `[cuerpo]` | `[fecha]` |
+
+*Nota.* Completar con los commits de documentación del Sprint 2. Elaboración propia.
+
+#### 4.2.2.8. Software Deployment Evidence for Sprint Review
+
+Para el hito AV2 el backend debe estar desplegado al 100 % en un sitio público con su documentación, y el Landing Page debe seguir publicado. Esta sección resume el despliegue del Sprint 2 con el servicio de Render ya configurado en el Sprint 1 (ver 4.1.4 y 4.2.1.8).
+
+**Figura 150**
+
+*Backend desplegado en Render con las funcionalidades del Sprint 2*
+
+`[INSERTAR CAPTURA: panel de Render con el último despliegue exitoso y el health check]`
+
+*Nota.* Elaboración propia.
+
+**Figura 151**
+
+*Landing Page publicado y verificado en el Sprint 2*
+
+`[INSERTAR CAPTURA: Landing Page en línea]`
+
+*Nota.* Elaboración propia.
+
+#### 4.2.2.9. Team Collaboration Insights during Sprint
+
+Esta sección presenta los analíticos de colaboración del Sprint 2 en los repositorios del proyecto y su interpretación: `[describir la participación de cada integrante por repositorio y frente]`.
+
+**Figura 152**
+
+*Historial de commits de los repositorios durante el Sprint 2*
+
+`[INSERTAR CAPTURA: GitHub Insights / historial de commits del Sprint 2 por repositorio]`
+
+*Nota.* Elaboración propia.
+
+
 ---
 
 
@@ -6143,6 +6443,13 @@ Tabla 22. *Pruebas unitarias y de integración por Bounded Context y capa*<br>
 Tabla 23. *Commits del Sprint 1 que incorporan pruebas automatizadas*<br>
 Tabla 24. *Endpoints documentados en el Sprint 1*<br>
 Tabla 25. *Commits relacionados con la documentación de los Web Services*<br>
+Tabla 26. *Sprint Planning 2*<br>
+Tabla 27. *Leadership-and-Collaboration Matrix del Sprint 2*<br>
+Tabla 28. *Sprint Backlog 2*<br>
+Tabla 29. *Commits de desarrollo en el Sprint 2*<br>
+Tabla 30. *Commits del Sprint 2 que incorporan pruebas automatizadas*<br>
+Tabla 31. *Endpoints documentados en el Sprint 2*<br>
+Tabla 32. *Commits relacionados con la documentación de los Web Services en el Sprint 2*<br>
 
 ---
 
@@ -6287,6 +6594,19 @@ Figura 136. *Dockerfile del backend*<br>
 Figura 137. *Health check del backend en Render*<br>
 Figura 138. *Landing Page publicado en GitHub Pages*<br>
 Figura 139. *Historial de commits del repositorio SkillSwap-WebServices-Java durante el Sprint 1*<br>
+Figura 140. *Reunión de Sprint Planning 2*<br>
+Figura 141. *Sprint Backlog 2 en Trello*<br>
+Figura 142. *Captura del certificado con la cámara y lectura con ML Kit*<br>
+Figura 143. *Confirmación de la habilidad interpretada*<br>
+Figura 144. *Consulta de la ruta sin conexión*<br>
+Figura 145. *Quiz con respuestas conservadas ante la pérdida de conexión*<br>
+Figura 146. *Resultado del quiz con el sub-tema débil*<br>
+Figura 147. *Entrega de un miniproyecto*<br>
+Figura 148. *Herramientas del Verificador senior*<br>
+Figura 149. *Documentación Swagger de los endpoints del Sprint 2*<br>
+Figura 150. *Backend desplegado en Render con las funcionalidades del Sprint 2*<br>
+Figura 151. *Landing Page publicado y verificado en el Sprint 2*<br>
+Figura 152. *Historial de commits de los repositorios durante el Sprint 2*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
