@@ -69,6 +69,7 @@ Octubre 2026
 | **v.02.TB1** | 07/10/2026 |  Alberca Saavedra, Víctor Manuel<br>Becerra Ninahuanca, Luis Angel<br>Lopez Montalvo, Kevin Edu<br>Komatsu Dueñas, David<br>Sulca Sánchez, Piero Angel | Se corrigieron y actualizaron los siguientes tópicos, a partir de las decisiones reales tomadas durante la construcción del backend:<br><br>**Capítulo I: Presentación**<br>1.1.1. Descripción de la Startup (modelo de negocio: suscripción mensual vía Google Play Billing, SkillCredits no adquiribles)<br>1.1.2. Perfiles de integrantes del equipo<br>1.2.1. Antecedentes y problemática (corrección de Identity & Access: dominio institucional exigido desde el registro)<br>1.2.2. Lean UX Process (pasarela de pago unificada a Google Play Billing)<br>1.3. Segmentos objetivo<br><br>**Capítulo II: Requirements Development and Software Solution Design**<br>2.1. Competidores<br>2.4.1. User Stories (corrección de US05, US06, US18, US22, US24, US25, US26; se difirieron US07, US19, US20; se agregaron TS11 y TS12)<br>2.4.3. Product Backlog (55 → 57 historias, 204 → 211 Story Points; columna Sprint completada)<br>2.5.1. EventStorming (pasarela de pago y validación de correo institucional)<br>2.5.2. Context Mapping (pasarela de pago, mecanismo de eventos de dominio entre Assessment & Peer Review, Reputation y Recognition & Incentives)<br>2.5.3.1. Software Architecture Context Level Diagrams<br>2.5.3.2. Software Architecture Container Level Diagrams (colapso de los ocho Bounded Contexts en un único contenedor de API, consistente con el nivel de un Container Diagram)<br>2.5.3.3. Software Architecture Deployment Diagrams (MySQL → PostgreSQL, corrección del origen de la llamada a ML Kit)<br>2.6.4. Bounded Context: Assessment & Peer Review (reescritura completa al modelo mínimo realmente implementado)<br>2.6.4.5. Component Diagram de Assessment & Peer Review<br>2.6.5.5. Component Diagram de Reputation<br>2.6.6. Bounded Context: Recognition & Incentives (renombrado de Wallet & Incentives) y su Component Diagram<br>2.6.8. Bounded Context: Subscription & Billing (pasarela renombrada a Google Play Billing; `charge()` corregido a `verifyPurchase()`)<br>Diagrama de Clases general (eliminación de la clase `CreditPurchase`, corrección de `VerifierProfile`, `VerificationCase`, `CreditTransaction`, `Subscription`)<br>Diagrama de Base de Datos general (migración completa a PostgreSQL, corrección de índices únicos parciales, eliminación de `credit_purchases`)<br><br>**Student Outcome** (acumulado con el aporte de TB1 de los cinco integrantes)<br>**Objetivos SMART** (ajuste del objetivo de Alberca Saavedra, Víctor Manuel)<br>**Project Report Collaboration Insights** (acumulado con la evidencia de TB1)<br>**Conclusiones** (tres párrafos nuevos sobre las contradicciones resueltas entre el diseño y la implementación real)<br><br>Se agregaron los siguientes tópicos nuevos:<br><br>**Capítulo III: Solution UI/UX Design**<br>3.1.1. Style Guidelines<br>3.1.2. Information Architecture<br>3.1.3. Landing Page UI Design<br>3.1.4. Mobile Applications UX/UI Design<br><br>**Capítulo IV: Product Implementation & Validation**<br>4.1. Software Configuration Management<br>4.1.1. Software Development Environment Configuration<br>4.1.2. Source Code Management<br>4.1.3. Source Code Style Guide & Coding Conventions<br>4.1.4. Software Deployment Configuration<br>4.2. Landing Page, Services & Applications Implementation<br>4.2.1. Sprint 1<br>4.2.1.1. Sprint Planning 1<br>4.2.1.2. Aspect Leaders and Collaborators<br>4.2.1.3. Sprint Backlog 1<br>4.2.1.4. Development Evidence for Sprint Review<br>4.2.1.5. Testing Suite Evidence for Sprint Review<br>4.2.1.6. Execution Evidence for Sprint Review<br>4.2.1.7. Services Documentation Evidence for Sprint Review<br>4.2.1.8. Software Deployment Evidence for Sprint Review<br>4.2.1.9. Team Collaboration Insights during Sprint |
 | **v.03.TB1** | 08/10/2026 | Komatsu Dueñas, David | Se corrigieron los siguientes tópicos:<br><br>**Capítulo I: Presentación**<br>1.1.1. Descripción de la Startup (modelo freemium, habilitación del Verificador en la primera versión y revisión del Verificador como decisión con observaciones)<br>1.1.2. Perfiles de integrantes del equipo (términos del Anexo F)<br>1.2.2.1. Lean UX Problem Statements (revisión del Verificador como decisión con observaciones, según el modelo implementado)<br><br>**Capítulo II: Requirements Development and Software Solution Design**<br>2.1. Competidores, 2.1.1. Análisis competitivo y 2.1.2. Estrategias y tácticas frente a competidores (roadmap.sh, Pluralsight y Platzi como competidores directos)<br>2.5.1. EventStorming (ajustes del modelo posteriores a la sesión)<br>2.3.3 y 2.3.4 (Journey Map y Empathy Map del segmento 2 alineados con el rol de Verificador)<br>2.6.4 y 2.6.8 (habilitación del Verificador al completar el nodo de la habilidad; pasarela de pago Google Play Billing)<br>1.1.1, 1.3, 2.3, 2.3.6, 2.4, 2.5 y 2.6 (el rol de Coordinador se integra en el Verificador, que asume la supervisión del proceso; nombres de User Persona unificados: Valeria Ramos y Rodrigo Castillo)<br>2.4.1. User Stories (57 historias: 45 User Stories y 12 Technical Stories; se agregó el Epic EP10)<br>2.4.3. Product Backlog (totales de 211 Story Points y 145 Story Points en el Sprint 1; captura y URL público del tablero en Trello)<br>2.6.x.6. Bounded Context Software Architecture Code Level Diagrams (encabezado agregado en los Bounded Contexts 2.6.2 a 2.6.8)<br><br>**Capítulo III: Solution UI/UX Design**<br>3.1.2, 3.1.3 y 3.1.4 (diseño para dos roles, Estudiante y Verificador, este último con las funciones de supervisión)<br>3.1.4.2. Mobile Applications Wireflow Diagrams (notas completas de los Wireflows)<br><br>**Capítulo IV: Product Implementation & Validation**<br>4.2.1.1. Sprint Planning 1 (Velocity y Sum of Story Points de 145)<br>4.2.1.3. Sprint Backlog 1 (captura y URL público del tablero en Trello)<br><br>**Objetivos SMART** (dos objetivos por integrante, orientados al desarrollo profesional después del egreso)<br>**Formato general** (niveles de encabezado, numeración de figuras y tablas, índices y tabla de contenidos)<br>**Bibliografía** (organizada por categorías)<br>**Anexos** (nomenclatura de archivos y enlaces de acceso a la solución)<br><br>Se agregaron los siguientes tópicos nuevos:<br><br>2.3.6. Ubiquitous Language<br>**Glosario** |
 | **v.04.TB1** | 09/10/2026 | Sulca Sánchez, Piero Angel | Se alinearon los siguientes tópicos con el backend integrado en la rama `develop` de `SkillSwap-WebServices-Java` (PR #1 a #15, migraciones Flyway V1 a V10) y con el Landing Page publicado en GitHub Pages:<br><br>**Capítulos I y II:** modelo freemium con suscripción mensual vía RevenueCat; economía de SkillCredits por tipo de caso (40 por miniproyecto y 25 por quiz; ruta avanzada a 200 y certificado de contribución a 120); habilitación del Verificador al completar el nodo de la habilidad; User Stories y Product Backlog con 44 historias y 154 Story Points en el Sprint 1; EventStorming, Bounded Context Canvases, Context Mapping y diagramas C4 reconciliados con el modelo implementado; 2.6 con el modelo táctico del código (`Dispute` y `DisputesController` en Moderation & Disputes, `AdvancedPathUnlock` y `GeminiSkillTaxonomyMatcher` en Learning Path Engine, `ReviewDeadlinePolicy` en Assessment & Peer Review, `VerifierRank` y `SeniorVerifierPolicy` en Reputation, `ProcessedWebhookEvent` y `PlanLimits` en Subscription & Billing, verificación del correo con Brevo y notificaciones push con Firebase Cloud Messaging en Identity & Access) y diagramas de base de datos generados desde las migraciones<br><br>**Capítulo IV:** repositorios de las aplicaciones móviles, despliegue en Render desde `develop`, variables de entorno, Sprint Backlog con tareas de 4 a 8 horas asignadas según la autoría en Git, commits y merges de los PR #1 a #15 del backend y #1 a #8 del Landing Page, suite de 1978 pruebas y nuevas evidencias de ejecución, documentación y despliegue<br><br>**Project Report Collaboration Insights** (aportes de TB1), **Índice de Tablas y de Figuras** (numeración continua) y **Bibliografía** |
+| **v.05.AV2** | 15/10/2026 | Alberca Saavedra, Víctor Manuel | Se corrigieron y actualizaron los siguientes tópicos a partir de la retroalimentación del TB1:<br><br>**Capítulo I:** 1.1.1 Descripción de la Startup, con la definición del rol del Verificador (habilitación por habilidad, revisión de casos con rúbrica, SkillCredits, confiabilidad, apelaciones y Verificador senior)<br><br>**Capítulo II:** 2.5.3 Software Architecture y 2.5.3.3 Deployment Diagrams, con el Landing Page fuera del Deployment Diagram (sitio estático independiente de la aplicación móvil)<br><br>**Capítulo IV:** 4.1.4 Software Deployment Configuration, con el mismo Deployment Diagram; 4.2.2 Sprint 2, con el Sprint Planning 2, la matriz de líderes y colaboradores, el Sprint Backlog 2 (10 historias, 43 Story Points) y la estructura de las evidencias del Sprint Review<br><br>**Project Report Collaboration Insights** (aportes de AV2), **Student Outcome** (acciones de AV2), **Índice de Tablas y de Figuras** y **Contenido** |
 
 <div style="page-break-after: always;"></div>
 
@@ -76,7 +77,7 @@ Octubre 2026
 
 ## Project Report Collaboration Insights
 
-En esta sección se indica el URL del repositorio utilizado para la elaboración colaborativa del Informe de Trabajo Final, así como las evidencias de participación de cada integrante del equipo durante el desarrollo de las entregas AV1 y TB1.
+En esta sección se indica el URL del repositorio utilizado para la elaboración colaborativa del Informe de Trabajo Final, así como las evidencias de participación de cada integrante del equipo durante el desarrollo de las entregas AV1, TB1 y AV2.
 
 **URL del repositorio del Project Report (GitHub):**
 [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport)
@@ -136,6 +137,22 @@ Durante el desarrollo de la entrega TB1, el equipo mantuvo el mismo esquema de c
 
 *Nota.* Historial de commits de la rama `main` del Project Report durante el TB1, con los merges de los Pull Requests de cada integrante. Elaboración propia.
 
+
+### AV2
+
+Durante el desarrollo de la entrega AV2, el equipo mantiene el esquema de colaboración de las entregas anteriores: ramas por integrante, Conventional Commits, GitFlow y Pull Requests hacia `develop`. El período considerado va desde el 10 de octubre de 2026 hasta la fecha de entrega, sin contar los commits de merge. En este período el informe incorpora la corrección del Deployment Diagram (con el Landing Page fuera del diagrama), la definición del rol del Verificador, la estructura del Sprint 2 en el Capítulo IV y la actualización del Registro de Versiones y de Student Outcome. Los aportes al repositorio se distribuyen de la siguiente manera:
+
+* **Alberca Saavedra, Víctor Manuel (2 commits a la fecha):** corrección del Deployment Diagram del modelo C4 y de los textos de 2.5.3.3 y 4.1.4; definición del rol del Verificador en 1.1.1; estructura del Sprint 2 (Sprint Planning, matriz de líderes y colaboradores, Sprint Backlog y evidencias del Sprint Review).
+* **Becerra Ninahuanca, Luis Angel (`[N]` commits):** `[aportes de AV2]`.
+* **Lopez Montalvo, Kevin Edu (`[N]` commits):** `[aportes de AV2]`.
+* **Komatsu Dueñas, David (`[N]` commits):** `[aportes de AV2]`.
+* **Sulca Sánchez, Piero Angel (`[N]` commits):** `[aportes de AV2]`.
+
+`[INSERTAR CAPTURA: gráfico de contribuciones al repositorio del Project Report durante AV2]`
+
+`[INSERTAR CAPTURA: historial de commits del repositorio del Project Report durante AV2]`
+
+*Nota.* Las capturas y el número de commits se actualizan al cierre de AV2 con los datos de GitHub Insights. Elaboración propia.
 
 
 
@@ -205,6 +222,7 @@ Durante el desarrollo de la entrega TB1, el equipo mantuvo el mismo esquema de c
     - [4.1.4. Software Deployment Configuration](#414-software-deployment-configuration)
   - [4.2. Landing Page, Services & Applications Implementation](#42-landing-page-services--applications-implementation)
     - [4.2.1. Sprint 1](#421-sprint-1)
+    - [4.2.2. Sprint 2](#422-sprint-2)
 - [Conclusiones](#conclusiones)
 - [Glosario](#glosario)
 - [Bibliografía](#bibliografía)
@@ -228,8 +246,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 | :--- | :--- | :--- |
-| **Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Lideré la investigación de la tecnología externa (ML Kit, SDK de reconocimiento de texto) a integrar en el proyecto móvil, evaluando sus requisitos técnicos y adaptándolos a la arquitectura móvil nativa. Participé en el diseño estratégico de los Bounded Contexts, incluyendo su rediseño tras el pivote del modelo de negocio.<br><br>**Alberca Saavedra, Víctor Manuel (TB1):** Implementé el backend de seis Bounded Contexts, primero en C# / ASP.NET Core y luego, cuando el curso exigió Java, lo migré a Java 21 con Spring Boot, Spring Data JPA (Hibernate), Spring Security con JWT y PostgreSQL, conservando el mismo esquema de base de datos y el mismo contrato de la API. En el proceso investigué y apliqué por primera vez tecnologías no vistas en clase: la API REST de Gemini para generación de contenido con reintentos y modelos de respaldo, la verificación de compras de Google Play Billing, almacenamiento privado de archivos con URLs firmadas en Cloudinary, y pruebas de integración con JUnit 5, MockMvc y Testcontainers contra una base PostgreSQL real. También investigué y resolví una limitación real de infraestructura: Render no ofrece MySQL administrado de forma nativa, lo que me llevó a migrar todo el diseño de persistencia a PostgreSQL antes de implementarlo.<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Investigué patrones de diseño UI/UX específicos para aplicaciones móviles multiplataforma y colaboré en el análisis competitivo y el diseño de entrevistas enfocadas en la experiencia de movilidad de los estudiantes.<br><br>**Becerra Ninahuanca, Luis Angel (TB1):** Al diseñar el Style Guide y los wireframes del Landing Page, tuve que investigar principios de Information Architecture (sistemas de organización, etiquetado y navegación) que no habíamos aplicado formalmente en AV1, y ajustar las decisiones visuales iniciales al constatar que algunas no se alineaban con el tono de comunicación definido para el segmento de Verificadores.<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Documenté el proceso Lean UX y apliqué el aprendizaje sobre persistencia de datos locales en dispositivos para el diseño de los requisitos, estructurando las User Stories bajo un enfoque Mobile-First.<br><br>**Lopez Montalvo, Kevin Edu (TB1):** Al construir los Wireflow y User Flow Diagrams de las pantallas core (ruta de aprendizaje, resolución del quiz), tuve que aprender a representar formalmente las rutas alternativas (unhappy paths) del flujo —como qué pantalla ve el estudiante cuando un quiz no se aprueba— lo cual exigió coordinar con el diseño real del backend en vez de asumir un flujo ideal.<br><br>**Komatsu Dueñas, David (AV1):** Evalué diferentes estrategias de integración de servicios RESTful y modelé el flujo de mensajes entre los Bounded Contexts aplicando Domain Storytelling adaptado al consumo de APIs desde aplicaciones móviles.<br><br>**Komatsu Dueñas, David (TB1):** Reconocí que parte del flujo de interacción que había modelado con Domain Storytelling en AV1 ya no aplicaba tal cual al construir los prototipos de UI, porque el backend terminó resolviendo ciertos pasos (como la vinculación de certificados) de forma automática y no mediante una pantalla explícita, por lo que tuve que simplificar los mock-ups correspondientes.<br><br>**Sulca Sánchez, Piero Angel (AV1):** Estudié los fundamentos del diseño estratégico con Domain-Driven Design a partir del material del curso y de las plantillas de la comunidad ddd-crew, y los apliqué para elaborar el EventStorming de SkillSwap en sus diez pasos, el Candidate Context Discovery, los Domain Message Flows y los Bounded Context Canvases, modelados en Excalidraw. Para sustentar el problema del Capítulo I, investigué datos estadísticos sobre la brecha entre la certificación y el dominio práctico, los verifiqué en sus fuentes originales y los cité en formato APA 7.<br><br>**Sulca Sánchez, Piero Angel (TB1):** Al revisar el Context Mapping y los Bounded Context Canvases contra lo realmente implementado en el backend, identifiqué que varias relaciones que había modelado en AV1 (Customer/Supplier directo entre Assessment y Reputation) no correspondían al mecanismo real de eventos de dominio, y tuve que aprender el patrón Published Language para corregir los diagramas de forma consistente con el código. | (AV1) El equipo reconoce la necesidad del aprendizaje permanente al investigar e integrar de manera autónoma tecnologías no vistas en clase, como SDKs externos de reconocimiento de texto y persistencia local en dispositivos, aplicando conceptos de Domain-Driven Design al entorno móvil.<br><br>(TB1) El equipo confirma que ese aprendizaje autónomo se sostuvo al pasar del diseño a la implementación real: construir el backend exigió investigar APIs externas completas (Gemini, Google Play Billing) y resolver restricciones de infraestructura no anticipadas en el diseño original (disponibilidad de motores de base de datos en el proveedor de hosting elegido), evidenciando que actualizar conocimientos no se limita a la etapa de diseño sino que continúa durante la construcción del software. |
-| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Al enfrentar el pivote del modelo de negocio a mitad de ciclo, tuve que reevaluar y rediseñar desde cero la estrategia de Bounded Contexts que ya había avanzado, reconociendo que el conocimiento adquirido durante la investigación previa (SUNEDU, matching por embeddings) no era aplicable al nuevo alcance del curso y debía sustituirse por soluciones más simples y viables.<br><br>**Alberca Saavedra, Víctor Manuel (TB1):** Al construir el backend real, reconocí que varias decisiones documentadas en el diseño (rúbrica por criterio, examen de ingreso del Verificador, tres intentos de quiz, pasarela de pago) no eran viables o necesarias dentro del tiempo del Sprint, y que insistir en implementarlas tal cual hubiera significado no entregar un flujo completo y funcional. Reemplacé esas decisiones por un modelo mínimo igualmente riguroso, y luego tuve que volver sobre el propio informe para que el diseño documentado reflejara honestamente lo construido, en vez de dejar un documento que describiera un sistema distinto al que realmente funciona.<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Reconocí la necesidad de actualizar el análisis competitivo y las preguntas de entrevista previamente diseñadas, dado que el modelo de negocio original ya no reflejaba la propuesta de valor vigente del proyecto.<br><br>**Becerra Ninahuanca, Luis Angel (TB1):** Reconocí que el Style Guide definido en una primera versión debía replantearse al validarlo contra las pantallas reales de la app, en vez de darlo por cerrado solo porque ya existía un documento.<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Identifiqué la necesidad de revisar y reestructurar la documentación de Lean UX ya elaborada para que reflejara el nuevo enfoque del proyecto, en lugar de darla por completa.<br><br>**Lopez Montalvo, Kevin Edu (TB1):** Reconocí que los User Flows no podían completarse sin antes confirmar con el backend qué reglas de negocio realmente existían (ej. que registrar un certificado no completa un nodo hasta que un Verificador lo valida), lo que me obligó a esperar y ajustar en vez de diseñar el flujo de forma aislada.<br><br>**Komatsu Dueñas, David (AV1):** Reconocí que los flujos de integración entre Bounded Contexts modelados inicialmente debían replantearse por completo tras el cambio de alcance, en vez de simplemente ajustar el software ya diseñado.<br><br>**Komatsu Dueñas, David (TB1):** Reconocí que modelar la interacción sin validarla contra la arquitectura final genera trabajo que luego hay que rehacer, y que coordinar antes con el equipo técnico habría evitado parte del reproceso en los mock-ups.<br><br>**Sulca Sánchez, Piero Angel (AV1):** Al alinear el Capítulo I con el modelo de negocio vigente, reconocí que partes ya redactadas del informe, como el segmento del Coordinador, el canje de SkillCredits y el enfoque en la deserción académica, respondían a un modelo anterior y debían reformularse en lugar de darse por terminadas. Durante el EventStorming, los puntos críticos identificados me llevaron a revisar decisiones del dominio, como la calificación por criterios y el segundo revisor, antes de trasladarlas al diseño, entendiendo que el modelo se refina de forma iterativa.<br><br>**Sulca Sánchez, Piero Angel (TB1):** Reconocí que un Context Mapping elaborado en una etapa temprana del diseño necesita revisarse una vez que el código revela el mecanismo real de comunicación entre contextos, y que mantenerlo actualizado es parte continua del trabajo, no una tarea de una sola vez. | (AV1) El equipo reconoce que el aprendizaje permanente no se limita a adquirir tecnologías nuevas, sino también a la capacidad de soltar y reformular conocimiento previamente validado cuando el contexto del proyecto cambia, como ocurrió tras el pivote del modelo de negocio de tutorías a verificación de habilidades.<br><br>(TB1) El equipo reconoce que ese mismo principio aplica entre el diseño y la implementación: un documento de arquitectura es una hipótesis de trabajo, no una verdad fija, y la disciplina de volver a corregirlo cuando la construcción revela una limitación real —en vez de dejarlo desactualizado— es en sí misma una forma de aprendizaje permanente aplicada al ciclo de vida completo del software. |
+| **Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Lideré la investigación de la tecnología externa (ML Kit, SDK de reconocimiento de texto) a integrar en el proyecto móvil, evaluando sus requisitos técnicos y adaptándolos a la arquitectura móvil nativa. Participé en el diseño estratégico de los Bounded Contexts, incluyendo su rediseño tras el pivote del modelo de negocio.<br><br>**Alberca Saavedra, Víctor Manuel (TB1):** Implementé el backend de seis Bounded Contexts, primero en C# / ASP.NET Core y luego, cuando el curso exigió Java, lo migré a Java 21 con Spring Boot, Spring Data JPA (Hibernate), Spring Security con JWT y PostgreSQL, conservando el mismo esquema de base de datos y el mismo contrato de la API. En el proceso investigué y apliqué por primera vez tecnologías no vistas en clase: la API REST de Gemini para generación de contenido con reintentos y modelos de respaldo, la verificación de compras de Google Play Billing, almacenamiento privado de archivos con URLs firmadas en Cloudinary, y pruebas de integración con JUnit 5, MockMvc y Testcontainers contra una base PostgreSQL real. También investigué y resolví una limitación real de infraestructura: Render no ofrece MySQL administrado de forma nativa, lo que me llevó a migrar todo el diseño de persistencia a PostgreSQL antes de implementarlo.<br><br>**Alberca Saavedra, Víctor Manuel (AV2):** A partir de la retroalimentación del TB1, consolidé la definición del rol del Verificador a partir de las reglas ya implementadas en el modelo de dominio (habilitación por habilidad, rúbrica, plazos, confiabilidad, apelaciones y Verificador senior) y corregí el Deployment Diagram del modelo C4 para dejar fuera el Landing Page, que es un sitio estático independiente de la aplicación móvil. `[Completar con la investigación y el trabajo del Sprint 2.]`<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Investigué patrones de diseño UI/UX específicos para aplicaciones móviles multiplataforma y colaboré en el análisis competitivo y el diseño de entrevistas enfocadas en la experiencia de movilidad de los estudiantes.<br><br>**Becerra Ninahuanca, Luis Angel (TB1):** Al diseñar el Style Guide y los wireframes del Landing Page, tuve que investigar principios de Information Architecture (sistemas de organización, etiquetado y navegación) que no habíamos aplicado formalmente en AV1, y ajustar las decisiones visuales iniciales al constatar que algunas no se alineaban con el tono de comunicación definido para el segmento de Verificadores.<br><br>**Becerra Ninahuanca, Luis Angel (AV2):** `[Completar: acciones realizadas en el Sprint 2 que actualizan sus conocimientos, con la tecnología o el concepto nuevo que investigó.]`<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Documenté el proceso Lean UX y apliqué el aprendizaje sobre persistencia de datos locales en dispositivos para el diseño de los requisitos, estructurando las User Stories bajo un enfoque Mobile-First.<br><br>**Lopez Montalvo, Kevin Edu (TB1):** Al construir los Wireflow y User Flow Diagrams de las pantallas core (ruta de aprendizaje, resolución del quiz), tuve que aprender a representar formalmente las rutas alternativas (unhappy paths) del flujo —como qué pantalla ve el estudiante cuando un quiz no se aprueba— lo cual exigió coordinar con el diseño real del backend en vez de asumir un flujo ideal.<br><br>**Lopez Montalvo, Kevin Edu (AV2):** `[Completar: acciones realizadas en el Sprint 2 que actualizan sus conocimientos, con la tecnología o el concepto nuevo que investigó.]`<br><br>**Komatsu Dueñas, David (AV1):** Evalué diferentes estrategias de integración de servicios RESTful y modelé el flujo de mensajes entre los Bounded Contexts aplicando Domain Storytelling adaptado al consumo de APIs desde aplicaciones móviles.<br><br>**Komatsu Dueñas, David (TB1):** Reconocí que parte del flujo de interacción que había modelado con Domain Storytelling en AV1 ya no aplicaba tal cual al construir los prototipos de UI, porque el backend terminó resolviendo ciertos pasos (como la vinculación de certificados) de forma automática y no mediante una pantalla explícita, por lo que tuve que simplificar los mock-ups correspondientes.<br><br>**Komatsu Dueñas, David (AV2):** `[Completar: acciones realizadas en el Sprint 2 que actualizan sus conocimientos, con la tecnología o el concepto nuevo que investigó.]`<br><br>**Sulca Sánchez, Piero Angel (AV1):** Estudié los fundamentos del diseño estratégico con Domain-Driven Design a partir del material del curso y de las plantillas de la comunidad ddd-crew, y los apliqué para elaborar el EventStorming de SkillSwap en sus diez pasos, el Candidate Context Discovery, los Domain Message Flows y los Bounded Context Canvases, modelados en Excalidraw. Para sustentar el problema del Capítulo I, investigué datos estadísticos sobre la brecha entre la certificación y el dominio práctico, los verifiqué en sus fuentes originales y los cité en formato APA 7.<br><br>**Sulca Sánchez, Piero Angel (TB1):** Al revisar el Context Mapping y los Bounded Context Canvases contra lo realmente implementado en el backend, identifiqué que varias relaciones que había modelado en AV1 (Customer/Supplier directo entre Assessment y Reputation) no correspondían al mecanismo real de eventos de dominio, y tuve que aprender el patrón Published Language para corregir los diagramas de forma consistente con el código. <br><br>**Sulca Sánchez, Piero Angel (AV2):** `[Completar: acciones realizadas en el Sprint 2 que actualizan sus conocimientos, con la tecnología o el concepto nuevo que investigó.]`| (AV1) El equipo reconoce la necesidad del aprendizaje permanente al investigar e integrar de manera autónoma tecnologías no vistas en clase, como SDKs externos de reconocimiento de texto y persistencia local en dispositivos, aplicando conceptos de Domain-Driven Design al entorno móvil.<br><br>(TB1) El equipo confirma que ese aprendizaje autónomo se sostuvo al pasar del diseño a la implementación real: construir el backend exigió investigar APIs externas completas (Gemini, Google Play Billing) y resolver restricciones de infraestructura no anticipadas en el diseño original (disponibilidad de motores de base de datos en el proveedor de hosting elegido), evidenciando que actualizar conocimientos no se limita a la etapa de diseño sino que continúa durante la construcción del software.<br><br>(AV2) `[Completar al cierre del Sprint 2: conclusión grupal sobre el aprendizaje autónomo durante la implementación de la aplicación móvil y los servicios del Sprint 2.]` |
+| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Al enfrentar el pivote del modelo de negocio a mitad de ciclo, tuve que reevaluar y rediseñar desde cero la estrategia de Bounded Contexts que ya había avanzado, reconociendo que el conocimiento adquirido durante la investigación previa (SUNEDU, matching por embeddings) no era aplicable al nuevo alcance del curso y debía sustituirse por soluciones más simples y viables.<br><br>**Alberca Saavedra, Víctor Manuel (TB1):** Al construir el backend real, reconocí que varias decisiones documentadas en el diseño (rúbrica por criterio, examen de ingreso del Verificador, tres intentos de quiz, pasarela de pago) no eran viables o necesarias dentro del tiempo del Sprint, y que insistir en implementarlas tal cual hubiera significado no entregar un flujo completo y funcional. Reemplacé esas decisiones por un modelo mínimo igualmente riguroso, y luego tuve que volver sobre el propio informe para que el diseño documentado reflejara honestamente lo construido, en vez de dejar un documento que describiera un sistema distinto al que realmente funciona.<br><br>**Alberca Saavedra, Víctor Manuel (AV2):** Al revisar la observación del profesor sobre el Verificador, reconocí que su definición estaba repartida en varias secciones del informe y la reuní en una sola descripción, lo que me obligó a volver a contrastar las reglas del Verificador y del Verificador senior con el modelo implementado. `[Completar con lo aprendido en el Sprint 2.]`<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Reconocí la necesidad de actualizar el análisis competitivo y las preguntas de entrevista previamente diseñadas, dado que el modelo de negocio original ya no reflejaba la propuesta de valor vigente del proyecto.<br><br>**Becerra Ninahuanca, Luis Angel (TB1):** Reconocí que el Style Guide definido en una primera versión debía replantearse al validarlo contra las pantallas reales de la app, en vez de darlo por cerrado solo porque ya existía un documento.<br><br>**Becerra Ninahuanca, Luis Angel (AV2):** `[Completar: situación del Sprint 2 en la que reconoció la necesidad de seguir aprendiendo y qué hizo al respecto.]`<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Identifiqué la necesidad de revisar y reestructurar la documentación de Lean UX ya elaborada para que reflejara el nuevo enfoque del proyecto, en lugar de darla por completa.<br><br>**Lopez Montalvo, Kevin Edu (TB1):** Reconocí que los User Flows no podían completarse sin antes confirmar con el backend qué reglas de negocio realmente existían (ej. que registrar un certificado no completa un nodo hasta que un Verificador lo valida), lo que me obligó a esperar y ajustar en vez de diseñar el flujo de forma aislada.<br><br>**Lopez Montalvo, Kevin Edu (AV2):** `[Completar: situación del Sprint 2 en la que reconoció la necesidad de seguir aprendiendo y qué hizo al respecto.]`<br><br>**Komatsu Dueñas, David (AV1):** Reconocí que los flujos de integración entre Bounded Contexts modelados inicialmente debían replantearse por completo tras el cambio de alcance, en vez de simplemente ajustar el software ya diseñado.<br><br>**Komatsu Dueñas, David (TB1):** Reconocí que modelar la interacción sin validarla contra la arquitectura final genera trabajo que luego hay que rehacer, y que coordinar antes con el equipo técnico habría evitado parte del reproceso en los mock-ups.<br><br>**Komatsu Dueñas, David (AV2):** `[Completar: situación del Sprint 2 en la que reconoció la necesidad de seguir aprendiendo y qué hizo al respecto.]`<br><br>**Sulca Sánchez, Piero Angel (AV1):** Al alinear el Capítulo I con el modelo de negocio vigente, reconocí que partes ya redactadas del informe, como el segmento del Coordinador, el canje de SkillCredits y el enfoque en la deserción académica, respondían a un modelo anterior y debían reformularse en lugar de darse por terminadas. Durante el EventStorming, los puntos críticos identificados me llevaron a revisar decisiones del dominio, como la calificación por criterios y el segundo revisor, antes de trasladarlas al diseño, entendiendo que el modelo se refina de forma iterativa.<br><br>**Sulca Sánchez, Piero Angel (TB1):** Reconocí que un Context Mapping elaborado en una etapa temprana del diseño necesita revisarse una vez que el código revela el mecanismo real de comunicación entre contextos, y que mantenerlo actualizado es parte continua del trabajo, no una tarea de una sola vez. <br><br>**Sulca Sánchez, Piero Angel (AV2):** `[Completar: situación del Sprint 2 en la que reconoció la necesidad de seguir aprendiendo y qué hizo al respecto.]`| (AV1) El equipo reconoce que el aprendizaje permanente no se limita a adquirir tecnologías nuevas, sino también a la capacidad de soltar y reformular conocimiento previamente validado cuando el contexto del proyecto cambia, como ocurrió tras el pivote del modelo de negocio de tutorías a verificación de habilidades.<br><br>(TB1) El equipo reconoce que ese mismo principio aplica entre el diseño y la implementación: un documento de arquitectura es una hipótesis de trabajo, no una verdad fija, y la disciplina de volver a corregirlo cuando la construcción revela una limitación real —en vez de dejarlo desactualizado— es en sí misma una forma de aprendizaje permanente aplicada al ciclo de vida completo del software.<br><br>(AV2) `[Completar al cierre del Sprint 2: conclusión grupal sobre el aprendizaje autónomo durante la implementación de la aplicación móvil y los servicios del Sprint 2.]` |
 
 <div style="page-break-after: always;"></div>
 
@@ -281,6 +299,16 @@ Para revisar casos de otros usuarios, el Estudiante debe habilitarse como Verifi
 Innovify plantea para SkillSwap un modelo de negocio B2C freemium. Todo Estudiante empieza con un plan gratuito (S/ 0), que le permite tener 1 ruta activa a la vez y hasta 3 rutas en total, y escalar 3 casos al mes a un Verificador, que se revisan en un plazo de hasta 5 días hábiles. Cuando llega a uno de esos límites, la aplicación le muestra la pantalla "Alcanzaste el límite de tu plan", donde puede pasar al plan mensual o continuar con el plan gratuito. El plan mensual cuesta S/ 29,90 al mes, IGV incluido, se cobra mediante Google Play Billing, integrado a través de RevenueCat, y amplía esos límites: hasta 3 rutas activas a la vez, sin tope de rutas en total, y 10 escalamientos al mes a un Verificador, cuyos casos se revisan en 48 horas; además, reduce los tiempos de espera. La ruta avanzada que un Verificador obtiene al canjear SkillCredits no consume el cupo de rutas del plan gratuito. Ningún plan compra la aprobación: las evaluaciones y los criterios son los mismos para todos. No existen pagos directos ni comisiones entre Estudiantes y Verificadores. Además, la supervisión del proceso la ejercen los Verificadores senior, es decir, los Verificadores que alcanzaron el rango Oro y mantienen una confiabilidad de 90 o más, en la escala de 0 a 100 con la que la plataforma la mide: monitorean la confiabilidad de las revisiones, resuelven las disputas por certificados sospechosos y consultan métricas generales sobre la actividad del ecosistema. Las apelaciones, en cambio, las revisa un Verificador distinto del que tomó la decisión original.
 
 La asignación de casos se realiza automáticamente considerando la habilidad requerida, el historial y la disponibilidad de los Verificadores. Asimismo, SkillSwap incorpora mecanismos de confianza como la verificación del correo electrónico, el historial auditable de las evaluaciones y la habilitación de Verificadores a partir de las certificaciones obtenidas dentro de la plataforma. Estos mecanismos buscan reducir la dependencia de declaraciones no comprobadas y favorecer un proceso de validación consistente.
+
+#### Rol del Verificador
+
+El Verificador es el actor que sostiene la confiabilidad de las habilidades certificadas en SkillSwap. No es un perfil aparte: es un Estudiante habilitado para una habilidad concreta, cuya tarea es decidir, con criterios estructurados, si el trabajo de otro Estudiante demuestra realmente esa habilidad.
+
+* **Cómo se habilita:** completando, en su propia ruta, el nodo de la habilidad que desea verificar. La habilitación es por habilidad, no general.
+* **Qué hace:** revisa los casos de verificación que se abren cuando un intento de evaluación (*quiz* o miniproyecto) no se aprueba. El sistema se los asigna según la habilidad requerida, su historial y su disponibilidad, que el Verificador activa o desactiva. Evalúa la evidencia con la rúbrica y registra su decisión (aprobar o rechazar) con observaciones, dentro del plazo del caso; si el plazo vence, el caso se reasigna a otro Verificador.
+* **Qué recibe:** SkillCredits por cada caso resuelto, lo apruebe o lo rechace (40 por un miniproyecto y 25 por un *quiz*). No son dinero: no se compran ni se transfieren, y se canjean por beneficios de la plataforma (ruta avanzada o certificado de contribución).
+* **Cómo se supervisa su trabajo:** su confiabilidad, de 0 a 100, se calcula con sus casos resueltos y revertidos, y su rango (Bronce, Plata u Oro) depende de la cantidad de casos resueltos. Si un Estudiante apela un rechazo (una apelación por caso), lo revisa un Verificador distinto del original; si la decisión se revierte, queda registrada en la confiabilidad del Verificador original.
+* **Verificador senior:** es el Verificador con rango Oro y confiabilidad de 90 o más. Además de revisar casos, resuelve las disputas por certificados sospechosos (los confirma como verificados o los rechaza), ordena la reevaluación de resultados aprobados cuando hay dudas, suspende temporalmente a los Verificadores con baja confiabilidad y consulta las métricas agregadas de la plataforma.
 
 #### Visión
 
@@ -2710,7 +2738,7 @@ Detalla la estructura de contenedores:
 4. **Database:** Repositorio central de información, compartido por los ocho Bounded Contexts.
 
 **Software Architecture Deployment Diagram:**
-Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de los usuarios (Android), el Landing Page en un servicio de hosting estático, y el backend junto con la base de datos en infraestructura Cloud.
+Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de los usuarios (Android) y el backend junto con la base de datos en infraestructura Cloud.
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
@@ -2757,15 +2785,14 @@ Es importante resaltar que tanto la aplicación Android nativa como la aplicaci�
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
-El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física de los contenedores de SkillSwap sobre la infraestructura de hardware y los entornos de ejecución, evidenciando cómo se despliega la solución en un ambiente real.
+El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física de los contenedores de SkillSwap sobre la infraestructura de hardware y los entornos de ejecución, evidenciando cómo se despliega la solución en un ambiente real. El Landing Page, al ser un sitio web estático independiente de la aplicación móvil, no forma parte de este diagrama.
 
 - **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes y Verificadores alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y la Aplicación Cross-Platform (Flutter, dirigida a Android), instaladas en el dispositivo físico. En estos dispositivos se ejecutan además **ML Kit**, de forma on-device, para la extracción de datos de los certificados, sin requerir una llamada a un servicio en la nube para dicho procesamiento, y la autenticación biométrica del sistema operativo.
-- **Hosting estático:** Aloja el Landing Page, servido de forma estática desde **GitHub Pages**, de acceso público.
 - **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (Java 21 / Spring Boot), empaquetado como contenedor Docker y desplegado en **Render**, donde se ejecuta la lógica de negocio de los ocho Bounded Contexts en un único servicio, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por las dos aplicaciones móviles (Android Native App y Flutter App); el Landing Page es informativo y no consume la API.
 - **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de PostgreSQL desplegada en **Render**, compartida por los ocho Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
 - **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para los archivos de los certificados, **Brevo (Email API)** para el envío del correo de verificación del correo institucional, **Firebase Cloud Messaging** para las notificaciones push al dispositivo del Estudiante, la **Gemini API** para interpretar la meta del Estudiante sobre el catálogo interno de habilidades y generar las preguntas de los quizzes, y **Google Play Billing (vía RevenueCat)** para el procesamiento del cobro recurrente de la suscripción mensual: la aplicación inicia la compra con el SDK de RevenueCat y RevenueCat notifica sus cambios al backend mediante un webhook.
 
-Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
+Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos móviles y los servidores desplegados en la nube.
 
 **Figura 74**
 
@@ -2775,7 +2802,7 @@ Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la s
   <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram - Mobile" width="900">
 </p>
 
-*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con ejecución on-device de ML Kit y de la biometría, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de PostgreSQL en Render y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat), este último con la compra desde la aplicación y el webhook hacia el backend. Elaborado en PlantUML. Elaboración propia.
+*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con ejecución on-device de ML Kit y de la biometría, el servidor de aplicación en Render, la instancia única de PostgreSQL en Render y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat), este último con la compra desde la aplicación y el webhook hacia el backend. Elaborado en PlantUML. Elaboración propia.
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
@@ -5166,6 +5193,8 @@ El despliegue abarca los tres productos digitales de la solución:
 - **Landing Page:** sitio estático (HTML5/CSS3/JavaScript) publicado con **GitHub Pages** desde la rama `main` del repositorio `SkillSwap-LandingPage`.
 - **Aplicación móvil:** en el Sprint 1 se entregan sus pantallas core como prototipo en Figma; los repositorios `SkillSwap-MobileApp` y `SkillSwap-MobileApp-Flutter` contienen únicamente su `README.md`.
 
+El Landing Page es un sitio estático independiente de la aplicación móvil, por lo que no se incluye en el Deployment Diagram de este apartado.
+
 **Dockerfile del backend:** build multi-etapa. La etapa de compilación parte de la imagen `maven:3.9-eclipse-temurin-21` y ejecuta `mvn -B -q -DskipTests package`, que genera un único JAR ejecutable de Spring Boot (`skillswap-platform-*.jar`); las pruebas no se ejecutan dentro de la imagen porque requieren Docker (Testcontainers) y se corren localmente antes de cada push. La etapa de ejecución usa la imagen `eclipse-temurin:21-jre`, que solo contiene el JRE y ese JAR, y ejecuta la aplicación con un usuario sin privilegios (`skillswap`). La variable `JAVA_TOOL_OPTIONS` limita la memoria de la JVM al 75 % de la disponible y reinicia el proceso ante un `OutOfMemoryError`, pensando en las instancias de 512 MB del plan gratuito. La aplicación escucha en el puerto de la variable de entorno `PORT` que asigna Render (`server.port=${PORT:8080}`, por defecto `8080`). El archivo `.dockerignore` excluye `target/`, `.git/`, `.idea/`, `.vscode/`, `docs/`, los archivos `.env` / `.env.*` y los logs.
 
 **Rama de despliegue:** Render construye la imagen Docker desde la rama `develop` del repositorio `SkillSwap-WebServices-Java`, y cada despliegue se lanza manualmente desde el panel de Render.
@@ -5214,10 +5243,10 @@ El despliegue abarca los tres productos digitales de la solución:
 *Deployment Diagram de SkillSwap (C4 Model)*
 
 <p align="center">
-  <img src="images-doc/c4-deployment-diagram.svg" alt="Deployment Diagram de SkillSwap" width="900">
+  <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram de SkillSwap" width="900">
 </p>
 
-*Nota.* Aplicaciones Android nativa y cross-platform como clientes de la API y Landing Page estático en GitHub Pages, API Spring Boot en un contenedor Docker con JRE 21 sobre Render, PostgreSQL administrado, y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat). Elaboración propia.
+*Nota.* Aplicaciones Android nativa y cross-platform como clientes de la API, API Spring Boot en un contenedor Docker con JRE 21 sobre Render, PostgreSQL administrado, y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat). Elaboración propia.
 
 ---
 
@@ -5948,6 +5977,295 @@ Durante el Sprint 1, el backend se construyó entre dos integrantes. Alberca Saa
 
 
 
+### 4.2.2. Sprint 2
+
+#### 4.2.2.1. Sprint Planning 2
+
+El Sprint 2 es la segunda iteración de desarrollo. Se concentra en llevar al dispositivo móvil la experiencia del Estudiante (captura del certificado con la cámara, confirmación de la habilidad interpretada, consulta de la ruta sin conexión y conservación del avance del quiz), en completar el ciclo de evaluación práctica con el miniproyecto y la identificación del sub-tema débil, y en incorporar las herramientas de supervisión del Verificador senior y el logro compartible del Verificador. Entran al Sprint las 10 historias de mayor prioridad que seguían sin sprint en el Product Backlog (43 SP); las tres restantes (US03, US28 y US29, 14 SP) quedan para el Sprint 3, de modo que la demostración final y el cierre de la aplicación se trabajen en la semana 14.
+
+**Tabla 26**
+
+*Sprint Planning 2*
+
+| Sprint # | Sprint 2 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | `[YYYY-MM-DD]` |
+| Time | `[HH:MM AM/PM]` |
+| Location | `[Virtual (Google Meet / Discord)]` |
+| Prepared By | Alberca Saavedra, Víctor Manuel |
+| Attendees (to planning meeting) | `[Completar con los asistentes a la reunión]` |
+| Sprint n − 1 Review Summary | En el Sprint 1 se completaron 44 historias (154 SP): el backend de los ocho Bounded Contexts desplegado en Render y documentado con OpenAPI, el Landing Page publicado en GitHub Pages y el prototipo en Figma de las pantallas core de la aplicación móvil. |
+| Sprint n − 1 Retrospective Summary | `[Completar con los aciertos y oportunidades de mejora de la retrospectiva del Sprint 1]` |
+| **Sprint Goal & User Stories** | |
+| Sprint 2 Goal | Our focus is on llevar la experiencia del Estudiante a la aplicación móvil, completar el ciclo de evaluación práctica y dotar al Verificador senior de las herramientas de supervisión. We believe it delivers una verificación de habilidades utilizable desde el celular, incluso sin conexión estable, y un proceso de verificación supervisado, a los Estudiantes y Verificadores. This will be confirmed when un Estudiante puede, desde la aplicación instalada en un dispositivo físico, capturar un certificado, completar un quiz y consultar su ruta sin conexión, y un Verificador senior puede reevaluar un resultado, suspender a un Verificador y consultar las métricas de la plataforma desde el backend desplegado. |
+| Sprint 2 Velocity | 43 SP |
+| Sum of Story Points | 43 SP |
+
+*Nota.* Historias del Sprint 2: US11, US07, US10, US21, US20, US19, US33, US37, US38, US40. Elaboración propia.
+
+**Figura 140**
+
+*Reunión de Sprint Planning 2*
+
+`[INSERTAR CAPTURA: reunión de Sprint Planning 2 (captura de la videollamada)]`
+
+*Nota.* Reunión de Sprint Planning 2. Elaboración propia.
+
+#### 4.2.2.2. Aspect Leaders and Collaborators
+
+El equipo organiza el Sprint 2 en los aspectos que se muestran en la matriz: cuatro frentes del backend, las dos experiencias de la aplicación móvil (Estudiante y Verificador), el despliegue y el Landing Page. La asignación de líderes y colaboradores debe ser coherente con la de las tasks del Sprint Backlog 2 (4.2.2.3).
+
+**Tabla 27**
+
+*Leadership-and-Collaboration Matrix del Sprint 2*
+
+| Team Member (Last Name, First Name) | GitHub Username | Learning Path Engine | Assessment & Peer Review | Moderation & Disputes | Reputation & Recognition | App móvil: Estudiante | App móvil: Verificador | Despliegue (Render) | Landing Page |
+|---|---|---|---|---|---|---|---|---|---|
+
+| Alberca Saavedra, Víctor Manuel | Agnizzz | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` |
+
+| Becerra Ninahuanca, Luis Angel | blafyy | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` |
+
+| Lopez Montalvo, Kevin Edu | lopescamos | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` |
+
+| Komatsu Dueñas, David | dakoduz | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` |
+
+| Sulca Sánchez, Piero Angel | psulca | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` | `[L/C]` |
+
+*Nota.* L = Leader, C = Collaborator. Completar con la asignación acordada en el Sprint Planning 2. Elaboración propia.
+
+#### 4.2.2.3. Sprint Backlog 2
+
+El objetivo del Sprint 2 es entregar en la aplicación móvil las funcionalidades core del Estudiante, completar en el backend el ciclo de evaluación práctica y habilitar la supervisión del Verificador senior. El tablero del Sprint 2 se gestiona en el mismo tablero de Trello del Product Backlog.
+
+**Figura 141**
+
+*Sprint Backlog 2 en Trello*
+
+`[INSERTAR CAPTURA: lista Sprint 2 del tablero de Trello con las 10 historias]`
+
+*Nota.* Lista Sprint 2 del tablero del Product Backlog en Trello. URL público del Board: [https://trello.com/b/sTMGwnPf/skillswap-product-backlog](https://trello.com/b/sTMGwnPf/skillswap-product-backlog). Elaboración propia.
+
+**Tabla 28**
+
+*Sprint Backlog 2*
+
+| Sprint # | Sprint 2 | | | | | | |
+|---|---|---|---|---|---|---|---|
+| **User Story** | | **Work-Item / Task** | | | | | |
+| Id | Title | Id | Title | Description | Estimation (Hours) | Assigned To | Status |
+
+| US11 | Captura del certificado con la cámara | T44 | Captura con la cámara | Pantalla de captura del certificado con la cámara del dispositivo y solicitud del permiso de cámara | 8 | `[Asignar]` | To-Do |
+
+| US11 | Captura del certificado con la cámara | T45 | OCR on-device y envío al backend | Extracción de institución, curso y fecha con ML Kit y envío de los campos en el multipart de registro del certificado | 8 | `[Asignar]` | To-Do |
+
+| US07 | Confirmación de la habilidad interpretada | T46 | Opciones de habilidad interpretada | Respuesta del backend con las habilidades candidatas del catálogo cuando la meta admite varias interpretaciones | 5 | `[Asignar]` | To-Do |
+
+| US07 | Confirmación de la habilidad interpretada | T47 | Pantalla de confirmación de habilidad | Pantalla para elegir y confirmar la habilidad antes de construir la ruta | 5 | `[Asignar]` | To-Do |
+
+| US10 | Consulta de la ruta sin conexión | T48 | Almacenamiento local de la ruta | Persistencia local de la ruta de aprendizaje y sus nodos para consultarla sin conexión | 8 | `[Asignar]` | To-Do |
+
+| US10 | Consulta de la ruta sin conexión | T49 | Modo sin conexión | Indicador de falta de conexión y actualización de la ruta al recuperarla | 5 | `[Asignar]` | To-Do |
+
+| US21 | Conservación del avance ante pérdida de conexión | T50 | Persistencia local de respuestas del quiz | Guardado local de las respuestas del intento en curso | 8 | `[Asignar]` | To-Do |
+
+| US21 | Conservación del avance ante pérdida de conexión | T51 | Reenvío del intento al recuperar la conexión | Envío de las respuestas conservadas cuando vuelve la conexión | 5 | `[Asignar]` | To-Do |
+
+| US20 | Identificación del sub-tema débil | T52 | Sub-tema débil en el resultado del intento | Cálculo del sub-tema donde falló el Estudiante y su inclusión en el resultado del intento (backend) | 8 | `[Asignar]` | To-Do |
+
+| US20 | Identificación del sub-tema débil | T53 | Pantalla de resultado con sub-tema a reforzar | Presentación del sub-tema débil en el resultado del quiz | 5 | `[Asignar]` | To-Do |
+
+| US19 | Entrega de un miniproyecto | T54 | Generación y entrega del miniproyecto | Miniproyecto generado para el nodo y endpoint de entrega de la evidencia (backend) | 13 | `[Asignar]` | To-Do |
+
+| US19 | Entrega de un miniproyecto | T55 | Pantalla de entrega del miniproyecto | Pantalla para ver el enunciado y entregar el miniproyecto | 8 | `[Asignar]` | To-Do |
+
+| US19 | Entrega de un miniproyecto | T56 | Caso de verificación del miniproyecto | Apertura del caso de verificación al entregar el miniproyecto, con el tipo de caso correspondiente | 5 | `[Asignar]` | To-Do |
+
+| US33 | Compartir logros en LinkedIn | T57 | Contenido compartible de logros | Generación del texto y enlace con los SkillCredits y las habilidades verificadas del Verificador | 5 | `[Asignar]` | To-Do |
+
+| US33 | Compartir logros en LinkedIn | T58 | Compartir en redes profesionales | Acción de compartir desde la aplicación hacia LinkedIn u otras redes | 3 | `[Asignar]` | To-Do |
+
+| US37 | Reevaluación de un resultado aprobado | T59 | Endpoint de reevaluación | Orden de reevaluación de un resultado aprobado por parte del Verificador senior (backend) | 5 | `[Asignar]` | To-Do |
+
+| US37 | Reevaluación de un resultado aprobado | T60 | Pantalla de reevaluación | Pantalla del Verificador senior para ordenar la reevaluación | 3 | `[Asignar]` | To-Do |
+
+| US38 | Suspensión de un Verificador con baja confiabilidad | T61 | Endpoint de suspensión | Suspensión temporal de la habilitación de un Verificador con su justificación (backend) | 5 | `[Asignar]` | To-Do |
+
+| US38 | Suspensión de un Verificador con baja confiabilidad | T62 | Pantalla de suspensión | Pantalla del Verificador senior para suspender a un Verificador | 3 | `[Asignar]` | To-Do |
+
+| US40 | Consulta de métricas de la plataforma | T63 | Consultas agregadas de métricas | Métricas agregadas de Estudiantes y Verificadores (backend) | 8 | `[Asignar]` | To-Do |
+
+| US40 | Consulta de métricas de la plataforma | T64 | Pantalla de métricas | Pantalla de métricas para el Verificador senior | 5 | `[Asignar]` | To-Do |
+
+*Nota.* Las 21 tasks suman 128 horas de estimación. Las estimaciones y las asignaciones se ajustan en el Sprint Planning 2. Elaboración propia.
+
+#### 4.2.2.4. Development Evidence for Sprint Review
+
+Esta sección presenta los avances de implementación del Sprint 2 en los repositorios `SkillSwap-WebServices-Java`, `SkillSwap-MobileApp`, `SkillSwap-MobileApp-Flutter` y `SkillSwap-LandingPage`, con sus commits bajo Conventional Commits y un Pull Request por rama de feature integrado en `develop`.
+
+**Tabla 29**
+
+*Commits de desarrollo en el Sprint 2*
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| `[repositorio]` | `[rama]` | `[hash]` | `[mensaje]` | `[cuerpo]` | `[fecha]` |
+
+*Nota.* Completar con `git log` de cada repositorio al cierre del Sprint 2. Elaboración propia.
+
+#### 4.2.2.5. Testing Suite Evidence for Sprint Review
+
+Se presentan las pruebas unitarias y de integración que cubren las historias del Sprint 2, con la misma estrategia del Sprint 1 (JUnit 5, AssertJ, MockMvc y Testcontainers en el backend) y las pruebas de la aplicación móvil que correspondan.
+
+**Tabla 30**
+
+*Commits del Sprint 2 que incorporan pruebas automatizadas*
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| `[repositorio]` | `[rama]` | `[hash]` | `[mensaje]` | `[cuerpo]` | `[fecha]` |
+
+*Nota.* Completar con los commits de pruebas del Sprint 2. Elaboración propia.
+
+#### 4.2.2.6. Execution Evidence for Sprint Review
+
+Esta sección presenta las vistas principales implementadas en el Sprint 2, ejecutadas en un dispositivo físico, junto con el video que muestra la navegación lograda: `[INSERTAR ENLACE DEL VIDEO]`.
+
+**Figura 142**
+
+*Captura del certificado con la cámara y lectura con ML Kit*
+
+`[INSERTAR CAPTURA: captura del certificado con la cámara y datos extraídos (US11)]`
+
+*Nota.* Elaboración propia.
+
+**Figura 143**
+
+*Confirmación de la habilidad interpretada*
+
+`[INSERTAR CAPTURA: pantalla de confirmación de la habilidad (US07)]`
+
+*Nota.* Elaboración propia.
+
+**Figura 144**
+
+*Consulta de la ruta sin conexión*
+
+`[INSERTAR CAPTURA: ruta de aprendizaje consultada sin conexión (US10)]`
+
+*Nota.* Elaboración propia.
+
+**Figura 145**
+
+*Quiz con respuestas conservadas ante la pérdida de conexión*
+
+`[INSERTAR CAPTURA: quiz con el avance conservado (US21)]`
+
+*Nota.* Elaboración propia.
+
+**Figura 146**
+
+*Resultado del quiz con el sub-tema débil*
+
+`[INSERTAR CAPTURA: resultado con el sub-tema a reforzar (US20)]`
+
+*Nota.* Elaboración propia.
+
+**Figura 147**
+
+*Entrega de un miniproyecto*
+
+`[INSERTAR CAPTURA: pantalla de entrega del miniproyecto (US19)]`
+
+*Nota.* Elaboración propia.
+
+**Figura 148**
+
+*Herramientas del Verificador senior*
+
+`[INSERTAR CAPTURA: reevaluación, suspensión y métricas (US37, US38, US40) y compartir logros (US33)]`
+
+*Nota.* Elaboración propia.
+
+#### 4.2.2.7. Services Documentation Evidence for Sprint Review
+
+Los endpoints incorporados en el Sprint 2 se documentan con OpenAPI 3.1 mediante springdoc-openapi, en la misma documentación interactiva del backend desplegado (`/swagger-ui/index.html`).
+
+**Tabla 31**
+
+*Endpoints documentados en el Sprint 2*
+
+| Verbo | Endpoint | Acción | Auth | Parámetros | Respuestas |
+|---|---|---|---|---|---|
+
+| `[verbo]` | `[endpoint]` | Confirmar la habilidad interpretada (US07) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+| `[verbo]` | `[endpoint]` | Consultar el sub-tema débil de un intento (US20) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+| `[verbo]` | `[endpoint]` | Entregar un miniproyecto (US19) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+| `[verbo]` | `[endpoint]` | Obtener el contenido compartible de logros (US33) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+| `[verbo]` | `[endpoint]` | Ordenar la reevaluación de un resultado aprobado (US37) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+| `[verbo]` | `[endpoint]` | Suspender a un Verificador (US38) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+| `[verbo]` | `[endpoint]` | Consultar métricas de la plataforma (US40) | `[Auth]` | `[parámetros]` | `[respuestas]` |
+
+*Nota.* Completar con los endpoints reales del backend. Elaboración propia.
+
+**Figura 149**
+
+*Documentación Swagger de los endpoints del Sprint 2*
+
+`[INSERTAR CAPTURA: Swagger UI con los endpoints del Sprint 2 y un ejemplo de request/response]`
+
+*Nota.* Elaboración propia.
+
+**Tabla 32**
+
+*Commits relacionados con la documentación de los Web Services en el Sprint 2*
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| `[repositorio]` | `[rama]` | `[hash]` | `[mensaje]` | `[cuerpo]` | `[fecha]` |
+
+*Nota.* Completar con los commits de documentación del Sprint 2. Elaboración propia.
+
+#### 4.2.2.8. Software Deployment Evidence for Sprint Review
+
+Para el hito AV2 el backend debe estar desplegado al 100 % en un sitio público con su documentación, y el Landing Page debe seguir publicado. Esta sección resume el despliegue del Sprint 2 con el servicio de Render ya configurado en el Sprint 1 (ver 4.1.4 y 4.2.1.8).
+
+**Figura 150**
+
+*Backend desplegado en Render con las funcionalidades del Sprint 2*
+
+`[INSERTAR CAPTURA: panel de Render con el último despliegue exitoso y el health check]`
+
+*Nota.* Elaboración propia.
+
+**Figura 151**
+
+*Landing Page publicado y verificado en el Sprint 2*
+
+`[INSERTAR CAPTURA: Landing Page en línea]`
+
+*Nota.* Elaboración propia.
+
+#### 4.2.2.9. Team Collaboration Insights during Sprint
+
+Esta sección presenta los analíticos de colaboración del Sprint 2 en los repositorios del proyecto y su interpretación: `[describir la participación de cada integrante por repositorio y frente]`.
+
+**Figura 152**
+
+*Historial de commits de los repositorios durante el Sprint 2*
+
+`[INSERTAR CAPTURA: GitHub Insights / historial de commits del Sprint 2 por repositorio]`
+
+*Nota.* Elaboración propia.
+
+
 ---
 
 
@@ -6039,8 +6357,11 @@ Las referencias se organizan en las tres categorías de recursos bibliográficos
 
 **Dominio de negocio**
 
+* Bruguera, C., Pagés, C., Peters, M., & Fitó, À. (2025). Micro-credentials and soft skills in online education: The employers' perspective. *Distance Education, 46*(1), 56–76. [https://doi.org/10.1080/01587919.2024.2435645](https://doi.org/10.1080/01587919.2024.2435645)
 * Coursera. (2025). *Global skills report 2025*. [https://www.coursera.org/skills-reports/global](https://www.coursera.org/skills-reports/global)
 * Instituto Nacional de Estadística e Informática. (2025). *Estadísticas de las tecnologías de información y comunicación en los hogares: II trimestre 2025* (Informe Técnico N.° 03). [https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf](https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf)
+* Käpylä, J., & Palvalin, M. (2025). Integrating peer assessment into experiential learning: The validity and learning benefits of peer assessment in reading circle discussions. *Assessment & Evaluation in Higher Education*, 1253–1276. [https://doi.org/10.1080/02602938.2025.2566659](https://doi.org/10.1080/02602938.2025.2566659)
+* Nguyen, T. N. H., Van Dyke, N., & Spittle, M. (2025). Micro-credentials in higher education: Perceived benefits for graduate employability and interest levels in micro-credentials for training employability skills. *Studies in Higher Education*. [https://doi.org/10.1080/03075079.2025.2516709](https://doi.org/10.1080/03075079.2025.2516709)
 * Novella, R., Alvarado, A., Rosas, D., & González-Velosa, C. (2019). *Encuesta de habilidades al trabajo (ENHAT) 2017-2018: Causas y consecuencias de la brecha de habilidades en Perú* (Nota Técnica N.° IDB-TN-1652). Banco Interamericano de Desarrollo. [https://proyectos.inei.gob.pe/iinei/srienaho/Descarga/DocumentosMetodologicos/2017-18/6-ENHAT_2017-2018_Caus_y_consec_de_la_brecha_de_habil_en_Peru.pdf](https://proyectos.inei.gob.pe/iinei/srienaho/Descarga/DocumentosMetodologicos/2017-18/6-ENHAT_2017-2018_Caus_y_consec_de_la_brecha_de_habil_en_Peru.pdf)
 * Organisation for Economic Co-operation and Development. (2024). *Bridging talent shortages in tech: Skills-first hiring, micro-credentials and inclusive outreach*. OECD Publishing. [https://doi.org/10.1787/f35da44f-en](https://doi.org/10.1787/f35da44f-en)
 * Platzi. (s. f.). *Todo lo que debes saber sobre certificados en Platzi*. Recuperado el 8 de octubre de 2026, de [https://platzi.com/blog/todo-lo-que-debes-saber-sobre-certificados-en-platzi/](https://platzi.com/blog/todo-lo-que-debes-saber-sobre-certificados-en-platzi/)
@@ -6082,6 +6403,7 @@ Las referencias se organizan en las tres categorías de recursos bibliográficos
 * Google Play Console Help. (s. f.-a). *Understanding Google Play's Payments policy*. Recuperado el 9 de octubre de 2026, de [https://support.google.com/googleplay/android-developer/answer/9858738](https://support.google.com/googleplay/android-developer/answer/9858738)
 * Google Play Console Help. (s. f.-b). *Understanding user choice billing on Google Play*. Recuperado el 9 de octubre de 2026, de [https://support.google.com/googleplay/android-developer/answer/13821247](https://support.google.com/googleplay/android-developer/answer/13821247)
 * Hibernate. (s. f.). *Hibernate ORM documentation*. Recuperado el 9 de octubre de 2026, de [https://hibernate.org/orm/documentation/](https://hibernate.org/orm/documentation/)
+* Jošt, G., & Taneski, V. (2025). State-of-the-art cross-platform mobile application development frameworks: A comparative study of market and developer trends. *Informatics, 12*(2), Artículo 45. [https://doi.org/10.3390/informatics12020045](https://doi.org/10.3390/informatics12020045)
 * JUnit Team. (s. f.). *JUnit 5 user guide*. Recuperado el 9 de octubre de 2026, de [https://junit.org/junit5/docs/current/user-guide/](https://junit.org/junit5/docs/current/user-guide/)
 * jwtk. (s. f.). *JJWT: Java JWT*. Recuperado el 9 de octubre de 2026, de [https://github.com/jwtk/jjwt](https://github.com/jwtk/jjwt)
 * OpenAPI Initiative. (s. f.). *OpenAPI Specification*. Recuperado el 8 de octubre de 2026, de [https://spec.openapis.org/oas/latest.html](https://spec.openapis.org/oas/latest.html)
@@ -6142,6 +6464,13 @@ Tabla 22. *Pruebas unitarias y de integración por Bounded Context y capa*<br>
 Tabla 23. *Commits del Sprint 1 que incorporan pruebas automatizadas*<br>
 Tabla 24. *Endpoints documentados en el Sprint 1*<br>
 Tabla 25. *Commits relacionados con la documentación de los Web Services*<br>
+Tabla 26. *Sprint Planning 2*<br>
+Tabla 27. *Leadership-and-Collaboration Matrix del Sprint 2*<br>
+Tabla 28. *Sprint Backlog 2*<br>
+Tabla 29. *Commits de desarrollo en el Sprint 2*<br>
+Tabla 30. *Commits del Sprint 2 que incorporan pruebas automatizadas*<br>
+Tabla 31. *Endpoints documentados en el Sprint 2*<br>
+Tabla 32. *Commits relacionados con la documentación de los Web Services en el Sprint 2*<br>
 
 ---
 
@@ -6286,6 +6615,19 @@ Figura 136. *Dockerfile del backend*<br>
 Figura 137. *Health check del backend en Render*<br>
 Figura 138. *Landing Page publicado en GitHub Pages*<br>
 Figura 139. *Historial de commits del repositorio SkillSwap-WebServices-Java durante el Sprint 1*<br>
+Figura 140. *Reunión de Sprint Planning 2*<br>
+Figura 141. *Sprint Backlog 2 en Trello*<br>
+Figura 142. *Captura del certificado con la cámara y lectura con ML Kit*<br>
+Figura 143. *Confirmación de la habilidad interpretada*<br>
+Figura 144. *Consulta de la ruta sin conexión*<br>
+Figura 145. *Quiz con respuestas conservadas ante la pérdida de conexión*<br>
+Figura 146. *Resultado del quiz con el sub-tema débil*<br>
+Figura 147. *Entrega de un miniproyecto*<br>
+Figura 148. *Herramientas del Verificador senior*<br>
+Figura 149. *Documentación Swagger de los endpoints del Sprint 2*<br>
+Figura 150. *Backend desplegado en Render con las funcionalidades del Sprint 2*<br>
+Figura 151. *Landing Page publicado y verificado en el Sprint 2*<br>
+Figura 152. *Historial de commits de los repositorios durante el Sprint 2*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
