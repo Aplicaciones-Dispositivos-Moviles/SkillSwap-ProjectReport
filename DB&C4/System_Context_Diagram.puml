@@ -16,8 +16,8 @@ System_Ext(cloudStorage, "Cloudinary", "Almacenamiento de los archivos de certif
 System_Ext(googlePlayBilling, "Google Play Billing (vía RevenueCat)", "Cobro de la suscripción mensual")
 System_Ext(geminiApi, "Gemini API", "IA generativa: interpreta la meta eligiendo solo habilidades del catálogo interno y genera las preguntas de los quizzes")
 
-Rel(student, skillSwapSystem, "Usa (app móvil / landing page)")
-Rel(verifier, skillSwapSystem, "Usa (app móvil / landing page)")
+Rel(student, skillSwapSystem, "Usa (app móvil nativa / landing page)")
+Rel(verifier, skillSwapSystem, "Usa (app móvil cross-platform)")
 
 Rel(skillSwapSystem, emailService, "Envía el correo de verificación de la cuenta")
 Rel(skillSwapSystem, pushService, "Envía notificaciones push (resultado del certificado)")
