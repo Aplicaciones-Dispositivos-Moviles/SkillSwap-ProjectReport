@@ -5,8 +5,8 @@
 LAYOUT_WITH_LEGEND()
 
 Deployment_Node(userDevice, "Dispositivo Móvil del Usuario", "Android"){
-    Container(androidApp, "Android Native App", "Kotlin / Jetpack Compose", "Cliente móvil nativo usado por Estudiantes y Verificadores.")
-    Container(flutterApp, "Cross-Platform App", "Flutter / Dart (Android)", "Cliente móvil multiplataforma dirigido a Android.")
+    Container(androidApp, "Android Native App", "Kotlin / Jetpack Compose", "Cliente móvil nativo usado por Estudiantes.")
+    Container(flutterApp, "Cross-Platform App", "Flutter / Dart (Android)", "Cliente móvil multiplataforma usado por Verificadores (Android).")
     Container(mlKitSdk, "ML Kit SDK", "Firebase On-Device", "Lee los datos del certificado en el dispositivo; la app los envía al backend en el multipart.")
 }
 
@@ -28,7 +28,6 @@ Deployment_Node(externalCloud, "Servicios Externos en la Nube", "SaaS"){
 }
 
 Rel(androidApp, mlKitSdk, "Invoca localmente", "SDK call")
-Rel(flutterApp, mlKitSdk, "Invoca localmente", "SDK call")
 
 Rel(androidApp, api, "Consume la API RESTful", "HTTPS")
 Rel(flutterApp, api, "Consume la API RESTful", "HTTPS")
@@ -42,6 +41,5 @@ Rel(api, geminiApi, "Interpreta la meta y genera preguntas", "HTTPS")
 Rel(api, playBilling, "Verifica la compra y cancela la renovación", "HTTPS")
 Rel(playBilling, api, "Notifica cambios de la suscripción (webhook)", "HTTPS")
 Rel(androidApp, playBilling, "Compra el plan mensual (SDK de RevenueCat)", "HTTPS")
-Rel(flutterApp, playBilling, "Compra el plan mensual (SDK de RevenueCat)", "HTTPS")
 
 @enduml
