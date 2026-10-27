@@ -69,7 +69,7 @@ Octubre 2026
 | **v.02.TB1** | 07/10/2026 |  Alberca Saavedra, Víctor Manuel<br>Becerra Ninahuanca, Luis Angel<br>Lopez Montalvo, Kevin Edu<br>Komatsu Dueñas, David<br>Sulca Sánchez, Piero Angel | Se corrigieron y actualizaron los siguientes tópicos, a partir de las decisiones reales tomadas durante la construcción del backend:<br><br>**Capítulo I: Presentación**<br>1.1.1. Descripción de la Startup (modelo de negocio: suscripción mensual vía Google Play Billing, SkillCredits no adquiribles)<br>1.1.2. Perfiles de integrantes del equipo<br>1.2.1. Antecedentes y problemática (corrección de Identity & Access: dominio institucional exigido desde el registro)<br>1.2.2. Lean UX Process (pasarela de pago unificada a Google Play Billing)<br>1.3. Segmentos objetivo<br><br>**Capítulo II: Requirements Development and Software Solution Design**<br>2.1. Competidores<br>2.4.1. User Stories (corrección de US05, US06, US18, US22, US24, US25, US26; se difirieron US07, US19, US20; se agregaron TS11 y TS12)<br>2.4.3. Product Backlog (55 → 57 historias, 204 → 211 Story Points; columna Sprint completada)<br>2.5.1. EventStorming (pasarela de pago y validación de correo institucional)<br>2.5.2. Context Mapping (pasarela de pago, mecanismo de eventos de dominio entre Assessment & Peer Review, Reputation y Recognition & Incentives)<br>2.5.3.1. Software Architecture Context Level Diagrams<br>2.5.3.2. Software Architecture Container Level Diagrams (colapso de los ocho Bounded Contexts en un único contenedor de API, consistente con el nivel de un Container Diagram)<br>2.5.3.3. Software Architecture Deployment Diagrams (MySQL → PostgreSQL, corrección del origen de la llamada a ML Kit)<br>2.6.4. Bounded Context: Assessment & Peer Review (reescritura completa al modelo mínimo realmente implementado)<br>2.6.4.5. Component Diagram de Assessment & Peer Review<br>2.6.5.5. Component Diagram de Reputation<br>2.6.6. Bounded Context: Recognition & Incentives (renombrado de Wallet & Incentives) y su Component Diagram<br>2.6.8. Bounded Context: Subscription & Billing (pasarela renombrada a Google Play Billing; `charge()` corregido a `verifyPurchase()`)<br>Diagrama de Clases general (eliminación de la clase `CreditPurchase`, corrección de `VerifierProfile`, `VerificationCase`, `CreditTransaction`, `Subscription`)<br>Diagrama de Base de Datos general (migración completa a PostgreSQL, corrección de índices únicos parciales, eliminación de `credit_purchases`)<br><br>**Student Outcome** (acumulado con el aporte de TB1 de los cinco integrantes)<br>**Objetivos SMART** (ajuste del objetivo de Alberca Saavedra, Víctor Manuel)<br>**Project Report Collaboration Insights** (acumulado con la evidencia de TB1)<br>**Conclusiones** (tres párrafos nuevos sobre las contradicciones resueltas entre el diseño y la implementación real)<br><br>Se agregaron los siguientes tópicos nuevos:<br><br>**Capítulo III: Solution UI/UX Design**<br>3.1.1. Style Guidelines<br>3.1.2. Information Architecture<br>3.1.3. Landing Page UI Design<br>3.1.4. Mobile Applications UX/UI Design<br><br>**Capítulo IV: Product Implementation & Validation**<br>4.1. Software Configuration Management<br>4.1.1. Software Development Environment Configuration<br>4.1.2. Source Code Management<br>4.1.3. Source Code Style Guide & Coding Conventions<br>4.1.4. Software Deployment Configuration<br>4.2. Landing Page, Services & Applications Implementation<br>4.2.1. Sprint 1<br>4.2.1.1. Sprint Planning 1<br>4.2.1.2. Aspect Leaders and Collaborators<br>4.2.1.3. Sprint Backlog 1<br>4.2.1.4. Development Evidence for Sprint Review<br>4.2.1.5. Testing Suite Evidence for Sprint Review<br>4.2.1.6. Execution Evidence for Sprint Review<br>4.2.1.7. Services Documentation Evidence for Sprint Review<br>4.2.1.8. Software Deployment Evidence for Sprint Review<br>4.2.1.9. Team Collaboration Insights during Sprint |
 | **v.03.TB1** | 08/10/2026 | Komatsu Dueñas, David | Se corrigieron los siguientes tópicos:<br><br>**Capítulo I: Presentación**<br>1.1.1. Descripción de la Startup (modelo freemium, habilitación del Verificador en la primera versión y revisión del Verificador como decisión con observaciones)<br>1.1.2. Perfiles de integrantes del equipo (términos del Anexo F)<br>1.2.2.1. Lean UX Problem Statements (revisión del Verificador como decisión con observaciones, según el modelo implementado)<br><br>**Capítulo II: Requirements Development and Software Solution Design**<br>2.1. Competidores, 2.1.1. Análisis competitivo y 2.1.2. Estrategias y tácticas frente a competidores (roadmap.sh, Pluralsight y Platzi como competidores directos)<br>2.5.1. EventStorming (ajustes del modelo posteriores a la sesión)<br>2.3.3 y 2.3.4 (Journey Map y Empathy Map del segmento 2 alineados con el rol de Verificador)<br>2.6.4 y 2.6.8 (habilitación del Verificador al completar el nodo de la habilidad; pasarela de pago Google Play Billing)<br>1.1.1, 1.3, 2.3, 2.3.6, 2.4, 2.5 y 2.6 (el rol de Coordinador se integra en el Verificador, que asume la supervisión del proceso; nombres de User Persona unificados: Valeria Ramos y Rodrigo Castillo)<br>2.4.1. User Stories (57 historias: 45 User Stories y 12 Technical Stories; se agregó el Epic EP10)<br>2.4.3. Product Backlog (totales de 211 Story Points y 145 Story Points en el Sprint 1; captura y URL público del tablero en Trello)<br>2.6.x.6. Bounded Context Software Architecture Code Level Diagrams (encabezado agregado en los Bounded Contexts 2.6.2 a 2.6.8)<br><br>**Capítulo III: Solution UI/UX Design**<br>3.1.2, 3.1.3 y 3.1.4 (diseño para dos roles, Estudiante y Verificador, este último con las funciones de supervisión)<br>3.1.4.2. Mobile Applications Wireflow Diagrams (notas completas de los Wireflows)<br><br>**Capítulo IV: Product Implementation & Validation**<br>4.2.1.1. Sprint Planning 1 (Velocity y Sum of Story Points de 145)<br>4.2.1.3. Sprint Backlog 1 (captura y URL público del tablero en Trello)<br><br>**Objetivos SMART** (dos objetivos por integrante, orientados al desarrollo profesional después del egreso)<br>**Formato general** (niveles de encabezado, numeración de figuras y tablas, índices y tabla de contenidos)<br>**Bibliografía** (organizada por categorías)<br>**Anexos** (nomenclatura de archivos y enlaces de acceso a la solución)<br><br>Se agregaron los siguientes tópicos nuevos:<br><br>2.3.6. Ubiquitous Language<br>**Glosario** |
 | **v.04.TB1** | 09/10/2026 | Sulca Sánchez, Piero Angel | Se alinearon los siguientes tópicos con el backend integrado en la rama `develop` de `SkillSwap-WebServices-Java` (PR #1 a #15, migraciones Flyway V1 a V10) y con el Landing Page publicado en GitHub Pages:<br><br>**Capítulos I y II:** modelo freemium con suscripción mensual vía RevenueCat; economía de SkillCredits por tipo de caso (40 por miniproyecto y 25 por quiz; ruta avanzada a 200 y certificado de contribución a 120); habilitación del Verificador al completar el nodo de la habilidad; User Stories y Product Backlog con 44 historias y 154 Story Points en el Sprint 1; EventStorming, Bounded Context Canvases, Context Mapping y diagramas C4 reconciliados con el modelo implementado; 2.6 con el modelo táctico del código (`Dispute` y `DisputesController` en Moderation & Disputes, `AdvancedPathUnlock` y `GeminiSkillTaxonomyMatcher` en Learning Path Engine, `ReviewDeadlinePolicy` en Assessment & Peer Review, `VerifierRank` y `SeniorVerifierPolicy` en Reputation, `ProcessedWebhookEvent` y `PlanLimits` en Subscription & Billing, verificación del correo con Brevo y notificaciones push con Firebase Cloud Messaging en Identity & Access) y diagramas de base de datos generados desde las migraciones<br><br>**Capítulo IV:** repositorios de las aplicaciones móviles, despliegue en Render desde `develop`, variables de entorno, Sprint Backlog con tareas de 4 a 8 horas asignadas según la autoría en Git, commits y merges de los PR #1 a #15 del backend y #1 a #8 del Landing Page, suite de 1978 pruebas y nuevas evidencias de ejecución, documentación y despliegue<br><br>**Project Report Collaboration Insights** (aportes de TB1), **Índice de Tablas y de Figuras** (numeración continua) y **Bibliografía** |
-| **v.05.AV2** | 15/10/2026 | Alberca Saavedra, Víctor Manuel | Se corrigieron y actualizaron los siguientes tópicos a partir de la retroalimentación del TB1:<br><br>**Capítulo I:** 1.1.1 Descripción de la Startup, con la definición del rol del Verificador (habilitación por habilidad, revisión de casos con rúbrica, SkillCredits, confiabilidad, apelaciones y Verificador senior) y la tienda de beneficios de cuatro ítems (insignia, certificado de contribución, ruta avanzada y certificación patrocinada), con sus precios en 2.3.6 (Ubiquitous Language), 2.4.1 (US32), 2.6.6 (Recognition & Incentives) y 3.1.4 (pantallas del Verificador); en 4.1.4, el estado de las integraciones externas (cobro simulado y notificaciones push)<br><br>**Capítulo II:** 2.5.3 Software Architecture, con los diagramas de Contexto, Contenedores y Despliegue diferenciados por actor (el Estudiante, con el Landing Page y la aplicación nativa; el Verificador, con la aplicación Flutter) y con el Landing Page fuera del Deployment Diagram (sitio estático independiente de la aplicación móvil)<br><br>**Capítulo IV:** 4.1.4 Software Deployment Configuration, con el mismo Deployment Diagram; 4.2.2 Sprint 2, con el Sprint Planning 2, la matriz de líderes y colaboradores, el Sprint Backlog 2 (13 historias, 57 Story Points: la aplicación del Estudiante completa y 6 de las 14 historias del Verificador) y la asignación de tasks y la matriz de líderes y colaboradores, y la estructura de las evidencias del Sprint Review, con los commits del backend (PR #16 a #35) y de la aplicación nativa (PR #1 a #20), los endpoints y las pruebas; 4.3 Validation Interviews (diseño de entrevistas, registro de sesiones y evaluación según heurísticas)<br><br>**Conclusiones** (dos apartados nuevos), **Bibliografía** (papers Q1/Q2) y **Anexos A y C** (aplicación de cada actor y estado de los videos)<br><br>**Project Report Collaboration Insights** (aportes de AV2), **Student Outcome** (acciones de AV2), **Índice de Tablas y de Figuras** y **Contenido** |
+| **v.05.AV2** | 15/10/2026 | Alberca Saavedra, Víctor Manuel | Se corrigieron y actualizaron los siguientes tópicos a partir de la retroalimentación del TB1:<br><br>**Capítulo I:** 1.1.1 Descripción de la Startup, con la definición del rol del Verificador (habilitación por habilidad, revisión de casos con rúbrica, SkillCredits, confiabilidad, apelaciones y Verificador senior) y la tienda de beneficios de cuatro ítems (insignia, certificado de contribución, ruta avanzada y certificación patrocinada), con sus precios en 2.3.6 (Ubiquitous Language), 2.4.1 (US32), 2.6.6 (Recognition & Incentives) y 3.1.4 (pantallas del Verificador); en 4.1.4, el estado de las integraciones externas (cobro simulado y notificaciones push)<br><br>**Capítulo II:** 2.5.3 Software Architecture, con los diagramas de Contexto, Contenedores y Despliegue diferenciados por actor (el Estudiante, con el Landing Page y la aplicación nativa; el Verificador, con la aplicación Flutter) y con el Landing Page fuera del Deployment Diagram (sitio estático independiente de la aplicación móvil)<br><br>**Capítulo IV:** 4.1.4 Software Deployment Configuration, con el mismo Deployment Diagram; 4.2.2 Sprint 2, con el Sprint Planning 2, la matriz de líderes y colaboradores, el Sprint Backlog 2 (13 historias, 57 Story Points: la aplicación del Estudiante completa y 6 de las 14 historias del Verificador) y la asignación de tasks y la matriz de líderes y colaboradores, y la estructura de las evidencias del Sprint Review, con los commits del backend (PR #16 a #35) y de la aplicación nativa (PR #1 a #20), los endpoints y las pruebas; 4.3 Validation Interviews (diseño de entrevistas por segmento con sus preguntas y user flows, estructura del registro de entrevistas y evaluación heurística en el formato del Anexo E)<br><br>**Conclusiones** (dos apartados nuevos), **Bibliografía** (papers Q1/Q2) y **Anexos A y C** (aplicación de cada actor y estado de los videos)<br><br>**Project Report Collaboration Insights** (aportes de AV2), **Student Outcome** (acciones de AV2), **Índice de Tablas y de Figuras** y **Contenido** |
 
 <div style="page-break-after: always;"></div>
 
@@ -6463,94 +6463,425 @@ Esta sección presenta los analíticos de colaboración del Sprint 2 en los repo
 
 ## 4.3. Validation Interviews
 
-Esta sección documenta cómo se validó SkillSwap con usuarios de los dos segmentos objetivo (1.3) una vez que existen las aplicaciones: el diseño de las sesiones (4.3.1), su registro (4.3.2) y la evaluación de la interfaz según las heurísticas de usabilidad (4.3.3). Se distingue de las entrevistas de descubrimiento de la sección 2.2, que se hicieron antes de construir el producto, porque aquí el participante usa la solución.
+Esta sección registra y explica las actividades de validación de SkillSwap con usuarios de los dos segmentos objetivo definidos en 1.3. A diferencia de las entrevistas de descubrimiento de 2.2, que se hicieron antes de construir el producto, aquí las personas usan el Landing Page y las aplicaciones y comparten sus observaciones. Incluye el diseño de las sesiones (4.3.1), el registro de cada entrevista (4.3.2) y la evaluación de la experiencia según heurísticas de usabilidad, arquitectura de información y diseño inclusivo (4.3.3). Las sesiones se consolidan en el video de validación (Anexo C), y la evaluación sigue el formato del Anexo E del enunciado.
 
 ### 4.3.1. Diseño de Entrevistas
 
-**Objetivo.** Comprobar si una persona de cada segmento entiende la propuesta, completa las tareas principales de su aplicación sin ayuda y confía en el proceso de verificación, e identificar qué cambiar antes de la entrega final.
-
-**Método.** Sesión moderada de 20 a 30 minutos, individual y por videollamada o presencial, con prueba de usabilidad con pensamiento en voz alta seguida de una entrevista semiestructurada. El participante usa la aplicación en un dispositivo físico con datos de prueba, no reales; el moderador no sugiere la respuesta y un segundo integrante toma notas. Se pide permiso para grabar y el nombre solo se muestra si el participante lo autoriza.
-
-**Participantes.** Al menos una persona por segmento, como pide el Anexo C: del segmento de personas que quieren aprender, un estudiante o egresado reciente; del segmento de personas que validan el conocimiento, un estudiante con dominio sólido de una habilidad. Por indicación del docente, el Estudiante prueba el Landing Page y la aplicación nativa, y el Verificador, solo la aplicación Flutter. Las sesiones editadas se consolidan en el video de validación (Anexo C).
-
-**Tareas.** La Tabla 33 lista las tareas de cada segmento con las historias que ejercitan y su criterio de éxito. Las tareas del Verificador (V3 y V4) dependen de cuánto avance la aplicación Flutter al momento de la sesión.
+Cada sesión dura de 20 a 30 minutos, es individual y se hace por videollamada o de forma presencial. El participante usa los productos en un dispositivo físico con datos de prueba, piensa en voz alta mientras realiza las tareas y responde una entrevista semiestructurada al final. El moderador no sugiere la respuesta y un segundo integrante toma notas. Se pide permiso para grabar y el nombre solo se muestra si el participante lo autoriza. Por indicación del docente para este curso, el Estudiante prueba el Landing Page y la aplicación nativa (Kotlin / Jetpack Compose), y el Verificador, solo la aplicación Flutter. La Tabla 33 resume las tareas de cada segmento, los user flows de 3.1.4.4 que ejercitan y su criterio de éxito. Cada tarea se anota como completada sin ayuda, completada con ayuda o no completada, con el tiempo empleado y los errores observados.
 
 **Tabla 33**
 
-*Tareas de las sesiones de validación por segmento*
+*Tareas de las sesiones de validación y user flows que ejercitan*
 
-| Tarea | Descripción | Segmento | Aplicaciones | Historias | Criterio de éxito |
-|---|---|---|---|---|---|
-| E1 | Conocer la propuesta, los planes y el botón de descarga en el Landing Page | 1 | Estudiante · Landing Page y app nativa | US41, US43, US44 | Encuentra los planes y el enlace de descarga sin ayuda |
-| E2 | Registrarse con correo institucional, iniciar sesión y activar la huella | 1 | Estudiante · Landing Page y app nativa | US01, US02, US03 | Completa el registro y vuelve a entrar con la huella |
-| E3 | Declarar su meta y confirmar la habilidad interpretada | 1 | Estudiante · Landing Page y app nativa | US06, US07, US08 | Elige una habilidad y entiende por qué se le propone |
-| E4 | Subir un certificado con la cámara y revisar los datos leídos | 1 | Estudiante · Landing Page y app nativa | US11, US12, US13, US15 | Corrige un dato leído y vincula el certificado a un nodo |
-| E5 | Consultar su ruta sin conexión (modo avión) | 1 | Estudiante · Landing Page y app nativa | US10 | Reconoce que está sin conexión y ve su ruta |
-| E6 | Resolver un quiz, perder la conexión a mitad y leer el sub-tema débil | 1 | Estudiante · Landing Page y app nativa | US17, US18, US20, US21 | Retoma sin perder respuestas e identifica qué reforzar |
-| E7 | Entregar un miniproyecto y revisar el estado de su caso | 1 | Estudiante · Landing Page y app nativa | US19, US16, US27 | Entrega el enlace e interpreta el estado del caso |
-| E8 | Programar su demostración final y subir el video | 1 | Estudiante · Landing Page y app nativa | US28, US29 | Elige modalidad y horario y sube el video |
-| V1 | Activar su disponibilidad | 2 | Verificador · app Flutter | US23 | Cambia su disponibilidad y confirma el cambio |
-| V2 | Revisar un caso con la rúbrica y registrar su decisión | 2 | Verificador · app Flutter | US25 | Califica cada criterio y envía la decisión |
-| V3 | Reevaluar un resultado, suspender a un Verificador o consultar las métricas | 2 | Verificador · app Flutter | US37, US38, US40 | Completa la acción que se le pide |
-| V4 | Compartir un logro verificado | 2 | Verificador · app Flutter | US33 | Obtiene el enlace y lo comparte |
+| Tarea | Descripción | Segmento | Producto | Historias | User flow (3.1.4.4) | Criterio de éxito |
+|---|---|---|---|---|---|---|
+| E1 | Conocer la propuesta, los planes y cómo empezar en el Landing Page | 1 | Landing Page | US41, US43, US44, US45 | — | Explica qué ofrece SkillSwap y encuentra planes, preguntas frecuentes y cómo empezar sin ayuda |
+| E2 | Registrarse con correo institucional, elegir el plan e iniciar sesión (con huella, si activa el acceso biométrico) | 1 | App nativa | US01, US02, US03, US05 | UF1 (Figura 116) | Completa el registro y vuelve a entrar |
+| E3 | Declarar su meta y confirmar la habilidad interpretada | 1 | App nativa | US06, US07, US08 | UF2 (Figura 117) | Elige una habilidad y entiende por qué se le propone |
+| E4 | Subir un certificado con la cámara, revisar los datos leídos y vincularlo a un nodo | 1 | App nativa | US11, US12, US13, US15 | UF3 (Figura 118) | Corrige un dato leído y vincula el certificado |
+| E5 | Consultar su ruta sin conexión (modo avión) | 1 | App nativa | US10 | UF2 y UF3 | Reconoce que está sin conexión y ve su ruta |
+| E6 | Resolver un quiz, perder la conexión a mitad y leer el sub-tema débil | 1 | App nativa | US17, US18, US20, US21 | UF4 (Figura 119) | Retoma sin perder respuestas e identifica qué reforzar |
+| E7 | Entregar un miniproyecto y revisar el estado de su caso | 1 | App nativa | US19, US16, US27 | UF4 (Figura 119) | Entrega el enlace e interpreta el estado del caso |
+| E8 | Programar su demostración final y subir el video | 1 | App nativa | US28, US29 | — | Elige modalidad y horario y sube el video |
+| V1 | Activar su disponibilidad | 2 | App Flutter | US23 | UF5 (Figura 120) | Cambia su disponibilidad y confirma el cambio |
+| V2 | Revisar un caso con la rúbrica y registrar su decisión | 2 | App Flutter | US24, US25 | UF5 (Figura 120) | Califica cada criterio y envía la decisión dentro del plazo |
+| V3 | Reevaluar un resultado, suspender a un Verificador o consultar las métricas | 2 | App Flutter | US37, US38, US40 | — | Completa la acción que se le pide |
+| V4 | Compartir un logro verificado | 2 | App Flutter | US33 | — | Obtiene el enlace y lo comparte |
 
-*Nota.* Cada tarea se registra como completada sin ayuda, completada con ayuda o no completada, con el tiempo empleado y los errores observados. Elaboración propia.
+*Nota.* UF1 a UF5 son los User Flows de 3.1.4.4 (Figuras 116 a 120). E1, E8 y V3 a V4 no tienen un user flow en 3.1.4.4 porque esas historias se incorporaron en el Sprint 2. Las tareas del Verificador se ajustan a las pantallas que tenga la aplicación Flutter en la fecha de la sesión. Elaboración propia.
 
-**Preguntas posteriores a las tareas.** Se hacen las mismas a los dos segmentos, sin sugerir la respuesta: 1) ¿Qué entendiste que hace la aplicación apenas la abriste? 2) ¿Qué paso te costó más? 3) ¿Confiarías en una credencial verificada por otro estudiante? 4) ¿Qué agregarías o quitarías? 5) ¿Qué tan probable es que la uses, del 1 al 5? Para el segmento de Estudiantes se agrega: ¿pagarías la suscripción mensual con lo que viste? Para el de Verificadores: ¿te motivaría el reconocimiento en SkillCredits y en un logro compartible?
+#### Segmento objetivo #1: Personas que quieren aprender
+
+**Elementos de la sesión.** El Landing Page (propuesta de valor, cómo funciona, planes y precios, preguntas frecuentes y cómo empezar) y la aplicación nativa del Estudiante, con los user flows UF1 a UF4 y las tareas E1 a E8 de la Tabla 33. El participante parte del Landing Page, sin indicaciones, y luego recibe un dispositivo con la aplicación instalada y una cuenta de prueba con una ruta completada para la tarea E8.
+
+**Preguntas.**
+
+*Antes de las tareas (perfil y expectativas)*
+
+1. Cuéntame brevemente qué estudias y qué cursos o certificados has tomado en línea.
+2. Cuando escuchas «valida tus habilidades con IA», ¿qué esperas encontrar?
+
+*Landing Page*
+
+1. Después de ver la página de inicio, ¿qué entiendes que ofrece SkillSwap?
+2. ¿Encuentras con facilidad cuánto cuesta y cómo empezar?
+3. ¿Qué información te falta para decidirte a registrarte?
+
+*Durante las tareas (pensando en voz alta)*
+
+1. ¿Qué esperas que pase al tocar este botón?
+2. Con el certificado leído con la cámara, ¿los datos extraídos son los que esperabas?
+3. Cuando perdiste la conexión, ¿cómo te diste cuenta y qué esperabas poder hacer?
+4. ¿Entiendes el resultado del quiz y el sub-tema que debes reforzar?
+
+*Al terminar*
+
+1. ¿Qué paso te costó más y por qué?
+2. ¿Confiarías en una credencial verificada por la IA y por otro estudiante?
+3. ¿Te ayuda esta evaluación (quiz, sub-tema, miniproyecto y demostración final) a saber qué reforzar?
+4. ¿Pagarías la suscripción mensual con lo que viste? ¿Qué tendría que incluir para que valga la pena?
+5. ¿Qué agregarías o quitarías?
+6. Del 1 al 5, ¿qué tan probable es que la uses y que la recomiendes?
+
+#### Segmento objetivo #2: Personas que validan el conocimiento
+
+**Elementos de la sesión.** La aplicación Flutter del Verificador, con el user flow UF5 y las tareas V1 a V4 de la Tabla 33. El participante recibe un dispositivo con la aplicación instalada, una cuenta de prueba habilitada como Verificador y un caso de verificación de ejemplo con su rúbrica.
+
+**Preguntas.**
+
+*Antes de las tareas (perfil)*
+
+1. Cuéntame qué habilidad dominas y si has revisado el trabajo de otras personas.
+
+*Durante las tareas (pensando en voz alta)*
+
+1. Al activar tu disponibilidad, ¿qué esperas que ocurra?
+2. Al abrir un caso, ¿qué información necesitas antes de decidir? ¿La rúbrica te resulta clara?
+3. ¿Se entiende cuánto tiempo te queda para resolverlo?
+
+*Al terminar*
+
+1. ¿Qué tan claro es cómo se te asignan los casos?
+2. ¿Qué opinas de ganar SkillCredits por cada caso resuelto y de poder canjearlos por beneficios?
+3. ¿Qué indicadores de confiabilidad esperarías ver de ti y de otros Verificadores?
+4. Para reevaluar un resultado o suspender a un Verificador, ¿qué datos necesitarías tener a la vista?
+5. ¿Compartirías un logro verificado en LinkedIn? ¿Qué texto esperarías que aparezca?
+6. ¿Qué agregarías o quitarías?
+7. Del 1 al 5, ¿qué tan probable es que uses la aplicación para verificar a otras personas?
 
 ### 4.3.2. Registro de Entrevistas
 
-La Tabla 34 registra cada sesión de validación con el participante, las tareas que completó, su satisfacción, los hallazgos y los ajustes que el equipo decidió. Se completa con las sesiones realizadas, que además se editan en el video de validación.
+Para cada segmento se registran de 3 a 5 entrevistas. De cada una se indican los nombres, apellidos, edad y distrito del entrevistado, un cuadro del video, el URL del video en el OneDrive del docente con el momento en que inicia la entrevista y su duración, y un resumen de sus apreciaciones sobre las tareas asignadas.
 
-**Tabla 34**
+#### Segmento objetivo #1: Personas que quieren aprender
 
-*Registro de las sesiones de validación*
+Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiantes universitarios o egresados recientes, que usan el Landing Page y la aplicación nativa. Cada entrevista se graba en video, se sube al OneDrive del docente y se resume aquí; los tres registros siguientes son el mínimo requerido y se agregan hasta dos más si se realizan.
 
-| Sesión | Segmento | Participante | Perfil | Fecha y medio | Aplicación | Tareas completadas | Satisfacción (1 a 5) | Hallazgos principales | Ajustes derivados |
-|---|---|---|---|---|---|---|---|---|---|
-| 1 | Personas que quieren aprender | `[nombre, si autoriza]` | `[carrera y ciclo]` | `[fecha · Google Meet o presencial]` | Landing Page y app nativa | `[ej. 7 de 8]` | `[1 a 5]` | `[hallazgos]` | `[ajustes]` |
-| 2 | Personas que validan el conocimiento | `[nombre, si autoriza]` | `[perfil]` | `[fecha · medio]` | App Flutter | `[ej. 3 de 4]` | `[1 a 5]` | `[hallazgos]` | `[ajustes]` |
+**Entrevista 1**
 
-*Nota.* Completar al realizar cada sesión; no se registran datos personales sin la autorización del participante. Elaboración propia.
+* **Nombres:** `[nombres]`
+* **Apellidos:** `[apellidos]`
+* **Edad:** `[edad]`
+* **Distrito:** `[distrito]`
+* **Segmento objetivo:** Personas que quieren aprender
+* **Fecha:** `[dd/mm/aaaa]`
+* **Productos usados:** Landing Page y aplicación nativa
+* **URL del video (OneDrive):** `[URL]`
+* **Inicio de la entrevista en el video:** `[hh:mm:ss]`
+* **Duración:** `[mm:ss]`
 
 **Figura 155**
 
-*Sesión de validación con una persona del segmento de Estudiantes*
+*Entrevista de validación 1: Personas que quieren aprender*
 
-`[INSERTAR CAPTURA: sesión de validación con el Estudiante usando la aplicación nativa]`
+`[INSERTAR CAPTURA: cuadro del video de la entrevista 1]`
 
 *Nota.* Elaboración propia.
+
+*Resumen.* `[Redactar de forma descriptiva las principales apreciaciones del entrevistado sobre cada tarea asignada (Tabla 33): qué le resultó claro, qué le costó, qué comentó sobre la confianza en la verificación y qué cambiaría.]`
+
+**Entrevista 2**
+
+* **Nombres:** `[nombres]`
+* **Apellidos:** `[apellidos]`
+* **Edad:** `[edad]`
+* **Distrito:** `[distrito]`
+* **Segmento objetivo:** Personas que quieren aprender
+* **Fecha:** `[dd/mm/aaaa]`
+* **Productos usados:** Landing Page y aplicación nativa
+* **URL del video (OneDrive):** `[URL]`
+* **Inicio de la entrevista en el video:** `[hh:mm:ss]`
+* **Duración:** `[mm:ss]`
 
 **Figura 156**
 
-*Sesión de validación con una persona del segmento de Verificadores*
+*Entrevista de validación 2: Personas que quieren aprender*
 
-`[INSERTAR CAPTURA: sesión de validación con el Verificador usando la aplicación Flutter]`
+`[INSERTAR CAPTURA: cuadro del video de la entrevista 2]`
 
 *Nota.* Elaboración propia.
 
+*Resumen.* `[Redactar de forma descriptiva las principales apreciaciones del entrevistado sobre cada tarea asignada (Tabla 33): qué le resultó claro, qué le costó, qué comentó sobre la confianza en la verificación y qué cambiaría.]`
+
+**Entrevista 3**
+
+* **Nombres:** `[nombres]`
+* **Apellidos:** `[apellidos]`
+* **Edad:** `[edad]`
+* **Distrito:** `[distrito]`
+* **Segmento objetivo:** Personas que quieren aprender
+* **Fecha:** `[dd/mm/aaaa]`
+* **Productos usados:** Landing Page y aplicación nativa
+* **URL del video (OneDrive):** `[URL]`
+* **Inicio de la entrevista en el video:** `[hh:mm:ss]`
+* **Duración:** `[mm:ss]`
+
+**Figura 157**
+
+*Entrevista de validación 3: Personas que quieren aprender*
+
+`[INSERTAR CAPTURA: cuadro del video de la entrevista 3]`
+
+*Nota.* Elaboración propia.
+
+*Resumen.* `[Redactar de forma descriptiva las principales apreciaciones del entrevistado sobre cada tarea asignada (Tabla 33): qué le resultó claro, qué le costó, qué comentó sobre la confianza en la verificación y qué cambiaría.]`
+
+#### Segmento objetivo #2: Personas que validan el conocimiento
+
+Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiantes con dominio sólido de una habilidad, que usan la aplicación Flutter del Verificador. Se registran igual que las anteriores.
+
+**Entrevista 1**
+
+* **Nombres:** `[nombres]`
+* **Apellidos:** `[apellidos]`
+* **Edad:** `[edad]`
+* **Distrito:** `[distrito]`
+* **Segmento objetivo:** Personas que validan el conocimiento
+* **Fecha:** `[dd/mm/aaaa]`
+* **Productos usados:** Aplicación Flutter
+* **URL del video (OneDrive):** `[URL]`
+* **Inicio de la entrevista en el video:** `[hh:mm:ss]`
+* **Duración:** `[mm:ss]`
+
+**Figura 158**
+
+*Entrevista de validación 1: Personas que validan el conocimiento*
+
+`[INSERTAR CAPTURA: cuadro del video de la entrevista 1]`
+
+*Nota.* Elaboración propia.
+
+*Resumen.* `[Redactar de forma descriptiva las principales apreciaciones del entrevistado sobre cada tarea asignada (Tabla 33): qué le resultó claro, qué le costó, qué comentó sobre la confianza en la verificación y qué cambiaría.]`
+
+**Entrevista 2**
+
+* **Nombres:** `[nombres]`
+* **Apellidos:** `[apellidos]`
+* **Edad:** `[edad]`
+* **Distrito:** `[distrito]`
+* **Segmento objetivo:** Personas que validan el conocimiento
+* **Fecha:** `[dd/mm/aaaa]`
+* **Productos usados:** Aplicación Flutter
+* **URL del video (OneDrive):** `[URL]`
+* **Inicio de la entrevista en el video:** `[hh:mm:ss]`
+* **Duración:** `[mm:ss]`
+
+**Figura 159**
+
+*Entrevista de validación 2: Personas que validan el conocimiento*
+
+`[INSERTAR CAPTURA: cuadro del video de la entrevista 2]`
+
+*Nota.* Elaboración propia.
+
+*Resumen.* `[Redactar de forma descriptiva las principales apreciaciones del entrevistado sobre cada tarea asignada (Tabla 33): qué le resultó claro, qué le costó, qué comentó sobre la confianza en la verificación y qué cambiaría.]`
+
+**Entrevista 3**
+
+* **Nombres:** `[nombres]`
+* **Apellidos:** `[apellidos]`
+* **Edad:** `[edad]`
+* **Distrito:** `[distrito]`
+* **Segmento objetivo:** Personas que validan el conocimiento
+* **Fecha:** `[dd/mm/aaaa]`
+* **Productos usados:** Aplicación Flutter
+* **URL del video (OneDrive):** `[URL]`
+* **Inicio de la entrevista en el video:** `[hh:mm:ss]`
+* **Duración:** `[mm:ss]`
+
+**Figura 160**
+
+*Entrevista de validación 3: Personas que validan el conocimiento*
+
+`[INSERTAR CAPTURA: cuadro del video de la entrevista 3]`
+
+*Nota.* Elaboración propia.
+
+*Resumen.* `[Redactar de forma descriptiva las principales apreciaciones del entrevistado sobre cada tarea asignada (Tabla 33): qué le resultó claro, qué le costó, qué comentó sobre la confianza en la verificación y qué cambiaría.]`
+
 ### 4.3.3. Evaluaciones según Heurísticas
 
-La evaluación heurística revisa la interfaz con las diez heurísticas de usabilidad de Nielsen (1994). Cada integrante recorre por separado las pantallas con una cuenta de prueba, anota los problemas con la heurística que incumplen y les asigna una severidad de 0 (no es un problema) a 4 (catastrófico, hay que corregirlo antes de entregar); luego el equipo consolida los resultados. La Tabla 35 muestra la evidencia de cómo la aplicación nativa del Estudiante aplica cada heurística, tomada de lo implementado en el Sprint 2; las severidades y las mejoras se completan tras la revisión del equipo y de las sesiones de validación. La aplicación Flutter del Verificador se evalúa cuando tenga sus pantallas.
+La evaluación sigue el formato del Anexo E del enunciado y considera heurísticas de usabilidad (Nielsen, 1994), de arquitectura de información y de diseño inclusivo. La severidad se mide con la escala de la Tabla 34. Los problemas que siguen los identificó el equipo al revisar la versión actual del Landing Page y de la aplicación nativa del Estudiante, y se complementan con los que aparezcan en las sesiones de validación de 4.3.2. Entre los aspectos que sí se cumplen: las 24 imágenes del Landing Page tienen texto alternativo, la página declara el idioma español y ofrece una versión en inglés.
+
+**UX Heuristics & Principles Evaluation** · Usability · Inclusive Design · Information Architecture
+
+* **CARRERA:** Ingeniería de Software
+* **CURSO:** 1ACC0238 Aplicaciones para dispositivos móviles
+* **NRC:** 4948
+* **PROFESORES:** Eduardo Martin Reyes Rodriguez
+* **AUDITOR:** Innovify
+* **CLIENTE(S):** `[Nombres de las personas que participan en las sesiones de evaluación]`
+
+**SITE o APP A EVALUAR:** SkillSwap: Landing Page y aplicación nativa del Estudiante.
+
+**TAREAS A EVALUAR:** la evaluación revisa la usabilidad de las tareas E1 a E8 de la Tabla 33 (conocer la propuesta, registrarse e iniciar sesión, declarar la meta, subir un certificado, consultar la ruta sin conexión, resolver un quiz, entregar un miniproyecto y programar la demostración final).
+
+No están incluidas en esta versión de la evaluación: 1) las tareas V1 a V4 de la aplicación Flutter del Verificador, que se evalúan cuando tenga sus pantallas; 2) el canje de beneficios en la tienda de SkillCredits; 3) el cobro real de la suscripción, que está simulado.
+
+**ESCALA DE SEVERIDAD**
+
+**Tabla 34**
+
+*Escala de severidad de los problemas*
+
+| Nivel | Descripción |
+|---|---|
+| 1 | Problema superficial: puede ser superado fácilmente por el usuario y ocurre con muy poca frecuencia. No necesita corregirse a menos que haya tiempo. |
+| 2 | Problema menor: ocurre algo más seguido o es algo más difícil de superar. Se le asigna prioridad baja para el siguiente release. |
+| 3 | Problema mayor: ocurre con frecuencia o los usuarios no pueden resolverlo. Es importante corregirlo y se le asigna prioridad alta. |
+| 4 | Problema muy grave: tiene gran impacto e impide al usuario continuar con la herramienta. Es imperativo corregirlo antes del lanzamiento. |
+
+*Nota.* Escala del Anexo E del enunciado. Elaboración propia.
+
+**TABLA RESUMEN**
 
 **Tabla 35**
 
-*Evaluación heurística de la aplicación del Estudiante*
+*Resumen de los problemas de la evaluación heurística*
 
-| Heurística | Cómo se aplica en la aplicación del Estudiante (evidencia) | Severidad (0 a 4) | Mejora propuesta |
+| # | Problema | Escala de severidad | Heurística/Principio violada(o) |
 |---|---|---|---|
-| 1. Visibilidad del estado del sistema | Indicador de falta de conexión en las pantallas con datos locales; chip con el estado del caso de verificación; la entrega del miniproyecto muestra «Pending» y la pantalla consulta el resultado de la IA hasta que llega. | `[0 a 4]` | `[mejora]` |
-| 2. Correspondencia entre el sistema y el mundo real | Textos en español latinoamericano (la app envía `Accept-Language` es-419) y vocabulario del dominio: ruta, nodo, habilidad, caso, SkillCredits. | `[0 a 4]` | `[mejora]` |
-| 3. Control y libertad del usuario | Confirmar la habilidad antes de construir la ruta; apelar la decisión de un Verificador; reprogramar o cancelar la demostración; reemplazar el video hasta que se revise; cerrar sesión. | `[0 a 4]` | `[mejora]` |
-| 4. Consistencia y estándares | Sistema de diseño propio (tema, tipografía Inter y componentes base) aplicado a las pantallas del Estudiante, sobre Material Design 3. | `[0 a 4]` | `[mejora]` |
-| 5. Prevención de errores | Validación local del registro, validación en línea del enlace del repositorio, fecha de la demostración con al menos 24 horas de anticipación, y quiz y miniproyecto del nodo solo con el certificado vinculado. | `[0 a 4]` | `[mejora]` |
-| 6. Reconocimiento antes que recuerdo | Ruta con línea de tiempo de nodos y estado de cada uno; acceso a Mi billetera, Mi plan y Mis intereses desde el perfil. | `[0 a 4]` | `[mejora]` |
-| 7. Flexibilidad y eficiencia de uso | Acceso con huella o rostro, sesión persistente, ruta y respuestas del quiz guardadas en el dispositivo, y reenvío automático al recuperar la conexión. | `[0 a 4]` | `[mejora]` |
-| 8. Diseño estético y minimalista | Aviso del caso simplificado a un chip de estado en el resultado del quiz; una acción principal por pantalla. | `[0 a 4]` | `[mejora]` |
-| 9. Ayuda para reconocer, diagnosticar y recuperarse de errores | Si el certificado no corresponde a la habilidad (`422`), la app propone los nodos que sí corresponden; el `404` o la lista vacía de opciones de habilidad se tratan como error y la meta ya lograda (`409`) tiene su propio mensaje; al llegar al límite del plan se explica cuál es y cómo mejorarlo. | `[0 a 4]` | `[mejora]` |
-| 10. Ayuda y documentación | Preguntas frecuentes en el Landing Page (US45). `[Verificar si la aplicación necesita ayuda contextual dentro de las pantallas.]` | `[0 a 4]` | `[mejora]` |
+| 1 | Los botones «Iniciar Sesión» y «Registrarse» de la página de inicio del Landing Page enlazan a la misma página de inicio | 3 | Information Architecture: Is it findable? |
+| 2 | Los llamados a la acción principales del Landing Page no llevan a ninguna parte y no hay un enlace de descarga de la aplicación | 3 | Information Architecture: Is it usable? |
+| 3 | La pantalla de inicio de sesión no permite recuperar la contraseña | 3 | Usability: Ayuda para reconocer, diagnosticar y recuperarse de errores |
+| 4 | El botón «Salir» cierra la sesión sin pedir confirmación | 2 | Usability: Prevención de errores |
+| 5 | La opción «Mi billetera» lleva a una pantalla que también contiene el plan y los intereses | 2 | Information Architecture: Is it findable? |
+| 6 | Los errores y confirmaciones se muestran con mensajes temporales (Toast) que no se pueden volver a leer | 2 | Usability: Visibilidad del estado del sistema |
+| 7 | La aplicación solo tiene tema claro | 1 | Inclusive Design: Offer choice |
+| 8 | El Landing Page tiene español e inglés, pero la aplicación solo tiene español | 1 | Inclusive Design: Provide comparable experience |
 
-*Nota.* Heurísticas de Nielsen (1994). La severidad y la mejora propuesta las completa el equipo tras la revisión. Elaboración propia.
+*Nota.* Revisión del equipo sobre la versión del 26 de octubre de 2026. Elaboración propia.
+
+**DESCRIPCIÓN DE PROBLEMAS**
+
+**PROBLEMA #1:** Los botones «Iniciar Sesión» y «Registrarse» de la página de inicio del Landing Page enlazan a la misma página de inicio
+
+* **Severidad:** 3
+* **Heurística violada:** Information Architecture: Is it findable?
+* **Problema:** En `index.html` los dos botones de la barra de navegación están dentro de un enlace a `index.html`, por lo que desde la página de inicio no se llega a `login.html` ni a `signup.html`. Además, un botón dentro de un enlace es un elemento interactivo anidado, que los lectores de pantalla pueden anunciar dos veces.
+
+**Figura 161**
+
+*Captura del problema #1*
+
+`[INSERTAR CAPTURA: ilustración del problema #1]`
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Apuntar cada enlace a `sites/login.html` y `sites/signup.html` y usar un solo elemento interactivo (el enlace con la clase del botón).
+
+**PROBLEMA #2:** Los llamados a la acción principales del Landing Page no llevan a ninguna parte y no hay un enlace de descarga de la aplicación
+
+* **Severidad:** 3
+* **Heurística violada:** Information Architecture: Is it usable?
+* **Problema:** Los cuatro llamados a la acción de la página (el del encabezado y los de las secciones «Sobre nosotros», «Por qué SkillSwap» y «Así se ve una ruta») enlazan a `index.html`, es decir, recargan la misma página, y la página no ofrece un enlace para descargar o instalar la aplicación (US44).
+
+**Figura 162**
+
+*Captura del problema #2*
+
+`[INSERTAR CAPTURA: ilustración del problema #2]`
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Dirigir los botones a la página de registro y agregar un botón de descarga con el enlace de instalación de la aplicación (por ejemplo, Firebase App Distribution).
+
+**PROBLEMA #3:** La pantalla de inicio de sesión no permite recuperar la contraseña
+
+* **Severidad:** 3
+* **Heurística violada:** Usability: Ayuda para reconocer, diagnosticar y recuperarse de errores
+* **Problema:** La pantalla `Login` solo ofrece ingresar y crear una cuenta. Un Estudiante que olvidó su contraseña no tiene cómo volver a entrar. El backend tampoco expone un endpoint de restablecimiento de contraseña.
+
+**Figura 163**
+
+*Captura del problema #3*
+
+`[INSERTAR CAPTURA: ilustración del problema #3]`
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Agregar «¿Olvidaste tu contraseña?» con un flujo de restablecimiento por correo institucional (endpoint en Identity & Access y pantalla en la aplicación), o retirar la referencia del wireflow de inicio de sesión (3.1.4.2) si no se implementará.
+
+**PROBLEMA #4:** El botón «Salir» cierra la sesión sin pedir confirmación
+
+* **Severidad:** 2
+* **Heurística violada:** Usability: Prevención de errores
+* **Problema:** En la pantalla de la ruta, «Salir» está junto a «Mi billetera» y ejecuta el cierre de sesión de inmediato. Un toque accidental borra la sesión guardada y obliga a volver a ingresar.
+
+**Figura 164**
+
+*Captura del problema #4*
+
+`[INSERTAR CAPTURA: ilustración del problema #4]`
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Pedir confirmación («¿Cerrar sesión?») con un diálogo, o mover la acción al perfil, lejos de las acciones frecuentes.
+
+**PROBLEMA #5:** La opción «Mi billetera» lleva a una pantalla que también contiene el plan y los intereses
+
+* **Severidad:** 2
+* **Heurística violada:** Information Architecture: Is it findable?
+* **Problema:** El botón de la ruta se llama «Mi billetera» y abre la pantalla del perfil, que además tiene los botones «Mi plan» y «Mis intereses». Quien busca su plan o sus intereses no sospecha que están bajo ese nombre.
+
+**Figura 165**
+
+*Captura del problema #5*
+
+`[INSERTAR CAPTURA: ilustración del problema #5]`
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Renombrar el acceso como «Mi perfil» y organizar el perfil en tres secciones: billetera, plan e intereses.
+
+**PROBLEMA #6:** Los errores y confirmaciones se muestran con mensajes temporales (Toast) que no se pueden volver a leer
+
+* **Severidad:** 2
+* **Heurística violada:** Usability: Visibilidad del estado del sistema
+* **Problema:** Catorce pantallas muestran sus errores de red y sus confirmaciones con `Toast` (40 usos). Desaparecen en pocos segundos y no se pueden releer, por ejemplo si falla el envío del certificado o el registro.
+
+**Figura 166**
+
+*Captura del problema #6*
+
+`[INSERTAR CAPTURA: ilustración del problema #6]`
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Mostrar los errores que requieren una acción como mensajes persistentes en la pantalla (con «Reintentar») y dejar el `Toast` solo para confirmaciones breves.
+
+**PROBLEMA #7:** La aplicación solo tiene tema claro
+
+* **Severidad:** 1
+* **Heurística violada:** Inclusive Design: Offer choice
+* **Problema:** El tema de la aplicación no ofrece modo oscuro, por lo que las personas que lo prefieren, o lo necesitan por sensibilidad a la luz, no pueden cambiarlo.
+
+**Figura 167**
+
+*Captura del problema #7*
+
+`[INSERTAR CAPTURA: ilustración del problema #7]`
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Definir una paleta oscura con el mismo contraste en el tema de Compose.
+
+**PROBLEMA #8:** El Landing Page tiene español e inglés, pero la aplicación solo tiene español
+
+* **Severidad:** 1
+* **Heurística violada:** Inclusive Design: Provide comparable experience
+* **Problema:** El Landing Page ofrece el cambio ES/EN, mientras que los textos de la aplicación están escritos en el código y el archivo `strings.xml` solo tiene una cadena, así que una persona que elige inglés en el sitio encuentra la aplicación solo en español.
+
+**Figura 168**
+
+*Captura del problema #8*
+
+`[INSERTAR CAPTURA: ilustración del problema #8]`
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Mover los textos a `strings.xml` y agregar la traducción al inglés, o indicar en el Landing Page que la aplicación está en español.
+
 
 ---
 
@@ -6766,9 +7097,9 @@ Tabla 29. *Commits de desarrollo en el Sprint 2*<br>
 Tabla 30. *Commits del Sprint 2 que incorporan pruebas automatizadas*<br>
 Tabla 31. *Endpoints documentados en el Sprint 2*<br>
 Tabla 32. *Commits relacionados con la documentación de los Web Services en el Sprint 2*<br>
-Tabla 33. *Tareas de las sesiones de validación por segmento*<br>
-Tabla 34. *Registro de las sesiones de validación*<br>
-Tabla 35. *Evaluación heurística de la aplicación del Estudiante*<br>
+Tabla 33. *Tareas de las sesiones de validación y user flows que ejercitan*<br>
+Tabla 34. *Escala de severidad de los problemas*<br>
+Tabla 35. *Resumen de los problemas de la evaluación heurística*<br>
 
 ---
 
@@ -6928,8 +7259,20 @@ Figura 151. *Documentación Swagger de los endpoints del Sprint 2*<br>
 Figura 152. *Backend desplegado en Render con las funcionalidades del Sprint 2*<br>
 Figura 153. *Landing Page publicado y verificado en el Sprint 2*<br>
 Figura 154. *Historial de commits de los repositorios durante el Sprint 2*<br>
-Figura 155. *Sesión de validación con una persona del segmento de Estudiantes*<br>
-Figura 156. *Sesión de validación con una persona del segmento de Verificadores*<br>
+Figura 155. *Entrevista de validación 1: Personas que quieren aprender*<br>
+Figura 156. *Entrevista de validación 2: Personas que quieren aprender*<br>
+Figura 157. *Entrevista de validación 3: Personas que quieren aprender*<br>
+Figura 158. *Entrevista de validación 1: Personas que validan el conocimiento*<br>
+Figura 159. *Entrevista de validación 2: Personas que validan el conocimiento*<br>
+Figura 160. *Entrevista de validación 3: Personas que validan el conocimiento*<br>
+Figura 161. *Captura del problema #1*<br>
+Figura 162. *Captura del problema #2*<br>
+Figura 163. *Captura del problema #3*<br>
+Figura 164. *Captura del problema #4*<br>
+Figura 165. *Captura del problema #5*<br>
+Figura 166. *Captura del problema #6*<br>
+Figura 167. *Captura del problema #7*<br>
+Figura 168. *Captura del problema #8*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
