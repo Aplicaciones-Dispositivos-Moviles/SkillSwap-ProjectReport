@@ -72,6 +72,7 @@ Octubre 2026
 | **v.05.AV2** | 15/10/2026 | Alberca Saavedra, Víctor Manuel | Se corrigieron y actualizaron los siguientes tópicos a partir de la retroalimentación del TB1:<br><br>**Capítulo I:** 1.1.1 Descripción de la Startup, con la definición del rol del Verificador (habilitación por habilidad, revisión de casos con rúbrica, SkillCredits, confiabilidad, apelaciones y Verificador senior) y la tienda de beneficios de cuatro ítems (insignia, certificado de contribución, ruta avanzada y certificación patrocinada), con sus precios en 2.3.6 (Ubiquitous Language), 2.4.1 (US32), 2.6.6 (Recognition & Incentives) y 3.1.4 (pantallas del Verificador); en 4.1.4, el estado de las integraciones externas (cobro simulado y notificaciones push)<br><br>**Capítulo II:** 2.5.3 Software Architecture, con los diagramas de Contexto, Contenedores y Despliegue diferenciados por actor (el Estudiante, con el Landing Page y la aplicación nativa; el Verificador, con la aplicación Flutter) y con el Landing Page fuera del Deployment Diagram (sitio estático independiente de la aplicación móvil)<br><br>**Capítulo IV:** 4.1.4 Software Deployment Configuration, con el mismo Deployment Diagram; 4.2.2 Sprint 2, con el Sprint Planning 2, la matriz de líderes y colaboradores, el Sprint Backlog 2 (13 historias, 57 Story Points: la aplicación del Estudiante completa y 6 de las 14 historias del Verificador) y la asignación de tasks y la matriz de líderes y colaboradores, y la estructura de las evidencias del Sprint Review, con los commits del backend (PR #16 a #35) y de la aplicación nativa (PR #1 a #20), los endpoints y las pruebas; 4.3 Validation Interviews (diseño de entrevistas por segmento con sus preguntas y user flows, estructura del registro de entrevistas y evaluación heurística en el formato del Anexo E)<br><br>**Conclusiones** (dos apartados nuevos), **Bibliografía** (papers Q1/Q2) y **Anexos A y C** (aplicación de cada actor y estado de los videos)<br><br>**Project Report Collaboration Insights** (aportes de AV2), **Student Outcome** (acciones de AV2), **Índice de Tablas y de Figuras** y **Contenido** |
 | **v.06.AV2** | 28/10/2026 | Alberca Saavedra, Víctor Manuel | Se reescribió 4.2.2.8 Software Deployment Evidence for Sprint Review con la distribución de las aplicaciones móviles mediante Firebase App Distribution (Tabla 33, procedimiento de publicación y de instalación, y espacios para las capturas), y se actualizaron 4.1.2, 4.1.4 y el Anexo A con el estado de las aplicaciones. |
 | **v.07.AV2** | 28/10/2026 | Alberca Saavedra, Víctor Manuel | Se actualizó el Sprint 2 con la aplicación Flutter del Verificador: las seis tasks de sus pantallas (T58, T60, T62, T64, T71 y T72) pasan a Done, se agregaron sus commits (Tabla 29) y pruebas (Tabla 30), y se incorporaron Flutter y Firebase a las herramientas (Tabla 14). La evaluación heurística de 4.3.3 incluye ahora la aplicación Flutter (problema #9 y ajustes a los problemas #3, #4, #6, #7 y #8). |
+| **v.08.AV2** | 29/10/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron a Conclusiones las subsecciones Conclusiones y recomendaciones (contraste de las hipótesis con lo construido, Tabla 37, y recomendaciones), Video App Validation, Video About the product y Video About the team, con sus pautas planificadas (Tablas 38 a 40). |
 
 <div style="page-break-after: always;"></div>
 
@@ -230,6 +231,10 @@ Durante el desarrollo de la entrega AV2, el equipo mantiene el esquema de colabo
     - [4.3.2. Registro de Entrevistas](#432-registro-de-entrevistas)
     - [4.3.3. Evaluaciones según Heurísticas](#433-evaluaciones-según-heurísticas)
 - [Conclusiones](#conclusiones)
+    - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
+    - [Video App Validation](#video-app-validation)
+    - [Video About the product](#video-about-the-product)
+    - [Video About the team](#video-about-the-team)
 - [Glosario](#glosario)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
@@ -6985,6 +6990,8 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 
 # Conclusiones
 
+## Conclusiones y recomendaciones
+
 **Sobre el pivote del proyecto y lo que aprendimos de él**
 
 Uno de los aprendizajes más grandes del ciclo no vino del código, sino de una decisión de negocio. Nuestra idea original de SkillSwap giraba en torno a tutorías entre estudiantes de distintas universidades, con donaciones voluntarias y comisión de plataforma. Cuando el docente publicó el anexo de temas excluidos y "tutorías en línea" apareció ahí, tuvimos que replantear el core del producto ya iniciado el ciclo, no desde cero. Lo que nos salvó gran parte del trabajo fue haber construido la arquitectura de forma modular desde el principio: de los 7 Bounded Contexts originales, 4 se mantuvieron prácticamente intactos (Identity & Access, Reputation, Recognition & Incentives, Moderation & Disputes) y solo tuvimos que rediseñar el core (Discovery, Workspace y Learning & Assessment se fusionaron y se dividieron en los nuevos Credential Verification, Learning Path Engine y Assessment & Peer Review). El aprendizaje concreto: diseñar con límites de contexto bien definidos no solo ayuda a repartir trabajo en equipo, también protege el proyecto cuando el negocio cambia a mitad de camino.
@@ -7024,7 +7031,140 @@ La revisión del TB1 nos dejó ajustes concretos que cambiaron el informe más d
 
 **Sobre planificar el Sprint 2 con el tiempo que queda**
 
-Para el Sprint 2 incluimos las trece historias que seguían pendientes. Por indicación del docente, en este avance la aplicación del Estudiante debe quedar completa y la del Verificador solo en una parte, así que entraron todas las historias del Estudiante (captura del certificado, confirmación de la habilidad, uso sin conexión, evaluación práctica, acceso con biometría y demostración final) y, del Verificador, seis de sus catorce historias (el 43 %), con la reevaluación, la suspensión, las métricas, el logro compartible, la revisión de casos y la disponibilidad. Las 32 tasks suman 184 horas y las repartimos entre los cinco integrantes en cargas similares, de modo que nadie concentre el backend más complejo y que cada aplicación (nativa y Flutter) tenga responsables claros. Dejamos las tasks pendientes como compromiso y no como resultado: las conclusiones sobre su ejecución se completarán al cerrar el Sprint.
+Para el Sprint 2 incluimos las trece historias que seguían pendientes. Por indicación del docente, en este avance la aplicación del Estudiante debe quedar completa y la del Verificador solo en una parte, así que entraron todas las historias del Estudiante (captura del certificado, confirmación de la habilidad, uso sin conexión, evaluación práctica, acceso con biometría y demostración final) y, del Verificador, seis de sus catorce historias (el 43 %), con la reevaluación, la suspensión, las métricas, el logro compartible, la revisión de casos y la disponibilidad. Las 32 tasks suman 184 horas y las repartimos entre los cinco integrantes en cargas similares, de modo que nadie concentre el backend más complejo y que cada aplicación (nativa y Flutter) tenga responsables claros. Al 28 de octubre las 32 tasks del Sprint 2 están en Done: la aplicación del Estudiante quedó completa y la del Verificador tiene sus seis pantallas integradas.
+
+### Contraste con los Problem Statements, las hipótesis y los criterios de éxito
+
+El Problem Statement (1.2.2.1) plantea que los certificados informan que una persona terminó una formación, pero no cómo se desempeña ante un caso concreto. Al cierre del Sprint 2 el producto responde a esa brecha con un recorrido completo: el Estudiante registra su certificado con la cámara, resuelve un quiz, entrega un miniproyecto y, cuando la evaluación automática no basta, un Verificador habilitado revisa su caso con una rúbrica y se programa una demostración final. Las siete hipótesis de 1.2.2.3 se contrastan en la Tabla 37 con lo construido y con la tarea de 4.3.1 que la pondrá a prueba.
+
+**Tabla 37**
+
+*Hipótesis de Lean UX, lo construido en el Sprint 2 y la tarea que las valida*
+
+| Hipótesis | Medida de éxito | Construido al Sprint 2 | Cómo se valida (Tabla 34) |
+|---|---|---|---|
+| H1. Ruta estructurada por objetivo | Renovación mensual superior al 80 % | El Estudiante declara su meta, confirma la habilidad interpretada y consulta su ruta, también sin conexión (US06, US07, US08, US10) | Tareas E3 y E5; pregunta sobre pagar la suscripción |
+| H2. Registro asistido con OCR | Al menos 85 % completa el registro del certificado | Captura con la cámara, lectura con ML Kit en el dispositivo y corrección de los datos leídos (US11 a US13) | Tarea E4: se observa si lo completa sin ayuda |
+| H3. Evaluación aplicada | Menos del 30 % de los intentos requiere un Verificador | Quiz con sub-tema débil, miniproyecto con evaluación preliminar de IA y apertura de caso solo si no alcanza 70 puntos o la confianza es baja (US17 a US21) | Tareas E6 y E7 |
+| H4. Habilitación del Verificador | Menos del 3 % de las decisiones se revierte | Habilitación al completar el nodo de la habilidad, revisión con rúbrica, reevaluación y suspensión (US24, US37, US38) | Tareas V2 y V3 |
+| H5. Asignación automática | Al menos 85 % de los casos se resuelve en 48 horas | Asignación por habilidad y disponibilidad; el Verificador activa su disponibilidad y revisa con la rúbrica (US23 a US25) | Tareas V1 y V2; pregunta sobre cómo se asignan los casos |
+| H6. SkillCredits e historial | Al menos 60 % de los Verificadores resuelve un caso al mes | SkillCredits, billetera, tienda de beneficios y logro compartible (US32, US33) | Tarea V4; pregunta sobre canjear SkillCredits |
+| H7. Apelación | Al menos 90 % de las apelaciones se resuelve en 72 horas | Backend de Moderation & Disputes desplegado; en la app nativa, el Estudiante consulta el estado de su caso y adjunta evidencia adicional (US26) | Tarea E7 |
+
+*Nota.* Las historias y tareas se detallan en 4.2.2.3. Elaboración propia.
+
+Las medidas de éxito del Problem Statement y de las hipótesis (70 % de evaluaciones completadas, 85 % de casos resueltos en 48 horas, menos del 3 % de decisiones revertidas, renovación mensual superior al 80 %) requieren uso sostenido de la plataforma. Con 3 a 5 entrevistas por segmento, las sesiones de 4.3 solo permiten comprobar si las personas entienden y completan las tareas, y si confían en la verificación; las medidas se obtienen después con las métricas de la plataforma (US40) cuando haya usuarios. Los supuestos sobre el comportamiento de los segmentos (1.2.2.2) se contrastan con los hallazgos de las entrevistas de descubrimiento (2.2.3) y se actualizan con las sesiones de validación.
+
+`[Completar con los resultados de las sesiones de 4.3.2: qué hipótesis se confirmaron, cuáles no y qué supuestos cambian.]`
+
+### Recomendaciones y próximos pasos
+
+1. **Corregir los problemas de severidad 3 de 4.3.3 antes del lanzamiento:** los botones de inicio de sesión y registro del Landing Page, sus llamados a la acción y el enlace de descarga de la app, la recuperación de contraseña y la salida de la pantalla «Aún no eres Verificador» de la app Flutter.
+2. **Completar el rol del Verificador:** quedan ocho de las catorce historias del Verificador para el Sprint 3.
+3. **Publicar las aplicaciones en Google Play:** hoy se distribuyen como APK con Firebase App Distribution (4.2.2.8); la publicación en la tienda se hará cuando el docente la presente en clase.
+4. **Activar el cobro real de la suscripción:** hoy está simulado, porque RevenueCat no tiene una clave de producción (4.1.4).
+5. **Pasar el backend a un plan estable:** el plan gratuito de Render suspende el servicio tras 15 minutos sin tráfico y su base de datos expira a los 30 días; ambos límites deben resolverse antes de recibir usuarios reales.
+6. **Medir las hipótesis con datos reales:** usar las métricas de la plataforma para comprobar los criterios de éxito de la Tabla 37.
+7. **Ampliar la accesibilidad:** agregar tema oscuro y textos en inglés a las dos aplicaciones, como recomiendan los problemas #7 y #8 de 4.3.3.
+
+## Video App Validation
+
+El video documenta la evaluación de la aplicación a través de la prueba con usuarios. Las personas instalan las versiones de prueba con Firebase App Distribution (4.2.2.8), lo que permite probarlas en distintos dispositivos antes del lanzamiento, realizan las tareas de la Tabla 34 y comparten sus observaciones. La experiencia se evalúa además con el formato de heurísticas de 4.3.3. El video consolida las sesiones de 4.3.2.
+
+* **Nombre del archivo:** upc-pre-202620-1acc0238-4948-Innovify-validation-av2.mp4
+* **URL en el OneDrive del docente:** `[URL]`
+* **Duración:** `[mm:ss]`
+
+**Figura 172**
+
+*Cuadro del video App Validation*
+
+`[INSERTAR CAPTURA: cuadro representativo del video de validación]`
+
+*Nota.* Elaboración propia.
+
+**Tabla 38**
+
+*Pauta planificada del video App Validation*
+
+| Sección | Contenido | Inicio planificado |
+|---|---|---|
+| Presentación | Qué se valida, con quién y cómo se instala la app desde Firebase App Distribution | 00:00:00 |
+| Personas que quieren aprender | Fragmentos de las entrevistas con el Landing Page y la app nativa (tareas E1 a E8) | 00:00:30 |
+| Personas que validan el conocimiento | Fragmentos de las entrevistas con la app Flutter (tareas V1 a V4) | 00:02:00 |
+| Hallazgos | Los problemas de mayor severidad de 4.3.3 y lo que se corrige | 00:03:30 |
+| Cierre | Próximos pasos | 00:04:30 |
+
+*Nota.* Los tiempos se reemplazan por los reales al editar el video. Elaboración propia.
+
+## Video About the product
+
+El video está dirigido a quienes visitan el Landing Page y quieren conocer el modelo de negocio y las características de la solución, y a quienes usarán la aplicación para realizar sus tareas. Mantiene el tono cercano y directo del Landing Page e incluye el testimonio positivo de una persona que participó en las sesiones de validación (4.3.2).
+
+* **Nombre del archivo:** upc-pre-202620-1acc0238-4948-Innovify-about-the-product-av2.mp4
+* **URL en el OneDrive del docente:** `[URL]`
+* **URL en YouTube (incrustado en el Landing Page):** `[URL]`
+* **Duración:** `[mm:ss]`
+
+**Figura 173**
+
+*Cuadro del video About the Product*
+
+`[INSERTAR CAPTURA: cuadro representativo del video About the Product]`
+
+*Nota.* Elaboración propia.
+
+**Tabla 39**
+
+*Pauta planificada del video About the Product*
+
+| Sección | Contenido | Inicio planificado |
+|---|---|---|
+| Problema | La persona que tiene certificados pero no puede demostrar lo que sabe | 00:00:00 |
+| Qué es SkillSwap | Ruta de aprendizaje, verificación de habilidades y credencial compartible | 00:00:15 |
+| Estudiante | Registro, meta, certificado con la cámara, quiz y uso sin conexión | 00:00:30 |
+| Verificador | Revisión de un caso con rúbrica, SkillCredits y logro compartible | 00:01:00 |
+| Testimonio | Opinión de una persona que participó en las sesiones de validación | 00:01:20 |
+| Cierre | Cómo probar la app y el Landing Page | 00:01:40 |
+
+*Nota.* Los tiempos se reemplazan por los reales al editar el video. Elaboración propia.
+
+## Video About the team
+
+El video resume el proceso de trabajo del equipo con escenas de sesiones de trabajo reales y una narración en voz en off, e incluye el testimonio ante cámara de cada integrante sobre las actividades realizadas, los outcomes alcanzados y las competencias desarrolladas, en línea con la sección Student Outcome.
+
+* **Nombre del archivo:** upc-pre-202620-1acc0238-4948-Innovify-about-the-team-av2.mp4
+* **URL en Microsoft Stream:** `[URL]`
+* **URL en YouTube (incrustado en el Landing Page):** `[URL]`
+* **Duración:** `[mm:ss]`
+
+**Figura 174**
+
+*Cuadro del video About the Team*
+
+`[INSERTAR CAPTURA: cuadro representativo del video About the Team]`
+
+*Nota.* Elaboración propia.
+
+**Tabla 40**
+
+*Pauta planificada del video About the Team*
+
+| Sección | Contenido | Inicio planificado |
+|---|---|---|
+| Presentación del equipo | Innovify y los cinco integrantes | 00:00:00 |
+| Del tutor a la verificación | El pivote del modelo de negocio y por qué | 00:00:40 |
+| Proceso de trabajo | Sprints, GitFlow, Conventional Commits, Pull Requests y sesiones de trabajo reales | 00:01:30 |
+| Solución construida | Backend con ocho Bounded Contexts, Landing Page y las dos aplicaciones | 00:02:30 |
+| Testimonio de Alberca Saavedra, Víctor Manuel | Actividades realizadas, outcomes alcanzados y competencias desarrolladas | `[hh:mm:ss]` |
+| Testimonio de Becerra Ninahuanca, Luis Angel | Actividades realizadas, outcomes alcanzados y competencias desarrolladas | `[hh:mm:ss]` |
+| Testimonio de Lopez Montalvo, Kevin Edu | Actividades realizadas, outcomes alcanzados y competencias desarrolladas | `[hh:mm:ss]` |
+| Testimonio de Komatsu Dueñas, David | Actividades realizadas, outcomes alcanzados y competencias desarrolladas | `[hh:mm:ss]` |
+| Testimonio de Sulca Sánchez, Piero Angel | Actividades realizadas, outcomes alcanzados y competencias desarrolladas | `[hh:mm:ss]` |
+| Cierre | Aprendizajes del equipo | `[hh:mm:ss]` |
+
+*Nota.* Los tiempos de las secciones iniciales son planificados y se reemplazan por los reales al editar el video. Elaboración propia.
+
 
 # Glosario
 
@@ -7198,6 +7338,10 @@ Tabla 33. *Parámetros de distribución de las aplicaciones móviles*<br>
 Tabla 34. *Tareas de las sesiones de validación y user flows que ejercitan*<br>
 Tabla 35. *Escala de severidad de los problemas*<br>
 Tabla 36. *Resumen de los problemas de la evaluación heurística*<br>
+Tabla 37. *Hipótesis de Lean UX, lo construido en el Sprint 2 y la tarea que las valida*<br>
+Tabla 38. *Pauta planificada del video App Validation*<br>
+Tabla 39. *Pauta planificada del video About the Product*<br>
+Tabla 40. *Pauta planificada del video About the Team*<br>
 
 ---
 
@@ -7374,6 +7518,9 @@ Figura 168. *Captura del problema #6*<br>
 Figura 169. *Captura del problema #7*<br>
 Figura 170. *Captura del problema #8*<br>
 Figura 171. *Captura del problema #9*<br>
+Figura 172. *Cuadro del video App Validation*<br>
+Figura 173. *Cuadro del video About the Product*<br>
+Figura 174. *Cuadro del video About the Team*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
