@@ -6892,7 +6892,9 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 
 *Captura del problema #1*
 
-`[INSERTAR CAPTURA: ilustración del problema #1]`
+<p align="center">
+  <img src="images-doc/heuristica-problema-1.png" alt="Captura del problema #1" width="500">
+</p>
 
 *Nota.* Elaboración propia.
 
@@ -6909,7 +6911,9 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 
 *Captura del problema #2*
 
-`[INSERTAR CAPTURA: ilustración del problema #2]`
+<p align="center">
+  <img src="images-doc/heuristica-problema-2.png" alt="Captura del problema #2" width="500">
+</p>
 
 *Nota.* Elaboración propia.
 
@@ -6926,7 +6930,9 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 
 *Captura del problema #3*
 
-`[INSERTAR CAPTURA: ilustración del problema #3]`
+<p align="center">
+  <img src="images-doc/heuristica-problema-3.png" alt="Captura del problema #3" width="500">
+</p>
 
 *Nota.* Elaboración propia.
 
@@ -6942,7 +6948,9 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 
 *Captura del problema #4*
 
-`[INSERTAR CAPTURA: ilustración del problema #4]`
+<p align="center">
+  <img src="images-doc/heuristica-problema-4.png" alt="Captura del problema #4" width="500">
+</p>
 
 *Nota.* Elaboración propia.
 
@@ -6958,7 +6966,9 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 
 *Captura del problema #5*
 
-`[INSERTAR CAPTURA: ilustración del problema #5]`
+<p align="center">
+  <img src="images-doc/heuristica-problema-5.png" alt="Captura del problema #5" width="500">
+</p>
 
 *Nota.* Elaboración propia.
 
@@ -6974,7 +6984,9 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 
 *Captura del problema #6*
 
-`[INSERTAR CAPTURA: ilustración del problema #6]`
+<p align="center">
+  <img src="images-doc/heuristica-problema-6.png" alt="Captura del problema #6" width="500">
+</p>
 
 *Nota.* Elaboración propia.
 
@@ -6990,7 +7002,9 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 
 *Captura del problema #7*
 
-`[INSERTAR CAPTURA: ilustración del problema #7]`
+<p align="center">
+  <img src="images-doc/heuristica-problema-7.png" alt="Captura del problema #7" width="500">
+</p>
 
 *Nota.* Elaboración propia.
 
@@ -7006,7 +7020,9 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 
 *Captura del problema #8*
 
-`[INSERTAR CAPTURA: ilustración del problema #8]`
+<p align="center">
+  <img src="images-doc/heuristica-problema-8.png" alt="Captura del problema #8" width="500">
+</p>
 
 *Nota.* Elaboración propia.
 
@@ -7022,7 +7038,9 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 
 *Captura del problema #9*
 
-`[INSERTAR CAPTURA: ilustración del problema #9]`
+<p align="center">
+  <img src="images-doc/heuristica-problema-9.png" alt="Captura del problema #9" width="500">
+</p>
 
 *Nota.* Elaboración propia.
 
@@ -7146,15 +7164,17 @@ El video documenta la evaluación de la aplicación a través de la prueba con u
 El video está dirigido a quienes visitan el Landing Page y quieren conocer el modelo de negocio y las características de la solución, y a quienes usarán la aplicación para realizar sus tareas. Mantiene el tono cercano y directo del Landing Page e incluye el testimonio positivo de una persona que participó en las sesiones de validación (4.3.2).
 
 * **Nombre del archivo:** upc-pre-202620-1acc0238-4948-Innovify-about-the-product-av2.mp4
-* **URL en el OneDrive del docente:** `[URL]`
-* **URL en YouTube (incrustado en el Landing Page):** `[URL]`
-* **Duración:** `[mm:ss]`
+* **URL en el OneDrive del docente:** [Video about the product.mp4](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201924127_upc_edu_pe/IQClZp6U7r6kT68Jjloa2_T5AVcuypOv8O1nrOvlZubxXNc?e=Q7sAeB&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+* **URL en YouTube (incrustado en el Landing Page):** [https://youtu.be/-XpgJySK29A](https://youtu.be/-XpgJySK29A)
+* **Duración:** 01:30
 
 **Figura 173**
 
 *Cuadro del video About the Product*
 
-`[INSERTAR CAPTURA: cuadro representativo del video About the Product]`
+<p align="center">
+  <img src="images-doc/video-about-product.png" alt="Cuadro del video About the Product" width="900">
+</p>
 
 *Nota.* Elaboración propia.
 
