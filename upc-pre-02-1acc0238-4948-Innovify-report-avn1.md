@@ -74,6 +74,7 @@ Octubre 2026
 | **v.07.AV2** | 28/10/2026 | Alberca Saavedra, Víctor Manuel | Se actualizó el Sprint 2 con la aplicación Flutter del Verificador: las seis tasks de sus pantallas (T58, T60, T62, T64, T71 y T72) pasan a Done, se agregaron sus commits (Tabla 29) y pruebas (Tabla 30), y se incorporaron Flutter y Firebase a las herramientas (Tabla 14). La evaluación heurística de 4.3.3 incluye ahora la aplicación Flutter (problema #9 y ajustes a los problemas #3, #4, #6, #7 y #8). |
 | **v.08.AV2** | 29/10/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron a Conclusiones las subsecciones Conclusiones y recomendaciones (contraste de las hipótesis con lo construido, Tabla 37, y recomendaciones), Video App Validation, Video About the product y Video About the team, con sus pautas planificadas (Tablas 38 a 40). |
 | **v.09.AV2** | 30/10/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron al Sprint 2 la tienda de beneficios con canje de SkillCredits y confirmación biométrica de la app Flutter (T76, US32) y la sección de descarga del Landing Page con la corrección de sus botones de acceso (T77, US44). Se actualizaron el Sprint Backlog 2 (34 tasks, 197 horas), la matriz de liderazgo (Tabla 27), los commits (Tablas 29 y 30), el número de pruebas de Flutter (43), el avance del Verificador (7 de 14 historias), el estado de los problemas #1 y #2 de 4.3.3 y las recomendaciones de Conclusiones. |
+| **v.10.AV2** | 01/11/2026 | Alberca Saavedra, Víctor Manuel | Se registró el cambio de despliegue del backend de Render a AWS (31/10/2026): se agregó el apartado correspondiente a 4.2.2.8 (Figuras 152 y 153), se actualizaron 4.1.4, la Tabla 14, la Tabla 33, el Deployment Diagram (2.5), el commit de despliegue (Tabla 29), las Conclusiones y el Anexo A, y se conservó sin cambios el despliegue en Render del Sprint 1 (4.2.1.8). Las capturas de las Figuras 152 y 153 quedan pendientes. |
 
 <div style="page-break-after: always;"></div>
 
@@ -2805,8 +2806,8 @@ Es importante resaltar que tanto la aplicación Android nativa como la aplicaci�
 El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física de los contenedores de SkillSwap sobre la infraestructura de hardware y los entornos de ejecución, evidenciando cómo se despliega la solución en un ambiente real. El Landing Page, al ser un sitio web estático independiente de la aplicación móvil, no forma parte de este diagrama.
 
 - **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes y Verificadores alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y la Aplicación Cross-Platform (Flutter, dirigida a Android), instaladas en el dispositivo físico. En estos dispositivos se ejecutan además **ML Kit**, de forma on-device, para la extracción de datos de los certificados, sin requerir una llamada a un servicio en la nube para dicho procesamiento, y la autenticación biométrica del sistema operativo.
-- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (Java 21 / Spring Boot), empaquetado como contenedor Docker y desplegado en **Render**, donde se ejecuta la lógica de negocio de los ocho Bounded Contexts en un único servicio, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por las dos aplicaciones móviles (Android Native App y Flutter App); el Landing Page es informativo y no consume la API.
-- **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de PostgreSQL desplegada en **Render**, compartida por los ocho Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
+- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (Java 21 / Spring Boot), empaquetado como contenedor Docker y desplegado en una instancia **Amazon EC2** de AWS con Docker Compose (hasta el 31 de octubre de 2026, en **Render**), donde se ejecuta la lógica de negocio de los ocho Bounded Contexts en un único servicio, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por las dos aplicaciones móviles (Android Native App y Flutter App); el Landing Page es informativo y no consume la API.
+- **Servidor de base de datos (Cloud):** Aloja una única instancia de PostgreSQL 16, en un contenedor del mismo servidor de AWS (hasta el 31 de octubre de 2026, administrada en **Render**), compartida por los ocho Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
 - **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para los archivos de los certificados, **Brevo (Email API)** para el envío del correo de verificación del correo institucional, **Firebase Cloud Messaging** para las notificaciones push al dispositivo del Estudiante, la **Gemini API** para interpretar la meta del Estudiante sobre el catálogo interno de habilidades y generar las preguntas de los quizzes, y **Google Play Billing (vía RevenueCat)** para el procesamiento del cobro recurrente de la suscripción mensual: la aplicación inicia la compra con el SDK de RevenueCat y RevenueCat notifica sus cambios al backend mediante un webhook.
 
 Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos móviles y los servidores desplegados en la nube.
@@ -2819,7 +2820,7 @@ Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la s
   <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram - Mobile" width="900">
 </p>
 
-*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con ejecución on-device de ML Kit y de la biometría, el servidor de aplicación en Render, la instancia única de PostgreSQL en Render y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat), este último con la compra desde la aplicación y el webhook hacia el backend. Elaborado en PlantUML. Elaboración propia.
+*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con ejecución on-device de ML Kit y de la biometría, el servidor de aplicación en Render, la instancia única de PostgreSQL en Render y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat), este último con la compra desde la aplicación y el webhook hacia el backend. El diagrama muestra el entorno de Render; desde el 31 de octubre de 2026 el servidor de aplicación y la base de datos están en una instancia EC2 de AWS (4.2.2.8). Elaborado en PlantUML. Elaboración propia.
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
@@ -3030,7 +3031,7 @@ En la Infrastructure Layer de SkillSwap, para el contexto de Identity & Access, 
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| UserRepositoryAdapter | Implementación concreta de `UserRepository` que realiza las operaciones CRUD sobre la tabla `users`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| UserRepositoryAdapter | Implementación concreta de `UserRepository` que realiza las operaciones CRUD sobre la tabla `users`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
 
 **Security Services Implementation**
 
@@ -3278,7 +3279,7 @@ En la Infrastructure Layer de SkillSwap, para el contexto de Credential Verifica
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| CertificateRepositoryAdapter | Implementación concreta de `CertificateRepository` que realiza las operaciones CRUD sobre la tabla `certificates`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| CertificateRepositoryAdapter | Implementación concreta de `CertificateRepository` que realiza las operaciones CRUD sobre la tabla `certificates`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
 
 **OCR & Storage Services Implementation**
 
@@ -3569,7 +3570,7 @@ Los límites del plan no se garantizan en la base de datos: la migración V4 eli
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| LearningPathRepositoryAdapter | Implementación concreta de `LearningPathRepository` sobre las tablas `learning_paths` y `path_nodes`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| LearningPathRepositoryAdapter | Implementación concreta de `LearningPathRepository` sobre las tablas `learning_paths` y `path_nodes`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
 | AssessmentBlueprintRepositoryAdapter | Implementación concreta de `AssessmentBlueprintRepository` sobre la tabla `assessment_blueprints`. | ORM del stack backend. La lista de preguntas se persiste mediante un converter JSON, siguiendo el mismo criterio que ya aplicaron en el `Quiz` del proyecto base. |
 
 **AI Services Implementation**
@@ -3863,10 +3864,10 @@ En la Application Layer de Assessment & Peer Review, `SubmitAssessmentAttemptCom
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| AssessmentAttemptRepositoryAdapter | Implementación concreta de `AssessmentAttemptRepository` sobre la tabla `assessment_attempts`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
-| VerifierProfileRepositoryAdapter | Implementación concreta de `VerifierProfileRepository` sobre la tabla `verifier_profiles`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
-| VerificationCaseRepositoryAdapter | Implementación concreta de `VerificationCaseRepository` sobre la tabla `verification_cases`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
-| ReviewDeadlinePolicyRepositoryAdapter | Implementación concreta de `ReviewDeadlinePolicyRepository` sobre la tabla `review_deadline_policies`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| AssessmentAttemptRepositoryAdapter | Implementación concreta de `AssessmentAttemptRepository` sobre la tabla `assessment_attempts`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
+| VerifierProfileRepositoryAdapter | Implementación concreta de `VerifierProfileRepository` sobre la tabla `verifier_profiles`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
+| VerificationCaseRepositoryAdapter | Implementación concreta de `VerificationCaseRepository` sobre la tabla `verification_cases`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
+| ReviewDeadlinePolicyRepositoryAdapter | Implementación concreta de `ReviewDeadlinePolicyRepository` sobre la tabla `review_deadline_policies`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
 
 **Scheduling**
 
@@ -4071,8 +4072,8 @@ En la Application Layer de Reputation, los event handlers aseguran que tanto la 
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| VerifierReliabilityRepositoryAdapter | Implementación concreta de `VerifierReliabilityRepository` sobre la tabla `verifier_reliabilities`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
-| StudentEmployabilityScoreRepositoryAdapter | Implementación concreta de `StudentEmployabilityScoreRepository` sobre la tabla `student_employability_scores`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| VerifierReliabilityRepositoryAdapter | Implementación concreta de `VerifierReliabilityRepository` sobre la tabla `verifier_reliabilities`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
+| StudentEmployabilityScoreRepositoryAdapter | Implementación concreta de `StudentEmployabilityScoreRepository` sobre la tabla `student_employability_scores`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
 
 **Integration Services**
 
@@ -4272,8 +4273,8 @@ En la Application Layer de Recognition & Incentives, `CreditVerifierCommandHandl
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| WalletRepositoryAdapter | Implementación concreta de `WalletRepository` sobre la tabla `wallets`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
-| CreditTransactionRepositoryAdapter | Implementación concreta de `CreditTransactionRepository` sobre la tabla `credit_transactions`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| WalletRepositoryAdapter | Implementación concreta de `WalletRepository` sobre la tabla `wallets`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
+| CreditTransactionRepositoryAdapter | Implementación concreta de `CreditTransactionRepository` sobre la tabla `credit_transactions`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
 
 Este Bounded Context no incluye integraciones con pasarelas de pago externas: al ser SkillCredits un mecanismo puramente interno y no monetario, no existe punto de extensión hacia una pasarela de pago, a diferencia de Credential Verification, donde el modelo documenta mecanismos de verificación oficial sin lógica de integración.
 
@@ -4691,8 +4692,8 @@ En la Application Layer de Subscription & Billing, el procesamiento del webhook 
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| SubscriptionRepositoryAdapter | Implementación concreta de `SubscriptionRepository` sobre la tabla `subscriptions`. Un índice único parcial (`ux_subscriptions_one_current_per_student`, `WHERE status <> 'Expired'`) permite una sola suscripción no vencida por Estudiante; las vencidas quedan como historial. | ORM del stack backend, instancia PostgreSQL desplegada en Render; esquema creado por la migración Flyway V3. |
-| ProcessedWebhookEventRepositoryAdapter | Implementación concreta de `ProcessedWebhookEventRepository` sobre la tabla `processed_webhook_events`, cuyo índice único sobre `event_id` hace idempotente el procesamiento del webhook. | ORM del stack backend, instancia PostgreSQL desplegada en Render; esquema creado por la migración Flyway V3. |
+| SubscriptionRepositoryAdapter | Implementación concreta de `SubscriptionRepository` sobre la tabla `subscriptions`. Un índice único parcial (`ux_subscriptions_one_current_per_student`, `WHERE status <> 'Expired'`) permite una sola suscripción no vencida por Estudiante; las vencidas quedan como historial. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue; esquema creado por la migración Flyway V3. |
+| ProcessedWebhookEventRepositoryAdapter | Implementación concreta de `ProcessedWebhookEventRepository` sobre la tabla `processed_webhook_events`, cuyo índice único sobre `event_id` hace idempotente el procesamiento del webhook. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue; esquema creado por la migración Flyway V3. |
 
 **Payment Services Implementation**
 
@@ -5146,10 +5147,14 @@ Esta sección presenta el prototipo navegable de la aplicación, elaborado en Fi
 | GitHub (organización `Aplicaciones-Dispositivos-Moviles`) | Alojamiento de los repositorios, gestión de Pull Requests y publicación del Landing Page (GitHub Pages) | [https://github.com/Aplicaciones-Dispositivos-Moviles](https://github.com/Aplicaciones-Dispositivos-Moviles) |
 | PostgreSQL 16 / pgAdmin o DBeaver | Base de datos local de desarrollo y pruebas de integración | [https://www.postgresql.org/](https://www.postgresql.org/), [https://www.pgadmin.org/](https://www.pgadmin.org/) |
 | Postman | Pruebas manuales de los endpoints REST durante el desarrollo | [https://www.postman.com/](https://www.postman.com/) |
-| springdoc-openapi (Swagger UI) | Documentación interactiva de la API (OpenAPI) | Integrado en el proyecto (`springdoc-openapi-starter-webmvc-ui` 3.1.1), expuesto en `/swagger-ui/index.html` — [https://skillswap-webservices-java.onrender.com/swagger-ui/index.html](https://skillswap-webservices-java.onrender.com/swagger-ui/index.html) |
+| springdoc-openapi (Swagger UI) | Documentación interactiva de la API (OpenAPI) | Integrado en el proyecto (`springdoc-openapi-starter-webmvc-ui` 3.1.1), expuesto en `/swagger-ui/index.html` — [https://skillswap-innovify.duckdns.org/swagger-ui/index.html](https://skillswap-innovify.duckdns.org/swagger-ui/index.html) |
 | JUnit 5 / AssertJ / Spring Boot Test (MockMvc) / Testcontainers | Pruebas unitarias y de integración de la API contra una instancia real de PostgreSQL levantada en Docker | Integrado en el proyecto (`spring-boot-starter-test`, `testcontainers-postgresql`) — [https://junit.org/junit5/](https://junit.org/junit5/), [https://assertj.github.io/doc/](https://assertj.github.io/doc/), [https://testcontainers.com/](https://testcontainers.com/) |
 | Docker Desktop | Ejecución de las pruebas de integración con Testcontainers y construcción local de la imagen antes de desplegar en Render | [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/) |
-| Render | Hosting del backend (Web Service) y de la base de datos PostgreSQL administrada | [https://render.com/](https://render.com/) |
+| Render | Hosting del backend (Web Service) y de la base de datos PostgreSQL administrada, hasta el 31 de octubre de 2026 | [https://render.com/](https://render.com/) |
+| Amazon EC2 (AWS) | Servidor del backend y de la base de datos desde el 31 de octubre de 2026 | [https://aws.amazon.com/ec2/](https://aws.amazon.com/ec2/) |
+| Docker Compose | Ejecución conjunta del backend, PostgreSQL y Caddy en el servidor de AWS | [https://docs.docker.com/compose/](https://docs.docker.com/compose/) |
+| Caddy | Proxy inverso con HTTPS automático (Let's Encrypt) para el backend | [https://caddyserver.com/](https://caddyserver.com/) |
+| DuckDNS | Dominio gratuito `skillswap-innovify.duckdns.org` del backend | [https://www.duckdns.org/](https://www.duckdns.org/) |
 | Firebase (App Distribution y Cloud Messaging) | Distribución de las versiones de prueba de las aplicaciones móviles y notificaciones push | [https://firebase.google.com/](https://firebase.google.com/) |
 | Trello | Gestión del Product Backlog y Sprint Backlog (Requirements Management) | [https://trello.com/](https://trello.com/) |
 | Figma | Wireframes, mock-ups y prototipo navegable del Landing Page y la aplicación móvil (UX/UI Design) | [https://www.figma.com/](https://www.figma.com/) |
@@ -5176,7 +5181,7 @@ En el Sprint 1, el trabajo sobre la aplicación móvil consistió en el diseño 
 
 **Flujo de trabajo (GitFlow):**
 - `main`: rama estable. En el Landing Page es la rama que publica GitHub Pages.
-- `develop`: rama de integración, donde se mergean las ramas `feature/*` mediante Pull Request. En el backend es la rama que despliega Render.
+- `develop`: rama de integración, donde se mergean las ramas `feature/*` mediante Pull Request. En el backend es la rama de integración; hasta el 31 de octubre de 2026 la desplegaba Render.
 - `feature/<bounded-context>`: una rama por Bounded Context (ej. `feature/iam-identity-access`, `feature/credential-verification`, `feature/learning-path-engine`, `feature/assessment-peer-review`, `feature/reputation`, `feature/recognition-incentives`). Los cambios transversales usan los prefijos `refactor/` y `chore/` (ej. `refactor/remove-coordinator-role`, `chore/deploy-render`, `chore/swagger`).
 - `release/x.y.z` y `hotfix/x.y.z`: ramas que define GitFlow para preparar una entrega y para corregir errores críticos; se crean desde `develop` y `main`, respectivamente, y se mergean a ambas.
 
@@ -5186,7 +5191,7 @@ En el Sprint 1, el trabajo sobre la aplicación móvil consistió en el diseño 
 
 **Flujo de integración:** los Pull Requests hacia `develop` se mergean con la estrategia *"Create a merge commit"* (sin squash), preservando el historial de commits individuales que exige la evidencia de Development/Testing de cada Sprint. El flujo de trabajo local sigue el orden commit → build → test, y solo se hace push al repositorio remoto cuando todo pasa, agrupando varios commits antes de subirlos.
 
-**Secretos:** `application.properties` no contiene ningún secreto: solo documenta, en comentarios, los nombres de las variables de entorno que la aplicación necesita. En desarrollo esas variables se definen en la configuración de ejecución del IDE o en la terminal, y en producción como variables de entorno en Render (ver 4.1.4). El archivo `.dockerignore` excluye `.env` y `.env.*` de la imagen Docker.
+**Secretos:** `application.properties` no contiene ningún secreto: solo documenta, en comentarios, los nombres de las variables de entorno que la aplicación necesita. En desarrollo esas variables se definen en la configuración de ejecución del IDE o en la terminal, y en producción como variables de entorno del servidor (el archivo `.env` en AWS y, antes, las variables de Render; ver 4.1.4). El archivo `.dockerignore` excluye `.env` y `.env.*` de la imagen Docker.
 
 ### 4.1.3. Source Code Style Guide & Coding Conventions
 
@@ -5208,19 +5213,19 @@ Todo el código —clases, métodos, variables, paquetes, tablas y nombres de la
 
 El despliegue abarca los tres productos digitales de la solución:
 
-- **Web Services:** contenedor **Docker** en **Render** (plan gratuito), junto con una base de datos **PostgreSQL 16** también administrada por Render (plan gratuito), en la misma región.
+- **Web Services:** desde el 31 de octubre de 2026, una instancia **Amazon EC2** (`t3.small`, región `us-east-1`) con **Docker Compose**: el contenedor del backend, **PostgreSQL 16** y **Caddy** como proxy inverso con HTTPS automático, publicados en `https://skillswap-innovify.duckdns.org`. Hasta esa fecha, y durante el Sprint 1, el backend y su base de datos estuvieron en **Render** (plan gratuito), hasta que la base de datos gratuita expiró. El detalle del cambio está en 4.2.2.8.
 - **Landing Page:** sitio estático (HTML5/CSS3/JavaScript) publicado con **GitHub Pages** desde la rama `main` del repositorio `SkillSwap-LandingPage`.
-- **Aplicaciones móviles:** la app nativa del Estudiante (Kotlin / Jetpack Compose) y la app Flutter del Verificador se distribuyen como APK con **Firebase App Distribution**, en el proyecto `skillswap-moviles`, mediante subida manual a un grupo de probadores llamado `equipo`. Ambas consumen el backend desplegado en Render. El procedimiento y las evidencias están en 4.2.2.8.
+- **Aplicaciones móviles:** la app nativa del Estudiante (Kotlin / Jetpack Compose) y la app Flutter del Verificador se distribuyen como APK con **Firebase App Distribution**, en el proyecto `skillswap-moviles`, mediante subida manual a un grupo de probadores llamado `equipo`. Ambas consumen el backend desplegado en AWS. El procedimiento y las evidencias están en 4.2.2.8.
 
 El Landing Page es un sitio estático independiente de la aplicación móvil, por lo que no se incluye en el Deployment Diagram de este apartado.
 
-**Estado de las integraciones externas:** el cobro de la suscripción está simulado (RevenueCat sin clave de producción, por lo que no se realizan cobros reales) y las notificaciones push con Firebase Cloud Messaging dependen de configurar las credenciales de Firebase en las variables de entorno de Render.
+**Estado de las integraciones externas:** el cobro de la suscripción está simulado (RevenueCat sin clave de producción, por lo que no se realizan cobros reales) y las notificaciones push con Firebase Cloud Messaging dependen de configurar las credenciales de Firebase en las variables de entorno del servidor (el archivo `.env` en AWS).
 
-**Dockerfile del backend:** build multi-etapa. La etapa de compilación parte de la imagen `maven:3.9-eclipse-temurin-21` y ejecuta `mvn -B -q -DskipTests package`, que genera un único JAR ejecutable de Spring Boot (`skillswap-platform-*.jar`); las pruebas no se ejecutan dentro de la imagen porque requieren Docker (Testcontainers) y se corren localmente antes de cada push. La etapa de ejecución usa la imagen `eclipse-temurin:21-jre`, que solo contiene el JRE y ese JAR, y ejecuta la aplicación con un usuario sin privilegios (`skillswap`). La variable `JAVA_TOOL_OPTIONS` limita la memoria de la JVM al 75 % de la disponible y reinicia el proceso ante un `OutOfMemoryError`, pensando en las instancias de 512 MB del plan gratuito. La aplicación escucha en el puerto de la variable de entorno `PORT` que asigna Render (`server.port=${PORT:8080}`, por defecto `8080`). El archivo `.dockerignore` excluye `target/`, `.git/`, `.idea/`, `.vscode/`, `docs/`, los archivos `.env` / `.env.*` y los logs.
+**Dockerfile del backend:** build multi-etapa. La etapa de compilación parte de la imagen `maven:3.9-eclipse-temurin-21` y ejecuta `mvn -B -q -DskipTests package`, que genera un único JAR ejecutable de Spring Boot (`skillswap-platform-*.jar`); las pruebas no se ejecutan dentro de la imagen porque requieren Docker (Testcontainers) y se corren localmente antes de cada push. La etapa de ejecución usa la imagen `eclipse-temurin:21-jre`, que solo contiene el JRE y ese JAR, y ejecuta la aplicación con un usuario sin privilegios (`skillswap`). La variable `JAVA_TOOL_OPTIONS` limita la memoria de la JVM al 75 % de la disponible y reinicia el proceso ante un `OutOfMemoryError`, pensando en las instancias de 512 MB del plan gratuito. La aplicación escucha en el puerto de la variable de entorno `PORT` (en Render la asigna la plataforma; `server.port=${PORT:8080}`, por defecto `8080`). El archivo `.dockerignore` excluye `target/`, `.git/`, `.idea/`, `.vscode/`, `docs/`, los archivos `.env` / `.env.*` y los logs.
 
-**Rama de despliegue:** Render construye la imagen Docker desde la rama `develop` del repositorio `SkillSwap-WebServices-Java`, y cada despliegue se lanza manualmente desde el panel de Render.
+**Rama de despliegue:** en Render, la plataforma construía la imagen Docker desde la rama `develop` del repositorio `SkillSwap-WebServices-Java` y cada despliegue se lanzaba manualmente desde su panel. En AWS, el servidor se define con los archivos `docker-compose.yml`, `Caddyfile` y `.env.aws.example` del mismo repositorio (4.2.2.8).
 
-**Variables de entorno del backend** (solo nombres; los valores no se exponen en el informe ni en el repositorio; en producción se definen en Render):
+**Variables de entorno del backend** (solo nombres; los valores no se exponen en el informe ni en el repositorio; en producción se definen en el archivo `.env` del servidor de AWS y, hasta el 31 de octubre de 2026, en Render):
 
 **Tabla 15**
 
@@ -5228,7 +5233,7 @@ El Landing Page es un sitio estático independiente de la aplicación móvil, po
 
 | Variable | Propósito |
 |---|---|
-| `DATABASE_URL` | URL interna de la base de datos PostgreSQL de Render (`postgres://usuario:clave@host:5432/db`); la aplicación la convierte a una URL JDBC |
+| `DATABASE_URL` | URL de la base de datos PostgreSQL (`postgres://usuario:clave@host:5432/db`; en Render la interna del servicio, en AWS la del contenedor de PostgreSQL); la aplicación la convierte a una URL JDBC |
 | `TOKEN_SETTINGS_SECRET` | Secreto para la firma de los tokens JWT (obligatorio, mínimo 32 caracteres) |
 | `TOKEN_SETTINGS_EXPIRATION_DAYS` | Vigencia del token en días (opcional, por defecto 7) |
 | `CLOUDINARY_CLOUD_NAME` / `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` | Credenciales de la integración con Cloudinary (obligatorias: sin ellas la aplicación no arranca) |
@@ -5253,11 +5258,11 @@ El Landing Page es un sitio estático independiente de la aplicación móvil, po
 
 *Nota.* Elaboración propia.
 
-**Esquema de base de datos:** al arrancar, la aplicación convierte `DATABASE_URL` al formato JDBC; el esquema se gestiona con **Flyway** mediante las migraciones versionadas V1 a V10 (`src/main/resources/db/migration`), y Hibernate valida que las tablas y columnas coincidan con las entidades JPA (`spring.jpa.hibernate.ddl-auto=validate`), sin crear ni modificar el esquema; si falta algo, la aplicación no arranca. V1 es el esquema base que creó la primera versión del backend en la base de PostgreSQL de Render, por lo que Flyway lo registra como baseline sin ejecutarlo (`spring.flyway.baseline-on-migrate=true`, `baseline-version=1`); en una base vacía, como la de las pruebas o la local, V1 crea todo el esquema. Las demás migraciones agregan `case_type` (V2), `subscriptions` y `processed_webhook_events` (V3), el estado `Paused`, `last_progress_at` y la eliminación del índice de una sola ruta activa (V4), `review_due_at` (V5), las columnas de verificación del correo (V6), los intereses y el vector de habilidades (V7), `completed_by_certificate` (V8), `full_name`, `holder_name_mismatch` y la tabla `disputes` (V9), y `redemption_item`, `is_advanced`, `advanced_path_unlocks`, `review_deadline_policies` y las columnas de plazo e incumplimiento (V10). No se crea ninguna cuenta inicial: toda cuenta se registra como `Student` mediante `POST /api/v1/authentication/sign-up`.
+**Esquema de base de datos:** al arrancar, la aplicación convierte `DATABASE_URL` al formato JDBC; el esquema se gestiona con **Flyway** mediante las migraciones versionadas V1 a V10 (`src/main/resources/db/migration`), y Hibernate valida que las tablas y columnas coincidan con las entidades JPA (`spring.jpa.hibernate.ddl-auto=validate`), sin crear ni modificar el esquema; si falta algo, la aplicación no arranca. V1 es el esquema base que creó la primera versión del backend en la base de PostgreSQL de Render, por lo que Flyway lo registra como baseline sin ejecutarlo (`spring.flyway.baseline-on-migrate=true`, `baseline-version=1`); en una base vacía, como la de las pruebas o la local, V1 crea todo el esquema. Con las del Sprint 2, el esquema llega a la migración V22. Las demás migraciones agregan `case_type` (V2), `subscriptions` y `processed_webhook_events` (V3), el estado `Paused`, `last_progress_at` y la eliminación del índice de una sola ruta activa (V4), `review_due_at` (V5), las columnas de verificación del correo (V6), los intereses y el vector de habilidades (V7), `completed_by_certificate` (V8), `full_name`, `holder_name_mismatch` y la tabla `disputes` (V9), y `redemption_item`, `is_advanced`, `advanced_path_unlocks`, `review_deadline_policies` y las columnas de plazo e incumplimiento (V10). No se crea ninguna cuenta inicial: toda cuenta se registra como `Student` mediante `POST /api/v1/authentication/sign-up`.
 
-**Observabilidad y disponibilidad:** el endpoint `GET /health` (anónimo, sin acceso a la base de datos) se usa tanto para el health check de Render como para un ping de mantenimiento cada 10 minutos, dado que el plan gratuito de Render suspende el servicio tras 15 minutos sin tráfico. Swagger UI permanece activo también en producción (`/swagger-ui/index.html`, con el documento OpenAPI en `/v3/api-docs`), y tanto la raíz (`/`) como `/swagger` redirigen automáticamente a la documentación.
+**Observabilidad y disponibilidad:** el endpoint `GET /health` (anónimo, sin acceso a la base de datos) se usó tanto para el health check de Render como para un ping de mantenimiento cada 10 minutos, dado que el plan gratuito de Render suspendía el servicio tras 15 minutos sin tráfico; en AWS el servicio no se suspende por inactividad. Swagger UI permanece activo también en producción (`/swagger-ui/index.html`, con el documento OpenAPI en `/v3/api-docs`), y tanto la raíz (`/`) como `/swagger` redirigen automáticamente a la documentación.
 
-**Limitación conocida:** la base de datos PostgreSQL gratuita de Render expira 30 días después de creada, con 14 días de gracia.
+**Limitación que originó el cambio:** la base de datos PostgreSQL gratuita de Render expiraba 30 días después de creada, con 14 días de gracia. El 31 de octubre de 2026 llegó el aviso de suspensión y el backend dejó de poder arrancar, por lo que se trasladó a AWS (4.2.2.8).
 
 **Figura 122**
 
@@ -5267,7 +5272,7 @@ El Landing Page es un sitio estático independiente de la aplicación móvil, po
   <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram de SkillSwap" width="900">
 </p>
 
-*Nota.* Aplicaciones Android nativa y cross-platform como clientes de la API, API Spring Boot en un contenedor Docker con JRE 21 sobre Render, PostgreSQL administrado, y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat). Elaboración propia.
+*Nota.* Aplicaciones Android nativa y cross-platform como clientes de la API, API Spring Boot en un contenedor Docker con JRE 21 sobre Render, PostgreSQL administrado (desde el 31 de octubre de 2026, el backend y PostgreSQL corren en una instancia EC2 de AWS con Docker Compose; ver 4.2.2.8), y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat). Elaboración propia.
 
 ---
 
@@ -6041,7 +6046,7 @@ El equipo organiza el Sprint 2 en los aspectos que se muestran en la matriz: cua
 
 *Leadership-and-Collaboration Matrix del Sprint 2*
 
-| Team Member (Last Name, First Name) | GitHub Username | Learning Path Engine | Assessment & Peer Review | Moderation & Disputes | Reputation & Recognition | App móvil: Estudiante | App móvil: Verificador | Despliegue (Render) | Landing Page |
+| Team Member (Last Name, First Name) | GitHub Username | Learning Path Engine | Assessment & Peer Review | Moderation & Disputes | Reputation & Recognition | App móvil: Estudiante | App móvil: Verificador | Despliegue | Landing Page |
 |---|---|---|---|---|---|---|---|---|---|
 | Alberca Saavedra, Víctor Manuel | Agnizzz |  | L | C |  | C | C | L | L |
 | Becerra Ninahuanca, Luis Angel | blafyy |  |  |  |  | C | L |  |  |
@@ -6049,7 +6054,7 @@ El equipo organiza el Sprint 2 en los aspectos que se muestran en la matriz: cua
 | Komatsu Dueñas, David | dakoduz |  | C |  |  | C |  |  |  |
 | Sulca Sánchez, Piero Angel | psulca | L | C | L | L |  | C |  |  |
 
-*Nota.* L = Leader, C = Collaborator. La matriz se deriva de la asignación de tasks del Sprint Backlog 2 (4.2.2.3): el líder de cada aspecto es el integrante con más horas asignadas en él. En los dos aspectos con empate de horas (App móvil: Estudiante, entre Lopez Montalvo y Komatsu Dueñas, con 29 horas cada uno; Moderation & Disputes, entre Alberca Saavedra y Sulca Sánchez, con 5 horas cada uno) se propone como líder a Lopez Montalvo y a Sulca Sánchez, respectivamente, a confirmar en el Sprint Planning 2. Las tasks de la demostración final en el backend (T67 y T69) se cuentan en Assessment & Peer Review y el contenido compartible (T57), en Reputation & Recognition. En el Despliegue (Render) el Sprint 2 no agrega tasks, por lo que se mantiene el líder del Sprint 1. En el Landing Page la única task del Sprint 2 es T77, de Alberca Saavedra, por lo que figura como líder. En la App móvil: Verificador, Becerra Ninahuanca conserva el liderazgo con 16 horas (T58, T64 y T71), frente a las 9 de Sulca Sánchez y las 8 de Alberca Saavedra (T76).
+*Nota.* L = Leader, C = Collaborator. La matriz se deriva de la asignación de tasks del Sprint Backlog 2 (4.2.2.3): el líder de cada aspecto es el integrante con más horas asignadas en él. En los dos aspectos con empate de horas (App móvil: Estudiante, entre Lopez Montalvo y Komatsu Dueñas, con 29 horas cada uno; Moderation & Disputes, entre Alberca Saavedra y Sulca Sánchez, con 5 horas cada uno) se propone como líder a Lopez Montalvo y a Sulca Sánchez, respectivamente, a confirmar en el Sprint Planning 2. Las tasks de la demostración final en el backend (T67 y T69) se cuentan en Assessment & Peer Review y el contenido compartible (T57), en Reputation & Recognition. En el Despliegue el Sprint 2 no agrega tasks, por lo que se mantiene el líder del Sprint 1 (Alberca Saavedra), que también trasladó el backend de Render a AWS el 31 de octubre de 2026. En el Landing Page la única task del Sprint 2 es T77, de Alberca Saavedra, por lo que figura como líder. En la App móvil: Verificador, Becerra Ninahuanca conserva el liderazgo con 16 horas (T58, T64 y T71), frente a las 9 de Sulca Sánchez y las 8 de Alberca Saavedra (T76).
 
 #### 4.2.2.3. Sprint Backlog 2
 
@@ -6170,6 +6175,7 @@ Esta sección presenta los avances de implementación del Sprint 2 en los reposi
 | SkillSwap-WebServices-Java | feature/assessment-mini-project-escalation-event | `6b17ff3` | feat(assessment): announce when the AI sends a mini-project to a verifier | Evento `MiniProjectEscalatedByAi`, publicado cuando la IA envía un miniproyecto a un Verificador. | 2026-10-23 |
 | SkillSwap-WebServices-Java | feature/assessment-push-notifications | `6ddd02f` | feat(assessment): notify the student by push of the AI result and the case resolution | Notificaciones push (Firebase Cloud Messaging) cuando la IA aprueba o escala un miniproyecto y cuando un Verificador resuelve un caso. | 2026-10-23 |
 | SkillSwap-WebServices-Java | feature/billing-smoke | `c042255` | test(billing): add simulated subscription smoke test and real RevenueCat checklist | `SimulatedSubscriptionSmokeTest` cubre compra, cancelación, vencimiento y renovación con la pasarela simulada, y `revenuecat-real-checklist.md` documenta el paso a RevenueCat. | 2026-10-23 |
+| SkillSwap-WebServices-Java | feature/deploy-aws-compose | `2392f36` | chore(deploy): add docker compose with Caddy for the AWS server | `docker-compose.yml` (backend, PostgreSQL 16 y Caddy), `Caddyfile`, `.env.aws.example` y `.gitignore` para el servidor de AWS. | 2026-10-31 |
 | SkillSwap-MobileApp | feature/app-base | `a959547` | feat(app): add project skeleton with login and learning path screens | Esqueleto de la aplicación nativa (Kotlin / Jetpack Compose) con inicio de sesión, cliente Retrofit y pantalla de la ruta de aprendizaje. | 2026-10-16 |
 | SkillSwap-MobileApp | feature/certificate-capture | `27f8d9e` | feat(certificate): add camera and file capture with on-device OCR and upload | Captura del certificado con la cámara o desde un archivo, lectura con ML Kit (`CertificateOcr`) y envío al backend (T44, T45). | 2026-10-16 |
 | SkillSwap-MobileApp | feature/offline-path | `545479c` | feat(offline): add SQLite path cache, connectivity banner and local certificate storage | Caché SQLite de la ruta, indicador de conexión (`ConnectivityObserver`, `OfflineBanner`) y almacenamiento local del certificado (T48, T49). | 2026-10-16 |
@@ -6257,7 +6263,7 @@ Esta sección presenta los avances de implementación del Sprint 2 en los reposi
 | SkillSwap-LandingPage | feature/landing-descarga-cta | `dd40e2f` | feat(landing): clarify that real login and signup happen in the app | Aviso en `login.html` y `signup.html` de que el inicio de sesión y el registro se hacen en la app (T77). | 2026-10-29 |
 | SkillSwap-LandingPage | feature/landing-descarga-cta | `472694d` | feat(landing): merge develop and complete US44 download section | Integra `develop` y agrega las capturas de la app a la sección de descarga (T77). | 2026-10-29 |
 
-*Nota.* Commits a la fecha de los repositorios `SkillSwap-WebServices-Java` (PR #16 a #35) `SkillSwap-MobileApp` (PR #1 a #20) y `SkillSwap-MobileApp-Flutter` (PR #1, #3, #4, #5 y #6) y `SkillSwap-LandingPage` (PR #9 y #10), cada uno integrado en `develop` con su Pull Request. En el backend corresponden a las tasks T46, T52, T54, T56, T57, T59, T61, T63, T67 y T69 y a mejoras transversales (registro del correo de verificación, idioma del contenido generado, tienda de cuatro beneficios, notificaciones push, prueba de la suscripción simulada y SkillCredits del Verificador por revisar una demostración); en la aplicación nativa, a las tasks T44, T45, T47 a T51, T53, T55, T65, T66, T68, T70, T73, T74 y T75 (T47, T53 y T55 con autoría de Becerra Ninahuanca) y al sistema de diseño, el registro, la sesión, el estado del caso, la billetera de solo lectura, las notificaciones push, el acceso biométrico, la demostración final con su video, el plan, los intereses y la evidencia del caso. Detalle del backend: las ramas `feature/assessment-weak-subtopic` y `feature/assessment-reevaluation` ya se integraron en `develop` (PR #16 y #17), al igual que `feature/miniproject-delivery` (PR #18, el 2026-10-16), `feature/miniproject-verification-case` (PR #20, el 2026-10-20), `feature/miniproject-preliminary-evaluation` (T56, PR #21, el 2026-10-21) y `fix/persistence-instant-precision` (PR #22, el 2026-10-21), que corrige la precisión de los instantes del miniproyecto y de su entrega. En T56, la entrega queda en estado `Pending` y la evaluación preliminar de la IA se ejecuta en segundo plano: si el puntaje alcanza el mínimo de la rúbrica (70 sobre 100) con una confianza de al menos 70 sobre 100, la entrega se aprueba y el nodo se completa sin consumir un escalamiento; en caso contrario, o si la IA no puede evaluarla, se abre el caso de verificación (US19, escenario 3). En la aplicación Flutter del Verificador corresponden a las tasks T71, T58 y T64 (commits de Becerra Ninahuanca, rama `feature/verifier-cases-share-metrics`) y a T72, T62, T60 y T76 (commits de Alberca Saavedra, ramas `feature/verifier-availability`, `feature/verifier-suspension`, `feature/verifier-reevaluation` y `feature/verifier-store-redeem`). En el Landing Page, T77 (PR #9, publicado en `main` con el PR #10) agrega la sección de descarga y corrige los botones de acceso. Elaboración propia.
+*Nota.* Commits a la fecha de los repositorios `SkillSwap-WebServices-Java` (PR #16 a #36) `SkillSwap-MobileApp` (PR #1 a #20) y `SkillSwap-MobileApp-Flutter` (PR #1, #3, #4, #5 y #6) y `SkillSwap-LandingPage` (PR #9 y #10), cada uno integrado en `develop` con su Pull Request. En el backend corresponden a las tasks T46, T52, T54, T56, T57, T59, T61, T63, T67 y T69 y a mejoras transversales (registro del correo de verificación, idioma del contenido generado, tienda de cuatro beneficios, notificaciones push, prueba de la suscripción simulada, SkillCredits del Verificador por revisar una demostración y el despliegue en AWS con Docker Compose y Caddy); en la aplicación nativa, a las tasks T44, T45, T47 a T51, T53, T55, T65, T66, T68, T70, T73, T74 y T75 (T47, T53 y T55 con autoría de Becerra Ninahuanca) y al sistema de diseño, el registro, la sesión, el estado del caso, la billetera de solo lectura, las notificaciones push, el acceso biométrico, la demostración final con su video, el plan, los intereses y la evidencia del caso. Detalle del backend: las ramas `feature/assessment-weak-subtopic` y `feature/assessment-reevaluation` ya se integraron en `develop` (PR #16 y #17), al igual que `feature/miniproject-delivery` (PR #18, el 2026-10-16), `feature/miniproject-verification-case` (PR #20, el 2026-10-20), `feature/miniproject-preliminary-evaluation` (T56, PR #21, el 2026-10-21) y `fix/persistence-instant-precision` (PR #22, el 2026-10-21), que corrige la precisión de los instantes del miniproyecto y de su entrega. En T56, la entrega queda en estado `Pending` y la evaluación preliminar de la IA se ejecuta en segundo plano: si el puntaje alcanza el mínimo de la rúbrica (70 sobre 100) con una confianza de al menos 70 sobre 100, la entrega se aprueba y el nodo se completa sin consumir un escalamiento; en caso contrario, o si la IA no puede evaluarla, se abre el caso de verificación (US19, escenario 3). En la aplicación Flutter del Verificador corresponden a las tasks T71, T58 y T64 (commits de Becerra Ninahuanca, rama `feature/verifier-cases-share-metrics`) y a T72, T62, T60 y T76 (commits de Alberca Saavedra, ramas `feature/verifier-availability`, `feature/verifier-suspension`, `feature/verifier-reevaluation` y `feature/verifier-store-redeem`). En el Landing Page, T77 (PR #9, publicado en `main` con el PR #10) agrega la sección de descarga y corrige los botones de acceso. Elaboración propia.
 
 #### 4.2.2.5. Testing Suite Evidence for Sprint Review
 
@@ -6497,6 +6503,36 @@ Los endpoints incorporados en el Sprint 2 se documentan con OpenAPI 3.1 mediante
 
 Para el hito AV2 las aplicaciones móviles deben poder instalarse y probarse en un dispositivo real. El equipo las distribuye con **Firebase App Distribution**, en el proyecto de Firebase `skillswap-moviles`, el mismo que usa la app para las notificaciones push. Este servicio permite entregar versiones de prueba como APK a un grupo de probadores (*testers*) sin publicarlas en una tienda; la publicación en Google Play se verá cuando el docente la presente en clase. La Tabla 33 resume los parámetros de distribución de cada app.
 
+**Cambio de despliegue del backend: de Render a AWS (31/10/2026)**
+
+Durante el Sprint 2 el backend cambió de entorno de despliegue. El 31 de octubre de 2026 Render avisó de la suspensión de la base de datos PostgreSQL gratuita, que había expirado, y el backend dejó de poder arrancar. El equipo lo trasladó a Amazon Web Services (AWS). El despliegue en Render del Sprint 1 (4.2.1.8) no se modifica: queda como el registro de cómo se desplegó en esa iteración.
+
+* **Servidor:** una instancia Amazon EC2 en la región de N. Virginia (`us-east-1`), con Ubuntu Server 24.04 LTS, tipo `t3.small`, 30 GiB de disco y una IP elástica fija.
+* **Contenedores (Docker Compose):** el backend (Java 21 / Spring Boot), PostgreSQL 16 sin puerto expuesto al exterior y Caddy como proxy inverso, que da HTTPS automático con certificados de Let's Encrypt.
+* **Dirección pública:** el dominio gratuito de DuckDNS `https://skillswap-innovify.duckdns.org`. La documentación Swagger está en [https://skillswap-innovify.duckdns.org/swagger-ui/index.html](https://skillswap-innovify.duckdns.org/swagger-ui/index.html).
+* **Seguridad:** el grupo de seguridad deja abiertos al público solo los puertos 80 y 443, y el 22 (SSH) únicamente a la IP del administrador. Los secretos están en un archivo `.env` del servidor, que no se versiona (`.gitignore`).
+* **Archivos de despliegue:** `docker-compose.yml`, `Caddyfile` y `.env.aws.example`, en el repositorio `SkillSwap-WebServices-Java` (rama `feature/deploy-aws-compose`, PR #36, commit `2392f36` `chore(deploy): add docker compose with Caddy for the AWS server`).
+* **Datos:** la base de datos se creó vacía y su esquema se construye con las migraciones de Flyway V1 a V22. Las cuentas de prueba anteriores no se migraron.
+* **Configuración que se mantiene:** el cobro de la suscripción sigue simulado (sin clave de RevenueCat), los correos de verificación se envían con Brevo (el enlace ahora usa el dominio nuevo), las notificaciones push usan Firebase, los archivos y videos se guardan en Cloudinary (límite de 25 MB) y la IA es Gemini.
+* **Pendiente:** las pruebas de integración de las dos aplicaciones contra la URL nueva se documentan al cerrar el Sprint 2.
+
+**Figura 152**
+
+*Instancia EC2 del backend en AWS*
+
+`[INSERTAR CAPTURA: consola de AWS, EC2 → Instancias, con la instancia en ejecución y su IP elástica]`
+
+*Nota.* Elaboración propia.
+
+**Figura 153**
+
+*Swagger UI del backend en AWS*
+
+`[INSERTAR CAPTURA: Swagger UI abierto en https://skillswap-innovify.duckdns.org/swagger-ui/index.html]`
+
+*Nota.* Elaboración propia.
+
+**Distribución de las aplicaciones móviles**
 **Tabla 33**
 
 *Parámetros de distribución de las aplicaciones móviles*
@@ -6511,10 +6547,10 @@ Para el hito AV2 las aplicaciones móviles deben poder instalarse y probarse en 
 | Plataforma de distribución | Firebase App Distribution, proyecto `skillswap-moviles` | Por confirmar con el docente; se prevé el mismo proyecto de Firebase |
 | Método de publicación | Subida manual del APK en la consola de Firebase | Por definir |
 | Grupo de probadores | `equipo` | Por definir |
-| Backend que consume | `https://skillswap-webservices-java.onrender.com` | `https://skillswap-webservices-java.onrender.com` |
+| Backend que consume | `https://skillswap-innovify.duckdns.org` (AWS) | `https://skillswap-innovify.duckdns.org` (AWS) |
 | Estado | Distribuida y descargada en un dispositivo físico | Siete pantallas del Verificador integradas en `develop`; aún no se distribuye |
 
-*Nota.* El identificador y la versión de cada app se toman de su archivo de configuración de Gradle. Elaboración propia.
+*Nota.* El identificador y la versión de cada app se toman de su archivo de configuración de Gradle. La URL es la del backend vigente desde el 31 de octubre de 2026; las pruebas de integración de ambas apps contra ella quedan pendientes. Elaboración propia.
 
 **Procedimiento de publicación de una versión:**
 
@@ -6528,11 +6564,11 @@ Para el hito AV2 las aplicaciones móviles deben poder instalarse y probarse en 
 
 **Enlace de invitación a la app nativa del Estudiante:** [https://appdistribution.firebase.dev/i/eb345a85ef8857fa](https://appdistribution.firebase.dev/i/eb345a85ef8857fa)
 
-La app se instaló desde Firebase en un dispositivo físico y se conectó al backend desplegado en Render (ver 4.1.4 y 4.2.1.8), con el que se probó el flujo del Estudiante del Sprint 2. Como el plan gratuito de Render suspende el servicio tras 15 minutos sin tráfico, la primera pantalla de la sesión puede tardar en responder. El archivo `google-services.json` no se sube al repositorio, que es público, sino que se comparte entre el equipo por un canal privado.
+La app se instaló desde Firebase en un dispositivo físico y se conectó al backend, que entonces estaba desplegado en Render (ver 4.2.1.8), con el que se probó el flujo del Estudiante del Sprint 2. Como el plan gratuito de Render suspendía el servicio tras 15 minutos sin tráfico, la primera pantalla de la sesión podía tardar en responder. Desde el 31 de octubre de 2026 el backend está en AWS, como se describe al inicio de esta sección. El archivo `google-services.json` no se sube al repositorio, que es público, sino que se comparte entre el equipo por un canal privado.
 
 Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, versión 1.0.0+1) tiene sus siete pantallas (T58, T60, T62, T64, T71, T72 y T76) integradas en la rama `develop` de su repositorio. Cuando el docente confirme la forma de entrega, se distribuye con este mismo procedimiento y su captura se agrega a esta sección.
 
-**Figura 152**
+**Figura 154**
 
 *Versión 1.0 de la app nativa publicada en Firebase App Distribution*
 
@@ -6542,7 +6578,7 @@ Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, ver
 
 *Nota.* Elaboración propia.
 
-**Figura 153**
+**Figura 155**
 
 *Correo de invitación de Firebase App Distribution*
 
@@ -6552,7 +6588,7 @@ Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, ver
 
 *Nota.* Elaboración propia.
 
-**Figura 154**
+**Figura 156**
 
 *App nativa del Estudiante instalada en un dispositivo físico*
 
@@ -6564,7 +6600,7 @@ Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, ver
 
 El Landing Page sigue publicado en GitHub Pages (ver 4.1.4). En el Sprint 2 se le agregó la sección de descarga con el enlace de instalación de la app (T77) y se verificó en línea.
 
-**Figura 155**
+**Figura 157**
 
 *Landing Page publicado y verificado en el Sprint 2*
 
@@ -6578,7 +6614,7 @@ El Landing Page sigue publicado en GitHub Pages (ver 4.1.4). En el Sprint 2 se l
 
 Esta sección presenta los analíticos de colaboración del Sprint 2 en los repositorios del proyecto y su interpretación: `[describir la participación de cada integrante por repositorio y frente]`.
 
-**Figura 156**
+**Figura 158**
 
 *Historial de commits de los repositorios durante el Sprint 2*
 
@@ -6698,7 +6734,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** `[hh:mm:ss]`
 * **Duración:** `[mm:ss]`
 
-**Figura 157**
+**Figura 159**
 
 *Entrevista de validación 1: Personas que quieren aprender*
 
@@ -6721,7 +6757,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** `[hh:mm:ss]`
 * **Duración:** `[mm:ss]`
 
-**Figura 158**
+**Figura 160**
 
 *Entrevista de validación 2: Personas que quieren aprender*
 
@@ -6744,7 +6780,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** `[hh:mm:ss]`
 * **Duración:** `[mm:ss]`
 
-**Figura 159**
+**Figura 161**
 
 *Entrevista de validación 3: Personas que quieren aprender*
 
@@ -6771,7 +6807,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** `[hh:mm:ss]`
 * **Duración:** `[mm:ss]`
 
-**Figura 160**
+**Figura 162**
 
 *Entrevista de validación 1: Personas que validan el conocimiento*
 
@@ -6794,7 +6830,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** `[hh:mm:ss]`
 * **Duración:** `[mm:ss]`
 
-**Figura 161**
+**Figura 163**
 
 *Entrevista de validación 2: Personas que validan el conocimiento*
 
@@ -6817,7 +6853,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** `[hh:mm:ss]`
 * **Duración:** `[mm:ss]`
 
-**Figura 162**
+**Figura 164**
 
 *Entrevista de validación 3: Personas que validan el conocimiento*
 
@@ -6888,7 +6924,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Information Architecture: Is it findable?
 * **Problema:** En `index.html` los dos botones de la barra de navegación están dentro de un enlace a `index.html`, por lo que desde la página de inicio no se llega a `login.html` ni a `signup.html`. Además, un botón dentro de un enlace es un elemento interactivo anidado, que los lectores de pantalla pueden anunciar dos veces.
 
-**Figura 163**
+**Figura 165**
 
 *Captura del problema #1*
 
@@ -6907,7 +6943,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Information Architecture: Is it usable?
 * **Problema:** Los cuatro llamados a la acción de la página (el del encabezado y los de las secciones «Sobre nosotros», «Por qué SkillSwap» y «Así se ve una ruta») enlazan a `index.html`, es decir, recargan la misma página, y la página no ofrece un enlace para descargar o instalar la aplicación (US44).
 
-**Figura 164**
+**Figura 166**
 
 *Captura del problema #2*
 
@@ -6926,7 +6962,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Ayuda para reconocer, diagnosticar y recuperarse de errores
 * **Problema:** La pantalla `Login` de la app nativa solo ofrece ingresar y crear una cuenta, y la de la app Flutter solo pide usuario y contraseña. Quien olvidó su contraseña no tiene cómo volver a entrar. El backend tampoco expone un endpoint de restablecimiento de contraseña.
 
-**Figura 165**
+**Figura 167**
 
 *Captura del problema #3*
 
@@ -6944,7 +6980,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Prevención de errores
 * **Problema:** En la pantalla de la ruta, «Salir» está junto a «Mi billetera» y ejecuta el cierre de sesión de inmediato. Un toque accidental borra la sesión guardada y obliga a volver a ingresar. En la app Flutter, el ícono de cerrar sesión de la pantalla de casos tampoco pide confirmación.
 
-**Figura 166**
+**Figura 168**
 
 *Captura del problema #4*
 
@@ -6962,7 +6998,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Information Architecture: Is it findable?
 * **Problema:** El botón de la ruta se llama «Mi billetera» y abre la pantalla del perfil, que además tiene los botones «Mi plan» y «Mis intereses». Quien busca su plan o sus intereses no sospecha que están bajo ese nombre.
 
-**Figura 167**
+**Figura 169**
 
 *Captura del problema #5*
 
@@ -6980,7 +7016,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Visibilidad del estado del sistema
 * **Problema:** Catorce pantallas muestran sus errores de red y sus confirmaciones con `Toast` (40 usos). Desaparecen en pocos segundos y no se pueden releer, por ejemplo si falla el envío del certificado o el registro. En la app Flutter, el inicio de sesión y las pantallas de revisión de casos, disponibilidad, reevaluación, supervisión y compartir un logro usan `SnackBar`, que también se cierra solo.
 
-**Figura 168**
+**Figura 170**
 
 *Captura del problema #6*
 
@@ -6998,7 +7034,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Inclusive Design: Offer choice
 * **Problema:** El tema de la app nativa y el de la app Flutter (`AppTheme.light()`) no ofrecen modo oscuro, por lo que las personas que lo prefieren, o lo necesitan por sensibilidad a la luz, no pueden cambiarlo.
 
-**Figura 169**
+**Figura 171**
 
 *Captura del problema #7*
 
@@ -7016,7 +7052,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Inclusive Design: Provide comparable experience
 * **Problema:** El Landing Page ofrece el cambio ES/EN, mientras que los textos de la aplicación están escritos en el código y el archivo `strings.xml` solo tiene una cadena, así que una persona que elige inglés en el sitio encuentra la aplicación solo en español. Las pantallas de la app Flutter también tienen sus textos escritos en español dentro del código.
 
-**Figura 170**
+**Figura 172**
 
 *Captura del problema #8*
 
@@ -7034,7 +7070,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Control y libertad del usuario
 * **Problema:** Si la cuenta no tiene el rol de Verificador, la pantalla de casos solo indica que debe completar un nodo en la app del Estudiante y habilitarse, y ofrece «Volver a revisar». La app Flutter no permite habilitarse y el segmento de Verificadores usa solo esa app, por lo que quien no tiene la cuenta ya habilitada no puede continuar.
 
-**Figura 171**
+**Figura 173**
 
 *Captura del problema #9*
 
@@ -7076,7 +7112,7 @@ Al implementar Assessment & Peer Review descubrimos que nuestro propio informe t
 
 **Sobre investigar la tecnología externa antes de comprometerla en el diseño**
 
-La pasarela de pago pasó por tres decisiones distintas a lo largo del proyecto: primero Stripe (descartada porque no opera en Perú), luego Culqi o Mercado Pago (considerados durante el modelado inicial), y finalmente Google Play Billing, que terminó siendo la opción correcta no por preferencia sino porque es un requisito real de Google para suscripciones distribuidas vía Play Store. Llegar a esa conclusión nos obligó además a corregir el propio modelo de dominio: a diferencia de Stripe, el backend nunca "cobra" directamente, solo verifica una compra ya realizada del lado del cliente, lo que cambió el método `charge()` original por `verifyPurchase()`. Después adoptamos RevenueCat sobre Google Play Billing para no implementar a mano la validación de compras ni las notificaciones RTDN, entendiendo que RevenueCat no reemplaza la facturación de Google: Google Play sigue procesando el cobro y RevenueCat solo valida la compra y notifica sus cambios al backend. De forma parecida, al intentar desplegar en Render descubrimos que la plataforma no ofrece MySQL como base de datos administrada —solo PostgreSQL de forma nativa— y tuvimos que migrar todo el diseño de persistencia antes de escribir una sola línea de código de infraestructura. En ambos casos, la lección fue la misma: las restricciones reales de las tecnologías y plataformas externas solo aparecen cuando uno intenta usarlas de verdad, y conviene descubrirlas investigando a tiempo en vez de durante el despliegue.
+La pasarela de pago pasó por tres decisiones distintas a lo largo del proyecto: primero Stripe (descartada porque no opera en Perú), luego Culqi o Mercado Pago (considerados durante el modelado inicial), y finalmente Google Play Billing, que terminó siendo la opción correcta no por preferencia sino porque es un requisito real de Google para suscripciones distribuidas vía Play Store. Llegar a esa conclusión nos obligó además a corregir el propio modelo de dominio: a diferencia de Stripe, el backend nunca "cobra" directamente, solo verifica una compra ya realizada del lado del cliente, lo que cambió el método `charge()` original por `verifyPurchase()`. Después adoptamos RevenueCat sobre Google Play Billing para no implementar a mano la validación de compras ni las notificaciones RTDN, entendiendo que RevenueCat no reemplaza la facturación de Google: Google Play sigue procesando el cobro y RevenueCat solo valida la compra y notifica sus cambios al backend. De forma parecida, al intentar desplegar en Render descubrimos que la plataforma no ofrece MySQL como base de datos administrada —solo PostgreSQL de forma nativa— y tuvimos que migrar todo el diseño de persistencia antes de escribir una sola línea de código de infraestructura. En ambos casos, la lección fue la misma: las restricciones reales de las tecnologías y plataformas externas solo aparecen cuando uno intenta usarlas de verdad, y conviene descubrirlas investigando a tiempo en vez de durante el despliegue. Algo parecido pasó en el Sprint 2: la base de datos gratuita de Render expiró el 31 de octubre de 2026 y el backend se trasladó a AWS (4.2.2.8).
 
 **Sobre migrar el backend de .NET a Java sin perder lo construido**
 
@@ -7125,7 +7161,7 @@ Las medidas de éxito del Problem Statement y de las hipótesis (70 % de evaluac
 2. **Completar el rol del Verificador:** quedan siete de las catorce historias del Verificador para el Sprint 3; tres de ellas (disputas pendientes, certificados sospechosos y plazo de actividad) aún no tienen pantalla.
 3. **Publicar las aplicaciones en Google Play:** hoy se distribuyen como APK con Firebase App Distribution (4.2.2.8); la publicación en la tienda se hará cuando el docente la presente en clase.
 4. **Activar el cobro real de la suscripción:** hoy está simulado, porque RevenueCat no tiene una clave de producción (4.1.4).
-5. **Pasar el backend a un plan estable:** el plan gratuito de Render suspende el servicio tras 15 minutos sin tráfico y su base de datos expira a los 30 días; ambos límites deben resolverse antes de recibir usuarios reales.
+5. **Mantener estable el backend en AWS:** el backend dejó de depender de los planes gratuitos de Render (su base de datos expiró el 31 de octubre de 2026) y hoy corre en una instancia EC2 `t3.small`; antes de recibir usuarios reales conviene definir copias de seguridad de la base de datos y vigilar el costo y la disponibilidad del servidor.
 6. **Medir las hipótesis con datos reales:** usar las métricas de la plataforma para comprobar los criterios de éxito de la Tabla 37.
 7. **Ampliar la accesibilidad:** agregar tema oscuro y textos en inglés a las dos aplicaciones, como recomiendan los problemas #7 y #8 de 4.3.3.
 
@@ -7137,7 +7173,7 @@ El video documenta la evaluación de la aplicación a través de la prueba con u
 * **URL en el OneDrive del docente:** `[URL]`
 * **Duración:** `[mm:ss]`
 
-**Figura 172**
+**Figura 174**
 
 *Cuadro del video App Validation*
 
@@ -7168,7 +7204,7 @@ El video está dirigido a quienes visitan el Landing Page y quieren conocer el m
 * **URL en YouTube (incrustado en el Landing Page):** [https://youtu.be/-XpgJySK29A](https://youtu.be/-XpgJySK29A)
 * **Duración:** 01:30
 
-**Figura 173**
+**Figura 175**
 
 *Cuadro del video About the Product*
 
@@ -7202,7 +7238,7 @@ El video resume el proceso de trabajo del equipo con escenas de sesiones de trab
 * **URL en YouTube (incrustado en el Landing Page):** `[URL]`
 * **Duración:** `[mm:ss]`
 
-**Figura 174**
+**Figura 176**
 
 *Cuadro del video About the Team*
 
@@ -7562,29 +7598,31 @@ Figura 148. *Herramientas del Verificador en la aplicación Flutter*<br>
 Figura 149. *Acceso con biometría del dispositivo*<br>
 Figura 150. *Programación y entrega de la demostración final*<br>
 Figura 151. *Documentación Swagger de los endpoints del Sprint 2*<br>
-Figura 152. *Versión 1.0 de la app nativa publicada en Firebase App Distribution*<br>
-Figura 153. *Correo de invitación de Firebase App Distribution*<br>
-Figura 154. *App nativa del Estudiante instalada en un dispositivo físico*<br>
-Figura 155. *Landing Page publicado y verificado en el Sprint 2*<br>
-Figura 156. *Historial de commits de los repositorios durante el Sprint 2*<br>
-Figura 157. *Entrevista de validación 1: Personas que quieren aprender*<br>
-Figura 158. *Entrevista de validación 2: Personas que quieren aprender*<br>
-Figura 159. *Entrevista de validación 3: Personas que quieren aprender*<br>
-Figura 160. *Entrevista de validación 1: Personas que validan el conocimiento*<br>
-Figura 161. *Entrevista de validación 2: Personas que validan el conocimiento*<br>
-Figura 162. *Entrevista de validación 3: Personas que validan el conocimiento*<br>
-Figura 163. *Captura del problema #1*<br>
-Figura 164. *Captura del problema #2*<br>
-Figura 165. *Captura del problema #3*<br>
-Figura 166. *Captura del problema #4*<br>
-Figura 167. *Captura del problema #5*<br>
-Figura 168. *Captura del problema #6*<br>
-Figura 169. *Captura del problema #7*<br>
-Figura 170. *Captura del problema #8*<br>
-Figura 171. *Captura del problema #9*<br>
-Figura 172. *Cuadro del video App Validation*<br>
-Figura 173. *Cuadro del video About the Product*<br>
-Figura 174. *Cuadro del video About the Team*<br>
+Figura 152. *Instancia EC2 del backend en AWS*<br>
+Figura 153. *Swagger UI del backend en AWS*<br>
+Figura 154. *Versión 1.0 de la app nativa publicada en Firebase App Distribution*<br>
+Figura 155. *Correo de invitación de Firebase App Distribution*<br>
+Figura 156. *App nativa del Estudiante instalada en un dispositivo físico*<br>
+Figura 157. *Landing Page publicado y verificado en el Sprint 2*<br>
+Figura 158. *Historial de commits de los repositorios durante el Sprint 2*<br>
+Figura 159. *Entrevista de validación 1: Personas que quieren aprender*<br>
+Figura 160. *Entrevista de validación 2: Personas que quieren aprender*<br>
+Figura 161. *Entrevista de validación 3: Personas que quieren aprender*<br>
+Figura 162. *Entrevista de validación 1: Personas que validan el conocimiento*<br>
+Figura 163. *Entrevista de validación 2: Personas que validan el conocimiento*<br>
+Figura 164. *Entrevista de validación 3: Personas que validan el conocimiento*<br>
+Figura 165. *Captura del problema #1*<br>
+Figura 166. *Captura del problema #2*<br>
+Figura 167. *Captura del problema #3*<br>
+Figura 168. *Captura del problema #4*<br>
+Figura 169. *Captura del problema #5*<br>
+Figura 170. *Captura del problema #6*<br>
+Figura 171. *Captura del problema #7*<br>
+Figura 172. *Captura del problema #8*<br>
+Figura 173. *Captura del problema #9*<br>
+Figura 174. *Cuadro del video App Validation*<br>
+Figura 175. *Cuadro del video About the Product*<br>
+Figura 176. *Cuadro del video About the Team*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
@@ -7596,9 +7634,10 @@ Figura 174. *Cuadro del video About the Team*<br>
 | **Cross-Platform Application (Flutter)** | Aplicación móvil multiplataforma (Flutter / Dart, dirigida a Android) del Verificador. Sus siete pantallas están integradas en `develop`. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter) |
 | **App nativa — Firebase App Distribution** | Enlace de invitación para instalar la versión de prueba de la app del Estudiante. | [https://appdistribution.firebase.dev/i/eb345a85ef8857fa](https://appdistribution.firebase.dev/i/eb345a85ef8857fa) |
 | **Prototipo y mock-ups (Figma)** | Archivo de diseño con el prototipo y los mock-ups de la aplicación móvil para los roles Estudiante y Verificador (Capítulo III). | [https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo?node-id=3-959](https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo?node-id=3-959) |
-| **Backend — Swagger UI** | Documentación interactiva (OpenAPI) de los Web Services RESTful (Java 21 / Spring Boot), desplegados en Render. | [https://skillswap-webservices-java.onrender.com/swagger-ui/index.html](https://skillswap-webservices-java.onrender.com/swagger-ui/index.html) |
+| **Backend — Swagger UI** | Documentación interactiva (OpenAPI) de los Web Services RESTful (Java 21 / Spring Boot), desplegados en AWS desde el 31 de octubre de 2026. | [https://skillswap-innovify.duckdns.org/swagger-ui/index.html](https://skillswap-innovify.duckdns.org/swagger-ui/index.html) |
+| **Backend — Swagger UI (Render, Sprint 1)** | Entorno en el que se desplegó el backend durante el Sprint 1; ya no está activo. | [https://skillswap-webservices-java.onrender.com/swagger-ui/index.html](https://skillswap-webservices-java.onrender.com/swagger-ui/index.html) |
 | **Backend — Repositorio** | Código fuente de los Web Services RESTful en Java / Spring Boot, organizados en los ocho Bounded Contexts. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices-Java](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices-Java) |
-| **Base de Datos** | Base de datos relacional única (PostgreSQL administrado en Render), compartida por los ocho Bounded Contexts. | Ver el Diagrama de Base de Datos completo de SkillSwap en la sección 2.6. |
+| **Base de Datos** | Base de datos relacional única (PostgreSQL 16 en Docker Compose sobre AWS EC2; en el Sprint 1, administrado en Render), compartida por los ocho Bounded Contexts. | Ver el Diagrama de Base de Datos completo de SkillSwap en la sección 2.6. |
 | **Product Backlog (Trello)** | Tablero público del Product Backlog, organizado por Sprint. | [https://trello.com/b/sTMGwnPf/skillswap-product-backlog](https://trello.com/b/sTMGwnPf/skillswap-product-backlog) |
 | **Project Report (GitHub)** | Repositorio del informe del proyecto. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport) |
 
