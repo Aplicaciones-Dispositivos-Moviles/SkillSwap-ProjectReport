@@ -54,7 +54,7 @@ SkillSwap
 </p>
 
 <p align="center">
-Octubre 2026
+Noviembre 2026
 </p>
 
 <div style="page-break-after: always;"></div>
@@ -2026,7 +2026,7 @@ En conjunto, los cuatro Impact Maps muestran cómo cada funcionalidad de la apli
 
 El Product Backlog de SkillSwap reúne las 57 historias definidas en la sección 2.4.1, ordenadas según el valor que aportan al negocio y estimadas en Story Points con la escala de Fibonacci (1, 2, 3, 5 y 8), donde el valor refleja la complejidad, el esfuerzo y la incertidumbre relativa de cada historia.
 
-La estimación total del Product Backlog asciende a **211 Story Points**. De ellos, **154 SP (73%)**, correspondientes a 44 de las 57 historias, se completaron en el Sprint 1 (TB1). Las 13 historias restantes (57 SP) no tienen Sprint asignado, lo que se indica con un guion (—) en la columna Sprint: cuatro corresponden a funcionalidades exclusivas del cliente móvil (US03, US10, US11 y US21) y nueve a funcionalidades que el backend no implementa (US07, US19, US20, US28, US29, US33, US37, US38 y US40).
+La estimación total del Product Backlog asciende a **211 Story Points**. De ellos, **154 SP (73%)**, correspondientes a 44 de las 57 historias, se completaron en el Sprint 1 (TB1). Las 13 historias restantes (57 SP, el 27 %) se asignaron al Sprint 2 (AV2), como se detalla en el Sprint Planning 2 (4.2.2.1): cuatro corresponden a funcionalidades exclusivas del cliente móvil (US03, US10, US11 y US21) y nueve a funcionalidades que el backend no implementaba al cierre del Sprint 1 (US07, US19, US20, US28, US29, US33, US37, US38 y US40). Con ello, las 57 historias del Product Backlog tienen un Sprint asignado.
 
 **Tabla 10**
 
@@ -2042,17 +2042,16 @@ La estimación total del Product Backlog asciende a **211 Story Points**. De ell
 | 6 | TS05 | Endpoints de generación y consulta de rutas | 5 | Sprint 1 |
 | 7 | US06 | Declaración de la meta en lenguaje natural | 8 | Sprint 1 |
 | 8 | US08 | Consulta de la ruta de aprendizaje | 3 | Sprint 1 |
-| 9 | La app Flutter muestra «Aún no eres Verificador» sin ofrecer una salida | 3 | Usability: Control y libertad del usuario |
 | 9 | TS03 | Endpoint de registro de certificados | 5 | Sprint 1 |
 | 10 | US12 | Carga del certificado desde un archivo | 3 | Sprint 1 |
-| 11 | US11 | Captura del certificado con la cámara | 3 | — |
+| 11 | US11 | Captura del certificado con la cámara | 3 | Sprint 2 |
 | 12 | US13 | Extracción automática de datos del certificado | 8 | Sprint 1 |
 | 13 | US15 | Correspondencia del certificado con la habilidad | 5 | Sprint 1 |
 | 14 | TS06 | Endpoint de generación de evaluaciones | 5 | Sprint 1 |
 | 15 | US17 | Generación del quiz de un nodo | 5 | Sprint 1 |
 | 16 | TS07 | Endpoints de registro de intentos | 3 | Sprint 1 |
 | 17 | US18 | Resolución del quiz con calificación en el servidor | 3 | Sprint 1 |
-| 18 | US20 | Identificación del sub-tema débil | 5 | — |
+| 18 | US20 | Identificación del sub-tema débil | 5 | Sprint 2 |
 | 19 | US05 | Suscripción al plan mensual | 5 | Sprint 1 |
 | 20 | US09 | Reconocimiento de habilidades ya certificadas | 3 | Sprint 1 |
 | 21 | US14 | Detección de certificados duplicados | 3 | Sprint 1 |
@@ -2068,35 +2067,35 @@ La estimación total del Product Backlog asciende a **211 Story Points**. De ell
 | 31 | US01 | Registro con correo institucional | 3 | Sprint 1 |
 | 32 | TS02 | Endpoint de autenticación con JWT | 2 | Sprint 1 |
 | 33 | US02 | Inicio de sesión | 2 | Sprint 1 |
-| 34 | US19 | Entrega de un miniproyecto | 8 | — |
+| 34 | US19 | Entrega de un miniproyecto | 8 | Sprint 2 |
 | 35 | TS10 | Endpoints de gestión de disputas | 5 | Sprint 1 |
 | 36 | US34 | Consulta de disputas pendientes | 3 | Sprint 1 |
 | 37 | US35 | Resolución de certificados sospechosos | 3 | Sprint 1 |
 | 38 | US27 | Apelación de la decisión del Verificador | 3 | Sprint 1 |
 | 39 | US36 | Revisión de casos apelados | 3 | Sprint 1 |
-| 40 | US37 | Reevaluación de un resultado aprobado | 3 | — |
+| 40 | US37 | Reevaluación de un resultado aprobado | 3 | Sprint 2 |
 | 41 | TS09 | Endpoints de billetera y canje de SkillCredits | 3 | Sprint 1 |
 | 42 | US30 | Acreditación de SkillCredits por caso resuelto | 3 | Sprint 1 |
 | 43 | US31 | Consulta de billetera e historial | 2 | Sprint 1 |
-| 44 | US33 | Compartir logros en LinkedIn | 3 | — |
-| 45 | US38 | Suspensión de un Verificador con baja confiabilidad | 3 | — |
+| 44 | US33 | Compartir logros en LinkedIn | 3 | Sprint 2 |
+| 45 | US38 | Suspensión de un Verificador con baja confiabilidad | 3 | Sprint 2 |
 | 46 | US39 | Definición del plazo de actividad de los Verificadores | 3 | Sprint 1 |
-| 47 | US40 | Consulta de métricas de la plataforma | 5 | — |
+| 47 | US40 | Consulta de métricas de la plataforma | 5 | Sprint 2 |
 | 48 | US32 | Canje de SkillCredits en la tienda | 3 | Sprint 1 |
 | 49 | US04 | Configuración del perfil de intereses | 2 | Sprint 1 |
-| 50 | US07 | Confirmación de la habilidad interpretada | 3 | — |
-| 51 | US10 | Consulta de la ruta sin conexión | 5 | — |
-| 52 | US21 | Conservación del avance ante pérdida de conexión | 5 | — |
-| 53 | US03 | Acceso mediante biometría del dispositivo | 3 | — |
-| 54 | US28 | Programación de la demostración final | 3 | — |
-| 55 | US29 | Demostración final por video | 8 | — |
+| 50 | US07 | Confirmación de la habilidad interpretada | 3 | Sprint 2 |
+| 51 | US10 | Consulta de la ruta sin conexión | 5 | Sprint 2 |
+| 52 | US21 | Conservación del avance ante pérdida de conexión | 5 | Sprint 2 |
+| 53 | US03 | Acceso mediante biometría del dispositivo | 3 | Sprint 2 |
+| 54 | US28 | Programación de la demostración final | 3 | Sprint 2 |
+| 55 | US29 | Demostración final por video | 8 | Sprint 2 |
 | 56 | TS11 | Endpoints de consulta de reputación | 2 | Sprint 1 |
 | 57 | TS12 | Despliegue del backend en producción | 5 | Sprint 1 |
 
 
 *Nota.* Elaboración propia.
 
-El Product Backlog se gestiona en Trello, en un tablero público con la lista Sprint 1. Cada tarjeta conserva el orden, el identificador, el título y los Story Points de la tabla anterior, e incluye en su descripción la historia, la prioridad, el usuario y el Epic.
+El Product Backlog se gestiona en Trello, en un tablero público con una lista por Sprint (la lista Sprint 2 se muestra en la Figura 141, en 4.2.2.3). Cada tarjeta conserva el orden, el identificador, el título y los Story Points de la tabla anterior, e incluye en su descripción la historia, la prioridad, el usuario y el Epic.
 
 **Figura 29**
 
@@ -6880,7 +6879,7 @@ La evaluación sigue el formato del Anexo E del enunciado y considera heurístic
 
 **TAREAS A EVALUAR:** la evaluación revisa la usabilidad de las tareas E1 a E8 y V1 a V4 de la Tabla 34 (conocer la propuesta, registrarse e iniciar sesión, declarar la meta, subir un certificado, consultar la ruta sin conexión, resolver un quiz, entregar un miniproyecto y programar la demostración final, para el Estudiante; y activar la disponibilidad, revisar un caso con la rúbrica, reevaluar, suspender, consultar las métricas y compartir un logro, para el Verificador).
 
-No están incluidas en esta versión de la evaluación: 1) el canje de beneficios en la tienda de SkillCredits; 2) el cobro real de la suscripción, que está simulado.
+No están incluidas en esta versión de la evaluación: 1) el canje de beneficios en la tienda de SkillCredits (T76), que se integró en la aplicación Flutter el 29 de octubre de 2026, después de esta revisión; 2) el cobro real de la suscripción, que está simulado.
 
 **ESCALA DE SEVERIDAD**
 
@@ -6913,8 +6912,9 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 | 6 | Los errores y confirmaciones se muestran con mensajes temporales (Toast o SnackBar) que no se pueden volver a leer | 2 | Usability: Visibilidad del estado del sistema |
 | 7 | Las dos aplicaciones solo tienen tema claro | 1 | Inclusive Design: Offer choice |
 | 8 | El Landing Page tiene español e inglés, pero las aplicaciones solo tienen español | 1 | Inclusive Design: Provide comparable experience |
+| 9 | La app Flutter muestra «Aún no eres Verificador» sin ofrecer una salida | 3 | Usability: Control y libertad del usuario |
 
-*Nota.* Revisión del equipo sobre la versión del 26 de octubre de 2026. Elaboración propia.
+*Nota.* Revisión del equipo sobre la versión del 26 de octubre de 2026 del Landing Page y de la aplicación nativa, y sobre la versión del 28 de octubre de 2026 de la aplicación Flutter (problema #9 y ajustes a los problemas #3, #4, #6, #7 y #8). Elaboración propia.
 
 **DESCRIPCIÓN DE PROBLEMAS**
 
@@ -7044,7 +7044,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 
 *Nota.* Elaboración propia.
 
-* **Recomendación:** Definir una paleta oscura con el mismo contraste en el tema de Compose.
+* **Recomendación:** Definir una paleta oscura con el mismo contraste en el tema de Compose de la app nativa y en el `AppTheme` de la app Flutter, y aplicarla según la preferencia del sistema.
 
 **PROBLEMA #8:** El Landing Page tiene español e inglés, pero las aplicaciones solo tienen español
 
@@ -7062,7 +7062,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 
 *Nota.* Elaboración propia.
 
-* **Recomendación:** Mover los textos a `strings.xml` y agregar la traducción al inglés, o indicar en el Landing Page que la aplicación está en español.
+* **Recomendación:** Mover los textos de la app nativa a `strings.xml` y los de la app Flutter a archivos ARB con `flutter_localizations`, y agregar la traducción al inglés (en_US) junto al español (es_419), o indicar en el Landing Page que las aplicaciones están en español.
 
 **PROBLEMA #9:** La app Flutter muestra «Aún no eres Verificador» sin ofrecer una salida
 
