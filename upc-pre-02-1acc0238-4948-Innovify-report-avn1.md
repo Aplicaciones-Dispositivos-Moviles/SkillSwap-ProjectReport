@@ -6547,7 +6547,7 @@ Durante el Sprint 2 el backend cambió de entorno de despliegue. El 31 de octubr
 
 `[INSERTAR CAPTURA: Swagger UI abierto en https://skillswap-innovify.duckdns.org/swagger-ui/index.html]`
 
-*Nota.* Elaboración propia.
+*Nota.* Al 9 de noviembre de 2026, el Swagger UI está en línea y la especificación OpenAPI que publica en `/v3/api-docs` (SkillSwap Platform API, versión v1) declara como servidor `https://skillswap-innovify.duckdns.org`. La especificación aún no incluye `GET /api/v1/reevaluations/candidates`, que consume la pantalla de reevaluación de la app Flutter (T60) y está en la rama `feature/assessment-reevaluation-candidates` del backend, pendiente de integrar a `develop`. Elaboración propia.
 
 **Distribución de las aplicaciones móviles**
 **Tabla 33**
