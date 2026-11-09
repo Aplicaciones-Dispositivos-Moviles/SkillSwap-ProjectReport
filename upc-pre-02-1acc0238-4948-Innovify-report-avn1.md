@@ -145,13 +145,13 @@ Durante el desarrollo de la entrega TB1, el equipo mantuvo el mismo esquema de c
 
 ### AV2
 
-Durante el desarrollo de la entrega AV2, el equipo mantiene el esquema de colaboración de las entregas anteriores: ramas por integrante, Conventional Commits, GitFlow y Pull Requests hacia `develop`. El período considerado va desde el 10 de octubre de 2026 hasta la fecha de entrega, sin contar los commits de merge. En este período el informe incorpora la corrección del Deployment Diagram (con el Landing Page fuera del diagrama), la definición del rol del Verificador, la estructura del Sprint 2 en el Capítulo IV y la actualización del Registro de Versiones y de Student Outcome. Los aportes al repositorio se distribuyen de la siguiente manera:
+Durante el desarrollo de la entrega AV2, el equipo mantiene el esquema de colaboración de las entregas anteriores: una rama `feature/report-<tema>` por aporte, Conventional Commits, GitFlow y Pull Requests hacia `develop`. El período considerado va del 10 de octubre al 9 de noviembre de 2026, sin contar los commits de merge. En este período se integraron los PR #90 a #106 del repositorio del informe, con 23 commits, y el informe incorpora la corrección del Deployment Diagram (con el Landing Page fuera del diagrama), la definición del rol del Verificador, el Sprint 2 completo en el Capítulo IV (planificación, backlog, evidencias de desarrollo, pruebas, ejecución, documentación y despliegue, incluido el traslado del backend de Render a AWS), la sección 4.3 Validation Interviews, las Conclusiones con el contraste de las hipótesis y los tres videos, y la actualización del Registro de Versiones (v.05.AV2 a v.10.AV2). Los aportes al repositorio se distribuyen de la siguiente manera:
 
-* **Alberca Saavedra, Víctor Manuel (2 commits a la fecha):** corrección del Deployment Diagram del modelo C4 y de los textos de 2.5.3.3 y 4.1.4; definición del rol del Verificador en 1.1.1; estructura del Sprint 2 (Sprint Planning, matriz de líderes y colaboradores, Sprint Backlog y evidencias del Sprint Review).
-* **Becerra Ninahuanca, Luis Angel (`[N]` commits):** `[Borrador]` tareas asignadas en el Sprint 2: T47, T53 y T55 (pantallas del Estudiante en la aplicación nativa) y T58 y T64 (pantallas del Verificador en Flutter). `[Completar con los aportes reales al cierre.]`
-* **Lopez Montalvo, Kevin Edu (`[N]` commits):** `[Borrador]` tareas asignadas en el Sprint 2: T44, T48 y T49 (captura con la cámara, almacenamiento local de la ruta y modo sin conexión en la aplicación nativa) y T57 (contenido compartible de logros). `[Completar con los aportes reales al cierre.]`
-* **Komatsu Dueñas, David (`[N]` commits):** `[Borrador]` tareas asignadas en el Sprint 2: T45, T50 y T51 (OCR on-device con ML Kit, persistencia local de las respuestas del quiz y reenvío al recuperar la conexión) y T56 (caso de verificación del miniproyecto). `[Completar con los aportes reales al cierre.]`
-* **Sulca Sánchez, Piero Angel (`[N]` commits):** `[Borrador]` tareas asignadas en el Sprint 2: T46, T61 y T63 (backend) y T60, T62 (pantallas del Verificador senior en Flutter). `[Completar con los aportes reales al cierre.]`
+* **Alberca Saavedra, Víctor Manuel (19 commits, PR #90 a #92 y #96 a #106):** corrección del Deployment Diagram y de los diagramas de Contexto y Contenedores por actor; definición del rol del Verificador en 1.1.1 y tienda de cuatro beneficios; papers Q1/Q2 en la Bibliografía; Sprint Planning 2, matriz de líderes y colaboradores, Sprint Backlog 2 y evidencias del Sprint Review (commits, pruebas, endpoints y capturas) de la app nativa, de la app Flutter y del Landing Page; distribución con Firebase App Distribution y traslado del backend a AWS en 4.2.2.8; sección 4.3 Validation Interviews con la evaluación heurística; y Conclusiones con las secciones de los tres videos.
+* **Komatsu Dueñas, David (4 commits, PR #93 a #95, y los commits de la versión v.11.AV2):** evaluación preliminar del miniproyecto con IA (T56) en el Sprint 2, con sus commits, endpoint y tasks (T54 y T56 en Done) y la corrección de la precisión de los instantes en las evidencias de pruebas; en la versión v.11.AV2, las correcciones de revisión del AV2 descritas en el Registro de Versiones.
+* **Becerra Ninahuanca, Luis Angel (0 commits en el repositorio del informe en el período):** sus aportes del Sprint 2 son de código y se detallan en 4.2.2.9. `[Por confirmar con el integrante: aportes al informe del AV2.]`
+* **Lopez Montalvo, Kevin Edu (0 commits en el repositorio del informe en el período):** `[Por confirmar con el integrante: aportes al informe del AV2.]`
+* **Sulca Sánchez, Piero Angel (0 commits en el repositorio del informe en el período):** `[Por confirmar con el integrante: aportes al informe del AV2.]`
 
 <p align="center">
   <img src="images-doc/github-contribuciones-informe-av2.png" alt="Gráfico de contribuciones del repositorio del Project Report durante AV2" width="900">
@@ -161,7 +161,7 @@ Durante el desarrollo de la entrega AV2, el equipo mantiene el esquema de colabo
   <img src="images-doc/github-commits-informe-av2.png" alt="Historial de commits del repositorio del Project Report durante AV2" width="900">
 </p>
 
-*Nota.* Las capturas y el número de commits se actualizan al cierre de AV2 con los datos de GitHub Insights. Elaboración propia.
+*Nota.* Las capturas corresponden a GitHub Insights al 24 de octubre de 2026 y muestran la rama `main`, que todavía no incluye los commits del AV2 integrados en `develop`. `[Reemplazar por las capturas de Contributors y Commits al cierre del AV2, después de integrar develop en main, y numerarlas como figuras.]` Elaboración propia.
 
 
 
@@ -173,6 +173,7 @@ Durante el desarrollo de la entrega AV2, el equipo mantiene el esquema de colabo
 - [Project Report Collaboration Insights](#project-report-collaboration-insights)
   - [AV1](#av1)
   - [TB1](#tb1)
+  - [AV2](#av2)
 - [Student Outcome](#student-outcome)
 - [Objetivos SMART](#objetivos-smart)
 - [Capítulo I: Presentación](#capítulo-i-presentación)
@@ -6626,7 +6627,15 @@ El Landing Page sigue publicado en GitHub Pages (ver 4.1.4). En el Sprint 2 se l
 
 #### 4.2.2.9. Team Collaboration Insights during Sprint
 
-Esta sección presenta los analíticos de colaboración del Sprint 2 en los repositorios del proyecto y su interpretación: `[describir la participación de cada integrante por repositorio y frente]`.
+Esta sección presenta los analíticos de colaboración del Sprint 2 en los repositorios del proyecto y su interpretación. Se cuentan los commits sin merge registrados en la rama `develop` de cada repositorio entre el 10 de octubre y el 9 de noviembre de 2026, y los Pull Requests integrados en ese período:
+
+* **SkillSwap-WebServices-Java (backend):** 64 commits en los PR #16 a #36. Alberca Saavedra, Víctor Manuel registra 57 commits en 19 PR (sub-tema débil, reevaluación, miniproyecto y su caso de verificación, opciones de habilidad, suspensión de Verificadores, métricas, credencial compartible, tienda de cuatro beneficios, notificaciones push, demostración final y despliegue en AWS). Komatsu Dueñas, David registra 7 commits en 2 PR: el PR #21 (T56, evaluación preliminar del miniproyecto con Gemini y apertura del caso solo cuando no alcanza el puntaje mínimo o la confianza) y el PR #22 (precisión de los instantes del miniproyecto y de su entrega).
+* **SkillSwap-MobileApp (app nativa del Estudiante):** 57 commits en los PR #1 a #23. Alberca Saavedra registra 54 commits en 22 PR y Becerra Ninahuanca, Luis Angel, 3 commits en el PR #10 (T47, T53 y T55).
+* **SkillSwap-MobileApp-Flutter (app del Verificador):** 24 commits. Becerra Ninahuanca registra 7 commits en el PR #1 (migración de la base a BLoC, Dio y get_it por Bounded Context; T71, T58 y T64; y sus pruebas). Alberca Saavedra registra 17 commits: la base de la aplicación (`feature/app-base`) y los PR #3 a #6 (T72, T62, T60 y T76).
+* **SkillSwap-LandingPage:** 4 commits de Alberca Saavedra en los PR #9 y #11 (T77 y el video About the Product incrustado).
+* **SkillSwap-ProjectReport:** el detalle está en la sección Project Report Collaboration Insights (AV2).
+
+En el período, sin contar los commits de la versión v.11.AV2 del informe, los cinco repositorios suman 172 commits sin merge: 151 de Alberca Saavedra, 11 de Komatsu Dueñas y 10 de Becerra Ninahuanca. Alberca Saavedra concentró la construcción de las dos aplicaciones y del backend del Sprint 2, integró la mayoría de los Pull Requests y trasladó el backend a AWS; Becerra Ninahuanca participó en las dos aplicaciones móviles, y Komatsu Dueñas, en el backend y en el informe. `[Pendiente de confirmar con el equipo: aportes del Sprint 2 de Lopez Montalvo, Kevin Edu y de Sulca Sánchez, Piero Angel, que no registran commits en estos repositorios en el período.]`
 
 **Figura 158**
 
@@ -6636,7 +6645,7 @@ Esta sección presenta los analíticos de colaboración del Sprint 2 en los repo
   <img src="images-doc/github-insights-commits-sprint-2.png" alt="Historial de commits de los repositorios durante el Sprint 2" width="900">
 </p>
 
-*Nota.* Elaboración propia.
+*Nota.* Historial de commits de la rama `develop` de `SkillSwap-MobileApp` con el PR #10, que integra las tasks T47, T53 y T55. `[Agregar las capturas de GitHub Insights (Contributors y Commits) de los demás repositorios al cierre del Sprint 2.]` Elaboración propia.
 
 
 ## 4.3. Validation Interviews
