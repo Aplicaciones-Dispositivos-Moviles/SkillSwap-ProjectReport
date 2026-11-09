@@ -320,7 +320,7 @@ La asignación de casos se realiza automáticamente considerando la habilidad re
 
 #### Rol del Verificador
 
-El Verificador es el actor que sostiene la confiabilidad de las habilidades certificadas en SkillSwap. No es un perfil aparte: es un Estudiante habilitado para una habilidad concreta, cuya tarea es decidir, con criterios estructurados, si el trabajo de otro Estudiante demuestra realmente esa habilidad.
+El Verificador es el actor que sostiene la confiabilidad de las habilidades certificadas en SkillSwap. No es un perfil aparte: es un Estudiante habilitado para una habilidad concreta, cuya tarea es decidir, con criterios estructurados, si el trabajo de otro Estudiante demuestra realmente esa habilidad. La evaluación entre pares es un mecanismo estudiado en la educación superior, donde se analizan tanto su validez como sus beneficios para el aprendizaje (Käpylä y Palvalin, 2025); por eso SkillSwap no la deja a criterio libre, sino que la acota con la habilitación por habilidad, la rúbrica, las apelaciones y la supervisión de la confiabilidad que se describen a continuación.
 
 * **Cómo se habilita:** completando, en su propia ruta, el nodo de la habilidad que desea verificar. La habilitación es por habilidad, no general.
 * **Qué hace:** revisa los casos de verificación que se abren cuando un intento de evaluación (*quiz* o miniproyecto) no se aprueba. El sistema se los asigna según la habilidad requerida, su historial y su disponibilidad, que el Verificador activa o desactiva. Evalúa la evidencia con la rúbrica y registra su decisión (aprobar o rechazar) con observaciones, dentro del plazo del caso; si el plazo vence, el caso se reasigna a otro Verificador.
@@ -368,7 +368,7 @@ Facilitar que estudiantes universitarios y jóvenes profesionales demuestren el 
 
 En el mercado laboral peruano existe una brecha entre las habilidades requeridas por las organizaciones y las que encuentran entre los postulantes. La Encuesta de Habilidades al Trabajo 2017-2018 señala que el 47% de las empresas con vacantes tuvo dificultades para cubrirlas y que el 76% de las vacantes difíciles de cubrir se relacionó con la falta de habilidades de los candidatos (Novella et al., 2019). Estas cifras establecen el contexto de una brecha de habilidades que exige mecanismos más claros para demostrar las capacidades de los postulantes.
 
-Paralelamente, el aprendizaje en línea y la obtención de credenciales digitales continúan expandiéndose. Coursera registra 1,7 millones de estudiantes peruanos en su plataforma y reporta un crecimiento interanual del 33% en las inscripciones a Certificados Profesionales en el país (Coursera, 2025). Un certificado de finalización acredita que una persona completó una actividad conforme a los criterios de su emisor; sin embargo, considerado de manera aislada, no necesariamente ofrece una demostración suficiente y verificable de cómo aplica la habilidad en un contexto práctico. En este sentido, los enfoques de contratación basados en habilidades proponen complementar las calificaciones y credenciales con mecanismos que permitan identificar y demostrar competencias específicas (Organisation for Economic Co-operation and Development [OECD], 2024).
+Paralelamente, el aprendizaje en línea y la obtención de credenciales digitales continúan expandiéndose. Coursera registra 1,7 millones de estudiantes peruanos en su plataforma y reporta un crecimiento interanual del 33% en las inscripciones a Certificados Profesionales en el país (Coursera, 2025). Un certificado de finalización acredita que una persona completó una actividad conforme a los criterios de su emisor; sin embargo, considerado de manera aislada, no necesariamente ofrece una demostración suficiente y verificable de cómo aplica la habilidad en un contexto práctico. En este sentido, los enfoques de contratación basados en habilidades proponen complementar las calificaciones y credenciales con mecanismos que permitan identificar y demostrar competencias específicas (Organisation for Economic Co-operation and Development [OECD], 2024). La investigación reciente sobre las microcredenciales aborda este mismo tema desde distintos actores: su reconocimiento en el mercado laboral (Alasmari, 2024), la perspectiva de los empleadores sobre las microcredenciales y las habilidades blandas en la educación en línea (Bruguera et al., 2025) y los beneficios que los estudiantes de educación superior perciben en ellas para su empleabilidad (Nguyen et al., 2025).
 
 A partir de este contexto, el problema identificado es la dificultad que enfrentan los Estudiantes para complementar sus certificados con un proceso que evalúe la aplicación práctica de las habilidades declaradas. La dispersión de certificados, proyectos y resultados agrava el seguimiento, pero no constituye la causa principal: el vacío central es la falta de una comprobación directa del desempeño y de criterios claros para determinar el dominio. Sin esa evaluación, el propio Estudiante puede desconocer qué aspectos necesita reforzar hasta enfrentarse a una tarea aplicada. Asimismo, los Verificadores necesitan un entorno estructurado para revisar entregables y registrar sus contribuciones, mientras que la plataforma requiere mecanismos para supervisar la confiabilidad de esas decisiones.
 
@@ -418,7 +418,7 @@ Desarrollar una plataforma móvil que permita a Estudiantes universitarios y jó
 * La plataforma evalúa entregables dentro de su propio proceso, pero no garantiza la contratación laboral del Estudiante ni sustituye los procedimientos de selección de las organizaciones.
 * La extracción de datos mediante OCR facilita el registro y el análisis de riesgo documental, pero no equivale a una comprobación oficial ante la entidad emisora; la plataforma no consulta registros externos de las entidades emisoras.
 * La confiabilidad de la revisión entre pares depende de la disponibilidad de Verificadores previamente habilitados para cada habilidad.
-* La inteligencia artificial generativa se utiliza como apoyo para producir contenido evaluativo, pero los resultados del proceso deben mantenerse sujetos a las reglas de validación y supervisión de la plataforma.
+* La inteligencia artificial generativa se utiliza como apoyo para producir contenido evaluativo, pero los resultados del proceso deben mantenerse sujetos a las reglas de validación y supervisión de la plataforma. La calidad de las preguntas de opción múltiple generadas por modelos de lenguaje es un aspecto que la literatura reciente analiza de forma específica, en ciencias de la computación y en medicina (Grevisse et al., 2024).
 * El desarrollo se limita a las funcionalidades e integraciones seleccionadas para el periodo académico.
 
 ---
@@ -1351,7 +1351,7 @@ En el mapa se observa que con Innovify, Rodrigo primero completa en su propia ru
 
 ### 2.4.1. User Stories
 
-En esta sección se especifican los requisitos funcionales y técnicos de SkillSwap, aplicación móvil nativa y multiplataforma, mediante User Stories agrupadas en Epics. Las historias se redactaron a partir de los hallazgos de las entrevistas, los User Personas, el User Task Matrix y los Journey Maps de los dos segmentos objetivo: **personas que quieren aprender (Estudiantes)** y **personas que validan el conocimiento (Verificadores)**, además de los visitantes de la Landing Page. En total se definen **57 historias**: 45 User Stories orientadas a los usuarios finales y 12 Technical Stories, redactadas con el rol *Developer*, que describen los servicios RESTful que consume la aplicación móvil.
+En esta sección se especifican los requisitos funcionales y técnicos de SkillSwap, aplicación móvil nativa y multiplataforma, mediante User Stories agrupadas en Epics, siguiendo el enfoque de User Stories descrito por Cohn (2004). Las historias se redactaron a partir de los hallazgos de las entrevistas, los User Personas, el User Task Matrix y los Journey Maps de los dos segmentos objetivo: **personas que quieren aprender (Estudiantes)** y **personas que validan el conocimiento (Verificadores)**, además de los visitantes de la Landing Page. En total se definen **57 historias**: 45 User Stories orientadas a los usuarios finales y 12 Technical Stories, redactadas con el rol *Developer*, que describen los servicios RESTful que consume la aplicación móvil.
 
 #### Epics
 
@@ -1955,7 +1955,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
 
 ### 2.4.2. Impact Mapping
 
-El Impact Mapping de SkillSwap se elaboró en UXPressia con el objetivo de conectar los objetivos del negocio con los cambios de comportamiento que se esperan de los usuarios y con las funcionalidades que la aplicación debe ofrecer para provocarlos. Se definieron cuatro **Business Goals** bajo los criterios SMART, cuyas métricas se derivan de las hipótesis planteadas en la sección 1.2.2.3. Como **Actors** se emplearon los User Personas identificados en la sección 2.3.1 —Valeria Ramos (Estudiante), Rodrigo Castillo (Verificador)—, respondiendo a la pregunta *¿quiénes nos ayudarán a lograr la meta?*. La columna **Impacts** describe cómo se espera que cada persona cambie su comportamiento, la columna **Deliverables** responde a *¿qué puede hacer la plataforma para provocar esos impactos?*, y la columna **User Stories** reúne las historias de la sección 2.4.1 que permiten construir cada deliverable.
+El Impact Mapping (Adzic, 2012) de SkillSwap se elaboró en UXPressia con el objetivo de conectar los objetivos del negocio con los cambios de comportamiento que se esperan de los usuarios y con las funcionalidades que la aplicación debe ofrecer para provocarlos. Se definieron cuatro **Business Goals** bajo los criterios SMART, cuyas métricas se derivan de las hipótesis planteadas en la sección 1.2.2.3. Como **Actors** se emplearon los User Personas identificados en la sección 2.3.1 —Valeria Ramos (Estudiante), Rodrigo Castillo (Verificador)—, respondiendo a la pregunta *¿quiénes nos ayudarán a lograr la meta?*. La columna **Impacts** describe cómo se espera que cada persona cambie su comportamiento, la columna **Deliverables** responde a *¿qué puede hacer la plataforma para provocar esos impactos?*, y la columna **User Stories** reúne las historias de la sección 2.4.1 que permiten construir cada deliverable.
 
 **Business Goal 1: Adopción y suscripción**
 
@@ -2115,7 +2115,7 @@ El Product Backlog se gestiona en Trello, en un tablero público con una lista p
 
 ### 2.5.1. EventStorming
 
-El EventStorming se desarrolló siguiendo los diez pasos propuestos en el material del curso, a partir del modelo de negocio descrito en el Capítulo I. El objetivo fue identificar los eventos del dominio de SkillSwap, ordenarlos en el tiempo, reconocer los puntos críticos del proceso y agrupar los agregados resultantes en bounded contexts candidatos.
+El EventStorming, técnica de modelado colaborativo propuesta por Brandolini (2021), se desarrolló siguiendo los diez pasos propuestos en el material del curso, a partir del modelo de negocio descrito en el Capítulo I. El objetivo fue identificar los eventos del dominio de SkillSwap, ordenarlos en el tiempo, reconocer los puntos críticos del proceso y agrupar los agregados resultantes en bounded contexts candidatos.
 
 **Paso 1. Unstructured Exploration**
 
@@ -2760,7 +2760,7 @@ Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto (Context Diagram) bajo el enfoque C4 Model presenta al sistema SkillSwap como una caja central única, mostrando sus interacciones de alto nivel con los actores principales y los sistemas externos de terceros, sin exponer aún detalles de implementación.
+El diagrama de contexto (Context Diagram) bajo el enfoque C4 Model (Brown, s. f.) presenta al sistema SkillSwap como una caja central única, mostrando sus interacciones de alto nivel con los actores principales y los sistemas externos de terceros, sin exponer aún detalles de implementación.
 
 El sistema es utilizado por dos actores principales: el **Estudiante**, quien sube sus certificados, demuestra sus habilidades a través de las evaluaciones generadas por la plataforma y la usa con el plan gratuito o con una suscripción mensual que amplía sus límites; y el **Verificador** (un perfil vinculado a un Estudiante que completó en su propia ruta el nodo de la habilidad que revisa), quien revisa los casos que la IA no puede resolver con suficiente confianza y, como Verificador senior, supervisa la calidad e integridad del proceso de verificación, resolviendo disputas y consultando métricas agregadas del ecosistema. Por indicación del docente para este curso, cada actor se vincula a una aplicación: el Estudiante interactúa con el sistema a través del Landing Page y de la **aplicación móvil nativa (Android)**, y el Verificador, a través de la **aplicación cross-platform (Flutter)**.
 
@@ -5177,17 +5177,17 @@ El equipo utiliza **GitHub** como plataforma y sistema de control de versiones, 
 
 El backend se construyó primero en C# / ASP.NET Core, en el repositorio [`SkillSwap-WebServices`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices); cuando el curso estableció Java con Spring Boot como tecnología obligatoria para los Web Services, el equipo lo migró a `SkillSwap-WebServices-Java`, conservando el mismo esquema de base de datos, los mismos endpoints y las mismas reglas de negocio. Desde esa migración, `SkillSwap-WebServices-Java` es el único repositorio vigente del backend y el anterior se conserva solo como historial.
 
-En el Sprint 1, el trabajo sobre la aplicación móvil consistió en el diseño de las pantallas core en Figma (ver 4.2.1.3, tareas T20 y T21); en ese sprint los repositorios `SkillSwap-MobileApp` y `SkillSwap-MobileApp-Flutter` contenían únicamente su `README.md`. En el Sprint 2, `SkillSwap-MobileApp` contiene la app nativa del Estudiante y `SkillSwap-MobileApp-Flutter`, la app del Verificador, construida con BLoC, Dio y get_it y organizada por Bounded Context (`iam`, `assessment`, `recognition`, `reputation` y `shared`).
+En el Sprint 1, el trabajo sobre la aplicación móvil consistió en el diseño de las pantallas core en Figma (ver 4.2.1.3, tareas T20 y T21); en ese sprint los repositorios `SkillSwap-MobileApp` y `SkillSwap-MobileApp-Flutter` contenían únicamente su `README.md`. En el Sprint 2, `SkillSwap-MobileApp` contiene la app nativa del Estudiante y `SkillSwap-MobileApp-Flutter`, la app del Verificador, construida con BLoC, Dio y get_it y organizada por Bounded Context (`iam`, `assessment`, `recognition`, `reputation` y `shared`). Mantener una app nativa y una multiplataforma sobre el mismo backend permite contrastar ambos enfoques de desarrollo, que la literatura reciente compara a partir de las tendencias del mercado y de los desarrolladores en el caso de los frameworks multiplataforma (Jošt y Taneski, 2025).
 
-**Flujo de trabajo (GitFlow):**
+**Flujo de trabajo (GitFlow; Driessen, 2010):**
 - `main`: rama estable. En el Landing Page es la rama que publica GitHub Pages.
 - `develop`: rama de integración, donde se mergean las ramas `feature/*` mediante Pull Request. En el backend es la rama de integración; hasta el 31 de octubre de 2026 la desplegaba Render.
 - `feature/<bounded-context>`: una rama por Bounded Context (ej. `feature/iam-identity-access`, `feature/credential-verification`, `feature/learning-path-engine`, `feature/assessment-peer-review`, `feature/reputation`, `feature/recognition-incentives`). Los cambios transversales usan los prefijos `refactor/` y `chore/` (ej. `refactor/remove-coordinator-role`, `chore/deploy-render`, `chore/swagger`).
 - `release/x.y.z` y `hotfix/x.y.z`: ramas que define GitFlow para preparar una entrega y para corregir errores críticos; se crean desde `develop` y `main`, respectivamente, y se mergean a ambas.
 
-**Versionado:** el equipo adopta *Semantic Versioning 2.0.0* (`MAJOR.MINOR.PATCH`) como convención de versionado.
+**Versionado:** el equipo adopta *Semantic Versioning 2.0.0* (`MAJOR.MINOR.PATCH`) como convención de versionado (Preston-Werner, s. f.).
 
-**Convenciones de commits:** Conventional Commits (`tipo(alcance): descripción`), con el Bounded Context y la capa como alcance (ej. `iam-domain`, `credential-infrastructure`, `learning-path-interfaces`, `assessment-application`, `reputation`, `recognition-incentives`, `shared`, `deploy`, `docs`). Tipos usados: `feat`, `refactor`, `test` y `chore`. El equipo sigue la convención de **un commit por capa** (Domain, Application, Infrastructure, Interface) dentro de cada Bounded Context, de modo que el historial de commits evidencie el proceso de construcción capa por capa; las pruebas automatizadas de cada capa se incluyen en el mismo commit que la capa que validan, y el tipo `test` se reserva para commits que solo agregan pruebas.
+**Convenciones de commits:** Conventional Commits (`tipo(alcance): descripción`; Conventional Commits, s. f.), con el Bounded Context y la capa como alcance (ej. `iam-domain`, `credential-infrastructure`, `learning-path-interfaces`, `assessment-application`, `reputation`, `recognition-incentives`, `shared`, `deploy`, `docs`). Tipos usados: `feat`, `refactor`, `test` y `chore`. El equipo sigue la convención de **un commit por capa** (Domain, Application, Infrastructure, Interface) dentro de cada Bounded Context, de modo que el historial de commits evidencie el proceso de construcción capa por capa; las pruebas automatizadas de cada capa se incluyen en el mismo commit que la capa que validan, y el tipo `test` se reserva para commits que solo agregan pruebas.
 
 **Flujo de integración:** los Pull Requests hacia `develop` se mergean con la estrategia *"Create a merge commit"* (sin squash), preservando el historial de commits individuales que exige la evidencia de Development/Testing de cada Sprint. El flujo de trabajo local sigue el orden commit → build → test, y solo se hace push al repositorio remoto cuando todo pasa, agrupando varios commits antes de subirlos.
 
@@ -7340,10 +7340,11 @@ En esta sección se definen los términos técnicos, abreviaturas y acrónimos d
 
 # Bibliografía
 
-Las referencias se organizan en las tres categorías de recursos bibliográficos que establece el enunciado del trabajo final: dominio de negocio; métodos y técnicas de ingeniería de software; y lenguajes, frameworks y herramientas.
+Las referencias se organizan en las tres categorías de recursos bibliográficos que establece el enunciado del trabajo final (Anexo G): dominio de negocio; métodos y técnicas de ingeniería de software; y lenguajes, frameworks y herramientas.
 
 **Dominio de negocio**
 
+* Alasmari, T. (2024). Reshaping vocational training: A study on the recognition of micro-credentials in job markets. *Education + Training*. [https://doi.org/10.1108/ET-07-2023-0282](https://doi.org/10.1108/ET-07-2023-0282)
 * Bruguera, C., Pagés, C., Peters, M., & Fitó, À. (2025). Micro-credentials and soft skills in online education: The employers' perspective. *Distance Education, 46*(1), 56–76. [https://doi.org/10.1080/01587919.2024.2435645](https://doi.org/10.1080/01587919.2024.2435645)
 * Coursera. (2025). *Global skills report 2025*. [https://www.coursera.org/skills-reports/global](https://www.coursera.org/skills-reports/global)
 * Instituto Nacional de Estadística e Informática. (2025). *Estadísticas de las tecnologías de información y comunicación en los hogares: II trimestre 2025* (Informe Técnico N.° 03). [https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf](https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf)
@@ -7368,6 +7369,7 @@ Las referencias se organizan en las tres categorías de recursos bibliográficos
 * Driessen, V. (2010). *A successful Git branching model*. [https://nvie.com/posts/a-successful-git-branching-model/](https://nvie.com/posts/a-successful-git-branching-model/)
 * Evans, E. (2003). *Domain-driven design: Tackling complexity in the heart of software*. Addison-Wesley.
 * Gothelf, J., & Seiden, J. (2021). *Lean UX: Creating great products with agile teams* (3.ª ed.). O'Reilly Media.
+* Grevisse, C., Pavlou, M. A., & Schneider, J. (2024). Docimological quality analysis of LLM-generated multiple choice questions in computer science and medicine. *SN Computer Science, 5*. [https://doi.org/10.1007/s42979-024-02963-6](https://doi.org/10.1007/s42979-024-02963-6)
 * Hofer, S., & Schwentner, H. (2021). *Domain storytelling: A collaborative, visual, and agile way to build domain-driven software*. Addison-Wesley.
 * Nielsen, J. (1994). *10 usability heuristics for user interface design*. Nielsen Norman Group. [https://www.nngroup.com/articles/ten-usability-heuristics/](https://www.nngroup.com/articles/ten-usability-heuristics/)
 * Preston-Werner, T. (s. f.). *Semantic Versioning 2.0.0*. Recuperado el 8 de octubre de 2026, de [https://semver.org/](https://semver.org/)
@@ -7417,11 +7419,6 @@ Las referencias se organizan en las tres categorías de recursos bibliográficos
 [https://github.com/Aplicaciones-Dispositivos-Moviles](https://github.com/Aplicaciones-Dispositivos-Moviles)
 
 link: [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/)
-
-**Papers:**
-Alasmari, T. (2024). Reshaping vocational training: A study on the recognition of micro-credentials in job markets. Education + Training. [https://doi.org/10.1108/ET-07-2023-0282](https://doi.org/10.1108/ET-07-2023-0282)
-
-Grevisse, C., Pavlou, M. A., & Schneider, J. (2024). Docimological quality analysis of LLM-generated multiple choice questions in computer science and medicine. SN Computer Science, 5. [https://doi.org/10.1007/s42979-024-02963-6](https://doi.org/10.1007/s42979-024-02963-6)
 
 ---
 
