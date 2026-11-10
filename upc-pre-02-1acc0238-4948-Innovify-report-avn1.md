@@ -76,6 +76,7 @@ Noviembre 2026
 | **v.09.AV2** | 30/10/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron al Sprint 2 la tienda de beneficios con canje de SkillCredits y confirmación biométrica de la app Flutter (T76, US32) y la sección de descarga del Landing Page con la corrección de sus botones de acceso (T77, US44). Se actualizaron el Sprint Backlog 2 (34 tasks, 197 horas), la matriz de liderazgo (Tabla 27), los commits (Tablas 29 y 30), el número de pruebas de Flutter (43), el avance del Verificador (7 de 14 historias), el estado de los problemas #1 y #2 de 4.3.3 y las recomendaciones de Conclusiones. |
 | **v.10.AV2** | 01/11/2026 | Alberca Saavedra, Víctor Manuel | Se registró el cambio de despliegue del backend de Render a AWS (31/10/2026): se agregó el apartado correspondiente a 4.2.2.8 (Figuras 152 y 153), se actualizaron 4.1.4, la Tabla 14, la Tabla 33, el Deployment Diagram (2.5), el commit de despliegue (Tabla 29), las Conclusiones y el Anexo A, y se conservó sin cambios el despliegue en Render del Sprint 1 (4.2.1.8). Las capturas de las Figuras 152 y 153 quedan pendientes. |
 | **v.11.AV2** | 09/11/2026 | Komatsu Dueñas, David | Se corrigieron los siguientes tópicos a partir de la revisión del informe para el AV2, contrastándolo con los repositorios:<br><br>**Carátula** (mes de la entrega: noviembre de 2026)<br>**Project Report Collaboration Insights** (AV2 con los commits y Pull Requests reales del repositorio del informe entre el 10 de octubre y el 9 de noviembre de 2026) y **Contenido** (entrada AV2)<br>**Student Outcome** (acciones de AV2 de Komatsu Dueñas, David en las tasks T45, T50, T51, T56 y T70, y conclusiones grupales de AV2)<br><br>**Capítulo I:** 1.1.1 (evaluación entre pares, con cita) y 1.2.1 (microcredenciales y contenido generado con IA, con citas)<br>**Capítulo II:** 2.4.1, 2.4.2, 2.5.1 y 2.5.3 (citas de los métodos aplicados); 2.4.3 Product Backlog (columna Sprint con las 13 historias del Sprint 2 y retiro de una fila de la evaluación heurística que estaba en la Tabla 10); 2.5.3 (texto de los diagramas de Contexto, Contenedores y Despliegue con un actor por aplicación)<br>**Capítulo IV:** 4.1.2 (citas de GitFlow, Semantic Versioning y Conventional Commits, y del desarrollo multiplataforma); 4.1.3 (guía de estilo de Dart / Flutter); 4.1.4 y 4.2.2.8 (versión 1.2 de la app nativa, que consume el backend en AWS, y app Flutter todavía configurada con la URL de Render, en la Tabla 33 y el Anexo A, y nota de la Figura 153 con el estado del Swagger UI en AWS al 9 de noviembre de 2026); 4.2.2.4 (commits de los PR #21 a #23 de la app nativa, de la base de la app Flutter y del PR #11 del Landing Page en la Tabla 29); 4.2.2.5 (todas las pruebas unitarias de la app nativa en la Tabla 30 y su nota); 4.2.2.9 Team Collaboration Insights (commits y Pull Requests por integrante y repositorio); 4.3.3 (problema #9 en la Tabla 36 y recomendaciones de los problemas #7 y #8 para las dos aplicaciones)<br><br>**Conclusiones** (recomendación 7 de accesibilidad, con cita)<br>**Bibliografía** (Alasmari, 2024, y Grévisse et al., 2024, trasladados desde los Anexos; volumen, número y páginas o número de artículo de los papers; Nguyen et al. con el año de su número, 2026; y el paper de Rabelo et al., 2026, sobre la accesibilidad de interfaces nativas de Android con Jetpack Compose) y **Anexo C** (estado del video About the Product)<br><br>Se agregó el archivo `README.md` como archivo principal del repositorio, con enlaces a cada sección del informe y a los repositorios de la solución. |
+| **v.12.AV2** | 10/11/2026 | Alberca Saavedra, Víctor Manuel | Se registraron las tres entrevistas de validación del segmento Personas que validan el conocimiento en 4.3.2 (Figuras 162 a 164) con su perfil, sus datos y el resumen descriptivo por tarea, y se ajustaron 4.3.1 y la Tabla 34 a la modalidad de esas sesiones, en las que se mostró el Landing Page y se explicó la aplicación sin que el entrevistado la usara. |
 
 <div style="page-break-after: always;"></div>
 
@@ -6656,7 +6657,7 @@ Esta sección registra y explica las actividades de validación de SkillSwap con
 
 ### 4.3.1. Diseño de Entrevistas
 
-Cada sesión dura de 20 a 30 minutos, es individual y se hace por videollamada o de forma presencial. El participante usa los productos en un dispositivo físico con datos de prueba, piensa en voz alta mientras realiza las tareas y responde una entrevista semiestructurada al final. El moderador no sugiere la respuesta y un segundo integrante toma notas. Se pide permiso para grabar y el nombre solo se muestra si el participante lo autoriza. Por indicación del docente para este curso, el Estudiante prueba el Landing Page y la aplicación nativa (Kotlin / Jetpack Compose), y el Verificador, solo la aplicación Flutter. La Tabla 34 resume las tareas de cada segmento, los user flows de 3.1.4.4 que ejercitan y su criterio de éxito. Cada tarea se anota como completada sin ayuda, completada con ayuda o no completada, con el tiempo empleado y los errores observados.
+Cada sesión dura de 20 a 30 minutos, es individual y se hace por videollamada o de forma presencial. El participante usa los productos en un dispositivo físico con datos de prueba (salvo en el segmento de quienes validan, como se explica en 4.3.1), piensa en voz alta mientras realiza las tareas y responde una entrevista semiestructurada al final. El moderador no sugiere la respuesta y un segundo integrante toma notas. Se pide permiso para grabar y el nombre solo se muestra si el participante lo autoriza. Por indicación del docente para este curso, el Estudiante prueba el Landing Page y la aplicación nativa (Kotlin / Jetpack Compose), y el Verificador, solo la aplicación Flutter. La Tabla 34 resume las tareas de cada segmento, los user flows de 3.1.4.4 que ejercitan y su criterio de éxito. Cada tarea se anota como completada sin ayuda, completada con ayuda o no completada, con el tiempo empleado y los errores observados.
 
 **Tabla 34**
 
@@ -6677,7 +6678,7 @@ Cada sesión dura de 20 a 30 minutos, es individual y se hace por videollamada o
 | V3 | Reevaluar un resultado, suspender a un Verificador o consultar las métricas | 2 | App Flutter | US37, US38, US40 | — | Completa la acción que se le pide |
 | V4 | Compartir un logro verificado | 2 | App Flutter | US33 | — | Obtiene el enlace y lo comparte |
 
-*Nota.* UF1 a UF5 son los User Flows de 3.1.4.4 (Figuras 116 a 120). E1, E8 y V3 a V4 no tienen un user flow en 3.1.4.4 porque esas historias se incorporaron en el Sprint 2. Las tareas del Verificador corresponden a las pantallas de la aplicación Flutter integradas en `develop`. Elaboración propia.
+*Nota.* UF1 a UF5 son los User Flows de 3.1.4.4 (Figuras 116 a 120). E1, E8 y V3 a V4 no tienen un user flow en 3.1.4.4 porque esas historias se incorporaron en el Sprint 2. Las tareas del Verificador corresponden a las pantallas de la aplicación Flutter integradas en `develop`; en las sesiones del segmento 2 se presentaron como una explicación y no como tareas con la aplicación. Elaboración propia.
 
 #### Segmento objetivo #1: Personas que quieren aprender
 
@@ -6714,7 +6715,7 @@ Cada sesión dura de 20 a 30 minutos, es individual y se hace por videollamada o
 
 #### Segmento objetivo #2: Personas que validan el conocimiento
 
-**Elementos de la sesión.** La aplicación Flutter del Verificador, con el user flow UF5 y las tareas V1 a V4 de la Tabla 34. El participante recibe un dispositivo con la aplicación instalada, una cuenta de prueba habilitada como Verificador y un caso de verificación de ejemplo con su rúbrica.
+**Elementos de la sesión.** El Landing Page y una explicación oral de la aplicación Flutter del Verificador, con el user flow UF5 y las tareas V1 a V4 de la Tabla 34. Por indicación del docente, el entrevistado no necesita tener la aplicación, y no la usa, para no comprometer sus datos. El moderador muestra el Landing Page y explica con un guion breve las funciones del Verificador: activar la disponibilidad, revisar un caso con una rúbrica dentro de un plazo, ganar SkillCredits y canjearlos con la huella o el PIN del dispositivo, ver las métricas de confiabilidad, reevaluar un resultado o suspender a un Verificador, y compartir un logro verificado en LinkedIn. Las tareas V1 a V4 se tratan como preguntas sobre lo que el participante espera de cada función.
 
 **Preguntas.**
 
@@ -6817,76 +6818,85 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 
 #### Segmento objetivo #2: Personas que validan el conocimiento
 
-Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiantes con dominio sólido de una habilidad, que usan la aplicación Flutter del Verificador. Se registran igual que las anteriores.
+Para este segmento se realizan de 3 a 5 entrevistas de validación con personas que dominan una habilidad, a quienes se les muestra el Landing Page y se les explica la aplicación Flutter del Verificador sin que la usen, por indicación del docente. Se registran igual que las anteriores.
 
 **Entrevista 1**
 
-* **Nombres:** `[nombres]`
-* **Apellidos:** `[apellidos]`
-* **Edad:** `[edad]`
-* **Distrito:** `[distrito]`
+* **Nombres:** Diego
+* **Apellidos:** Rojas
+* **Edad:** 23
+* **Distrito:** Lima
+* **Perfil:** Estudiante del último año de la UPC (desarrollo backend y arquitectura de software)
 * **Segmento objetivo:** Personas que validan el conocimiento
 * **Fecha:** `[dd/mm/aaaa]`
-* **Productos usados:** Aplicación Flutter
+* **Productos usados:** Landing Page y explicación de la aplicación Flutter del Verificador (el entrevistado no usó la aplicación)
 * **URL del video (OneDrive):** `[URL]`
-* **Inicio de la entrevista en el video:** `[hh:mm:ss]`
+* **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** `[mm:ss]`
 
 **Figura 162**
 
 *Entrevista de validación 1: Personas que validan el conocimiento*
 
-`[INSERTAR CAPTURA: cuadro del video de la entrevista 1]`
+<p align="center">
+  <img src="images-doc/entrevista-validar-1.png" alt="Entrevista de validación 1: Diego" width="900">
+</p>
 
 *Nota.* Elaboración propia.
 
-*Resumen.* `[Redactar de forma descriptiva las principales apreciaciones del entrevistado sobre cada tarea asignada (Tabla 34): qué le resultó claro, qué le costó, qué comentó sobre la confianza en la verificación y qué cambiaría.]`
+*Resumen.* Diego Rojas, de 23 años, estudia el último año de la UPC y domina el desarrollo backend y la arquitectura de software. Contó que le costó conseguir su primer trabajo freelance porque los reclutadores dudaban de su dominio por su edad y por seguir estudiando, y que por eso revisa código de otras personas: quiere ayudar a que quienes saben puedan demostrarlo. Se describió como exigente: no aprueba «por pena», pero siempre deja comentarios constructivos.<br><br>**Disponibilidad (V1).** Espera recibir casos reales y listos para una revisión profunda, que el sistema los asigne rápido y que, al desactivar la disponibilidad, se corte por completo. Para él evaluar bien requiere concentración y no lo haría «a medias desde el celular mientras viajo».<br><br>**Revisión de un caso con rúbrica (V2).** Necesita la evidencia cruda (el código fuente, el documento o el proyecto real) y no capturas de pantalla a medias. Pidió una rúbrica «de hierro», muy específica sobre qué es un trabajo profesional y qué es de novato, y un campo de texto obligatorio para dejar un feedback detallado que explique paso a paso cómo corregir. Sobre el plazo, quiere un cronómetro en cuenta regresiva muy visible y un recordatorio 12 horas antes de que venza. Sobre la asignación, espera que sea estrictamente por su especialidad y pidió un botón claro para rechazar un caso que no domine al 100 %, porque evaluar a alguien en un tema que no maneja sería injusto para su futuro.<br><br>**SkillCredits y confiabilidad.** Le parece un excelente plus poder canjear los créditos por licencias de software, saldo para servidores en la nube o descuentos en certificaciones, y dijo que confirmar el canje con un PIN le da seguridad, aunque su mayor premio es que el estudiante consiga el trabajo que a él le costó conseguir. Como indicadores, quiere ver una «tasa de rigor» o de coincidencia con otros verificadores destacados y una métrica de «calidad de feedback» en la que el evaluado califique si los comentarios le sirvieron, incluso si lo desaprobó.<br><br>**Reevaluación, suspensión (V3) y logro compartible (V4).** Para reevaluar un resultado o suspender a un Verificador necesita el historial completo y sin filtros: lo que entregó el usuario, la rúbrica llenada por el primer verificador y su justificación escrita. Si detecta que alguien aprobó un trabajo mediocre solo por ganar SkillCredits rápido, pediría que lo suspendan, porque daña al estudiante y la credibilidad de la aplicación. Compartiría el logro en LinkedIn con orgullo, con un texto escrito por él que diga que certificó las habilidades de un futuro talento y que «el mercado necesita pruebas reales, no solo currículums», y espera que el enlace del estudiante muestre que pasó por una validación estricta y detallada.
 
 **Entrevista 2**
 
-* **Nombres:** `[nombres]`
+* **Nombres:** Alexandra Vanessa
 * **Apellidos:** `[apellidos]`
-* **Edad:** `[edad]`
-* **Distrito:** `[distrito]`
+* **Edad:** 23
+* **Distrito:** Tarapoto
+* **Perfil:** Estudiante de Enfermería de la Universidad Nacional de San Martín
 * **Segmento objetivo:** Personas que validan el conocimiento
 * **Fecha:** `[dd/mm/aaaa]`
-* **Productos usados:** Aplicación Flutter
+* **Productos usados:** Landing Page y explicación de la aplicación Flutter del Verificador (el entrevistado no usó la aplicación)
 * **URL del video (OneDrive):** `[URL]`
-* **Inicio de la entrevista en el video:** `[hh:mm:ss]`
+* **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** `[mm:ss]`
 
 **Figura 163**
 
 *Entrevista de validación 2: Personas que validan el conocimiento*
 
-`[INSERTAR CAPTURA: cuadro del video de la entrevista 2]`
+<p align="center">
+  <img src="images-doc/entrevista-validar-2.png" alt="Entrevista de validación 2: Alexandra Vanessa" width="900">
+</p>
 
 *Nota.* Elaboración propia.
 
-*Resumen.* `[Redactar de forma descriptiva las principales apreciaciones del entrevistado sobre cada tarea asignada (Tabla 34): qué le resultó claro, qué le costó, qué comentó sobre la confianza en la verificación y qué cambiaría.]`
+*Resumen.* Alexandra Vanessa, de 23 años, estudia Enfermería en la Universidad Nacional de San Martín, en Tarapoto. Explicó que en el área de la salud validar habilidades es más difícil porque se trata de vidas y de protocolos clínicos estrictos. Tiene experiencia apoyando trabajos de investigación, planes de cuidado y revisión de procedimientos teóricos, y quiere ayudar a que otros estudiantes de ciencias de la salud demuestren que saben aplicar la teoría, porque un examen escrito a veces no refleja el trato ni la destreza.<br><br>**Disponibilidad (V1).** Sus horarios son muy cargados, entre clases teóricas y prácticas en el hospital, por lo que espera recibir casos solo en su tiempo libre. Propuso que, si olvida desactivar la disponibilidad porque la llaman por una emergencia y no abre el caso en 15 minutos, la aplicación lo reasigne automáticamente para no perjudicar al estudiante que espera.<br><br>**Revisión de un caso con rúbrica (V2).** Considera que en enfermería un texto no basta: necesitaría evidencia visual, como un video del estudiante realizando el procedimiento (lavado de manos clínico, armado de un campo estéril, toma de signos vitales) o un caso clínico en PDF muy detallado. Pidió una rúbrica impecable, basada en normativas reales como las del MINSA, que deje claro qué errores son «críticos», porque romper la bioseguridad significa un cero automático. Sobre el plazo, un reloj o contador visible es clave y un recordatorio unas horas antes le ayudaría, pero pidió un margen prudente para los casos de salud, porque revisar un plan de cuidados de enfermería (PAE) toma tiempo si se hace con consciencia. Sobre la asignación, quiere tener seguridad de que le correspondan casos de los ciclos que ya aprobó, ver el tema de inmediato y poder rechazar un caso sin perder puntos si escapa de su conocimiento clínico actual.<br><br>**SkillCredits y confiabilidad.** Le pareció una idea brillante, porque la carrera es costosa por los materiales: canjearía los créditos por uniformes, tensiómetros, estetoscopios, acceso a revistas científicas o cursos de actualización, y dijo que confirmar con PIN o huella le da tranquilidad total. Como indicadores esperaría un «rigor clínico», es decir, cuántas veces sus evaluaciones coincidieron con las de licenciados o profesores de la plataforma, y ver cómo califica el estudiante su feedback.<br><br>**Reevaluación, suspensión (V3) y logro compartible (V4).** Necesita el historial completo: la evidencia visual enviada, la rúbrica marcada y el comentario del primer verificador. Si un verificador aprobó un procedimiento en el que se puso en riesgo la asepsia o hubo un error grave de cálculo de dosis, considera que debe ser suspendido, porque se validan competencias que impactan en la salud de las personas. Sí compartiría un logro en LinkedIn, porque en el área médica es difícil destacar antes de tener el título: espera un texto muy profesional que diga que demostró su competencia clínica y técnica validada mediante evaluación de pares con rigor académico, y que el enlace muestre la rúbrica que aprobó para que futuros empleadores de clínicas y hospitales vean que sus conocimientos prácticos son sólidos.
 
 **Entrevista 3**
 
-* **Nombres:** `[nombres]`
+* **Nombres:** Claudio
 * **Apellidos:** `[apellidos]`
-* **Edad:** `[edad]`
+* **Edad:** 29
 * **Distrito:** `[distrito]`
+* **Perfil:** Contador egresado de la PUCP, auditor interno en una firma
 * **Segmento objetivo:** Personas que validan el conocimiento
 * **Fecha:** `[dd/mm/aaaa]`
-* **Productos usados:** Aplicación Flutter
+* **Productos usados:** Landing Page y explicación de la aplicación Flutter del Verificador (el entrevistado no usó la aplicación)
 * **URL del video (OneDrive):** `[URL]`
-* **Inicio de la entrevista en el video:** `[hh:mm:ss]`
+* **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** `[mm:ss]`
 
 **Figura 164**
 
 *Entrevista de validación 3: Personas que validan el conocimiento*
 
-`[INSERTAR CAPTURA: cuadro del video de la entrevista 3]`
+<p align="center">
+  <img src="images-doc/entrevista-validar-3.png" alt="Entrevista de validación 3: Claudio" width="900">
+</p>
 
 *Nota.* Elaboración propia.
 
-*Resumen.* `[Redactar de forma descriptiva las principales apreciaciones del entrevistado sobre cada tarea asignada (Tabla 34): qué le resultó claro, qué le costó, qué comentó sobre la confianza en la verificación y qué cambiaría.]`
+*Resumen.* Claudio, de 29 años, es contador egresado de la PUCP y trabaja en una firma especializándose en auditoría interna. Contó que muchos días trabaja hasta la madrugada revisando balances y cuadrando cuentas. Usa la aplicación porque busca nuevas oportunidades laborales y quiere demostrar su nivel, pero también porque quiere ayudar a quienes empiezan: en el mundo financiero, dijo, si no se viene de una firma grande a veces no se cree en la capacidad de las personas, y quiere ser el verificador que les dé ese respaldo.<br><br>**Disponibilidad (V1).** Su tiempo libre es escaso y fragmentado, por ejemplo un domingo o un martes a medianoche. Espera que el sistema le asigne un caso de inmediato y tener el control absoluto para apagar la disponibilidad de golpe, porque si un gerente le pide un reporte urgente no puede arriesgarse a recibir notificaciones ni dejar colgado a un postulante.<br><br>**Revisión de un caso con rúbrica (V2).** Como auditor necesita ver los archivos crudos del estudiante (hojas de cálculo, asientos contables o análisis de datos). Pidió una rúbrica como un manual de cumplimiento o una norma NIIF, directa, objetiva y sin zonas grises, y un espacio obligatorio para dejar hallazgos que indiquen exactamente dónde falló el trabajo, como lo haría con un analista junior. Sobre el plazo, quiere un temporizador muy claro y un recordatorio unas horas antes, que le parece una excelente medida de control. Sobre la asignación, espera que sea muy precisa y de su rama (auditoría interna, control de riesgos o análisis financiero), con un botón para rechazar al instante un caso muy específico, por ejemplo de costos industriales, que no tiene fresco.<br><br>**SkillCredits y confiabilidad.** Le parece un buen incentivo: canjearía los créditos por cursos de Power BI, actualizaciones tributarias, herramientas de software o incluso vales de café, y calificó la validación con huella o PIN como «el control interno perfecto». Como indicadores le interesaría un «índice de precisión» o nivel de consenso con otros profesionales senior, y ver cómo evalúan los usuarios su feedback, para saber si sus comentarios, aun siendo estrictos, los ayudan a mejorar.<br><br>**Reevaluación, suspensión (V3) y logro compartible (V4).** Necesita la trazabilidad completa del caso: el entregable original, la nota del verificador cuestionado y su justificación. Si detecta que alguien aprobó un estado financiero cuadrado a la fuerza solo por ganar SkillCredits rápido, considera que esa persona daña la confianza del mercado en la aplicación y debe ser suspendida de inmediato. Compartiría el logro en LinkedIn, donde su red es corporativa, con un texto formal y sobrio que diga que participó como validador certificando competencias técnicas en Auditoría Interna mediante revisiones exhaustivas de casos prácticos, y espera que para el estudiante el logro se vea como una certificación rigurosa que cualquier gerente de finanzas pueda abrir y comprobar.
 
 ### 4.3.3. Evaluaciones según Heurísticas
 
