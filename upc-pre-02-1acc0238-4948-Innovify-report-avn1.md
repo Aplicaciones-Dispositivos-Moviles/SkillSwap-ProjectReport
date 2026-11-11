@@ -5218,7 +5218,7 @@ El despliegue abarca los tres productos digitales de la solución:
 
 - **Web Services:** desde el 31 de octubre de 2026, una instancia **Amazon EC2** (`t3.small`, región `us-east-1`) con **Docker Compose**: el contenedor del backend, **PostgreSQL 16** y **Caddy** como proxy inverso con HTTPS automático, publicados en `https://skillswap-innovify.duckdns.org`. Hasta esa fecha, y durante el Sprint 1, el backend y su base de datos estuvieron en **Render** (plan gratuito), hasta que la base de datos gratuita expiró. El detalle del cambio está en 4.2.2.8.
 - **Landing Page:** sitio estático (HTML5/CSS3/JavaScript) publicado con **GitHub Pages** desde la rama `main` del repositorio `SkillSwap-LandingPage`.
-- **Aplicaciones móviles:** la app nativa del Estudiante (Kotlin / Jetpack Compose) y la app Flutter del Verificador se distribuyen como APK con **Firebase App Distribution**, en el proyecto `skillswap-moviles`, mediante subida manual a un grupo de probadores llamado `equipo`. La app nativa consume el backend desplegado en AWS desde su versión 1.2; la app Flutter aún no se distribuye y su cliente todavía apunta a la URL de Render. El procedimiento y las evidencias están en 4.2.2.8.
+- **Aplicaciones móviles:** la app nativa del Estudiante (Kotlin / Jetpack Compose) y la app Flutter del Verificador se distribuyen como APK con **Firebase App Distribution**, en el proyecto `skillswap-moviles`, mediante subida manual a un grupo de probadores llamado `equipo`. La app nativa consume el backend desplegado en AWS desde su versión 1.2, ya publicada en Firebase App Distribution según confirmó el equipo el 11 de noviembre de 2026; la app Flutter apunta al mismo backend desde el PR #7 de su repositorio (9 de noviembre de 2026) y aún no se distribuye. El procedimiento y las evidencias están en 4.2.2.8.
 
 El Landing Page es un sitio estático independiente de la aplicación móvil, por lo que no se incluye en el Deployment Diagram de este apartado.
 
@@ -6560,8 +6560,9 @@ Durante el Sprint 2 el backend cambió de entorno de despliegue. El 31 de octubr
 * **Archivos de despliegue:** `docker-compose.yml`, `Caddyfile` y `.env.aws.example`, en el repositorio `SkillSwap-WebServices-Java` (rama `feature/deploy-aws-compose`, PR #36, commit `2392f36` `chore(deploy): add docker compose with Caddy for the AWS server`).
 * **Datos:** la base de datos se creó vacía y su esquema se construye con las migraciones de Flyway V1 a V22. Las cuentas de prueba anteriores no se migraron.
 * **Configuración que se mantiene:** el cobro de la suscripción sigue simulado (sin clave de RevenueCat), los correos de verificación se envían con Brevo (el enlace ahora usa el dominio nuevo), las notificaciones push usan Firebase, los archivos y videos se guardan en Cloudinary (límite de 25 MB) y la IA es Gemini.
-* **Clientes:** la app nativa del Estudiante apunta a la URL nueva desde el PR #23 de `SkillSwap-MobileApp` (commit `ea1753a`, 1 de noviembre de 2026), que además sube su versión a 1.2 (código de versión 2). La app Flutter del Verificador todavía apunta a la URL de Render en `api_config.dart`.
-* **Pendiente:** actualizar la URL de la app Flutter y documentar las pruebas de integración de las dos aplicaciones contra la URL nueva al cerrar el Sprint 2.
+* **Clientes:** la app nativa del Estudiante apunta a la URL nueva desde el PR #23 de `SkillSwap-MobileApp` (commit `ea1753a`, 1 de noviembre de 2026), que además sube su versión a 1.2 (código de versión 2). La app Flutter del Verificador apunta a la URL nueva desde el PR #7 de `SkillSwap-MobileApp-Flutter` (commit `907f7c8`, 9 de noviembre de 2026), en `lib/shared/infrastructure/network/api_config.dart`.
+* **Actualización del servidor:** el servidor se actualiza a mano, construyendo la imagen con `docker compose up -d --build` a partir del código del backend; el repositorio no tiene un pipeline de despliegue automático. Al 11 de noviembre de 2026 la especificación OpenAPI publicada ya incluye `GET /api/v1/reevaluations/candidates`, que se integró a `develop` con el PR #37 el 9 de noviembre de 2026.
+* **Pendiente:** documentar las pruebas de integración de las dos aplicaciones contra la URL nueva al cerrar el Sprint 2.
 
 **Figura 151**
 
@@ -6581,7 +6582,7 @@ Durante el Sprint 2 el backend cambió de entorno de despliegue. El 31 de octubr
   <img src="images-doc/swagger-aws-duckdns.png" alt="Swagger UI del backend en AWS" width="900">
 </p>
 
-*Nota.* Al 9 de noviembre de 2026, el Swagger UI está en línea y la especificación OpenAPI que publica en `/v3/api-docs` (SkillSwap Platform API, versión v1) declara como servidor `https://skillswap-innovify.duckdns.org`. La especificación aún no incluye `GET /api/v1/reevaluations/candidates`, que consume la pantalla de reevaluación de la app Flutter (T60) y está en la rama `feature/assessment-reevaluation-candidates` del backend, pendiente de integrar a `develop`. Elaboración propia.
+*Nota.* Al 11 de noviembre de 2026, el Swagger UI está en línea y la especificación OpenAPI que publica en `/v3/api-docs` (SkillSwap Platform API, versión v1) declara como servidor `https://skillswap-innovify.duckdns.org`. La especificación incluye `GET /api/v1/reevaluations/candidates` (operación `getCandidates` del grupo `Reevaluations`), que consume la pantalla de reevaluación de la app Flutter (T60) y se integró a `develop` con el PR #37 del backend. Elaboración propia.
 
 **Distribución de las aplicaciones móviles**
 **Tabla 33**
@@ -6593,15 +6594,15 @@ Durante el Sprint 2 el backend cambió de entorno de despliegue. El 31 de octubr
 | Repositorio | `SkillSwap-MobileApp` | `SkillSwap-MobileApp-Flutter` |
 | Tecnología | Kotlin / Jetpack Compose | Flutter / Dart |
 | Identificador de la app | `com.innovify.skillswap` | `com.innovify.skillswap_verifier` |
-| Versión | 1.2 (código de versión 2), desde el 1 de noviembre de 2026; la versión publicada en Firebase que muestra la Figura 153 es la 1.0 (código de versión 1) | 1.0.0+1 |
+| Versión | 1.2 (código de versión 2), desde el 1 de noviembre de 2026, publicada en Firebase App Distribution según confirmó el equipo el 11 de noviembre de 2026; la captura de la Figura 153 corresponde a la versión 1.0 (código de versión 1) | 1.0.0+1 |
 | Android mínimo | Android 10 (API 29) | El que define Flutter para el proyecto (`flutter.minSdkVersion`) |
 | Plataforma de distribución | Firebase App Distribution, proyecto `skillswap-moviles` | Por confirmar con el docente; se prevé el mismo proyecto de Firebase |
 | Método de publicación | Subida manual del APK en la consola de Firebase | Por definir |
 | Grupo de probadores | `equipo` | Por definir |
-| Backend que consume | `https://skillswap-innovify.duckdns.org` (AWS), configurado en `RetrofitClient` desde el PR #23 (commit `ea1753a`, 1 de noviembre de 2026) | `https://skillswap-webservices-java.onrender.com` (Render), configurado en `lib/shared/infrastructure/network/api_config.dart`; ese entorno no está activo desde el 31 de octubre de 2026 |
-| Estado | La versión 1.0 está distribuida y se descargó en un dispositivo físico | Siete pantallas del Verificador integradas en `develop`; aún no se distribuye y su cliente debe apuntar al backend en AWS antes de hacerlo |
+| Backend que consume | `https://skillswap-innovify.duckdns.org` (AWS), configurado en `RetrofitClient` desde el PR #23 (commit `ea1753a`, 1 de noviembre de 2026) | `https://skillswap-innovify.duckdns.org` (AWS), configurado en `lib/shared/infrastructure/network/api_config.dart` desde el PR #7 (commit `907f7c8`, 9 de noviembre de 2026) |
+| Estado | La versión 1.0 se distribuyó y se descargó en un dispositivo físico; la versión 1.2, que consume el backend en AWS, está publicada en Firebase App Distribution (confirmación del equipo, 11 de noviembre de 2026) | Siete pantallas del Verificador integradas en `develop` y cliente configurado con el backend en AWS; aún no se distribuye |
 
-*Nota.* El identificador y la versión de la app nativa se toman de `app/build.gradle.kts`, y los de la app Flutter, de `android/app/build.gradle.kts` y `pubspec.yaml`, en la rama `develop` de cada repositorio. La URL del backend vigente desde el 31 de octubre de 2026 es la de AWS; las pruebas de integración de ambas apps contra ella quedan pendientes. Elaboración propia.
+*Nota.* El identificador y la versión de la app nativa se toman de `app/build.gradle.kts`, y los de la app Flutter, de `android/app/build.gradle.kts` y `pubspec.yaml`, en la rama `develop` de cada repositorio. La URL del backend vigente desde el 31 de octubre de 2026 es la de AWS, y las dos apps apuntan a ella; las pruebas de integración de ambas apps contra ella quedan pendientes. Elaboración propia.
 
 **Procedimiento de publicación de una versión:**
 
@@ -6615,9 +6616,9 @@ Durante el Sprint 2 el backend cambió de entorno de despliegue. El 31 de octubr
 
 **Enlace de invitación a la app nativa del Estudiante:** [https://appdistribution.firebase.dev/i/eb345a85ef8857fa](https://appdistribution.firebase.dev/i/eb345a85ef8857fa)
 
-La app se instaló desde Firebase en un dispositivo físico y se conectó al backend, que entonces estaba desplegado en Render (ver 4.2.1.8), con el que se probó el flujo del Estudiante del Sprint 2. Como el plan gratuito de Render suspendía el servicio tras 15 minutos sin tráfico, la primera pantalla de la sesión podía tardar en responder. Desde el 31 de octubre de 2026 el backend está en AWS, como se describe al inicio de esta sección. El archivo `google-services.json` no se sube al repositorio, que es público, sino que se comparte entre el equipo por un canal privado.
+La app se instaló desde Firebase en un dispositivo físico y se conectó al backend, que entonces estaba desplegado en Render (ver 4.2.1.8), con el que se probó el flujo del Estudiante del Sprint 2. Como el plan gratuito de Render suspendía el servicio tras 15 minutos sin tráfico, la primera pantalla de la sesión podía tardar en responder. Desde el 31 de octubre de 2026 el backend está en AWS, como se describe al inicio de esta sección, y la versión 1.2 (código de versión 2), que apunta a ese backend, ya está publicada en Firebase App Distribution con este mismo procedimiento, según confirmó el equipo el 11 de noviembre de 2026. El archivo `google-services.json` no se sube al repositorio, que es público, sino que se comparte entre el equipo por un canal privado.
 
-Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, versión 1.0.0+1) tiene sus siete pantallas (T58, T60, T62, T64, T71, T72 y T76) integradas en la rama `develop` de su repositorio, con su cliente HTTP todavía configurado con la URL de Render. Antes de distribuirla con este mismo procedimiento se debe apuntar al backend en AWS; su captura se agrega a esta sección cuando se publique.
+Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, versión 1.0.0+1) tiene sus siete pantallas (T58, T60, T62, T64, T71, T72 y T76) integradas en la rama `develop` de su repositorio, y su cliente HTTP apunta al backend en AWS desde el PR #7 (9 de noviembre de 2026). Aún no se distribuye; cuando se publique con este mismo procedimiento, su captura se agrega a esta sección.
 
 **Figura 153**
 
@@ -6627,7 +6628,7 @@ Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, ver
   <img src="images-doc/firebase-app-distribution-release.png" alt="Versión 1.0 de la app nativa publicada en Firebase App Distribution" width="900">
 </p>
 
-*Nota.* La versión 1.2 (código de versión 2), que apunta al backend en AWS, está en la rama `develop` desde el 1 de noviembre de 2026: `[Confirmar si ya se publicó en Firebase App Distribution y, si es así, reemplazar la captura]`. Elaboración propia.
+*Nota.* La captura corresponde a la versión 1.0 (código de versión 1). La versión 1.2 (código de versión 2), que apunta al backend en AWS, está en la rama `develop` desde el 1 de noviembre de 2026 y, según confirmó el equipo el 11 de noviembre de 2026, ya está publicada en Firebase App Distribution. `[Reemplazar por la captura de la versión 1.2 en la consola de Firebase App Distribution y actualizar el título de la figura]`. Elaboración propia.
 
 **Figura 154**
 
@@ -6649,7 +6650,7 @@ Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, ver
 
 *Nota.* Elaboración propia.
 
-El Landing Page sigue publicado en GitHub Pages (ver 4.1.4). En el Sprint 2 se le agregó la sección de descarga con el enlace de instalación de la app (T77) y se verificó en línea.
+El Landing Page sigue publicado en GitHub Pages desde la rama `main` (ver 4.1.4). En el Sprint 2 se le agregó la sección de descarga con el enlace de instalación de la app (T77) y se verificó en línea. Además, el PR #13 de `SkillSwap-LandingPage` (9 de noviembre de 2026) deja el inglés como idioma por defecto, completa las traducciones de las claves `data-i18n` y corrige los enlaces `hreflang` de `partnerships.html`. Ese cambio está integrado en `develop` y se publica cuando `develop` se integre en `main`: al 11 de noviembre de 2026, el último despliegue de GitHub Pages corresponde al commit `5a1e9b1` de `main` (30 de octubre de 2026), por lo que el sitio publicado todavía se muestra en español por defecto.
 
 **Figura 156**
 
@@ -7713,8 +7714,8 @@ Figura 175. *Cuadro del video About the Team*<br>
 | **Landing Page — Sitio desplegado** | Sitio web estático de presentación del modelo de negocio Innovify (SkillSwap), publicado en GitHub Pages. | [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/) |
 | **Landing Page — Repositorio** | Código fuente del Landing Page (HTML5, CSS3 y JavaScript). | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage) |
 | **Android Native Application** | Aplicación móvil nativa (Kotlin / Jetpack Compose) del Estudiante. Es la app del Estudiante y se distribuye con Firebase App Distribution. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp) |
-| **Cross-Platform Application (Flutter)** | Aplicación móvil multiplataforma (Flutter / Dart, dirigida a Android) del Verificador. Sus siete pantallas están integradas en `develop`; su cliente todavía apunta a la URL de Render y aún no se distribuye. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter) |
-| **App nativa — Firebase App Distribution** | Enlace de invitación para instalar la versión de prueba de la app del Estudiante. | [https://appdistribution.firebase.dev/i/eb345a85ef8857fa](https://appdistribution.firebase.dev/i/eb345a85ef8857fa) |
+| **Cross-Platform Application (Flutter)** | Aplicación móvil multiplataforma (Flutter / Dart, dirigida a Android) del Verificador. Sus siete pantallas están integradas en `develop` y su cliente apunta al backend en AWS desde el PR #7 (9 de noviembre de 2026); aún no se distribuye. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter) |
+| **App nativa — Firebase App Distribution** | Enlace de invitación para instalar la versión de prueba de la app del Estudiante (versión 1.2, que consume el backend en AWS, publicada según confirmó el equipo el 11 de noviembre de 2026). | [https://appdistribution.firebase.dev/i/eb345a85ef8857fa](https://appdistribution.firebase.dev/i/eb345a85ef8857fa) |
 | **Prototipo y mock-ups (Figma)** | Archivo de diseño con el prototipo y los mock-ups de la aplicación móvil para los roles Estudiante y Verificador (Capítulo III). | [https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo?node-id=3-959](https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo?node-id=3-959) |
 | **Backend — Swagger UI** | Documentación interactiva (OpenAPI) de los Web Services RESTful (Java 21 / Spring Boot), desplegados en AWS desde el 31 de octubre de 2026. | [https://skillswap-innovify.duckdns.org/swagger-ui/index.html](https://skillswap-innovify.duckdns.org/swagger-ui/index.html) |
 | **Backend — Swagger UI (Render, Sprint 1)** | Entorno en el que se desplegó el backend durante el Sprint 1; ya no está activo. | [https://skillswap-webservices-java.onrender.com/swagger-ui/index.html](https://skillswap-webservices-java.onrender.com/swagger-ui/index.html) |
