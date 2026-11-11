@@ -74,9 +74,9 @@ Noviembre 2026
 | **v.07.AV2** | 28/10/2026 | Alberca Saavedra, Víctor Manuel | Se actualizó el Sprint 2 con la aplicación Flutter del Verificador: las seis tasks de sus pantallas (T58, T60, T62, T64, T71 y T72) pasan a Done, se agregaron sus commits (Tabla 29) y pruebas (Tabla 30), y se incorporaron Flutter y Firebase a las herramientas (Tabla 14). La evaluación heurística de 4.3.3 incluye ahora la aplicación Flutter (problema #9 y ajustes a los problemas #3, #4, #6, #7 y #8). |
 | **v.08.AV2** | 29/10/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron a Conclusiones las subsecciones Conclusiones y recomendaciones (contraste de las hipótesis con lo construido, Tabla 37, y recomendaciones), Video App Validation, Video About the product y Video About the team, con sus pautas planificadas (Tablas 38 a 40). |
 | **v.09.AV2** | 30/10/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron al Sprint 2 la tienda de beneficios con canje de SkillCredits y confirmación biométrica de la app Flutter (T76, US32) y la sección de descarga del Landing Page con la corrección de sus botones de acceso (T77, US44). Se actualizaron el Sprint Backlog 2 (34 tasks, 197 horas), la matriz de liderazgo (Tabla 27), los commits (Tablas 29 y 30), el número de pruebas de Flutter (43), el avance del Verificador (7 de 14 historias), el estado de los problemas #1 y #2 de 4.3.3 y las recomendaciones de Conclusiones. |
-| **v.10.AV2** | 01/11/2026 | Alberca Saavedra, Víctor Manuel | Se registró el cambio de despliegue del backend de Render a AWS (31/10/2026): se agregó el apartado correspondiente a 4.2.2.8 (Figuras 152 y 153), se actualizaron 4.1.4, la Tabla 14, la Tabla 33, el Deployment Diagram (2.5), el commit de despliegue (Tabla 29), las Conclusiones y el Anexo A, y se conservó sin cambios el despliegue en Render del Sprint 1 (4.2.1.8). Las capturas de las Figuras 152 y 153 quedan pendientes. |
-| **v.11.AV2** | 09/11/2026 | Komatsu Dueñas, David | Se corrigieron los siguientes tópicos a partir de la revisión del informe para el AV2, contrastándolo con los repositorios:<br><br>**Carátula** (mes de la entrega: noviembre de 2026)<br>**Project Report Collaboration Insights** (AV2 con los commits y Pull Requests reales del repositorio del informe entre el 10 de octubre y el 9 de noviembre de 2026) y **Contenido** (entrada AV2)<br>**Student Outcome** (acciones de AV2 de Komatsu Dueñas, David en las tasks T45, T50, T51, T56 y T70, y conclusiones grupales de AV2)<br><br>**Capítulo I:** 1.1.1 (evaluación entre pares, con cita) y 1.2.1 (microcredenciales y contenido generado con IA, con citas)<br>**Capítulo II:** 2.4.1, 2.4.2, 2.5.1 y 2.5.3 (citas de los métodos aplicados); 2.4.3 Product Backlog (columna Sprint con las 13 historias del Sprint 2 y retiro de una fila de la evaluación heurística que estaba en la Tabla 10); 2.5.3 (texto de los diagramas de Contexto, Contenedores y Despliegue con un actor por aplicación)<br>**Capítulo IV:** 4.1.2 (citas de GitFlow, Semantic Versioning y Conventional Commits, y del desarrollo multiplataforma); 4.1.3 (guía de estilo de Dart / Flutter); 4.1.4 y 4.2.2.8 (versión 1.2 de la app nativa, que consume el backend en AWS, y app Flutter todavía configurada con la URL de Render, en la Tabla 33 y el Anexo A, y nota de la Figura 153 con el estado del Swagger UI en AWS al 9 de noviembre de 2026); 4.2.2.4 (commits de los PR #21 a #23 de la app nativa, de la base de la app Flutter y del PR #11 del Landing Page en la Tabla 29); 4.2.2.5 (todas las pruebas unitarias de la app nativa en la Tabla 30 y su nota); 4.2.2.9 Team Collaboration Insights (commits y Pull Requests por integrante y repositorio); 4.3.3 (problema #9 en la Tabla 36 y recomendaciones de los problemas #7 y #8 para las dos aplicaciones)<br><br>**Conclusiones** (recomendación 7 de accesibilidad, con cita)<br>**Bibliografía** (Alasmari, 2024, y Grévisse et al., 2024, trasladados desde los Anexos; volumen, número y páginas o número de artículo de los papers; Nguyen et al. con el año de su número, 2026; y el paper de Rabelo et al., 2026, sobre la accesibilidad de interfaces nativas de Android con Jetpack Compose) y **Anexo C** (estado del video About the Product)<br><br>Se agregó el archivo `README.md` como archivo principal del repositorio, con enlaces a cada sección del informe y a los repositorios de la solución. |
-| **v.12.AV2** | 10/11/2026 | Alberca Saavedra, Víctor Manuel | Se registraron las tres entrevistas de validación del segmento Personas que validan el conocimiento en 4.3.2 (Figuras 162 a 164) con su perfil, sus datos y el resumen descriptivo por tarea, y se ajustaron 4.3.1 y la Tabla 34 a la forma de esas sesiones, en las que se mostró el Landing Page y un video de la aplicación. |
+| **v.10.AV2** | 01/11/2026 | Alberca Saavedra, Víctor Manuel | Se registró el cambio de despliegue del backend de Render a AWS (31/10/2026): se agregó el apartado correspondiente a 4.2.2.8 (Figuras 151 y 152), se actualizaron 4.1.4, la Tabla 14, la Tabla 33, el Deployment Diagram (2.5), el commit de despliegue (Tabla 29), las Conclusiones y el Anexo A, y se conservó sin cambios el despliegue en Render del Sprint 1 (4.2.1.8). Las capturas de las Figuras 151 y 152 quedan pendientes. |
+| **v.11.AV2** | 09/11/2026 | Komatsu Dueñas, David | Se corrigieron los siguientes tópicos a partir de la revisión del informe para el AV2, contrastándolo con los repositorios:<br><br>**Carátula** (mes de la entrega: noviembre de 2026)<br>**Project Report Collaboration Insights** (AV2 con los commits y Pull Requests reales del repositorio del informe entre el 10 de octubre y el 9 de noviembre de 2026) y **Contenido** (entrada AV2)<br>**Student Outcome** (acciones de AV2 de Komatsu Dueñas, David en las tasks T45, T50, T51, T56 y T70, y conclusiones grupales de AV2)<br><br>**Capítulo I:** 1.1.1 (evaluación entre pares, con cita) y 1.2.1 (microcredenciales y contenido generado con IA, con citas)<br>**Capítulo II:** 2.4.1, 2.4.2, 2.5.1 y 2.5.3 (citas de los métodos aplicados); 2.4.3 Product Backlog (columna Sprint con las 13 historias del Sprint 2 y retiro de una fila de la evaluación heurística que estaba en la Tabla 10); 2.5.3 (texto de los diagramas de Contexto, Contenedores y Despliegue con un actor por aplicación)<br>**Capítulo IV:** 4.1.2 (citas de GitFlow, Semantic Versioning y Conventional Commits, y del desarrollo multiplataforma); 4.1.3 (guía de estilo de Dart / Flutter); 4.1.4 y 4.2.2.8 (versión 1.2 de la app nativa, que consume el backend en AWS, y app Flutter todavía configurada con la URL de Render, en la Tabla 33 y el Anexo A, y nota de la Figura 152 con el estado del Swagger UI en AWS al 9 de noviembre de 2026); 4.2.2.4 (commits de los PR #21 a #23 de la app nativa, de la base de la app Flutter y del PR #11 del Landing Page en la Tabla 29); 4.2.2.5 (todas las pruebas unitarias de la app nativa en la Tabla 30 y su nota); 4.2.2.9 Team Collaboration Insights (commits y Pull Requests por integrante y repositorio); 4.3.3 (problema #9 en la Tabla 36 y recomendaciones de los problemas #7 y #8 para las dos aplicaciones)<br><br>**Conclusiones** (recomendación 7 de accesibilidad, con cita)<br>**Bibliografía** (Alasmari, 2024, y Grévisse et al., 2024, trasladados desde los Anexos; volumen, número y páginas o número de artículo de los papers; Nguyen et al. con el año de su número, 2026; y el paper de Rabelo et al., 2026, sobre la accesibilidad de interfaces nativas de Android con Jetpack Compose) y **Anexo C** (estado del video About the Product)<br><br>Se agregó el archivo `README.md` como archivo principal del repositorio, con enlaces a cada sección del informe y a los repositorios de la solución. |
+| **v.12.AV2** | 10/11/2026 | Alberca Saavedra, Víctor Manuel | Se registraron las tres entrevistas de validación del segmento Personas que validan el conocimiento en 4.3.2 (Figuras 161 a 163) con su perfil, sus datos y el resumen descriptivo por tarea, y se ajustaron 4.3.1 y la Tabla 34 a la forma de esas sesiones, en las que se mostró el Landing Page y un video de la aplicación. |
 
 <div style="page-break-after: always;"></div>
 
@@ -6037,7 +6037,9 @@ El Sprint 2 es la segunda iteración de desarrollo. Por indicación del docente,
 
 *Reunión de Sprint Planning 2*
 
-`[INSERTAR CAPTURA: reunión de Sprint Planning 2 (captura de la videollamada)]`
+<p align="center">
+  <img src="images-doc/sprint-planning-2-meeting.png" alt="Reunión de Sprint Planning 2" width="900">
+</p>
 
 *Nota.* Reunión de Sprint Planning 2. Elaboración propia.
 
@@ -6382,6 +6384,8 @@ Esta sección presenta las vistas principales implementadas en el Sprint 2, ejec
 
 *Nota.* Elaboración propia.
 
+En esta imagen se presenta la captura del certificado con la cámara del dispositivo y la lectura de sus datos con ML Kit. La aplicación muestra la institución, el curso y la fecha de emisión leídos, que el Estudiante puede corregir antes de enviar el certificado. Luego informa que el certificado quedó registrado con estado Unverified y riesgo LowRisk, y que no cubre la habilidad «Networking basics» (afinidad de 0 % frente al mínimo de 70 %), por lo que sugiere subir otro certificado, rendir el quiz o entregar el proyecto del nodo.
+
 **Figura 143**
 
 *Confirmación de la habilidad interpretada*
@@ -6391,6 +6395,8 @@ Esta sección presenta las vistas principales implementadas en el Sprint 2, ejec
 </p>
 
 *Nota.* Elaboración propia.
+
+En esta imagen se presenta el detalle del nodo 2 de 7, «Programming fundamentals», ya completado. La aplicación muestra los pasos para completar un nodo (subir el certificado, la confirmación de la IA y el quiz o el proyecto) y el botón «Habilitarme como Verificador», con el mensaje que confirma que el Estudiante quedó habilitado como Verificador de esa habilidad.
 
 **Figura 144**
 
@@ -6402,6 +6408,8 @@ Esta sección presenta las vistas principales implementadas en el Sprint 2, ejec
 
 *Nota.* Elaboración propia.
 
+En esta imagen se presenta la ruta activa del Estudiante, «Quiero aprender desarrollo backend con Java y Spring», con 1 de 7 nodos completados (14 %). La aplicación avisa que no hay conexión y que muestra los datos guardados en el teléfono. La ruta conserva el estado de cada nodo: el siguiente paso, el nodo completado, los nodos bloqueados con sus requisitos y el nodo disponible.
+
 **Figura 145**
 
 *Quiz con respuestas conservadas ante la pérdida de conexión*
@@ -6412,13 +6420,19 @@ Esta sección presenta las vistas principales implementadas en el Sprint 2, ejec
 
 *Nota.* Elaboración propia.
 
+En esta imagen se presenta el quiz del nodo «Object-oriented programming» con 3 de 5 preguntas respondidas. Las opciones elegidas permanecen marcadas y la etiqueta «Guardado» indica que el avance se conservó en el dispositivo ante la pérdida de conexión.
+
 **Figura 146**
 
 *Resultado del quiz con el sub-tema débil*
 
-`[INSERTAR CAPTURA: resultado con el sub-tema a reforzar (US20)]`
+<p align="center">
+  <img src="images-doc/app-estudiante-resultado-subtema.png" alt="Resultado del quiz con el sub-tema débil" width="500">
+</p>
 
 *Nota.* Elaboración propia.
+
+En esta imagen se presenta el resultado de un quiz que no alcanzó el mínimo: 3 de 5 respuestas correctas (60 %). La aplicación identifica el sub-tema más débil, «Polimorfismo y Sobrescritura», y ofrece repasarlo o volver a la ruta. Además, indica que se abrió un caso que revisará un Verificador, con estado Pendiente y acceso para ver su estado.
 
 **Figura 147**
 
@@ -6430,13 +6444,19 @@ Esta sección presenta las vistas principales implementadas en el Sprint 2, ejec
 
 *Nota.* Elaboración propia.
 
+En esta imagen se presenta el miniproyecto del nodo 4, cuyo enunciado fue generado por IA: «Sistema de Simulación de Logística y Flota de Envíos». La aplicación muestra la fecha límite de entrega (04/11/2026 10:06) y los requerimientos, entre ellos la jerarquía de vehículos, el encapsulamiento, el polimorfismo y la composición.
+
 **Figura 148**
 
-*Herramientas del Verificador en la aplicación Flutter*
+*Pantalla principal del Verificador en la aplicación Flutter*
 
-`[INSERTAR CAPTURA: revisión de casos y disponibilidad (US25, US23), reevaluación, suspensión y métricas (US37, US38, US40) y compartir logros (US33)]`
+<p align="center">
+  <img src="images-doc/app-verificador-flutter-herramientas.png" alt="Pantalla principal del Verificador en la aplicación Flutter" width="500">
+</p>
 
 *Nota.* Elaboración propia.
+
+En esta imagen se presenta la pantalla principal del Verificador en la aplicación Flutter. Muestra su disponibilidad para casos de «Networking basics», sus indicadores (SkillCredits, confiabilidad y casos resueltos) y la lista de casos asignados, que aparece vacía porque aún no se le asignó ninguno. Desde la barra inferior accede a sus casos y a sus SkillCredits.
 
 **Figura 149**
 
@@ -6448,13 +6468,7 @@ Esta sección presenta las vistas principales implementadas en el Sprint 2, ejec
 
 *Nota.* Elaboración propia.
 
-**Figura 150**
-
-*Programación y entrega de la demostración final*
-
-`[INSERTAR CAPTURA: programación de la demostración y grabación del video (US28, US29)]`
-
-*Nota.* Elaboración propia.
+En esta imagen se presenta el perfil del Estudiante con el acceso mediante huella o rostro activado, confirmado con el mensaje «Acceso biométrico activado». El perfil también muestra el saldo de SkillCredits (0) y la lista de movimientos, vacía hasta que el usuario resuelva casos como Verificador.
 
 #### 4.2.2.7. Services Documentation Evidence for Sprint Review
 
@@ -6494,7 +6508,7 @@ Los endpoints incorporados en el Sprint 2 se documentan con OpenAPI 3.1 mediante
 
 *Nota.* Endpoints implementados a la fecha (tasks T46, T52, T54, T56, T57, T59, T61, T63, T67 y T69). El acceso con biometría (US03) no agrega endpoints, porque se resuelve en el dispositivo. La demostración final (US28 y US29, tasks T67 y T69) se calcula con la rúbrica de 0 a 100 y acredita SkillCredits al Verificador que la revisa. Elaboración propia.
 
-**Figura 151**
+**Figura 150**
 
 *Documentación Swagger de los endpoints del Sprint 2*
 
@@ -6534,19 +6548,23 @@ Durante el Sprint 2 el backend cambió de entorno de despliegue. El 31 de octubr
 * **Clientes:** la app nativa del Estudiante apunta a la URL nueva desde el PR #23 de `SkillSwap-MobileApp` (commit `ea1753a`, 1 de noviembre de 2026), que además sube su versión a 1.2 (código de versión 2). La app Flutter del Verificador todavía apunta a la URL de Render en `api_config.dart`.
 * **Pendiente:** actualizar la URL de la app Flutter y documentar las pruebas de integración de las dos aplicaciones contra la URL nueva al cerrar el Sprint 2.
 
-**Figura 152**
+**Figura 151**
 
 *Instancia EC2 del backend en AWS*
 
-`[INSERTAR CAPTURA: consola de AWS, EC2 → Instancias, con la instancia en ejecución y su IP elástica]`
+<p align="center">
+  <img src="images-doc/aws-ec2-instancia.png" alt="Instancia EC2 del backend en AWS" width="900">
+</p>
 
 *Nota.* Elaboración propia.
 
-**Figura 153**
+**Figura 152**
 
 *Swagger UI del backend en AWS*
 
-`[INSERTAR CAPTURA: Swagger UI abierto en https://skillswap-innovify.duckdns.org/swagger-ui/index.html]`
+<p align="center">
+  <img src="images-doc/swagger-aws-duckdns.png" alt="Swagger UI del backend en AWS" width="900">
+</p>
 
 *Nota.* Al 9 de noviembre de 2026, el Swagger UI está en línea y la especificación OpenAPI que publica en `/v3/api-docs` (SkillSwap Platform API, versión v1) declara como servidor `https://skillswap-innovify.duckdns.org`. La especificación aún no incluye `GET /api/v1/reevaluations/candidates`, que consume la pantalla de reevaluación de la app Flutter (T60) y está en la rama `feature/assessment-reevaluation-candidates` del backend, pendiente de integrar a `develop`. Elaboración propia.
 
@@ -6560,7 +6578,7 @@ Durante el Sprint 2 el backend cambió de entorno de despliegue. El 31 de octubr
 | Repositorio | `SkillSwap-MobileApp` | `SkillSwap-MobileApp-Flutter` |
 | Tecnología | Kotlin / Jetpack Compose | Flutter / Dart |
 | Identificador de la app | `com.innovify.skillswap` | `com.innovify.skillswap_verifier` |
-| Versión | 1.2 (código de versión 2), desde el 1 de noviembre de 2026; la versión publicada en Firebase que muestra la Figura 154 es la 1.0 (código de versión 1) | 1.0.0+1 |
+| Versión | 1.2 (código de versión 2), desde el 1 de noviembre de 2026; la versión publicada en Firebase que muestra la Figura 153 es la 1.0 (código de versión 1) | 1.0.0+1 |
 | Android mínimo | Android 10 (API 29) | El que define Flutter para el proyecto (`flutter.minSdkVersion`) |
 | Plataforma de distribución | Firebase App Distribution, proyecto `skillswap-moviles` | Por confirmar con el docente; se prevé el mismo proyecto de Firebase |
 | Método de publicación | Subida manual del APK en la consola de Firebase | Por definir |
@@ -6586,7 +6604,7 @@ La app se instaló desde Firebase en un dispositivo físico y se conectó al bac
 
 Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, versión 1.0.0+1) tiene sus siete pantallas (T58, T60, T62, T64, T71, T72 y T76) integradas en la rama `develop` de su repositorio, con su cliente HTTP todavía configurado con la URL de Render. Antes de distribuirla con este mismo procedimiento se debe apuntar al backend en AWS; su captura se agrega a esta sección cuando se publique.
 
-**Figura 154**
+**Figura 153**
 
 *Versión 1.0 de la app nativa publicada en Firebase App Distribution*
 
@@ -6596,7 +6614,7 @@ Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, ver
 
 *Nota.* La versión 1.2 (código de versión 2), que apunta al backend en AWS, está en la rama `develop` desde el 1 de noviembre de 2026: `[Confirmar si ya se publicó en Firebase App Distribution y, si es así, reemplazar la captura]`. Elaboración propia.
 
-**Figura 155**
+**Figura 154**
 
 *Correo de invitación de Firebase App Distribution*
 
@@ -6606,7 +6624,7 @@ Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, ver
 
 *Nota.* Elaboración propia.
 
-**Figura 156**
+**Figura 155**
 
 *App nativa del Estudiante instalada en un dispositivo físico*
 
@@ -6618,7 +6636,7 @@ Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, ver
 
 El Landing Page sigue publicado en GitHub Pages (ver 4.1.4). En el Sprint 2 se le agregó la sección de descarga con el enlace de instalación de la app (T77) y se verificó en línea.
 
-**Figura 157**
+**Figura 156**
 
 *Landing Page publicado y verificado en el Sprint 2*
 
@@ -6640,7 +6658,7 @@ Esta sección presenta los analíticos de colaboración del Sprint 2 en los repo
 
 En el período, sin contar los commits de la versión v.11.AV2 del informe, los cinco repositorios suman 172 commits sin merge: 151 de Alberca Saavedra, 11 de Komatsu Dueñas y 10 de Becerra Ninahuanca. Alberca Saavedra concentró la construcción de las dos aplicaciones y del backend del Sprint 2, integró la mayoría de los Pull Requests y trasladó el backend a AWS; Becerra Ninahuanca participó en las dos aplicaciones móviles, y Komatsu Dueñas, en el backend y en el informe. `[Pendiente de confirmar con el equipo: aportes del Sprint 2 de Lopez Montalvo, Kevin Edu y de Sulca Sánchez, Piero Angel, que no registran commits en estos repositorios en el período.]`
 
-**Figura 158**
+**Figura 157**
 
 *Historial de commits de los repositorios durante el Sprint 2*
 
@@ -6760,7 +6778,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** `[hh:mm:ss]`
 * **Duración:** `[mm:ss]`
 
-**Figura 159**
+**Figura 158**
 
 *Entrevista de validación 1: Personas que quieren aprender*
 
@@ -6783,7 +6801,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** `[hh:mm:ss]`
 * **Duración:** `[mm:ss]`
 
-**Figura 160**
+**Figura 159**
 
 *Entrevista de validación 2: Personas que quieren aprender*
 
@@ -6806,7 +6824,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** `[hh:mm:ss]`
 * **Duración:** `[mm:ss]`
 
-**Figura 161**
+**Figura 160**
 
 *Entrevista de validación 3: Personas que quieren aprender*
 
@@ -6832,9 +6850,9 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con personas 
 * **Productos usados:** Landing Page y aplicación Flutter del Verificador (mostrada en un video)
 * **URL del video (OneDrive):** `[URL]`
 * **Inicio de la entrevista en el video:** 00:00:00
-* **Duración:** `[mm:ss]`
+* **Duración:** 5:10
 
-**Figura 162**
+**Figura 161**
 
 *Entrevista de validación 1: Personas que validan el conocimiento*
 
@@ -6856,11 +6874,11 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con personas 
 * **Segmento objetivo:** Personas que validan el conocimiento
 * **Fecha:** 04/11/2026
 * **Productos usados:** Landing Page y aplicación Flutter del Verificador (mostrada en un video)
-* **URL del video (OneDrive):** `[URL]`
+* **URL del video (OneDrive):** [Link del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201924127_upc_edu_pe/IQC3BeK31iqZRpIZA30fucfjAYd4H1HBOqOhZYcJf4VlUyM?e=LwthgU&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 * **Inicio de la entrevista en el video:** 00:00:00
-* **Duración:** `[mm:ss]`
+* **Duración:** 5:00
 
-**Figura 163**
+**Figura 162**
 
 *Entrevista de validación 2: Personas que validan el conocimiento*
 
@@ -6882,11 +6900,11 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con personas 
 * **Segmento objetivo:** Personas que validan el conocimiento
 * **Fecha:** 08/11/2026
 * **Productos usados:** Landing Page y aplicación Flutter del Verificador (mostrada en un video)
-* **URL del video (OneDrive):** `[URL]`
+* **URL del video (OneDrive):** [Link del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201924127_upc_edu_pe/IQCkQH5uoKKQSZKynl_Kubb-ATaTSXYxPDaQV2tRLg72s1Q?e=ZeSlhi&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 * **Inicio de la entrevista en el video:** 00:00:00
-* **Duración:** `[mm:ss]`
+* **Duración:** 7:18
 
-**Figura 164**
+**Figura 163**
 
 *Entrevista de validación 3: Personas que validan el conocimiento*
 
@@ -6909,7 +6927,7 @@ La evaluación sigue el formato del Anexo E del enunciado y considera heurístic
 * **NRC:** 4948
 * **PROFESORES:** Eduardo Martin Reyes Rodriguez
 * **AUDITOR:** Innovify
-* **CLIENTE(S):** `[Nombres de las personas que participan en las sesiones de evaluación]`
+* **CLIENTE(S):** Diego, Alexandra, Claudio
 
 **SITE o APP A EVALUAR:** SkillSwap: Landing Page, aplicación nativa del Estudiante y aplicación Flutter del Verificador.
 
@@ -6960,7 +6978,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Information Architecture: Is it findable?
 * **Problema:** En `index.html` los dos botones de la barra de navegación están dentro de un enlace a `index.html`, por lo que desde la página de inicio no se llega a `login.html` ni a `signup.html`. Además, un botón dentro de un enlace es un elemento interactivo anidado, que los lectores de pantalla pueden anunciar dos veces.
 
-**Figura 165**
+**Figura 164**
 
 *Captura del problema #1*
 
@@ -6979,7 +6997,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Information Architecture: Is it usable?
 * **Problema:** Los cuatro llamados a la acción de la página (el del encabezado y los de las secciones «Sobre nosotros», «Por qué SkillSwap» y «Así se ve una ruta») enlazan a `index.html`, es decir, recargan la misma página, y la página no ofrece un enlace para descargar o instalar la aplicación (US44).
 
-**Figura 166**
+**Figura 165**
 
 *Captura del problema #2*
 
@@ -6998,7 +7016,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Ayuda para reconocer, diagnosticar y recuperarse de errores
 * **Problema:** La pantalla `Login` de la app nativa solo ofrece ingresar y crear una cuenta, y la de la app Flutter solo pide usuario y contraseña. Quien olvidó su contraseña no tiene cómo volver a entrar. El backend tampoco expone un endpoint de restablecimiento de contraseña.
 
-**Figura 167**
+**Figura 166**
 
 *Captura del problema #3*
 
@@ -7016,7 +7034,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Prevención de errores
 * **Problema:** En la pantalla de la ruta, «Salir» está junto a «Mi billetera» y ejecuta el cierre de sesión de inmediato. Un toque accidental borra la sesión guardada y obliga a volver a ingresar. En la app Flutter, el ícono de cerrar sesión de la pantalla de casos tampoco pide confirmación.
 
-**Figura 168**
+**Figura 167**
 
 *Captura del problema #4*
 
@@ -7034,7 +7052,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Information Architecture: Is it findable?
 * **Problema:** El botón de la ruta se llama «Mi billetera» y abre la pantalla del perfil, que además tiene los botones «Mi plan» y «Mis intereses». Quien busca su plan o sus intereses no sospecha que están bajo ese nombre.
 
-**Figura 169**
+**Figura 168**
 
 *Captura del problema #5*
 
@@ -7052,7 +7070,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Visibilidad del estado del sistema
 * **Problema:** Catorce pantallas muestran sus errores de red y sus confirmaciones con `Toast` (40 usos). Desaparecen en pocos segundos y no se pueden releer, por ejemplo si falla el envío del certificado o el registro. En la app Flutter, el inicio de sesión y las pantallas de revisión de casos, disponibilidad, reevaluación, supervisión y compartir un logro usan `SnackBar`, que también se cierra solo.
 
-**Figura 170**
+**Figura 169**
 
 *Captura del problema #6*
 
@@ -7070,7 +7088,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Inclusive Design: Offer choice
 * **Problema:** El tema de la app nativa y el de la app Flutter (`AppTheme.light()`) no ofrecen modo oscuro, por lo que las personas que lo prefieren, o lo necesitan por sensibilidad a la luz, no pueden cambiarlo.
 
-**Figura 171**
+**Figura 170**
 
 *Captura del problema #7*
 
@@ -7088,7 +7106,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Inclusive Design: Provide comparable experience
 * **Problema:** El Landing Page ofrece el cambio ES/EN, mientras que los textos de la aplicación están escritos en el código y el archivo `strings.xml` solo tiene una cadena, así que una persona que elige inglés en el sitio encuentra la aplicación solo en español. Las pantallas de la app Flutter también tienen sus textos escritos en español dentro del código.
 
-**Figura 172**
+**Figura 171**
 
 *Captura del problema #8*
 
@@ -7106,7 +7124,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Control y libertad del usuario
 * **Problema:** Si la cuenta no tiene el rol de Verificador, la pantalla de casos solo indica que debe completar un nodo en la app del Estudiante y habilitarse, y ofrece «Volver a revisar». La app Flutter no permite habilitarse y el segmento de Verificadores usa solo esa app, por lo que quien no tiene la cuenta ya habilitada no puede continuar.
 
-**Figura 173**
+**Figura 172**
 
 *Captura del problema #9*
 
@@ -7189,7 +7207,19 @@ El Problem Statement (1.2.2.1) plantea que los certificados informan que una per
 
 Las medidas de éxito del Problem Statement y de las hipótesis (70 % de evaluaciones completadas, 85 % de casos resueltos en 48 horas, menos del 3 % de decisiones revertidas, renovación mensual superior al 80 %) requieren uso sostenido de la plataforma. Con 3 a 5 entrevistas por segmento, las sesiones de 4.3 solo permiten comprobar si las personas entienden y completan las tareas, y si confían en la verificación; las medidas se obtienen después con las métricas de la plataforma (US40) cuando haya usuarios. Los supuestos sobre el comportamiento de los segmentos (1.2.2.2) se contrastan con los hallazgos de las entrevistas de descubrimiento (2.2.3) y se actualizan con las sesiones de validación.
 
-`[Completar con los resultados de las sesiones de 4.3.2: qué hipótesis se confirmaron, cuáles no y qué supuestos cambian.]`
+**Resultados de las sesiones con las personas que validan el conocimiento.** Las tres entrevistas de 4.3.2 (un estudiante de Ingeniería de Software, una estudiante de Enfermería y un contador con experiencia en auditoría interna) permiten contrastar las hipótesis H4, H5 y H6 y sus supuestos. Como los participantes vieron la aplicación en un video, sus respuestas muestran lo que esperan de cada función y no una medición de uso, de modo que los resultados son cualitativos y ninguna medida de éxito de la Tabla 37 puede darse por alcanzada con ellos.
+
+* **H4, habilitación y moderación del Verificador:** no hubo evidencia en contra. Los tres pidieron una rúbrica específica y un espacio obligatorio para dejar un feedback que explique dónde falló el trabajo, y los tres pidieron ver el historial completo (el entregable, la rúbrica llenada y la justificación) para reevaluar un resultado o suspender a un Verificador. Los tres señalaron el mismo riesgo: que alguien apruebe trabajos mediocres solo para ganar SkillCredits rápido, y coincidieron en que ese Verificador debe ser suspendido. Esto respalda la reevaluación y la suspensión como parte del proceso, pero no permite comprobar que menos del 3 % de las decisiones se revierta.
+* **H5, asignación automática:** se confirmó parcialmente. Los tres esperan que la asignación se base en su especialidad y que el sistema respete su disponibilidad, como plantea la hipótesis. Pidieron además dos cosas que la hipótesis no incluía: un botón para rechazar un caso que no dominan sin que les bajen puntos, y apagar la disponibilidad por completo en cualquier momento. La estudiante de Enfermería propuso que el caso se reasigne si no lo abre en 15 minutos, y los tres quieren un cronómetro visible y un recordatorio unas horas antes de que venza el plazo.
+* **H6, SkillCredits e historial:** los tres lo valoraron como un buen incentivo y nombraron beneficios concretos que les interesarían (licencias de software, saldo en la nube y descuentos en certificaciones; materiales de enfermería y acceso a revistas científicas; cursos de Power BI y de actualización tributaria). Los tres dijeron que confirmar el canje con la huella o el PIN les da seguridad, y los tres compartirían un logro verificado en LinkedIn, con un texto formal y un enlace que muestre la rúbrica o la validación estricta que se aplicó. Varios agregaron que su motivación no es solo el premio, sino ayudar a que otras personas puedan demostrar lo que saben. Esto es coherente con la hipótesis, aunque no mide que el 60 % de los Verificadores resuelva un caso al mes.
+
+**Supuestos que cambian** (1.2.2.2):
+
+* **Quién es el Verificador.** Se confirma que es un estudiante avanzado o un joven profesional dispuesto a revisar a cambio de reconocimiento, pero ya no solo del ámbito de la tecnología: dos de los tres vienen de Enfermería y de Contabilidad. Eso implica que los casos no se reducen a un enlace o un repositorio: pidieron ver videos de procedimientos, documentos en PDF, hojas de cálculo y asientos contables. Además, una de las participantes vive en Tarapoto, lo que cuestiona el supuesto de que los usuarios son de Lima Metropolitana.
+* **Qué mantiene activo al Verificador.** Los SkillCredits siguen siendo un incentivo válido, pero se suma la motivación de ayudar y de que la revisión sea justa, por lo que conviene que la reputación del Verificador considere la calidad de su feedback, y no solo la cantidad de casos resueltos.
+* **Cuánto control tiene sobre su tiempo.** El supuesto de que la asignación reduce el tiempo de respuesta se matiza: los Verificadores tienen horarios fragmentados (guardias, auditorías hasta la madrugada) y necesitan control inmediato sobre su disponibilidad y sobre los casos que aceptan.
+
+`[Completar con los resultados del segmento Personas que quieren aprender (H1, H2, H3 y H7) cuando se registren sus entrevistas en 4.3.2.]`
 
 ### Recomendaciones y próximos pasos
 
@@ -7209,11 +7239,13 @@ El video documenta la evaluación de la aplicación a través de la prueba con u
 * **URL en el OneDrive del docente:** `[URL]`
 * **Duración:** `[mm:ss]`
 
-**Figura 174**
+**Figura 173**
 
 *Cuadro del video App Validation*
 
-`[INSERTAR CAPTURA: cuadro representativo del video de validación]`
+<p align="center">
+  <img src="images-doc/video-app-validation.png" alt="Cuadro del video App Validation" width="900">
+</p>
 
 *Nota.* Elaboración propia.
 
@@ -7240,7 +7272,7 @@ El video está dirigido a quienes visitan el Landing Page y quieren conocer el m
 * **URL en YouTube (incrustado en el Landing Page):** [https://youtu.be/-XpgJySK29A](https://youtu.be/-XpgJySK29A)
 * **Duración:** 01:30
 
-**Figura 175**
+**Figura 174**
 
 *Cuadro del video About the Product*
 
@@ -7274,11 +7306,13 @@ El video resume el proceso de trabajo del equipo con escenas de sesiones de trab
 * **URL en YouTube (incrustado en el Landing Page):** `[URL]`
 * **Duración:** `[mm:ss]`
 
-**Figura 176**
+**Figura 175**
 
 *Cuadro del video About the Team*
 
-`[INSERTAR CAPTURA: cuadro representativo del video About the Team]`
+<p align="center">
+  <img src="images-doc/video-about-team.png" alt="Cuadro del video About the Team" width="900">
+</p>
 
 *Nota.* Elaboración propia.
 
@@ -7628,35 +7662,34 @@ Figura 144. *Consulta de la ruta sin conexión*<br>
 Figura 145. *Quiz con respuestas conservadas ante la pérdida de conexión*<br>
 Figura 146. *Resultado del quiz con el sub-tema débil*<br>
 Figura 147. *Entrega de un miniproyecto*<br>
-Figura 148. *Herramientas del Verificador en la aplicación Flutter*<br>
+Figura 148. *Pantalla principal del Verificador en la aplicación Flutter*<br>
 Figura 149. *Acceso con biometría del dispositivo*<br>
-Figura 150. *Programación y entrega de la demostración final*<br>
-Figura 151. *Documentación Swagger de los endpoints del Sprint 2*<br>
-Figura 152. *Instancia EC2 del backend en AWS*<br>
-Figura 153. *Swagger UI del backend en AWS*<br>
-Figura 154. *Versión 1.0 de la app nativa publicada en Firebase App Distribution*<br>
-Figura 155. *Correo de invitación de Firebase App Distribution*<br>
-Figura 156. *App nativa del Estudiante instalada en un dispositivo físico*<br>
-Figura 157. *Landing Page publicado y verificado en el Sprint 2*<br>
-Figura 158. *Historial de commits de los repositorios durante el Sprint 2*<br>
-Figura 159. *Entrevista de validación 1: Personas que quieren aprender*<br>
-Figura 160. *Entrevista de validación 2: Personas que quieren aprender*<br>
-Figura 161. *Entrevista de validación 3: Personas que quieren aprender*<br>
-Figura 162. *Entrevista de validación 1: Personas que validan el conocimiento*<br>
-Figura 163. *Entrevista de validación 2: Personas que validan el conocimiento*<br>
-Figura 164. *Entrevista de validación 3: Personas que validan el conocimiento*<br>
-Figura 165. *Captura del problema #1*<br>
-Figura 166. *Captura del problema #2*<br>
-Figura 167. *Captura del problema #3*<br>
-Figura 168. *Captura del problema #4*<br>
-Figura 169. *Captura del problema #5*<br>
-Figura 170. *Captura del problema #6*<br>
-Figura 171. *Captura del problema #7*<br>
-Figura 172. *Captura del problema #8*<br>
-Figura 173. *Captura del problema #9*<br>
-Figura 174. *Cuadro del video App Validation*<br>
-Figura 175. *Cuadro del video About the Product*<br>
-Figura 176. *Cuadro del video About the Team*<br>
+Figura 150. *Documentación Swagger de los endpoints del Sprint 2*<br>
+Figura 151. *Instancia EC2 del backend en AWS*<br>
+Figura 152. *Swagger UI del backend en AWS*<br>
+Figura 153. *Versión 1.0 de la app nativa publicada en Firebase App Distribution*<br>
+Figura 154. *Correo de invitación de Firebase App Distribution*<br>
+Figura 155. *App nativa del Estudiante instalada en un dispositivo físico*<br>
+Figura 156. *Landing Page publicado y verificado en el Sprint 2*<br>
+Figura 157. *Historial de commits de los repositorios durante el Sprint 2*<br>
+Figura 158. *Entrevista de validación 1: Personas que quieren aprender*<br>
+Figura 159. *Entrevista de validación 2: Personas que quieren aprender*<br>
+Figura 160. *Entrevista de validación 3: Personas que quieren aprender*<br>
+Figura 161. *Entrevista de validación 1: Personas que validan el conocimiento*<br>
+Figura 162. *Entrevista de validación 2: Personas que validan el conocimiento*<br>
+Figura 163. *Entrevista de validación 3: Personas que validan el conocimiento*<br>
+Figura 164. *Captura del problema #1*<br>
+Figura 165. *Captura del problema #2*<br>
+Figura 166. *Captura del problema #3*<br>
+Figura 167. *Captura del problema #4*<br>
+Figura 168. *Captura del problema #5*<br>
+Figura 169. *Captura del problema #6*<br>
+Figura 170. *Captura del problema #7*<br>
+Figura 171. *Captura del problema #8*<br>
+Figura 172. *Captura del problema #9*<br>
+Figura 173. *Cuadro del video App Validation*<br>
+Figura 174. *Cuadro del video About the Product*<br>
+Figura 175. *Cuadro del video About the Team*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
