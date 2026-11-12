@@ -6791,11 +6791,11 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Perfil:** Estudiante de Ingeniería de Sistemas
 * **Tipo de entrevista:** Simulada (personaje elaborado por el equipo)
 * **Segmento objetivo:** Personas que quieren aprender
-* **Fecha:** `[dd/mm/aaaa]`
+* **Fecha:** 12/11/2026
 * **Productos usados:** Landing Page y aplicación nativa
-* **URL del video (OneDrive):** `[URL]`
+* **URL del video (YouTube):** [Link del video](https://www.youtube.com/watch?v=wVLtsU3ZKwQ)
 * **Inicio de la entrevista en el video:** 00:00:00
-* **Duración:** `[mm:ss]`
+* **Duración:** 6:37
 
 **Figura 158**
 
@@ -6818,11 +6818,11 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Perfil:** Estudiante de Administración
 * **Tipo de entrevista:** Simulada (personaje elaborado por el equipo)
 * **Segmento objetivo:** Personas que quieren aprender
-* **Fecha:** `[dd/mm/aaaa]`
+* **Fecha:** 12/11/2026
 * **Productos usados:** Landing Page y aplicación nativa
-* **URL del video (OneDrive):** `[URL]`
+* **URL del video (YouTube):** [Link del video](https://www.youtube.com/watch?v=n53WUVagpE4)
 * **Inicio de la entrevista en el video:** 00:00:00
-* **Duración:** `[mm:ss]`
+* **Duración:** 7:53
 
 **Figura 159**
 
@@ -6845,11 +6845,11 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Perfil:** Estudiante de Ingeniería de Gestión Empresarial
 * **Tipo de entrevista:** Simulada (personaje elaborado por el equipo)
 * **Segmento objetivo:** Personas que quieren aprender
-* **Fecha:** `[dd/mm/aaaa]`
+* **Fecha:** 07/11/2026
 * **Productos usados:** Landing Page y aplicación nativa
-* **URL del video (OneDrive):** `[URL]`
+* **URL del video (YouTube):** [Link del video](https://www.youtube.com/watch?v=6pSZT_vAOX4)
 * **Inicio de la entrevista en el video:** 00:00:00
-* **Duración:** `[mm:ss]`
+* **Duración:** 5:04
 
 **Figura 160**
 
