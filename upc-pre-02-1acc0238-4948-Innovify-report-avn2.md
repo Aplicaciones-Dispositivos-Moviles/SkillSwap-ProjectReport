@@ -6790,7 +6790,6 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Distrito:** Surco
 * **Perfil:** Estudiante de Ingeniería de Sistemas
 * **Tipo de entrevista:** Simulada (personaje elaborado por el equipo)
-* **Interpretada por:** Mariana Sheyla Herrera Buitron
 * **Segmento objetivo:** Personas que quieren aprender
 * **Fecha:** 12/11/2026
 * **Productos usados:** Landing Page y aplicación nativa
@@ -6818,7 +6817,6 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Distrito:** San Miguel
 * **Perfil:** Estudiante de Administración
 * **Tipo de entrevista:** Simulada (personaje elaborado por el equipo)
-* **Interpretada por:** `[nombre de quien interpreta a Marco]`
 * **Segmento objetivo:** Personas que quieren aprender
 * **Fecha:** 12/11/2026
 * **Productos usados:** Landing Page y aplicación nativa
@@ -6846,7 +6844,6 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Distrito:** Jesús María
 * **Perfil:** Estudiante de Ingeniería de Gestión Empresarial
 * **Tipo de entrevista:** Simulada (personaje elaborado por el equipo)
-* **Interpretada por:** Mireya Perales Rodríguez
 * **Segmento objetivo:** Personas que quieren aprender
 * **Fecha:** 07/11/2026
 * **Productos usados:** Landing Page y aplicación nativa
