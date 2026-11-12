@@ -153,7 +153,7 @@ Durante el desarrollo de la entrega AV2, el equipo mantiene el esquema de colabo
 
 * **Alberca Saavedra, Víctor Manuel (22 commits, PR #90 a #92, #96 a #106 y #108):** corrección del Deployment Diagram y de los diagramas de Contexto y Contenedores por actor; definición del rol del Verificador en 1.1.1 y tienda de cuatro beneficios; papers Q1/Q2 en la Bibliografía; Sprint Planning 2, matriz de líderes y colaboradores, Sprint Backlog 2 y evidencias del Sprint Review (commits, pruebas, endpoints y capturas) de la app nativa, de la app Flutter y del Landing Page; distribución con Firebase App Distribution y traslado del backend a AWS en 4.2.2.8; sección 4.3 Validation Interviews con la evaluación heurística; Conclusiones con las secciones de los tres videos; y, en la versión v.12.AV2 (PR #108), las tres entrevistas del segmento de Verificadores en 4.3.2, sus resultados en Conclusiones, las descripciones de las figuras del Sprint 2 y las capturas de AWS, del Swagger UI, del Sprint Planning 2 y de los videos.
 * **Komatsu Dueñas, David (16 commits, PR #93 a #95 y #107, y los commits de la versión v.13.AV2):** evaluación preliminar del miniproyecto con IA (T56) en el Sprint 2, con sus commits, endpoint y tasks (T54 y T56 en Done) y la corrección de la precisión de los instantes en las evidencias de pruebas (PR #93 a #95, 4 commits); en la versión v.11.AV2 (PR #107, 12 commits), las correcciones de revisión del AV2 descritas en el Registro de Versiones; y en la versión v.13.AV2, la sincronización de las evidencias del Sprint 2 con los repositorios y los despliegues al 11 de noviembre de 2026.
-* **Becerra Ninahuanca, Luis Angel (0 commits en el repositorio del informe en el período):** sus aportes del Sprint 2 son de código y se detallan en 4.2.2.9. `[Por confirmar con el integrante: aportes al informe del AV2.]`
+* **Becerra Ninahuanca, Luis Angel (0 commits en el repositorio del informe en el período):** sus aportes del Sprint 2 son de código y se detallan en 4.2.2.9. Después de la fecha de corte registró en 4.3.2 las tres entrevistas del segmento Personas que quieren aprender (PR #113).
 * **Lopez Montalvo, Kevin Edu (0 commits en el repositorio del informe en el período):** `[Por confirmar con el integrante: aportes al informe del AV2.]`
 * **Sulca Sánchez, Piero Angel (0 commits en el repositorio del informe en el período):** `[Por confirmar con el integrante: aportes al informe del AV2.]`
 
@@ -6876,9 +6876,9 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con personas 
 * **Segmento objetivo:** Personas que validan el conocimiento
 * **Fecha:** 07/11/2026
 * **Productos usados:** Landing Page y aplicación Flutter del Verificador (mostrada en un video)
-* **URL del video (OneDrive):** `[URL]`
+* **URL del video (OneDrive):** [Link del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201924127_upc_edu_pe/IQDyHOHLyq_QTp9SCUjGRdOjATuB0DxIVRHfo_Itv8gd-Ok?e=3JqVGV&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 * **Inicio de la entrevista en el video:** 00:00:00
-* **Duración:** 5:10
+* **Duración:** 7:56
 
 **Figura 161**
 
@@ -7247,7 +7247,18 @@ Las medidas de éxito del Problem Statement y de las hipótesis (70 % de evaluac
 * **Qué mantiene activo al Verificador.** Los SkillCredits siguen siendo un incentivo válido, pero se suma la motivación de ayudar y de que la revisión sea justa, por lo que conviene que la reputación del Verificador considere la calidad de su feedback, y no solo la cantidad de casos resueltos.
 * **Cuánto control tiene sobre su tiempo.** El supuesto de que la asignación reduce el tiempo de respuesta se matiza: los Verificadores tienen horarios fragmentados (guardias, auditorías hasta la madrugada) y necesitan control inmediato sobre su disponibilidad y sobre los casos que aceptan.
 
-`[Completar con los resultados del segmento Personas que quieren aprender (H1, H2, H3 y H7) cuando se registren sus entrevistas en 4.3.2.]`
+**Resultados de las sesiones con las personas que quieren aprender.** Las tres entrevistas de 4.3.2 (estudiantes de Ingeniería de Sistemas, Administración e Ingeniería de Gestión Empresarial) se hicieron con personajes elaborados por el equipo, como se indica en ese apartado, de modo que sus respuestas no corresponden a usuarios reales. Por eso sirven para revisar si los flujos y los mensajes que diseñamos se entienden como esperábamos, y no para confirmar ni descartar ninguna de las hipótesis H1, H2, H3 y H7. Estas deben contrastarse con usuarios reales y con las métricas de la plataforma (US40).
+
+* **H1, ruta estructurada por objetivo:** en las tres sesiones la ruta propuesta fue coherente con la meta declarada (SQL y Python para «analista de datos», análisis de datos con Excel para «analista de gestión») y dejó claro por dónde empezar. Con «marketing digital», en cambio, la aplicación propuso analítica de marketing cuando el participante esperaba redes sociales. En las tres sesiones el quiz conservó las respuestas al perder la conexión. Mariana pidió ver el tiempo aproximado de cada nodo. Sobre la suscripción, los tres pagarían hasta 20 soles al mes, y uno de ellos menos de 15. La renovación mensual superior al 80 % no puede evaluarse con estas sesiones.
+* **H2, registro asistido con OCR:** los tres completaron el registro del certificado, pero los tres tuvieron que corregir al menos un dato: el logo tapó el nombre de la institución en un certificado de Scrum, un certificado con fondo oscuro no se leyó y el participante escribió el nombre del curso, y una fecha en inglés se leyó mal. Las correcciones se hicieron sin dificultad antes de guardar, y valoraron que la aplicación confirmara que el certificado correspondía a la habilidad del nodo. Surgió la sugerencia de indicar que la foto se tome con buena luz.
+* **H3, evaluación aplicada:** dos de los tres quizzes quedaron por debajo del mínimo (dos y tres respuestas correctas de cinco) y uno lo aprobó con cuatro. En los tres casos la aplicación mostró el sub-tema a reforzar; una participante lo valoró, otro pidió un mensaje más motivador al no aprobar y otra pidió recomendaciones de dónde estudiarlo. En el miniproyecto los tres dudaron del formato de la entrega (repositorio público de GitHub o enlace de Google Drive) y de cuánto tarda la revisión. Esto no permite estimar el porcentaje de intentos que requiere un Verificador.
+* **H7, apelación:** ninguna sesión incluyó una apelación ni la carga de evidencia adicional, por lo que esta hipótesis no se contrastó. La única señal es que, ante un caso pendiente, los participantes no sabían cuánto tardaría la respuesta ni si recibirían una notificación.
+
+**Supuestos que cambian** (1.2.2.2), a partir de las mismas sesiones y con la misma salvedad:
+
+* **Quiénes son los Estudiantes.** Dos de los tres participantes no estudian una carrera de tecnología, y uno de ellos pidió más rutas para carreras que no son de tecnología. Conviene ampliar el catálogo de rutas más allá del perfil de software.
+* **Qué entienden del plan.** Los tres participantes no entendieron el término «escalamiento» del plan, y uno de ellos tuvo que leer dos veces los planes por los términos nuevos. El texto del plan debe reformularse con palabras que el Estudiante use.
+* **Qué esperan de la entrega y de la espera.** Piden saber el formato válido del miniproyecto, la duración máxima del video de la demostración, una barra de progreso al subir archivos con datos móviles y un tiempo estimado de revisión. Esto supone mostrar esos datos en las pantallas correspondientes.
 
 ### Recomendaciones y próximos pasos
 
