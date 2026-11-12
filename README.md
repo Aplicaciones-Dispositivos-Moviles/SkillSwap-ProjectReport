@@ -14,20 +14,20 @@ Informe de Trabajo Final del curso **1ACC0238 Aplicaciones para Dispositivos Mó
 
 ## Informe
 
-Este `README.md` es el archivo principal del repositorio. El contenido completo del informe, con la carátula, está en [`upc-pre-02-1acc0238-4948-Innovify-report-avn1.md`](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md), a partir del cual se genera el PDF de cada entrega (AV1, TB1, AV2 y TB2). Las imágenes están en `images-doc/` y `public/assets/images-doc/`, y las fuentes PlantUML de los diagramas C4, de clases, de base de datos y del Context Mapping en `DB&C4/`.
+Este `README.md` es el archivo principal del repositorio. El contenido completo del informe, con la carátula, está en [`upc-pre-02-1acc0238-4948-Innovify-report-avn2.md`](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md), a partir del cual se genera el PDF de cada entrega (AV1, TB1, AV2 y TB2). Las imágenes están en `images-doc/` y `public/assets/images-doc/`, y las fuentes PlantUML de los diagramas C4, de clases, de base de datos y del Context Mapping en `DB&C4/`.
 
-- [Registro de Versiones del Informe](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md#registro-de-versiones-del-informe)
-- [Project Report Collaboration Insights](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md#project-report-collaboration-insights)
-- [Student Outcome](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md#student-outcome)
-- [Objetivos SMART](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md#objetivos-smart)
-- [Capítulo I: Presentación](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md#capítulo-i-presentación)
-- [Capítulo II: Requirements Development and Software Solution Design](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md#capítulo-ii-requirements-development-and-software-solution-design)
-- [Capítulo III: Solution UI/UX Design](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md#capítulo-iii-solution-uiux-design)
-- [Capítulo IV: Product Implementation & Validation](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md#capítulo-iv-product-implementation--validation)
-- [Conclusiones](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md#conclusiones)
-- [Glosario](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md#glosario)
-- [Bibliografía](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md#bibliografía)
-- [Anexos](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md#anexos)
+- [Registro de Versiones del Informe](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md#registro-de-versiones-del-informe)
+- [Project Report Collaboration Insights](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md#project-report-collaboration-insights)
+- [Student Outcome](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md#student-outcome)
+- [Objetivos SMART](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md#objetivos-smart)
+- [Capítulo I: Presentación](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md#capítulo-i-presentación)
+- [Capítulo II: Requirements Development and Software Solution Design](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md#capítulo-ii-requirements-development-and-software-solution-design)
+- [Capítulo III: Solution UI/UX Design](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md#capítulo-iii-solution-uiux-design)
+- [Capítulo IV: Product Implementation & Validation](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md#capítulo-iv-product-implementation--validation)
+- [Conclusiones](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md#conclusiones)
+- [Glosario](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md#glosario)
+- [Bibliografía](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md#bibliografía)
+- [Anexos](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md#anexos)
 
 ## Repositorios de la solución
 
@@ -42,4 +42,4 @@ Este `README.md` es el archivo principal del repositorio. El contenido completo 
 
 - GitFlow: el trabajo se hace en ramas `feature/report-<tema>` creadas desde `develop` y se integra mediante Pull Requests hacia `develop`; `main` recibe `develop` en cada entrega.
 - Conventional Commits con el tipo `docs` (por ejemplo, `docs(report): ...`).
-- Cada cambio relevante se registra en el [Registro de Versiones del Informe](upc-pre-02-1acc0238-4948-Innovify-report-avn1.md#registro-de-versiones-del-informe).
+- Cada cambio relevante se registra en el [Registro de Versiones del Informe](upc-pre-02-1acc0238-4948-Innovify-report-avn2.md#registro-de-versiones-del-informe).
