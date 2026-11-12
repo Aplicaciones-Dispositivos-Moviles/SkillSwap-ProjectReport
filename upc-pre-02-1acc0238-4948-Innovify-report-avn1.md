@@ -6779,76 +6779,88 @@ Para cada segmento se registran de 3 a 5 entrevistas. De cada una se indican los
 
 #### Segmento objetivo #1: Personas que quieren aprender
 
-Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiantes universitarios o egresados recientes, que usan el Landing Page y la aplicación nativa. Cada entrevista se graba en video, se sube al OneDrive del docente y se resume aquí; los tres registros siguientes son el mínimo requerido y se agregan hasta dos más si se realizan.
+Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiantes universitarios o egresados recientes, que usan el Landing Page y la aplicación nativa. Por falta de tiempo para reclutar participantes, las tres entrevistas de este segmento son simuladas: los participantes son personajes elaborados por el equipo a partir de la investigación de 2.2, interpretados por conocidos del equipo, y sus respuestas no corresponden a usuarios reales.
 
 **Entrevista 1**
 
-* **Nombres:** `[nombres]`
-* **Apellidos:** `[apellidos]`
-* **Edad:** `[edad]`
-* **Distrito:** `[distrito]`
+* **Nombres:** Mariana
+* **Apellidos:** Salazar
+* **Edad:** 21
+* **Distrito:** Surco
+* **Perfil:** Estudiante de Ingeniería de Sistemas
+* **Tipo de entrevista:** Simulada (personaje elaborado por el equipo)
 * **Segmento objetivo:** Personas que quieren aprender
 * **Fecha:** `[dd/mm/aaaa]`
 * **Productos usados:** Landing Page y aplicación nativa
 * **URL del video (OneDrive):** `[URL]`
-* **Inicio de la entrevista en el video:** `[hh:mm:ss]`
+* **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** `[mm:ss]`
 
 **Figura 158**
 
 *Entrevista de validación 1: Personas que quieren aprender*
 
-`[INSERTAR CAPTURA: cuadro del video de la entrevista 1]`
+<p align="center">
+  <img src="images-doc/entrevista-aprender-1.png" alt="Entrevista de validación 1: Mariana" width="900">
+</p>
 
 *Nota.* Elaboración propia.
 
-*Resumen.* `[Redactar de forma descriptiva las principales apreciaciones del entrevistado sobre cada tarea asignada (Tabla 34): qué le resultó claro, qué le costó, qué comentó sobre la confianza en la verificación y qué cambiaría.]`
+*Resumen.* Mariana Salazar, de 21 años, estudia Ingeniería de Sistemas y tiene certificados de Python y SQL en Coursera y uno de Scrum en LinkedIn Learning. Contó que en una prueba técnica de prácticas no pudo resolver algunas consultas SQL aunque tenía el certificado, y que ahí entendió que el certificado no garantiza saber aplicarlo.<br><br>**Landing Page (E1).** Entendió que SkillSwap comprueba lo que dicen sus certificados y valoró que parta de lo que ya estudió. Encontró rápido cómo empezar, pero sugirió un acceso directo a las preguntas frecuentes.<br><br>**Registro, plan y acceso biométrico (E2).** Al usar su correo personal, el mensaje le indicó que debía usar el de la universidad. No entendió qué es un «escalamiento» en el plan. El ingreso con huella le pareció práctico.<br><br>**Meta y ruta (E3).** Para la meta «analista de datos» la aplicación le propuso SQL y Python, lo que le pareció acertado. Pidió ver el tiempo aproximado de cada nodo.<br><br>**Certificado con la cámara (E4).** El certificado de SQL se leyó completo; en el de Scrum el logo tapó el nombre de la institución y lo corrigió sin dificultad. Destacó que la aplicación confirmara que el certificado correspondía a la habilidad del nodo.<br><br>**Sin conexión y quiz (E5 y E6).** Vio el aviso de sin conexión y su respuesta del quiz se conservó. Aprobó con cuatro de cinco y valoró que igual le mostrara el sub-tema fallado («JOIN entre tablas»).<br><br>**Miniproyecto (E7).** Entregó un repositorio de GitHub, pero dudó si debía ser público. No supo cuánto tardaría la revisión ni si recibiría una notificación.<br><br>**Demostración final (E8).** La programó sin problemas; no sabía la duración máxima del video.<br><br>**Cierre.** Pondría la credencial en LinkedIn y pagaría entre 15 y 20 soles al mes mientras se prepara para prácticas. Calificó con 4 la probabilidad de usarla y con 5 la de recomendarla.
 
 **Entrevista 2**
 
-* **Nombres:** `[nombres]`
-* **Apellidos:** `[apellidos]`
-* **Edad:** `[edad]`
-* **Distrito:** `[distrito]`
+* **Nombres:** Marco
+* **Apellidos:** Paredes
+* **Edad:** 22
+* **Distrito:** San Miguel
+* **Perfil:** Estudiante de Administración
+* **Tipo de entrevista:** Simulada (personaje elaborado por el equipo)
 * **Segmento objetivo:** Personas que quieren aprender
 * **Fecha:** `[dd/mm/aaaa]`
 * **Productos usados:** Landing Page y aplicación nativa
 * **URL del video (OneDrive):** `[URL]`
-* **Inicio de la entrevista en el video:** `[hh:mm:ss]`
+* **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** `[mm:ss]`
 
 **Figura 159**
 
 *Entrevista de validación 2: Personas que quieren aprender*
 
-`[INSERTAR CAPTURA: cuadro del video de la entrevista 2]`
+<p align="center">
+  <img src="images-doc/entrevista-aprender-2.png" alt="Entrevista de validación 2: Marco" width="900">
+</p>
 
 *Nota.* Elaboración propia.
 
-*Resumen.* `[Redactar de forma descriptiva las principales apreciaciones del entrevistado sobre cada tarea asignada (Tabla 34): qué le resultó claro, qué le costó, qué comentó sobre la confianza en la verificación y qué cambiaría.]`
+*Resumen.* Marco Paredes, de 22 años, estudia Administración y tiene certificados de marketing digital (Google Actívate) y de Excel intermedio (Udemy). En una entrevista no supo explicar cómo armaría una campaña con poco presupuesto, aunque había hecho el curso.<br><br>**Landing Page (E1).** Entendió la propuesta gracias a la sección de cómo funciona. Tuvo que leer dos veces los planes por los términos nuevos.<br><br>**Registro, plan y acceso biométrico (E2).** El registro le resultó fácil, pero no entendió «escalamientos al mes». Buscó el ingreso con huella en el inicio de sesión antes de encontrarlo en el perfil.<br><br>**Meta y ruta (E3).** Para «marketing digital» la aplicación le propuso analítica de marketing; esperaba algo de redes sociales, aunque la explicación y la ruta por pasos le resultaron claras.<br><br>**Certificado con la cámara (E4).** El certificado de Google se leyó bien; el de Udemy, con fondo oscuro, no, y tuvo que escribir el nombre del curso. Sugirió indicar que la foto se tome con buena luz.<br><br>**Sin conexión y quiz (E5 y E6).** No perdió respuestas, aunque no notó cuándo volvió la conexión. Obtuvo dos de cinco y entendió que debía reforzar «métricas de conversión»; pidió un mensaje más motivador al no aprobar.<br><br>**Miniproyecto (E7).** Como no usa GitHub, entregó un enlace de Google Drive sin saber si era válido. No supo cuánto demora la revisión.<br><br>**Demostración final (E8).** Eligió el examen supervisado y subió el video, sin saber cuánto debía durar.<br><br>**Cierre.** Considera que la credencial vale más que el certificado en su carrera; pagaría menos de 15 soles al mes. Pidió más rutas para carreras que no son de tecnología. Calificó con 3 la probabilidad de usarla y con 4 la de recomendarla.
 
 **Entrevista 3**
 
-* **Nombres:** `[nombres]`
-* **Apellidos:** `[apellidos]`
-* **Edad:** `[edad]`
-* **Distrito:** `[distrito]`
+* **Nombres:** Camila
+* **Apellidos:** Ríos
+* **Edad:** 21
+* **Distrito:** Jesús María
+* **Perfil:** Estudiante de Ingeniería de Gestión Empresarial
+* **Tipo de entrevista:** Simulada (personaje elaborado por el equipo)
 * **Segmento objetivo:** Personas que quieren aprender
 * **Fecha:** `[dd/mm/aaaa]`
 * **Productos usados:** Landing Page y aplicación nativa
 * **URL del video (OneDrive):** `[URL]`
-* **Inicio de la entrevista en el video:** `[hh:mm:ss]`
+* **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** `[mm:ss]`
 
 **Figura 160**
 
 *Entrevista de validación 3: Personas que quieren aprender*
 
-`[INSERTAR CAPTURA: cuadro del video de la entrevista 3]`
+<p align="center">
+  <img src="images-doc/entrevista-aprender-3.png" alt="Entrevista de validación 3: Camila" width="900">
+</p>
 
 *Nota.* Elaboración propia.
 
-*Resumen.* `[Redactar de forma descriptiva las principales apreciaciones del entrevistado sobre cada tarea asignada (Tabla 34): qué le resultó claro, qué le costó, qué comentó sobre la confianza en la verificación y qué cambiaría.]`
+*Resumen.* Camila Ríos, de 21 años, estudia Ingeniería de Gestión Empresarial y tiene certificados de Excel avanzado (Coursera) y Power BI (Platzi). En su entrevista de prácticas le pidieron resolver un caso en Excel, y notó que el certificado solo indicaba que había terminado el curso.<br><br>**Landing Page (E1).** Entendió que SkillSwap valida en la práctica los certificados que ya tiene. Pidió ver un ejemplo de la credencial final antes de registrarse.<br><br>**Registro, plan y acceso biométrico (E2).** El registro fue rápido, pero no entendió qué es un «escalamiento». Activó el ingreso con huella y le pareció más rápido que la contraseña.<br><br>**Meta y ruta (E3).** Para «analista de gestión» la aplicación le propuso análisis de datos con Excel, con su justificación; la ruta le dejó claro por dónde empezar.<br><br>**Certificado con la cámara (E4).** La fecha en inglés se leyó mal y la corrigió antes de guardar; el resto de datos fue correcto y le ahorró tiempo.<br><br>**Sin conexión y quiz (E5 y E6).** Siguió viendo su ruta sin conexión y el quiz continuó donde lo dejó. Obtuvo tres de cinco y entendió que debía reforzar «tablas dinámicas»; pidió recomendaciones de dónde estudiarlo.<br><br>**Miniproyecto (E7).** El enunciado le resultó claro, pero no sabía si el enlace debía ser de Drive o de GitHub. Vio el caso como pendiente y pidió un tiempo aproximado de respuesta.<br><br>**Demostración final (E8).** Programarla fue sencillo; el video tardó en subir con datos móviles y pidió una barra de progreso.<br><br>**Cierre.** Pondría la credencial en LinkedIn y en su CV, y pagaría menos de 20 soles al mes. Calificó con 4 tanto la probabilidad de usarla como la de recomendarla.
 
 #### Segmento objetivo #2: Personas que validan el conocimiento
 
