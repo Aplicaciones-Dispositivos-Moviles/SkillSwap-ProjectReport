@@ -78,6 +78,7 @@ Noviembre 2026
 | **v.11.AV2** | 09/11/2026 | Komatsu Dueñas, David | Se corrigieron los siguientes tópicos a partir de la revisión del informe para el AV2, contrastándolo con los repositorios:<br><br>**Carátula** (mes de la entrega: noviembre de 2026)<br>**Project Report Collaboration Insights** (AV2 con los commits y Pull Requests reales del repositorio del informe entre el 10 de octubre y el 9 de noviembre de 2026) y **Contenido** (entrada AV2)<br>**Student Outcome** (acciones de AV2 de Komatsu Dueñas, David en las tasks T45, T50, T51, T56 y T70, y conclusiones grupales de AV2)<br><br>**Capítulo I:** 1.1.1 (evaluación entre pares, con cita) y 1.2.1 (microcredenciales y contenido generado con IA, con citas)<br>**Capítulo II:** 2.4.1, 2.4.2, 2.5.1 y 2.5.3 (citas de los métodos aplicados); 2.4.3 Product Backlog (columna Sprint con las 13 historias del Sprint 2 y retiro de una fila de la evaluación heurística que estaba en la Tabla 10); 2.5.3 (texto de los diagramas de Contexto, Contenedores y Despliegue con un actor por aplicación)<br>**Capítulo IV:** 4.1.2 (citas de GitFlow, Semantic Versioning y Conventional Commits, y del desarrollo multiplataforma); 4.1.3 (guía de estilo de Dart / Flutter); 4.1.4 y 4.2.2.8 (versión 1.2 de la app nativa, que consume el backend en AWS, y app Flutter todavía configurada con la URL de Render, en la Tabla 33 y el Anexo A, y nota de la Figura 152 con el estado del Swagger UI en AWS al 9 de noviembre de 2026); 4.2.2.4 (commits de los PR #21 a #23 de la app nativa, de la base de la app Flutter y del PR #11 del Landing Page en la Tabla 29); 4.2.2.5 (todas las pruebas unitarias de la app nativa en la Tabla 30 y su nota); 4.2.2.9 Team Collaboration Insights (commits y Pull Requests por integrante y repositorio); 4.3.3 (problema #9 en la Tabla 36 y recomendaciones de los problemas #7 y #8 para las dos aplicaciones)<br><br>**Conclusiones** (recomendación 7 de accesibilidad, con cita)<br>**Bibliografía** (Alasmari, 2024, y Grévisse et al., 2024, trasladados desde los Anexos; volumen, número y páginas o número de artículo de los papers; Nguyen et al. con el año de su número, 2026; y el paper de Rabelo et al., 2026, sobre la accesibilidad de interfaces nativas de Android con Jetpack Compose) y **Anexo C** (estado del video About the Product)<br><br>Se agregó el archivo `README.md` como archivo principal del repositorio, con enlaces a cada sección del informe y a los repositorios de la solución. |
 | **v.12.AV2** | 10/11/2026 | Alberca Saavedra, Víctor Manuel | Se registraron las tres entrevistas de validación del segmento Personas que validan el conocimiento en 4.3.2 (Figuras 161 a 163) con su perfil, sus datos y el resumen descriptivo por tarea, y se ajustaron 4.3.1 y la Tabla 34 a la forma de esas sesiones, en las que se mostró el Landing Page y un video de la aplicación. |
 | **v.13.AV2** | 11/11/2026 | Komatsu Dueñas, David | Se sincronizaron las evidencias del Sprint 2 con los repositorios y los despliegues al 11 de noviembre de 2026:<br><br>**Project Report Collaboration Insights** (AV2 con los commits y Pull Requests del repositorio del informe hasta el PR #108)<br><br>**Capítulo II:** 2.5.3.3 Software Architecture Deployment Diagrams (Deployment Diagram regenerado con la arquitectura real en AWS: instancia EC2 con Docker Compose y los contenedores de Caddy, la API y PostgreSQL 16, la distribución de cada aplicación y los servicios externos del backend, sin Render; texto de la sección y notas de las Figuras 74 y 122)<br><br>**Capítulo IV:** 4.1.4 (app Flutter apuntando al backend en AWS y versión 1.2 de la app nativa publicada en Firebase App Distribution); 4.2.2.4 (commits de los PR #37 y #38 del backend, del PR #7 de la app Flutter y del PR #13 del Landing Page en la Tabla 29, con su autoría); 4.2.2.5 (pruebas de los PR #37 y #38 en la Tabla 30 y resultados de `./mvnw test` sin Docker, `./gradlew testDebugUnitTest` y `flutter test` sobre `develop`); 4.2.2.7 (`GET /api/v1/reevaluations/candidates` en la Tabla 31); 4.2.2.8 (clientes y actualización del servidor en AWS, nota de la Figura 152 con la especificación OpenAPI publicada, Tabla 33, nota de la Figura 153 y estado de publicación del Landing Page con el inglés por defecto del PR #13); 4.2.2.9 Team Collaboration Insights (commits y Pull Requests por integrante y repositorio hasta el 11 de noviembre de 2026)<br><br>**Anexo A** (app Flutter y enlace de Firebase App Distribution), **Anexo B** (fila del AV2: no se presenta video de exposición, por indicación del docente) y **Anexo C** (estado del video de las entrevistas de validación) |
+| **v.14.AV2** | 11/11/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron las capturas de la reunión de Sprint Planning 2, de la instancia EC2 y del Swagger en AWS, y las de 4.2.2.6 (resultado del quiz y pantalla principal del Verificador), con una descripción para cada figura de 4.2.2.6; se completaron en 4.3.2 los resultados de las sesiones con las personas que validan el conocimiento (hipótesis H4, H5 y H6 y supuestos que cambian) y se registró el cuadro de la entrevista 1; se eliminó la Figura 150 (programación de la demostración final) y se retiró la sección Video App Validation, con su pauta y su cuadro, renumerando las figuras y tablas siguientes. |
 
 <div style="page-break-after: always;"></div>
 
@@ -242,7 +243,6 @@ Durante el desarrollo de la entrega AV2, el equipo mantiene el esquema de colabo
     - [4.3.3. Evaluaciones según Heurísticas](#433-evaluaciones-según-heurísticas)
 - [Conclusiones](#conclusiones)
     - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
-    - [Video App Validation](#video-app-validation)
     - [Video About the product](#video-about-the-product)
     - [Video About the team](#video-about-the-team)
 - [Glosario](#glosario)
@@ -6386,7 +6386,7 @@ Se presentan las pruebas unitarias y de integración que cubren las historias de
 
 #### 4.2.2.6. Execution Evidence for Sprint Review
 
-Esta sección presenta las vistas principales implementadas en el Sprint 2, ejecutadas en un dispositivo físico, junto con el video que muestra la navegación lograda: `[INSERTAR ENLACE DEL VIDEO]`.
+Esta sección presenta las vistas principales implementadas en el Sprint 2, ejecutadas en un dispositivo físico, junto con el video que muestra la navegación lograda: [Link del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201924127_upc_edu_pe/IQBiaEWA0dZxS4cRAFytrWjHAcbC8PycKPbX58erzbpnDXs?e=mWaabg&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D).
 
 **Figura 142**
 
@@ -6687,7 +6687,7 @@ En el período, los cinco repositorios suman 196 commits sin merge: 159 de Alber
 
 ## 4.3. Validation Interviews
 
-Esta sección registra y explica las actividades de validación de SkillSwap con usuarios de los dos segmentos objetivo definidos en 1.3. A diferencia de las entrevistas de descubrimiento de 2.2, que se hicieron antes de construir el producto, aquí las personas usan el Landing Page y las aplicaciones y comparten sus observaciones. Incluye el diseño de las sesiones (4.3.1), el registro de cada entrevista (4.3.2) y la evaluación de la experiencia según heurísticas de usabilidad, arquitectura de información y diseño inclusivo (4.3.3). Las sesiones se consolidan en el video de validación (Anexo C), y la evaluación sigue el formato del Anexo E del enunciado.
+Esta sección registra y explica las actividades de validación de SkillSwap con usuarios de los dos segmentos objetivo definidos en 1.3. A diferencia de las entrevistas de descubrimiento de 2.2, que se hicieron antes de construir el producto, aquí las personas usan el Landing Page y las aplicaciones y comparten sus observaciones. Incluye el diseño de las sesiones (4.3.1), el registro de cada entrevista (4.3.2) y la evaluación de la experiencia según heurísticas de usabilidad, arquitectura de información y diseño inclusivo (4.3.3). Cada sesión se graba y se registra en 4.3.2, y la evaluación sigue el formato del Anexo E del enunciado.
 
 ### 4.3.1. Diseño de Entrevistas
 
@@ -7259,38 +7259,6 @@ Las medidas de éxito del Problem Statement y de las hipótesis (70 % de evaluac
 6. **Medir las hipótesis con datos reales:** usar las métricas de la plataforma para comprobar los criterios de éxito de la Tabla 37.
 7. **Ampliar la accesibilidad:** agregar tema oscuro y textos en inglés a las dos aplicaciones, como recomiendan los problemas #7 y #8 de 4.3.3, y revisar con TalkBack cada pantalla nueva antes de integrarla, también cuando su código se escriba con apoyo de asistentes de IA. Un estudio reciente sobre interfaces nativas de Android generadas con modelos de lenguaje encontró que las construidas con Jetpack Compose resultaron más accesibles que las de las otras técnicas de diseño de pantallas evaluadas, pero que aun así presentaban problemas de accesibilidad, y que pedir la accesibilidad de forma explícita en el prompt con frecuencia introducía más problemas (Rabelo et al., 2026); por eso conviene verificar la accesibilidad de la app nativa sobre la pantalla real, sin darla por resuelta con el uso de Compose.
 
-## Video App Validation
-
-El video documenta la evaluación de la aplicación a través de la prueba con usuarios. Las personas instalan las versiones de prueba con Firebase App Distribution (4.2.2.8), lo que permite probarlas en distintos dispositivos antes del lanzamiento, realizan las tareas de la Tabla 34 y comparten sus observaciones. La experiencia se evalúa además con el formato de heurísticas de 4.3.3. El video consolida las sesiones de 4.3.2.
-
-* **Nombre del archivo:** upc-pre-202620-1acc0238-4948-Innovify-validation-av2.mp4
-* **URL en el OneDrive del docente:** `[URL]`
-* **Duración:** `[mm:ss]`
-
-**Figura 173**
-
-*Cuadro del video App Validation*
-
-<p align="center">
-  <img src="images-doc/video-app-validation.png" alt="Cuadro del video App Validation" width="900">
-</p>
-
-*Nota.* Elaboración propia.
-
-**Tabla 38**
-
-*Pauta planificada del video App Validation*
-
-| Sección | Contenido | Inicio planificado |
-|---|---|---|
-| Presentación | Qué se valida, con quién y cómo se instala la app desde Firebase App Distribution | 00:00:00 |
-| Personas que quieren aprender | Fragmentos de las entrevistas con el Landing Page y la app nativa (tareas E1 a E8) | 00:00:30 |
-| Personas que validan el conocimiento | Fragmentos de las entrevistas con la app Flutter (tareas V1 a V4) | 00:02:00 |
-| Hallazgos | Los problemas de mayor severidad de 4.3.3 y lo que se corrige | 00:03:30 |
-| Cierre | Próximos pasos | 00:04:30 |
-
-*Nota.* Los tiempos se reemplazan por los reales al editar el video. Elaboración propia.
-
 ## Video About the product
 
 El video está dirigido a quienes visitan el Landing Page y quieren conocer el modelo de negocio y las características de la solución, y a quienes usarán la aplicación para realizar sus tareas. Mantiene el tono cercano y directo del Landing Page e incluye el testimonio positivo de una persona que participó en las sesiones de validación (4.3.2).
@@ -7300,7 +7268,7 @@ El video está dirigido a quienes visitan el Landing Page y quieren conocer el m
 * **URL en YouTube (incrustado en el Landing Page):** [https://youtu.be/-XpgJySK29A](https://youtu.be/-XpgJySK29A)
 * **Duración:** 01:30
 
-**Figura 174**
+**Figura 173**
 
 *Cuadro del video About the Product*
 
@@ -7310,7 +7278,7 @@ El video está dirigido a quienes visitan el Landing Page y quieren conocer el m
 
 *Nota.* Elaboración propia.
 
-**Tabla 39**
+**Tabla 38**
 
 *Pauta planificada del video About the Product*
 
@@ -7334,7 +7302,7 @@ El video resume el proceso de trabajo del equipo con escenas de sesiones de trab
 * **URL en YouTube (incrustado en el Landing Page):** `[URL]`
 * **Duración:** `[mm:ss]`
 
-**Figura 175**
+**Figura 174**
 
 *Cuadro del video About the Team*
 
@@ -7344,7 +7312,7 @@ El video resume el proceso de trabajo del equipo con escenas de sesiones de trab
 
 *Nota.* Elaboración propia.
 
-**Tabla 40**
+**Tabla 39**
 
 *Pauta planificada del video About the Team*
 
@@ -7535,9 +7503,8 @@ Tabla 34. *Tareas de las sesiones de validación y user flows que ejercitan*<br>
 Tabla 35. *Escala de severidad de los problemas*<br>
 Tabla 36. *Resumen de los problemas de la evaluación heurística*<br>
 Tabla 37. *Hipótesis de Lean UX, lo construido en el Sprint 2 y la tarea que las valida*<br>
-Tabla 38. *Pauta planificada del video App Validation*<br>
-Tabla 39. *Pauta planificada del video About the Product*<br>
-Tabla 40. *Pauta planificada del video About the Team*<br>
+Tabla 38. *Pauta planificada del video About the Product*<br>
+Tabla 39. *Pauta planificada del video About the Team*<br>
 
 ---
 
@@ -7715,9 +7682,8 @@ Figura 169. *Captura del problema #6*<br>
 Figura 170. *Captura del problema #7*<br>
 Figura 171. *Captura del problema #8*<br>
 Figura 172. *Captura del problema #9*<br>
-Figura 173. *Cuadro del video App Validation*<br>
-Figura 174. *Cuadro del video About the Product*<br>
-Figura 175. *Cuadro del video About the Team*<br>
+Figura 173. *Cuadro del video About the Product*<br>
+Figura 174. *Cuadro del video About the Team*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
@@ -7757,6 +7723,6 @@ Figura 175. *Cuadro del video About the Team*<br>
 | :--- | :--- | :--- | :--- |
 | **Needfinding Interviews** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-needfinding-tb1.mp4<br><br>Formato: .mp4<br><br>Duración: de 3 a 5 minutos de edición por entrevista. | Consolida todas las entrevistas a los segmentos objetivo, con títulos que indican el entrevistado, el segmento y la fecha de cada entrevista. | Video en el OneDrive del docente. Registro de cada entrevista en la sección 2.2.2. |
 | **Prototype / Product Navigation** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-prototypenavigation-tb1.mp4<br><br>Formato: .mp4<br><br>Duración: de 3 a 5 minutos de edición por aplicación. | Demuestra el flujo de navegación del Landing Page y de la aplicación móvil, priorizando los user flows del core business. | Video en el OneDrive del docente. Referenciado en la sección 3.1.4.5. |
-| **Validation Interviews** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-validation-av2.mp4<br><br>Formato: .mp4<br><br>Duración: de 3 a 5 minutos de edición por entrevista. | Consolida las sesiones de validación en las que usuarios de los segmentos objetivo interactúan con el Landing Page y la aplicación móvil y comparten sus observaciones. | Primera versión de AV2 en preparación. Al 11 de noviembre de 2026 están registradas en 4.3.2 las tres entrevistas del segmento Personas que validan el conocimiento (dos de ellas con el enlace a su video en OneDrive), y faltan las del segmento Personas que quieren aprender. El enlace del video consolidado se agrega en la sección Video App Validation al subirlo al OneDrive del docente. |
+| **Validation Interviews** | Cantidad de videos: 1 por entrevista (6 entrevistas)<br><br>Formato: .mp4 | Cada entrevista de validación se graba en video, con el entrevistado, el segmento y la fecha. | Videos en el OneDrive del docente. Cada entrevista se registra en la sección 4.3.2 con el enlace a su video, su duración y un cuadro representativo. No se presenta un video consolidado de las entrevistas de validación. |
 | **About the Product** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-about-the-product-av2.mp4<br><br>Formato: .mp4<br><br>Duración: de 1 a 2 minutos. | Video promocional que resume el modelo de negocio, las características y beneficios del producto, con escenas de uso y al menos una opinión por segmento objetivo. | Primera versión de AV2 publicada en el OneDrive del docente y en YouTube (duración 01:30), e incrustada en el Landing Page (PR #11 de `SkillSwap-LandingPage`). Los enlaces están en la sección Video About the product. |
 | **About the Team** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-about-the-team-av2.mp4<br><br>Formato: .mp4<br><br>Duración: según el contenido (unos 5 minutos de retrospectiva y 1 minuto por testimonio). | Resume el proceso de trabajo del equipo con escenas de sesiones reales y narración, e incluye el testimonio de cada integrante sobre sus actividades y el logro del student outcome. | Primera versión de AV2 en preparación; el enlace se agrega al subirla al OneDrive del docente. Se publicará en el OneDrive del docente y en YouTube, e irá incrustado en el Landing Page. |
