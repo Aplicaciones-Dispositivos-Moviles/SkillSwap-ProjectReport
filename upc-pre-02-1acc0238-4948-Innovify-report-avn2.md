@@ -79,6 +79,7 @@ Noviembre 2026
 | **v.12.AV2** | 10/11/2026 | Alberca Saavedra, Víctor Manuel | Se registraron las tres entrevistas de validación del segmento Personas que validan el conocimiento en 4.3.2 (Figuras 161 a 163) con su perfil, sus datos y el resumen descriptivo por tarea, y se ajustaron 4.3.1 y la Tabla 34 a la forma de esas sesiones, en las que se mostró el Landing Page y un video de la aplicación. |
 | **v.13.AV2** | 11/11/2026 | Komatsu Dueñas, David | Se sincronizaron las evidencias del Sprint 2 con los repositorios y los despliegues al 11 de noviembre de 2026:<br><br>**Project Report Collaboration Insights** (AV2 con los commits y Pull Requests del repositorio del informe hasta el PR #108)<br><br>**Capítulo II:** 2.5.3.3 Software Architecture Deployment Diagrams (Deployment Diagram regenerado con la arquitectura real en AWS: instancia EC2 con Docker Compose y los contenedores de Caddy, la API y PostgreSQL 16, la distribución de cada aplicación y los servicios externos del backend, sin Render; texto de la sección y notas de las Figuras 74 y 122)<br><br>**Capítulo IV:** 4.1.4 (app Flutter apuntando al backend en AWS y versión 1.2 de la app nativa publicada en Firebase App Distribution); 4.2.2.4 (commits de los PR #37 y #38 del backend, del PR #7 de la app Flutter y del PR #13 del Landing Page en la Tabla 29, con su autoría); 4.2.2.5 (pruebas de los PR #37 y #38 en la Tabla 30 y resultados de `./mvnw test` sin Docker, `./gradlew testDebugUnitTest` y `flutter test` sobre `develop`); 4.2.2.7 (`GET /api/v1/reevaluations/candidates` en la Tabla 31); 4.2.2.8 (clientes y actualización del servidor en AWS, nota de la Figura 152 con la especificación OpenAPI publicada, Tabla 33, nota de la Figura 153 y estado de publicación del Landing Page con el inglés por defecto del PR #13); 4.2.2.9 Team Collaboration Insights (commits y Pull Requests por integrante y repositorio hasta el 11 de noviembre de 2026)<br><br>**Anexo A** (app Flutter y enlace de Firebase App Distribution), **Anexo B** (fila del AV2: no se presenta video de exposición, por indicación del docente) y **Anexo C** (estado del video de las entrevistas de validación) |
 | **v.14.AV2** | 11/11/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron las capturas de la reunión de Sprint Planning 2, de la instancia EC2 y del Swagger en AWS, y las de 4.2.2.6 (resultado del quiz y pantalla principal del Verificador), con una descripción para cada figura de 4.2.2.6; se completaron en 4.3.2 los resultados de las sesiones con las personas que validan el conocimiento (hipótesis H4, H5 y H6 y supuestos que cambian) y se registró el cuadro de la entrevista 1; se eliminó la Figura 150 (programación de la demostración final) y se retiró la sección Video App Validation, con su pauta y su cuadro, renumerando las figuras y tablas siguientes. |
+| **v.15.AV2** | 12/11/2026 | Sulca Sánchez, Piero Angel | Se registró la primera versión del video About the Team: URL en Microsoft Stream y en YouTube, duración, cuadro representativo (Figura 174) y pauta real de secciones (Tabla 39); se actualizó su fila en el Anexo C. |
 
 <div style="page-break-after: always;"></div>
 
@@ -7306,12 +7307,12 @@ El video está dirigido a quienes visitan el Landing Page y quieren conocer el m
 
 ## Video About the team
 
-El video resume el proceso de trabajo del equipo con escenas de sesiones de trabajo reales y una narración en voz en off, e incluye el testimonio ante cámara de cada integrante sobre las actividades realizadas, los outcomes alcanzados y las competencias desarrolladas, en línea con la sección Student Outcome.
+El video presenta al equipo Innovify a través del testimonio ante cámara de cada integrante sobre las actividades realizadas, los outcomes alcanzados y las competencias desarrolladas, en línea con la sección Student Outcome. Abre con una portada del proyecto, identifica a cada integrante con su nombre y código, une los testimonios con fundidos y cierra con el logo de Innovify. Esta es la primera versión, entregada en el AV2; la versión final del TB2 incorpora escenas de sesiones de trabajo reales con narración en voz en off.
 
 * **Nombre del archivo:** upc-pre-202620-1acc0238-4948-Innovify-about-the-team-av2.mp4
-* **URL en Microsoft Stream:** `[URL]`
-* **URL en YouTube (incrustado en el Landing Page):** `[URL]`
-* **Duración:** `[mm:ss]`
+* **URL en Microsoft Stream:** [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202423711_upc_edu_pe/IQDRlxDmHM6wQoCCaQL3QMScAQQaq8qkfUHYdJfHhx5yQ7w](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202423711_upc_edu_pe/IQDRlxDmHM6wQoCCaQL3QMScAQQaq8qkfUHYdJfHhx5yQ7w)
+* **URL en YouTube (incrustado en el Landing Page, página Sobre nosotros):** [https://youtu.be/_XDtUMnAASU](https://youtu.be/_XDtUMnAASU)
+* **Duración:** 07:26
 
 **Figura 174**
 
@@ -7321,27 +7322,23 @@ El video resume el proceso de trabajo del equipo con escenas de sesiones de trab
   <img src="images-doc/video-about-team.png" alt="Cuadro del video About the Team" width="900">
 </p>
 
-*Nota.* Elaboración propia.
+*Nota.* Testimonio de Alberca Saavedra, Víctor Manuel, con su nombre y código. Elaboración propia.
 
 **Tabla 39**
 
-*Pauta planificada del video About the Team*
+*Pauta del video About the Team*
 
-| Sección | Contenido | Inicio planificado |
+| Sección | Contenido | Inicio |
 |---|---|---|
-| Presentación del equipo | Innovify y los cinco integrantes | 00:00:00 |
-| Del tutor a la verificación | El pivote del modelo de negocio y por qué | 00:00:40 |
-| Proceso de trabajo | Sprints, GitFlow, Conventional Commits, Pull Requests y sesiones de trabajo reales | 00:01:30 |
-| Solución construida | Backend con ocho Bounded Contexts, Landing Page y las dos aplicaciones | 00:02:30 |
-| Testimonio de Alberca Saavedra, Víctor Manuel | Actividades realizadas, outcomes alcanzados y competencias desarrolladas | `[hh:mm:ss]` |
-| Testimonio de Becerra Ninahuanca, Luis Angel | Actividades realizadas, outcomes alcanzados y competencias desarrolladas | `[hh:mm:ss]` |
-| Testimonio de Lopez Montalvo, Kevin Edu | Actividades realizadas, outcomes alcanzados y competencias desarrolladas | `[hh:mm:ss]` |
-| Testimonio de Komatsu Dueñas, David | Actividades realizadas, outcomes alcanzados y competencias desarrolladas | `[hh:mm:ss]` |
-| Testimonio de Sulca Sánchez, Piero Angel | Actividades realizadas, outcomes alcanzados y competencias desarrolladas | `[hh:mm:ss]` |
-| Cierre | Aprendizajes del equipo | `[hh:mm:ss]` |
+| Portada | SkillSwap, About the Team, equipo Innovify, curso y NRC | 00:00:00 |
+| Testimonio de Alberca Saavedra, Víctor Manuel | El pivote de tutorías a verificación de habilidades, el trabajo por sprints con GitFlow, Conventional Commits y Pull Requests, la solución construida y sus aportes en el backend, las entrevistas, el Landing Page y la aplicación del Estudiante | 00:00:04 |
+| Testimonio de Becerra Ninahuanca, Luis Angel | La investigación inicial y las entrevistas, el diseño UX/UI en Figma, sus pantallas del Sprint 2 en las dos aplicaciones y el aprendizaje de Jetpack Compose y Flutter | 00:02:01 |
+| Testimonio de Komatsu Dueñas, David | El trabajo en equipo, el uso de Git y sus aportes en el informe, el backend y la corrección de errores | 00:03:20 |
+| Testimonio de Lopez Montalvo, Kevin Edu | El Startup Profile, el Solution Profile y Lean UX, la arquitectura y los design concepts, la ruta de aprendizaje y sus recomendaciones para el equipo | 00:04:04 |
+| Testimonio de Sulca Sánchez, Piero Angel | Su liderazgo en el backend del Sprint 2, la investigación de Gemini y Firebase y lo aprendido como equipo | 00:06:04 |
+| Cierre | Logo de Innovify y agradecimiento | 00:07:22 |
 
-*Nota.* Los tiempos de las secciones iniciales son planificados y se reemplazan por los reales al editar el video. Elaboración propia.
-
+*Nota.* Elaboración propia.
 
 # Glosario
 
@@ -7515,7 +7512,7 @@ Tabla 35. *Escala de severidad de los problemas*<br>
 Tabla 36. *Resumen de los problemas de la evaluación heurística*<br>
 Tabla 37. *Hipótesis de Lean UX, lo construido en el Sprint 2 y la tarea que las valida*<br>
 Tabla 38. *Pauta planificada del video About the Product*<br>
-Tabla 39. *Pauta planificada del video About the Team*<br>
+Tabla 39. *Pauta del video About the Team*<br>
 
 ---
 
@@ -7736,4 +7733,4 @@ Figura 174. *Cuadro del video About the Team*<br>
 | **Prototype / Product Navigation** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-prototypenavigation-tb1.mp4<br><br>Formato: .mp4<br><br>Duración: de 3 a 5 minutos de edición por aplicación. | Demuestra el flujo de navegación del Landing Page y de la aplicación móvil, priorizando los user flows del core business. | Video en el OneDrive del docente. Referenciado en la sección 3.1.4.5. |
 | **Validation Interviews** | Cantidad de videos: 1 por entrevista (6 entrevistas)<br><br>Formato: .mp4 | Cada entrevista de validación se graba en video, con el entrevistado, el segmento y la fecha. | Videos en el OneDrive del docente. Cada entrevista se registra en la sección 4.3.2 con el enlace a su video, su duración y un cuadro representativo. No se presenta un video consolidado de las entrevistas de validación. |
 | **About the Product** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-about-the-product-av2.mp4<br><br>Formato: .mp4<br><br>Duración: de 1 a 2 minutos. | Video promocional que resume el modelo de negocio, las características y beneficios del producto, con escenas de uso y al menos una opinión por segmento objetivo. | Primera versión de AV2 publicada en el OneDrive del docente y en YouTube (duración 01:30), e incrustada en el Landing Page (PR #11 de `SkillSwap-LandingPage`). Los enlaces están en la sección Video About the product. |
-| **About the Team** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-about-the-team-av2.mp4<br><br>Formato: .mp4<br><br>Duración: según el contenido (unos 5 minutos de retrospectiva y 1 minuto por testimonio). | Resume el proceso de trabajo del equipo con escenas de sesiones reales y narración, e incluye el testimonio de cada integrante sobre sus actividades y el logro del student outcome. | Primera versión de AV2 en preparación; el enlace se agrega al subirla al OneDrive del docente. Se publicará en el OneDrive del docente y en YouTube, e irá incrustado en el Landing Page. |
+| **About the Team** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-about-the-team-av2.mp4<br><br>Formato: .mp4<br><br>Duración: según el contenido (unos 5 minutos de retrospectiva y 1 minuto por testimonio). | Resume el proceso de trabajo del equipo con escenas de sesiones reales y narración, e incluye el testimonio de cada integrante sobre sus actividades y el logro del student outcome. | Primera versión de AV2 publicada en el OneDrive del docente ([enlace](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202423711_upc_edu_pe/IQDRlxDmHM6wQoCCaQL3QMScAQQaq8qkfUHYdJfHhx5yQ7w)) y en YouTube ([enlace](https://youtu.be/_XDtUMnAASU)), e incrustada en la página Sobre nosotros del Landing Page. |
