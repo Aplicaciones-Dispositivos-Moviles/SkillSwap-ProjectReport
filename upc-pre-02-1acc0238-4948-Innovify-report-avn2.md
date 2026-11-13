@@ -76,11 +76,12 @@ Noviembre 2026
 | **v.09.AV2** | 30/10/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron al Sprint 2 la tienda de beneficios con canje de SkillCredits y confirmación biométrica de la app Flutter (T76, US32) y la sección de descarga del Landing Page con la corrección de sus botones de acceso (T77, US44). Se actualizaron el Sprint Backlog 2 (34 tasks, 197 horas), la matriz de liderazgo (Tabla 27), los commits (Tablas 29 y 30), el número de pruebas de Flutter (43), el avance del Verificador (7 de 14 historias), el estado de los problemas #1 y #2 de 4.3.3 y las recomendaciones de Conclusiones. |
 | **v.10.AV2** | 01/11/2026 | Alberca Saavedra, Víctor Manuel | Se registró el cambio de despliegue del backend de Render a AWS (31/10/2026): se agregó el apartado correspondiente a 4.2.2.8 (Figuras 151 y 152), se actualizaron 4.1.4, la Tabla 14, la Tabla 33, el Deployment Diagram (2.5), el commit de despliegue (Tabla 29), las Conclusiones y el Anexo A, y se conservó sin cambios el despliegue en Render del Sprint 1 (4.2.1.8). Las capturas de las Figuras 151 y 152 quedan pendientes. |
 | **v.11.AV2** | 09/11/2026 | Komatsu Dueñas, David | Se corrigieron los siguientes tópicos a partir de la revisión del informe para el AV2, contrastándolo con los repositorios:<br><br>**Carátula** (mes de la entrega: noviembre de 2026)<br>**Project Report Collaboration Insights** (AV2 con los commits y Pull Requests reales del repositorio del informe entre el 10 de octubre y el 9 de noviembre de 2026) y **Contenido** (entrada AV2)<br>**Student Outcome** (acciones de AV2 de Komatsu Dueñas, David en las tasks T45, T50, T51, T56 y T70, y conclusiones grupales de AV2)<br><br>**Capítulo I:** 1.1.1 (evaluación entre pares, con cita) y 1.2.1 (microcredenciales y contenido generado con IA, con citas)<br>**Capítulo II:** 2.4.1, 2.4.2, 2.5.1 y 2.5.3 (citas de los métodos aplicados); 2.4.3 Product Backlog (columna Sprint con las 13 historias del Sprint 2 y retiro de una fila de la evaluación heurística que estaba en la Tabla 10); 2.5.3 (texto de los diagramas de Contexto, Contenedores y Despliegue con un actor por aplicación)<br>**Capítulo IV:** 4.1.2 (citas de GitFlow, Semantic Versioning y Conventional Commits, y del desarrollo multiplataforma); 4.1.3 (guía de estilo de Dart / Flutter); 4.1.4 y 4.2.2.8 (versión 1.2 de la app nativa, que consume el backend en AWS, y app Flutter todavía configurada con la URL de Render, en la Tabla 33 y el Anexo A, y nota de la Figura 152 con el estado del Swagger UI en AWS al 9 de noviembre de 2026); 4.2.2.4 (commits de los PR #21 a #23 de la app nativa, de la base de la app Flutter y del PR #11 del Landing Page en la Tabla 29); 4.2.2.5 (todas las pruebas unitarias de la app nativa en la Tabla 30 y su nota); 4.2.2.9 Team Collaboration Insights (commits y Pull Requests por integrante y repositorio); 4.3.3 (problema #9 en la Tabla 36 y recomendaciones de los problemas #7 y #8 para las dos aplicaciones)<br><br>**Conclusiones** (recomendación 7 de accesibilidad, con cita)<br>**Bibliografía** (Alasmari, 2024, y Grévisse et al., 2024, trasladados desde los Anexos; volumen, número y páginas o número de artículo de los papers; Nguyen et al. con el año de su número, 2026; y el paper de Rabelo et al., 2026, sobre la accesibilidad de interfaces nativas de Android con Jetpack Compose) y **Anexo C** (estado del video About the Product)<br><br>Se agregó el archivo `README.md` como archivo principal del repositorio, con enlaces a cada sección del informe y a los repositorios de la solución. |
-| **v.12.AV2** | 10/11/2026 | Alberca Saavedra, Víctor Manuel | Se registraron las tres entrevistas de validación del segmento Personas que validan el conocimiento en 4.3.2 (Figuras 161 a 163) con su perfil, sus datos y el resumen descriptivo por tarea, y se ajustaron 4.3.1 y la Tabla 34 a la forma de esas sesiones, en las que se mostró el Landing Page y un video de la aplicación. |
+| **v.12.AV2** | 10/11/2026 | Alberca Saavedra, Víctor Manuel | Se registraron las tres entrevistas de validación del segmento Personas que validan el conocimiento en 4.3.2 (Figuras 163 a 165) con su perfil, sus datos y el resumen descriptivo por tarea, y se ajustaron 4.3.1 y la Tabla 34 a la forma de esas sesiones, en las que se mostró el Landing Page y un video de la aplicación. |
 | **v.13.AV2** | 11/11/2026 | Komatsu Dueñas, David | Se sincronizaron las evidencias del Sprint 2 con los repositorios y los despliegues al 11 de noviembre de 2026:<br><br>**Project Report Collaboration Insights** (AV2 con los commits y Pull Requests del repositorio del informe hasta el PR #108)<br><br>**Capítulo II:** 2.5.3.3 Software Architecture Deployment Diagrams (Deployment Diagram regenerado con la arquitectura real en AWS: instancia EC2 con Docker Compose y los contenedores de Caddy, la API y PostgreSQL 16, la distribución de cada aplicación y los servicios externos del backend, sin Render; texto de la sección y notas de las Figuras 74 y 122)<br><br>**Capítulo IV:** 4.1.4 (app Flutter apuntando al backend en AWS y versión 1.2 de la app nativa publicada en Firebase App Distribution); 4.2.2.4 (commits de los PR #37 y #38 del backend, del PR #7 de la app Flutter y del PR #13 del Landing Page en la Tabla 29, con su autoría); 4.2.2.5 (pruebas de los PR #37 y #38 en la Tabla 30 y resultados de `./mvnw test` sin Docker, `./gradlew testDebugUnitTest` y `flutter test` sobre `develop`); 4.2.2.7 (`GET /api/v1/reevaluations/candidates` en la Tabla 31); 4.2.2.8 (clientes y actualización del servidor en AWS, nota de la Figura 152 con la especificación OpenAPI publicada, Tabla 33, nota de la Figura 153 y estado de publicación del Landing Page con el inglés por defecto del PR #13); 4.2.2.9 Team Collaboration Insights (commits y Pull Requests por integrante y repositorio hasta el 11 de noviembre de 2026)<br><br>**Anexo A** (app Flutter y enlace de Firebase App Distribution), **Anexo B** (fila del AV2: no se presenta video de exposición, por indicación del docente) y **Anexo C** (estado del video de las entrevistas de validación) |
 | **v.14.AV2** | 11/11/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron las capturas de la reunión de Sprint Planning 2, de la instancia EC2 y del Swagger en AWS, y las de 4.2.2.6 (resultado del quiz y pantalla principal del Verificador), con una descripción para cada figura de 4.2.2.6; se completaron en 4.3.2 los resultados de las sesiones con las personas que validan el conocimiento (hipótesis H4, H5 y H6 y supuestos que cambian) y se registró el cuadro de la entrevista 1; se eliminó la Figura 150 (programación de la demostración final) y se retiró la sección Video App Validation, con su pauta y su cuadro, renumerando las figuras y tablas siguientes. |
-| **v.15.AV2** | 12/11/2026 | Sulca Sánchez, Piero Angel | Se registró la primera versión del video About the Team: URL en Microsoft Stream y en YouTube, duración, cuadro representativo (Figura 174) y pauta real de secciones (Tabla 39); se actualizó su fila en el Anexo C. |
+| **v.15.AV2** | 12/11/2026 | Sulca Sánchez, Piero Angel | Se registró la primera versión del video About the Team: URL en Microsoft Stream y en YouTube, duración, cuadro representativo (Figura 176) y pauta real de secciones (Tabla 39); se actualizó su fila en el Anexo C. |
 | **v.16.AV2** | 12/11/2026 | Sulca Sánchez, Piero Angel | Se registraron en 4.2.2.4 (Tabla 29) los commits representativos de la reorganización por bounded contexts y el rediseño de la app del Estudiante (PR #24), de la actualización del Android Gradle Plugin y del saldo de SkillCredits en la app del Verificador (PR #8 y #9) y de la descarga directa de los APK en el Landing Page (PR #15); se completaron los aportes de Sulca Sánchez en Project Report Collaboration Insights. |
+| **v.17.AV2** | 12/11/2026 | Alberca Saavedra, Víctor Manuel | Se actualizaron las versiones de las aplicaciones (app nativa 1.3 y app Flutter 1.0.1) y su distribución mediante GitHub Releases en 2.5.3, 4.1.4, 4.2.2.8 (Tabla 33, procedimientos y Figuras 155 y 156) y el Anexo A, que ahora incluye los enlaces de descarga directa de los dos APK; y se actualizó la descripción del Landing Page en 4.2.2.8 (descarga directa, términos y condiciones, idioma y accesibilidad). |
 
 <div style="page-break-after: always;"></div>
 
@@ -2810,7 +2811,7 @@ Es importante resaltar que tanto la aplicación Android nativa como la aplicaci�
 
 El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física de los contenedores de SkillSwap sobre la infraestructura de hardware y los entornos de ejecución, evidenciando cómo se despliega la solución en un ambiente real. El Landing Page, al ser un sitio web estático independiente de la aplicación móvil, no forma parte de este diagrama.
 
-- **Dispositivos móviles de usuario final:** El dispositivo Android del Estudiante (Android 10 o superior) aloja la Aplicación Android Nativa (Kotlin/Jetpack Compose, versión 1.2), distribuida como APK con **Firebase App Distribution**, y el del Verificador, la Aplicación Cross-Platform (Flutter, dirigida a Android, versión 1.0.0), que por ahora se instala directamente como APK y aún no se distribuye con Firebase App Distribution. En el dispositivo del Estudiante se ejecuta además **ML Kit**, de forma on-device, para la extracción de datos de los certificados, sin requerir una llamada a un servicio en la nube para dicho procesamiento, y una base de datos local SQLite conserva la ruta para consultarla sin conexión y las respuestas del quiz pendientes de reenvío; en ambos se usa la autenticación biométrica del sistema operativo (`BiometricPrompt` en la app nativa y `local_auth` en la app Flutter).
+- **Dispositivos móviles de usuario final:** El dispositivo Android del Estudiante (Android 10 o superior) aloja la Aplicación Android Nativa (Kotlin/Jetpack Compose, versión 1.3), distribuida como APK desde **GitHub Releases** y con **Firebase App Distribution**, y el del Verificador, la Aplicación Cross-Platform (Flutter, dirigida a Android, versión 1.0.1), que se instala como APK descargado desde **GitHub Releases**. En el dispositivo del Estudiante se ejecuta además **ML Kit**, de forma on-device, para la extracción de datos de los certificados, sin requerir una llamada a un servicio en la nube para dicho procesamiento, y una base de datos local SQLite conserva la ruta para consultarla sin conexión y las respuestas del quiz pendientes de reenvío; en ambos se usa la autenticación biométrica del sistema operativo (`BiometricPrompt` en la app nativa y `local_auth` en la app Flutter).
 - **Servidor en la nube (AWS):** una instancia **Amazon EC2** `t3.small` (Ubuntu Server 24.04 LTS, región `us-east-1`, con IP elástica) ejecuta con **Docker Compose** tres contenedores definidos en el `docker-compose.yml` del backend: `caddy` (Caddy 2), único punto de entrada por los puertos 80 y 443, que publica el dominio `skillswap-innovify.duckdns.org` con HTTPS automático y reenvía las peticiones a la API; `app`, con el backend de Web Services RESTful (Java 21 / Spring Boot sobre la imagen `eclipse-temurin:21-jre`), donde se ejecuta la lógica de negocio de los ocho Bounded Contexts en un único servicio y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por las dos aplicaciones móviles; y `db`, con una única instancia de **PostgreSQL 16** compartida por los ocho Bounded Contexts, sin puertos publicados, a la que solo accede la API por la red interna de Docker. El dominio se resuelve con **DuckDNS**. El Landing Page es informativo y no consume la API.
 - **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para los archivos de los certificados, **Brevo (Email API)** para el envío del correo de verificación del correo institucional, **Firebase Cloud Messaging** para las notificaciones push al dispositivo del Estudiante, la **Gemini API** para interpretar la meta del Estudiante sobre el catálogo interno de habilidades, generar las preguntas de los quizzes y evaluar de forma preliminar los miniproyectos, y **Google Play Billing (vía RevenueCat)** para el cobro recurrente de la suscripción mensual: el backend verifica la compra con RevenueCat y recibe sus cambios mediante un webhook. Esta última integración está preparada, pero el cobro está simulado mientras el servidor no tenga una clave de producción de RevenueCat (4.1.4), y la aplicación solicita el plan al backend sin un SDK de pagos.
 
@@ -2824,7 +2825,7 @@ Las aplicaciones se comunican con el servidor mediante HTTPS (el certificado lo 
   <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram - Mobile" width="900">
 </p>
 
-*Nota.* Diagrama de despliegue que muestra la distribución física de la solución desde el 31 de octubre de 2026: el dispositivo Android del Estudiante, con la aplicación nativa v1.2 (distribuida con Firebase App Distribution), ML Kit on-device y la base de datos local SQLite; el dispositivo Android del Verificador, con la aplicación Flutter instalada como APK; la instancia EC2 `t3.small` de AWS con Docker Compose y sus contenedores Caddy (HTTPS en `skillswap-innovify.duckdns.org`), API Spring Boot y PostgreSQL 16; y los servicios externos DuckDNS, Firebase App Distribution, Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat). Las líneas discontinuas marcan la integración con RevenueCat, cuyo cobro está simulado. El despliegue anterior en Render, usado en el Sprint 1, se describe en 4.2.1.8. Elaborado en PlantUML. Elaboración propia.
+*Nota.* Diagrama de despliegue que muestra la distribución física de la solución desde el 31 de octubre de 2026: el dispositivo Android del Estudiante, con la aplicación nativa v1.3 (distribuida con GitHub Releases y Firebase App Distribution), ML Kit on-device y la base de datos local SQLite; el dispositivo Android del Verificador, con la aplicación Flutter v1.0.1 instalada como APK desde GitHub Releases; la instancia EC2 `t3.small` de AWS con Docker Compose y sus contenedores Caddy (HTTPS en `skillswap-innovify.duckdns.org`), API Spring Boot y PostgreSQL 16; y los servicios externos DuckDNS, GitHub Releases, Firebase App Distribution, Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat). Las líneas discontinuas marcan la integración con RevenueCat, cuyo cobro está simulado. El despliegue anterior en Render, usado en el Sprint 1, se describe en 4.2.1.8. Elaborado en PlantUML. Elaboración propia.
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
@@ -5220,7 +5221,7 @@ El despliegue abarca los tres productos digitales de la solución:
 
 - **Web Services:** desde el 31 de octubre de 2026, una instancia **Amazon EC2** (`t3.small`, región `us-east-1`) con **Docker Compose**: el contenedor del backend, **PostgreSQL 16** y **Caddy** como proxy inverso con HTTPS automático, publicados en `https://skillswap-innovify.duckdns.org`. Hasta esa fecha, y durante el Sprint 1, el backend y su base de datos estuvieron en **Render** (plan gratuito), hasta que la base de datos gratuita expiró. El detalle del cambio está en 4.2.2.8.
 - **Landing Page:** sitio estático (HTML5/CSS3/JavaScript) publicado con **GitHub Pages** desde la rama `main` del repositorio `SkillSwap-LandingPage`.
-- **Aplicaciones móviles:** la app nativa del Estudiante (Kotlin / Jetpack Compose) y la app Flutter del Verificador se distribuyen como APK con **Firebase App Distribution**, en el proyecto `skillswap-moviles`, mediante subida manual a un grupo de probadores llamado `equipo`. La app nativa consume el backend desplegado en AWS desde su versión 1.2, ya publicada en Firebase App Distribution según confirmó el equipo el 11 de noviembre de 2026; la app Flutter apunta al mismo backend desde el PR #7 de su repositorio (9 de noviembre de 2026) y aún no se distribuye. El procedimiento y las evidencias están en 4.2.2.8.
+- **Aplicaciones móviles:** la app nativa del Estudiante (Kotlin / Jetpack Compose, versión 1.3) y la app Flutter del Verificador (versión 1.0.1) se distribuyen como APK mediante **GitHub Releases**, con descarga directa desde el Landing Page; la app del Estudiante también se distribuye con **Firebase App Distribution**, en el proyecto `skillswap-moviles`, mediante subida manual a un grupo de probadores llamado `equipo`. Las dos apps consumen el backend desplegado en AWS: la nativa desde su versión 1.2 y la Flutter desde el PR #7 de su repositorio (9 de noviembre de 2026). El procedimiento y las evidencias están en 4.2.2.8.
 
 El Landing Page es un sitio estático independiente de la aplicación móvil, por lo que no se incluye en el Deployment Diagram de este apartado.
 
@@ -6558,7 +6559,7 @@ Los endpoints incorporados en el Sprint 2 se documentan con OpenAPI 3.1 mediante
 
 #### 4.2.2.8. Software Deployment Evidence for Sprint Review
 
-Para el hito AV2 las aplicaciones móviles deben poder instalarse y probarse en un dispositivo real. El equipo las distribuye con **Firebase App Distribution**, en el proyecto de Firebase `skillswap-moviles`, el mismo que usa la app para las notificaciones push. Este servicio permite entregar versiones de prueba como APK a un grupo de probadores (*testers*) sin publicarlas en una tienda; la publicación en Google Play se verá cuando el docente la presente en clase. La Tabla 33 resume los parámetros de distribución de cada app.
+Para el hito AV2 las aplicaciones móviles deben poder instalarse y probarse en un dispositivo real. El equipo las distribuye con **Firebase App Distribution**, en el proyecto de Firebase `skillswap-moviles`, el mismo que usa la app para las notificaciones push. Este servicio permite entregar versiones de prueba como APK a un grupo de probadores (*testers*) sin publicarlas en una tienda; la publicación en Google Play se verá cuando el docente la presente en clase. La Tabla 33 resume los parámetros de distribución de cada app. Además, al 12 de noviembre de 2026 los dos APK están disponibles como releases en GitHub, y el Landing Page los ofrece como descarga directa; Firebase queda como opción para el Estudiante.
 
 **Cambio de despliegue del backend: de Render a AWS (31/10/2026)**
 
@@ -6605,13 +6606,14 @@ Durante el Sprint 2 el backend cambió de entorno de despliegue. El 31 de octubr
 | Repositorio | `SkillSwap-MobileApp` | `SkillSwap-MobileApp-Flutter` |
 | Tecnología | Kotlin / Jetpack Compose | Flutter / Dart |
 | Identificador de la app | `com.innovify.skillswap` | `com.innovify.skillswap_verifier` |
-| Versión | 1.2 (código de versión 2), desde el 1 de noviembre de 2026, publicada en Firebase App Distribution según confirmó el equipo el 11 de noviembre de 2026; la captura de la Figura 153 corresponde a la versión 1.0 (código de versión 1) | 1.0.0+1 |
+| Versión | 1.3, disponible en GitHub Releases al 12 de noviembre de 2026; la versión 1.2 (código de versión 2), desde el 1 de noviembre de 2026, se publicó en Firebase App Distribution según confirmó el equipo el 11 de noviembre de 2026; la captura de la Figura 153 corresponde a la versión 1.0 (código de versión 1) | 1.0.1, disponible en GitHub Releases al 12 de noviembre de 2026 |
 | Android mínimo | Android 10 (API 29) | El que define Flutter para el proyecto (`flutter.minSdkVersion`) |
-| Plataforma de distribución | Firebase App Distribution, proyecto `skillswap-moviles` | Por confirmar con el docente; se prevé el mismo proyecto de Firebase |
-| Método de publicación | Subida manual del APK en la consola de Firebase | Por definir |
-| Grupo de probadores | `equipo` | Por definir |
+| Plataforma de distribución | GitHub Releases (descarga directa del APK) y Firebase App Distribution, proyecto `skillswap-moviles` | GitHub Releases (descarga directa del APK) |
+| Método de publicación | APK adjunto a un release de GitHub con el nombre `skillswap-student.apk`; subida manual del APK en la consola de Firebase | APK adjunto a un release de GitHub con el nombre `skillswap-verificador.apk` |
+| Grupo de probadores | Descarga abierta desde el Landing Page, sin invitación (GitHub Releases); grupo `equipo` en Firebase | Descarga abierta desde el Landing Page, sin invitación |
 | Backend que consume | `https://skillswap-innovify.duckdns.org` (AWS), configurado en `RetrofitClient` desde el PR #23 (commit `ea1753a`, 1 de noviembre de 2026) | `https://skillswap-innovify.duckdns.org` (AWS), configurado en `lib/shared/infrastructure/network/api_config.dart` desde el PR #7 (commit `907f7c8`, 9 de noviembre de 2026) |
-| Estado | La versión 1.0 se distribuyó y se descargó en un dispositivo físico; la versión 1.2, que consume el backend en AWS, está publicada en Firebase App Distribution (confirmación del equipo, 11 de noviembre de 2026) | Siete pantallas del Verificador integradas en `develop` y cliente configurado con el backend en AWS; aún no se distribuye |
+| Estado | Versión 1.3 disponible para descarga directa desde el Landing Page; la versión 1.0 se distribuyó y se descargó en un dispositivo físico, y la versión 1.2, que consume el backend en AWS, se publicó en Firebase App Distribution (confirmación del equipo, 11 de noviembre de 2026) | Versión 1.0.1 disponible para descarga directa desde el Landing Page, con siete pantallas del Verificador integradas en `develop` y cliente configurado con el backend en AWS |
+| Enlace de descarga directa | [`skillswap-student.apk`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp/releases/latest/download/skillswap-student.apk) (unos 84 MB) | [`skillswap-verificador.apk`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter/releases/latest/download/skillswap-verificador.apk) (unos 54 MB) |
 
 *Nota.* El identificador y la versión de la app nativa se toman de `app/build.gradle.kts`, y los de la app Flutter, de `android/app/build.gradle.kts` y `pubspec.yaml`, en la rama `develop` de cada repositorio. La URL del backend vigente desde el 31 de octubre de 2026 es la de AWS, y las dos apps apuntan a ella; las pruebas de integración de ambas apps contra ella quedan pendientes. Elaboración propia.
 
@@ -6629,7 +6631,19 @@ Durante el Sprint 2 el backend cambió de entorno de despliegue. El 31 de octubr
 
 La app se instaló desde Firebase en un dispositivo físico y se conectó al backend, que entonces estaba desplegado en Render (ver 4.2.1.8), con el que se probó el flujo del Estudiante del Sprint 2. Como el plan gratuito de Render suspendía el servicio tras 15 minutos sin tráfico, la primera pantalla de la sesión podía tardar en responder. Desde el 31 de octubre de 2026 el backend está en AWS, como se describe al inicio de esta sección, y la versión 1.2 (código de versión 2), que apunta a ese backend, ya está publicada en Firebase App Distribution con este mismo procedimiento, según confirmó el equipo el 11 de noviembre de 2026. El archivo `google-services.json` no se sube al repositorio, que es público, sino que se comparte entre el equipo por un canal privado.
 
-Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, versión 1.0.0+1) tiene sus siete pantallas (T58, T60, T62, T64, T71, T72 y T76) integradas en la rama `develop` de su repositorio, y su cliente HTTP apunta al backend en AWS desde el PR #7 (9 de noviembre de 2026). Aún no se distribuye; cuando se publique con este mismo procedimiento, su captura se agrega a esta sección.
+Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, versión 1.0.1) tiene sus siete pantallas (T58, T60, T62, T64, T71, T72 y T76) integradas en la rama `develop` de su repositorio, su cliente HTTP apunta al backend en AWS desde el PR #7 (9 de noviembre de 2026) y se distribuye como APK mediante GitHub Releases.
+
+**Descarga directa con GitHub Releases:** para que cualquier persona pueda instalar las aplicaciones sin una invitación, el equipo publica cada APK como un *release* en el repositorio de la app. El Landing Page enlaza al archivo del último release (`releases/latest/download/<archivo>`), por lo que, al publicar una nueva versión, basta con adjuntar el APK con el mismo nombre. Al 12 de noviembre de 2026 están disponibles la versión 1.3 de la app nativa del Estudiante (`skillswap-student.apk`, unos 84 MB) y la versión 1.0.1 de la app Flutter del Verificador (`skillswap-verificador.apk`, unos 54 MB); se comprobó que ambos enlaces descargan el archivo.
+
+**Procedimiento de publicación en GitHub Releases:**
+
+1. Generar el APK de release (en Android Studio para la app nativa y con `flutter build apk --release` para la app Flutter).
+2. En el repositorio de la app en GitHub, abrir Releases y pulsar Draft a new release.
+3. Crear la etiqueta de la versión y escribir las notas del release.
+4. Adjuntar el APK con el nombre exacto que usa el Landing Page: `skillswap-student.apk` o `skillswap-verificador.apk`.
+5. Publicar el release como el último (Set as the latest release).
+
+**Procedimiento de instalación (descarga directa):** abrir el Landing Page en el celular Android, ir a la sección de descarga y pulsar Descargar APK en la app que corresponda. Android pide permitir la instalación desde el navegador (instalar apps desconocidas) y Play Protect puede mostrar una advertencia, porque las apps no se distribuyen por Google Play.
 
 **Figura 153**
 
@@ -6653,6 +6667,26 @@ Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, ver
 
 **Figura 155**
 
+*Release de la app nativa del Estudiante en GitHub Releases*
+
+<p align="center">
+  <img src="images-doc/github-release-estudiante.png" alt="Release de la app nativa del Estudiante en GitHub Releases" width="900">
+</p>
+
+*Nota.* Release de la versión 1.3 con el archivo `skillswap-student.apk` en el repositorio `SkillSwap-MobileApp`. Elaboración propia.
+
+**Figura 156**
+
+*Release de la app Flutter del Verificador en GitHub Releases*
+
+<p align="center">
+  <img src="images-doc/github-release-verificador.png" alt="Release de la app Flutter del Verificador en GitHub Releases" width="900">
+</p>
+
+*Nota.* Release de la versión 1.0.1 con el archivo `skillswap-verificador.apk` en el repositorio `SkillSwap-MobileApp-Flutter`. Elaboración propia.
+
+**Figura 157**
+
 *App nativa del Estudiante instalada en un dispositivo físico*
 
 <p align="center">
@@ -6661,9 +6695,9 @@ Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, ver
 
 *Nota.* Elaboración propia.
 
-El Landing Page sigue publicado en GitHub Pages desde la rama `main` (ver 4.1.4). En el Sprint 2 se le agregó la sección de descarga con el enlace de instalación de la app (T77) y se verificó en línea. Además, el PR #13 de `SkillSwap-LandingPage` (9 de noviembre de 2026) deja el inglés como idioma por defecto, completa las traducciones de las claves `data-i18n` y corrige los enlaces `hreflang` de `partnerships.html`. Ese cambio está integrado en `develop` y se publica cuando `develop` se integre en `main`: al 11 de noviembre de 2026, el último despliegue de GitHub Pages corresponde al commit `5a1e9b1` de `main` (30 de octubre de 2026), por lo que el sitio publicado todavía se muestra en español por defecto.
+El Landing Page sigue publicado en GitHub Pages desde la rama `main` (ver 4.1.4). En el Sprint 2 se le agregó la sección de descarga con el enlace de instalación de la app (T77). Después, el PR #13 de `SkillSwap-LandingPage` (9 de noviembre de 2026) dejó el inglés como idioma por defecto, completó las traducciones de las claves `data-i18n` y corrigió los enlaces `hreflang` de `partnerships.html`. El 12 de noviembre de 2026 se integraron los PR #15 y #16, que ofrecen la descarga directa de los APK desde GitHub Releases con un rediseño de la sección principal y un selector de rol, y muestran las versiones 1.3 del Estudiante y 1.0.1 del Verificador, y el PR #17, que deja Firebase App Distribution como opción secundaria, agrega la página de términos y condiciones en español e inglés, detecta el idioma `es-419` y suma un enlace para saltar al contenido, el foco visible y metadatos SEO. Todo ello está en `main` desde el PR #18 (12 de noviembre de 2026).
 
-**Figura 156**
+**Figura 158**
 
 *Landing Page publicado y verificado en el Sprint 2*
 
@@ -6683,9 +6717,9 @@ Esta sección presenta los analíticos de colaboración del Sprint 2 en los repo
 * **SkillSwap-LandingPage:** 7 commits en los PR #9, #11 y #13. Alberca Saavedra registra 4 commits en los PR #9 y #11 (T77 y el video About the Product incrustado), y Komatsu Dueñas, 3 commits en el PR #13 (inglés como idioma por defecto, traducciones de las claves `data-i18n` y enlaces `hreflang`).
 * **SkillSwap-ProjectReport:** 38 commits en los PR #90 a #108; el detalle está en la sección Project Report Collaboration Insights (AV2).
 
-En el período, los cinco repositorios suman 196 commits sin merge: 159 de Alberca Saavedra, 27 de Komatsu Dueñas y 10 de Becerra Ninahuanca. Alberca Saavedra concentró la construcción de las dos aplicaciones y del backend del Sprint 2, integró la mayoría de los Pull Requests y trasladó el backend a AWS; Becerra Ninahuanca participó en las dos aplicaciones móviles, y Komatsu Dueñas, en el backend, en la app Flutter, en el Landing Page y en el informe. `[Pendiente de confirmar con el equipo: aportes del Sprint 2 de Lopez Montalvo, Kevin Edu y de Sulca Sánchez, Piero Angel, que no registran commits en estos repositorios en el período.]`
+En el período, los cinco repositorios suman 196 commits sin merge: 159 de Alberca Saavedra, 27 de Komatsu Dueñas y 10 de Becerra Ninahuanca. Alberca Saavedra concentró la construcción de las dos aplicaciones y del backend del Sprint 2, integró la mayoría de los Pull Requests y trasladó el backend a AWS; Becerra Ninahuanca participó en las dos aplicaciones móviles, y Komatsu Dueñas, en el backend, en la app Flutter, en el Landing Page y en el informe.
 
-**Figura 157**
+**Figura 159**
 
 *Historial de commits de los repositorios durante el Sprint 2*
 
@@ -6807,7 +6841,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** 6:37
 
-**Figura 158**
+**Figura 160**
 
 *Entrevista de validación 1: Personas que quieren aprender*
 
@@ -6834,7 +6868,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** 7:53
 
-**Figura 159**
+**Figura 161**
 
 *Entrevista de validación 2: Personas que quieren aprender*
 
@@ -6861,7 +6895,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** 5:04
 
-**Figura 160**
+**Figura 162**
 
 *Entrevista de validación 3: Personas que quieren aprender*
 
@@ -6891,7 +6925,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con personas 
 * **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** 7:56
 
-**Figura 161**
+**Figura 163**
 
 *Entrevista de validación 1: Personas que validan el conocimiento*
 
@@ -6917,7 +6951,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con personas 
 * **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** 5:00
 
-**Figura 162**
+**Figura 164**
 
 *Entrevista de validación 2: Personas que validan el conocimiento*
 
@@ -6943,7 +6977,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con personas 
 * **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** 7:18
 
-**Figura 163**
+**Figura 165**
 
 *Entrevista de validación 3: Personas que validan el conocimiento*
 
@@ -7017,7 +7051,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Information Architecture: Is it findable?
 * **Problema:** En `index.html` los dos botones de la barra de navegación están dentro de un enlace a `index.html`, por lo que desde la página de inicio no se llega a `login.html` ni a `signup.html`. Además, un botón dentro de un enlace es un elemento interactivo anidado, que los lectores de pantalla pueden anunciar dos veces.
 
-**Figura 164**
+**Figura 166**
 
 *Captura del problema #1*
 
@@ -7036,7 +7070,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Information Architecture: Is it usable?
 * **Problema:** Los cuatro llamados a la acción de la página (el del encabezado y los de las secciones «Sobre nosotros», «Por qué SkillSwap» y «Así se ve una ruta») enlazan a `index.html`, es decir, recargan la misma página, y la página no ofrece un enlace para descargar o instalar la aplicación (US44).
 
-**Figura 165**
+**Figura 167**
 
 *Captura del problema #2*
 
@@ -7055,7 +7089,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Ayuda para reconocer, diagnosticar y recuperarse de errores
 * **Problema:** La pantalla `Login` de la app nativa solo ofrece ingresar y crear una cuenta, y la de la app Flutter solo pide usuario y contraseña. Quien olvidó su contraseña no tiene cómo volver a entrar. El backend tampoco expone un endpoint de restablecimiento de contraseña.
 
-**Figura 166**
+**Figura 168**
 
 *Captura del problema #3*
 
@@ -7073,7 +7107,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Prevención de errores
 * **Problema:** En la pantalla de la ruta, «Salir» está junto a «Mi billetera» y ejecuta el cierre de sesión de inmediato. Un toque accidental borra la sesión guardada y obliga a volver a ingresar. En la app Flutter, el ícono de cerrar sesión de la pantalla de casos tampoco pide confirmación.
 
-**Figura 167**
+**Figura 169**
 
 *Captura del problema #4*
 
@@ -7091,7 +7125,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Information Architecture: Is it findable?
 * **Problema:** El botón de la ruta se llama «Mi billetera» y abre la pantalla del perfil, que además tiene los botones «Mi plan» y «Mis intereses». Quien busca su plan o sus intereses no sospecha que están bajo ese nombre.
 
-**Figura 168**
+**Figura 170**
 
 *Captura del problema #5*
 
@@ -7109,7 +7143,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Visibilidad del estado del sistema
 * **Problema:** Catorce pantallas muestran sus errores de red y sus confirmaciones con `Toast` (40 usos). Desaparecen en pocos segundos y no se pueden releer, por ejemplo si falla el envío del certificado o el registro. En la app Flutter, el inicio de sesión y las pantallas de revisión de casos, disponibilidad, reevaluación, supervisión y compartir un logro usan `SnackBar`, que también se cierra solo.
 
-**Figura 169**
+**Figura 171**
 
 *Captura del problema #6*
 
@@ -7127,7 +7161,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Inclusive Design: Offer choice
 * **Problema:** El tema de la app nativa y el de la app Flutter (`AppTheme.light()`) no ofrecen modo oscuro, por lo que las personas que lo prefieren, o lo necesitan por sensibilidad a la luz, no pueden cambiarlo.
 
-**Figura 170**
+**Figura 172**
 
 *Captura del problema #7*
 
@@ -7145,7 +7179,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Inclusive Design: Provide comparable experience
 * **Problema:** El Landing Page ofrece el cambio ES/EN, mientras que los textos de la aplicación están escritos en el código y el archivo `strings.xml` solo tiene una cadena, así que una persona que elige inglés en el sitio encuentra la aplicación solo en español. Las pantallas de la app Flutter también tienen sus textos escritos en español dentro del código.
 
-**Figura 171**
+**Figura 173**
 
 *Captura del problema #8*
 
@@ -7163,7 +7197,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Control y libertad del usuario
 * **Problema:** Si la cuenta no tiene el rol de Verificador, la pantalla de casos solo indica que debe completar un nodo en la app del Estudiante y habilitarse, y ofrece «Volver a revisar». La app Flutter no permite habilitarse y el segmento de Verificadores usa solo esa app, por lo que quien no tiene la cuenta ya habilitada no puede continuar.
 
-**Figura 172**
+**Figura 174**
 
 *Captura del problema #9*
 
@@ -7290,7 +7324,7 @@ El video está dirigido a quienes visitan el Landing Page y quieren conocer el m
 * **URL en YouTube (incrustado en el Landing Page):** [https://youtu.be/-XpgJySK29A](https://youtu.be/-XpgJySK29A)
 * **Duración:** 01:30
 
-**Figura 173**
+**Figura 175**
 
 *Cuadro del video About the Product*
 
@@ -7324,7 +7358,7 @@ El video presenta al equipo Innovify a través del testimonio ante cámara de ca
 * **URL en YouTube (incrustado en el Landing Page, página Sobre nosotros):** [https://youtu.be/_XDtUMnAASU](https://youtu.be/_XDtUMnAASU)
 * **Duración:** 07:26
 
-**Figura 174**
+**Figura 176**
 
 *Cuadro del video About the Team*
 
@@ -7682,26 +7716,28 @@ Figura 151. *Instancia EC2 del backend en AWS*<br>
 Figura 152. *Swagger UI del backend en AWS*<br>
 Figura 153. *Versión 1.0 de la app nativa publicada en Firebase App Distribution*<br>
 Figura 154. *Correo de invitación de Firebase App Distribution*<br>
-Figura 155. *App nativa del Estudiante instalada en un dispositivo físico*<br>
-Figura 156. *Landing Page publicado y verificado en el Sprint 2*<br>
-Figura 157. *Historial de commits de los repositorios durante el Sprint 2*<br>
-Figura 158. *Entrevista de validación 1: Personas que quieren aprender*<br>
-Figura 159. *Entrevista de validación 2: Personas que quieren aprender*<br>
-Figura 160. *Entrevista de validación 3: Personas que quieren aprender*<br>
-Figura 161. *Entrevista de validación 1: Personas que validan el conocimiento*<br>
-Figura 162. *Entrevista de validación 2: Personas que validan el conocimiento*<br>
-Figura 163. *Entrevista de validación 3: Personas que validan el conocimiento*<br>
-Figura 164. *Captura del problema #1*<br>
-Figura 165. *Captura del problema #2*<br>
-Figura 166. *Captura del problema #3*<br>
-Figura 167. *Captura del problema #4*<br>
-Figura 168. *Captura del problema #5*<br>
-Figura 169. *Captura del problema #6*<br>
-Figura 170. *Captura del problema #7*<br>
-Figura 171. *Captura del problema #8*<br>
-Figura 172. *Captura del problema #9*<br>
-Figura 173. *Cuadro del video About the Product*<br>
-Figura 174. *Cuadro del video About the Team*<br>
+Figura 155. *Release de la app nativa del Estudiante en GitHub Releases*<br>
+Figura 156. *Release de la app Flutter del Verificador en GitHub Releases*<br>
+Figura 157. *App nativa del Estudiante instalada en un dispositivo físico*<br>
+Figura 158. *Landing Page publicado y verificado en el Sprint 2*<br>
+Figura 159. *Historial de commits de los repositorios durante el Sprint 2*<br>
+Figura 160. *Entrevista de validación 1: Personas que quieren aprender*<br>
+Figura 161. *Entrevista de validación 2: Personas que quieren aprender*<br>
+Figura 162. *Entrevista de validación 3: Personas que quieren aprender*<br>
+Figura 163. *Entrevista de validación 1: Personas que validan el conocimiento*<br>
+Figura 164. *Entrevista de validación 2: Personas que validan el conocimiento*<br>
+Figura 165. *Entrevista de validación 3: Personas que validan el conocimiento*<br>
+Figura 166. *Captura del problema #1*<br>
+Figura 167. *Captura del problema #2*<br>
+Figura 168. *Captura del problema #3*<br>
+Figura 169. *Captura del problema #4*<br>
+Figura 170. *Captura del problema #5*<br>
+Figura 171. *Captura del problema #6*<br>
+Figura 172. *Captura del problema #7*<br>
+Figura 173. *Captura del problema #8*<br>
+Figura 174. *Captura del problema #9*<br>
+Figura 175. *Cuadro del video About the Product*<br>
+Figura 176. *Cuadro del video About the Team*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
@@ -7709,9 +7745,11 @@ Figura 174. *Cuadro del video About the Team*<br>
 | :--- | :--- | :--- |
 | **Landing Page — Sitio desplegado** | Sitio web estático de presentación del modelo de negocio Innovify (SkillSwap), publicado en GitHub Pages. | [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/) |
 | **Landing Page — Repositorio** | Código fuente del Landing Page (HTML5, CSS3 y JavaScript). | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage) |
-| **Android Native Application** | Aplicación móvil nativa (Kotlin / Jetpack Compose) del Estudiante. Es la app del Estudiante y se distribuye con Firebase App Distribution. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp) |
-| **Cross-Platform Application (Flutter)** | Aplicación móvil multiplataforma (Flutter / Dart, dirigida a Android) del Verificador. Sus siete pantallas están integradas en `develop` y su cliente apunta al backend en AWS desde el PR #7 (9 de noviembre de 2026); aún no se distribuye. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter) |
+| **Android Native Application** | Aplicación móvil nativa (Kotlin / Jetpack Compose) del Estudiante. Es la app del Estudiante (versión 1.3) y se descarga como APK desde GitHub Releases; también se distribuye con Firebase App Distribution. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp) |
+| **Cross-Platform Application (Flutter)** | Aplicación móvil multiplataforma (Flutter / Dart, dirigida a Android) del Verificador. Versión 1.0.1, con sus siete pantallas integradas en `develop` y su cliente apuntando al backend en AWS desde el PR #7 (9 de noviembre de 2026); se descarga como APK desde GitHub Releases. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter) |
 | **App nativa — Firebase App Distribution** | Enlace de invitación para instalar la versión de prueba de la app del Estudiante (versión 1.2, que consume el backend en AWS, publicada según confirmó el equipo el 11 de noviembre de 2026). | [https://appdistribution.firebase.dev/i/eb345a85ef8857fa](https://appdistribution.firebase.dev/i/eb345a85ef8857fa) |
+| **App nativa — Descarga directa (GitHub Releases)** | APK de la versión 1.3 de la app del Estudiante (`skillswap-student.apk`), enlace que usa el Landing Page. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp/releases/latest/download/skillswap-student.apk](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp/releases/latest/download/skillswap-student.apk) |
+| **App Flutter del Verificador — Descarga directa (GitHub Releases)** | APK de la versión 1.0.1 de la app del Verificador (`skillswap-verificador.apk`), enlace que usa el Landing Page. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter/releases/latest/download/skillswap-verificador.apk](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter/releases/latest/download/skillswap-verificador.apk) |
 | **Prototipo y mock-ups (Figma)** | Archivo de diseño con el prototipo y los mock-ups de la aplicación móvil para los roles Estudiante y Verificador (Capítulo III). | [https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo?node-id=3-959](https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo?node-id=3-959) |
 | **Backend — Swagger UI** | Documentación interactiva (OpenAPI) de los Web Services RESTful (Java 21 / Spring Boot), desplegados en AWS desde el 31 de octubre de 2026. | [https://skillswap-innovify.duckdns.org/swagger-ui/index.html](https://skillswap-innovify.duckdns.org/swagger-ui/index.html) |
 | **Backend — Swagger UI (Render, Sprint 1)** | Entorno en el que se desplegó el backend durante el Sprint 1; ya no está activo. | [https://skillswap-webservices-java.onrender.com/swagger-ui/index.html](https://skillswap-webservices-java.onrender.com/swagger-ui/index.html) |
