@@ -76,12 +76,12 @@ Noviembre 2026
 | **v.09.AV2** | 30/10/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron al Sprint 2 la tienda de beneficios con canje de SkillCredits y confirmación biométrica de la app Flutter (T76, US32) y la sección de descarga del Landing Page con la corrección de sus botones de acceso (T77, US44). Se actualizaron el Sprint Backlog 2 (34 tasks, 197 horas), la matriz de liderazgo (Tabla 27), los commits (Tablas 29 y 30), el número de pruebas de Flutter (43), el avance del Verificador (7 de 14 historias), el estado de los problemas #1 y #2 de 4.3.3 y las recomendaciones de Conclusiones. |
 | **v.10.AV2** | 01/11/2026 | Alberca Saavedra, Víctor Manuel | Se registró el cambio de despliegue del backend de Render a AWS (31/10/2026): se agregó el apartado correspondiente a 4.2.2.8 (Figuras 151 y 152), se actualizaron 4.1.4, la Tabla 14, la Tabla 33, el Deployment Diagram (2.5), el commit de despliegue (Tabla 29), las Conclusiones y el Anexo A, y se conservó sin cambios el despliegue en Render del Sprint 1 (4.2.1.8). Las capturas de las Figuras 151 y 152 quedan pendientes. |
 | **v.11.AV2** | 09/11/2026 | Komatsu Dueñas, David | Se corrigieron los siguientes tópicos a partir de la revisión del informe para el AV2, contrastándolo con los repositorios:<br><br>**Carátula** (mes de la entrega: noviembre de 2026)<br>**Project Report Collaboration Insights** (AV2 con los commits y Pull Requests reales del repositorio del informe entre el 10 de octubre y el 9 de noviembre de 2026) y **Contenido** (entrada AV2)<br>**Student Outcome** (acciones de AV2 de Komatsu Dueñas, David en las tasks T45, T50, T51, T56 y T70, y conclusiones grupales de AV2)<br><br>**Capítulo I:** 1.1.1 (evaluación entre pares, con cita) y 1.2.1 (microcredenciales y contenido generado con IA, con citas)<br>**Capítulo II:** 2.4.1, 2.4.2, 2.5.1 y 2.5.3 (citas de los métodos aplicados); 2.4.3 Product Backlog (columna Sprint con las 13 historias del Sprint 2 y retiro de una fila de la evaluación heurística que estaba en la Tabla 10); 2.5.3 (texto de los diagramas de Contexto, Contenedores y Despliegue con un actor por aplicación)<br>**Capítulo IV:** 4.1.2 (citas de GitFlow, Semantic Versioning y Conventional Commits, y del desarrollo multiplataforma); 4.1.3 (guía de estilo de Dart / Flutter); 4.1.4 y 4.2.2.8 (versión 1.2 de la app nativa, que consume el backend en AWS, y app Flutter todavía configurada con la URL de Render, en la Tabla 33 y el Anexo A, y nota de la Figura 152 con el estado del Swagger UI en AWS al 9 de noviembre de 2026); 4.2.2.4 (commits de los PR #21 a #23 de la app nativa, de la base de la app Flutter y del PR #11 del Landing Page en la Tabla 29); 4.2.2.5 (todas las pruebas unitarias de la app nativa en la Tabla 30 y su nota); 4.2.2.9 Team Collaboration Insights (commits y Pull Requests por integrante y repositorio); 4.3.3 (problema #9 en la Tabla 36 y recomendaciones de los problemas #7 y #8 para las dos aplicaciones)<br><br>**Conclusiones** (recomendación 7 de accesibilidad, con cita)<br>**Bibliografía** (Alasmari, 2024, y Grévisse et al., 2024, trasladados desde los Anexos; volumen, número y páginas o número de artículo de los papers; Nguyen et al. con el año de su número, 2026; y el paper de Rabelo et al., 2026, sobre la accesibilidad de interfaces nativas de Android con Jetpack Compose) y **Anexo C** (estado del video About the Product)<br><br>Se agregó el archivo `README.md` como archivo principal del repositorio, con enlaces a cada sección del informe y a los repositorios de la solución. |
-| **v.12.AV2** | 10/11/2026 | Alberca Saavedra, Víctor Manuel | Se registraron las tres entrevistas de validación del segmento Personas que validan el conocimiento en 4.3.2 (Figuras 163 a 165) con su perfil, sus datos y el resumen descriptivo por tarea, y se ajustaron 4.3.1 y la Tabla 34 a la forma de esas sesiones, en las que se mostró el Landing Page y un video de la aplicación. |
+| **v.12.AV2** | 10/11/2026 | Alberca Saavedra, Víctor Manuel | Se registraron las tres entrevistas de validación del segmento Personas que validan el conocimiento en 4.3.2 (Figuras 164 a 166) con su perfil, sus datos y el resumen descriptivo por tarea, y se ajustaron 4.3.1 y la Tabla 34 a la forma de esas sesiones, en las que se mostró el Landing Page y un video de la aplicación. |
 | **v.13.AV2** | 11/11/2026 | Komatsu Dueñas, David | Se sincronizaron las evidencias del Sprint 2 con los repositorios y los despliegues al 11 de noviembre de 2026:<br><br>**Project Report Collaboration Insights** (AV2 con los commits y Pull Requests del repositorio del informe hasta el PR #108)<br><br>**Capítulo II:** 2.5.3.3 Software Architecture Deployment Diagrams (Deployment Diagram regenerado con la arquitectura real en AWS: instancia EC2 con Docker Compose y los contenedores de Caddy, la API y PostgreSQL 16, la distribución de cada aplicación y los servicios externos del backend, sin Render; texto de la sección y notas de las Figuras 74 y 122)<br><br>**Capítulo IV:** 4.1.4 (app Flutter apuntando al backend en AWS y versión 1.2 de la app nativa publicada en Firebase App Distribution); 4.2.2.4 (commits de los PR #37 y #38 del backend, del PR #7 de la app Flutter y del PR #13 del Landing Page en la Tabla 29, con su autoría); 4.2.2.5 (pruebas de los PR #37 y #38 en la Tabla 30 y resultados de `./mvnw test` sin Docker, `./gradlew testDebugUnitTest` y `flutter test` sobre `develop`); 4.2.2.7 (`GET /api/v1/reevaluations/candidates` en la Tabla 31); 4.2.2.8 (clientes y actualización del servidor en AWS, nota de la Figura 152 con la especificación OpenAPI publicada, Tabla 33, nota de la Figura 153 y estado de publicación del Landing Page con el inglés por defecto del PR #13); 4.2.2.9 Team Collaboration Insights (commits y Pull Requests por integrante y repositorio hasta el 11 de noviembre de 2026)<br><br>**Anexo A** (app Flutter y enlace de Firebase App Distribution), **Anexo B** (fila del AV2: no se presenta video de exposición, por indicación del docente) y **Anexo C** (estado del video de las entrevistas de validación) |
 | **v.14.AV2** | 11/11/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron las capturas de la reunión de Sprint Planning 2, de la instancia EC2 y del Swagger en AWS, y las de 4.2.2.6 (resultado del quiz y pantalla principal del Verificador), con una descripción para cada figura de 4.2.2.6; se completaron en 4.3.2 los resultados de las sesiones con las personas que validan el conocimiento (hipótesis H4, H5 y H6 y supuestos que cambian) y se registró el cuadro de la entrevista 1; se eliminó la Figura 150 (programación de la demostración final) y se retiró la sección Video App Validation, con su pauta y su cuadro, renumerando las figuras y tablas siguientes. |
-| **v.15.AV2** | 12/11/2026 | Sulca Sánchez, Piero Angel | Se registró la primera versión del video About the Team: URL en Microsoft Stream y en YouTube, duración, cuadro representativo (Figura 176) y pauta real de secciones (Tabla 39); se actualizó su fila en el Anexo C. |
+| **v.15.AV2** | 12/11/2026 | Sulca Sánchez, Piero Angel | Se registró la primera versión del video About the Team: URL en Microsoft Stream y en YouTube, duración, cuadro representativo (Figura 177) y pauta real de secciones (Tabla 39); se actualizó su fila en el Anexo C. |
 | **v.16.AV2** | 12/11/2026 | Sulca Sánchez, Piero Angel | Se registraron en 4.2.2.4 (Tabla 29) los commits representativos de la reorganización por bounded contexts y el rediseño de la app del Estudiante (PR #24), de la actualización del Android Gradle Plugin y del saldo de SkillCredits en la app del Verificador (PR #8 y #9) y de la descarga directa de los APK en el Landing Page (PR #15); se completaron los aportes de Sulca Sánchez en Project Report Collaboration Insights. |
-| **v.17.AV2** | 12/11/2026 | Alberca Saavedra, Víctor Manuel | Se actualizaron las versiones de las aplicaciones (app nativa 1.3 y app Flutter 1.0.1) y su distribución mediante GitHub Releases en 2.5.3, 4.1.4, 4.2.2.8 (Tabla 33, procedimientos y Figuras 155 y 156) y el Anexo A, que ahora incluye los enlaces de descarga directa de los dos APK; y se actualizó la descripción del Landing Page en 4.2.2.8 (descarga directa, términos y condiciones, idioma y accesibilidad). |
+| **v.17.AV2** | 12/11/2026 | Alberca Saavedra, Víctor Manuel | Se actualizaron las versiones de las aplicaciones (app nativa 1.3 y app Flutter 1.0.1) y su distribución mediante GitHub Releases en 2.5.3, 4.1.4, 4.2.2.8 (Tabla 33, procedimientos y Figuras 155 y 156) y el Anexo A, que ahora incluye los enlaces de descarga directa de los dos APK; se actualizó la descripción del Landing Page en 4.2.2.8 (descarga directa, términos y condiciones, idioma y accesibilidad); y se agregó la Figura 160 con los gráficos de contribuciones de los repositorios. |
 
 <div style="page-break-after: always;"></div>
 
@@ -168,7 +168,7 @@ Durante el desarrollo de la entrega AV2, el equipo mantiene el esquema de colabo
   <img src="images-doc/github-commits-informe-av2.png" alt="Historial de commits del repositorio del Project Report durante AV2" width="900">
 </p>
 
-*Nota.* Las capturas corresponden a GitHub Insights al 24 de octubre de 2026 y muestran la rama `main`, que todavía no incluye los commits del AV2 integrados en `develop`. `[Reemplazar por las capturas de Contributors y Commits al cierre del AV2, después de integrar develop en main, y numerarlas como figuras.]` Elaboración propia.
+*Nota.* Las capturas corresponden a GitHub Insights (Contributors y Commits) de la rama `main` del repositorio del Project Report, tomadas al cierre del AV2, después de integrar `develop` en `main`. La primera muestra el gráfico de contribuciones, con los commits de cada integrante por semana, y la segunda, el historial de commits del período. Elaboración propia.
 
 
 
@@ -6394,7 +6394,7 @@ Se presentan las pruebas unitarias y de integración que cubren las historias de
 | SkillSwap-WebServices-Java | feature/assessment-reevaluation-candidates | `98b4714` | feat(assessmentpeerreview): add GET /api/v1/reevaluations/candidates | Pruebas: `ReevaluationsIntegrationTest`. | 2026-10-28 |
 | SkillSwap-WebServices-Java | fix/stale-integration-tests | `35e6e96` | test: align the redeem and demand metrics integration tests with current behavior | Ajustes en `FinalDemonstrationsIntegrationTest`, `RecognitionIncentivesApiIntegrationTest` y `MetricsApiIntegrationTest`. | 2026-11-09 |
 
-*Nota.* Commits del backend y de las aplicaciones a la fecha que incluyen pruebas automatizadas (unitarias y de integración). En la rama `feature/miniproject-preliminary-evaluation` (T56) la suite completa (`./mvnw test`) ejecutó 2326 pruebas sin fallos, sin las 446 pruebas de integración y persistencia con Testcontainers, que requieren Docker. Al ejecutar la suite completa con Docker sobre `develop` (en Windows) se corrieron 2329 pruebas con un fallo en `LearningPathPersistenceTest` (línea 311): el plazo del miniproyecto leído de PostgreSQL difería del guardado en la fracción de microsegundo, porque el reloj de Windows tiene pasos de 100 ns y PostgreSQL guarda microsegundos. El PR #22 (`fix/persistence-instant-precision`) lo corrige; su suite sin Docker ejecutó 2328 pruebas sin fallos. El PR #37 agrega las pruebas de `GET /api/v1/reevaluations/candidates` (unitarias, de persistencia y de integración) y el PR #38 ajusta tres pruebas de integración al comportamiento vigente. El 11 de noviembre de 2026, sobre la rama `develop` del backend (commit `2dc1632`, merge del PR #38), `./mvnw test` sin Docker reportó 2792 pruebas, sin fallos ni errores, de las cuales 566 se omitieron porque requieren Docker (Testcontainers). La corrida con Docker sobre `develop` queda pendiente de confirmación: `[Completar con el resultado de ./mvnw test con Docker sobre develop]`. Las pruebas de la aplicación nativa son unitarias, en `app/src/test` (`SignUpValidatorTest`, `CertificateParserTest`, `VerificationCaseTest`, `CertificateMismatchTest`, `WalletTest`, `FinalDemonstrationTest`, `PlanAndProfileTest`, `PathLimitsTest` y la `ExampleUnitTest` de la plantilla del proyecto): el 11 de noviembre de 2026, sobre la rama `develop` de `SkillSwap-MobileApp` (commit `9881db1`, merge del PR #23), `./gradlew testDebugUnitTest` (las pruebas unitarias locales de `./gradlew test` en la variante debug) ejecutó 41 pruebas en 9 clases, sin fallos, errores ni pruebas omitidas. La aplicación Flutter del Verificador tiene 43 pruebas: 26 de BLoC (`bloc_test.dart`), 16 de dominio (`domain_test.dart`) y 1 de widget (`widget_test.dart`); el mismo día, sobre la rama `develop` de `SkillSwap-MobileApp-Flutter` (commit `5ae7534`, merge del PR #7), `flutter test` (Flutter 3.47.9) ejecutó las 43 pruebas y todas pasaron. Elaboración propia.
+*Nota.* Commits del backend y de las aplicaciones a la fecha que incluyen pruebas automatizadas (unitarias y de integración). En la rama `feature/miniproject-preliminary-evaluation` (T56) la suite completa (`./mvnw test`) ejecutó 2326 pruebas sin fallos, sin las 446 pruebas de integración y persistencia con Testcontainers, que requieren Docker. Al ejecutar la suite completa con Docker sobre `develop` (en Windows) se corrieron 2329 pruebas con un fallo en `LearningPathPersistenceTest` (línea 311): el plazo del miniproyecto leído de PostgreSQL difería del guardado en la fracción de microsegundo, porque el reloj de Windows tiene pasos de 100 ns y PostgreSQL guarda microsegundos. El PR #22 (`fix/persistence-instant-precision`) lo corrige; su suite sin Docker ejecutó 2328 pruebas sin fallos. El PR #37 agrega las pruebas de `GET /api/v1/reevaluations/candidates` (unitarias, de persistencia y de integración) y el PR #38 ajusta tres pruebas de integración al comportamiento vigente. El 11 de noviembre de 2026, sobre la rama `develop` del backend (commit `2dc1632`, merge del PR #38), `./mvnw test` sin Docker reportó 2792 pruebas, sin fallos ni errores, de las cuales 566 se omitieron porque requieren Docker (Testcontainers). Las pruebas de la aplicación nativa son unitarias, en `app/src/test` (`SignUpValidatorTest`, `CertificateParserTest`, `VerificationCaseTest`, `CertificateMismatchTest`, `WalletTest`, `FinalDemonstrationTest`, `PlanAndProfileTest`, `PathLimitsTest` y la `ExampleUnitTest` de la plantilla del proyecto): el 11 de noviembre de 2026, sobre la rama `develop` de `SkillSwap-MobileApp` (commit `9881db1`, merge del PR #23), `./gradlew testDebugUnitTest` (las pruebas unitarias locales de `./gradlew test` en la variante debug) ejecutó 41 pruebas en 9 clases, sin fallos, errores ni pruebas omitidas. La aplicación Flutter del Verificador tiene 43 pruebas: 26 de BLoC (`bloc_test.dart`), 16 de dominio (`domain_test.dart`) y 1 de widget (`widget_test.dart`); el mismo día, sobre la rama `develop` de `SkillSwap-MobileApp-Flutter` (commit `5ae7534`, merge del PR #7), `flutter test` (Flutter 3.47.9) ejecutó las 43 pruebas y todas pasaron. Elaboración propia.
 
 #### 4.2.2.6. Execution Evidence for Sprint Review
 
@@ -6606,7 +6606,7 @@ Durante el Sprint 2 el backend cambió de entorno de despliegue. El 31 de octubr
 | Repositorio | `SkillSwap-MobileApp` | `SkillSwap-MobileApp-Flutter` |
 | Tecnología | Kotlin / Jetpack Compose | Flutter / Dart |
 | Identificador de la app | `com.innovify.skillswap` | `com.innovify.skillswap_verifier` |
-| Versión | 1.3, disponible en GitHub Releases al 12 de noviembre de 2026; la versión 1.2 (código de versión 2), desde el 1 de noviembre de 2026, se publicó en Firebase App Distribution según confirmó el equipo el 11 de noviembre de 2026; la captura de la Figura 153 corresponde a la versión 1.0 (código de versión 1) | 1.0.1, disponible en GitHub Releases al 12 de noviembre de 2026 |
+| Versión | 1.3, disponible en GitHub Releases al 12 de noviembre de 2026; la versión 1.2 (código de versión 2), desde el 1 de noviembre de 2026, se publicó en Firebase App Distribution según confirmó el equipo el 11 de noviembre de 2026; la captura de la Figura 153 corresponde a la versión 1.2 (código de versión 2) | 1.0.1, disponible en GitHub Releases al 12 de noviembre de 2026 |
 | Android mínimo | Android 10 (API 29) | El que define Flutter para el proyecto (`flutter.minSdkVersion`) |
 | Plataforma de distribución | GitHub Releases (descarga directa del APK) y Firebase App Distribution, proyecto `skillswap-moviles` | GitHub Releases (descarga directa del APK) |
 | Método de publicación | APK adjunto a un release de GitHub con el nombre `skillswap-student.apk`; subida manual del APK en la consola de Firebase | APK adjunto a un release de GitHub con el nombre `skillswap-verificador.apk` |
@@ -6647,13 +6647,13 @@ Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, ver
 
 **Figura 153**
 
-*Versión 1.0 de la app nativa publicada en Firebase App Distribution*
+*Versión 1.2 de la app nativa publicada en Firebase App Distribution*
 
 <p align="center">
-  <img src="images-doc/firebase-app-distribution-release.png" alt="Versión 1.0 de la app nativa publicada en Firebase App Distribution" width="900">
+  <img src="images-doc/firebase-app-distribution-release.png" alt="Versión 1.2 de la app nativa publicada en Firebase App Distribution" width="900">
 </p>
 
-*Nota.* La captura corresponde a la versión 1.0 (código de versión 1). La versión 1.2 (código de versión 2), que apunta al backend en AWS, está en la rama `develop` desde el 1 de noviembre de 2026 y, según confirmó el equipo el 11 de noviembre de 2026, ya está publicada en Firebase App Distribution. `[Reemplazar por la captura de la versión 1.2 en la consola de Firebase App Distribution y actualizar el título de la figura]`. Elaboración propia.
+*Nota.* Release de la versión 1.2 (código de versión 2) en la consola de Firebase App Distribution, con la app nativa apuntando al backend en AWS (rama `develop` desde el 1 de noviembre de 2026). Elaboración propia.
 
 **Figura 154**
 
@@ -6727,7 +6727,31 @@ En el período, los cinco repositorios suman 196 commits sin merge: 159 de Alber
   <img src="images-doc/github-insights-commits-sprint-2.png" alt="Historial de commits de los repositorios durante el Sprint 2" width="900">
 </p>
 
-*Nota.* Historial de commits de la rama `develop` de `SkillSwap-MobileApp` con el PR #10, que integra las tasks T47, T53 y T55. `[Agregar las capturas de GitHub Insights (Contributors y Commits) de los demás repositorios al cierre del Sprint 2.]` Elaboración propia.
+*Nota.* Historial de commits de la rama `develop` de `SkillSwap-MobileApp` con el PR #10, que integra las tasks T47, T53 y T55. Elaboración propia.
+
+**Figura 160**
+
+*Gráficos de contribuciones de los repositorios durante el Sprint 2*
+
+<p align="center">
+  <img src="images-doc/github-insights-contributors-backend.png" alt="Contribuciones del repositorio SkillSwap-WebServices-Java durante el Sprint 2" width="900">
+</p>
+
+<p align="center">
+  <img src="images-doc/github-insights-contributors-app-nativa.png" alt="Contribuciones del repositorio SkillSwap-MobileApp durante el Sprint 2" width="900">
+</p>
+
+<p align="center">
+  <img src="images-doc/github-insights-contributors-flutter.png" alt="Contribuciones del repositorio SkillSwap-MobileApp-Flutter durante el Sprint 2" width="900">
+</p>
+
+<p align="center">
+  <img src="images-doc/github-insights-contributors-landing.png" alt="Contribuciones del repositorio SkillSwap-LandingPage durante el Sprint 2" width="900">
+</p>
+
+*Nota.* Gráficos de Insights → Contributors de los cuatro repositorios, del 10 de octubre al 11 de noviembre de 2026. De arriba abajo: `SkillSwap-WebServices-Java`, `SkillSwap-MobileApp`, `SkillSwap-MobileApp-Flutter` y `SkillSwap-LandingPage`. Elaboración propia.
+
+En estas imágenes se presenta, para cada repositorio, el gráfico de contribuciones con los commits de cada integrante por semana durante el período del Sprint 2. La primera corresponde al backend, la segunda a la aplicación nativa del Estudiante, la tercera a la aplicación Flutter del Verificador y la cuarta al Landing Page. Los totales de commits y de Pull Requests de cada repositorio se detallan en la lista anterior; el repositorio del informe se evidencia en la sección Project Report Collaboration Insights (AV2).
 
 
 ## 4.3. Validation Interviews
@@ -6841,7 +6865,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** 6:37
 
-**Figura 160**
+**Figura 161**
 
 *Entrevista de validación 1: Personas que quieren aprender*
 
@@ -6868,7 +6892,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** 7:53
 
-**Figura 161**
+**Figura 162**
 
 *Entrevista de validación 2: Personas que quieren aprender*
 
@@ -6895,7 +6919,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiant
 * **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** 5:04
 
-**Figura 162**
+**Figura 163**
 
 *Entrevista de validación 3: Personas que quieren aprender*
 
@@ -6925,7 +6949,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con personas 
 * **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** 7:56
 
-**Figura 163**
+**Figura 164**
 
 *Entrevista de validación 1: Personas que validan el conocimiento*
 
@@ -6951,7 +6975,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con personas 
 * **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** 5:00
 
-**Figura 164**
+**Figura 165**
 
 *Entrevista de validación 2: Personas que validan el conocimiento*
 
@@ -6977,7 +7001,7 @@ Para este segmento se realizan de 3 a 5 entrevistas de validación con personas 
 * **Inicio de la entrevista en el video:** 00:00:00
 * **Duración:** 7:18
 
-**Figura 165**
+**Figura 166**
 
 *Entrevista de validación 3: Personas que validan el conocimiento*
 
@@ -7051,7 +7075,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Information Architecture: Is it findable?
 * **Problema:** En `index.html` los dos botones de la barra de navegación están dentro de un enlace a `index.html`, por lo que desde la página de inicio no se llega a `login.html` ni a `signup.html`. Además, un botón dentro de un enlace es un elemento interactivo anidado, que los lectores de pantalla pueden anunciar dos veces.
 
-**Figura 166**
+**Figura 167**
 
 *Captura del problema #1*
 
@@ -7070,7 +7094,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Information Architecture: Is it usable?
 * **Problema:** Los cuatro llamados a la acción de la página (el del encabezado y los de las secciones «Sobre nosotros», «Por qué SkillSwap» y «Así se ve una ruta») enlazan a `index.html`, es decir, recargan la misma página, y la página no ofrece un enlace para descargar o instalar la aplicación (US44).
 
-**Figura 167**
+**Figura 168**
 
 *Captura del problema #2*
 
@@ -7089,7 +7113,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Ayuda para reconocer, diagnosticar y recuperarse de errores
 * **Problema:** La pantalla `Login` de la app nativa solo ofrece ingresar y crear una cuenta, y la de la app Flutter solo pide usuario y contraseña. Quien olvidó su contraseña no tiene cómo volver a entrar. El backend tampoco expone un endpoint de restablecimiento de contraseña.
 
-**Figura 168**
+**Figura 169**
 
 *Captura del problema #3*
 
@@ -7107,7 +7131,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Prevención de errores
 * **Problema:** En la pantalla de la ruta, «Salir» está junto a «Mi billetera» y ejecuta el cierre de sesión de inmediato. Un toque accidental borra la sesión guardada y obliga a volver a ingresar. En la app Flutter, el ícono de cerrar sesión de la pantalla de casos tampoco pide confirmación.
 
-**Figura 169**
+**Figura 170**
 
 *Captura del problema #4*
 
@@ -7125,7 +7149,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Information Architecture: Is it findable?
 * **Problema:** El botón de la ruta se llama «Mi billetera» y abre la pantalla del perfil, que además tiene los botones «Mi plan» y «Mis intereses». Quien busca su plan o sus intereses no sospecha que están bajo ese nombre.
 
-**Figura 170**
+**Figura 171**
 
 *Captura del problema #5*
 
@@ -7143,7 +7167,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Visibilidad del estado del sistema
 * **Problema:** Catorce pantallas muestran sus errores de red y sus confirmaciones con `Toast` (40 usos). Desaparecen en pocos segundos y no se pueden releer, por ejemplo si falla el envío del certificado o el registro. En la app Flutter, el inicio de sesión y las pantallas de revisión de casos, disponibilidad, reevaluación, supervisión y compartir un logro usan `SnackBar`, que también se cierra solo.
 
-**Figura 171**
+**Figura 172**
 
 *Captura del problema #6*
 
@@ -7161,7 +7185,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Inclusive Design: Offer choice
 * **Problema:** El tema de la app nativa y el de la app Flutter (`AppTheme.light()`) no ofrecen modo oscuro, por lo que las personas que lo prefieren, o lo necesitan por sensibilidad a la luz, no pueden cambiarlo.
 
-**Figura 172**
+**Figura 173**
 
 *Captura del problema #7*
 
@@ -7179,7 +7203,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Inclusive Design: Provide comparable experience
 * **Problema:** El Landing Page ofrece el cambio ES/EN, mientras que los textos de la aplicación están escritos en el código y el archivo `strings.xml` solo tiene una cadena, así que una persona que elige inglés en el sitio encuentra la aplicación solo en español. Las pantallas de la app Flutter también tienen sus textos escritos en español dentro del código.
 
-**Figura 173**
+**Figura 174**
 
 *Captura del problema #8*
 
@@ -7197,7 +7221,7 @@ No están incluidas en esta versión de la evaluación: 1) el canje de beneficio
 * **Heurística violada:** Usability: Control y libertad del usuario
 * **Problema:** Si la cuenta no tiene el rol de Verificador, la pantalla de casos solo indica que debe completar un nodo en la app del Estudiante y habilitarse, y ofrece «Volver a revisar». La app Flutter no permite habilitarse y el segmento de Verificadores usa solo esa app, por lo que quien no tiene la cuenta ya habilitada no puede continuar.
 
-**Figura 174**
+**Figura 175**
 
 *Captura del problema #9*
 
@@ -7324,7 +7348,7 @@ El video está dirigido a quienes visitan el Landing Page y quieren conocer el m
 * **URL en YouTube (incrustado en el Landing Page):** [https://youtu.be/-XpgJySK29A](https://youtu.be/-XpgJySK29A)
 * **Duración:** 01:30
 
-**Figura 175**
+**Figura 176**
 
 *Cuadro del video About the Product*
 
@@ -7358,7 +7382,7 @@ El video presenta al equipo Innovify a través del testimonio ante cámara de ca
 * **URL en YouTube (incrustado en el Landing Page, página Sobre nosotros):** [https://youtu.be/_XDtUMnAASU](https://youtu.be/_XDtUMnAASU)
 * **Duración:** 07:26
 
-**Figura 176**
+**Figura 177**
 
 *Cuadro del video About the Team*
 
@@ -7714,30 +7738,31 @@ Figura 149. *Acceso con biometría del dispositivo*<br>
 Figura 150. *Documentación Swagger de los endpoints del Sprint 2*<br>
 Figura 151. *Instancia EC2 del backend en AWS*<br>
 Figura 152. *Swagger UI del backend en AWS*<br>
-Figura 153. *Versión 1.0 de la app nativa publicada en Firebase App Distribution*<br>
+Figura 153. *Versión 1.2 de la app nativa publicada en Firebase App Distribution*<br>
 Figura 154. *Correo de invitación de Firebase App Distribution*<br>
 Figura 155. *Release de la app nativa del Estudiante en GitHub Releases*<br>
 Figura 156. *Release de la app Flutter del Verificador en GitHub Releases*<br>
 Figura 157. *App nativa del Estudiante instalada en un dispositivo físico*<br>
 Figura 158. *Landing Page publicado y verificado en el Sprint 2*<br>
 Figura 159. *Historial de commits de los repositorios durante el Sprint 2*<br>
-Figura 160. *Entrevista de validación 1: Personas que quieren aprender*<br>
-Figura 161. *Entrevista de validación 2: Personas que quieren aprender*<br>
-Figura 162. *Entrevista de validación 3: Personas que quieren aprender*<br>
-Figura 163. *Entrevista de validación 1: Personas que validan el conocimiento*<br>
-Figura 164. *Entrevista de validación 2: Personas que validan el conocimiento*<br>
-Figura 165. *Entrevista de validación 3: Personas que validan el conocimiento*<br>
-Figura 166. *Captura del problema #1*<br>
-Figura 167. *Captura del problema #2*<br>
-Figura 168. *Captura del problema #3*<br>
-Figura 169. *Captura del problema #4*<br>
-Figura 170. *Captura del problema #5*<br>
-Figura 171. *Captura del problema #6*<br>
-Figura 172. *Captura del problema #7*<br>
-Figura 173. *Captura del problema #8*<br>
-Figura 174. *Captura del problema #9*<br>
-Figura 175. *Cuadro del video About the Product*<br>
-Figura 176. *Cuadro del video About the Team*<br>
+Figura 160. *Gráficos de contribuciones de los repositorios durante el Sprint 2*<br>
+Figura 161. *Entrevista de validación 1: Personas que quieren aprender*<br>
+Figura 162. *Entrevista de validación 2: Personas que quieren aprender*<br>
+Figura 163. *Entrevista de validación 3: Personas que quieren aprender*<br>
+Figura 164. *Entrevista de validación 1: Personas que validan el conocimiento*<br>
+Figura 165. *Entrevista de validación 2: Personas que validan el conocimiento*<br>
+Figura 166. *Entrevista de validación 3: Personas que validan el conocimiento*<br>
+Figura 167. *Captura del problema #1*<br>
+Figura 168. *Captura del problema #2*<br>
+Figura 169. *Captura del problema #3*<br>
+Figura 170. *Captura del problema #4*<br>
+Figura 171. *Captura del problema #5*<br>
+Figura 172. *Captura del problema #6*<br>
+Figura 173. *Captura del problema #7*<br>
+Figura 174. *Captura del problema #8*<br>
+Figura 175. *Captura del problema #9*<br>
+Figura 176. *Cuadro del video About the Product*<br>
+Figura 177. *Cuadro del video About the Team*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
