@@ -54,7 +54,7 @@ SkillSwap
 </p>
 
 <p align="center">
-Octubre 2026
+Noviembre 2026
 </p>
 
 <div style="page-break-after: always;"></div>
@@ -69,6 +69,19 @@ Octubre 2026
 | **v.02.TB1** | 07/10/2026 |  Alberca Saavedra, Víctor Manuel<br>Becerra Ninahuanca, Luis Angel<br>Lopez Montalvo, Kevin Edu<br>Komatsu Dueñas, David<br>Sulca Sánchez, Piero Angel | Se corrigieron y actualizaron los siguientes tópicos, a partir de las decisiones reales tomadas durante la construcción del backend:<br><br>**Capítulo I: Presentación**<br>1.1.1. Descripción de la Startup (modelo de negocio: suscripción mensual vía Google Play Billing, SkillCredits no adquiribles)<br>1.1.2. Perfiles de integrantes del equipo<br>1.2.1. Antecedentes y problemática (corrección de Identity & Access: dominio institucional exigido desde el registro)<br>1.2.2. Lean UX Process (pasarela de pago unificada a Google Play Billing)<br>1.3. Segmentos objetivo<br><br>**Capítulo II: Requirements Development and Software Solution Design**<br>2.1. Competidores<br>2.4.1. User Stories (corrección de US05, US06, US18, US22, US24, US25, US26; se difirieron US07, US19, US20; se agregaron TS11 y TS12)<br>2.4.3. Product Backlog (55 → 57 historias, 204 → 211 Story Points; columna Sprint completada)<br>2.5.1. EventStorming (pasarela de pago y validación de correo institucional)<br>2.5.2. Context Mapping (pasarela de pago, mecanismo de eventos de dominio entre Assessment & Peer Review, Reputation y Recognition & Incentives)<br>2.5.3.1. Software Architecture Context Level Diagrams<br>2.5.3.2. Software Architecture Container Level Diagrams (colapso de los ocho Bounded Contexts en un único contenedor de API, consistente con el nivel de un Container Diagram)<br>2.5.3.3. Software Architecture Deployment Diagrams (MySQL → PostgreSQL, corrección del origen de la llamada a ML Kit)<br>2.6.4. Bounded Context: Assessment & Peer Review (reescritura completa al modelo mínimo realmente implementado)<br>2.6.4.5. Component Diagram de Assessment & Peer Review<br>2.6.5.5. Component Diagram de Reputation<br>2.6.6. Bounded Context: Recognition & Incentives (renombrado de Wallet & Incentives) y su Component Diagram<br>2.6.8. Bounded Context: Subscription & Billing (pasarela renombrada a Google Play Billing; `charge()` corregido a `verifyPurchase()`)<br>Diagrama de Clases general (eliminación de la clase `CreditPurchase`, corrección de `VerifierProfile`, `VerificationCase`, `CreditTransaction`, `Subscription`)<br>Diagrama de Base de Datos general (migración completa a PostgreSQL, corrección de índices únicos parciales, eliminación de `credit_purchases`)<br><br>**Student Outcome** (acumulado con el aporte de TB1 de los cinco integrantes)<br>**Objetivos SMART** (ajuste del objetivo de Alberca Saavedra, Víctor Manuel)<br>**Project Report Collaboration Insights** (acumulado con la evidencia de TB1)<br>**Conclusiones** (tres párrafos nuevos sobre las contradicciones resueltas entre el diseño y la implementación real)<br><br>Se agregaron los siguientes tópicos nuevos:<br><br>**Capítulo III: Solution UI/UX Design**<br>3.1.1. Style Guidelines<br>3.1.2. Information Architecture<br>3.1.3. Landing Page UI Design<br>3.1.4. Mobile Applications UX/UI Design<br><br>**Capítulo IV: Product Implementation & Validation**<br>4.1. Software Configuration Management<br>4.1.1. Software Development Environment Configuration<br>4.1.2. Source Code Management<br>4.1.3. Source Code Style Guide & Coding Conventions<br>4.1.4. Software Deployment Configuration<br>4.2. Landing Page, Services & Applications Implementation<br>4.2.1. Sprint 1<br>4.2.1.1. Sprint Planning 1<br>4.2.1.2. Aspect Leaders and Collaborators<br>4.2.1.3. Sprint Backlog 1<br>4.2.1.4. Development Evidence for Sprint Review<br>4.2.1.5. Testing Suite Evidence for Sprint Review<br>4.2.1.6. Execution Evidence for Sprint Review<br>4.2.1.7. Services Documentation Evidence for Sprint Review<br>4.2.1.8. Software Deployment Evidence for Sprint Review<br>4.2.1.9. Team Collaboration Insights during Sprint |
 | **v.03.TB1** | 08/10/2026 | Komatsu Dueñas, David | Se corrigieron los siguientes tópicos:<br><br>**Capítulo I: Presentación**<br>1.1.1. Descripción de la Startup (modelo freemium, habilitación del Verificador en la primera versión y revisión del Verificador como decisión con observaciones)<br>1.1.2. Perfiles de integrantes del equipo (términos del Anexo F)<br>1.2.2.1. Lean UX Problem Statements (revisión del Verificador como decisión con observaciones, según el modelo implementado)<br><br>**Capítulo II: Requirements Development and Software Solution Design**<br>2.1. Competidores, 2.1.1. Análisis competitivo y 2.1.2. Estrategias y tácticas frente a competidores (roadmap.sh, Pluralsight y Platzi como competidores directos)<br>2.5.1. EventStorming (ajustes del modelo posteriores a la sesión)<br>2.3.3 y 2.3.4 (Journey Map y Empathy Map del segmento 2 alineados con el rol de Verificador)<br>2.6.4 y 2.6.8 (habilitación del Verificador al completar el nodo de la habilidad; pasarela de pago Google Play Billing)<br>1.1.1, 1.3, 2.3, 2.3.6, 2.4, 2.5 y 2.6 (el rol de Coordinador se integra en el Verificador, que asume la supervisión del proceso; nombres de User Persona unificados: Valeria Ramos y Rodrigo Castillo)<br>2.4.1. User Stories (57 historias: 45 User Stories y 12 Technical Stories; se agregó el Epic EP10)<br>2.4.3. Product Backlog (totales de 211 Story Points y 145 Story Points en el Sprint 1; captura y URL público del tablero en Trello)<br>2.6.x.6. Bounded Context Software Architecture Code Level Diagrams (encabezado agregado en los Bounded Contexts 2.6.2 a 2.6.8)<br><br>**Capítulo III: Solution UI/UX Design**<br>3.1.2, 3.1.3 y 3.1.4 (diseño para dos roles, Estudiante y Verificador, este último con las funciones de supervisión)<br>3.1.4.2. Mobile Applications Wireflow Diagrams (notas completas de los Wireflows)<br><br>**Capítulo IV: Product Implementation & Validation**<br>4.2.1.1. Sprint Planning 1 (Velocity y Sum of Story Points de 145)<br>4.2.1.3. Sprint Backlog 1 (captura y URL público del tablero en Trello)<br><br>**Objetivos SMART** (dos objetivos por integrante, orientados al desarrollo profesional después del egreso)<br>**Formato general** (niveles de encabezado, numeración de figuras y tablas, índices y tabla de contenidos)<br>**Bibliografía** (organizada por categorías)<br>**Anexos** (nomenclatura de archivos y enlaces de acceso a la solución)<br><br>Se agregaron los siguientes tópicos nuevos:<br><br>2.3.6. Ubiquitous Language<br>**Glosario** |
 | **v.04.TB1** | 09/10/2026 | Sulca Sánchez, Piero Angel | Se alinearon los siguientes tópicos con el backend integrado en la rama `develop` de `SkillSwap-WebServices-Java` (PR #1 a #15, migraciones Flyway V1 a V10) y con el Landing Page publicado en GitHub Pages:<br><br>**Capítulos I y II:** modelo freemium con suscripción mensual vía RevenueCat; economía de SkillCredits por tipo de caso (40 por miniproyecto y 25 por quiz; ruta avanzada a 200 y certificado de contribución a 120); habilitación del Verificador al completar el nodo de la habilidad; User Stories y Product Backlog con 44 historias y 154 Story Points en el Sprint 1; EventStorming, Bounded Context Canvases, Context Mapping y diagramas C4 reconciliados con el modelo implementado; 2.6 con el modelo táctico del código (`Dispute` y `DisputesController` en Moderation & Disputes, `AdvancedPathUnlock` y `GeminiSkillTaxonomyMatcher` en Learning Path Engine, `ReviewDeadlinePolicy` en Assessment & Peer Review, `VerifierRank` y `SeniorVerifierPolicy` en Reputation, `ProcessedWebhookEvent` y `PlanLimits` en Subscription & Billing, verificación del correo con Brevo y notificaciones push con Firebase Cloud Messaging en Identity & Access) y diagramas de base de datos generados desde las migraciones<br><br>**Capítulo IV:** repositorios de las aplicaciones móviles, despliegue en Render desde `develop`, variables de entorno, Sprint Backlog con tareas de 4 a 8 horas asignadas según la autoría en Git, commits y merges de los PR #1 a #15 del backend y #1 a #8 del Landing Page, suite de 1978 pruebas y nuevas evidencias de ejecución, documentación y despliegue<br><br>**Project Report Collaboration Insights** (aportes de TB1), **Índice de Tablas y de Figuras** (numeración continua) y **Bibliografía** |
+| **v.05.AV2** | 15/10/2026 | Alberca Saavedra, Víctor Manuel | Se corrigieron y actualizaron los siguientes tópicos a partir de la retroalimentación del TB1:<br><br>**Capítulo I:** 1.1.1 Descripción de la Startup, con la definición del rol del Verificador (habilitación por habilidad, revisión de casos con rúbrica, SkillCredits, confiabilidad, apelaciones y Verificador senior) y la tienda de beneficios de cuatro ítems (insignia, certificado de contribución, ruta avanzada y certificación patrocinada), con sus precios en 2.3.6 (Ubiquitous Language), 2.4.1 (US32), 2.6.6 (Recognition & Incentives) y 3.1.4 (pantallas del Verificador); en 4.1.4, el estado de las integraciones externas (cobro simulado y notificaciones push)<br><br>**Capítulo II:** 2.5.3 Software Architecture, con los diagramas de Contexto, Contenedores y Despliegue diferenciados por actor (el Estudiante, con el Landing Page y la aplicación nativa; el Verificador, con la aplicación Flutter) y con el Landing Page fuera del Deployment Diagram (sitio estático independiente de la aplicación móvil)<br><br>**Capítulo IV:** 4.1.4 Software Deployment Configuration, con el mismo Deployment Diagram; 4.2.2 Sprint 2, con el Sprint Planning 2, la matriz de líderes y colaboradores, el Sprint Backlog 2 (13 historias, 57 Story Points: la aplicación del Estudiante completa y 6 de las 14 historias del Verificador) y la asignación de tasks y la matriz de líderes y colaboradores, y la estructura de las evidencias del Sprint Review, con los commits del backend (PR #16 a #35) y de la aplicación nativa (PR #1 a #20), los endpoints y las pruebas; 4.3 Validation Interviews (diseño de entrevistas por segmento con sus preguntas y user flows, estructura del registro de entrevistas y evaluación heurística en el formato del Anexo E)<br><br>**Conclusiones** (dos apartados nuevos), **Bibliografía** (papers Q1/Q2) y **Anexos A y C** (aplicación de cada actor y estado de los videos)<br><br>**Project Report Collaboration Insights** (aportes de AV2), **Student Outcome** (acciones de AV2), **Índice de Tablas y de Figuras** y **Contenido** |
+| **v.06.AV2** | 28/10/2026 | Alberca Saavedra, Víctor Manuel | Se reescribió 4.2.2.8 Software Deployment Evidence for Sprint Review con la distribución de las aplicaciones móviles mediante Firebase App Distribution (Tabla 33, procedimiento de publicación y de instalación, y espacios para las capturas), y se actualizaron 4.1.2, 4.1.4 y el Anexo A con el estado de las aplicaciones. |
+| **v.07.AV2** | 28/10/2026 | Alberca Saavedra, Víctor Manuel | Se actualizó el Sprint 2 con la aplicación Flutter del Verificador: las seis tasks de sus pantallas (T58, T60, T62, T64, T71 y T72) pasan a Done, se agregaron sus commits (Tabla 29) y pruebas (Tabla 30), y se incorporaron Flutter y Firebase a las herramientas (Tabla 14). La evaluación heurística de 4.3.3 incluye ahora la aplicación Flutter (problema #9 y ajustes a los problemas #3, #4, #6, #7 y #8). |
+| **v.08.AV2** | 29/10/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron a Conclusiones las subsecciones Conclusiones y recomendaciones (contraste de las hipótesis con lo construido, Tabla 37, y recomendaciones), Video App Validation, Video About the product y Video About the team, con sus pautas planificadas (Tablas 38 a 40). |
+| **v.09.AV2** | 30/10/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron al Sprint 2 la tienda de beneficios con canje de SkillCredits y confirmación biométrica de la app Flutter (T76, US32) y la sección de descarga del Landing Page con la corrección de sus botones de acceso (T77, US44). Se actualizaron el Sprint Backlog 2 (34 tasks, 197 horas), la matriz de liderazgo (Tabla 27), los commits (Tablas 29 y 30), el número de pruebas de Flutter (43), el avance del Verificador (7 de 14 historias), el estado de los problemas #1 y #2 de 4.3.3 y las recomendaciones de Conclusiones. |
+| **v.10.AV2** | 01/11/2026 | Alberca Saavedra, Víctor Manuel | Se registró el cambio de despliegue del backend de Render a AWS (31/10/2026): se agregó el apartado correspondiente a 4.2.2.8 (Figuras 151 y 152), se actualizaron 4.1.4, la Tabla 14, la Tabla 33, el Deployment Diagram (2.5), el commit de despliegue (Tabla 29), las Conclusiones y el Anexo A, y se conservó sin cambios el despliegue en Render del Sprint 1 (4.2.1.8). Las capturas de las Figuras 151 y 152 quedan pendientes. |
+| **v.11.AV2** | 09/11/2026 | Komatsu Dueñas, David | Se corrigieron los siguientes tópicos a partir de la revisión del informe para el AV2, contrastándolo con los repositorios:<br><br>**Carátula** (mes de la entrega: noviembre de 2026)<br>**Project Report Collaboration Insights** (AV2 con los commits y Pull Requests reales del repositorio del informe entre el 10 de octubre y el 9 de noviembre de 2026) y **Contenido** (entrada AV2)<br>**Student Outcome** (acciones de AV2 de Komatsu Dueñas, David en las tasks T45, T50, T51, T56 y T70, y conclusiones grupales de AV2)<br><br>**Capítulo I:** 1.1.1 (evaluación entre pares, con cita) y 1.2.1 (microcredenciales y contenido generado con IA, con citas)<br>**Capítulo II:** 2.4.1, 2.4.2, 2.5.1 y 2.5.3 (citas de los métodos aplicados); 2.4.3 Product Backlog (columna Sprint con las 13 historias del Sprint 2 y retiro de una fila de la evaluación heurística que estaba en la Tabla 10); 2.5.3 (texto de los diagramas de Contexto, Contenedores y Despliegue con un actor por aplicación)<br>**Capítulo IV:** 4.1.2 (citas de GitFlow, Semantic Versioning y Conventional Commits, y del desarrollo multiplataforma); 4.1.3 (guía de estilo de Dart / Flutter); 4.1.4 y 4.2.2.8 (versión 1.2 de la app nativa, que consume el backend en AWS, y app Flutter todavía configurada con la URL de Render, en la Tabla 33 y el Anexo A, y nota de la Figura 152 con el estado del Swagger UI en AWS al 9 de noviembre de 2026); 4.2.2.4 (commits de los PR #21 a #23 de la app nativa, de la base de la app Flutter y del PR #11 del Landing Page en la Tabla 29); 4.2.2.5 (todas las pruebas unitarias de la app nativa en la Tabla 30 y su nota); 4.2.2.9 Team Collaboration Insights (commits y Pull Requests por integrante y repositorio); 4.3.3 (problema #9 en la Tabla 36 y recomendaciones de los problemas #7 y #8 para las dos aplicaciones)<br><br>**Conclusiones** (recomendación 7 de accesibilidad, con cita)<br>**Bibliografía** (Alasmari, 2024, y Grévisse et al., 2024, trasladados desde los Anexos; volumen, número y páginas o número de artículo de los papers; Nguyen et al. con el año de su número, 2026; y el paper de Rabelo et al., 2026, sobre la accesibilidad de interfaces nativas de Android con Jetpack Compose) y **Anexo C** (estado del video About the Product)<br><br>Se agregó el archivo `README.md` como archivo principal del repositorio, con enlaces a cada sección del informe y a los repositorios de la solución. |
+| **v.12.AV2** | 10/11/2026 | Alberca Saavedra, Víctor Manuel | Se registraron las tres entrevistas de validación del segmento Personas que validan el conocimiento en 4.3.2 (Figuras 164 a 166) con su perfil, sus datos y el resumen descriptivo por tarea, y se ajustaron 4.3.1 y la Tabla 34 a la forma de esas sesiones, en las que se mostró el Landing Page y un video de la aplicación. |
+| **v.13.AV2** | 11/11/2026 | Komatsu Dueñas, David | Se sincronizaron las evidencias del Sprint 2 con los repositorios y los despliegues al 11 de noviembre de 2026:<br><br>**Project Report Collaboration Insights** (AV2 con los commits y Pull Requests del repositorio del informe hasta el PR #108)<br><br>**Capítulo II:** 2.5.3.3 Software Architecture Deployment Diagrams (Deployment Diagram regenerado con la arquitectura real en AWS: instancia EC2 con Docker Compose y los contenedores de Caddy, la API y PostgreSQL 16, la distribución de cada aplicación y los servicios externos del backend, sin Render; texto de la sección y notas de las Figuras 74 y 122)<br><br>**Capítulo IV:** 4.1.4 (app Flutter apuntando al backend en AWS y versión 1.2 de la app nativa publicada en Firebase App Distribution); 4.2.2.4 (commits de los PR #37 y #38 del backend, del PR #7 de la app Flutter y del PR #13 del Landing Page en la Tabla 29, con su autoría); 4.2.2.5 (pruebas de los PR #37 y #38 en la Tabla 30 y resultados de `./mvnw test` sin Docker, `./gradlew testDebugUnitTest` y `flutter test` sobre `develop`); 4.2.2.7 (`GET /api/v1/reevaluations/candidates` en la Tabla 31); 4.2.2.8 (clientes y actualización del servidor en AWS, nota de la Figura 152 con la especificación OpenAPI publicada, Tabla 33, nota de la Figura 153 y estado de publicación del Landing Page con el inglés por defecto del PR #13); 4.2.2.9 Team Collaboration Insights (commits y Pull Requests por integrante y repositorio hasta el 11 de noviembre de 2026)<br><br>**Anexo A** (app Flutter y enlace de Firebase App Distribution), **Anexo B** (fila del AV2: no se presenta video de exposición, por indicación del docente) y **Anexo C** (estado del video de las entrevistas de validación) |
+| **v.14.AV2** | 11/11/2026 | Alberca Saavedra, Víctor Manuel | Se agregaron las capturas de la reunión de Sprint Planning 2, de la instancia EC2 y del Swagger en AWS, y las de 4.2.2.6 (resultado del quiz y pantalla principal del Verificador), con una descripción para cada figura de 4.2.2.6; se completaron en 4.3.2 los resultados de las sesiones con las personas que validan el conocimiento (hipótesis H4, H5 y H6 y supuestos que cambian) y se registró el cuadro de la entrevista 1; se eliminó la Figura 150 (programación de la demostración final) y se retiró la sección Video App Validation, con su pauta y su cuadro, renumerando las figuras y tablas siguientes. |
+| **v.15.AV2** | 12/11/2026 | Sulca Sánchez, Piero Angel | Se registró la primera versión del video About the Team: URL en Microsoft Stream y en YouTube, duración, cuadro representativo (Figura 177) y pauta real de secciones (Tabla 39); se actualizó su fila en el Anexo C. |
+| **v.16.AV2** | 12/11/2026 | Sulca Sánchez, Piero Angel | Se registraron en 4.2.2.4 (Tabla 29) los commits representativos de la reorganización por bounded contexts y el rediseño de la app del Estudiante (PR #24), de la actualización del Android Gradle Plugin y del saldo de SkillCredits en la app del Verificador (PR #8 y #9) y de la descarga directa de los APK en el Landing Page (PR #15); se completaron los aportes de Sulca Sánchez en Project Report Collaboration Insights. |
+| **v.17.AV2** | 12/11/2026 | Alberca Saavedra, Víctor Manuel | Se actualizaron las versiones de las aplicaciones (app nativa 1.3 y app Flutter 1.0.1) y su distribución mediante GitHub Releases en 2.5.3, 4.1.4, 4.2.2.8 (Tabla 33, procedimientos y Figuras 155 y 156) y el Anexo A, que ahora incluye los enlaces de descarga directa de los dos APK; se actualizó la descripción del Landing Page en 4.2.2.8 (descarga directa, términos y condiciones, idioma y accesibilidad); y se agregó la Figura 160 con los gráficos de contribuciones de los repositorios. |
 
 <div style="page-break-after: always;"></div>
 
@@ -76,7 +89,7 @@ Octubre 2026
 
 ## Project Report Collaboration Insights
 
-En esta sección se indica el URL del repositorio utilizado para la elaboración colaborativa del Informe de Trabajo Final, así como las evidencias de participación de cada integrante del equipo durante el desarrollo de las entregas AV1 y TB1.
+En esta sección se indica el URL del repositorio utilizado para la elaboración colaborativa del Informe de Trabajo Final, así como las evidencias de participación de cada integrante del equipo durante el desarrollo de las entregas AV1, TB1 y AV2.
 
 **URL del repositorio del Project Report (GitHub):**
 [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport)
@@ -137,6 +150,26 @@ Durante el desarrollo de la entrega TB1, el equipo mantuvo el mismo esquema de c
 *Nota.* Historial de commits de la rama `main` del Project Report durante el TB1, con los merges de los Pull Requests de cada integrante. Elaboración propia.
 
 
+### AV2
+
+Durante el desarrollo de la entrega AV2, el equipo mantiene el esquema de colaboración de las entregas anteriores: una rama `feature/report-<tema>` por aporte, Conventional Commits, GitFlow y Pull Requests hacia `develop`. El período considerado va del 10 de octubre al 11 de noviembre de 2026 (fecha de corte: merge del PR #108, a las 12:15, UTC−5), sin contar los commits de merge ni los de la versión v.13.AV2. En este período se integraron los PR #90 a #108 del repositorio del informe, con 38 commits, y el informe incorpora la corrección del Deployment Diagram (con el Landing Page fuera del diagrama), la definición del rol del Verificador, el Sprint 2 completo en el Capítulo IV (planificación, backlog, evidencias de desarrollo, pruebas, ejecución, documentación y despliegue, incluido el traslado del backend de Render a AWS), la sección 4.3 Validation Interviews (con las entrevistas del segmento de Verificadores), las Conclusiones con el contraste de las hipótesis y los tres videos, y la actualización del Registro de Versiones (v.05.AV2 a v.12.AV2). Los aportes al repositorio se distribuyen de la siguiente manera:
+
+* **Alberca Saavedra, Víctor Manuel (22 commits, PR #90 a #92, #96 a #106 y #108):** corrección del Deployment Diagram y de los diagramas de Contexto y Contenedores por actor; definición del rol del Verificador en 1.1.1 y tienda de cuatro beneficios; papers Q1/Q2 en la Bibliografía; Sprint Planning 2, matriz de líderes y colaboradores, Sprint Backlog 2 y evidencias del Sprint Review (commits, pruebas, endpoints y capturas) de la app nativa, de la app Flutter y del Landing Page; distribución con Firebase App Distribution y traslado del backend a AWS en 4.2.2.8; sección 4.3 Validation Interviews con la evaluación heurística; Conclusiones con las secciones de los tres videos; y, en la versión v.12.AV2 (PR #108), las tres entrevistas del segmento de Verificadores en 4.3.2, sus resultados en Conclusiones, las descripciones de las figuras del Sprint 2 y las capturas de AWS, del Swagger UI, del Sprint Planning 2 y de los videos.
+* **Komatsu Dueñas, David (16 commits, PR #93 a #95 y #107, y los commits de la versión v.13.AV2):** evaluación preliminar del miniproyecto con IA (T56) en el Sprint 2, con sus commits, endpoint y tasks (T54 y T56 en Done) y la corrección de la precisión de los instantes en las evidencias de pruebas (PR #93 a #95, 4 commits); en la versión v.11.AV2 (PR #107, 12 commits), las correcciones de revisión del AV2 descritas en el Registro de Versiones; y en la versión v.13.AV2, la sincronización de las evidencias del Sprint 2 con los repositorios y los despliegues al 11 de noviembre de 2026.
+* **Becerra Ninahuanca, Luis Angel (0 commits en el repositorio del informe en el período):** sus aportes del Sprint 2 son de código y se detallan en 4.2.2.9. Después de la fecha de corte registró en 4.3.2 las tres entrevistas del segmento Personas que quieren aprender (PR #113).
+* **Lopez Montalvo, Kevin Edu :** sus aportes del Sprint 2 corresponden a la actualización y refinamiento de los artefactos de diseño UX/UI en Figma (guías de estilo, arquitectura de información y componentes visuales del Landing Page y aplicaciones) y al soporte en el contraste de validación de interfaces para la sección 4.3, detallados en los entregables de diseño del equipo.
+* **Sulca Sánchez, Piero Angel :** sus aportes del Sprint 2 son de código y se detallan en 4.2.2.4: en SkillSwap-MobileApp, la reorganización de la app del Estudiante por bounded contexts, su rediseño según los mock-ups de Figma y la corrección del envío duplicado de quizzes (PR #24, 15 commits); en SkillSwap-MobileApp-Flutter, la actualización del Android Gradle Plugin para Flutter 3.50 (PR #8) y la actualización del saldo de SkillCredits al resolver un caso (PR #9); y en SkillSwap-LandingPage, el video About the Team en la página Sobre nosotros (PR #14) y la descarga directa de los APK con el selector Estudiante / Verificador (PR #15). Después de la fecha de corte registró el video About the Team en el informe (PR #116, versión v.15.AV2).
+
+<p align="center">
+  <img src="images-doc/github-contribuciones-informe-av2.png" alt="Gráfico de contribuciones del repositorio del Project Report durante AV2" width="900">
+</p>
+
+<p align="center">
+  <img src="images-doc/github-commits-informe-av2.png" alt="Historial de commits del repositorio del Project Report durante AV2" width="900">
+</p>
+
+*Nota.* Las capturas corresponden a GitHub Insights (Contributors y Commits) de la rama `main` del repositorio del Project Report, tomadas al cierre del AV2, después de integrar `develop` en `main`. La primera muestra el gráfico de contribuciones, con los commits de cada integrante por semana, y la segunda, el historial de commits del período. Elaboración propia.
+
 
 
 ---
@@ -147,6 +180,7 @@ Durante el desarrollo de la entrega TB1, el equipo mantuvo el mismo esquema de c
 - [Project Report Collaboration Insights](#project-report-collaboration-insights)
   - [AV1](#av1)
   - [TB1](#tb1)
+  - [AV2](#av2)
 - [Student Outcome](#student-outcome)
 - [Objetivos SMART](#objetivos-smart)
 - [Capítulo I: Presentación](#capítulo-i-presentación)
@@ -205,7 +239,15 @@ Durante el desarrollo de la entrega TB1, el equipo mantuvo el mismo esquema de c
     - [4.1.4. Software Deployment Configuration](#414-software-deployment-configuration)
   - [4.2. Landing Page, Services & Applications Implementation](#42-landing-page-services--applications-implementation)
     - [4.2.1. Sprint 1](#421-sprint-1)
+    - [4.2.2. Sprint 2](#422-sprint-2)
+  - [4.3. Validation Interviews](#43-validation-interviews)
+    - [4.3.1. Diseño de Entrevistas](#431-diseño-de-entrevistas)
+    - [4.3.2. Registro de Entrevistas](#432-registro-de-entrevistas)
+    - [4.3.3. Evaluaciones según Heurísticas](#433-evaluaciones-según-heurísticas)
 - [Conclusiones](#conclusiones)
+    - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
+    - [Video About the product](#video-about-the-product)
+    - [Video About the team](#video-about-the-team)
 - [Glosario](#glosario)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
@@ -228,8 +270,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 | :--- | :--- | :--- |
-| **Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Lideré la investigación de la tecnología externa (ML Kit, SDK de reconocimiento de texto) a integrar en el proyecto móvil, evaluando sus requisitos técnicos y adaptándolos a la arquitectura móvil nativa. Participé en el diseño estratégico de los Bounded Contexts, incluyendo su rediseño tras el pivote del modelo de negocio.<br><br>**Alberca Saavedra, Víctor Manuel (TB1):** Implementé el backend de seis Bounded Contexts, primero en C# / ASP.NET Core y luego, cuando el curso exigió Java, lo migré a Java 21 con Spring Boot, Spring Data JPA (Hibernate), Spring Security con JWT y PostgreSQL, conservando el mismo esquema de base de datos y el mismo contrato de la API. En el proceso investigué y apliqué por primera vez tecnologías no vistas en clase: la API REST de Gemini para generación de contenido con reintentos y modelos de respaldo, la verificación de compras de Google Play Billing, almacenamiento privado de archivos con URLs firmadas en Cloudinary, y pruebas de integración con JUnit 5, MockMvc y Testcontainers contra una base PostgreSQL real. También investigué y resolví una limitación real de infraestructura: Render no ofrece MySQL administrado de forma nativa, lo que me llevó a migrar todo el diseño de persistencia a PostgreSQL antes de implementarlo.<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Investigué patrones de diseño UI/UX específicos para aplicaciones móviles multiplataforma y colaboré en el análisis competitivo y el diseño de entrevistas enfocadas en la experiencia de movilidad de los estudiantes.<br><br>**Becerra Ninahuanca, Luis Angel (TB1):** Al diseñar el Style Guide y los wireframes del Landing Page, tuve que investigar principios de Information Architecture (sistemas de organización, etiquetado y navegación) que no habíamos aplicado formalmente en AV1, y ajustar las decisiones visuales iniciales al constatar que algunas no se alineaban con el tono de comunicación definido para el segmento de Verificadores.<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Documenté el proceso Lean UX y apliqué el aprendizaje sobre persistencia de datos locales en dispositivos para el diseño de los requisitos, estructurando las User Stories bajo un enfoque Mobile-First.<br><br>**Lopez Montalvo, Kevin Edu (TB1):** Al construir los Wireflow y User Flow Diagrams de las pantallas core (ruta de aprendizaje, resolución del quiz), tuve que aprender a representar formalmente las rutas alternativas (unhappy paths) del flujo —como qué pantalla ve el estudiante cuando un quiz no se aprueba— lo cual exigió coordinar con el diseño real del backend en vez de asumir un flujo ideal.<br><br>**Komatsu Dueñas, David (AV1):** Evalué diferentes estrategias de integración de servicios RESTful y modelé el flujo de mensajes entre los Bounded Contexts aplicando Domain Storytelling adaptado al consumo de APIs desde aplicaciones móviles.<br><br>**Komatsu Dueñas, David (TB1):** Reconocí que parte del flujo de interacción que había modelado con Domain Storytelling en AV1 ya no aplicaba tal cual al construir los prototipos de UI, porque el backend terminó resolviendo ciertos pasos (como la vinculación de certificados) de forma automática y no mediante una pantalla explícita, por lo que tuve que simplificar los mock-ups correspondientes.<br><br>**Sulca Sánchez, Piero Angel (AV1):** Estudié los fundamentos del diseño estratégico con Domain-Driven Design a partir del material del curso y de las plantillas de la comunidad ddd-crew, y los apliqué para elaborar el EventStorming de SkillSwap en sus diez pasos, el Candidate Context Discovery, los Domain Message Flows y los Bounded Context Canvases, modelados en Excalidraw. Para sustentar el problema del Capítulo I, investigué datos estadísticos sobre la brecha entre la certificación y el dominio práctico, los verifiqué en sus fuentes originales y los cité en formato APA 7.<br><br>**Sulca Sánchez, Piero Angel (TB1):** Al revisar el Context Mapping y los Bounded Context Canvases contra lo realmente implementado en el backend, identifiqué que varias relaciones que había modelado en AV1 (Customer/Supplier directo entre Assessment y Reputation) no correspondían al mecanismo real de eventos de dominio, y tuve que aprender el patrón Published Language para corregir los diagramas de forma consistente con el código. | (AV1) El equipo reconoce la necesidad del aprendizaje permanente al investigar e integrar de manera autónoma tecnologías no vistas en clase, como SDKs externos de reconocimiento de texto y persistencia local en dispositivos, aplicando conceptos de Domain-Driven Design al entorno móvil.<br><br>(TB1) El equipo confirma que ese aprendizaje autónomo se sostuvo al pasar del diseño a la implementación real: construir el backend exigió investigar APIs externas completas (Gemini, Google Play Billing) y resolver restricciones de infraestructura no anticipadas en el diseño original (disponibilidad de motores de base de datos en el proveedor de hosting elegido), evidenciando que actualizar conocimientos no se limita a la etapa de diseño sino que continúa durante la construcción del software. |
-| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Al enfrentar el pivote del modelo de negocio a mitad de ciclo, tuve que reevaluar y rediseñar desde cero la estrategia de Bounded Contexts que ya había avanzado, reconociendo que el conocimiento adquirido durante la investigación previa (SUNEDU, matching por embeddings) no era aplicable al nuevo alcance del curso y debía sustituirse por soluciones más simples y viables.<br><br>**Alberca Saavedra, Víctor Manuel (TB1):** Al construir el backend real, reconocí que varias decisiones documentadas en el diseño (rúbrica por criterio, examen de ingreso del Verificador, tres intentos de quiz, pasarela de pago) no eran viables o necesarias dentro del tiempo del Sprint, y que insistir en implementarlas tal cual hubiera significado no entregar un flujo completo y funcional. Reemplacé esas decisiones por un modelo mínimo igualmente riguroso, y luego tuve que volver sobre el propio informe para que el diseño documentado reflejara honestamente lo construido, en vez de dejar un documento que describiera un sistema distinto al que realmente funciona.<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Reconocí la necesidad de actualizar el análisis competitivo y las preguntas de entrevista previamente diseñadas, dado que el modelo de negocio original ya no reflejaba la propuesta de valor vigente del proyecto.<br><br>**Becerra Ninahuanca, Luis Angel (TB1):** Reconocí que el Style Guide definido en una primera versión debía replantearse al validarlo contra las pantallas reales de la app, en vez de darlo por cerrado solo porque ya existía un documento.<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Identifiqué la necesidad de revisar y reestructurar la documentación de Lean UX ya elaborada para que reflejara el nuevo enfoque del proyecto, en lugar de darla por completa.<br><br>**Lopez Montalvo, Kevin Edu (TB1):** Reconocí que los User Flows no podían completarse sin antes confirmar con el backend qué reglas de negocio realmente existían (ej. que registrar un certificado no completa un nodo hasta que un Verificador lo valida), lo que me obligó a esperar y ajustar en vez de diseñar el flujo de forma aislada.<br><br>**Komatsu Dueñas, David (AV1):** Reconocí que los flujos de integración entre Bounded Contexts modelados inicialmente debían replantearse por completo tras el cambio de alcance, en vez de simplemente ajustar el software ya diseñado.<br><br>**Komatsu Dueñas, David (TB1):** Reconocí que modelar la interacción sin validarla contra la arquitectura final genera trabajo que luego hay que rehacer, y que coordinar antes con el equipo técnico habría evitado parte del reproceso en los mock-ups.<br><br>**Sulca Sánchez, Piero Angel (AV1):** Al alinear el Capítulo I con el modelo de negocio vigente, reconocí que partes ya redactadas del informe, como el segmento del Coordinador, el canje de SkillCredits y el enfoque en la deserción académica, respondían a un modelo anterior y debían reformularse en lugar de darse por terminadas. Durante el EventStorming, los puntos críticos identificados me llevaron a revisar decisiones del dominio, como la calificación por criterios y el segundo revisor, antes de trasladarlas al diseño, entendiendo que el modelo se refina de forma iterativa.<br><br>**Sulca Sánchez, Piero Angel (TB1):** Reconocí que un Context Mapping elaborado en una etapa temprana del diseño necesita revisarse una vez que el código revela el mecanismo real de comunicación entre contextos, y que mantenerlo actualizado es parte continua del trabajo, no una tarea de una sola vez. | (AV1) El equipo reconoce que el aprendizaje permanente no se limita a adquirir tecnologías nuevas, sino también a la capacidad de soltar y reformular conocimiento previamente validado cuando el contexto del proyecto cambia, como ocurrió tras el pivote del modelo de negocio de tutorías a verificación de habilidades.<br><br>(TB1) El equipo reconoce que ese mismo principio aplica entre el diseño y la implementación: un documento de arquitectura es una hipótesis de trabajo, no una verdad fija, y la disciplina de volver a corregirlo cuando la construcción revela una limitación real —en vez de dejarlo desactualizado— es en sí misma una forma de aprendizaje permanente aplicada al ciclo de vida completo del software. |
+| **Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Lideré la investigación de la tecnología externa (ML Kit, SDK de reconocimiento de texto) a integrar en el proyecto móvil, evaluando sus requisitos técnicos y adaptándolos a la arquitectura móvil nativa. Participé en el diseño estratégico de los Bounded Contexts, incluyendo su rediseño tras el pivote del modelo de negocio.<br><br>**Alberca Saavedra, Víctor Manuel (TB1):** Implementé el backend de seis Bounded Contexts, primero en C# / ASP.NET Core y luego, cuando el curso exigió Java, lo migré a Java 21 con Spring Boot, Spring Data JPA (Hibernate), Spring Security con JWT y PostgreSQL, conservando el mismo esquema de base de datos y el mismo contrato de la API. En el proceso investigué y apliqué por primera vez tecnologías no vistas en clase: la API REST de Gemini para generación de contenido con reintentos y modelos de respaldo, la verificación de compras de Google Play Billing, almacenamiento privado de archivos con URLs firmadas en Cloudinary, y pruebas de integración con JUnit 5, MockMvc y Testcontainers contra una base PostgreSQL real. También investigué y resolví una limitación real de infraestructura: Render no ofrece MySQL administrado de forma nativa, lo que me llevó a migrar todo el diseño de persistencia a PostgreSQL antes de implementarlo.<br><br>**Alberca Saavedra, Víctor Manuel (AV2):** A partir de la retroalimentación del TB1, consolidé la definición del rol del Verificador a partir de las reglas ya implementadas en el modelo de dominio (habilitación por habilidad, rúbrica, plazos, confiabilidad, apelaciones y Verificador senior) y corregí el Deployment Diagram del modelo C4 para dejar fuera el Landing Page, que es un sitio estático independiente de la aplicación móvil. En el Sprint 2 investigué y configuré la infraestructura productiva en AWS EC2 desplegando los contenedores mediante Docker Compose y configurando Caddy como proxy inverso con HTTPS automático, además de gestionar la distribución de las compilaciones móviles (APK) a través de Firebase App Distribution.<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Investigué patrones de diseño UI/UX específicos para aplicaciones móviles multiplataforma y colaboré en el análisis competitivo y el diseño de entrevistas enfocadas en la experiencia de movilidad de los estudiantes.<br><br>**Becerra Ninahuanca, Luis Angel (TB1):** Al diseñar el Style Guide y los wireframes del Landing Page, tuve que investigar principios de Information Architecture (sistemas de organización, etiquetado y navegación) que no habíamos aplicado formalmente en AV1, y ajustar las decisiones visuales iniciales al constatar que algunas no se alineaban con el tono de comunicación definido para el segmento de Verificadores.<br><br>**Becerra Ninahuanca, Luis Angel (AV2):** En el Sprint 2 desarrollé las tasks T47, T53 y T55 (pantallas del Estudiante en la aplicación nativa) y T58 y T64 (pantallas del Verificador en Flutter). Para ello investigué la gestión de estado reactivo y navegación declarativa tanto en Jetpack Compose (StateFlow y Material 3) como en Flutter (patrón BLoC e inyección de dependencias con `get_it`), logrando mantener la consistencia visual y funcional de un mismo producto para dos actores distintos.<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Documenté el proceso Lean UX y apliqué el aprendizaje sobre persistencia de datos locales en dispositivos para el diseño de los requisitos, estructurando las User Stories bajo un enfoque Mobile-First.<br><br>**Lopez Montalvo, Kevin Edu (TB1):** Al construir los Wireflow y User Flow Diagrams de las pantallas core (ruta de aprendizaje, resolución del quiz), tuve que aprender a representar formalmente las rutas alternativas (unhappy paths) del flujo —como qué pantalla ve el estudiante cuando un quiz no se aprueba— lo cual exigió coordinar con el diseño real del backend en vez de asumir un flujo ideal.<br><br>**Lopez Montalvo, Kevin Edu (AV2):** En el Sprint 2 implementé las tasks T44, T48 y T49 en la aplicación nativa y T57 para contenido compartible de logros. Para lograrlo, investigué la API de CameraX en Android para la captura y previsualización optimizada de documentos físicos, el uso de Room (SQLite) para persistir localmente la ruta de aprendizaje permitiendo su consulta en modo sin conexión (offline-first), y el uso de Android Sharesheet (`Intent.ACTION_SEND`) junto con `FileProvider` para exportar y compartir las credenciales obtenidas.<br><br>**Komatsu Dueñas, David (AV1):** Evalué diferentes estrategias de integración de servicios RESTful y modelé el flujo de mensajes entre los Bounded Contexts aplicando Domain Storytelling adaptado al consumo de APIs desde aplicaciones móviles.<br><br>**Komatsu Dueñas, David (TB1):** Reconocí que parte del flujo de interacción que había modelado con Domain Storytelling en AV1 ya no aplicaba tal cual al construir los prototipos de UI, porque el backend terminó resolviendo ciertos pasos (como la vinculación de certificados) de forma automática y no mediante una pantalla explícita, por lo que tuve que simplificar los mock-ups correspondientes.<br><br>**Komatsu Dueñas, David (AV2):** En el Sprint 2 participé en las tasks T45, T50, T51 y T70 de la aplicación nativa del Estudiante, integradas en `SkillSwap-MobileApp` con los PR #2, #4 y #19, que exigen usar recursos del propio dispositivo: la lectura de la institución, el curso y la fecha del certificado en el dispositivo con el reconocimiento de texto de ML Kit, antes de enviar esos campos al backend (T45, US11); la conservación de las respuestas del quiz en la base de datos local SQLite y su reenvío cuando Android avisa que volvió la conexión (T50 y T51, US21); y la grabación del video de la demostración final con la cámara del dispositivo y su subida desde la aplicación (T70, US29). Para la task T56 (US19) tuve que investigar cómo evaluar con IA la entrega de un miniproyecto, que es un enlace a un repositorio y no un texto. Apliqué la herramienta de contexto de URL de la API de Gemini (`url_context`) para que el modelo lea el repositorio y califique cada criterio de la rúbrica, y procesé la evaluación en segundo plano con un manejador del evento de dominio `MiniProjectSubmitted`, de modo que la entrega quede registrada en estado `Pending` sin esperar a la IA. Como la User Story no fija qué significa una confianza baja, definí en el modelo de dominio la regla de aprobación (puntaje de al menos 70 y confianza de al menos 70 sobre 100) y la apertura del caso de verificación de tipo miniproyecto en los demás casos, con su migración de base de datos (V15) y el endpoint para consultar la evaluación preliminar.<br><br>**Sulca Sánchez, Piero Angel (AV1):** Estudié los fundamentos del diseño estratégico con Domain-Driven Design a partir del material del curso y de las plantillas de la comunidad ddd-crew, y los apliqué para elaborar el EventStorming de SkillSwap en sus diez pasos, el Candidate Context Discovery, los Domain Message Flows y los Bounded Context Canvases, modelados en Excalidraw. Para sustentar el problema del Capítulo I, investigué datos estadísticos sobre la brecha entre la certificación y el dominio práctico, los verifiqué en sus fuentes originales y los cité en formato APA 7.<br><br>**Sulca Sánchez, Piero Angel (TB1):** Al revisar el Context Mapping y los Bounded Context Canvases contra lo realmente implementado en el backend, identifiqué que varias relaciones que había modelado en AV1 (Customer/Supplier directo entre Assessment y Reputation) no correspondían al mecanismo real de eventos de dominio, y tuve que aprender el patrón Published Language para corregir los diagramas de forma consistente con el código.<br><br>**Sulca Sánchez, Piero Angel (AV2):** En el Sprint 2 completé las tasks T46, T61 y T63 en el backend y T60 y T62 en Flutter, además de refactorizar la arquitectura de la app nativa por Bounded Contexts (PR #24) y actualizar el Android Gradle Plugin para Flutter 3.50 (PR #8). Para ello investigué consultas de agregación con JPQL/Criteria en Spring Data JPA para calcular métricas de confiabilidad y suspensión automática de Verificadores en el dominio, así como la gestión de interceptores HTTP con Dio y actualización reactiva de estado en Flutter para reflejar en tiempo real el saldo de SkillCredits al resolver casos.| (AV1) El equipo reconoce la necesidad del aprendizaje permanente al investigar e integrar de manera autónoma tecnologías no vistas en clase, como SDKs externos de reconocimiento de texto y persistencia local en dispositivos, aplicando conceptos de Domain-Driven Design al entorno móvil.<br><br>(TB1) El equipo confirma que ese aprendizaje autónomo se sostuvo al pasar del diseño a la implementación real: construir el backend exigió investigar APIs externas completas (Gemini, Google Play Billing) y resolver restricciones de infraestructura no anticipadas en el diseño original (disponibilidad de motores de base de datos en el proveedor de hosting elegido), evidenciando que actualizar conocimientos no se limita a la etapa de diseño sino que continúa durante la construcción del software.<br><br>(AV2) El equipo confirma que construir las dos aplicaciones móviles exigió adquirir de forma autónoma conocimientos que van más allá de las pantallas: en la aplicación nativa, la lectura del certificado con ML Kit en el dispositivo, la persistencia local con Room/SQLite para consultar la ruta y conservar el quiz sin conexión, el uso de CameraX y la exportación segura de credenciales con FileProvider; en la aplicación Flutter, la organización por Bounded Context con BLoC, Dio y `get_it`, además de la actualización del toolchain de compilación; y en el backend, las consultas de agregación para métricas de reputación, la evaluación de repositorios con Gemini y el despliegue productivo con Docker Compose y Caddy en una instancia de AWS. |
+| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.** | **Alberca Saavedra, Víctor Manuel (AV1):** Al enfrentar el pivote del modelo de negocio a mitad de ciclo, tuve que reevaluar y rediseñar desde cero la estrategia de Bounded Contexts que ya había avanzado, reconociendo que el conocimiento adquirido durante la investigación previa (SUNEDU, matching por embeddings) no era aplicable al nuevo alcance del curso y debía sustituirse por soluciones más simples y viables.<br><br>**Alberca Saavedra, Víctor Manuel (TB1):** Al construir el backend real, reconocí que varias decisiones documentadas en el diseño (rúbrica por criterio, examen de ingreso del Verificador, tres intentos de quiz, pasarela de pago) no eran viables o necesarias dentro del tiempo del Sprint, y que insistir en implementarlas tal cual hubiera significado no entregar un flujo completo y funcional. Reemplacé esas decisiones por un modelo mínimo igualmente riguroso, y luego tuve que volver sobre el propio informe para que el diseño documentado reflejara honestamente lo construido, en vez de dejar un documento que describiera un sistema distinto al que realmente funciona.<br><br>**Alberca Saavedra, Víctor Manuel (AV2):** Al revisar la observación del profesor sobre el Verificador, reconocí que su definición estaba repartida en varias secciones del informe y la reuní en una sola descripción, lo que me obligó a volver a contrastar las reglas del Verificador y del Verificador senior con el modelo implementado. Asimismo, en el Sprint 2, ante el vencimiento de la capa gratuita de la base de datos en Render el 31 de octubre de 2026, reconocí que depender de servicios PaaS gratuitos limita la continuidad operativa del proyecto; por ello asumí el aprendizaje rápido de infraestructura cloud en AWS EC2, Docker Compose y Caddy para migrar todo el entorno productivo a tiempo para la entrega sin afectar el flujo del equipo.<br><br>**Becerra Ninahuanca, Luis Angel (AV1):** Reconocí la necesidad de actualizar el análisis competitivo y las preguntas de entrevista previamente diseñadas, dado que el modelo de negocio original ya no reflejaba la propuesta de valor vigente del proyecto.<br><br>**Becerra Ninahuanca, Luis Angel (TB1):** Reconocí que el Style Guide definido en una primera versión debía replantearse al validarlo contra las pantallas reales de la app, en vez de darlo por cerrado solo porque ya existía un documento.<br><br>**Becerra Ninahuanca, Luis Angel (AV2):** Al desarrollar las pantallas del Estudiante en Jetpack Compose (T47, T53, T55) y las del Verificador en Flutter (T58, T64), reconocí que los mock-ups estáticos no resuelven la gestión de estados asíncronos ni la adaptación a distintas densidades de pantalla en producción; esto me llevó a profundizar de forma continua en la arquitectura reactiva de ambos frameworks para garantizar paridad funcional y de experiencia entre dos plataformas nativas y multiplataforma distintas.<br><br>**Lopez Montalvo, Kevin Edu (AV1):** Documenté el proceso Lean UX y apliqué el aprendizaje sobre persistencia de datos locales en dispositivos para el diseño de los requisitos, estructurando las User Stories bajo un enfoque Mobile-First.<br><br>**Lopez Montalvo, Kevin Edu (TB1):** Reconocí que los User Flows no podían completarse sin antes confirmar con el backend qué reglas de negocio realmente existían (ej. que registrar un certificado no completa un nodo hasta que un Verificador lo valida), lo que me obligó a esperar y ajustar en vez de diseñar el flujo de forma aislada.<br><br>**Lopez Montalvo, Kevin Edu (AV2):** Al implementar la captura de documentos con CameraX (T44), la persistencia local de la ruta con Room (T48, T49) y la exportación de logros (T57), reconocí que diseñar pantallas para el hardware del teléfono exige manejar permisos en tiempo de ejecución, ciclos de vida de la cámara y sincronización de caché local cuando no hay red, obligándome a estudiar el manejo de recursos nativos y políticas de seguridad de archivos (`FileProvider`) en versiones recientes de Android.<br><br>**Komatsu Dueñas, David (AV1):** Reconocí que los flujos de integración entre Bounded Contexts modelados inicialmente debían replantearse por completo tras el cambio de alcance, en vez de simplemente ajustar el software ya diseñado.<br><br>**Komatsu Dueñas, David (TB1):** Reconocí que modelar la interacción sin validarla contra la arquitectura final genera trabajo que luego hay que rehacer, y que coordinar antes con el equipo técnico habría evitado parte del reproceso en los mock-ups.<br><br>**Komatsu Dueñas, David (AV2):** Al participar en T50 y T51 reconocí que la aplicación no puede suponer una conexión estable: el Estudiante puede perderla a mitad del quiz (US21), y conservar su intento exige guardar las respuestas en el dispositivo y reenviarlas después, un comportamiento que no se resuelve en el backend y que obliga a probar la aplicación también sin conexión. Las pruebas de T56 pasaban en mi entorno (macOS, sin las pruebas de integración que requieren Docker), pero cuando el equipo ejecutó la suite completa con Docker en Windows falló una prueba de persistencia: el plazo del miniproyecto leído de PostgreSQL difería del guardado en fracciones de microsegundo, porque el reloj de Windows tiene pasos de 100 ns y PostgreSQL guarda microsegundos. Reconocí que no basta con que las pruebas pasen en una sola máquina, investigué la precisión de los instantes en Java y en PostgreSQL y lo corregí en el PR #22, truncando a microsegundos los instantes del miniproyecto y de su entrega, de modo que el resultado sea el mismo en cualquier sistema operativo.<br><br>**Sulca Sánchez, Piero Angel (AV1):** Al alinear el Capítulo I con el modelo de negocio vigente, reconocí que partes ya redactadas del informe, como el segmento del Coordinador, el canje de SkillCredits y el enfoque en la deserción académica, respondían a un modelo anterior y debían reformularse en lugar de darse por terminadas. Durante el EventStorming, los puntos críticos identificados me llevaron a revisar decisiones del dominio, como la calificación por criterios y el segundo revisor, antes de trasladarlas al diseño, entendiendo que el modelo se refina de forma iterativa.<br><br>**Sulca Sánchez, Piero Angel (TB1):** Reconocí que un Context Mapping elaborado en una etapa temprana del diseño necesita revisarse una vez que el código revela el mecanismo real de comunicación entre contextos, y que mantenerlo actualizado es parte continua del trabajo, no una tarea de una sola vez.<br><br>**Sulca Sánchez, Piero Angel (AV2):** Al integrar las métricas agregadas y la suspensión de Verificadores (T46, T60-T63), reorganizar la app nativa por Bounded Contexts (PR #24) y actualizar el toolchain de Flutter 3.50 (PR #8), reconocí que el mantenimiento evolutivo y la deuda técnica exigen actualizar constantemente el dominio de herramientas de compilación (Gradle) y patrones de arquitectura limpia en cliente, evitando que el crecimiento de funcionalidades degrade la estabilidad del proyecto o genere envíos duplicados en la interfaz.| (AV1) El equipo reconoce que el aprendizaje permanente no se limita a adquirir tecnologías nuevas, sino también a la capacidad de soltar y reformular conocimiento previamente validado cuando el contexto del proyecto cambia, como ocurrió tras el pivote del modelo de negocio de tutorías a verificación de habilidades.<br><br>(TB1) El equipo reconoce que ese mismo principio aplica entre el diseño y la implementación: un documento de arquitectura es una hipótesis de trabajo, no una verdad fija, y la disciplina de volver a corregirlo cuando la construcción revela una limitación real —en vez de dejarlo desactualizado— es en sí misma una forma de aprendizaje permanente aplicada al ciclo de vida completo del software.<br><br>(AV2) El equipo reconoce que el entorno en el que corre el software y sus herramientas cambian continuamente y obligan a seguir aprendiendo: la base de datos gratuita de Render expiró el 31 de octubre de 2026 y el backend tuvo que trasladarse a AWS a pocos días del AV2; una prueba de persistencia que pasaba en macOS falló en Windows por la distinta precisión del reloj; y la actualización del SDK de Flutter y políticas de almacenamiento en Android exigieron refactorizar la arquitectura móvil. Estos casos demuestran que el conocimiento de una plataforma o entorno nunca queda fijo al terminar una funcionalidad, sino que requiere revisión constante cada vez que evoluciona el ecosistema técnico. |
 
 <div style="page-break-after: always;"></div>
 
@@ -276,11 +318,21 @@ Innovify es una startup tecnológica del sector educativo que desarrolla solucio
 
 SkillSwap organiza la experiencia a partir del objetivo declarado por el Estudiante en lenguaje natural: un modelo de inteligencia artificial generativa lo interpreta y selecciona las habilidades correspondientes, siempre dentro de la taxonomía de habilidades de la plataforma, y a partir de ellas el sistema calcula lo que le falta demostrar y ordena los pasos según sus prerrequisitos para proponer una ruta de certificación, compuesta por nodos que se evalúan mediante un *quiz* o un miniproyecto; toda ruta incluye un mínimo de nodos con entrega práctica. El Estudiante puede incorporar certificados externos, cuyos datos se extraen mediante reconocimiento óptico de caracteres con ML Kit para facilitar su registro y análisis de riesgo documental. Esta extracción no demuestra por sí misma el dominio de la habilidad: la comprobación se realiza mediante esas evaluaciones aplicadas, cuya generación puede ser asistida por inteligencia artificial. Cuando la evaluación automática no resulta suficiente, el caso se asigna a un Verificador habilitado, quien revisa el trabajo guiándose por una rúbrica, decide si lo aprueba o lo rechaza y registra sus observaciones; si no lo aprueba, el Estudiante recibe esas observaciones para reforzar lo necesario. Al completar la ruta, el Estudiante presenta una demostración final asíncrona que también califica un Verificador habilitado, de modo que ninguna certificación se emite sin que una persona haya evaluado su trabajo. La certificación queda respaldada por el historial de evaluaciones y revisiones realizadas en la plataforma.
 
-Para revisar casos de otros usuarios, el Estudiante debe habilitarse como Verificador de la habilidad que desea verificar, lo que ocurre al completar el nodo de esa habilidad en su propia ruta. Una vez habilitado, puede participar como Verificador y recibir SkillCredits por cada caso que resuelve, lo apruebe o lo rechace, según el tipo de caso: 40 SkillCredits por un miniproyecto y 25 por un *quiz*, porque revisar un miniproyecto exige más trabajo que revisar un *quiz*. Los SkillCredits constituyen unidades de reconocimiento no monetarias asociadas a su participación y experiencia como Verificador; nunca pueden comprarse con dinero ni transferirse, pero el Verificador puede canjearlos por beneficios dentro de la plataforma: una ruta avanzada, por 200 SkillCredits, o un certificado de contribución, por 120. Los precios se escalaron junto con los montos por caso para que obtener un beneficio siga requiriendo varios casos resueltos (5 miniproyectos u 8 *quizzes* para la ruta avanzada, y 3 miniproyectos o alrededor de 5 *quizzes* para el certificado); si solo hubieran subido los montos por caso, un beneficio costaría alrededor de un caso y perdería su valor. Por separado, el Verificador obtiene rangos visibles en su perfil profesional según la cantidad de casos de verificación que resuelve, no según su saldo de SkillCredits, de modo que canjear créditos nunca reduce su rango. Los rangos son tres: Bronce, de 0 a 29 casos resueltos; Plata, de 30 a 99; y Oro, desde 100 casos resueltos.
+Para revisar casos de otros usuarios, el Estudiante debe habilitarse como Verificador de la habilidad que desea verificar, lo que ocurre al completar el nodo de esa habilidad en su propia ruta. Una vez habilitado, puede participar como Verificador y recibir SkillCredits por cada caso que resuelve, lo apruebe o lo rechace, según el tipo de caso: 40 SkillCredits por un miniproyecto y 25 por un *quiz*, porque revisar un miniproyecto exige más trabajo que revisar un *quiz*. Los SkillCredits constituyen unidades de reconocimiento no monetarias asociadas a su participación y experiencia como Verificador; nunca pueden comprarse con dinero ni transferirse, pero el Verificador puede canjearlos por beneficios dentro de la plataforma: una insignia, por 200 SkillCredits; un certificado de contribución, por 300; una ruta avanzada, por 500; o una certificación patrocinada, por 1 500. Los precios se escalaron junto con los montos por caso para que obtener un beneficio siga requiriendo varios casos resueltos (desde 5 miniproyectos u 8 *quizzes* para la insignia hasta 38 miniproyectos o 60 *quizzes* para la certificación patrocinada); si solo hubieran subido los montos por caso, un beneficio costaría alrededor de un caso y perdería su valor. Por separado, el Verificador obtiene rangos visibles en su perfil profesional según la cantidad de casos de verificación que resuelve, no según su saldo de SkillCredits, de modo que canjear créditos nunca reduce su rango. Los rangos son tres: Bronce, de 0 a 29 casos resueltos; Plata, de 30 a 99; y Oro, desde 100 casos resueltos.
 
 Innovify plantea para SkillSwap un modelo de negocio B2C freemium. Todo Estudiante empieza con un plan gratuito (S/ 0), que le permite tener 1 ruta activa a la vez y hasta 3 rutas en total, y escalar 3 casos al mes a un Verificador, que se revisan en un plazo de hasta 5 días hábiles. Cuando llega a uno de esos límites, la aplicación le muestra la pantalla "Alcanzaste el límite de tu plan", donde puede pasar al plan mensual o continuar con el plan gratuito. El plan mensual cuesta S/ 29,90 al mes, IGV incluido, se cobra mediante Google Play Billing, integrado a través de RevenueCat, y amplía esos límites: hasta 3 rutas activas a la vez, sin tope de rutas en total, y 10 escalamientos al mes a un Verificador, cuyos casos se revisan en 48 horas; además, reduce los tiempos de espera. La ruta avanzada que un Verificador obtiene al canjear SkillCredits no consume el cupo de rutas del plan gratuito. Ningún plan compra la aprobación: las evaluaciones y los criterios son los mismos para todos. No existen pagos directos ni comisiones entre Estudiantes y Verificadores. Además, la supervisión del proceso la ejercen los Verificadores senior, es decir, los Verificadores que alcanzaron el rango Oro y mantienen una confiabilidad de 90 o más, en la escala de 0 a 100 con la que la plataforma la mide: monitorean la confiabilidad de las revisiones, resuelven las disputas por certificados sospechosos y consultan métricas generales sobre la actividad del ecosistema. Las apelaciones, en cambio, las revisa un Verificador distinto del que tomó la decisión original.
 
 La asignación de casos se realiza automáticamente considerando la habilidad requerida, el historial y la disponibilidad de los Verificadores. Asimismo, SkillSwap incorpora mecanismos de confianza como la verificación del correo electrónico, el historial auditable de las evaluaciones y la habilitación de Verificadores a partir de las certificaciones obtenidas dentro de la plataforma. Estos mecanismos buscan reducir la dependencia de declaraciones no comprobadas y favorecer un proceso de validación consistente.
+
+#### Rol del Verificador
+
+El Verificador es el actor que sostiene la confiabilidad de las habilidades certificadas en SkillSwap. No es un perfil aparte: es un Estudiante habilitado para una habilidad concreta, cuya tarea es decidir, con criterios estructurados, si el trabajo de otro Estudiante demuestra realmente esa habilidad. La evaluación entre pares es un mecanismo estudiado en la educación superior, donde se analizan tanto su validez como sus beneficios para el aprendizaje (Käpylä y Palvalin, 2025); por eso SkillSwap no la deja a criterio libre, sino que la acota con la habilitación por habilidad, la rúbrica, las apelaciones y la supervisión de la confiabilidad que se describen a continuación.
+
+* **Cómo se habilita:** completando, en su propia ruta, el nodo de la habilidad que desea verificar. La habilitación es por habilidad, no general.
+* **Qué hace:** revisa los casos de verificación que se abren cuando un intento de evaluación (*quiz* o miniproyecto) no se aprueba. El sistema se los asigna según la habilidad requerida, su historial y su disponibilidad, que el Verificador activa o desactiva. Evalúa la evidencia con la rúbrica y registra su decisión (aprobar o rechazar) con observaciones, dentro del plazo del caso; si el plazo vence, el caso se reasigna a otro Verificador.
+* **Qué recibe:** SkillCredits por cada caso resuelto, lo apruebe o lo rechace (40 por un miniproyecto y 25 por un *quiz*). No son dinero: no se compran ni se transfieren, y se canjean por beneficios de la plataforma (insignia, certificado de contribución, ruta avanzada o certificación patrocinada).
+* **Cómo se supervisa su trabajo:** su confiabilidad, de 0 a 100, se calcula con sus casos resueltos y revertidos, y su rango (Bronce, Plata u Oro) depende de la cantidad de casos resueltos. Si un Estudiante apela un rechazo (una apelación por caso), lo revisa un Verificador distinto del original; si la decisión se revierte, queda registrada en la confiabilidad del Verificador original.
+* **Verificador senior:** es el Verificador con rango Oro y confiabilidad de 90 o más. Además de revisar casos, resuelve las disputas por certificados sospechosos (los confirma como verificados o los rechaza), ordena la reevaluación de resultados aprobados cuando hay dudas, suspende temporalmente a los Verificadores con baja confiabilidad y consulta las métricas agregadas de la plataforma.
 
 #### Visión
 
@@ -322,7 +374,7 @@ Facilitar que estudiantes universitarios y jóvenes profesionales demuestren el 
 
 En el mercado laboral peruano existe una brecha entre las habilidades requeridas por las organizaciones y las que encuentran entre los postulantes. La Encuesta de Habilidades al Trabajo 2017-2018 señala que el 47% de las empresas con vacantes tuvo dificultades para cubrirlas y que el 76% de las vacantes difíciles de cubrir se relacionó con la falta de habilidades de los candidatos (Novella et al., 2019). Estas cifras establecen el contexto de una brecha de habilidades que exige mecanismos más claros para demostrar las capacidades de los postulantes.
 
-Paralelamente, el aprendizaje en línea y la obtención de credenciales digitales continúan expandiéndose. Coursera registra 1,7 millones de estudiantes peruanos en su plataforma y reporta un crecimiento interanual del 33% en las inscripciones a Certificados Profesionales en el país (Coursera, 2025). Un certificado de finalización acredita que una persona completó una actividad conforme a los criterios de su emisor; sin embargo, considerado de manera aislada, no necesariamente ofrece una demostración suficiente y verificable de cómo aplica la habilidad en un contexto práctico. En este sentido, los enfoques de contratación basados en habilidades proponen complementar las calificaciones y credenciales con mecanismos que permitan identificar y demostrar competencias específicas (Organisation for Economic Co-operation and Development [OECD], 2024).
+Paralelamente, el aprendizaje en línea y la obtención de credenciales digitales continúan expandiéndose. Coursera registra 1,7 millones de estudiantes peruanos en su plataforma y reporta un crecimiento interanual del 33% en las inscripciones a Certificados Profesionales en el país (Coursera, 2025). Un certificado de finalización acredita que una persona completó una actividad conforme a los criterios de su emisor; sin embargo, considerado de manera aislada, no necesariamente ofrece una demostración suficiente y verificable de cómo aplica la habilidad en un contexto práctico. En este sentido, los enfoques de contratación basados en habilidades proponen complementar las calificaciones y credenciales con mecanismos que permitan identificar y demostrar competencias específicas (Organisation for Economic Co-operation and Development [OECD], 2024). La investigación reciente sobre las microcredenciales aborda este mismo tema desde distintos actores: su reconocimiento en el mercado laboral, donde una encuesta a 124 profesionales de recursos humanos encontró que muchos las valoran como complemento del currículum, aunque una parte de los reclutadores duda de su legitimidad y de que las habilidades que certifican puedan aplicarse en la práctica (Alasmari, 2024); la perspectiva de los empleadores sobre las microcredenciales y las habilidades blandas en la educación en línea, que recomienda diseñarlas con un enfoque práctico y en escenarios cercanos al trabajo real (Bruguera et al., 2025); y los beneficios que estudiantes y empleadores perciben en ellas para la empleabilidad de los egresados, que los estudiantes valoran de forma más positiva que los empleadores (Nguyen et al., 2026).
 
 A partir de este contexto, el problema identificado es la dificultad que enfrentan los Estudiantes para complementar sus certificados con un proceso que evalúe la aplicación práctica de las habilidades declaradas. La dispersión de certificados, proyectos y resultados agrava el seguimiento, pero no constituye la causa principal: el vacío central es la falta de una comprobación directa del desempeño y de criterios claros para determinar el dominio. Sin esa evaluación, el propio Estudiante puede desconocer qué aspectos necesita reforzar hasta enfrentarse a una tarea aplicada. Asimismo, los Verificadores necesitan un entorno estructurado para revisar entregables y registrar sus contribuciones, mientras que la plataforma requiere mecanismos para supervisar la confiabilidad de esas decisiones.
 
@@ -372,7 +424,7 @@ Desarrollar una plataforma móvil que permita a Estudiantes universitarios y jó
 * La plataforma evalúa entregables dentro de su propio proceso, pero no garantiza la contratación laboral del Estudiante ni sustituye los procedimientos de selección de las organizaciones.
 * La extracción de datos mediante OCR facilita el registro y el análisis de riesgo documental, pero no equivale a una comprobación oficial ante la entidad emisora; la plataforma no consulta registros externos de las entidades emisoras.
 * La confiabilidad de la revisión entre pares depende de la disponibilidad de Verificadores previamente habilitados para cada habilidad.
-* La inteligencia artificial generativa se utiliza como apoyo para producir contenido evaluativo, pero los resultados del proceso deben mantenerse sujetos a las reglas de validación y supervisión de la plataforma.
+* La inteligencia artificial generativa se utiliza como apoyo para producir contenido evaluativo, pero los resultados del proceso deben mantenerse sujetos a las reglas de validación y supervisión de la plataforma. La calidad de las preguntas de opción múltiple generadas por modelos de lenguaje es un aspecto que la literatura reciente analiza de forma específica, en ciencias de la computación y en medicina: los modelos agilizan la creación de las preguntas, pero a veces producen enunciados demasiado amplios, claves de respuesta ambiguas o distractores poco plausibles, por lo que la revisión humana sigue siendo necesaria (Grévisse et al., 2024).
 * El desarrollo se limita a las funcionalidades e integraciones seleccionadas para el periodo académico.
 
 ---
@@ -1253,7 +1305,7 @@ En esta sección se presenta el lenguaje ubicuo de SkillSwap: los términos del 
 | SkillCredits | SkillCredits | Unidades de reconocimiento no monetarias que recibe un Verificador por cada caso resuelto (40 SkillCredits por un miniproyecto y 25 por un quiz, lo apruebe o lo rechace); forman un saldo canjeable por beneficios de la plataforma y nunca se pueden comprar con dinero ni transferir. |
 | Wallet | Billetera | Registro del saldo de SkillCredits de un usuario y de sus movimientos. |
 | Redemption | Canje | Operación con la que el Verificador descuenta SkillCredits de su saldo a cambio de un beneficio canjeable. |
-| Redeemable Benefit | Beneficio canjeable | Beneficio que el Verificador obtiene al canjear SkillCredits: la ruta avanzada (200 SkillCredits), que pone a su disposición una ruta de certificación avanzada, o el certificado de contribución (120 SkillCredits), que acredita su labor como Verificador. |
+| Redeemable Benefit | Beneficio canjeable | Beneficio que el Verificador obtiene al canjear SkillCredits: la insignia (200 SkillCredits), el certificado de contribución (300 SkillCredits), que acredita su labor como Verificador, la ruta avanzada (500 SkillCredits), que pone a su disposición una ruta de certificación avanzada, o la certificación patrocinada (1 500 SkillCredits). |
 | Rank | Rango | Nivel visible en el perfil del Verificador que se alcanza según la cantidad de casos de verificación resueltos, no según el saldo de SkillCredits; por eso, canjear créditos no lo reduce. Hay tres rangos: Bronce (0 a 29 casos resueltos), Plata (30 a 99) y Oro (100 o más). |
 | Subscription | Suscripción | Plan mensual opcional, de S/ 29,90 con IGV incluido y cobrado mediante Google Play Billing, integrado a través de RevenueCat, que amplía los límites del plan gratuito (1 ruta activa a la vez, hasta 3 rutas en total y 3 escalamientos al mes, revisados en hasta 5 días hábiles) a hasta 3 rutas activas a la vez, sin tope de rutas en total, y 10 escalamientos al mes, revisados en 48 horas, y reduce los tiempos de espera. |
 | Dispute | Disputa | Caso que revisa un Verificador senior y que se abre cuando un certificado se registra como sospechoso. |
@@ -1305,7 +1357,7 @@ En el mapa se observa que con Innovify, Rodrigo primero completa en su propia ru
 
 ### 2.4.1. User Stories
 
-En esta sección se especifican los requisitos funcionales y técnicos de SkillSwap, aplicación móvil nativa y multiplataforma, mediante User Stories agrupadas en Epics. Las historias se redactaron a partir de los hallazgos de las entrevistas, los User Personas, el User Task Matrix y los Journey Maps de los dos segmentos objetivo: **personas que quieren aprender (Estudiantes)** y **personas que validan el conocimiento (Verificadores)**, además de los visitantes de la Landing Page. En total se definen **57 historias**: 45 User Stories orientadas a los usuarios finales y 12 Technical Stories, redactadas con el rol *Developer*, que describen los servicios RESTful que consume la aplicación móvil.
+En esta sección se especifican los requisitos funcionales y técnicos de SkillSwap, aplicación móvil nativa y multiplataforma, mediante User Stories agrupadas en Epics, siguiendo el enfoque de User Stories descrito por Cohn (2004). Las historias se redactaron a partir de los hallazgos de las entrevistas, los User Personas, el User Task Matrix y los Journey Maps de los dos segmentos objetivo: **personas que quieren aprender (Estudiantes)** y **personas que validan el conocimiento (Verificadores)**, además de los visitantes de la Landing Page. En total se definen **57 historias**: 45 User Stories orientadas a los usuarios finales y 12 Technical Stories, redactadas con el rol *Developer*, que describen los servicios RESTful que consume la aplicación móvil.
 
 #### Epics
 
@@ -1521,7 +1573,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><th colspan="4">Description</th></tr>
   <tr><td colspan="4">Como estudiante, quiero desarrollar y entregar un miniproyecto generado para mi nodo, para demostrar la habilidad de forma práctica y no solo teórica.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Generación del enunciado</strong><br><strong>Dado que</strong> el estudiante tiene un nodo disponible cuya habilidad admite evaluación práctica<br><strong>Cuando</strong> solicita un miniproyecto<br><strong>Entonces</strong> el sistema genera un enunciado con su rúbrica de evaluación<br><br><strong>Escenario 2: Entrega dentro del plazo</strong><br><strong>Dado que</strong> el estudiante tiene un miniproyecto asignado<br><strong>Cuando</strong> entrega su repositorio o archivos dentro del plazo definido<br><strong>Entonces</strong> el sistema registra la entrega<br><strong>Y</strong> ejecuta la evaluación preliminar de la IA según la rúbrica<br><br><strong>Escenario 3: Evaluación preliminar insuficiente</strong><br><strong>Dado que</strong> la evaluación preliminar de la IA no alcanza el puntaje mínimo de la rúbrica o su nivel de confianza es bajo<br><strong>Cuando</strong> finaliza la evaluación<br><strong>Entonces</strong> el sistema abre un caso de verificación para la revisión de un Verificador</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Generación del enunciado</strong><br><strong>Dado que</strong> el estudiante tiene un nodo disponible cuya habilidad admite evaluación práctica<br><strong>Cuando</strong> solicita un miniproyecto<br><strong>Entonces</strong> el sistema genera un enunciado con su rúbrica de evaluación<br><br><strong>Escenario 2: Entrega dentro del plazo</strong><br><strong>Dado que</strong> el estudiante tiene un miniproyecto asignado<br><strong>Cuando</strong> entrega su repositorio o archivos dentro del plazo definido<br><strong>Entonces</strong> el sistema registra la entrega<br><strong>Y</strong> ejecuta la evaluación preliminar de la IA según la rúbrica<br><br><strong>Escenario 3: Evaluación preliminar insuficiente</strong><br><strong>Dado que</strong> la evaluación preliminar de la IA no alcanza el puntaje mínimo de la rúbrica o su nivel de confianza es bajo (menor a 70 sobre 100)<br><strong>Cuando</strong> finaliza la evaluación<br><strong>Entonces</strong> el sistema abre un caso de verificación para la revisión de un Verificador<br><br><strong>Escenario 4: Evaluación preliminar suficiente</strong><br><strong>Dado que</strong> la evaluación preliminar de la IA alcanza el puntaje mínimo de la rúbrica con un nivel de confianza de al menos 70 sobre 100<br><strong>Cuando</strong> finaliza la evaluación<br><strong>Entonces</strong> el sistema aprueba la entrega y completa el nodo sin abrir un caso de verificación</td></tr>
 </table>
 
 <table>
@@ -1651,7 +1703,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
   <tr><th colspan="4">Description</th></tr>
   <tr><td colspan="4">Como Verificador, quiero canjear mis SkillCredits por beneficios de la tienda, para aprovechar el reconocimiento que acumulé.</td></tr>
   <tr><th colspan="4">Acceptance Criteria</th></tr>
-  <tr><td colspan="4"><strong>Escenario 1: Canje con saldo suficiente</strong><br><strong>Dado que</strong> el Verificador tiene un saldo mayor o igual al costo de un beneficio (200 SkillCredits la ruta avanzada o 120 el certificado de contribución)<br><strong>Cuando</strong> solicita el canje de ese beneficio<br><strong>Entonces</strong> el sistema descuenta el costo de su saldo<br><strong>Y</strong> registra una transacción de tipo canjeado<br><br><strong>Escenario 2: Canje con saldo insuficiente</strong><br><strong>Dado que</strong> el Verificador tiene un saldo menor al costo de un beneficio<br><strong>Cuando</strong> solicita el canje de ese beneficio<br><strong>Entonces</strong> el sistema rechaza el canje<br><strong>Y</strong> mantiene su saldo sin cambios</td></tr>
+  <tr><td colspan="4"><strong>Escenario 1: Canje con saldo suficiente</strong><br><strong>Dado que</strong> el Verificador tiene un saldo mayor o igual al costo de un beneficio (200 SkillCredits la insignia, 300 el certificado de contribución, 500 la ruta avanzada o 1 500 la certificación patrocinada)<br><strong>Cuando</strong> solicita el canje de ese beneficio<br><strong>Entonces</strong> el sistema descuenta el costo de su saldo<br><strong>Y</strong> registra una transacción de tipo canjeado<br><br><strong>Escenario 2: Canje con saldo insuficiente</strong><br><strong>Dado que</strong> el Verificador tiene un saldo menor al costo de un beneficio<br><strong>Cuando</strong> solicita el canje de ese beneficio<br><strong>Entonces</strong> el sistema rechaza el canje<br><strong>Y</strong> mantiene su saldo sin cambios</td></tr>
 </table>
 
 <table>
@@ -1909,7 +1961,7 @@ En esta sección se especifican los requisitos funcionales y técnicos de SkillS
 
 ### 2.4.2. Impact Mapping
 
-El Impact Mapping de SkillSwap se elaboró en UXPressia con el objetivo de conectar los objetivos del negocio con los cambios de comportamiento que se esperan de los usuarios y con las funcionalidades que la aplicación debe ofrecer para provocarlos. Se definieron cuatro **Business Goals** bajo los criterios SMART, cuyas métricas se derivan de las hipótesis planteadas en la sección 1.2.2.3. Como **Actors** se emplearon los User Personas identificados en la sección 2.3.1 —Valeria Ramos (Estudiante), Rodrigo Castillo (Verificador)—, respondiendo a la pregunta *¿quiénes nos ayudarán a lograr la meta?*. La columna **Impacts** describe cómo se espera que cada persona cambie su comportamiento, la columna **Deliverables** responde a *¿qué puede hacer la plataforma para provocar esos impactos?*, y la columna **User Stories** reúne las historias de la sección 2.4.1 que permiten construir cada deliverable.
+El Impact Mapping (Adzic, 2012) de SkillSwap se elaboró en UXPressia con el objetivo de conectar los objetivos del negocio con los cambios de comportamiento que se esperan de los usuarios y con las funcionalidades que la aplicación debe ofrecer para provocarlos. Se definieron cuatro **Business Goals** bajo los criterios SMART, cuyas métricas se derivan de las hipótesis planteadas en la sección 1.2.2.3. Como **Actors** se emplearon los User Personas identificados en la sección 2.3.1 —Valeria Ramos (Estudiante), Rodrigo Castillo (Verificador)—, respondiendo a la pregunta *¿quiénes nos ayudarán a lograr la meta?*. La columna **Impacts** describe cómo se espera que cada persona cambie su comportamiento, la columna **Deliverables** responde a *¿qué puede hacer la plataforma para provocar esos impactos?*, y la columna **User Stories** reúne las historias de la sección 2.4.1 que permiten construir cada deliverable.
 
 **Business Goal 1: Adopción y suscripción**
 
@@ -1981,7 +2033,7 @@ En conjunto, los cuatro Impact Maps muestran cómo cada funcionalidad de la apli
 
 El Product Backlog de SkillSwap reúne las 57 historias definidas en la sección 2.4.1, ordenadas según el valor que aportan al negocio y estimadas en Story Points con la escala de Fibonacci (1, 2, 3, 5 y 8), donde el valor refleja la complejidad, el esfuerzo y la incertidumbre relativa de cada historia.
 
-La estimación total del Product Backlog asciende a **211 Story Points**. De ellos, **154 SP (73%)**, correspondientes a 44 de las 57 historias, se completaron en el Sprint 1 (TB1). Las 13 historias restantes (57 SP) no tienen Sprint asignado, lo que se indica con un guion (—) en la columna Sprint: cuatro corresponden a funcionalidades exclusivas del cliente móvil (US03, US10, US11 y US21) y nueve a funcionalidades que el backend no implementa (US07, US19, US20, US28, US29, US33, US37, US38 y US40).
+La estimación total del Product Backlog asciende a **211 Story Points**. De ellos, **154 SP (73%)**, correspondientes a 44 de las 57 historias, se completaron en el Sprint 1 (TB1). Las 13 historias restantes (57 SP, el 27 %) se asignaron al Sprint 2 (AV2), como se detalla en el Sprint Planning 2 (4.2.2.1): cuatro corresponden a funcionalidades exclusivas del cliente móvil (US03, US10, US11 y US21) y nueve a funcionalidades que el backend no implementaba al cierre del Sprint 1 (US07, US19, US20, US28, US29, US33, US37, US38 y US40). Con ello, las 57 historias del Product Backlog tienen un Sprint asignado.
 
 **Tabla 10**
 
@@ -1999,14 +2051,14 @@ La estimación total del Product Backlog asciende a **211 Story Points**. De ell
 | 8 | US08 | Consulta de la ruta de aprendizaje | 3 | Sprint 1 |
 | 9 | TS03 | Endpoint de registro de certificados | 5 | Sprint 1 |
 | 10 | US12 | Carga del certificado desde un archivo | 3 | Sprint 1 |
-| 11 | US11 | Captura del certificado con la cámara | 3 | — |
+| 11 | US11 | Captura del certificado con la cámara | 3 | Sprint 2 |
 | 12 | US13 | Extracción automática de datos del certificado | 8 | Sprint 1 |
 | 13 | US15 | Correspondencia del certificado con la habilidad | 5 | Sprint 1 |
 | 14 | TS06 | Endpoint de generación de evaluaciones | 5 | Sprint 1 |
 | 15 | US17 | Generación del quiz de un nodo | 5 | Sprint 1 |
 | 16 | TS07 | Endpoints de registro de intentos | 3 | Sprint 1 |
 | 17 | US18 | Resolución del quiz con calificación en el servidor | 3 | Sprint 1 |
-| 18 | US20 | Identificación del sub-tema débil | 5 | — |
+| 18 | US20 | Identificación del sub-tema débil | 5 | Sprint 2 |
 | 19 | US05 | Suscripción al plan mensual | 5 | Sprint 1 |
 | 20 | US09 | Reconocimiento de habilidades ya certificadas | 3 | Sprint 1 |
 | 21 | US14 | Detección de certificados duplicados | 3 | Sprint 1 |
@@ -2022,35 +2074,35 @@ La estimación total del Product Backlog asciende a **211 Story Points**. De ell
 | 31 | US01 | Registro con correo institucional | 3 | Sprint 1 |
 | 32 | TS02 | Endpoint de autenticación con JWT | 2 | Sprint 1 |
 | 33 | US02 | Inicio de sesión | 2 | Sprint 1 |
-| 34 | US19 | Entrega de un miniproyecto | 8 | — |
+| 34 | US19 | Entrega de un miniproyecto | 8 | Sprint 2 |
 | 35 | TS10 | Endpoints de gestión de disputas | 5 | Sprint 1 |
 | 36 | US34 | Consulta de disputas pendientes | 3 | Sprint 1 |
 | 37 | US35 | Resolución de certificados sospechosos | 3 | Sprint 1 |
 | 38 | US27 | Apelación de la decisión del Verificador | 3 | Sprint 1 |
 | 39 | US36 | Revisión de casos apelados | 3 | Sprint 1 |
-| 40 | US37 | Reevaluación de un resultado aprobado | 3 | — |
+| 40 | US37 | Reevaluación de un resultado aprobado | 3 | Sprint 2 |
 | 41 | TS09 | Endpoints de billetera y canje de SkillCredits | 3 | Sprint 1 |
 | 42 | US30 | Acreditación de SkillCredits por caso resuelto | 3 | Sprint 1 |
 | 43 | US31 | Consulta de billetera e historial | 2 | Sprint 1 |
-| 44 | US33 | Compartir logros en LinkedIn | 3 | — |
-| 45 | US38 | Suspensión de un Verificador con baja confiabilidad | 3 | — |
+| 44 | US33 | Compartir logros en LinkedIn | 3 | Sprint 2 |
+| 45 | US38 | Suspensión de un Verificador con baja confiabilidad | 3 | Sprint 2 |
 | 46 | US39 | Definición del plazo de actividad de los Verificadores | 3 | Sprint 1 |
-| 47 | US40 | Consulta de métricas de la plataforma | 5 | — |
+| 47 | US40 | Consulta de métricas de la plataforma | 5 | Sprint 2 |
 | 48 | US32 | Canje de SkillCredits en la tienda | 3 | Sprint 1 |
 | 49 | US04 | Configuración del perfil de intereses | 2 | Sprint 1 |
-| 50 | US07 | Confirmación de la habilidad interpretada | 3 | — |
-| 51 | US10 | Consulta de la ruta sin conexión | 5 | — |
-| 52 | US21 | Conservación del avance ante pérdida de conexión | 5 | — |
-| 53 | US03 | Acceso mediante biometría del dispositivo | 3 | — |
-| 54 | US28 | Programación de la demostración final | 3 | — |
-| 55 | US29 | Demostración final por video | 8 | — |
+| 50 | US07 | Confirmación de la habilidad interpretada | 3 | Sprint 2 |
+| 51 | US10 | Consulta de la ruta sin conexión | 5 | Sprint 2 |
+| 52 | US21 | Conservación del avance ante pérdida de conexión | 5 | Sprint 2 |
+| 53 | US03 | Acceso mediante biometría del dispositivo | 3 | Sprint 2 |
+| 54 | US28 | Programación de la demostración final | 3 | Sprint 2 |
+| 55 | US29 | Demostración final por video | 8 | Sprint 2 |
 | 56 | TS11 | Endpoints de consulta de reputación | 2 | Sprint 1 |
 | 57 | TS12 | Despliegue del backend en producción | 5 | Sprint 1 |
 
 
 *Nota.* Elaboración propia.
 
-El Product Backlog se gestiona en Trello, en un tablero público con la lista Sprint 1. Cada tarjeta conserva el orden, el identificador, el título y los Story Points de la tabla anterior, e incluye en su descripción la historia, la prioridad, el usuario y el Epic.
+El Product Backlog se gestiona en Trello, en un tablero público con una lista por Sprint (la lista Sprint 2 se muestra en la Figura 141, en 4.2.2.3). Cada tarjeta conserva el orden, el identificador, el título y los Story Points de la tabla anterior, e incluye en su descripción la historia, la prioridad, el usuario y el Epic.
 
 **Figura 29**
 
@@ -2069,7 +2121,7 @@ El Product Backlog se gestiona en Trello, en un tablero público con la lista Sp
 
 ### 2.5.1. EventStorming
 
-El EventStorming se desarrolló siguiendo los diez pasos propuestos en el material del curso, a partir del modelo de negocio descrito en el Capítulo I. El objetivo fue identificar los eventos del dominio de SkillSwap, ordenarlos en el tiempo, reconocer los puntos críticos del proceso y agrupar los agregados resultantes en bounded contexts candidatos.
+El EventStorming, técnica de modelado colaborativo propuesta por Brandolini (2021), se desarrolló siguiendo los diez pasos propuestos en el material del curso, a partir del modelo de negocio descrito en el Capítulo I. El objetivo fue identificar los eventos del dominio de SkillSwap, ordenarlos en el tiempo, reconocer los puntos críticos del proceso y agrupar los agregados resultantes en bounded contexts candidatos.
 
 **Paso 1. Unstructured Exploration**
 
@@ -2621,7 +2673,7 @@ Reputation es un contexto de análisis: no ejecuta el proceso principal, sino qu
 
 *Nota.* Bounded Context Canvas del contexto Reputation, elaborado con la plantilla v5 de ddd-crew. Elaboración propia.
 
-Recognition & Incentives reconoce el trabajo de los Verificadores. Sus reglas reflejan decisiones del modelo de negocio: los SkillCredits se ganan por cada revisión, apruebe o rechace, para no incentivar decisiones en un sentido; el monto depende del tipo de caso, 40 por un miniproyecto y 25 por un quiz, porque revisar un miniproyecto exige más trabajo; nunca se compran con dinero ni se transfieren, y el Verificador puede canjearlos por los dos beneficios de la tienda: una ruta avanzada, por 200 SkillCredits, o un certificado de contribución, por 120, precios escalados para que un beneficio siga requiriendo varios casos resueltos. El rango no depende del saldo de SkillCredits, sino de la cantidad de casos resueltos, de modo que canjear créditos no lo reduce. Sus capacidades son acreditar SkillCredits, registrar su canje y otorgar rangos por umbral de casos resueltos, y la acreditación depende únicamente de los eventos de Assessment & Peer Review. Los umbrales de rango quedaron definidos así: Bronce, de 0 a 29 casos resueltos; Plata, de 30 a 99; y Oro, desde 100. El rango Oro, junto con una confiabilidad de 90 o más, habilita al Verificador senior.
+Recognition & Incentives reconoce el trabajo de los Verificadores. Sus reglas reflejan decisiones del modelo de negocio: los SkillCredits se ganan por cada revisión, apruebe o rechace, para no incentivar decisiones en un sentido; el monto depende del tipo de caso, 40 por un miniproyecto y 25 por un quiz, porque revisar un miniproyecto exige más trabajo; nunca se compran con dinero ni se transfieren, y el Verificador puede canjearlos por los cuatro beneficios de la tienda: una insignia, por 200 SkillCredits; un certificado de contribución, por 300; una ruta avanzada, por 500; o una certificación patrocinada, por 1 500, precios escalados para que un beneficio siga requiriendo varios casos resueltos. La certificación patrocinada es una meta aspiracional a largo plazo: cubre el costo o el derecho a rendir el examen de una certificación, sin garantizar la aprobación. El rango no depende del saldo de SkillCredits, sino de la cantidad de casos resueltos, de modo que canjear créditos no lo reduce. Sus capacidades son acreditar SkillCredits, registrar su canje y otorgar rangos por umbral de casos resueltos, y la acreditación depende únicamente de los eventos de Assessment & Peer Review. Los umbrales de rango quedaron definidos así: Bronce, de 0 a 29 casos resueltos; Plata, de 30 a 99; y Oro, desde 100. El rango Oro, junto con una confiabilidad de 90 o más, habilita al Verificador senior.
 
 **Figura 67**
 
@@ -2710,13 +2762,13 @@ Detalla la estructura de contenedores:
 4. **Database:** Repositorio central de información, compartido por los ocho Bounded Contexts.
 
 **Software Architecture Deployment Diagram:**
-Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de los usuarios (Android), el Landing Page en un servicio de hosting estático, y el backend junto con la base de datos en infraestructura Cloud.
+Muestra cómo la aplicación móvil se despliega en los dispositivos físicos de los usuarios (Android) y el backend junto con la base de datos en infraestructura Cloud.
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto (Context Diagram) bajo el enfoque C4 Model presenta al sistema SkillSwap como una caja central única, mostrando sus interacciones de alto nivel con los actores principales y los sistemas externos de terceros, sin exponer aún detalles de implementación.
+El diagrama de contexto (Context Diagram) bajo el enfoque C4 Model (Brown, s. f.) presenta al sistema SkillSwap como una caja central única, mostrando sus interacciones de alto nivel con los actores principales y los sistemas externos de terceros, sin exponer aún detalles de implementación.
 
-El sistema es utilizado por dos actores principales: el **Estudiante**, quien sube sus certificados, demuestra sus habilidades a través de las evaluaciones generadas por la plataforma y la usa con el plan gratuito o con una suscripción mensual que amplía sus límites; y el **Verificador** (un perfil vinculado a un Estudiante que completó en su propia ruta el nodo de la habilidad que revisa), quien revisa los casos que la IA no puede resolver con suficiente confianza y, como Verificador senior, supervisa la calidad e integridad del proceso de verificación, resolviendo disputas y consultando métricas agregadas del ecosistema. Ambos actores interactúan con el sistema a través de la **aplicación móvil nativa (Android) y cross-platform (Flutter)**, así como del Landing Page.
+El sistema es utilizado por dos actores principales: el **Estudiante**, quien sube sus certificados, demuestra sus habilidades a través de las evaluaciones generadas por la plataforma y la usa con el plan gratuito o con una suscripción mensual que amplía sus límites; y el **Verificador** (un perfil vinculado a un Estudiante que completó en su propia ruta el nodo de la habilidad que revisa), quien revisa los casos que la IA no puede resolver con suficiente confianza y, como Verificador senior, supervisa la calidad e integridad del proceso de verificación, resolviendo disputas y consultando métricas agregadas del ecosistema. Por indicación del docente para este curso, cada actor se vincula a una aplicación: el Estudiante interactúa con el sistema a través del Landing Page y de la **aplicación móvil nativa (Android)**, y el Verificador, a través de la **aplicación cross-platform (Flutter)**.
 
 A nivel de sistemas externos, SkillSwap se integra con: **ML Kit** (Firebase), utilizado on-device para la extracción de datos de los certificados subidos por el Estudiante (institución, curso, fecha) — esta es la tecnología que satisface el requisito de aprendizaje autónomo del curso; **Google Play Billing (vía RevenueCat)**, utilizado para el cobro recurrente de la suscripción mensual: Google Play procesa el pago y RevenueCat valida la compra y notifica sus cambios de estado al backend; la **Gemini API**, servicio de IA generativa que interpreta la meta del Estudiante seleccionando habilidades solo del catálogo interno (con coincidencia por palabras clave como respaldo si no responde) y genera las preguntas de las evaluaciones; **Cloudinary**, servicio de almacenamiento en la nube para los archivos de los certificados; **Brevo (Email API)**, con el que el backend envía el correo con el enlace de verificación del correo institucional `.edu.pe`; y **Firebase Cloud Messaging**, con el que el backend envía notificaciones push al dispositivo del Estudiante cuando su certificado queda verificado o rechazado.
 
@@ -2737,8 +2789,8 @@ El diagrama de contenedores (Container Diagram) descompone el sistema SkillSwap 
 Los contenedores identificados son los siguientes:
 
 - **Landing Page (Sitio Web Estático):** Presenta el modelo de negocio de SkillSwap al público general, implementado con HTML5, CSS3 y JavaScript.
-- **Android Native Application:** Aplicación móvil nativa dirigida a los dos actores (Estudiante, Verificador), desarrollada en Kotlin con Jetpack Compose, que consume los Web Services RESTful del backend.
-- **Cross-Platform Application (Flutter):** Aplicación móvil dirigida a Android, que replica las funcionalidades core para ambos actores, desarrollada en Flutter con Dart, consumiendo igualmente los Web Services RESTful expuestos por el backend.
+- **Android Native Application:** Aplicación móvil nativa del Estudiante, desarrollada en Kotlin con Jetpack Compose, que consume los Web Services RESTful del backend.
+- **Cross-Platform Application (Flutter):** Aplicación móvil del Verificador (incluidas las funciones del Verificador senior), dirigida a Android y desarrollada en Flutter con Dart, que consume igualmente los Web Services RESTful expuestos por el backend.
 - **API / RESTful Web Services:** Backend desarrollado bajo arquitectura RESTful en Java 21 con Spring Boot (Spring Web MVC, Spring Data JPA/Hibernate y Spring Security con JWT), actuando como Published Language único para los dos clientes móviles (Android Native App y Flutter App); el Landing Page es informativo y no consume la API. Este contenedor expone los endpoints del dominio y orquesta la lógica de negocio de los ocho Bounded Contexts (Identity & Access, Credential Verification, Learning Path Engine, Assessment & Peer Review, Reputation, Recognition & Incentives, Subscription & Billing y Moderation & Disputes); el detalle interno de cada Bounded Context se desarrolla en su propio Component Diagram (ver 2.6.x.5).
 - **Database:** Repositorio central de persistencia (instancia única de PostgreSQL), donde cada Bounded Context mantiene sus propias tablas siguiendo los principios de Domain-Driven Design.
 
@@ -2752,20 +2804,18 @@ Es importante resaltar que tanto la aplicación Android nativa como la aplicaci�
   <img src="images-doc/SkillSwapContainer.svg" alt="Container Diagram - Mobile" width="900">
 </p>
 
-*Nota.* Diagrama de contenedores que muestra el Landing Page, la Aplicación Android Nativa, la Aplicación Cross-Platform (Flutter), el backend de API/RESTful Web Services y la Base de Datos, junto con sus interacciones y los sistemas externos ML Kit, Google Play Billing (vía RevenueCat), Gemini API, Cloudinary, Brevo (Email API) y Firebase Cloud Messaging, este último con las notificaciones push hacia las aplicaciones móviles. El Landing Page es informativo y no consume la API. Los ocho Bounded Contexts se detallan a nivel de Component Diagram, no en este nivel de contenedor. Elaboración propia.
+*Nota.* Diagrama de contenedores que muestra el Landing Page, la Aplicación Android Nativa, la Aplicación Cross-Platform (Flutter), el backend de API/RESTful Web Services y la Base de Datos, junto con sus interacciones y los sistemas externos ML Kit, Google Play Billing (vía RevenueCat), Gemini API, Cloudinary, Brevo (Email API) y Firebase Cloud Messaging, este último con las notificaciones push hacia las aplicaciones móviles. El Landing Page es informativo y no consume la API. En este diagrama, por indicación del docente para este curso, se diferencia al Estudiante (Landing Page y aplicación nativa) del Verificador (aplicación Flutter). Los ocho Bounded Contexts se detallan a nivel de Component Diagram, no en este nivel de contenedor. Elaboración propia.
 
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
-El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física de los contenedores de SkillSwap sobre la infraestructura de hardware y los entornos de ejecución, evidenciando cómo se despliega la solución en un ambiente real.
+El Deployment Diagram bajo el enfoque C4 Model muestra la distribución física de los contenedores de SkillSwap sobre la infraestructura de hardware y los entornos de ejecución, evidenciando cómo se despliega la solución en un ambiente real. El Landing Page, al ser un sitio web estático independiente de la aplicación móvil, no forma parte de este diagrama.
 
-- **Dispositivos móviles de usuario final:** Los dispositivos Android de Estudiantes y Verificadores alojan localmente la Aplicación Android Nativa (Kotlin/Jetpack Compose) y la Aplicación Cross-Platform (Flutter, dirigida a Android), instaladas en el dispositivo físico. En estos dispositivos se ejecutan además **ML Kit**, de forma on-device, para la extracción de datos de los certificados, sin requerir una llamada a un servicio en la nube para dicho procesamiento, y la autenticación biométrica del sistema operativo.
-- **Hosting estático:** Aloja el Landing Page, servido de forma estática desde **GitHub Pages**, de acceso público.
-- **Servidor de aplicación (Cloud):** Aloja el backend de Web Services RESTful (Java 21 / Spring Boot), empaquetado como contenedor Docker y desplegado en **Render**, donde se ejecuta la lógica de negocio de los ocho Bounded Contexts en un único servicio, y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por las dos aplicaciones móviles (Android Native App y Flutter App); el Landing Page es informativo y no consume la API.
-- **Servidor de base de datos (Cloud):** Aloja una única instancia administrada de PostgreSQL desplegada en **Render**, compartida por los ocho Bounded Contexts, comunicándose con el servidor de aplicación mediante una conexión segura.
-- **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para los archivos de los certificados, **Brevo (Email API)** para el envío del correo de verificación del correo institucional, **Firebase Cloud Messaging** para las notificaciones push al dispositivo del Estudiante, la **Gemini API** para interpretar la meta del Estudiante sobre el catálogo interno de habilidades y generar las preguntas de los quizzes, y **Google Play Billing (vía RevenueCat)** para el procesamiento del cobro recurrente de la suscripción mensual: la aplicación inicia la compra con el SDK de RevenueCat y RevenueCat notifica sus cambios al backend mediante un webhook.
+- **Dispositivos móviles de usuario final:** El dispositivo Android del Estudiante (Android 10 o superior) aloja la Aplicación Android Nativa (Kotlin/Jetpack Compose, versión 1.3), distribuida como APK desde **GitHub Releases** y con **Firebase App Distribution**, y el del Verificador, la Aplicación Cross-Platform (Flutter, dirigida a Android, versión 1.0.1), que se instala como APK descargado desde **GitHub Releases**. En el dispositivo del Estudiante se ejecuta además **ML Kit**, de forma on-device, para la extracción de datos de los certificados, sin requerir una llamada a un servicio en la nube para dicho procesamiento, y una base de datos local SQLite conserva la ruta para consultarla sin conexión y las respuestas del quiz pendientes de reenvío; en ambos se usa la autenticación biométrica del sistema operativo (`BiometricPrompt` en la app nativa y `local_auth` en la app Flutter).
+- **Servidor en la nube (AWS):** una instancia **Amazon EC2** `t3.small` (Ubuntu Server 24.04 LTS, región `us-east-1`, con IP elástica) ejecuta con **Docker Compose** tres contenedores definidos en el `docker-compose.yml` del backend: `caddy` (Caddy 2), único punto de entrada por los puertos 80 y 443, que publica el dominio `skillswap-innovify.duckdns.org` con HTTPS automático y reenvía las peticiones a la API; `app`, con el backend de Web Services RESTful (Java 21 / Spring Boot sobre la imagen `eclipse-temurin:21-jre`), donde se ejecuta la lógica de negocio de los ocho Bounded Contexts en un único servicio y se exponen los endpoints documentados con OpenAPI/Swagger, consumidos indistintamente por las dos aplicaciones móviles; y `db`, con una única instancia de **PostgreSQL 16** compartida por los ocho Bounded Contexts, sin puertos publicados, a la que solo accede la API por la red interna de Docker. El dominio se resuelve con **DuckDNS**. El Landing Page es informativo y no consume la API.
+- **Servicios externos en la nube:** Servicio de almacenamiento (Cloudinary) para los archivos de los certificados, **Brevo (Email API)** para el envío del correo de verificación del correo institucional, **Firebase Cloud Messaging** para las notificaciones push al dispositivo del Estudiante, la **Gemini API** para interpretar la meta del Estudiante sobre el catálogo interno de habilidades, generar las preguntas de los quizzes y evaluar de forma preliminar los miniproyectos, y **Google Play Billing (vía RevenueCat)** para el cobro recurrente de la suscripción mensual: el backend verifica la compra con RevenueCat y recibe sus cambios mediante un webhook. Esta última integración está preparada, pero el cobro está simulado mientras el servidor no tenga una clave de producción de RevenueCat (4.1.4), y la aplicación solicita el plan al backend sin un SDK de pagos.
 
-Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la seguridad en la transmisión de datos entre los dispositivos cliente (móviles y navegador) y los servidores desplegados en la nube.
+Las aplicaciones se comunican con el servidor mediante HTTPS (el certificado lo obtiene y renueva Caddy), y el backend usa HTTPS con cada servicio externo; dentro del servidor, Caddy, la API y PostgreSQL se comunican por la red interna de Docker Compose.
 
 **Figura 74**
 
@@ -2775,7 +2825,7 @@ Cada uno de estos nodos se comunica mediante protocolos HTTPS, garantizando la s
   <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram - Mobile" width="900">
 </p>
 
-*Nota.* Diagrama de despliegue que muestra la distribución física de la solución, incluyendo los dispositivos móviles de usuario final (Android/Flutter) con ejecución on-device de ML Kit y de la biometría, el hosting estático del Landing Page, el servidor de aplicación en Render, la instancia única de PostgreSQL en Render y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat), este último con la compra desde la aplicación y el webhook hacia el backend. Elaborado en PlantUML. Elaboración propia.
+*Nota.* Diagrama de despliegue que muestra la distribución física de la solución desde el 31 de octubre de 2026: el dispositivo Android del Estudiante, con la aplicación nativa v1.3 (distribuida con GitHub Releases y Firebase App Distribution), ML Kit on-device y la base de datos local SQLite; el dispositivo Android del Verificador, con la aplicación Flutter v1.0.1 instalada como APK desde GitHub Releases; la instancia EC2 `t3.small` de AWS con Docker Compose y sus contenedores Caddy (HTTPS en `skillswap-innovify.duckdns.org`), API Spring Boot y PostgreSQL 16; y los servicios externos DuckDNS, GitHub Releases, Firebase App Distribution, Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat). Las líneas discontinuas marcan la integración con RevenueCat, cuyo cobro está simulado. El despliegue anterior en Render, usado en el Sprint 1, se describe en 4.2.1.8. Elaborado en PlantUML. Elaboración propia.
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
@@ -2986,7 +3036,7 @@ En la Infrastructure Layer de SkillSwap, para el contexto de Identity & Access, 
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| UserRepositoryAdapter | Implementación concreta de `UserRepository` que realiza las operaciones CRUD sobre la tabla `users`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| UserRepositoryAdapter | Implementación concreta de `UserRepository` que realiza las operaciones CRUD sobre la tabla `users`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
 
 **Security Services Implementation**
 
@@ -3234,7 +3284,7 @@ En la Infrastructure Layer de SkillSwap, para el contexto de Credential Verifica
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| CertificateRepositoryAdapter | Implementación concreta de `CertificateRepository` que realiza las operaciones CRUD sobre la tabla `certificates`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| CertificateRepositoryAdapter | Implementación concreta de `CertificateRepository` que realiza las operaciones CRUD sobre la tabla `certificates`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
 
 **OCR & Storage Services Implementation**
 
@@ -3525,7 +3575,7 @@ Los límites del plan no se garantizan en la base de datos: la migración V4 eli
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| LearningPathRepositoryAdapter | Implementación concreta de `LearningPathRepository` sobre las tablas `learning_paths` y `path_nodes`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| LearningPathRepositoryAdapter | Implementación concreta de `LearningPathRepository` sobre las tablas `learning_paths` y `path_nodes`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
 | AssessmentBlueprintRepositoryAdapter | Implementación concreta de `AssessmentBlueprintRepository` sobre la tabla `assessment_blueprints`. | ORM del stack backend. La lista de preguntas se persiste mediante un converter JSON, siguiendo el mismo criterio que ya aplicaron en el `Quiz` del proyecto base. |
 
 **AI Services Implementation**
@@ -3819,10 +3869,10 @@ En la Application Layer de Assessment & Peer Review, `SubmitAssessmentAttemptCom
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| AssessmentAttemptRepositoryAdapter | Implementación concreta de `AssessmentAttemptRepository` sobre la tabla `assessment_attempts`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
-| VerifierProfileRepositoryAdapter | Implementación concreta de `VerifierProfileRepository` sobre la tabla `verifier_profiles`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
-| VerificationCaseRepositoryAdapter | Implementación concreta de `VerificationCaseRepository` sobre la tabla `verification_cases`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
-| ReviewDeadlinePolicyRepositoryAdapter | Implementación concreta de `ReviewDeadlinePolicyRepository` sobre la tabla `review_deadline_policies`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| AssessmentAttemptRepositoryAdapter | Implementación concreta de `AssessmentAttemptRepository` sobre la tabla `assessment_attempts`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
+| VerifierProfileRepositoryAdapter | Implementación concreta de `VerifierProfileRepository` sobre la tabla `verifier_profiles`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
+| VerificationCaseRepositoryAdapter | Implementación concreta de `VerificationCaseRepository` sobre la tabla `verification_cases`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
+| ReviewDeadlinePolicyRepositoryAdapter | Implementación concreta de `ReviewDeadlinePolicyRepository` sobre la tabla `review_deadline_policies`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
 
 **Scheduling**
 
@@ -4027,8 +4077,8 @@ En la Application Layer de Reputation, los event handlers aseguran que tanto la 
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| VerifierReliabilityRepositoryAdapter | Implementación concreta de `VerifierReliabilityRepository` sobre la tabla `verifier_reliabilities`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
-| StudentEmployabilityScoreRepositoryAdapter | Implementación concreta de `StudentEmployabilityScoreRepository` sobre la tabla `student_employability_scores`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| VerifierReliabilityRepositoryAdapter | Implementación concreta de `VerifierReliabilityRepository` sobre la tabla `verifier_reliabilities`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
+| StudentEmployabilityScoreRepositoryAdapter | Implementación concreta de `StudentEmployabilityScoreRepository` sobre la tabla `student_employability_scores`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
 
 **Integration Services**
 
@@ -4149,13 +4199,13 @@ Atributos
 
 **5. Value Object: RedemptionItem**
 
-Descripción: Enumeración de los dos beneficios que un Verificador puede canjear con sus SkillCredits.
+Descripción: Enumeración de los cuatro beneficios que un Verificador puede canjear con sus SkillCredits.
 
 Atributos
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| value | enum | `ADVANCED_PATH_UNLOCK` (ruta avanzada: habilita, es decir, pone a disposición del Verificador, una ruta de certificación avanzada, cuyos nodos se completan de la forma habitual), `CONTRIBUTION_CERTIFICATE` (certificado de contribución exportable, ej. para LinkedIn). |
+| value | enum | `ADVANCED_PATH_UNLOCK` (ruta avanzada: habilita, es decir, pone a disposición del Verificador, una ruta de certificación avanzada, cuyos nodos se completan de la forma habitual), `CONTRIBUTION_CERTIFICATE` (certificado de contribución exportable, ej. para LinkedIn), `BADGE` (insignia) y `SPONSORED_CERTIFICATION` (certificación patrocinada: meta aspiracional a largo plazo que cubre el costo o el derecho a rendir el examen de una certificación, sin garantizar la aprobación). |
 
 **6. Domain Service: RedemptionPricing**
 
@@ -4163,7 +4213,7 @@ Descripción: Define el costo en SkillCredits de cada `RedemptionItem`, desacopl
 
 Métodos
 
-- `calculateCost(RedemptionItem item)`: Retorna la cantidad de `Credits` requerida para canjear el beneficio indicado: 200 SkillCredits para `ADVANCED_PATH_UNLOCK` (equivalentes a 5 miniproyectos u 8 quizzes) y 120 SkillCredits para `CONTRIBUTION_CERTIFICATE` (3 miniproyectos o alrededor de 5 quizzes).
+- `calculateCost(RedemptionItem item)`: Retorna la cantidad de `Credits` requerida para canjear el beneficio indicado: 200 SkillCredits para `BADGE` (equivalentes a 5 miniproyectos u 8 quizzes), 300 para `CONTRIBUTION_CERTIFICATE` (8 miniproyectos o 12 quizzes), 500 para `ADVANCED_PATH_UNLOCK` (13 miniproyectos o 20 quizzes) y 1 500 para `SPONSORED_CERTIFICATION` (38 miniproyectos o 60 quizzes).
 
 **7. Repository: WalletRepository, CreditTransactionRepository**
 
@@ -4228,8 +4278,8 @@ En la Application Layer de Recognition & Incentives, `CreditVerifierCommandHandl
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| WalletRepositoryAdapter | Implementación concreta de `WalletRepository` sobre la tabla `wallets`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
-| CreditTransactionRepositoryAdapter | Implementación concreta de `CreditTransactionRepository` sobre la tabla `credit_transactions`. | ORM del stack backend, instancia PostgreSQL desplegada en Render. |
+| WalletRepositoryAdapter | Implementación concreta de `WalletRepository` sobre la tabla `wallets`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
+| CreditTransactionRepositoryAdapter | Implementación concreta de `CreditTransactionRepository` sobre la tabla `credit_transactions`. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue. |
 
 Este Bounded Context no incluye integraciones con pasarelas de pago externas: al ser SkillCredits un mecanismo puramente interno y no monetario, no existe punto de extensión hacia una pasarela de pago, a diferencia de Credential Verification, donde el modelo documenta mecanismos de verificación oficial sin lógica de integración.
 
@@ -4647,8 +4697,8 @@ En la Application Layer de Subscription & Billing, el procesamiento del webhook 
 
 | Nombre | Descripción | Tecnologías / Herramientas |
 |---|---|---|
-| SubscriptionRepositoryAdapter | Implementación concreta de `SubscriptionRepository` sobre la tabla `subscriptions`. Un índice único parcial (`ux_subscriptions_one_current_per_student`, `WHERE status <> 'Expired'`) permite una sola suscripción no vencida por Estudiante; las vencidas quedan como historial. | ORM del stack backend, instancia PostgreSQL desplegada en Render; esquema creado por la migración Flyway V3. |
-| ProcessedWebhookEventRepositoryAdapter | Implementación concreta de `ProcessedWebhookEventRepository` sobre la tabla `processed_webhook_events`, cuyo índice único sobre `event_id` hace idempotente el procesamiento del webhook. | ORM del stack backend, instancia PostgreSQL desplegada en Render; esquema creado por la migración Flyway V3. |
+| SubscriptionRepositoryAdapter | Implementación concreta de `SubscriptionRepository` sobre la tabla `subscriptions`. Un índice único parcial (`ux_subscriptions_one_current_per_student`, `WHERE status <> 'Expired'`) permite una sola suscripción no vencida por Estudiante; las vencidas quedan como historial. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue; esquema creado por la migración Flyway V3. |
+| ProcessedWebhookEventRepositoryAdapter | Implementación concreta de `ProcessedWebhookEventRepository` sobre la tabla `processed_webhook_events`, cuyo índice único sobre `event_id` hace idempotente el procesamiento del webhook. | ORM del stack backend, instancia PostgreSQL del servidor de despliegue; esquema creado por la migración Flyway V3. |
 
 **Payment Services Implementation**
 
@@ -5004,7 +5054,7 @@ Esta sección presenta los mock-ups de alta fidelidad de la aplicación, resulta
   <img src="images-doc/cap3-mobile-mockups-verificador.png" alt="Mock-ups de la aplicación móvil - Verificador" width="1000">
 </p>
 
-*Nota.* Pantallas del Verificador. El acceso al rol se habilita al completar en la propia ruta el nodo de la habilidad; el home prioriza los casos por urgencia del plazo y aplica revisión ciega ("Estudiante anónimo") para reducir el sesgo; la revisión del caso combina la evidencia, el puntaje preliminar de la IA con su nivel de confianza y una rúbrica de 4 niveles que sirve de guía para la decisión, que el Verificador registra como aprobación o rechazo con sus observaciones; y la billetera muestra los SkillCredits ganados, su historial y la tienda de beneficios, que ofrece dos beneficios canjeables: la ruta avanzada (200 SkillCredits) y el certificado de contribución (120 SkillCredits). Elaboración propia.
+*Nota.* Pantallas del Verificador. El acceso al rol se habilita al completar en la propia ruta el nodo de la habilidad; el home prioriza los casos por urgencia del plazo y aplica revisión ciega ("Estudiante anónimo") para reducir el sesgo; la revisión del caso combina la evidencia, el puntaje preliminar de la IA con su nivel de confianza y una rúbrica de 4 niveles que sirve de guía para la decisión, que el Verificador registra como aprobación o rechazo con sus observaciones; y la billetera muestra los SkillCredits ganados, su historial y la tienda de beneficios, que ofrece cuatro beneficios canjeables: la insignia (200 SkillCredits), el certificado de contribución (300 SkillCredits), la ruta avanzada (500 SkillCredits) y la certificación patrocinada (1 500 SkillCredits). Elaboración propia.
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
 
@@ -5096,15 +5146,21 @@ Esta sección presenta el prototipo navegable de la aplicación, elaborado en Fi
 | IntelliJ IDEA | Desarrollo del backend en Java / Spring Boot | [https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/) |
 | JDK 21 + Apache Maven | Compilación, gestión de dependencias y ejecución del backend | [https://adoptium.net/](https://adoptium.net/), [https://maven.apache.org/](https://maven.apache.org/) |
 | Android Studio | Desarrollo de la aplicación móvil nativa (Kotlin / Jetpack Compose) | [https://developer.android.com/studio](https://developer.android.com/studio) |
+| Flutter SDK (Dart) | Desarrollo de la aplicación del Verificador (BLoC, Dio y get_it) y ejecución de sus pruebas | [https://flutter.dev/](https://flutter.dev/) |
 | Visual Studio Code | Desarrollo del Landing Page (HTML5 / CSS3 / JavaScript) | [https://code.visualstudio.com/](https://code.visualstudio.com/) |
 | Git | Control de versiones | [https://git-scm.com/](https://git-scm.com/) |
 | GitHub (organización `Aplicaciones-Dispositivos-Moviles`) | Alojamiento de los repositorios, gestión de Pull Requests y publicación del Landing Page (GitHub Pages) | [https://github.com/Aplicaciones-Dispositivos-Moviles](https://github.com/Aplicaciones-Dispositivos-Moviles) |
 | PostgreSQL 16 / pgAdmin o DBeaver | Base de datos local de desarrollo y pruebas de integración | [https://www.postgresql.org/](https://www.postgresql.org/), [https://www.pgadmin.org/](https://www.pgadmin.org/) |
 | Postman | Pruebas manuales de los endpoints REST durante el desarrollo | [https://www.postman.com/](https://www.postman.com/) |
-| springdoc-openapi (Swagger UI) | Documentación interactiva de la API (OpenAPI) | Integrado en el proyecto (`springdoc-openapi-starter-webmvc-ui` 3.1.1), expuesto en `/swagger-ui/index.html` — [https://skillswap-webservices-java.onrender.com/swagger-ui/index.html](https://skillswap-webservices-java.onrender.com/swagger-ui/index.html) |
+| springdoc-openapi (Swagger UI) | Documentación interactiva de la API (OpenAPI) | Integrado en el proyecto (`springdoc-openapi-starter-webmvc-ui` 3.1.1), expuesto en `/swagger-ui/index.html` — [https://skillswap-innovify.duckdns.org/swagger-ui/index.html](https://skillswap-innovify.duckdns.org/swagger-ui/index.html) |
 | JUnit 5 / AssertJ / Spring Boot Test (MockMvc) / Testcontainers | Pruebas unitarias y de integración de la API contra una instancia real de PostgreSQL levantada en Docker | Integrado en el proyecto (`spring-boot-starter-test`, `testcontainers-postgresql`) — [https://junit.org/junit5/](https://junit.org/junit5/), [https://assertj.github.io/doc/](https://assertj.github.io/doc/), [https://testcontainers.com/](https://testcontainers.com/) |
 | Docker Desktop | Ejecución de las pruebas de integración con Testcontainers y construcción local de la imagen antes de desplegar en Render | [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/) |
-| Render | Hosting del backend (Web Service) y de la base de datos PostgreSQL administrada | [https://render.com/](https://render.com/) |
+| Render | Hosting del backend (Web Service) y de la base de datos PostgreSQL administrada, hasta el 31 de octubre de 2026 | [https://render.com/](https://render.com/) |
+| Amazon EC2 (AWS) | Servidor del backend y de la base de datos desde el 31 de octubre de 2026 | [https://aws.amazon.com/ec2/](https://aws.amazon.com/ec2/) |
+| Docker Compose | Ejecución conjunta del backend, PostgreSQL y Caddy en el servidor de AWS | [https://docs.docker.com/compose/](https://docs.docker.com/compose/) |
+| Caddy | Proxy inverso con HTTPS automático (Let's Encrypt) para el backend | [https://caddyserver.com/](https://caddyserver.com/) |
+| DuckDNS | Dominio gratuito `skillswap-innovify.duckdns.org` del backend | [https://www.duckdns.org/](https://www.duckdns.org/) |
+| Firebase (App Distribution y Cloud Messaging) | Distribución de las versiones de prueba de las aplicaciones móviles y notificaciones push | [https://firebase.google.com/](https://firebase.google.com/) |
 | Trello | Gestión del Product Backlog y Sprint Backlog (Requirements Management) | [https://trello.com/](https://trello.com/) |
 | Figma | Wireframes, mock-ups y prototipo navegable del Landing Page y la aplicación móvil (UX/UI Design) | [https://www.figma.com/](https://www.figma.com/) |
 | Google Meet / Discord | Reuniones de Sprint Planning y coordinación del equipo | [https://meet.google.com/](https://meet.google.com/), [https://discord.com/](https://discord.com/) |
@@ -5126,21 +5182,21 @@ El equipo utiliza **GitHub** como plataforma y sistema de control de versiones, 
 
 El backend se construyó primero en C# / ASP.NET Core, en el repositorio [`SkillSwap-WebServices`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices); cuando el curso estableció Java con Spring Boot como tecnología obligatoria para los Web Services, el equipo lo migró a `SkillSwap-WebServices-Java`, conservando el mismo esquema de base de datos, los mismos endpoints y las mismas reglas de negocio. Desde esa migración, `SkillSwap-WebServices-Java` es el único repositorio vigente del backend y el anterior se conserva solo como historial.
 
-En el Sprint 1, el trabajo sobre la aplicación móvil consistió en el diseño de las pantallas core en Figma (ver 4.2.1.3, tareas T20 y T21); los repositorios `SkillSwap-MobileApp` y `SkillSwap-MobileApp-Flutter` contienen únicamente su `README.md`.
+En el Sprint 1, el trabajo sobre la aplicación móvil consistió en el diseño de las pantallas core en Figma (ver 4.2.1.3, tareas T20 y T21); en ese sprint los repositorios `SkillSwap-MobileApp` y `SkillSwap-MobileApp-Flutter` contenían únicamente su `README.md`. En el Sprint 2, `SkillSwap-MobileApp` contiene la app nativa del Estudiante y `SkillSwap-MobileApp-Flutter`, la app del Verificador, construida con BLoC, Dio y get_it y organizada por Bounded Context (`iam`, `assessment`, `recognition`, `reputation` y `shared`). Mantener una app nativa y una multiplataforma sobre el mismo backend permite contrastar ambos enfoques de desarrollo, que la literatura reciente compara a partir de las tendencias del mercado y de los desarrolladores en el caso de los frameworks multiplataforma (Jošt y Taneski, 2025).
 
-**Flujo de trabajo (GitFlow):**
+**Flujo de trabajo (GitFlow; Driessen, 2010):**
 - `main`: rama estable. En el Landing Page es la rama que publica GitHub Pages.
-- `develop`: rama de integración, donde se mergean las ramas `feature/*` mediante Pull Request. En el backend es la rama que despliega Render.
+- `develop`: rama de integración, donde se mergean las ramas `feature/*` mediante Pull Request. En el backend es la rama de integración; hasta el 31 de octubre de 2026 la desplegaba Render.
 - `feature/<bounded-context>`: una rama por Bounded Context (ej. `feature/iam-identity-access`, `feature/credential-verification`, `feature/learning-path-engine`, `feature/assessment-peer-review`, `feature/reputation`, `feature/recognition-incentives`). Los cambios transversales usan los prefijos `refactor/` y `chore/` (ej. `refactor/remove-coordinator-role`, `chore/deploy-render`, `chore/swagger`).
 - `release/x.y.z` y `hotfix/x.y.z`: ramas que define GitFlow para preparar una entrega y para corregir errores críticos; se crean desde `develop` y `main`, respectivamente, y se mergean a ambas.
 
-**Versionado:** el equipo adopta *Semantic Versioning 2.0.0* (`MAJOR.MINOR.PATCH`) como convención de versionado.
+**Versionado:** el equipo adopta *Semantic Versioning 2.0.0* (`MAJOR.MINOR.PATCH`) como convención de versionado (Preston-Werner, s. f.).
 
-**Convenciones de commits:** Conventional Commits (`tipo(alcance): descripción`), con el Bounded Context y la capa como alcance (ej. `iam-domain`, `credential-infrastructure`, `learning-path-interfaces`, `assessment-application`, `reputation`, `recognition-incentives`, `shared`, `deploy`, `docs`). Tipos usados: `feat`, `refactor`, `test` y `chore`. El equipo sigue la convención de **un commit por capa** (Domain, Application, Infrastructure, Interface) dentro de cada Bounded Context, de modo que el historial de commits evidencie el proceso de construcción capa por capa; las pruebas automatizadas de cada capa se incluyen en el mismo commit que la capa que validan, y el tipo `test` se reserva para commits que solo agregan pruebas.
+**Convenciones de commits:** Conventional Commits (`tipo(alcance): descripción`; Conventional Commits, s. f.), con el Bounded Context y la capa como alcance (ej. `iam-domain`, `credential-infrastructure`, `learning-path-interfaces`, `assessment-application`, `reputation`, `recognition-incentives`, `shared`, `deploy`, `docs`). Tipos usados: `feat`, `refactor`, `test` y `chore`. El equipo sigue la convención de **un commit por capa** (Domain, Application, Infrastructure, Interface) dentro de cada Bounded Context, de modo que el historial de commits evidencie el proceso de construcción capa por capa; las pruebas automatizadas de cada capa se incluyen en el mismo commit que la capa que validan, y el tipo `test` se reserva para commits que solo agregan pruebas.
 
 **Flujo de integración:** los Pull Requests hacia `develop` se mergean con la estrategia *"Create a merge commit"* (sin squash), preservando el historial de commits individuales que exige la evidencia de Development/Testing de cada Sprint. El flujo de trabajo local sigue el orden commit → build → test, y solo se hace push al repositorio remoto cuando todo pasa, agrupando varios commits antes de subirlos.
 
-**Secretos:** `application.properties` no contiene ningún secreto: solo documenta, en comentarios, los nombres de las variables de entorno que la aplicación necesita. En desarrollo esas variables se definen en la configuración de ejecución del IDE o en la terminal, y en producción como variables de entorno en Render (ver 4.1.4). El archivo `.dockerignore` excluye `.env` y `.env.*` de la imagen Docker.
+**Secretos:** `application.properties` no contiene ningún secreto: solo documenta, en comentarios, los nombres de las variables de entorno que la aplicación necesita. En desarrollo esas variables se definen en la configuración de ejecución del IDE o en la terminal, y en producción como variables de entorno del servidor (el archivo `.env` en AWS y, antes, las variables de Render; ver 4.1.4). El archivo `.dockerignore` excluye `.env` y `.env.*` de la imagen Docker.
 
 ### 4.1.3. Source Code Style Guide & Coding Conventions
 
@@ -5149,7 +5205,8 @@ Todo el código —clases, métodos, variables, paquetes, tablas y nombres de la
 | Lenguaje / artefacto | Guía adoptada |
 |---|---|
 | Java / Spring Boot (backend) | *Google Java Style Guide* y buenas prácticas de *Spring Boot Features* |
-| Kotlin (aplicación móvil) | *Kotlin Coding Conventions* de JetBrains/Google |
+| Kotlin (aplicación móvil nativa) | *Kotlin Coding Conventions* de JetBrains/Google |
+| Dart / Flutter (aplicación del Verificador) | *Effective Dart*, verificada con las reglas de `flutter_lints` incluidas en `analysis_options.yaml` |
 | HTML / CSS / JavaScript (Landing Page) | *Google HTML/CSS Style Guide* y *HTML Style Guide and Coding Conventions* |
 
 **Backend (Java):** clases, interfaces y enums en `PascalCase`; métodos, parámetros y variables locales en `camelCase`; constantes en `UPPER_SNAKE_CASE`; paquetes en minúsculas bajo `com.innovify.skillswap.<bounded-context>`. Las interfaces se nombran **sin prefijo `I`** (ej. `PaymentGateway`, con su implementación en la capa Infrastructure). Los servicios siguen la nomenclatura `*CommandService` / `*QueryService`, los controladores `*Controller` y los recursos de la API `*Resource`.
@@ -5162,15 +5219,19 @@ Todo el código —clases, métodos, variables, paquetes, tablas y nombres de la
 
 El despliegue abarca los tres productos digitales de la solución:
 
-- **Web Services:** contenedor **Docker** en **Render** (plan gratuito), junto con una base de datos **PostgreSQL 16** también administrada por Render (plan gratuito), en la misma región.
+- **Web Services:** desde el 31 de octubre de 2026, una instancia **Amazon EC2** (`t3.small`, región `us-east-1`) con **Docker Compose**: el contenedor del backend, **PostgreSQL 16** y **Caddy** como proxy inverso con HTTPS automático, publicados en `https://skillswap-innovify.duckdns.org`. Hasta esa fecha, y durante el Sprint 1, el backend y su base de datos estuvieron en **Render** (plan gratuito), hasta que la base de datos gratuita expiró. El detalle del cambio está en 4.2.2.8.
 - **Landing Page:** sitio estático (HTML5/CSS3/JavaScript) publicado con **GitHub Pages** desde la rama `main` del repositorio `SkillSwap-LandingPage`.
-- **Aplicación móvil:** en el Sprint 1 se entregan sus pantallas core como prototipo en Figma; los repositorios `SkillSwap-MobileApp` y `SkillSwap-MobileApp-Flutter` contienen únicamente su `README.md`.
+- **Aplicaciones móviles:** la app nativa del Estudiante (Kotlin / Jetpack Compose, versión 1.3) y la app Flutter del Verificador (versión 1.0.1) se distribuyen como APK mediante **GitHub Releases**, con descarga directa desde el Landing Page; la app del Estudiante también se distribuye con **Firebase App Distribution**, en el proyecto `skillswap-moviles`, mediante subida manual a un grupo de probadores llamado `equipo`. Las dos apps consumen el backend desplegado en AWS: la nativa desde su versión 1.2 y la Flutter desde el PR #7 de su repositorio (9 de noviembre de 2026). El procedimiento y las evidencias están en 4.2.2.8.
 
-**Dockerfile del backend:** build multi-etapa. La etapa de compilación parte de la imagen `maven:3.9-eclipse-temurin-21` y ejecuta `mvn -B -q -DskipTests package`, que genera un único JAR ejecutable de Spring Boot (`skillswap-platform-*.jar`); las pruebas no se ejecutan dentro de la imagen porque requieren Docker (Testcontainers) y se corren localmente antes de cada push. La etapa de ejecución usa la imagen `eclipse-temurin:21-jre`, que solo contiene el JRE y ese JAR, y ejecuta la aplicación con un usuario sin privilegios (`skillswap`). La variable `JAVA_TOOL_OPTIONS` limita la memoria de la JVM al 75 % de la disponible y reinicia el proceso ante un `OutOfMemoryError`, pensando en las instancias de 512 MB del plan gratuito. La aplicación escucha en el puerto de la variable de entorno `PORT` que asigna Render (`server.port=${PORT:8080}`, por defecto `8080`). El archivo `.dockerignore` excluye `target/`, `.git/`, `.idea/`, `.vscode/`, `docs/`, los archivos `.env` / `.env.*` y los logs.
+El Landing Page es un sitio estático independiente de la aplicación móvil, por lo que no se incluye en el Deployment Diagram de este apartado.
 
-**Rama de despliegue:** Render construye la imagen Docker desde la rama `develop` del repositorio `SkillSwap-WebServices-Java`, y cada despliegue se lanza manualmente desde el panel de Render.
+**Estado de las integraciones externas:** el cobro de la suscripción está simulado (RevenueCat sin clave de producción, por lo que no se realizan cobros reales) y las notificaciones push con Firebase Cloud Messaging dependen de configurar las credenciales de Firebase en las variables de entorno del servidor (el archivo `.env` en AWS).
 
-**Variables de entorno del backend** (solo nombres; los valores no se exponen en el informe ni en el repositorio; en producción se definen en Render):
+**Dockerfile del backend:** build multi-etapa. La etapa de compilación parte de la imagen `maven:3.9-eclipse-temurin-21` y ejecuta `mvn -B -q -DskipTests package`, que genera un único JAR ejecutable de Spring Boot (`skillswap-platform-*.jar`); las pruebas no se ejecutan dentro de la imagen porque requieren Docker (Testcontainers) y se corren localmente antes de cada push. La etapa de ejecución usa la imagen `eclipse-temurin:21-jre`, que solo contiene el JRE y ese JAR, y ejecuta la aplicación con un usuario sin privilegios (`skillswap`). La variable `JAVA_TOOL_OPTIONS` limita la memoria de la JVM al 75 % de la disponible y reinicia el proceso ante un `OutOfMemoryError`, pensando en las instancias de 512 MB del plan gratuito. La aplicación escucha en el puerto de la variable de entorno `PORT` (en Render la asigna la plataforma; `server.port=${PORT:8080}`, por defecto `8080`). El archivo `.dockerignore` excluye `target/`, `.git/`, `.idea/`, `.vscode/`, `docs/`, los archivos `.env` / `.env.*` y los logs.
+
+**Rama de despliegue:** en Render, la plataforma construía la imagen Docker desde la rama `develop` del repositorio `SkillSwap-WebServices-Java` y cada despliegue se lanzaba manualmente desde su panel. En AWS, el servidor se define con los archivos `docker-compose.yml`, `Caddyfile` y `.env.aws.example` del mismo repositorio (4.2.2.8).
+
+**Variables de entorno del backend** (solo nombres; los valores no se exponen en el informe ni en el repositorio; en producción se definen en el archivo `.env` del servidor de AWS y, hasta el 31 de octubre de 2026, en Render):
 
 **Tabla 15**
 
@@ -5178,7 +5239,7 @@ El despliegue abarca los tres productos digitales de la solución:
 
 | Variable | Propósito |
 |---|---|
-| `DATABASE_URL` | URL interna de la base de datos PostgreSQL de Render (`postgres://usuario:clave@host:5432/db`); la aplicación la convierte a una URL JDBC |
+| `DATABASE_URL` | URL de la base de datos PostgreSQL (`postgres://usuario:clave@host:5432/db`; en Render la interna del servicio, en AWS la del contenedor de PostgreSQL); la aplicación la convierte a una URL JDBC |
 | `TOKEN_SETTINGS_SECRET` | Secreto para la firma de los tokens JWT (obligatorio, mínimo 32 caracteres) |
 | `TOKEN_SETTINGS_EXPIRATION_DAYS` | Vigencia del token en días (opcional, por defecto 7) |
 | `CLOUDINARY_CLOUD_NAME` / `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` | Credenciales de la integración con Cloudinary (obligatorias: sin ellas la aplicación no arranca) |
@@ -5203,21 +5264,21 @@ El despliegue abarca los tres productos digitales de la solución:
 
 *Nota.* Elaboración propia.
 
-**Esquema de base de datos:** al arrancar, la aplicación convierte `DATABASE_URL` al formato JDBC; el esquema se gestiona con **Flyway** mediante las migraciones versionadas V1 a V10 (`src/main/resources/db/migration`), y Hibernate valida que las tablas y columnas coincidan con las entidades JPA (`spring.jpa.hibernate.ddl-auto=validate`), sin crear ni modificar el esquema; si falta algo, la aplicación no arranca. V1 es el esquema base que creó la primera versión del backend en la base de PostgreSQL de Render, por lo que Flyway lo registra como baseline sin ejecutarlo (`spring.flyway.baseline-on-migrate=true`, `baseline-version=1`); en una base vacía, como la de las pruebas o la local, V1 crea todo el esquema. Las demás migraciones agregan `case_type` (V2), `subscriptions` y `processed_webhook_events` (V3), el estado `Paused`, `last_progress_at` y la eliminación del índice de una sola ruta activa (V4), `review_due_at` (V5), las columnas de verificación del correo (V6), los intereses y el vector de habilidades (V7), `completed_by_certificate` (V8), `full_name`, `holder_name_mismatch` y la tabla `disputes` (V9), y `redemption_item`, `is_advanced`, `advanced_path_unlocks`, `review_deadline_policies` y las columnas de plazo e incumplimiento (V10). No se crea ninguna cuenta inicial: toda cuenta se registra como `Student` mediante `POST /api/v1/authentication/sign-up`.
+**Esquema de base de datos:** al arrancar, la aplicación convierte `DATABASE_URL` al formato JDBC; el esquema se gestiona con **Flyway** mediante las migraciones versionadas V1 a V10 (`src/main/resources/db/migration`), y Hibernate valida que las tablas y columnas coincidan con las entidades JPA (`spring.jpa.hibernate.ddl-auto=validate`), sin crear ni modificar el esquema; si falta algo, la aplicación no arranca. V1 es el esquema base que creó la primera versión del backend en la base de PostgreSQL de Render, por lo que Flyway lo registra como baseline sin ejecutarlo (`spring.flyway.baseline-on-migrate=true`, `baseline-version=1`); en una base vacía, como la de las pruebas o la local, V1 crea todo el esquema. Con las del Sprint 2, el esquema llega a la migración V22. Las demás migraciones agregan `case_type` (V2), `subscriptions` y `processed_webhook_events` (V3), el estado `Paused`, `last_progress_at` y la eliminación del índice de una sola ruta activa (V4), `review_due_at` (V5), las columnas de verificación del correo (V6), los intereses y el vector de habilidades (V7), `completed_by_certificate` (V8), `full_name`, `holder_name_mismatch` y la tabla `disputes` (V9), y `redemption_item`, `is_advanced`, `advanced_path_unlocks`, `review_deadline_policies` y las columnas de plazo e incumplimiento (V10). No se crea ninguna cuenta inicial: toda cuenta se registra como `Student` mediante `POST /api/v1/authentication/sign-up`.
 
-**Observabilidad y disponibilidad:** el endpoint `GET /health` (anónimo, sin acceso a la base de datos) se usa tanto para el health check de Render como para un ping de mantenimiento cada 10 minutos, dado que el plan gratuito de Render suspende el servicio tras 15 minutos sin tráfico. Swagger UI permanece activo también en producción (`/swagger-ui/index.html`, con el documento OpenAPI en `/v3/api-docs`), y tanto la raíz (`/`) como `/swagger` redirigen automáticamente a la documentación.
+**Observabilidad y disponibilidad:** el endpoint `GET /health` (anónimo, sin acceso a la base de datos) se usó tanto para el health check de Render como para un ping de mantenimiento cada 10 minutos, dado que el plan gratuito de Render suspendía el servicio tras 15 minutos sin tráfico; en AWS el servicio no se suspende por inactividad. Swagger UI permanece activo también en producción (`/swagger-ui/index.html`, con el documento OpenAPI en `/v3/api-docs`), y tanto la raíz (`/`) como `/swagger` redirigen automáticamente a la documentación.
 
-**Limitación conocida:** la base de datos PostgreSQL gratuita de Render expira 30 días después de creada, con 14 días de gracia.
+**Limitación que originó el cambio:** la base de datos PostgreSQL gratuita de Render expiraba 30 días después de creada, con 14 días de gracia. El 31 de octubre de 2026 llegó el aviso de suspensión y el backend dejó de poder arrancar, por lo que se trasladó a AWS (4.2.2.8).
 
 **Figura 122**
 
 *Deployment Diagram de SkillSwap (C4 Model)*
 
 <p align="center">
-  <img src="images-doc/c4-deployment-diagram.svg" alt="Deployment Diagram de SkillSwap" width="900">
+  <img src="images-doc/SkillSwapDeployment.svg" alt="Deployment Diagram de SkillSwap" width="900">
 </p>
 
-*Nota.* Aplicaciones Android nativa y cross-platform como clientes de la API y Landing Page estático en GitHub Pages, API Spring Boot en un contenedor Docker con JRE 21 sobre Render, PostgreSQL administrado, y los servicios externos Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat). Elaboración propia.
+*Nota.* Aplicaciones Android nativa (v1.2, distribuida con Firebase App Distribution) y cross-platform (instalada como APK) como clientes de la API por HTTPS; instancia EC2 `t3.small` de AWS con Docker Compose, donde Caddy publica `skillswap-innovify.duckdns.org` con HTTPS y reenvía las peticiones al contenedor de la API Spring Boot (JRE 21), que usa el contenedor de PostgreSQL 16 por la red interna; y los servicios externos DuckDNS, Cloudinary, Brevo (Email API), Firebase Cloud Messaging, Gemini API y Google Play Billing (vía RevenueCat, con el cobro simulado). Es el mismo diagrama de la Figura 74; el procedimiento de despliegue en AWS está en 4.2.2.8. Elaboración propia.
 
 ---
 
@@ -5778,7 +5839,7 @@ Todos los endpoints del Sprint 1 están documentados con **OpenAPI 3.1** (`Skill
 | GET | `/api/v1/student-employability-scores/{studentId}` | get-employability | Sí | Path: `studentId` | `200` `StudentEmployabilityResource` · `403` · `404` |
 | GET | `/api/v1/wallets/{userId}` | get-wallet | Sí | Path: `userId` | `200` `WalletResource` · `403` · `404` |
 | GET | `/api/v1/wallets/{userId}/transactions` | list-transactions | Sí | Path: `userId` | `200` arreglo de `CreditTransactionResource` · `403` · `404` |
-| POST | `/api/v1/credit-transactions/redeem` | redeem-credits | Sí | Body: `item` (`AdvancedPathUnlock` = 200 o `ContributionCertificate` = 120 SkillCredits) | `201` `CreditTransactionResource` · `400` · `404` · `409` saldo insuficiente |
+| POST | `/api/v1/credit-transactions/redeem` | redeem-credits | Sí | Body: `item` (`Badge` = 200, `ContributionCertificate` = 300, `AdvancedPathUnlock` = 500 o `SponsoredCertification` = 1 500 SkillCredits) | `201` `CreditTransactionResource` · `400` · `404` · `409` saldo insuficiente |
 | POST | `/api/v1/subscriptions` | create-subscription | Sí (Student) | Body: `productId` (opcional) | `201` `SubscriptionResource` · `400` `InvalidProduct` · `422` `PurchaseNotVerified` · `503` `PaymentGatewayUnavailable` |
 | GET | `/api/v1/subscriptions/{studentId}` | get-student-plan | Sí (Student) | Path: `studentId` (debe ser el id del propio estudiante) | `200` `StudentPlanResource` (plan, límites y suscripción no vencida o `null`) · `403` |
 | PATCH | `/api/v1/subscriptions/{id}/cancel` | cancel-subscription | Sí (Student dueño) | Path: `id` | `200` `SubscriptionResource` (idempotente) · `403` · `404` · `409` `SubscriptionNotActive` · `503` |
@@ -5948,10 +6009,1237 @@ Durante el Sprint 1, el backend se construyó entre dos integrantes. Alberca Saa
 
 
 
+### 4.2.2. Sprint 2
+
+#### 4.2.2.1. Sprint Planning 2
+
+El Sprint 2 es la segunda iteración de desarrollo. Por indicación del docente, en este avance la aplicación del Estudiante debe quedar completa y la del Verificador solo en una parte. Por eso entran al Sprint las 13 historias que seguían sin sprint en el Product Backlog (57 SP): las nueve del Estudiante (43 SP), que llevan al dispositivo móvil la captura del certificado con la cámara, la confirmación de la habilidad interpretada, la consulta de la ruta sin conexión, la conservación del avance del quiz, el acceso con biometría y la demostración final, y que completan el ciclo de evaluación práctica con el miniproyecto y la identificación del sub-tema débil; y las cuatro del Verificador (14 SP): la reevaluación de un resultado, la suspensión de un Verificador, las métricas de la plataforma y el logro compartible. A ellas se suman las pantallas de la aplicación nativa del plan (US05), los intereses (US04) y la evidencia adicional (US26), y las de la aplicación Flutter para revisar un caso con rúbrica (US25), gestionar la disponibilidad (US23) y canjear SkillCredits en la tienda (US32), y la sección de descarga del Landing Page (US44): son historias cuyo backend o sitio ya se entregó en el Sprint 1 y que por eso no agregan Story Points. Con ello el Verificador (el Verificador senior es el mismo rol, con las funciones de supervisión) llega a 7 de sus 14 historias, el 50 %, dentro del 30 % al 50 % previsto para este avance. El Sprint 3 queda para pulir las aplicaciones y cerrar el proyecto.
+
+**Tabla 26**
+
+*Sprint Planning 2*
+
+| Sprint # | Sprint 2 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | 2026-10-17 |
+| Time | 09:00 PM |
+| Location | Virtual (Google Meet) |
+| Prepared By | Alberca Saavedra, Víctor Manuel |
+| Attendees (to planning meeting) | Alberca Saavedra, Víctor Manuel<br>Becerra Ninahuanca, Luis Angel<br>Lopez Montalvo, Kevin Edu<br>Komatsu Dueñas, David<br>Sulca Sánchez, Piero Angel |
+| Sprint n − 1 Review Summary | En el Sprint 1 se completaron 44 historias (154 SP): el backend de los ocho Bounded Contexts desplegado en Render y documentado con OpenAPI, el Landing Page publicado en GitHub Pages y el prototipo en Figma de las pantallas core de la aplicación móvil. |
+| Sprint n − 1 Retrospective Summary | **Aciertos:** el backend de los ocho Bounded Contexts quedó desplegado en Render y documentado con OpenAPI; el trabajo con ramas por funcionalidad, Conventional Commits y Pull Requests hacia `develop` mantuvo la rama integrable; y el Landing Page se publicó en GitHub Pages.<br>**Oportunidades de mejora:** la aplicación móvil solo llegó al diseño (prototipo en Figma), por lo que el Sprint 2 se concentra en construirla; la base del backend quedó a cargo de una sola persona, por lo que el Sprint 2 reparte las tasks entre los cinco integrantes; y el plan gratuito de Render suspende el servicio tras 15 minutos sin tráfico, lo que retrasa la primera respuesta de cada sesión. |
+| **Sprint Goal & User Stories** | |
+| Sprint 2 Goal | Our focus is on dejar completa la aplicación móvil del Estudiante y llevar al Verificador una primera parte de la suya. We believe it delivers una verificación de habilidades utilizable desde el celular, incluso sin conexión estable y con acceso biométrico, y un proceso de verificación supervisado, a los Estudiantes y Verificadores. This will be confirmed when un Estudiante puede, desde la aplicación nativa instalada en un dispositivo físico, capturar un certificado, completar un quiz, consultar su ruta sin conexión, entrar con su huella y programar y entregar su demostración final, y un Verificador puede, desde la aplicación Flutter, revisar un caso, gestionar su disponibilidad, reevaluar un resultado, suspender a otro Verificador, consultar las métricas de la plataforma y compartir su logro. |
+| Sprint 2 Velocity | 57 SP |
+| Sum of Story Points | 57 SP |
+
+*Nota.* Historias del Sprint 2: US11, US07, US10, US21, US20, US19, US03, US28 y US29 (Estudiante, 43 SP) y US33, US37, US38 y US40 (Verificador, 14 SP). Las pantallas de US25 y US23 (Verificador) y de US04, US05 y US26 (Estudiante) corresponden a historias cuyo backend se entregó en el Sprint 1, por lo que no suman Story Points. Elaboración propia.
+
+**Figura 140**
+
+*Reunión de Sprint Planning 2*
+
+<p align="center">
+  <img src="images-doc/sprint-planning-2-meeting.png" alt="Reunión de Sprint Planning 2" width="900">
+</p>
+
+*Nota.* Reunión de Sprint Planning 2. Elaboración propia.
+
+#### 4.2.2.2. Aspect Leaders and Collaborators
+
+El equipo organiza el Sprint 2 en los aspectos que se muestran en la matriz: cuatro frentes del backend, las dos experiencias de la aplicación móvil (Estudiante y Verificador), el despliegue y el Landing Page. La asignación de líderes y colaboradores debe ser coherente con la de las tasks del Sprint Backlog 2 (4.2.2.3).
+
+**Tabla 27**
+
+*Leadership-and-Collaboration Matrix del Sprint 2*
+
+| Team Member (Last Name, First Name) | GitHub Username | Learning Path Engine | Assessment & Peer Review | Moderation & Disputes | Reputation & Recognition | App móvil: Estudiante | App móvil: Verificador | Despliegue | Landing Page |
+|---|---|---|---|---|---|---|---|---|---|
+| Alberca Saavedra, Víctor Manuel | Agnizzz |  | L | C |  | C | C | L | L |
+| Becerra Ninahuanca, Luis Angel | blafyy |  |  |  |  | C | L |  |  |
+| Lopez Montalvo, Kevin Edu | lopescamos |  |  |  | C | L |  |  |  |
+| Komatsu Dueñas, David | dakoduz |  | C |  |  | C |  |  |  |
+| Sulca Sánchez, Piero Angel | psulca | L | C | L | L |  | C |  |  |
+
+*Nota.* L = Leader, C = Collaborator. La matriz se deriva de la asignación de tasks del Sprint Backlog 2 (4.2.2.3): el líder de cada aspecto es el integrante con más horas asignadas en él. En los dos aspectos con empate de horas (App móvil: Estudiante, entre Lopez Montalvo y Komatsu Dueñas, con 29 horas cada uno; Moderation & Disputes, entre Alberca Saavedra y Sulca Sánchez, con 5 horas cada uno) se propone como líder a Lopez Montalvo y a Sulca Sánchez, respectivamente, a confirmar en el Sprint Planning 2. Las tasks de la demostración final en el backend (T67 y T69) se cuentan en Assessment & Peer Review y el contenido compartible (T57), en Reputation & Recognition. En el Despliegue el Sprint 2 no agrega tasks, por lo que se mantiene el líder del Sprint 1 (Alberca Saavedra), que también trasladó el backend de Render a AWS el 31 de octubre de 2026. En el Landing Page la única task del Sprint 2 es T77, de Alberca Saavedra, por lo que figura como líder. En la App móvil: Verificador, Becerra Ninahuanca conserva el liderazgo con 16 horas (T58, T64 y T71), frente a las 9 de Sulca Sánchez y las 8 de Alberca Saavedra (T76).
+
+#### 4.2.2.3. Sprint Backlog 2
+
+El objetivo del Sprint 2 es dejar completa la aplicación móvil del Estudiante (nativa), terminar en el backend el ciclo de evaluación práctica y la demostración final, y entregar una primera parte de la aplicación del Verificador (Flutter): revisión de casos, disponibilidad, reevaluación, suspensión, métricas y logro compartible. El tablero del Sprint 2 se gestiona en el mismo tablero de Trello del Product Backlog.
+
+**Figura 141**
+
+*Sprint Backlog 2 en Trello*
+
+<p align="center">
+  <img src="images-doc/sprint-2-trello-backlog.png" alt="Sprint Backlog 2 en Trello" width="900">
+</p>
+
+*Nota.* Lista Sprint 2 del tablero del Product Backlog en Trello. URL público del Board: [https://trello.com/b/sTMGwnPf/skillswap-product-backlog](https://trello.com/b/sTMGwnPf/skillswap-product-backlog). Elaboración propia.
+
+**Tabla 28**
+
+*Sprint Backlog 2*
+
+| Sprint # | Sprint 2 | | | | | | |
+|---|---|---|---|---|---|---|---|
+| **User Story** | | **Work-Item / Task** | | | | | |
+| Id | Title | Id | Title | Description | Estimation (Hours) | Assigned To | Status |
+| US11 | Captura del certificado con la cámara | T44 | Captura con la cámara | Pantalla de captura del certificado con la cámara del dispositivo y solicitud del permiso de cámara | 8 | Lopez Montalvo, Kevin Edu | Done |
+| US11 | Captura del certificado con la cámara | T45 | OCR on-device y envío al backend | Extracción de institución, curso y fecha con ML Kit y envío de los campos en el multipart de registro del certificado | 8 | Komatsu Dueñas, David | Done |
+| US07 | Confirmación de la habilidad interpretada | T46 | Opciones de habilidad interpretada | Respuesta del backend con las habilidades candidatas del catálogo cuando la meta admite varias interpretaciones | 5 | Sulca Sánchez, Piero Angel | Done |
+| US07 | Confirmación de la habilidad interpretada | T47 | Pantalla de confirmación de habilidad | Pantalla para elegir y confirmar la habilidad antes de construir la ruta | 5 | Becerra Ninahuanca, Luis Angel | Done |
+| US10 | Consulta de la ruta sin conexión | T48 | Almacenamiento local de la ruta | Persistencia local de la ruta de aprendizaje y sus nodos para consultarla sin conexión | 8 | Lopez Montalvo, Kevin Edu | Done |
+| US10 | Consulta de la ruta sin conexión | T49 | Modo sin conexión | Indicador de falta de conexión y actualización de la ruta al recuperarla | 5 | Lopez Montalvo, Kevin Edu | Done |
+| US21 | Conservación del avance ante pérdida de conexión | T50 | Persistencia local de respuestas del quiz | Guardado local de las respuestas del intento en curso | 8 | Komatsu Dueñas, David | Done |
+| US21 | Conservación del avance ante pérdida de conexión | T51 | Reenvío del intento al recuperar la conexión | Envío de las respuestas conservadas cuando vuelve la conexión | 5 | Komatsu Dueñas, David | Done |
+| US20 | Identificación del sub-tema débil | T52 | Sub-tema débil en el resultado del intento | Cálculo del sub-tema donde falló el Estudiante y su inclusión en el resultado del intento (backend) | 8 | Alberca Saavedra, Víctor Manuel | Done |
+| US20 | Identificación del sub-tema débil | T53 | Pantalla de resultado con sub-tema a reforzar | Presentación del sub-tema débil en el resultado del quiz | 5 | Becerra Ninahuanca, Luis Angel | Done |
+| US19 | Entrega de un miniproyecto | T54 | Generación y entrega del miniproyecto | Miniproyecto generado para el nodo y endpoint de entrega de la evidencia (backend) | 13 | Alberca Saavedra, Víctor Manuel | Done |
+| US19 | Entrega de un miniproyecto | T55 | Pantalla de entrega del miniproyecto | Pantalla para ver el enunciado y entregar el miniproyecto | 8 | Becerra Ninahuanca, Luis Angel | Done |
+| US19 | Entrega de un miniproyecto | T56 | Caso de verificación del miniproyecto | Evaluación preliminar con IA de la entrega según la rúbrica y apertura del caso de verificación de tipo miniproyecto cuando no alcanza el puntaje mínimo o su confianza es baja (backend) | 5 | Komatsu Dueñas, David | Done |
+| US33 | Compartir logros en LinkedIn | T57 | Contenido compartible de logros | Generación del texto y enlace con los SkillCredits y las habilidades verificadas del Verificador | 5 | Lopez Montalvo, Kevin Edu | Done |
+| US33 | Compartir logros en LinkedIn | T58 | Compartir en redes profesionales | Acción de compartir desde la aplicación hacia LinkedIn u otras redes | 3 | Becerra Ninahuanca, Luis Angel | Done |
+| US37 | Reevaluación de un resultado aprobado | T59 | Endpoint de reevaluación | Orden de reevaluación de un resultado aprobado por parte del Verificador senior (backend) | 5 | Alberca Saavedra, Víctor Manuel | Done |
+| US37 | Reevaluación de un resultado aprobado | T60 | Pantalla de reevaluación | Pantalla del Verificador senior para ordenar la reevaluación | 3 | Sulca Sánchez, Piero Angel | Done |
+| US38 | Suspensión de un Verificador con baja confiabilidad | T61 | Endpoint de suspensión | Suspensión temporal de la habilitación de un Verificador con su justificación (backend) | 5 | Sulca Sánchez, Piero Angel | Done |
+| US38 | Suspensión de un Verificador con baja confiabilidad | T62 | Pantalla de suspensión | Pantalla del Verificador senior para suspender a un Verificador | 3 | Sulca Sánchez, Piero Angel | Done |
+| US40 | Consulta de métricas de la plataforma | T63 | Consultas agregadas de métricas | Métricas agregadas de Estudiantes y Verificadores (backend) | 8 | Sulca Sánchez, Piero Angel | Done |
+| US40 | Consulta de métricas de la plataforma | T64 | Pantalla de métricas | Pantalla de métricas para el Verificador senior | 5 | Becerra Ninahuanca, Luis Angel | Done |
+| US03 | Acceso mediante biometría del dispositivo | T65 | Activación del acceso biométrico | Opción para activar la huella o el reconocimiento facial con BiometricPrompt y guardado seguro de la sesión | 5 | Lopez Montalvo, Kevin Edu | Done |
+| US03 | Acceso mediante biometría del dispositivo | T66 | Inicio de sesión con biometría | Ingreso a la cuenta con la huella o el rostro del dispositivo, con la contraseña como alternativa | 3 | Lopez Montalvo, Kevin Edu | Done |
+| US28 | Programación de la demostración final | T67 | Endpoint de programación de la demostración final | Programación de la demostración final de una ruta completada en un horario disponible de un Verificador (backend) | 5 | Sulca Sánchez, Piero Angel | Done |
+| US28 | Programación de la demostración final | T68 | Pantalla de programación de la demostración | Pantalla para elegir la modalidad y el horario de la demostración final | 5 | Becerra Ninahuanca, Luis Angel | Done |
+| US29 | Demostración final por video | T69 | Endpoint de entrega del video de la demostración | Recepción y almacenamiento del video de la demostración final (backend) | 8 | Alberca Saavedra, Víctor Manuel | Done |
+| US29 | Demostración final por video | T70 | Pantalla de grabación y subida del video | Grabación del video con la cámara del dispositivo y subida desde la aplicación | 8 | Komatsu Dueñas, David | Done |
+| US25 | Revisión del caso con notas de rúbrica | T71 | Pantalla de revisión del caso | Pantalla del Verificador (Flutter) para revisar un caso con la rúbrica y registrar su decisión; el backend se entregó en el Sprint 1 | 8 | Becerra Ninahuanca, Luis Angel | Done |
+| US23 | Gestión de disponibilidad | T72 | Pantalla de disponibilidad | Pantalla del Verificador (Flutter) para activar o pausar su disponibilidad; el backend se entregó en el Sprint 1 | 3 | Sulca Sánchez, Piero Angel | Done |
+| US04 | Configuración del perfil de intereses | T73 | Pantalla Mis intereses | Pantalla del Estudiante para ver y editar su perfil de intereses; el backend se entregó en el Sprint 1 | 3 | Alberca Saavedra, Víctor Manuel | Done |
+| US05 | Suscripción al plan mensual | T74 | Pantalla Mi plan y límite del plan | Pantalla del plan del Estudiante, con la suscripción simulada y el aviso cuando alcanza el límite de su plan; el backend se entregó en el Sprint 1 | 5 | Alberca Saavedra, Víctor Manuel | Done |
+| US26 | Aporte de evidencia adicional | T75 | Evidencia adicional del caso | Acción para adjuntar evidencia adicional a un caso de verificación desde su pantalla de estado; el backend se entregó en el Sprint 1 | 3 | Alberca Saavedra, Víctor Manuel | Done |
+| US32 | Canje de SkillCredits en la tienda | T76 | Tienda de beneficios con confirmación biométrica | Pantalla de la tienda del Verificador (Flutter): muestra el catálogo de cuatro beneficios, canjea SkillCredits y pide la huella o el PIN del dispositivo antes de confirmar; el backend se entregó en el Sprint 1 | 8 | Alberca Saavedra, Víctor Manuel | Done |
+| US44 | Descarga de la aplicación | T77 | Sección de descarga y enlaces de acceso del Landing Page | Sección de descarga con el enlace de instalación de la app, llamados a la acción dirigidos a ella y corrección de los botones de inicio de sesión y registro; el Landing Page se entregó en el Sprint 1 | 5 | Alberca Saavedra, Víctor Manuel | Done |
+
+*Nota.* Las 34 tasks suman 197 horas de estimación y, al 30 de octubre de 2026, las 34 están en Done. La asignación de T44 a T64 fue acordada por el equipo; las 13 tasks agregadas (T65 a T77) responden a la indicación del docente de dejar completa la aplicación del Estudiante e incluir una parte de la del Verificador, y su asignación y las estimaciones se confirman en el Sprint Planning 2. Las tasks de pantallas y almacenamiento local del Estudiante (T44, T45, T47 a T51, T53, T55, T65, T66, T68, T70, T73, T74 y T75) corresponden a la aplicación nativa (Kotlin / Jetpack Compose); las pantallas del Verificador (T58, T60, T62, T64, T71, T72 y T76), a la aplicación Flutter; T77, al Landing Page; el resto corresponde al backend (Java / Spring Boot), incluida T57, que se resolvió en el backend con el enlace público de las habilidades verificadas. T71 a T77 son pantallas y secciones de historias (US25, US23, US04, US05, US26, US32 y US44) cuyo backend o sitio se entregó en el Sprint 1, por lo que no suman Story Points al Sprint 2. Elaboración propia.
+
+#### 4.2.2.4. Development Evidence for Sprint Review
+
+Esta sección presenta los avances de implementación del Sprint 2 en los repositorios `SkillSwap-WebServices-Java`, `SkillSwap-MobileApp`, `SkillSwap-MobileApp-Flutter` y `SkillSwap-LandingPage`, con sus commits bajo Conventional Commits y un Pull Request por rama de feature integrado en `develop`.
+
+**Tabla 29**
+
+*Commits de desarrollo en el Sprint 2*
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `046973c` | feat(learning-path): add optional sub-topic to assessment questions | `Question` incorpora un sub-tema opcional por pregunta. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `d8174d6` | feat(learning-path): persist and generate question sub-topics | Persistencia del sub-tema de cada pregunta (`QuestionListConverter`) y su generación con Gemini (`GeminiQuestionGenerator`). | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `02207be` | feat(assessment): add weak sub-topic analyzer | `WeakSubTopicAnalyzer` y `QuestionOutcome`: calculan el sub-tema donde el Estudiante falló más. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `98a7a6a` | feat(assessment): include weak sub-topic in attempt result | El resultado del intento incluye el sub-tema débil (`WeakSubTopicResolver`, `AssessmentAttemptDetail`) y la facade de Learning Path Engine expone los sub-temas de las preguntas. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `0bd71ab` | feat(assessment): expose weakSubTopic in attempt resource | `AssessmentAttemptResource` expone `weakSubTopic` en `POST` y `GET /api/v1/assessment-attempts`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `8b1f969` | feat(learning-path): expose node reopening in the context facade | La facade de Learning Path Engine expone la reapertura de un nodo (`ReopenPathNodeCommand`, `NodeReopenOutcome`) para la reevaluación. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `51ac917` | feat(assessment): add reevaluation record and case reopening | Agregado `Reevaluation`, tabla `reevaluations` (V11) y reapertura de un `VerificationCase` aprobado. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `4279fb0` | feat(assessment): order the reevaluation of an approved result | `ReevaluationCommandService`: el Verificador senior ordena la reevaluación de un resultado aprobado, con sus errores y mensajes. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `1e93cae` | feat(assessment): add the reevaluations endpoint | `POST /api/v1/reevaluations` con `ReevaluationsController` y sus resources. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `f27cd92` | feat(learning-path): add the mini-project aggregate and its persistence | Agregado `MiniProject` con su rúbrica (`RubricCriterion`) y persistencia JPA. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `9db1f0b` | feat(learning-path): generate mini-projects with AI and expose them in the context facade | Generación del miniproyecto con IA (`MiniProjectCommandService`) y su exposición en la facade del contexto (`MiniProjectView`). | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `d6fe2a8` | feat(learning-path): add the mini-project endpoints | `MiniProjectsController`: `POST` y `GET /api/v1/path-nodes/{nodeId}/mini-project`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `e183dce` | feat(assessment): add the mini-project submission and its persistence | Agregado `MiniProjectSubmission`, evento `MiniProjectSubmitted` y tabla `mini_project_submissions` (V13). | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `b08f956` | feat(assessment): receive the delivery of a mini-project | `MiniProjectSubmissionCommandService`: recepción de la entrega con validación de dueño, vigencia y plazo. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `17f11ca` | feat(assessment): add the mini-project submissions endpoint | `MiniProjectSubmissionsController`: `POST /api/v1/mini-projects/{miniProjectId}/submissions`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-verification-case | `6d6b0d1` | feat(assessment): let a verification case be opened by a mini-project delivery | `VerificationCase` puede abrirse por una entrega de miniproyecto (`submissionId`, con el enlace del repositorio como evidencia) y migración V14. | 2026-10-20 |
+| SkillSwap-WebServices-Java | feature/miniproject-verification-case | `090cbcb` | feat(assessment): open the verification case when a mini-project is delivered | `MiniProjectSubmissionCommandService` abre el caso de verificación de la entrega con el cupo mensual de escalamientos (`SubmitMiniProjectOutcome`) y el detalle del caso admite casos sin intento. | 2026-10-20 |
+| SkillSwap-WebServices-Java | feature/miniproject-verification-case | `6bb33ad` | feat(assessment): expose the case of a mini-project delivery in the API | `MiniProjectSubmissionResource` y `VerificationCaseResource` exponen el caso de la entrega y su `submissionId`. | 2026-10-20 |
+| SkillSwap-WebServices-Java | feature/miniproject-preliminary-evaluation | `64eade1` | feat(learning-path): expose the rubric of a mini-project in the context facade | La facade de Learning Path Engine expone el enunciado, la rúbrica y el puntaje mínimo de un miniproyecto (`MiniProjectRubricView`) para evaluar su entrega. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/miniproject-preliminary-evaluation | `0d98c66` | feat(assessment): record the preliminary evaluation of a mini-project delivery | `MiniProjectSubmission` registra el estado de su evaluación preliminar (`EvaluationStatus`) y el puntaje, la confianza y la retroalimentación de la IA (`PreliminaryEvaluation`); migración V15. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/miniproject-preliminary-evaluation | `ac27aec` | feat(assessment): evaluate mini-project deliveries against their rubric with Gemini | `GeminiMiniProjectEvaluator`: Gemini lee el repositorio entregado y califica cada criterio de la rúbrica; configuración `MINI_PROJECT_EVALUATION_ENABLED` y `MINI_PROJECT_EVALUATION_TIMEOUT_SECONDS`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/miniproject-preliminary-evaluation | `646d7a0` | feat(assessment): open the mini-project case only when the preliminary evaluation is not enough | `EvaluateMiniProjectEventHandler` reacciona a `MiniProjectSubmitted`: si la evaluación alcanza el puntaje mínimo con confianza suficiente, aprueba la entrega y completa el nodo; si no, abre el `VerificationCase` de tipo `MiniProject` con el cupo mensual de escalamientos. Reemplaza la apertura del caso en la misma transacción de la entrega. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/miniproject-preliminary-evaluation | `d87dadc` | feat(assessment): let the student read the preliminary evaluation of a delivery | `GET /api/v1/mini-projects/{miniProjectId}/submissions/{submissionId}` con el resultado de la evaluación preliminar y el caso abierto. | 2026-10-21 |
+| SkillSwap-WebServices-Java | fix/persistence-instant-precision | `8377677` | fix(learning-path): keep the deadline of a mini-project with the microseconds PostgreSQL stores | `MiniProject` crea `createdAt`, y con él `dueAt`, truncado a microsegundos, la precisión que guarda PostgreSQL, para que el plazo leído sea igual al guardado en cualquier sistema operativo. | 2026-10-21 |
+| SkillSwap-WebServices-Java | fix/persistence-instant-precision | `786e370` | fix(assessment): keep the moments of a mini-project delivery with the microseconds PostgreSQL stores | `MiniProjectSubmission` trunca a microsegundos `submittedAt` y `evaluatedAt`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | fix/email-logging | `5e23a42` | fix(iam): log the verification email delivery and its failures | `BrevoEmailSenderAdapter` y `LoggingEmailSenderAdapter` registran el envío del correo de verificación y sus fallos. | 2026-10-16 |
+| SkillSwap-WebServices-Java | fix/email-logging | `1e18b1b` | fix(iam): log a failed verification email as a warning without undoing the sign-up | `SendVerificationEmailEventHandler` registra como advertencia un correo fallido, sin deshacer el registro. | 2026-10-16 |
+| SkillSwap-WebServices-Java | fix/email-logging | `612ea8b` | chore(iam): log where the verification link points to at startup | `IamConfig` registra al iniciar a dónde apunta el enlace de verificación. | 2026-10-16 |
+| SkillSwap-WebServices-Java | fix/email-logging | `4edbbe8` | docs(deploy): explain how to check the verification email logs | `deploy-render.md` explica cómo revisar los registros del correo de verificación. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/learning-path-skill-options | `09037f1` | feat(learning-path): rank the skills of a goal by affinity | `SkillCandidate` y los `SkillTaxonomyMatcher` (Gemini y por palabras clave) ordenan las habilidades de una meta por afinidad. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/learning-path-skill-options | `3f58684` | feat(learning-path): list the skill options of a goal for the student to choose | `SkillOptionsQueryService`: lista hasta cinco habilidades del catálogo que encajan con la meta, sin crear la ruta. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/learning-path-skill-options | `fbede5e` | feat(learning-path): build the path from the skill the student chose | `DeclareGoalCommand` admite `skillTag`: la ruta se construye con la habilidad elegida, sin interpretar de nuevo el texto (`SkillNotInCatalog`). | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/learning-path-skill-options | `7a6861b` | feat(learning-path): expose the skill options and the chosen skill in the API | `POST /api/v1/learning-paths/skill-options` y `skillTag` en `POST /api/v1/learning-paths`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/assessment-verifier-suspension | `1ec8e48` | feat(assessment): model the suspension of a verifier | `VerifierProfile` y `VerificationCase` modelan la suspensión: el Verificador suspendido no recibe más casos y los que tenía en curso pasan a otros. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/assessment-verifier-suspension | `6c4568f` | feat(assessment): suspend and reinstate verifiers | `VerifierSuspensionCommandService`: suspende (confiabilidad menor a 60, con justificación) y reinstala a un Verificador. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/assessment-verifier-suspension | `95257e7` | feat(assessment): expose the suspension of verifiers in the API | `POST` y `DELETE /api/v1/verifier-profiles/{verifierUserId}/suspension` con `SuspendVerifierResource`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/reputation-platform-metrics | `a7e250a` | feat(assessment): record the skill and weak sub-topic of each attempt | Cada intento registra su habilidad y su sub-tema débil (migración V17) para las métricas. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/reputation-platform-metrics | `7f269d7` | feat(metrics): expose the aggregated data through the facades | `AssessmentMetricsContextFacade` y las facades de Credential Verification exponen los datos agregados: dificultad por habilidad y sub-tema, y actividad de los Verificadores. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/reputation-platform-metrics | `a5782ee` | feat(reputation): expose the platform metrics in the API | `PlatformMetricsQueryService` y `MetricsController`: `GET /api/v1/metrics/demand`, `/difficulty` y `/verifiers`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/recognition-shareable-credential | `9494a9e` | feat(recognition): add the shareable credential and its persistence | Agregado `ShareableCredential`, generador de tokens seguros y tabla `shareable_credentials` (V18). | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/recognition-shareable-credential | `9aaa170` | feat(recognition): create and read the shareable credentials | `ShareableCredentialCommandService` y `ShareableCredentialQueryService`: generan y consultan el enlace público de una habilidad verificada. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/recognition-shareable-credential | `3631c74` | feat(recognition): expose the shareable credentials in the API | `ShareableCredentialsController` (`POST` y `GET /api/v1/shareable-credentials`) y `PublicCredentialsController` (`GET /api/v1/public/credentials/{token}`, sin cuenta). | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/assessment-mini-project-hardening | `843386c` | feat(reputation): count the mini-projects approved by the AI | Evento `MiniProjectApprovedByAi` y `RecordMiniProjectApprovalEventHandler`: Reputation cuenta los miniproyectos aprobados por la IA. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/assessment-mini-project-hardening | `ecc3588` | feat(assessment): retry the pending evaluations at startup | `PendingEvaluationRecovery` reintenta al iniciar las evaluaciones que quedaron en `Pending`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/gemini-content-language | `82e44bd` | feat(ai): write the generated content in a configurable language | `gemini.content-language` (español por defecto) para las preguntas del quiz, el enunciado y la rúbrica del miniproyecto y la retroalimentación de la IA. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/recognition-store-four-benefits | `4d8e4e7` | feat(recognition): add the badge and the sponsored certification to the store | Cuatro beneficios con sus precios finales (200, 300, 500 y 1500 SkillCredits); la insignia se canjea una sola vez (`409` `BenefitAlreadyRedeemed`). La migración V19 amplía el chequeo del ítem canjeado. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/recognition-store-four-benefits | `fba65b9` | docs(recognition): describe the four benefits in the API and cover them in the REST tests | Documentación OpenAPI de los cuatro beneficios y pruebas REST del canje. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/assessment-mini-project-escalation-event | `6b17ff3` | feat(assessment): announce when the AI sends a mini-project to a verifier | Evento `MiniProjectEscalatedByAi`, publicado cuando la IA envía un miniproyecto a un Verificador. | 2026-10-23 |
+| SkillSwap-WebServices-Java | feature/assessment-push-notifications | `6ddd02f` | feat(assessment): notify the student by push of the AI result and the case resolution | Notificaciones push (Firebase Cloud Messaging) cuando la IA aprueba o escala un miniproyecto y cuando un Verificador resuelve un caso. | 2026-10-23 |
+| SkillSwap-WebServices-Java | feature/billing-smoke | `c042255` | test(billing): add simulated subscription smoke test and real RevenueCat checklist | `SimulatedSubscriptionSmokeTest` cubre compra, cancelación, vencimiento y renovación con la pasarela simulada, y `revenuecat-real-checklist.md` documenta el paso a RevenueCat. | 2026-10-23 |
+| SkillSwap-WebServices-Java | feature/deploy-aws-compose | `2392f36` | chore(deploy): add docker compose with Caddy for the AWS server | `docker-compose.yml` (backend, PostgreSQL 16 y Caddy), `Caddyfile`, `.env.aws.example` y `.gitignore` para el servidor de AWS. | 2026-10-31 |
+| SkillSwap-MobileApp | feature/app-base | `a959547` | feat(app): add project skeleton with login and learning path screens | Esqueleto de la aplicación nativa (Kotlin / Jetpack Compose) con inicio de sesión, cliente Retrofit y pantalla de la ruta de aprendizaje. | 2026-10-16 |
+| SkillSwap-MobileApp | feature/certificate-capture | `27f8d9e` | feat(certificate): add camera and file capture with on-device OCR and upload | Captura del certificado con la cámara o desde un archivo, lectura con ML Kit (`CertificateOcr`) y envío al backend (T44, T45). | 2026-10-16 |
+| SkillSwap-MobileApp | feature/offline-path | `545479c` | feat(offline): add SQLite path cache, connectivity banner and local certificate storage | Caché SQLite de la ruta, indicador de conexión (`ConnectivityObserver`, `OfflineBanner`) y almacenamiento local del certificado (T48, T49). | 2026-10-16 |
+| SkillSwap-MobileApp | feature/quiz-local-progress | `595ccc9` | feat(quiz): add offline quiz with local answers persistence and resend on reconnect | Quiz sin conexión con las respuestas guardadas localmente y reenvío al recuperar la conexión (T50, T51). | 2026-10-16 |
+| SkillSwap-MobileApp | feature/quiz-result | `14d82d7` | feat(quiz): add result screen with weak sub-topic and verification case status | Pantalla de resultado del quiz con el sub-tema débil y el estado del caso de verificación. | 2026-10-16 |
+| SkillSwap-MobileApp | feature/miniproject-delivery | `2cc8d18` | feat(project): add project screen with rubric and repository delivery | Pantalla del miniproyecto con la rúbrica y la entrega del repositorio. | 2026-10-16 |
+| SkillSwap-MobileApp | feature/ui-design | `92c29c9` | feat(ui): add design system theme with Inter font and base components | Sistema de diseño: tema, tipografía Inter y componentes base. | 2026-10-16 |
+| SkillSwap-MobileApp | feature/ui-design | `e106980` | feat(ui): restyle login screen following the design system | Rediseño del inicio de sesión según el sistema de diseño. | 2026-10-16 |
+| SkillSwap-MobileApp | feature/ui-design | `e69ff3e` | feat(ui): restyle path list and node detail with route timeline | Rediseño de la lista de rutas y del detalle del nodo con la línea de tiempo. | 2026-10-16 |
+| SkillSwap-MobileApp | feature/ui-design | `025773f` | feat(ui): restyle certificate, quiz, result and project screens | Rediseño de las pantallas de certificado, quiz, resultado y proyecto. | 2026-10-16 |
+| SkillSwap-MobileApp | feature/student-register | `20417ee` | feat(auth): add sign-up request, view model and local validation | Solicitud de registro, ViewModel y validación local (`SignUpValidator`). | 2026-10-16 |
+| SkillSwap-MobileApp | feature/student-register | `7d2d72c` | feat(auth): add student sign-up screen and login link | Pantalla de registro del Estudiante y enlace desde el inicio de sesión. | 2026-10-16 |
+| SkillSwap-MobileApp | feature/student-register | `dd5fbf4` | feat(verifier): add enable-as-verifier action on completed nodes | Acción para habilitarse como Verificador al completar un nodo. | 2026-10-16 |
+| SkillSwap-MobileApp | feature/session-persistence | `9c7311d` | feat(auth): persist student session and add sign-out | Conserva la sesión del Estudiante y agrega el cierre de sesión. | 2026-10-16 |
+| SkillSwap-MobileApp | feature/student-skill-result-project | `9a7cf3d` | feat(quiz): show result summary and weak sub-topic as in the mock-up (T53) | Resumen del resultado y sub-tema débil según el mock-up (T53). | 2026-10-21 |
+| SkillSwap-MobileApp | feature/student-skill-result-project | `8ed9b32` | feat(project): add repository draft, inline validation and sent dialog (T55) | Borrador del repositorio, validación en línea y diálogo de envío (T55). | 2026-10-21 |
+| SkillSwap-MobileApp | feature/student-skill-result-project | `0bec497` | feat(path): add goal input and skill confirmation before building the path (T47) | Pantalla de meta y confirmación de la habilidad antes de construir la ruta (T47). | 2026-10-21 |
+| SkillSwap-MobileApp | feature/case-status | `8b751ab` | feat(model): agrega el caso de verificación y la evaluación preliminar de la entrega | Beans del caso de verificación y de la evaluación preliminar de la entrega. | 2026-10-21 |
+| SkillSwap-MobileApp | feature/case-status | `36fb06d` | feat(viewmodel): espera la evaluación de la entrega y carga y apela casos | El ViewModel espera la evaluación de la entrega y carga y apela casos. | 2026-10-21 |
+| SkillSwap-MobileApp | feature/case-status | `36e0f60` | feat(views): agrega la pantalla de estado del caso con apelación (WF-08) | Pantalla de estado del caso con apelación (WF-08). | 2026-10-21 |
+| SkillSwap-MobileApp | feature/case-status | `736abf2` | feat(views): muestra el resultado de la evaluación con IA en la entrega de proyecto | Muestra el resultado de la evaluación con IA en la entrega del proyecto. | 2026-10-21 |
+| SkillSwap-MobileApp | feature/case-status | `43612e8` | feat(views): enlaza el estado del caso desde el resultado del quiz | Enlace al estado del caso desde el resultado del quiz. | 2026-10-21 |
+| SkillSwap-MobileApp | fix/student-flow-corrections | `0c917d0` | feat(model): lee los nodos sugeridos del certificado que no corresponde | Lee los nodos sugeridos cuando el certificado no corresponde a la habilidad. | 2026-10-22 |
+| SkillSwap-MobileApp | fix/student-flow-corrections | `719dda5` | fix(client): envía Accept-Language es-419 y guarda el 422 del vínculo de certificado | Envía `Accept-Language` es-419 y guarda el `422` del vínculo del certificado. | 2026-10-22 |
+| SkillSwap-MobileApp | fix/student-flow-corrections | `e5c27e7` | fix(views): muestra el quiz sin exigir certificado, calendario de fecha y nodos sugeridos del certificado | El quiz no exige certificado; selector de fecha y nodos sugeridos. | 2026-10-22 |
+| SkillSwap-MobileApp | feature/student-wallet-credentials | `7dc2f89` | fix(views): simplifica el aviso del caso en el resultado del quiz con un chip de estado | Chip de estado del caso en el resultado del quiz. | 2026-10-22 |
+| SkillSwap-MobileApp | fix/student-skill-confirmation | `600274d` | fix(viewmodel): trata como error el 404 y la lista vacía de opciones de habilidad y cubre el 409 de meta ya lograda | Trata como error el `404` y la lista vacía de opciones de habilidad, y cubre el `409` de meta ya lograda. | 2026-10-22 |
+| SkillSwap-MobileApp | fix/student-node-certificate-gate | `ec0e7c4` | fix(views): muestra el quiz y el proyecto del nodo solo con el certificado vinculado | Muestra el quiz y el proyecto del nodo solo con el certificado vinculado. | 2026-10-22 |
+| SkillSwap-MobileApp | feature/student-wallet-readonly | `c99100e` | feat(model): agrega los beans y los endpoints de lectura de la billetera de SkillCredits | Beans y endpoints de lectura de la billetera de SkillCredits. | 2026-10-22 |
+| SkillSwap-MobileApp | feature/student-wallet-readonly | `c3af47d` | feat(viewmodel): carga el saldo y los movimientos de la billetera con sus errores | El ViewModel carga el saldo y los movimientos de la billetera. | 2026-10-22 |
+| SkillSwap-MobileApp | feature/student-wallet-readonly | `b276108` | feat(views): agrega la pantalla de solo lectura Mi billetera y su acceso desde la ruta | Pantalla de solo lectura Mi billetera. | 2026-10-22 |
+| SkillSwap-MobileApp | feature/student-push-notifications | `f3cdb7b` | build(gradle): agrega Firebase Cloud Messaging y excluye google-services.json de Git | Dependencia de Firebase Cloud Messaging; `google-services.json` fuera de Git. | 2026-10-23 |
+| SkillSwap-MobileApp | feature/student-push-notifications | `838d203` | feat(model): agrega el registro y el borrado del token de notificaciones del dispositivo | Registro y borrado del token del dispositivo. | 2026-10-23 |
+| SkillSwap-MobileApp | feature/student-push-notifications | `5fed3e7` | feat(push): agrega el servicio de mensajería, el canal y la notificación en primer plano | Servicio de mensajería, canal y notificación en primer plano. | 2026-10-23 |
+| SkillSwap-MobileApp | feature/student-push-notifications | `e0ebe62` | feat(push): pide el permiso una vez, registra el token y abre la pantalla de la notificación | Pide el permiso una vez, registra el token y abre la pantalla de la notificación. | 2026-10-23 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-scheduling | `f8f5659` | feat(assessment): add the final demonstration aggregate and its errors | Agregado `FinalDemonstration` con sus comandos, eventos (`FinalDemonstrationScheduled`, `FinalDemonstrationCancelled`) y errores. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-scheduling | `8191222` | feat(assessment): persist final demonstrations | Persistencia de la demostración final (conversores de modalidad y estado) y migración V20. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-scheduling | `86d255b` | feat(assessment): schedule, reschedule and cancel the final demonstration | `FinalDemonstrationCommandService`: programa, reprograma y cancela la demostración; `DemonstrationAssignmentService` asigna al Verificador habilitado, disponible y con menos carga. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-scheduling | `3a8ccfd` | feat(assessment): expose the final demonstration endpoints | `FinalDemonstrationsController`: `POST /api/v1/final-demonstrations`, `GET /me`, `GET /assigned`, `GET /{id}`, `PATCH /{id}/reschedule` y `PATCH /{id}/cancel`. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-video | `5f60fc0` | feat(credentials): store videos and expose the file storage through a facade | `FileStorageContextFacade` expone el almacenamiento de archivos (Cloudinary), que ahora admite videos. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-video | `294e750` | feat(assessment): add the video and the review to the final demonstration | `FinalDemonstration` incorpora el video y la revisión (`SubmitDemonstrationVideoCommand`, `ReviewFinalDemonstrationCommand` y evento `FinalDemonstrationReviewed`). | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-video | `fce5cb0` | feat(assessment): persist the video and the review of the final demonstration | Persistencia del video y la revisión de la demostración (migración V21). | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-video | `c405502` | feat(assessment): upload and review the final demonstration video | `DemonstrationEvaluationCommandService`: sube el video y lo califica con la rúbrica (70 o más aprueba); `NotifyFinalDemonstrationReviewedEventHandler` avisa al Estudiante por push. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-video | `8e71376` | feat(assessment): expose the video and review endpoints of the final demonstration | `POST` y `GET /api/v1/final-demonstrations/{id}/video` (multipart, hasta 25 MB) y `PATCH /{id}/review`. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/recognition-demonstration-credits | `c56d56c` | feat(recognitionincentives): reward verifiers for reviewed final demonstrations | `CreditVerifierForDemonstrationCommand`: el Verificador gana SkillCredits por revisar una demostración final. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/recognition-demonstration-credits | `d682193` | feat(recognitionincentives): persist the demonstration that paid a credit transaction | `credit_transactions` guarda la demostración que originó el movimiento (migración V22). | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/recognition-demonstration-credits | `f86e7d6` | feat(recognitionincentives): credit the verifier when a final demonstration is reviewed | `CreditVerifierForDemonstrationEventHandler` acredita al Verificador cuando se revisa una demostración. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/recognition-demonstration-credits | `4ffd1f1` | feat(recognitionincentives): expose relatedDemonstrationId in credit transactions | `CreditTransactionResource` expone `relatedDemonstrationId`. | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-biometric-login | `87c72dc` | build(biometric): agrega BiometricPrompt y pasa MainActivity a FragmentActivity | Dependencia BiometricPrompt y `MainActivity` pasa a `FragmentActivity` (T65). | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-biometric-login | `f7f3128` | feat(viewmodel): guarda la credencial cifrada con el Keystore y la abre con huella o rostro | `BiometricVault`: guarda la credencial cifrada con el Keystore y la abre con huella o rostro (T65, T66). | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-biometric-login | `f2f485e` | feat(views): activa el acceso biométrico en el perfil y lo ofrece en el inicio de sesión | Activación del acceso biométrico en el perfil y opción en el inicio de sesión (T65, T66). | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-final-demonstration | `fd55ad4` | feat(model): agrega demostración final, endpoints y pruebas | Bean de la demostración final, endpoints en `WebService` y `FinalDemonstrationTest` (T68, T70). | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-final-demonstration | `12ccbea` | feat(viewmodel): programa, reprograma y cancela la demostración y sube su video | El ViewModel programa, reprograma y cancela la demostración y sube su video (T68, T70). | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-final-demonstration | `a03362b` | feat(views): agrega la pantalla de programación y estado de la demostración final | Pantalla de programación y estado de la demostración final (T68). | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-final-demonstration | `15a8bcd` | feat(views): graba y sube el video de la demostración con permisos de cámara y micrófono | Grabación del video con permisos de cámara y micrófono, y subida (T70). | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-plan-and-profile | `b40fc90` | feat(model): agrega plan, intereses y evidencia con sus endpoints y pruebas | Beans y endpoints de plan, intereses y evidencia, con `PlanAndProfileTest` (T73, T74, T75). | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-plan-and-profile | `e21e120` | feat(viewmodel): gestiona plan, suscripción, intereses y evidencia del caso | El ViewModel gestiona plan, suscripción, intereses y evidencia del caso (T73 a T75). | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-plan-and-profile | `efcb360` | feat(views): agrega las pantallas Mi plan y Mis intereses | Pantallas Mi plan y Mis intereses (T73, T74). | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-plan-and-profile | `9275ca7` | feat(views): muestra el límite del plan y permite adjuntar evidencia al caso | Muestra el límite del plan y permite adjuntar evidencia al caso (T74, T75). | 2026-10-26 |
+| SkillSwap-MobileApp | fix/student-quiz-pending-retry | `18cb26f` | fix(viewmodel): reintenta el quiz pendiente y muestra el motivo real del rechazo | `SkillSwapDbHelper` y el ViewModel reintentan el envío del quiz conservado y muestran el motivo real del rechazo (US21). | 2026-10-30 |
+| SkillSwap-MobileApp | fix/student-quiz-pending-retry | `a75c07c` | fix(views): reenvía el quiz pendiente al abrirlo y permite descartar un intento rechazado | La pantalla del quiz reenvía el intento pendiente al abrirse y permite descartar un intento rechazado (US21). | 2026-10-30 |
+| SkillSwap-MobileApp | fix/student-quiz-pending-retry | `93e0ebe` | feat(views): permite volver a ver el último resultado del quiz desde el nodo | El detalle del nodo abre el último resultado del quiz. | 2026-10-30 |
+| SkillSwap-MobileApp | fix/student-quiz-pending-retry | `a0405e6` | feat(views): usa el logo de SkillSwap en el inicio de sesión | Logo de SkillSwap en el inicio de sesión. | 2026-10-30 |
+| SkillSwap-MobileApp | feature/student-my-paths | `fec974f` | feat(model): agrega las reglas de rutas del plan y los endpoints de pausar y reanudar | Reglas de rutas del plan (`PathLimits`) y endpoints para pausar y reanudar una ruta, con `PathLimitsTest` (US05). | 2026-10-30 |
+| SkillSwap-MobileApp | feature/student-my-paths | `b0eda05` | feat(viewmodel): gestiona la lista de rutas y permite elegir la ruta abierta | El ViewModel gestiona la lista de rutas y la ruta abierta. | 2026-10-30 |
+| SkillSwap-MobileApp | feature/student-my-paths | `0b91f98` | feat(views): agrega la pantalla Mis rutas y la tarjeta de límite del plan | Pantalla Mis rutas (`MyPaths`) y tarjeta de límite del plan (`PlanLimitCard`). | 2026-10-30 |
+| SkillSwap-MobileApp | feature/student-my-paths | `1eebbd9` | feat(views): muestra rutas pausadas, abre la ruta elegida y reutiliza la tarjeta de límite | La lista de rutas muestra las pausadas y abre la ruta elegida. | 2026-10-30 |
+| SkillSwap-MobileApp | feature/student-my-paths | `ea0a1fa` | refactor(views): unifica las tarjetas de plan y rutas con el estilo azul de la app | Tarjetas de plan y rutas unificadas con el estilo de la app (`PlanQuotaCard`). | 2026-10-30 |
+| SkillSwap-MobileApp | chore/student-aws-backend | `ea1753a` | chore(client): apunta la app al nuevo backend en AWS | `RetrofitClient` apunta a `https://skillswap-innovify.duckdns.org/`. | 2026-11-01 |
+| SkillSwap-MobileApp | chore/student-aws-backend | `e0e5f4b` | chore(release): sube la versión a 1.2 con código 2 | `versionName` 1.2 y `versionCode` 2 en `app/build.gradle.kts`. | 2026-11-01 |
+| SkillSwap-MobileApp | feature/student-ddd-redesign | `f970e79` | refactor(shared): move theme, components, navigation, network, connectivity and database into the shared kernel | Tema, componentes, navegación, red, conectividad y base de datos pasan al shared kernel, común a todos los bounded contexts. | 2026-11-12 |
+| SkillSwap-MobileApp | feature/student-ddd-redesign | `8d386f6` | refactor(domain): move the domain models into their bounded contexts | Cada modelo de dominio pasa a la capa `domain` de su bounded context. | 2026-11-12 |
+| SkillSwap-MobileApp | feature/student-ddd-redesign | `95cdd5b` | refactor(application): split the student ViewModel into one ViewModel per bounded context | El ViewModel único del Estudiante se divide en un ViewModel por bounded context. | 2026-11-12 |
+| SkillSwap-MobileApp | feature/student-ddd-redesign | `3e438e8` | fix(student): send a pending quiz only once and read the course after "por completar el curso" | `SendOnceGate` evita que un intento pendiente se envíe dos veces al volver la conexión (el backend rechazaba el duplicado); el lector de certificados reconoce el curso después de "por completar". Pruebas: `SendOnceGateTest`, `CertificateParserTest`. | 2026-11-12 |
+| SkillSwap-MobileApp | feature/student-ddd-redesign | `209521b` | feat(design): add the student design components from the Figma mock-ups | Componentes de diseño de la app del Estudiante construidos a partir de los mock-ups de Figma. | 2026-11-12 |
+| SkillSwap-MobileApp | feature/student-ddd-redesign | `c3a47f8` | feat(student): bottom navigation, Mi ruta home and profile per Figma | Barra de navegación inferior, inicio "Mi ruta" y perfil según los mock-ups de Figma. | 2026-11-12 |
+| SkillSwap-MobileApp-Flutter | feature/app-base | `cb8c869` | feat(app): add flutter base with theme, session and login | Base de la aplicación Flutter del Verificador con tema, sesión e inicio de sesión. | 2026-10-16 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-cases-share-metrics | `9cba031` | refactor(app): migrate base to BLoC, Dio and get_it by bounded context | Base migrada a BLoC, Dio y get_it, organizada por Bounded Context (`iam`, `assessment`, `recognition`, `reputation` y `shared`). | 2026-10-27 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-cases-share-metrics | `66b3841` | feat(assessment): add assigned cases and case review with rubric (T71) | `CasesBloc`, `CaseReviewBloc` y vistas de casos asignados y de revisión con la rúbrica (T71). | 2026-10-27 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-cases-share-metrics | `961a81d` | feat(recognition): add SkillCredits and share achievement on LinkedIn (T58) | `WalletBloc`, `ShareBloc` y vistas de SkillCredits y de compartir un logro con `share_plus` (T58). | 2026-10-27 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-cases-share-metrics | `f9190f4` | feat(reputation): add platform metrics for senior verifiers (T64) | `MetricsBloc` y vista de las métricas de la plataforma para el Verificador senior (T64). | 2026-10-27 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-cases-share-metrics | `3b242af` | feat(app): wire service locator, session and main navigation | Registro de dependencias (`service_locator.dart`), sesión y navegación principal. | 2026-10-27 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-cases-share-metrics | `6764ef1` | test: add domain and bloc tests | Pruebas de dominio y de los BLoC (`domain_test.dart`, `bloc_test.dart`). | 2026-10-27 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-cases-share-metrics | `fdfd7f4` | chore(deps): update pubspec.lock | Actualización de `pubspec.lock`. | 2026-10-27 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-availability | `719d17d` | feat(assessment): agregar actualización de disponibilidad al repositorio | El repositorio de casos actualiza la disponibilidad del Verificador (T72). | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-availability | `42b462d` | feat(assessment): manejar el cambio de disponibilidad en CasesBloc | `CasesBloc` maneja el cambio de disponibilidad (T72). | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-availability | `01924ca` | feat(assessment): agregar pantalla de disponibilidad del Verificador (T72) | Pantalla de disponibilidad (`availability_view.dart`) (T72). | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-availability | `86e62de` | test(assessment): cubrir el cambio de disponibilidad | Pruebas del cambio de disponibilidad en `bloc_test.dart` (T72). | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-suspension | `b718b82` | feat(reputation): agregar suspensión y reactivación de Verificadores y orden en la consulta | El repositorio de reputación suspende y reactiva Verificadores, y ordena la consulta (T62). | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-suspension | `b68aad6` | feat(reputation): agregar SupervisionBloc para suspender y reactivar Verificadores | `SupervisionBloc` para suspender y reactivar Verificadores (T62). | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-suspension | `cc04454` | feat(reputation): agregar pantalla de supervisión de Verificadores (T62) | Pantalla de supervisión (`supervision_view.dart`) (T62). | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-suspension | `bac50da` | test(reputation): cubrir la suspensión y reactivación de Verificadores | Pruebas de la suspensión y la reactivación en `bloc_test.dart` (T62). | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-reevaluation | `c47b58f` | feat(assessment): agregar candidatos y orden de reevaluación al repositorio | El repositorio de casos obtiene los candidatos y ordena la reevaluación (T60). | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-reevaluation | `56dcc3d` | feat(assessment): agregar ReevaluationBloc para ordenar reevaluaciones | `ReevaluationBloc` para ordenar reevaluaciones (T60). | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-reevaluation | `b158831` | feat(assessment): agregar pantalla de reevaluación de resultados (T60) | Pantalla de reevaluación (`reevaluation_view.dart`) (T60). | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-reevaluation | `8bee0a3` | test(assessment): cubrir la reevaluación de resultados | Pruebas de la reevaluación en `bloc_test.dart` (T60). | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-store-redeem | `d079d59` | feat(recognition): agregar canje de SkillCredits al repositorio | El repositorio de SkillCredits canjea un beneficio y devuelve el saldo actualizado (T76). | 2026-10-29 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-store-redeem | `b109923` | feat(recognition): agregar StoreBloc con confirmación biométrica del dispositivo | `StoreBloc` pide la confirmación biométrica del dispositivo (`local_auth`) antes de canjear (T76). | 2026-10-29 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-store-redeem | `af0941a` | feat(recognition): agregar tienda de beneficios para canjear SkillCredits (US32) | Pantalla de la tienda (`store_view.dart`) y acceso desde la pantalla de SkillCredits (T76). | 2026-10-29 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-store-redeem | `0b38c66` | test(recognition): cubrir el canje de SkillCredits y el catálogo de la tienda | Pruebas del canje y del catálogo en `bloc_test.dart` y `domain_test.dart` (T76). | 2026-10-29 |
+| SkillSwap-LandingPage | feature/landing-descarga-cta | `b194753` | fix(landing): use a single link element for navbar login and signup buttons in aboutUs and partnerships | Un solo enlace por botón de inicio de sesión y registro en Sobre nosotros y Alianzas (T77). | 2026-10-29 |
+| SkillSwap-LandingPage | feature/landing-descarga-cta | `5896005` | feat(landing): add app download section (US44) and point all CTAs to it | Sección de descarga en `index.html` y llamados a la acción dirigidos a ella (T77). | 2026-10-29 |
+| SkillSwap-LandingPage | feature/landing-descarga-cta | `dd40e2f` | feat(landing): clarify that real login and signup happen in the app | Aviso en `login.html` y `signup.html` de que el inicio de sesión y el registro se hacen en la app (T77). | 2026-10-29 |
+| SkillSwap-LandingPage | feature/landing-descarga-cta | `472694d` | feat(landing): merge develop and complete US44 download section | Integra `develop` y agrega las capturas de la app a la sección de descarga (T77). | 2026-10-29 |
+| SkillSwap-LandingPage | feature/landing-video | `42bda7f` | feat(landing): embed YouTube presentation video in the connect section | Video About the Product incrustado desde YouTube en la sección de contacto de `index.html`. | 2026-10-30 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation-candidates | `616d4ad` | feat(assessmentpeerreview): add the query and ports for reevaluation candidates | `GetReevaluationCandidatesQuery` (filtro opcional por `skillTag` y `limit` de 20 por defecto y 50 como máximo) y los puertos de los repositorios para leer los resultados que se pueden reevaluar (US37). | 2026-10-28 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation-candidates | `a6811d4` | feat(assessmentpeerreview): query recent approved attempts, cases and reevaluated sources | Consultas JPA de los intentos aprobados y de los casos aprobados más recientes de otros Estudiantes, y de los resultados que ya se reevaluaron. | 2026-10-28 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation-candidates | `55cf179` | feat(assessmentpeerreview): list the results a senior verifier can reevaluate | `ReevaluationQueryServiceImpl`: lista los resultados aprobados que el Verificador senior puede reevaluar, del más reciente al más antiguo, sin los ya reevaluados ni los que tienen un caso en curso, y sin datos del Estudiante. | 2026-10-28 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation-candidates | `98b4714` | feat(assessmentpeerreview): add GET /api/v1/reevaluations/candidates | `ReevaluationsController` expone `GET /api/v1/reevaluations/candidates` con `ReevaluationCandidateResource`; lo consume la pantalla de reevaluación de la app Flutter (T60). | 2026-10-28 |
+| SkillSwap-WebServices-Java | fix/stale-integration-tests | `35e6e96` | test: align the redeem and demand metrics integration tests with current behavior | Ajusta tres pruebas de integración al comportamiento vigente: el canje del certificado de contribución (300 SkillCredits), las métricas de demanda y la reprogramación de la demostración final, con la fecha truncada a microsegundos. | 2026-11-09 |
+| SkillSwap-MobileApp-Flutter | chore/verifier-aws-backend | `907f7c8` | chore(network): point the app to the AWS backend | `ApiConfig.baseUrl` (`lib/shared/infrastructure/network/api_config.dart`) apunta a `https://skillswap-innovify.duckdns.org`. | 2026-11-09 |
+| SkillSwap-MobileApp-Flutter | feature/upgrade-android-gradle-plugin | `59c7ca6` | build(android): upgrade Android Gradle Plugin to 9.1.1 | Flutter 3.50 exige AGP 9.1.1; con 9.1.0 fallaba el build de release. | 2026-11-12 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-wallet-refresh | `101fce8` | fix(assessment): refresh SkillCredits wallet after resolving a case | Al resolver un caso, `CasesView` también recarga el `WalletBloc`: el saldo y los movimientos de SkillCredits se actualizan sin reabrir la app. Prueba: `test/case_resolution_test.dart`. | 2026-11-12 |
+| SkillSwap-LandingPage | feature/landing-english-default | `a377fae` | feat(landing): make English the default language | `lang="en"`, botón EN activo, inglés cuando no hay un idioma guardado y título y meta description en inglés por defecto en las cinco páginas; el español sigue disponible con el botón ES. | 2026-11-09 |
+| SkillSwap-LandingPage | feature/landing-english-default | `5bf4076` | fix(landing): add missing translations for every data-i18n key | Traducciones de las claves `data-i18n` que faltaban (`nav-plataforma`, roles del equipo, título y botón del registro y meta de la ruta de ejemplo); el registro actualiza su título y su meta description. | 2026-11-09 |
+| SkillSwap-LandingPage | feature/landing-english-default | `f6cab05` | fix(landing): point partnerships hreflang links to the existing page | Los enlaces `hreflang` de `partnerships.html` apuntan a esa página y no a `alliances.html`, que no existe. | 2026-11-09 |
+| SkillSwap-LandingPage | feature/landing-direct-apk-download | `a7d2dcf` | feat(landing): direct APK downloads with a redesigned hero and role selector | El hero descarga directamente el APK del Estudiante y enlaza el del Verificador; la sección de descarga incorpora un selector Estudiante / Verificador; el CTA del navbar aparece al pasar el hero; se retiran los mensajes de lanzamiento en Google Play. | 2026-11-12 |
+
+*Nota.* Commits a la fecha de los repositorios `SkillSwap-WebServices-Java` (PR #16 a #38), `SkillSwap-MobileApp` (PR #1 a #23), `SkillSwap-MobileApp-Flutter` (base de la aplicación en `feature/app-base` y PR #1 y #3 a #7) y `SkillSwap-LandingPage` (PR #9 y #11, publicados en `main` con los PR #10 y #12, y PR #13, integrado en `develop` y pendiente de publicarse en `main`), cada uno integrado en `develop` con su Pull Request. Autoría según Git de los últimos commits agregados: los del PR #37 (`feature/assessment-reevaluation-candidates`) y del PR #38 (`fix/stale-integration-tests`) del backend son de Alberca Saavedra; el del PR #7 de la app Flutter (`chore/verifier-aws-backend`) y los tres del PR #13 del Landing Page (`feature/landing-english-default`), de Komatsu Dueñas. Los cuatro PR se integraron en `develop` el 2026-11-09. En el backend corresponden a las tasks T46, T52, T54, T56, T57, T59, T61, T63, T67 y T69 y a mejoras transversales (registro del correo de verificación, idioma del contenido generado, tienda de cuatro beneficios, notificaciones push, prueba de la suscripción simulada, SkillCredits del Verificador por revisar una demostración y el despliegue en AWS con Docker Compose y Caddy); en la aplicación nativa, a las tasks T44, T45, T47 a T51, T53, T55, T65, T66, T68, T70, T73, T74 y T75 (T47, T53 y T55 con autoría de Becerra Ninahuanca) y al sistema de diseño, el registro, la sesión, el estado del caso, la billetera de solo lectura, las notificaciones push, el acceso biométrico, la demostración final con su video, el plan, los intereses y la evidencia del caso. Detalle del backend: las ramas `feature/assessment-weak-subtopic` y `feature/assessment-reevaluation` ya se integraron en `develop` (PR #16 y #17), al igual que `feature/miniproject-delivery` (PR #18, el 2026-10-16), `feature/miniproject-verification-case` (PR #20, el 2026-10-20), `feature/miniproject-preliminary-evaluation` (T56, PR #21, el 2026-10-21) y `fix/persistence-instant-precision` (PR #22, el 2026-10-21), que corrige la precisión de los instantes del miniproyecto y de su entrega. En T56, la entrega queda en estado `Pending` y la evaluación preliminar de la IA se ejecuta en segundo plano: si el puntaje alcanza el mínimo de la rúbrica (70 sobre 100) con una confianza de al menos 70 sobre 100, la entrega se aprueba y el nodo se completa sin consumir un escalamiento; en caso contrario, o si la IA no puede evaluarla, se abre el caso de verificación (US19, escenario 3). En la aplicación Flutter del Verificador corresponden a las tasks T71, T58 y T64 (commits de Becerra Ninahuanca, rama `feature/verifier-cases-share-metrics`) y a T72, T62, T60 y T76 (commits de Alberca Saavedra, ramas `feature/verifier-availability`, `feature/verifier-suspension`, `feature/verifier-reevaluation` y `feature/verifier-store-redeem`). En el Landing Page, T77 (PR #9, publicado en `main` con el PR #10) agrega la sección de descarga y corrige los botones de acceso. Elaboración propia. Los commits de `feature/student-ddd-redesign` (PR #24 de `SkillSwap-MobileApp`), de `feature/upgrade-android-gradle-plugin` y `feature/verifier-wallet-refresh` (PR #8 y #9 de `SkillSwap-MobileApp-Flutter`) y de `feature/landing-direct-apk-download` (PR #15 de `SkillSwap-LandingPage`) son de Sulca Sánchez; al 12 de noviembre de 2026 esos Pull Requests están abiertos hacia `develop`, pendientes de revisión.
+
+#### 4.2.2.5. Testing Suite Evidence for Sprint Review
+
+Se presentan las pruebas unitarias y de integración que cubren las historias del Sprint 2, con la misma estrategia del Sprint 1 (JUnit 5, AssertJ, MockMvc y Testcontainers en el backend) y las pruebas de la aplicación móvil que correspondan.
+
+**Tabla 30**
+
+*Commits del Sprint 2 que incorporan pruebas automatizadas*
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `046973c` | feat(learning-path): add optional sub-topic to assessment questions | Pruebas: `QuestionAndBlueprintTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `d8174d6` | feat(learning-path): persist and generate question sub-topics | Pruebas: `GeminiQuestionGeneratorTest`, `LearningPathConvertersTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `02207be` | feat(assessment): add weak sub-topic analyzer | Pruebas: `WeakSubTopicAnalyzerTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `98a7a6a` | feat(assessment): include weak sub-topic in attempt result | Pruebas: `WeakSubTopicResolverTest`, `AssessmentAttemptCommandServiceImplTest`, `QueryServicesImplTest`, `LearningPathContextFacadeImplTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-weak-subtopic | `0bd71ab` | feat(assessment): expose weakSubTopic in attempt resource | Pruebas: `AssessmentPeerReviewApiIntegrationTest`, `AssessmentPeerReviewResourceAssemblersTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `8b1f969` | feat(learning-path): expose node reopening in the context facade | Pruebas: `LearningPathContextFacadeImplTest`, `LearningPathCommandServiceImplTest`, `LearningPathErrorTest`, `LearningPathTest`, `LearningPathActionResultAssemblerTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `51ac917` | feat(assessment): add reevaluation record and case reopening | Pruebas: `ReevaluationTest`, `VerificationCaseTest`, `AssessmentPeerReviewPersistenceTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `4279fb0` | feat(assessment): order the reevaluation of an approved result | Pruebas: `ReevaluationCommandServiceImplTest`, `AssessmentPeerReviewActionResultAssemblerTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation | `1e93cae` | feat(assessment): add the reevaluations endpoint | Pruebas: `AssessmentPeerReviewResourceAssemblersTest`, `ReevaluationsIntegrationTest`, `PostgresIntegrationTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `f27cd92` | feat(learning-path): add the mini-project aggregate and its persistence | Pruebas: `LearningPathErrorTest`, `MiniProjectTest`, `LearningPathPersistenceTest`, `LearningPathActionResultAssemblerTest`, `PostgresIntegrationTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `9db1f0b` | feat(learning-path): generate mini-projects with AI and expose them in the context facade | Pruebas: `LearningPathContextFacadeImplTest`, `MiniProjectCommandServiceImplTest`, `MiniProjectQueryServiceImplTest`, `GeminiMiniProjectGeneratorTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `d6fe2a8` | feat(learning-path): add the mini-project endpoints | Pruebas: `MiniProjectApiIntegrationTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `e183dce` | feat(assessment): add the mini-project submission and its persistence | Pruebas: `MiniProjectSubmissionTest`, `AssessmentPeerReviewPersistenceTest`, `AssessmentPeerReviewActionResultAssemblerTest`, `PostgresIntegrationTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `b08f956` | feat(assessment): receive the delivery of a mini-project | Pruebas: `MiniProjectSubmissionCommandServiceImplTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-delivery | `17f11ca` | feat(assessment): add the mini-project submissions endpoint | Pruebas: `MiniProjectSubmissionsIntegrationTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/miniproject-verification-case | `6d6b0d1` | feat(assessment): let a verification case be opened by a mini-project delivery | Pruebas: `VerificationCaseTest`, `AssessmentPeerReviewPersistenceTest`. | 2026-10-20 |
+| SkillSwap-WebServices-Java | feature/miniproject-verification-case | `090cbcb` | feat(assessment): open the verification case when a mini-project is delivered | Pruebas: `MiniProjectSubmissionCommandServiceImplTest`, `QueryServicesImplTest`. | 2026-10-20 |
+| SkillSwap-WebServices-Java | feature/miniproject-verification-case | `6bb33ad` | feat(assessment): expose the case of a mini-project delivery in the API | Pruebas: `AssessmentPeerReviewResourceAssemblersTest`, `MiniProjectSubmissionsIntegrationTest`. | 2026-10-20 |
+| SkillSwap-WebServices-Java | feature/miniproject-preliminary-evaluation | `64eade1` | feat(learning-path): expose the rubric of a mini-project in the context facade | Pruebas: `LearningPathContextFacadeImplTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/miniproject-preliminary-evaluation | `0d98c66` | feat(assessment): record the preliminary evaluation of a mini-project delivery | Pruebas: `PreliminaryEvaluationTest`, `MiniProjectSubmissionTest`, `AssessmentPeerReviewConvertersTest`, `AssessmentPeerReviewPersistenceTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/miniproject-preliminary-evaluation | `ac27aec` | feat(assessment): evaluate mini-project deliveries against their rubric with Gemini | Pruebas: `GeminiMiniProjectEvaluatorTest`, `MiniProjectEvaluationWiringTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/miniproject-preliminary-evaluation | `646d7a0` | feat(assessment): open the mini-project case only when the preliminary evaluation is not enough | Pruebas: `MiniProjectSubmissionCommandServiceImplTest`, `EvaluateMiniProjectEventHandlerTest`, `AssessmentPeerReviewResourceAssemblersTest`, `MiniProjectSubmissionsIntegrationTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/miniproject-preliminary-evaluation | `d87dadc` | feat(assessment): let the student read the preliminary evaluation of a delivery | Pruebas: `MiniProjectSubmissionQueryServiceImplTest`, `MiniProjectSubmissionsIntegrationTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | fix/persistence-instant-precision | `8377677` | fix(learning-path): keep the deadline of a mini-project with the microseconds PostgreSQL stores | Pruebas: `MiniProjectTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | fix/persistence-instant-precision | `786e370` | fix(assessment): keep the moments of a mini-project delivery with the microseconds PostgreSQL stores | Pruebas: `MiniProjectSubmissionTest`, `AssessmentPeerReviewPersistenceTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | fix/email-logging | `5e23a42` | fix(iam): log the verification email delivery and its failures | Pruebas: `BrevoEmailSenderAdapterTest`, `LoggingEmailSenderAdapterTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | fix/email-logging | `1e18b1b` | fix(iam): log a failed verification email as a warning without undoing the sign-up | Pruebas: `SendVerificationEmailEventHandlerTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | fix/email-logging | `612ea8b` | chore(iam): log where the verification link points to at startup | Pruebas: `IamConfigTest`. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/learning-path-skill-options | `09037f1` | feat(learning-path): rank the skills of a goal by affinity | Pruebas: `SkillTaxonomyMatcherTest`, `GeminiSkillTaxonomyMatcherTest`, `SkillTaxonomyTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/learning-path-skill-options | `3f58684` | feat(learning-path): list the skill options of a goal for the student to choose | Pruebas: `SkillOptionsQueryServiceImplTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/learning-path-skill-options | `fbede5e` | feat(learning-path): build the path from the skill the student chose | Pruebas: `LearningPathContextFacadeImplTest`, `LearningPathCertificateCommandsTest`, `LearningPathCommandServiceImplTest`, `LearningPathErrorTest`, `LearningPathActionResultAssemblerTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/learning-path-skill-options | `7a6861b` | feat(learning-path): expose the skill options and the chosen skill in the API | Pruebas: `LearningPathApiIntegrationTest`, `LearningPathResourceAssemblersTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/assessment-verifier-suspension | `1ec8e48` | feat(assessment): model the suspension of a verifier | Pruebas: `VerifierProfileContextFacadeImplTest`, `ReevaluationCommandServiceImplTest`, `ReviewDeadlinePolicyCommandServiceImplTest`, `VerificationCaseTest`, `VerifierProfileTest`, `AssessmentPeerReviewPersistenceTest`, `AssessmentPeerReviewActionResultAssemblerTest`, `ReputationContextFacadeImplTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/assessment-verifier-suspension | `6c4568f` | feat(assessment): suspend and reinstate verifiers | Pruebas: `VerifierSuspensionCommandServiceImplTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/assessment-verifier-suspension | `95257e7` | feat(assessment): expose the suspension of verifiers in the API | Pruebas: `AssessmentPeerReviewResourceAssemblersTest`, `VerifierSuspensionIntegrationTest`. | 2026-10-21 |
+| SkillSwap-WebServices-Java | feature/reputation-platform-metrics | `a7e250a` | feat(assessment): record the skill and weak sub-topic of each attempt | Pruebas: `AssessmentAttemptCommandServiceImplTest`, `AssessmentAttemptTest`, `AssessmentPeerReviewPersistenceTest`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/reputation-platform-metrics | `7f269d7` | feat(metrics): expose the aggregated data through the facades | Pruebas: `AssessmentMetricsContextFacadeImplTest`, `AssessmentPeerReviewPersistenceTest`, `CredentialContextFacadeImplTest`, `CertificatePersistenceTest`, `LearningPathContextFacadeImplTest`, `SkillCatalogContextFacadeImplTest`, `LearningPathPersistenceTest`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/reputation-platform-metrics | `a5782ee` | feat(reputation): expose the platform metrics in the API | Pruebas: `PlatformMetricsQueryServiceImplTest`, `MetricsApiIntegrationTest`, `ReputationActionResultAssemblerTest`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/recognition-shareable-credential | `9494a9e` | feat(recognition): add the shareable credential and its persistence | Pruebas: `ShareableCredentialTest`, `ShareableCredentialPersistenceTest`, `PostgresIntegrationTest`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/recognition-shareable-credential | `9aaa170` | feat(recognition): create and read the shareable credentials | Pruebas: `ShareableCredentialCommandServiceImplTest`, `ShareableCredentialQueryServiceImplTest`, `RecognitionIncentivesActionResultAssemblerTest`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/recognition-shareable-credential | `3631c74` | feat(recognition): expose the shareable credentials in the API | Pruebas: `RecognitionIncentivesResourceAssemblersTest`, `ShareableCredentialsApiIntegrationTest`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/assessment-mini-project-hardening | `843386c` | feat(reputation): count the mini-projects approved by the AI | Pruebas: `MiniProjectSubmissionCommandServiceImplTest`, `MiniProjectSubmissionsIntegrationTest`, `ReputationEventHandlersTest`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/assessment-mini-project-hardening | `ecc3588` | feat(assessment): retry the pending evaluations at startup | Pruebas: `AssessmentPeerReviewPersistenceTest`, `PendingEvaluationRecoveryTest`, `MiniProjectSubmissionsIntegrationTest`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/gemini-content-language | `82e44bd` | feat(ai): write the generated content in a configurable language | Pruebas: `GeminiMiniProjectEvaluatorTest`, `MiniProjectEvaluationWiringTest`, `GeminiMiniProjectGeneratorTest`, `GeminiQuestionGeneratorTest`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/recognition-store-four-benefits | `4d8e4e7` | feat(recognition): add the badge and the sponsored certification to the store | Pruebas: `WalletCommandServiceImplTest`, `RecognitionIncentivesServicesTest`, `RecognitionIncentivesEventWiringTest`, `RecognitionIncentivesActionResultAssemblerTest`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/recognition-store-four-benefits | `fba65b9` | docs(recognition): describe the four benefits in the API and cover them in the REST tests | Pruebas: `AdvancedPathUnlockIntegrationTest`, `RecognitionIncentivesApiIntegrationTest`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/assessment-mini-project-escalation-event | `6b17ff3` | feat(assessment): announce when the AI sends a mini-project to a verifier | Pruebas: `MiniProjectSubmissionCommandServiceImplTest`. | 2026-10-23 |
+| SkillSwap-WebServices-Java | feature/assessment-push-notifications | `6ddd02f` | feat(assessment): notify the student by push of the AI result and the case resolution | Pruebas: `AssessmentPushNotificationHandlersTest`. | 2026-10-23 |
+| SkillSwap-WebServices-Java | feature/billing-smoke | `c042255` | test(billing): add simulated subscription smoke test and real RevenueCat checklist | Pruebas: `SimulatedSubscriptionSmokeTest`. | 2026-10-23 |
+| SkillSwap-MobileApp | feature/certificate-capture | `27f8d9e` | feat(certificate): add camera and file capture with on-device OCR and upload | Pruebas: `CertificateParserTest`. | 2026-10-16 |
+| SkillSwap-MobileApp | feature/student-register | `20417ee` | feat(auth): add sign-up request, view model and local validation | Pruebas: `SignUpValidatorTest`. | 2026-10-16 |
+| SkillSwap-MobileApp | feature/case-status | `8b751ab` | feat(model): agrega el caso de verificación y la evaluación preliminar de la entrega | Pruebas: `VerificationCaseTest`. | 2026-10-21 |
+| SkillSwap-MobileApp | fix/student-flow-corrections | `0c917d0` | feat(model): lee los nodos sugeridos del certificado que no corresponde | Pruebas: `CertificateMismatchTest`. | 2026-10-22 |
+| SkillSwap-MobileApp | feature/student-wallet-readonly | `c99100e` | feat(model): agrega los beans y los endpoints de lectura de la billetera de SkillCredits | Pruebas: `WalletTest`. | 2026-10-22 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-scheduling | `f8f5659` | feat(assessment): add the final demonstration aggregate and its errors | Pruebas: `FinalDemonstrationTest`. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-scheduling | `8191222` | feat(assessment): persist final demonstrations | Pruebas: `AssessmentPeerReviewConvertersTest`, `FinalDemonstrationPersistenceTest`, `PostgresIntegrationTest`. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-scheduling | `86d255b` | feat(assessment): schedule, reschedule and cancel the final demonstration | Pruebas: `FinalDemonstrationCommandServiceImplTest`. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-scheduling | `3a8ccfd` | feat(assessment): expose the final demonstration endpoints | Pruebas: `FinalDemonstrationsIntegrationTest`. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-video | `5f60fc0` | feat(credentials): store videos and expose the file storage through a facade | Pruebas: `FileStorageContextFacadeImplTest`, `CloudinaryStorageServiceTest`. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-video | `294e750` | feat(assessment): add the video and the review to the final demonstration | Pruebas: `FinalDemonstrationTest`. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-video | `fce5cb0` | feat(assessment): persist the video and the review of the final demonstration | Pruebas: `FinalDemonstrationPersistenceTest`. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-video | `c405502` | feat(assessment): upload and review the final demonstration video | Pruebas: `AssessmentPushNotificationHandlersTest`, `DemonstrationEvaluationCommandServiceImplTest`. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/assessment-final-demo-video | `8e71376` | feat(assessment): expose the video and review endpoints of the final demonstration | Pruebas: `FinalDemonstrationsIntegrationTest`. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/recognition-demonstration-credits | `c56d56c` | feat(recognitionincentives): reward verifiers for reviewed final demonstrations | Pruebas: `CreditTransactionTest`, `RecognitionIncentivesServicesTest`. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/recognition-demonstration-credits | `d682193` | feat(recognitionincentives): persist the demonstration that paid a credit transaction | Pruebas: `RecognitionIncentivesPersistenceTest`. | 2026-10-26 |
+| SkillSwap-WebServices-Java | feature/recognition-demonstration-credits | `f86e7d6` | feat(recognitionincentives): credit the verifier when a final demonstration is reviewed | Pruebas: `RecognitionIncentivesEventHandlersTest`, `WalletCommandServiceImplTest`, `RecognitionIncentivesEventWiringTest`. | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-final-demonstration | `fd55ad4` | feat(model): agrega demostración final, endpoints y pruebas | Pruebas: `FinalDemonstrationTest`. | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-plan-and-profile | `b40fc90` | feat(model): agrega plan, intereses y evidencia con sus endpoints y pruebas | Pruebas: `PlanAndProfileTest`. | 2026-10-26 |
+| SkillSwap-MobileApp | feature/student-my-paths | `fec974f` | feat(model): agrega las reglas de rutas del plan y los endpoints de pausar y reanudar | Pruebas: `PathLimitsTest`. | 2026-10-30 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-cases-share-metrics | `6764ef1` | test: add domain and bloc tests | Pruebas: `domain_test.dart`, `bloc_test.dart`, `widget_test.dart`. | 2026-10-27 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-availability | `86e62de` | test(assessment): cubrir el cambio de disponibilidad | Pruebas: `bloc_test.dart`. | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-suspension | `bac50da` | test(reputation): cubrir la suspensión y reactivación de Verificadores | Pruebas: `bloc_test.dart`. | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-reevaluation | `8bee0a3` | test(assessment): cubrir la reevaluación de resultados | Pruebas: `bloc_test.dart`. | 2026-10-28 |
+| SkillSwap-MobileApp-Flutter | feature/verifier-store-redeem | `0b38c66` | test(recognition): cubrir el canje de SkillCredits y el catálogo de la tienda | Pruebas: `bloc_test.dart`, `domain_test.dart`. | 2026-10-29 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation-candidates | `616d4ad` | feat(assessmentpeerreview): add the query and ports for reevaluation candidates | Pruebas: `GetReevaluationCandidatesQueryTest`. | 2026-10-28 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation-candidates | `a6811d4` | feat(assessmentpeerreview): query recent approved attempts, cases and reevaluated sources | Pruebas: `ReevaluationCandidatesPersistenceTest`. | 2026-10-28 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation-candidates | `55cf179` | feat(assessmentpeerreview): list the results a senior verifier can reevaluate | Pruebas: `ReevaluationQueryServiceImplTest`. | 2026-10-28 |
+| SkillSwap-WebServices-Java | feature/assessment-reevaluation-candidates | `98b4714` | feat(assessmentpeerreview): add GET /api/v1/reevaluations/candidates | Pruebas: `ReevaluationsIntegrationTest`. | 2026-10-28 |
+| SkillSwap-WebServices-Java | fix/stale-integration-tests | `35e6e96` | test: align the redeem and demand metrics integration tests with current behavior | Ajustes en `FinalDemonstrationsIntegrationTest`, `RecognitionIncentivesApiIntegrationTest` y `MetricsApiIntegrationTest`. | 2026-11-09 |
+
+*Nota.* Commits del backend y de las aplicaciones a la fecha que incluyen pruebas automatizadas (unitarias y de integración). En la rama `feature/miniproject-preliminary-evaluation` (T56) la suite completa (`./mvnw test`) ejecutó 2326 pruebas sin fallos, sin las 446 pruebas de integración y persistencia con Testcontainers, que requieren Docker. Al ejecutar la suite completa con Docker sobre `develop` (en Windows) se corrieron 2329 pruebas con un fallo en `LearningPathPersistenceTest` (línea 311): el plazo del miniproyecto leído de PostgreSQL difería del guardado en la fracción de microsegundo, porque el reloj de Windows tiene pasos de 100 ns y PostgreSQL guarda microsegundos. El PR #22 (`fix/persistence-instant-precision`) lo corrige; su suite sin Docker ejecutó 2328 pruebas sin fallos. El PR #37 agrega las pruebas de `GET /api/v1/reevaluations/candidates` (unitarias, de persistencia y de integración) y el PR #38 ajusta tres pruebas de integración al comportamiento vigente. El 11 de noviembre de 2026, sobre la rama `develop` del backend (commit `2dc1632`, merge del PR #38), `./mvnw test` sin Docker reportó 2792 pruebas, sin fallos ni errores, de las cuales 566 se omitieron porque requieren Docker (Testcontainers). El 12 de noviembre de 2026, con Docker activo, `./mvnw test` sobre la rama `develop` del backend ejecutó 2825 pruebas, sin fallos, errores ni pruebas omitidas (BUILD SUCCESS, en 2 min 42 s), de modo que también corrieron las pruebas de integración y persistencia con Testcontainers. Las pruebas de la aplicación nativa son unitarias, en `app/src/test` (`SignUpValidatorTest`, `CertificateParserTest`, `VerificationCaseTest`, `CertificateMismatchTest`, `WalletTest`, `FinalDemonstrationTest`, `PlanAndProfileTest`, `PathLimitsTest` y la `ExampleUnitTest` de la plantilla del proyecto): el 11 de noviembre de 2026, sobre la rama `develop` de `SkillSwap-MobileApp` (commit `9881db1`, merge del PR #23), `./gradlew testDebugUnitTest` (las pruebas unitarias locales de `./gradlew test` en la variante debug) ejecutó 41 pruebas en 9 clases, sin fallos, errores ni pruebas omitidas. La aplicación Flutter del Verificador tiene 43 pruebas: 26 de BLoC (`bloc_test.dart`), 16 de dominio (`domain_test.dart`) y 1 de widget (`widget_test.dart`); el mismo día, sobre la rama `develop` de `SkillSwap-MobileApp-Flutter` (commit `5ae7534`, merge del PR #7), `flutter test` (Flutter 3.47.9) ejecutó las 43 pruebas y todas pasaron. Elaboración propia.
+
+#### 4.2.2.6. Execution Evidence for Sprint Review
+
+Esta sección presenta las vistas principales implementadas en el Sprint 2, ejecutadas en un dispositivo físico, junto con el video que muestra la navegación lograda: [Link del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201924127_upc_edu_pe/IQBiaEWA0dZxS4cRAFytrWjHAcbC8PycKPbX58erzbpnDXs?e=mWaabg&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D).
+
+**Figura 142**
+
+*Captura del certificado con la cámara y lectura con ML Kit*
+
+<p align="center">
+  <img src="images-doc/app-estudiante-captura-certificado.jpg" alt="Captura del certificado con la cámara y lectura con ML Kit" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+En esta imagen se presenta la captura del certificado con la cámara del dispositivo y la lectura de sus datos con ML Kit. La aplicación muestra la institución, el curso y la fecha de emisión leídos, que el Estudiante puede corregir antes de enviar el certificado. Luego informa que el certificado quedó registrado con estado Unverified y riesgo LowRisk, y que no cubre la habilidad «Networking basics» (afinidad de 0 % frente al mínimo de 70 %), por lo que sugiere subir otro certificado, rendir el quiz o entregar el proyecto del nodo.
+
+**Figura 143**
+
+*Confirmación de la habilidad interpretada*
+
+<p align="center">
+  <img src="images-doc/app-estudiante-confirmar-habilidad.jpg" alt="Confirmación de la habilidad interpretada" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+En esta imagen se presenta el detalle del nodo 2 de 7, «Programming fundamentals», ya completado. La aplicación muestra los pasos para completar un nodo (subir el certificado, la confirmación de la IA y el quiz o el proyecto) y el botón «Habilitarme como Verificador», con el mensaje que confirma que el Estudiante quedó habilitado como Verificador de esa habilidad.
+
+**Figura 144**
+
+*Consulta de la ruta sin conexión*
+
+<p align="center">
+  <img src="images-doc/app-estudiante-ruta-sin-conexion.jpg" alt="Consulta de la ruta sin conexión" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+En esta imagen se presenta la ruta activa del Estudiante, «Quiero aprender desarrollo backend con Java y Spring», con 1 de 7 nodos completados (14 %). La aplicación avisa que no hay conexión y que muestra los datos guardados en el teléfono. La ruta conserva el estado de cada nodo: el siguiente paso, el nodo completado, los nodos bloqueados con sus requisitos y el nodo disponible.
+
+**Figura 145**
+
+*Quiz con respuestas conservadas ante la pérdida de conexión*
+
+<p align="center">
+  <img src="images-doc/app-estudiante-quiz-avance-conservado.jpg" alt="Quiz con respuestas conservadas ante la pérdida de conexión" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+En esta imagen se presenta el quiz del nodo «Object-oriented programming» con 3 de 5 preguntas respondidas. Las opciones elegidas permanecen marcadas y la etiqueta «Guardado» indica que el avance se conservó en el dispositivo ante la pérdida de conexión.
+
+**Figura 146**
+
+*Resultado del quiz con el sub-tema débil*
+
+<p align="center">
+  <img src="images-doc/app-estudiante-resultado-subtema.png" alt="Resultado del quiz con el sub-tema débil" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+En esta imagen se presenta el resultado de un quiz que no alcanzó el mínimo: 3 de 5 respuestas correctas (60 %). La aplicación identifica el sub-tema más débil, «Polimorfismo y Sobrescritura», y ofrece repasarlo o volver a la ruta. Además, indica que se abrió un caso que revisará un Verificador, con estado Pendiente y acceso para ver su estado.
+
+**Figura 147**
+
+*Entrega de un miniproyecto*
+
+<p align="center">
+  <img src="images-doc/app-estudiante-entrega-miniproyecto.jpg" alt="Entrega de un miniproyecto" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+En esta imagen se presenta el miniproyecto del nodo 4, cuyo enunciado fue generado por IA: «Sistema de Simulación de Logística y Flota de Envíos». La aplicación muestra la fecha límite de entrega (04/11/2026 10:06) y los requerimientos, entre ellos la jerarquía de vehículos, el encapsulamiento, el polimorfismo y la composición.
+
+**Figura 148**
+
+*Pantalla principal del Verificador en la aplicación Flutter*
+
+<p align="center">
+  <img src="images-doc/app-verificador-flutter-herramientas.png" alt="Pantalla principal del Verificador en la aplicación Flutter" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+En esta imagen se presenta la pantalla principal del Verificador en la aplicación Flutter. Muestra su disponibilidad para casos de «Networking basics», sus indicadores (SkillCredits, confiabilidad y casos resueltos) y la lista de casos asignados, que aparece vacía porque aún no se le asignó ninguno. Desde la barra inferior accede a sus casos y a sus SkillCredits.
+
+**Figura 149**
+
+*Acceso con biometría del dispositivo*
+
+<p align="center">
+  <img src="images-doc/app-estudiante-biometria.jpg" alt="Acceso con biometría del dispositivo" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+En esta imagen se presenta el perfil del Estudiante con el acceso mediante huella o rostro activado, confirmado con el mensaje «Acceso biométrico activado». El perfil también muestra el saldo de SkillCredits (0) y la lista de movimientos, vacía hasta que el usuario resuelva casos como Verificador.
+
+#### 4.2.2.7. Services Documentation Evidence for Sprint Review
+
+Los endpoints incorporados en el Sprint 2 se documentan con OpenAPI 3.1 mediante springdoc-openapi, en la misma documentación interactiva del backend desplegado (`/swagger-ui/index.html`).
+
+**Tabla 31**
+
+*Endpoints documentados en el Sprint 2*
+
+| Verbo | Endpoint | Acción | Auth | Parámetros | Respuestas |
+|---|---|---|---|---|---|
+| POST | `/api/v1/learning-paths/skill-options` | Listar las habilidades del catálogo que encajan con la meta, sin crear la ruta (US07) | Sí (Student) | Body: `goal` (1 a 500 caracteres) | `200` lista de hasta 5 habilidades, la de mejor afinidad primero · `400` `InvalidGoal` · `409` `GoalAlreadyAchieved` · `422` `GoalNotInterpretable` |
+| POST | `/api/v1/learning-paths` | Confirmar la habilidad elegida y crear la ruta (US07) | Sí (Student) | Body: `goal`, `skillTag` (opcional: la habilidad elegida entre las opciones) y `advanced` (opcional) | `201` ruta creada para esa habilidad, sin interpretar de nuevo el texto · `400` · `409` `PlanLimitReached`, `AdvancedPathUnlockRequired` o todas las habilidades ya demostradas · `422` `GoalNotInterpretable` o `SkillNotInCatalog` |
+| GET | `/api/v1/assessment-attempts/{id}` | Consultar el sub-tema débil de un intento (US20) | Sí (Student dueño) | Path: `id` | `200` `AssessmentAttemptResource` (incluye `weakSubTopic`, nulo si no hay un sub-tema débil) · `403` intento de otro Estudiante · `404` intento inexistente |
+| POST | `/api/v1/path-nodes/{nodeId}/mini-project` | Generar el miniproyecto de un nodo, o devolver el vigente (US19) | Sí (Student) | Path: `nodeId` · Query: `regenerate` (opcional, por defecto `false`) | `200` miniproyecto vigente · `201` miniproyecto generado con IA (enunciado, rúbrica de 4 a 6 criterios y plazo de 5 días) · `403` nodo de otro Estudiante · `404` · `409` nodo bloqueado, ruta completada o en pausa · `503` `MiniProjectGenerationFailed` |
+| GET | `/api/v1/path-nodes/{nodeId}/mini-project` | Consultar el último miniproyecto de un nodo (US19) | Sí (Student) | Path: `nodeId` | `200` miniproyecto · `404` `MiniProjectNotFound` |
+| POST | `/api/v1/mini-projects/{miniProjectId}/submissions` | Entregar un miniproyecto (US19) | Sí (Student dueño) | Path: `miniProjectId` · Body: `repositoryUrl` (http o https, hasta 500 caracteres) | `201` entrega recibida con `evaluationStatus` `Pending`, sin caso de verificación; publica el evento `MiniProjectSubmitted` y la evaluación preliminar de la IA se ejecuta en segundo plano (header `Location` con la URL de consulta) · `400` `InvalidRepositoryUrl` · `403` `NotMiniProjectOwner` · `404` · `409` `MiniProjectAlreadySubmitted`, `MiniProjectOutdated`, `MiniProjectExpired` u `OpenCaseAlreadyExists` |
+| GET | `/api/v1/mini-projects/{miniProjectId}/submissions/{submissionId}` | Consultar la evaluación preliminar de una entrega (US19) | Sí (Student dueño) | Path: `miniProjectId`, `submissionId` | `200` entrega con `evaluationStatus` (`Pending`, `Approved`, `Escalated` o `EscalationLimitReached`), `preliminaryScore` y `preliminaryConfidence` (0 a 100), `preliminaryFeedback`, `evaluatedAt` y, si se abrió, `verificationCaseId` y `verificationCaseStatus` · `403` `NotSubmissionOwner` · `404` `MiniProjectSubmissionNotFound` |
+| POST | `/api/v1/shareable-credentials` | Generar el enlace público de una habilidad verificada, o devolver el que ya existe (US33) | Sí (Student) | Body: `skillTag` | `201` enlace generado (`token`, `url` y `shareText` en el idioma de la solicitud) · `200` ya existía · `400` sin habilidad · `409` la habilidad no está verificada |
+| GET | `/api/v1/shareable-credentials` | Consultar los enlaces del Estudiante, del más nuevo al más antiguo (US33) | Sí (Student) | — | `200` lista de enlaces |
+| GET | `/api/v1/public/credentials/{token}` | Ver la credencial pública, sin cuenta (US33) | No (el token es la llave) | Path: `token` | `200` nombre, habilidad y SkillCredits, sin correo ni id del Estudiante · `404` token inexistente |
+| POST | `/api/v1/reevaluations` | Ordenar la reevaluación de un resultado aprobado (US37) | Sí (Verificador senior) | Body: `sourceType` (`Attempt` o `Case`), `sourceId`, `justification` (hasta 2000 caracteres) | `201` reevaluación registrada (el nodo vuelve a disponible o el caso se reabre) · `400` tipo de origen o justificación inválidos · `403` no es Verificador senior, o es su propio resultado · `404` · `409` resultado no aprobado, nodo que no puede reabrirse o caso en curso |
+| GET | `/api/v1/reevaluations/candidates` | Listar los resultados aprobados que el Verificador senior puede reevaluar, del más reciente al más antiguo (US37) | Sí (Verificador senior) | Query: `skillTag` (opcional) · `limit` (opcional, entero; 20 por defecto y 50 como máximo) | `200` lista de `ReevaluationCandidateResource`: `sourceType` (`Attempt` o `Case`), `sourceId` (el valor que se envía en `POST /api/v1/reevaluations`), `skillTag`, `caseType` (`Quiz` o `MiniProject`, nulo para un intento), `resolvedAt` y `approvedByName` (nombre del Verificador que aprobó el caso, nulo para un intento), sin datos del Estudiante · `403` `NotSeniorVerifier` |
+| POST | `/api/v1/verifier-profiles/{verifierUserId}/suspension` | Suspender a un Verificador con confiabilidad menor a 60 (US38) | Sí (Verificador senior) | Path: `verifierUserId` · Body: `justification` (obligatoria, hasta 2000 caracteres) | `200` perfil suspendido (deja de recibir casos y los que tenía en curso pasan a otros) · `400` `JustificationRequired` o `JustificationTooLong` · `403` `NotSeniorVerifier` · `404` · `409` `CannotSuspendSelf`, `AlreadySuspended` o `NotLowReliability` |
+| DELETE | `/api/v1/verifier-profiles/{verifierUserId}/suspension` | Reinstalar a un Verificador suspendido (US38) | Sí (Verificador senior) | Path: `verifierUserId` | `200` perfil reinstalado · `403` `NotSeniorVerifier` · `404` · `409` `NotSuspended` |
+| GET | `/api/v1/metrics/demand` | Consultar las habilidades más pedidas y las certificaciones más subidas (US40) | Sí (Verificador senior) | Query: `from` y `to` (`yyyy-MM-dd`, últimos 30 días por defecto, máximo 366) · `limit` (1 a 50, por defecto 10) | `200` métricas de demanda · `400` · `403` no es Verificador senior |
+| GET | `/api/v1/metrics/difficulty` | Consultar las habilidades con más fallos y los sub-temas más débiles (US40) | Sí (Verificador senior) | Los mismos parámetros de `demand` | `200` métricas de dificultad · `400` · `403` |
+| GET | `/api/v1/metrics/verifiers` | Consultar a los Verificadores ordenados por confiabilidad (US40) | Sí (Verificador senior) | Query: `order` (`asc` o `desc`, por defecto `desc`) | `200` actividad y confiabilidad de los Verificadores · `400` · `403` |
+| POST | `/api/v1/final-demonstrations` | Programar la demostración final de una ruta completada (US28) | Sí (Student dueño de la ruta) | Body: `learningPathId`, `modality` (`AdvancedProject` o `SupervisedExam`) y `scheduledAt` (ISO-8601 en UTC, con al menos 24 horas de anticipación) | `201` demostración programada y Verificador asignado (habilitado en una habilidad de la ruta, disponible y con menos carga) · `400` · `403` · `404` · `409` ruta no completada, fecha con menos de 24 horas, sin Verificador disponible o ya hay una demostración programada, entregada o aprobada |
+| GET | `/api/v1/final-demonstrations/me` | Consultar las demostraciones del Estudiante, la más reciente primero (US28) | Sí (Student) | — | `200` lista de demostraciones |
+| GET | `/api/v1/final-demonstrations/assigned` | Consultar las demostraciones asignadas al Verificador, la más próxima primero (US29) | Sí (Verificador) | — | `200` lista (vacía si no es Verificador) |
+| GET | `/api/v1/final-demonstrations/{id}` | Consultar una demostración (US28) | Sí (Student dueño o Verificador asignado) | Path: `id` | `200` · `403` · `404` |
+| PATCH | `/api/v1/final-demonstrations/{id}/reschedule` | Reprogramar una demostración programada (US28) | Sí (Student dueño) | Path: `id` · Body: `scheduledAt` | `200` · `400` · `403` · `404` · `409` fecha con menos de 24 horas o la demostración ya no está programada |
+| PATCH | `/api/v1/final-demonstrations/{id}/cancel` | Cancelar una demostración programada (US28) | Sí (Student dueño) | Path: `id` | `200` · `403` · `404` · `409` la demostración ya no está programada |
+| POST | `/api/v1/final-demonstrations/{id}/video` | Subir el video de la demostración (US29) | Sí (Student dueño) | Path: `id` · Body: `multipart/form-data`, parte `file` (MP4, WebM o QuickTime, hasta 25 MB); se puede reemplazar hasta que el Verificador lo revise | `200` estado `VideoSubmitted` · `400` sin archivo · `403` · `404` · `409` cancelada, aprobada o rechazada · `413` más de 25 MB · `415` formato no admitido · `502` falla del almacenamiento |
+| GET | `/api/v1/final-demonstrations/{id}/video` | Obtener el enlace temporal (15 minutos) del video (US29) | Sí (Student dueño o Verificador asignado) | Path: `id` | `200` enlace · `403` · `404` sin demostración o sin video |
+| PATCH | `/api/v1/final-demonstrations/{id}/review` | Calificar el video con la rúbrica (US29) | Sí (Verificador asignado) | Path: `id` · Body: `score` (0 a 100; 70 o más aprueba) y `feedback` (hasta 1000 caracteres, obligatorio si rechaza) | `200` · `400` puntaje o retroalimentación inválidos · `403` · `404` · `409` el video no se entregó o ya fue revisado; el Estudiante recibe una notificación push de aprobación o rechazo |
+
+*Nota.* Endpoints implementados a la fecha (tasks T46, T52, T54, T56, T57, T59, T61, T63, T67 y T69). `GET /api/v1/reevaluations/candidates` se agregó con el PR #37 del backend para la pantalla de reevaluación de la app Flutter (T60); al 11 de noviembre de 2026 figura en la especificación OpenAPI publicada en AWS (`/v3/api-docs`, operación `getCandidates` del grupo `Reevaluations`). El acceso con biometría (US03) no agrega endpoints, porque se resuelve en el dispositivo. La demostración final (US28 y US29, tasks T67 y T69) se calcula con la rúbrica de 0 a 100 y acredita SkillCredits al Verificador que la revisa. Elaboración propia.
+
+**Figura 150**
+
+*Documentación Swagger de los endpoints del Sprint 2*
+
+<p align="center">
+  <img src="images-doc/swagger-endpoints-sprint-2.png" alt="Documentación Swagger de los endpoints del Sprint 2" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+**Tabla 32**
+
+*Commits relacionados con la documentación de los Web Services en el Sprint 2*
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| SkillSwap-WebServices-Java | feature/recognition-store-four-benefits | `fba65b9` | docs(recognition): describe the four benefits in the API and cover them in the REST tests | Documentación OpenAPI de los cuatro beneficios del canje (`CreditTransactionsController`, `RedeemResource`, `CreditTransactionResource`). | 2026-10-22 |
+| SkillSwap-WebServices-Java | fix/email-logging | `4edbbe8` | docs(deploy): explain how to check the verification email logs | `deploy-render.md` explica cómo revisar los registros del correo de verificación. | 2026-10-16 |
+| SkillSwap-WebServices-Java | feature/billing-smoke | `c042255` | test(billing): add simulated subscription smoke test and real RevenueCat checklist | `revenuecat-real-checklist.md` documenta los pasos para pasar del cobro simulado a RevenueCat. | 2026-10-23 |
+
+*Nota.* Commits de documentación de los Web Services a la fecha; los endpoints se documentan con anotaciones OpenAPI en los mismos commits que los implementan (Tabla 29), como `GET /api/v1/reevaluations/candidates`, documentado en el commit `98b4714` del PR #37. Elaboración propia.
+
+#### 4.2.2.8. Software Deployment Evidence for Sprint Review
+
+Para el hito AV2 las aplicaciones móviles deben poder instalarse y probarse en un dispositivo real. El equipo las distribuye con **Firebase App Distribution**, en el proyecto de Firebase `skillswap-moviles`, el mismo que usa la app para las notificaciones push. Este servicio permite entregar versiones de prueba como APK a un grupo de probadores (*testers*) sin publicarlas en una tienda; la publicación en Google Play se verá cuando el docente la presente en clase. La Tabla 33 resume los parámetros de distribución de cada app. Además, al 12 de noviembre de 2026 los dos APK están disponibles como releases en GitHub, y el Landing Page los ofrece como descarga directa; Firebase queda como opción para el Estudiante.
+
+**Cambio de despliegue del backend: de Render a AWS (31/10/2026)**
+
+Durante el Sprint 2 el backend cambió de entorno de despliegue. El 31 de octubre de 2026 Render avisó de la suspensión de la base de datos PostgreSQL gratuita, que había expirado, y el backend dejó de poder arrancar. El equipo lo trasladó a Amazon Web Services (AWS). El despliegue en Render del Sprint 1 (4.2.1.8) no se modifica: queda como el registro de cómo se desplegó en esa iteración.
+
+* **Servidor:** una instancia Amazon EC2 en la región de N. Virginia (`us-east-1`), con Ubuntu Server 24.04 LTS, tipo `t3.small`, 30 GiB de disco y una IP elástica fija.
+* **Contenedores (Docker Compose):** el backend (Java 21 / Spring Boot), PostgreSQL 16 sin puerto expuesto al exterior y Caddy como proxy inverso, que da HTTPS automático con certificados de Let's Encrypt.
+* **Dirección pública:** el dominio gratuito de DuckDNS `https://skillswap-innovify.duckdns.org`. La documentación Swagger está en [https://skillswap-innovify.duckdns.org/swagger-ui/index.html](https://skillswap-innovify.duckdns.org/swagger-ui/index.html).
+* **Seguridad:** el grupo de seguridad deja abiertos al público solo los puertos 80 y 443, y el 22 (SSH) únicamente a la IP del administrador. Los secretos están en un archivo `.env` del servidor, que no se versiona (`.gitignore`).
+* **Archivos de despliegue:** `docker-compose.yml`, `Caddyfile` y `.env.aws.example`, en el repositorio `SkillSwap-WebServices-Java` (rama `feature/deploy-aws-compose`, PR #36, commit `2392f36` `chore(deploy): add docker compose with Caddy for the AWS server`).
+* **Datos:** la base de datos se creó vacía y su esquema se construye con las migraciones de Flyway V1 a V22. Las cuentas de prueba anteriores no se migraron.
+* **Configuración que se mantiene:** el cobro de la suscripción sigue simulado (sin clave de RevenueCat), los correos de verificación se envían con Brevo (el enlace ahora usa el dominio nuevo), las notificaciones push usan Firebase, los archivos y videos se guardan en Cloudinary (límite de 25 MB) y la IA es Gemini.
+* **Clientes:** la app nativa del Estudiante apunta a la URL nueva desde el PR #23 de `SkillSwap-MobileApp` (commit `ea1753a`, 1 de noviembre de 2026), que además sube su versión a 1.2 (código de versión 2). La app Flutter del Verificador apunta a la URL nueva desde el PR #7 de `SkillSwap-MobileApp-Flutter` (commit `907f7c8`, 9 de noviembre de 2026), en `lib/shared/infrastructure/network/api_config.dart`.
+* **Actualización del servidor:** el servidor se actualiza a mano, construyendo la imagen con `docker compose up -d --build` a partir del código del backend; el repositorio no tiene un pipeline de despliegue automático. Al 11 de noviembre de 2026 la especificación OpenAPI publicada ya incluye `GET /api/v1/reevaluations/candidates`, que se integró a `develop` con el PR #37 el 9 de noviembre de 2026.
+* **Pendiente:** documentar las pruebas de integración de las dos aplicaciones contra la URL nueva al cerrar el Sprint 2.
+
+**Figura 151**
+
+*Instancia EC2 del backend en AWS*
+
+<p align="center">
+  <img src="images-doc/aws-ec2-instancia.png" alt="Instancia EC2 del backend en AWS" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+**Figura 152**
+
+*Swagger UI del backend en AWS*
+
+<p align="center">
+  <img src="images-doc/swagger-aws-duckdns.png" alt="Swagger UI del backend en AWS" width="900">
+</p>
+
+*Nota.* Al 11 de noviembre de 2026, el Swagger UI está en línea y la especificación OpenAPI que publica en `/v3/api-docs` (SkillSwap Platform API, versión v1) declara como servidor `https://skillswap-innovify.duckdns.org`. La especificación incluye `GET /api/v1/reevaluations/candidates` (operación `getCandidates` del grupo `Reevaluations`), que consume la pantalla de reevaluación de la app Flutter (T60) y se integró a `develop` con el PR #37 del backend. Elaboración propia.
+
+**Distribución de las aplicaciones móviles**
+**Tabla 33**
+
+*Parámetros de distribución de las aplicaciones móviles*
+
+| Parámetro | App nativa del Estudiante | App Flutter del Verificador |
+|---|---|---|
+| Repositorio | `SkillSwap-MobileApp` | `SkillSwap-MobileApp-Flutter` |
+| Tecnología | Kotlin / Jetpack Compose | Flutter / Dart |
+| Identificador de la app | `com.innovify.skillswap` | `com.innovify.skillswap_verifier` |
+| Versión | 1.3, disponible en GitHub Releases al 12 de noviembre de 2026; la versión 1.2 (código de versión 2), desde el 1 de noviembre de 2026, se publicó en Firebase App Distribution según confirmó el equipo el 11 de noviembre de 2026; la captura de la Figura 153 corresponde a la versión 1.2 (código de versión 2) | 1.0.1, disponible en GitHub Releases al 12 de noviembre de 2026 |
+| Android mínimo | Android 10 (API 29) | El que define Flutter para el proyecto (`flutter.minSdkVersion`) |
+| Plataforma de distribución | GitHub Releases (descarga directa del APK) y Firebase App Distribution, proyecto `skillswap-moviles` | GitHub Releases (descarga directa del APK) |
+| Método de publicación | APK adjunto a un release de GitHub con el nombre `skillswap-student.apk`; subida manual del APK en la consola de Firebase | APK adjunto a un release de GitHub con el nombre `skillswap-verificador.apk` |
+| Grupo de probadores | Descarga abierta desde el Landing Page, sin invitación (GitHub Releases); grupo `equipo` en Firebase | Descarga abierta desde el Landing Page, sin invitación |
+| Backend que consume | `https://skillswap-innovify.duckdns.org` (AWS), configurado en `RetrofitClient` desde el PR #23 (commit `ea1753a`, 1 de noviembre de 2026) | `https://skillswap-innovify.duckdns.org` (AWS), configurado en `lib/shared/infrastructure/network/api_config.dart` desde el PR #7 (commit `907f7c8`, 9 de noviembre de 2026) |
+| Estado | Versión 1.3 disponible para descarga directa desde el Landing Page; la versión 1.0 se distribuyó y se descargó en un dispositivo físico, y la versión 1.2, que consume el backend en AWS, se publicó en Firebase App Distribution (confirmación del equipo, 11 de noviembre de 2026) | Versión 1.0.1 disponible para descarga directa desde el Landing Page, con siete pantallas del Verificador integradas en `develop` y cliente configurado con el backend en AWS |
+| Enlace de descarga directa | [`skillswap-student.apk`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp/releases/latest/download/skillswap-student.apk) (unos 84 MB) | [`skillswap-verificador.apk`](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter/releases/latest/download/skillswap-verificador.apk) (unos 54 MB) |
+
+*Nota.* El identificador y la versión de la app nativa se toman de `app/build.gradle.kts`, y los de la app Flutter, de `android/app/build.gradle.kts` y `pubspec.yaml`, en la rama `develop` de cada repositorio. La URL del backend vigente desde el 31 de octubre de 2026 es la de AWS, y las dos apps apuntan a ella; las pruebas de integración de ambas apps contra ella quedan pendientes. Elaboración propia.
+
+**Procedimiento de publicación de una versión:**
+
+1. Generar el APK en Android Studio (Build → Build Bundle(s) / APK(s) → Build APK(s)).
+2. Abrir la consola de Firebase, entrar al proyecto `skillswap-moviles` y abrir App Distribution.
+3. En la pestaña Releases, pulsar Distribute y subir el archivo APK.
+4. Elegir el grupo `equipo` como destinatario y escribir las notas de la versión.
+5. Pulsar Distribute. Firebase envía un correo de invitación a cada probador del grupo y deja disponible un enlace de invitación.
+
+**Procedimiento de instalación (probador):** abrir el correo de invitación o el enlace de invitación en el celular Android, aceptar la invitación con la cuenta de Google, descargar el APK desde Firebase e instalarlo, permitiendo la instalación desde esta fuente si el sistema lo solicita.
+
+**Enlace de invitación a la app nativa del Estudiante:** [https://appdistribution.firebase.dev/i/eb345a85ef8857fa](https://appdistribution.firebase.dev/i/eb345a85ef8857fa)
+
+La app se instaló desde Firebase en un dispositivo físico y se conectó al backend, que entonces estaba desplegado en Render (ver 4.2.1.8), con el que se probó el flujo del Estudiante del Sprint 2. Como el plan gratuito de Render suspendía el servicio tras 15 minutos sin tráfico, la primera pantalla de la sesión podía tardar en responder. Desde el 31 de octubre de 2026 el backend está en AWS, como se describe al inicio de esta sección, y la versión 1.2 (código de versión 2), que apunta a ese backend, ya está publicada en Firebase App Distribution con este mismo procedimiento, según confirmó el equipo el 11 de noviembre de 2026. El archivo `google-services.json` no se sube al repositorio, que es público, sino que se comparte entre el equipo por un canal privado.
+
+Del lado del Verificador, la app Flutter (`com.innovify.skillswap_verifier`, versión 1.0.1) tiene sus siete pantallas (T58, T60, T62, T64, T71, T72 y T76) integradas en la rama `develop` de su repositorio, su cliente HTTP apunta al backend en AWS desde el PR #7 (9 de noviembre de 2026) y se distribuye como APK mediante GitHub Releases.
+
+**Descarga directa con GitHub Releases:** para que cualquier persona pueda instalar las aplicaciones sin una invitación, el equipo publica cada APK como un *release* en el repositorio de la app. El Landing Page enlaza al archivo del último release (`releases/latest/download/<archivo>`), por lo que, al publicar una nueva versión, basta con adjuntar el APK con el mismo nombre. Al 12 de noviembre de 2026 están disponibles la versión 1.3 de la app nativa del Estudiante (`skillswap-student.apk`, unos 84 MB) y la versión 1.0.1 de la app Flutter del Verificador (`skillswap-verificador.apk`, unos 54 MB); se comprobó que ambos enlaces descargan el archivo.
+
+**Procedimiento de publicación en GitHub Releases:**
+
+1. Generar el APK de release (en Android Studio para la app nativa y con `flutter build apk --release` para la app Flutter).
+2. En el repositorio de la app en GitHub, abrir Releases y pulsar Draft a new release.
+3. Crear la etiqueta de la versión y escribir las notas del release.
+4. Adjuntar el APK con el nombre exacto que usa el Landing Page: `skillswap-student.apk` o `skillswap-verificador.apk`.
+5. Publicar el release como el último (Set as the latest release).
+
+**Procedimiento de instalación (descarga directa):** abrir el Landing Page en el celular Android, ir a la sección de descarga y pulsar Descargar APK en la app que corresponda. Android pide permitir la instalación desde el navegador (instalar apps desconocidas) y Play Protect puede mostrar una advertencia, porque las apps no se distribuyen por Google Play.
+
+**Figura 153**
+
+*Versión 1.2 de la app nativa publicada en Firebase App Distribution*
+
+<p align="center">
+  <img src="images-doc/firebase-app-distribution-release.png" alt="Versión 1.2 de la app nativa publicada en Firebase App Distribution" width="900">
+</p>
+
+*Nota.* Release de la versión 1.2 (código de versión 2) en la consola de Firebase App Distribution, con la app nativa apuntando al backend en AWS (rama `develop` desde el 1 de noviembre de 2026). Elaboración propia.
+
+**Figura 154**
+
+*Correo de invitación de Firebase App Distribution*
+
+<p align="center">
+  <img src="images-doc/firebase-correo-invitacion.png" alt="Correo de invitación de Firebase App Distribution" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+**Figura 155**
+
+*Release de la app nativa del Estudiante en GitHub Releases*
+
+<p align="center">
+  <img src="images-doc/github-release-estudiante.png" alt="Release de la app nativa del Estudiante en GitHub Releases" width="900">
+</p>
+
+*Nota.* Release de la versión 1.3 con el archivo `skillswap-student.apk` en el repositorio `SkillSwap-MobileApp`. Elaboración propia.
+
+**Figura 156**
+
+*Release de la app Flutter del Verificador en GitHub Releases*
+
+<p align="center">
+  <img src="images-doc/github-release-verificador.png" alt="Release de la app Flutter del Verificador en GitHub Releases" width="900">
+</p>
+
+*Nota.* Release de la versión 1.0.1 con el archivo `skillswap-verificador.apk` en el repositorio `SkillSwap-MobileApp-Flutter`. Elaboración propia.
+
+**Figura 157**
+
+*App nativa del Estudiante instalada en un dispositivo físico*
+
+<p align="center">
+  <img src="images-doc/app-estudiante-instalada-celular.jpg" alt="App nativa del Estudiante instalada en un dispositivo físico" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+El Landing Page sigue publicado en GitHub Pages desde la rama `main` (ver 4.1.4). En el Sprint 2 se le agregó la sección de descarga con el enlace de instalación de la app (T77). Después, el PR #13 de `SkillSwap-LandingPage` (9 de noviembre de 2026) dejó el inglés como idioma por defecto, completó las traducciones de las claves `data-i18n` y corrigió los enlaces `hreflang` de `partnerships.html`. El 12 de noviembre de 2026 se integraron los PR #15 y #16, que ofrecen la descarga directa de los APK desde GitHub Releases con un rediseño de la sección principal y un selector de rol, y muestran las versiones 1.3 del Estudiante y 1.0.1 del Verificador, y el PR #17, que deja Firebase App Distribution como opción secundaria, agrega la página de términos y condiciones en español e inglés, detecta el idioma `es-419` y suma un enlace para saltar al contenido, el foco visible y metadatos SEO. Todo ello está en `main` desde el PR #18 (12 de noviembre de 2026).
+
+**Figura 158**
+
+*Landing Page publicado y verificado en el Sprint 2*
+
+<p align="center">
+  <img src="images-doc/landing-page-en-linea.png" alt="Landing Page publicado y verificado en el Sprint 2" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+#### 4.2.2.9. Team Collaboration Insights during Sprint
+
+Esta sección presenta los analíticos de colaboración del Sprint 2 en los repositorios del proyecto y su interpretación. Se cuentan los commits sin merge registrados en la rama `develop` de cada repositorio entre el 10 de octubre y el 11 de noviembre de 2026, y los Pull Requests integrados en ese período. La fecha de corte es el 11 de noviembre de 2026, con el merge del PR #108 del informe (12:15, UTC−5); no se cuentan los commits de la versión v.13.AV2 del informe:
+
+* **SkillSwap-WebServices-Java (backend):** 69 commits en los PR #16 a #38. Alberca Saavedra, Víctor Manuel registra 62 commits en 21 PR (sub-tema débil, reevaluación y su consulta de candidatos, miniproyecto y su caso de verificación, opciones de habilidad, suspensión de Verificadores, métricas, credencial compartible, tienda de cuatro beneficios, notificaciones push, demostración final, despliegue en AWS y ajuste de tres pruebas de integración). Komatsu Dueñas, David registra 7 commits en 2 PR: el PR #21 (T56, evaluación preliminar del miniproyecto con Gemini y apertura del caso solo cuando no alcanza el puntaje mínimo o la confianza) y el PR #22 (precisión de los instantes del miniproyecto y de su entrega); además, integró en `develop` el PR #37, cuyos commits son de Alberca Saavedra.
+* **SkillSwap-MobileApp (app nativa del Estudiante):** 57 commits en los PR #1 a #23. Alberca Saavedra registra 54 commits en 22 PR y Becerra Ninahuanca, Luis Angel, 3 commits en el PR #10 (T47, T53 y T55).
+* **SkillSwap-MobileApp-Flutter (app del Verificador):** 25 commits en los PR #1 y #3 a #7. Becerra Ninahuanca registra 7 commits en el PR #1 (migración de la base a BLoC, Dio y get_it por Bounded Context; T71, T58 y T64; y sus pruebas). Alberca Saavedra registra 17 commits: la base de la aplicación (`feature/app-base`) y los PR #3 a #6 (T72, T62, T60 y T76). Komatsu Dueñas registra 1 commit en el PR #7 (cliente apuntando al backend en AWS).
+* **SkillSwap-LandingPage:** 7 commits en los PR #9, #11 y #13. Alberca Saavedra registra 4 commits en los PR #9 y #11 (T77 y el video About the Product incrustado), y Komatsu Dueñas, 3 commits en el PR #13 (inglés como idioma por defecto, traducciones de las claves `data-i18n` y enlaces `hreflang`).
+* **SkillSwap-ProjectReport:** 38 commits en los PR #90 a #108; el detalle está en la sección Project Report Collaboration Insights (AV2).
+
+En el período, los cinco repositorios suman 196 commits sin merge: 159 de Alberca Saavedra, 27 de Komatsu Dueñas y 10 de Becerra Ninahuanca. Alberca Saavedra concentró la construcción de las dos aplicaciones y del backend del Sprint 2, integró la mayoría de los Pull Requests y trasladó el backend a AWS; Becerra Ninahuanca participó en las dos aplicaciones móviles, y Komatsu Dueñas, en el backend, en la app Flutter, en el Landing Page y en el informe.
+
+**Figura 159**
+
+*Historial de commits de los repositorios durante el Sprint 2*
+
+<p align="center">
+  <img src="images-doc/github-insights-commits-sprint-2.png" alt="Historial de commits de los repositorios durante el Sprint 2" width="900">
+</p>
+
+*Nota.* Historial de commits de la rama `develop` de `SkillSwap-MobileApp` con el PR #10, que integra las tasks T47, T53 y T55. Elaboración propia.
+
+**Figura 160**
+
+*Gráficos de contribuciones de los repositorios durante el Sprint 2*
+
+<p align="center">
+  <img src="images-doc/github-insights-contributors-backend.png" alt="Contribuciones del repositorio SkillSwap-WebServices-Java durante el Sprint 2" width="900">
+</p>
+
+<p align="center">
+  <img src="images-doc/github-insights-contributors-app-nativa.png" alt="Contribuciones del repositorio SkillSwap-MobileApp durante el Sprint 2" width="900">
+</p>
+
+<p align="center">
+  <img src="images-doc/github-insights-contributors-flutter.png" alt="Contribuciones del repositorio SkillSwap-MobileApp-Flutter durante el Sprint 2" width="900">
+</p>
+
+<p align="center">
+  <img src="images-doc/github-insights-contributors-landing.png" alt="Contribuciones del repositorio SkillSwap-LandingPage durante el Sprint 2" width="900">
+</p>
+
+*Nota.* Gráficos de Insights → Contributors de los cuatro repositorios, del 10 de octubre al 11 de noviembre de 2026. De arriba abajo: `SkillSwap-WebServices-Java`, `SkillSwap-MobileApp`, `SkillSwap-MobileApp-Flutter` y `SkillSwap-LandingPage`. Elaboración propia.
+
+En estas imágenes se presenta, para cada repositorio, el gráfico de contribuciones con los commits de cada integrante por semana durante el período del Sprint 2. La primera corresponde al backend, la segunda a la aplicación nativa del Estudiante, la tercera a la aplicación Flutter del Verificador y la cuarta al Landing Page. Los totales de commits y de Pull Requests de cada repositorio se detallan en la lista anterior; el repositorio del informe se evidencia en la sección Project Report Collaboration Insights (AV2).
+
+
+## 4.3. Validation Interviews
+
+Esta sección registra y explica las actividades de validación de SkillSwap con usuarios de los dos segmentos objetivo definidos en 1.3. A diferencia de las entrevistas de descubrimiento de 2.2, que se hicieron antes de construir el producto, aquí las personas usan el Landing Page y las aplicaciones y comparten sus observaciones. Incluye el diseño de las sesiones (4.3.1), el registro de cada entrevista (4.3.2) y la evaluación de la experiencia según heurísticas de usabilidad, arquitectura de información y diseño inclusivo (4.3.3). Cada sesión se graba y se registra en 4.3.2, y la evaluación sigue el formato del Anexo E del enunciado.
+
+### 4.3.1. Diseño de Entrevistas
+
+Cada sesión dura de 20 a 30 minutos, es individual y se hace por videollamada o de forma presencial. El participante usa los productos en un dispositivo físico con datos de prueba, piensa en voz alta mientras realiza las tareas y responde una entrevista semiestructurada al final. El moderador no sugiere la respuesta y un segundo integrante toma notas. Se pide permiso para grabar y el nombre solo se muestra si el participante lo autoriza. Por indicación del docente para este curso, el Estudiante prueba el Landing Page y la aplicación nativa (Kotlin / Jetpack Compose), y el Verificador, solo la aplicación Flutter. La Tabla 34 resume las tareas de cada segmento, los user flows de 3.1.4.4 que ejercitan y su criterio de éxito. Cada tarea se anota como completada sin ayuda, completada con ayuda o no completada, con el tiempo empleado y los errores observados.
+
+**Tabla 34**
+
+*Tareas de las sesiones de validación y user flows que ejercitan*
+
+| Tarea | Descripción | Segmento | Producto | Historias | User flow (3.1.4.4) | Criterio de éxito |
+|---|---|---|---|---|---|---|
+| E1 | Conocer la propuesta, los planes y cómo empezar en el Landing Page | 1 | Landing Page | US41, US43, US44, US45 | — | Explica qué ofrece SkillSwap y encuentra planes, preguntas frecuentes y cómo empezar sin ayuda |
+| E2 | Registrarse con correo institucional, elegir el plan e iniciar sesión (con huella, si activa el acceso biométrico) | 1 | App nativa | US01, US02, US03, US05 | UF1 (Figura 116) | Completa el registro y vuelve a entrar |
+| E3 | Declarar su meta y confirmar la habilidad interpretada | 1 | App nativa | US06, US07, US08 | UF2 (Figura 117) | Elige una habilidad y entiende por qué se le propone |
+| E4 | Subir un certificado con la cámara, revisar los datos leídos y vincularlo a un nodo | 1 | App nativa | US11, US12, US13, US15 | UF3 (Figura 118) | Corrige un dato leído y vincula el certificado |
+| E5 | Consultar su ruta sin conexión (modo avión) | 1 | App nativa | US10 | UF2 y UF3 | Reconoce que está sin conexión y ve su ruta |
+| E6 | Resolver un quiz, perder la conexión a mitad y leer el sub-tema débil | 1 | App nativa | US17, US18, US20, US21 | UF4 (Figura 119) | Retoma sin perder respuestas e identifica qué reforzar |
+| E7 | Entregar un miniproyecto y revisar el estado de su caso | 1 | App nativa | US19, US16, US27 | UF4 (Figura 119) | Entrega el enlace e interpreta el estado del caso |
+| E8 | Programar su demostración final y subir el video | 1 | App nativa | US28, US29 | — | Elige modalidad y horario y sube el video |
+| V1 | Activar su disponibilidad | 2 | App Flutter | US23 | UF5 (Figura 120) | Cambia su disponibilidad y confirma el cambio |
+| V2 | Revisar un caso con la rúbrica y registrar su decisión | 2 | App Flutter | US24, US25 | UF5 (Figura 120) | Califica cada criterio y envía la decisión dentro del plazo |
+| V3 | Reevaluar un resultado, suspender a un Verificador o consultar las métricas | 2 | App Flutter | US37, US38, US40 | — | Completa la acción que se le pide |
+| V4 | Compartir un logro verificado | 2 | App Flutter | US33 | — | Obtiene el enlace y lo comparte |
+
+*Nota.* UF1 a UF5 son los User Flows de 3.1.4.4 (Figuras 116 a 120). E1, E8 y V3 a V4 no tienen un user flow en 3.1.4.4 porque esas historias se incorporaron en el Sprint 2. Las tareas del Verificador corresponden a las pantallas de la aplicación Flutter integradas en `develop`. Elaboración propia.
+
+#### Segmento objetivo #1: Personas que quieren aprender
+
+**Elementos de la sesión.** El Landing Page (propuesta de valor, cómo funciona, planes y precios, preguntas frecuentes y cómo empezar) y la aplicación nativa del Estudiante, con los user flows UF1 a UF4 y las tareas E1 a E8 de la Tabla 34. El participante parte del Landing Page, sin indicaciones, y luego recibe un dispositivo con la aplicación instalada y una cuenta de prueba con una ruta completada para la tarea E8.
+
+**Preguntas.**
+
+*Antes de las tareas (perfil y expectativas)*
+
+1. Cuéntame brevemente qué estudias y qué cursos o certificados has tomado en línea.
+2. Cuando escuchas «valida tus habilidades con IA», ¿qué esperas encontrar?
+
+*Landing Page*
+
+1. Después de ver la página de inicio, ¿qué entiendes que ofrece SkillSwap?
+2. ¿Encuentras con facilidad cuánto cuesta y cómo empezar?
+3. ¿Qué información te falta para decidirte a registrarte?
+
+*Durante las tareas (pensando en voz alta)*
+
+1. ¿Qué esperas que pase al tocar este botón?
+2. Con el certificado leído con la cámara, ¿los datos extraídos son los que esperabas?
+3. Cuando perdiste la conexión, ¿cómo te diste cuenta y qué esperabas poder hacer?
+4. ¿Entiendes el resultado del quiz y el sub-tema que debes reforzar?
+
+*Al terminar*
+
+1. ¿Qué paso te costó más y por qué?
+2. ¿Confiarías en una credencial verificada por la IA y por otro estudiante?
+3. ¿Te ayuda esta evaluación (quiz, sub-tema, miniproyecto y demostración final) a saber qué reforzar?
+4. ¿Pagarías la suscripción mensual con lo que viste? ¿Qué tendría que incluir para que valga la pena?
+5. ¿Qué agregarías o quitarías?
+6. Del 1 al 5, ¿qué tan probable es que la uses y que la recomiendes?
+
+#### Segmento objetivo #2: Personas que validan el conocimiento
+
+**Elementos de la sesión.** El Landing Page y un video de la aplicación Flutter del Verificador, con el user flow UF5 y las tareas V1 a V4 de la Tabla 34. El moderador muestra el Landing Page y, en el video, las funciones del Verificador: activar la disponibilidad, revisar un caso con una rúbrica dentro de un plazo, ganar SkillCredits y canjearlos con la huella o el PIN del dispositivo, ver las métricas de confiabilidad, reevaluar un resultado o suspender a un Verificador, y compartir un logro verificado en LinkedIn. Las tareas V1 a V4 se plantean como preguntas sobre lo que el participante espera de cada función.
+
+**Preguntas.**
+
+*Antes de las tareas (perfil)*
+
+1. Cuéntame qué habilidad dominas y si has revisado el trabajo de otras personas.
+
+*Durante las tareas (pensando en voz alta)*
+
+1. Al activar tu disponibilidad, ¿qué esperas que ocurra?
+2. Al abrir un caso, ¿qué información necesitas antes de decidir? ¿La rúbrica te resulta clara?
+3. ¿Se entiende cuánto tiempo te queda para resolverlo?
+
+*Al terminar*
+
+1. ¿Qué tan claro es cómo se te asignan los casos?
+2. ¿Qué opinas de ganar SkillCredits por cada caso resuelto y de poder canjearlos por beneficios?
+3. ¿Qué indicadores de confiabilidad esperarías ver de ti y de otros Verificadores?
+4. Para reevaluar un resultado o suspender a un Verificador, ¿qué datos necesitarías tener a la vista?
+5. ¿Compartirías un logro verificado en LinkedIn? ¿Qué texto esperarías que aparezca?
+6. ¿Qué agregarías o quitarías?
+7. Del 1 al 5, ¿qué tan probable es que uses la aplicación para verificar a otras personas?
+
+### 4.3.2. Registro de Entrevistas
+
+Para cada segmento se registran de 3 a 5 entrevistas. De cada una se indican los nombres, apellidos, edad y distrito del entrevistado, un cuadro del video, el URL del video en el OneDrive del docente con el momento en que inicia la entrevista y su duración, y un resumen de sus apreciaciones sobre las tareas asignadas.
+
+#### Segmento objetivo #1: Personas que quieren aprender
+
+Para este segmento se realizan de 3 a 5 entrevistas de validación con estudiantes universitarios o egresados recientes, que usan el Landing Page y la aplicación nativa. Por falta de tiempo para reclutar participantes, las tres entrevistas de este segmento son simuladas: los participantes son personajes elaborados por el equipo a partir de la investigación de 2.2, interpretados por conocidos del equipo, y sus respuestas no corresponden a usuarios reales.
+
+**Entrevista 1**
+
+* **Nombres:** Mariana
+* **Apellidos:** Salazar
+* **Edad:** 21
+* **Distrito:** Surco
+* **Perfil:** Estudiante de Ingeniería de Sistemas
+* **Tipo de entrevista:** Simulada (personaje elaborado por el equipo)
+* **Segmento objetivo:** Personas que quieren aprender
+* **Fecha:** 12/11/2026
+* **Productos usados:** Landing Page y aplicación nativa
+* **URL del video (YouTube):** [Link del video](https://www.youtube.com/watch?v=wVLtsU3ZKwQ)
+* **Inicio de la entrevista en el video:** 00:00:00
+* **Duración:** 6:37
+
+**Figura 161**
+
+*Entrevista de validación 1: Personas que quieren aprender*
+
+<p align="center">
+  <img src="images-doc/entrevista-aprender-1.png" alt="Entrevista de validación 1: Mariana" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+*Resumen.* Mariana Salazar, de 21 años, estudia Ingeniería de Sistemas y tiene certificados de Python y SQL en Coursera y uno de Scrum en LinkedIn Learning. Contó que en una prueba técnica de prácticas no pudo resolver algunas consultas SQL aunque tenía el certificado, y que ahí entendió que el certificado no garantiza saber aplicarlo.<br><br>**Landing Page (E1).** Entendió que SkillSwap comprueba lo que dicen sus certificados y valoró que parta de lo que ya estudió. Encontró rápido cómo empezar, pero sugirió un acceso directo a las preguntas frecuentes.<br><br>**Registro, plan y acceso biométrico (E2).** Al usar su correo personal, el mensaje le indicó que debía usar el de la universidad. No entendió qué es un «escalamiento» en el plan. El ingreso con huella le pareció práctico.<br><br>**Meta y ruta (E3).** Para la meta «analista de datos» la aplicación le propuso SQL y Python, lo que le pareció acertado. Pidió ver el tiempo aproximado de cada nodo.<br><br>**Certificado con la cámara (E4).** El certificado de SQL se leyó completo; en el de Scrum el logo tapó el nombre de la institución y lo corrigió sin dificultad. Destacó que la aplicación confirmara que el certificado correspondía a la habilidad del nodo.<br><br>**Sin conexión y quiz (E5 y E6).** Vio el aviso de sin conexión y su respuesta del quiz se conservó. Aprobó con cuatro de cinco y valoró que igual le mostrara el sub-tema fallado («JOIN entre tablas»).<br><br>**Miniproyecto (E7).** Entregó un repositorio de GitHub, pero dudó si debía ser público. No supo cuánto tardaría la revisión ni si recibiría una notificación.<br><br>**Demostración final (E8).** La programó sin problemas; no sabía la duración máxima del video.<br><br>**Cierre.** Pondría la credencial en LinkedIn y pagaría entre 15 y 20 soles al mes mientras se prepara para prácticas. Calificó con 4 la probabilidad de usarla y con 5 la de recomendarla.
+
+**Entrevista 2**
+
+* **Nombres:** Marco
+* **Apellidos:** Paredes
+* **Edad:** 22
+* **Distrito:** San Miguel
+* **Perfil:** Estudiante de Administración
+* **Tipo de entrevista:** Simulada (personaje elaborado por el equipo)
+* **Segmento objetivo:** Personas que quieren aprender
+* **Fecha:** 12/11/2026
+* **Productos usados:** Landing Page y aplicación nativa
+* **URL del video (YouTube):** [Link del video](https://www.youtube.com/watch?v=n53WUVagpE4)
+* **Inicio de la entrevista en el video:** 00:00:00
+* **Duración:** 7:53
+
+**Figura 162**
+
+*Entrevista de validación 2: Personas que quieren aprender*
+
+<p align="center">
+  <img src="images-doc/entrevista-aprender-2.png" alt="Entrevista de validación 2: Marco" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+*Resumen.* Marco Paredes, de 22 años, estudia Administración y tiene certificados de marketing digital (Google Actívate) y de Excel intermedio (Udemy). En una entrevista no supo explicar cómo armaría una campaña con poco presupuesto, aunque había hecho el curso.<br><br>**Landing Page (E1).** Entendió la propuesta gracias a la sección de cómo funciona. Tuvo que leer dos veces los planes por los términos nuevos.<br><br>**Registro, plan y acceso biométrico (E2).** El registro le resultó fácil, pero no entendió «escalamientos al mes». Buscó el ingreso con huella en el inicio de sesión antes de encontrarlo en el perfil.<br><br>**Meta y ruta (E3).** Para «marketing digital» la aplicación le propuso analítica de marketing; esperaba algo de redes sociales, aunque la explicación y la ruta por pasos le resultaron claras.<br><br>**Certificado con la cámara (E4).** El certificado de Google se leyó bien; el de Udemy, con fondo oscuro, no, y tuvo que escribir el nombre del curso. Sugirió indicar que la foto se tome con buena luz.<br><br>**Sin conexión y quiz (E5 y E6).** No perdió respuestas, aunque no notó cuándo volvió la conexión. Obtuvo dos de cinco y entendió que debía reforzar «métricas de conversión»; pidió un mensaje más motivador al no aprobar.<br><br>**Miniproyecto (E7).** Como no usa GitHub, entregó un enlace de Google Drive sin saber si era válido. No supo cuánto demora la revisión.<br><br>**Demostración final (E8).** Eligió el examen supervisado y subió el video, sin saber cuánto debía durar.<br><br>**Cierre.** Considera que la credencial vale más que el certificado en su carrera; pagaría menos de 15 soles al mes. Pidió más rutas para carreras que no son de tecnología. Calificó con 3 la probabilidad de usarla y con 4 la de recomendarla.
+
+**Entrevista 3**
+
+* **Nombres:** Camila
+* **Apellidos:** Ríos
+* **Edad:** 21
+* **Distrito:** Jesús María
+* **Perfil:** Estudiante de Ingeniería de Gestión Empresarial
+* **Tipo de entrevista:** Simulada (personaje elaborado por el equipo)
+* **Segmento objetivo:** Personas que quieren aprender
+* **Fecha:** 07/11/2026
+* **Productos usados:** Landing Page y aplicación nativa
+* **URL del video (YouTube):** [Link del video](https://www.youtube.com/watch?v=6pSZT_vAOX4)
+* **Inicio de la entrevista en el video:** 00:00:00
+* **Duración:** 5:04
+
+**Figura 163**
+
+*Entrevista de validación 3: Personas que quieren aprender*
+
+<p align="center">
+  <img src="images-doc/entrevista-aprender-3.png" alt="Entrevista de validación 3: Camila" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+*Resumen.* Camila Ríos, de 21 años, estudia Ingeniería de Gestión Empresarial y tiene certificados de Excel avanzado (Coursera) y Power BI (Platzi). En su entrevista de prácticas le pidieron resolver un caso en Excel, y notó que el certificado solo indicaba que había terminado el curso.<br><br>**Landing Page (E1).** Entendió que SkillSwap valida en la práctica los certificados que ya tiene. Pidió ver un ejemplo de la credencial final antes de registrarse.<br><br>**Registro, plan y acceso biométrico (E2).** El registro fue rápido, pero no entendió qué es un «escalamiento». Activó el ingreso con huella y le pareció más rápido que la contraseña.<br><br>**Meta y ruta (E3).** Para «analista de gestión» la aplicación le propuso análisis de datos con Excel, con su justificación; la ruta le dejó claro por dónde empezar.<br><br>**Certificado con la cámara (E4).** La fecha en inglés se leyó mal y la corrigió antes de guardar; el resto de datos fue correcto y le ahorró tiempo.<br><br>**Sin conexión y quiz (E5 y E6).** Siguió viendo su ruta sin conexión y el quiz continuó donde lo dejó. Obtuvo tres de cinco y entendió que debía reforzar «tablas dinámicas»; pidió recomendaciones de dónde estudiarlo.<br><br>**Miniproyecto (E7).** El enunciado le resultó claro, pero no sabía si el enlace debía ser de Drive o de GitHub. Vio el caso como pendiente y pidió un tiempo aproximado de respuesta.<br><br>**Demostración final (E8).** Programarla fue sencillo; el video tardó en subir con datos móviles y pidió una barra de progreso.<br><br>**Cierre.** Pondría la credencial en LinkedIn y en su CV, y pagaría menos de 20 soles al mes. Calificó con 4 tanto la probabilidad de usarla como la de recomendarla.
+
+#### Segmento objetivo #2: Personas que validan el conocimiento
+
+Para este segmento se realizan de 3 a 5 entrevistas de validación con personas que dominan una habilidad, a quienes se les muestra el Landing Page y un video de la aplicación Flutter del Verificador. Se registran igual que las anteriores.
+
+**Entrevista 1**
+
+* **Nombres:** Diego
+* **Apellidos:** Rojas
+* **Edad:** 23
+* **Distrito:** Lima
+* **Perfil:** Estudiante del último año de la UPC (desarrollo backend y arquitectura de software)
+* **Segmento objetivo:** Personas que validan el conocimiento
+* **Fecha:** 07/11/2026
+* **Productos usados:** Landing Page y aplicación Flutter del Verificador (mostrada en un video)
+* **URL del video (OneDrive):** [Link del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201924127_upc_edu_pe/IQDyHOHLyq_QTp9SCUjGRdOjATuB0DxIVRHfo_Itv8gd-Ok?e=3JqVGV&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+* **Inicio de la entrevista en el video:** 00:00:00
+* **Duración:** 7:56
+
+**Figura 164**
+
+*Entrevista de validación 1: Personas que validan el conocimiento*
+
+<p align="center">
+  <img src="images-doc/entrevista-validar-1.png" alt="Entrevista de validación 1: Diego" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+*Resumen.* Diego Rojas, de 23 años, estudia el último año de la UPC y domina el desarrollo backend y la arquitectura de software. Contó que le costó conseguir su primer trabajo freelance porque los reclutadores dudaban de su dominio por su edad y por seguir estudiando, y que por eso revisa código de otras personas: quiere ayudar a que quienes saben puedan demostrarlo. Se describió como exigente: no aprueba «por pena», pero siempre deja comentarios constructivos.<br><br>**Disponibilidad (V1).** Espera recibir casos reales y listos para una revisión profunda, que el sistema los asigne rápido y que, al desactivar la disponibilidad, se corte por completo. Para él evaluar bien requiere concentración y no lo haría «a medias desde el celular mientras viajo».<br><br>**Revisión de un caso con rúbrica (V2).** Necesita la evidencia cruda (el código fuente, el documento o el proyecto real) y no capturas de pantalla a medias. Pidió una rúbrica «de hierro», muy específica sobre qué es un trabajo profesional y qué es de novato, y un campo de texto obligatorio para dejar un feedback detallado que explique paso a paso cómo corregir. Sobre el plazo, quiere un cronómetro en cuenta regresiva muy visible y un recordatorio 12 horas antes de que venza. Sobre la asignación, espera que sea estrictamente por su especialidad y pidió un botón claro para rechazar un caso que no domine al 100 %, porque evaluar a alguien en un tema que no maneja sería injusto para su futuro.<br><br>**SkillCredits y confiabilidad.** Le parece un excelente plus poder canjear los créditos por licencias de software, saldo para servidores en la nube o descuentos en certificaciones, y dijo que confirmar el canje con un PIN le da seguridad, aunque su mayor premio es que el estudiante consiga el trabajo que a él le costó conseguir. Como indicadores, quiere ver una «tasa de rigor» o de coincidencia con otros verificadores destacados y una métrica de «calidad de feedback» en la que el evaluado califique si los comentarios le sirvieron, incluso si lo desaprobó.<br><br>**Reevaluación, suspensión (V3) y logro compartible (V4).** Para reevaluar un resultado o suspender a un Verificador necesita el historial completo y sin filtros: lo que entregó el usuario, la rúbrica llenada por el primer verificador y su justificación escrita. Si detecta que alguien aprobó un trabajo mediocre solo por ganar SkillCredits rápido, pediría que lo suspendan, porque daña al estudiante y la credibilidad de la aplicación. Compartiría el logro en LinkedIn con orgullo, con un texto escrito por él que diga que certificó las habilidades de un futuro talento y que «el mercado necesita pruebas reales, no solo currículums», y espera que el enlace del estudiante muestre que pasó por una validación estricta y detallada.
+
+**Entrevista 2**
+
+* **Nombres:** Alexandra Vanessa
+* **Apellidos:** Fuentes
+* **Edad:** 23
+* **Distrito:** Tarapoto
+* **Perfil:** Estudiante de Enfermería de la Universidad Nacional de San Martín
+* **Segmento objetivo:** Personas que validan el conocimiento
+* **Fecha:** 04/11/2026
+* **Productos usados:** Landing Page y aplicación Flutter del Verificador (mostrada en un video)
+* **URL del video (OneDrive):** [Link del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201924127_upc_edu_pe/IQC3BeK31iqZRpIZA30fucfjAYd4H1HBOqOhZYcJf4VlUyM?e=LwthgU&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+* **Inicio de la entrevista en el video:** 00:00:00
+* **Duración:** 5:00
+
+**Figura 165**
+
+*Entrevista de validación 2: Personas que validan el conocimiento*
+
+<p align="center">
+  <img src="images-doc/entrevista-validar-2.png" alt="Entrevista de validación 2: Alexandra Vanessa" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+*Resumen.* Alexandra Vanessa Fuentes, de 23 años, estudia Enfermería en la Universidad Nacional de San Martín, en Tarapoto. Explicó que en el área de la salud validar habilidades es más difícil porque se trata de vidas y de protocolos clínicos estrictos. Tiene experiencia apoyando trabajos de investigación, planes de cuidado y revisión de procedimientos teóricos, y quiere ayudar a que otros estudiantes de ciencias de la salud demuestren que saben aplicar la teoría, porque un examen escrito a veces no refleja el trato ni la destreza.<br><br>**Disponibilidad (V1).** Sus horarios son muy cargados, entre clases teóricas y prácticas en el hospital, por lo que espera recibir casos solo en su tiempo libre. Propuso que, si olvida desactivar la disponibilidad porque la llaman por una emergencia y no abre el caso en 15 minutos, la aplicación lo reasigne automáticamente para no perjudicar al estudiante que espera.<br><br>**Revisión de un caso con rúbrica (V2).** Considera que en enfermería un texto no basta: necesitaría evidencia visual, como un video del estudiante realizando el procedimiento (lavado de manos clínico, armado de un campo estéril, toma de signos vitales) o un caso clínico en PDF muy detallado. Pidió una rúbrica impecable, basada en normativas reales como las del MINSA, que deje claro qué errores son «críticos», porque romper la bioseguridad significa un cero automático. Sobre el plazo, un reloj o contador visible es clave y un recordatorio unas horas antes le ayudaría, pero pidió un margen prudente para los casos de salud, porque revisar un plan de cuidados de enfermería (PAE) toma tiempo si se hace con consciencia. Sobre la asignación, quiere tener seguridad de que le correspondan casos de los ciclos que ya aprobó, ver el tema de inmediato y poder rechazar un caso sin perder puntos si escapa de su conocimiento clínico actual.<br><br>**SkillCredits y confiabilidad.** Le pareció una idea brillante, porque la carrera es costosa por los materiales: canjearía los créditos por uniformes, tensiómetros, estetoscopios, acceso a revistas científicas o cursos de actualización, y dijo que confirmar con PIN o huella le da tranquilidad total. Como indicadores esperaría un «rigor clínico», es decir, cuántas veces sus evaluaciones coincidieron con las de licenciados o profesores de la plataforma, y ver cómo califica el estudiante su feedback.<br><br>**Reevaluación, suspensión (V3) y logro compartible (V4).** Necesita el historial completo: la evidencia visual enviada, la rúbrica marcada y el comentario del primer verificador. Si un verificador aprobó un procedimiento en el que se puso en riesgo la asepsia o hubo un error grave de cálculo de dosis, considera que debe ser suspendido, porque se validan competencias que impactan en la salud de las personas. Sí compartiría un logro en LinkedIn, porque en el área médica es difícil destacar antes de tener el título: espera un texto muy profesional que diga que demostró su competencia clínica y técnica validada mediante evaluación de pares con rigor académico, y que el enlace muestre la rúbrica que aprobó para que futuros empleadores de clínicas y hospitales vean que sus conocimientos prácticos son sólidos.
+
+**Entrevista 3**
+
+* **Nombres:** Claudio
+* **Apellidos:** Alberca
+* **Edad:** 29
+* **Distrito:** Lima
+* **Perfil:** Contador egresado de la PUCP, auditor interno en una firma
+* **Segmento objetivo:** Personas que validan el conocimiento
+* **Fecha:** 08/11/2026
+* **Productos usados:** Landing Page y aplicación Flutter del Verificador (mostrada en un video)
+* **URL del video (OneDrive):** [Link del video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201924127_upc_edu_pe/IQCkQH5uoKKQSZKynl_Kubb-ATaTSXYxPDaQV2tRLg72s1Q?e=ZeSlhi&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+* **Inicio de la entrevista en el video:** 00:00:00
+* **Duración:** 7:18
+
+**Figura 166**
+
+*Entrevista de validación 3: Personas que validan el conocimiento*
+
+<p align="center">
+  <img src="images-doc/entrevista-validar-3.png" alt="Entrevista de validación 3: Claudio" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+*Resumen.* Claudio Alberca, de 29 años, es contador egresado de la PUCP y trabaja en una firma especializándose en auditoría interna. Contó que muchos días trabaja hasta la madrugada revisando balances y cuadrando cuentas. Usa la aplicación porque busca nuevas oportunidades laborales y quiere demostrar su nivel, pero también porque quiere ayudar a quienes empiezan: en el mundo financiero, dijo, si no se viene de una firma grande a veces no se cree en la capacidad de las personas, y quiere ser el verificador que les dé ese respaldo.<br><br>**Disponibilidad (V1).** Su tiempo libre es escaso y fragmentado, por ejemplo un domingo o un martes a medianoche. Espera que el sistema le asigne un caso de inmediato y tener el control absoluto para apagar la disponibilidad de golpe, porque si un gerente le pide un reporte urgente no puede arriesgarse a recibir notificaciones ni dejar colgado a un postulante.<br><br>**Revisión de un caso con rúbrica (V2).** Como auditor necesita ver los archivos crudos del estudiante (hojas de cálculo, asientos contables o análisis de datos). Pidió una rúbrica como un manual de cumplimiento o una norma NIIF, directa, objetiva y sin zonas grises, y un espacio obligatorio para dejar hallazgos que indiquen exactamente dónde falló el trabajo, como lo haría con un analista junior. Sobre el plazo, quiere un temporizador muy claro y un recordatorio unas horas antes, que le parece una excelente medida de control. Sobre la asignación, espera que sea muy precisa y de su rama (auditoría interna, control de riesgos o análisis financiero), con un botón para rechazar al instante un caso muy específico, por ejemplo de costos industriales, que no tiene fresco.<br><br>**SkillCredits y confiabilidad.** Le parece un buen incentivo: canjearía los créditos por cursos de Power BI, actualizaciones tributarias, herramientas de software o incluso vales de café, y calificó la validación con huella o PIN como «el control interno perfecto». Como indicadores le interesaría un «índice de precisión» o nivel de consenso con otros profesionales senior, y ver cómo evalúan los usuarios su feedback, para saber si sus comentarios, aun siendo estrictos, los ayudan a mejorar.<br><br>**Reevaluación, suspensión (V3) y logro compartible (V4).** Necesita la trazabilidad completa del caso: el entregable original, la nota del verificador cuestionado y su justificación. Si detecta que alguien aprobó un estado financiero cuadrado a la fuerza solo por ganar SkillCredits rápido, considera que esa persona daña la confianza del mercado en la aplicación y debe ser suspendida de inmediato. Compartiría el logro en LinkedIn, donde su red es corporativa, con un texto formal y sobrio que diga que participó como validador certificando competencias técnicas en Auditoría Interna mediante revisiones exhaustivas de casos prácticos, y espera que para el estudiante el logro se vea como una certificación rigurosa que cualquier gerente de finanzas pueda abrir y comprobar.
+
+### 4.3.3. Evaluaciones según Heurísticas
+
+La evaluación sigue el formato del Anexo E del enunciado y considera heurísticas de usabilidad (Nielsen, 1994), de arquitectura de información y de diseño inclusivo. La severidad se mide con la escala de la Tabla 35. Los problemas que siguen los identificó el equipo al revisar la versión actual del Landing Page, de la aplicación nativa del Estudiante y de la aplicación Flutter del Verificador, y se complementan con los que aparezcan en las sesiones de validación de 4.3.2. Entre los aspectos que sí se cumplen: las 24 imágenes del Landing Page tienen texto alternativo, la página declara el idioma español y ofrece una versión en inglés.
+
+**UX Heuristics & Principles Evaluation** · Usability · Inclusive Design · Information Architecture
+
+* **CARRERA:** Ingeniería de Software
+* **CURSO:** 1ACC0238 Aplicaciones para dispositivos móviles
+* **NRC:** 4948
+* **PROFESORES:** Eduardo Martin Reyes Rodriguez
+* **AUDITOR:** Innovify
+* **CLIENTE(S):** Diego, Alexandra, Claudio
+
+**SITE o APP A EVALUAR:** SkillSwap: Landing Page, aplicación nativa del Estudiante y aplicación Flutter del Verificador.
+
+**TAREAS A EVALUAR:** la evaluación revisa la usabilidad de las tareas E1 a E8 y V1 a V4 de la Tabla 34 (conocer la propuesta, registrarse e iniciar sesión, declarar la meta, subir un certificado, consultar la ruta sin conexión, resolver un quiz, entregar un miniproyecto y programar la demostración final, para el Estudiante; y activar la disponibilidad, revisar un caso con la rúbrica, reevaluar, suspender, consultar las métricas y compartir un logro, para el Verificador).
+
+No están incluidas en esta versión de la evaluación: 1) el canje de beneficios en la tienda de SkillCredits (T76), que se integró en la aplicación Flutter el 29 de octubre de 2026, después de esta revisión; 2) el cobro real de la suscripción, que está simulado.
+
+**ESCALA DE SEVERIDAD**
+
+**Tabla 35**
+
+*Escala de severidad de los problemas*
+
+| Nivel | Descripción |
+|---|---|
+| 1 | Problema superficial: puede ser superado fácilmente por el usuario y ocurre con muy poca frecuencia. No necesita corregirse a menos que haya tiempo. |
+| 2 | Problema menor: ocurre algo más seguido o es algo más difícil de superar. Se le asigna prioridad baja para el siguiente release. |
+| 3 | Problema mayor: ocurre con frecuencia o los usuarios no pueden resolverlo. Es importante corregirlo y se le asigna prioridad alta. |
+| 4 | Problema muy grave: tiene gran impacto e impide al usuario continuar con la herramienta. Es imperativo corregirlo antes del lanzamiento. |
+
+*Nota.* Escala del Anexo E del enunciado. Elaboración propia.
+
+**TABLA RESUMEN**
+
+**Tabla 36**
+
+*Resumen de los problemas de la evaluación heurística*
+
+| # | Problema | Escala de severidad | Heurística/Principio violada(o) |
+|---|---|---|---|
+| 1 | Los botones «Iniciar Sesión» y «Registrarse» de la página de inicio del Landing Page enlazan a la misma página de inicio | 3 | Information Architecture: Is it findable? |
+| 2 | Los llamados a la acción principales del Landing Page no llevan a ninguna parte y no hay un enlace de descarga de la aplicación | 3 | Information Architecture: Is it usable? |
+| 3 | Las pantallas de inicio de sesión de las dos aplicaciones no permiten recuperar la contraseña | 3 | Usability: Ayuda para reconocer, diagnosticar y recuperarse de errores |
+| 4 | Cerrar sesión no pide confirmación en ninguna de las dos aplicaciones | 2 | Usability: Prevención de errores |
+| 5 | La opción «Mi billetera» lleva a una pantalla que también contiene el plan y los intereses | 2 | Information Architecture: Is it findable? |
+| 6 | Los errores y confirmaciones se muestran con mensajes temporales (Toast o SnackBar) que no se pueden volver a leer | 2 | Usability: Visibilidad del estado del sistema |
+| 7 | Las dos aplicaciones solo tienen tema claro | 1 | Inclusive Design: Offer choice |
+| 8 | El Landing Page tiene español e inglés, pero las aplicaciones solo tienen español | 1 | Inclusive Design: Provide comparable experience |
+| 9 | La app Flutter muestra «Aún no eres Verificador» sin ofrecer una salida | 3 | Usability: Control y libertad del usuario |
+
+*Nota.* Revisión del equipo sobre la versión del 26 de octubre de 2026 del Landing Page y de la aplicación nativa, y sobre la versión del 28 de octubre de 2026 de la aplicación Flutter (problema #9 y ajustes a los problemas #3, #4, #6, #7 y #8). Elaboración propia.
+
+**DESCRIPCIÓN DE PROBLEMAS**
+
+**PROBLEMA #1:** Los botones «Iniciar Sesión» y «Registrarse» de la página de inicio del Landing Page enlazan a la misma página de inicio
+
+* **Severidad:** 3
+* **Heurística violada:** Information Architecture: Is it findable?
+* **Problema:** En `index.html` los dos botones de la barra de navegación están dentro de un enlace a `index.html`, por lo que desde la página de inicio no se llega a `login.html` ni a `signup.html`. Además, un botón dentro de un enlace es un elemento interactivo anidado, que los lectores de pantalla pueden anunciar dos veces.
+
+**Figura 167**
+
+*Captura del problema #1*
+
+<p align="center">
+  <img src="images-doc/heuristica-problema-1.png" alt="Captura del problema #1" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Apuntar cada enlace a `sites/login.html` y `sites/signup.html` y usar un solo elemento interactivo (el enlace con la clase del botón).
+* **Estado:** Corregido el 29 de octubre de 2026 en la rama `feature/landing-descarga-cta` (PR #9): cada botón es un único enlace, y la barra de la página de inicio ofrece «Descarga la app» en lugar de los dos botones.
+
+**PROBLEMA #2:** Los llamados a la acción principales del Landing Page no llevan a ninguna parte y no hay un enlace de descarga de la aplicación
+
+* **Severidad:** 3
+* **Heurística violada:** Information Architecture: Is it usable?
+* **Problema:** Los cuatro llamados a la acción de la página (el del encabezado y los de las secciones «Sobre nosotros», «Por qué SkillSwap» y «Así se ve una ruta») enlazan a `index.html`, es decir, recargan la misma página, y la página no ofrece un enlace para descargar o instalar la aplicación (US44).
+
+**Figura 168**
+
+*Captura del problema #2*
+
+<p align="center">
+  <img src="images-doc/heuristica-problema-2.png" alt="Captura del problema #2" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Dirigir los botones a la página de registro y agregar un botón de descarga con el enlace de instalación de la aplicación (por ejemplo, Firebase App Distribution).
+* **Estado:** Corregido el 29 de octubre de 2026 (PR #9): los llamados a la acción llevan a la sección de descarga, que enlaza la instalación con Firebase App Distribution e indica que la app aún no está en Google Play.
+
+**PROBLEMA #3:** Las pantallas de inicio de sesión de las dos aplicaciones no permiten recuperar la contraseña
+
+* **Severidad:** 3
+* **Heurística violada:** Usability: Ayuda para reconocer, diagnosticar y recuperarse de errores
+* **Problema:** La pantalla `Login` de la app nativa solo ofrece ingresar y crear una cuenta, y la de la app Flutter solo pide usuario y contraseña. Quien olvidó su contraseña no tiene cómo volver a entrar. El backend tampoco expone un endpoint de restablecimiento de contraseña.
+
+**Figura 169**
+
+*Captura del problema #3*
+
+<p align="center">
+  <img src="images-doc/heuristica-problema-3.png" alt="Captura del problema #3" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Agregar «¿Olvidaste tu contraseña?» con un flujo de restablecimiento por correo institucional (endpoint en Identity & Access y pantalla en la aplicación), o retirar la referencia del wireflow de inicio de sesión (3.1.4.2) si no se implementará.
+
+**PROBLEMA #4:** Cerrar sesión no pide confirmación en ninguna de las dos aplicaciones
+
+* **Severidad:** 2
+* **Heurística violada:** Usability: Prevención de errores
+* **Problema:** En la pantalla de la ruta, «Salir» está junto a «Mi billetera» y ejecuta el cierre de sesión de inmediato. Un toque accidental borra la sesión guardada y obliga a volver a ingresar. En la app Flutter, el ícono de cerrar sesión de la pantalla de casos tampoco pide confirmación.
+
+**Figura 170**
+
+*Captura del problema #4*
+
+<p align="center">
+  <img src="images-doc/heuristica-problema-4.png" alt="Captura del problema #4" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Pedir confirmación («¿Cerrar sesión?») con un diálogo en las dos aplicaciones, o mover la acción al perfil, lejos de las acciones frecuentes.
+
+**PROBLEMA #5:** La opción «Mi billetera» lleva a una pantalla que también contiene el plan y los intereses
+
+* **Severidad:** 2
+* **Heurística violada:** Information Architecture: Is it findable?
+* **Problema:** El botón de la ruta se llama «Mi billetera» y abre la pantalla del perfil, que además tiene los botones «Mi plan» y «Mis intereses». Quien busca su plan o sus intereses no sospecha que están bajo ese nombre.
+
+**Figura 171**
+
+*Captura del problema #5*
+
+<p align="center">
+  <img src="images-doc/heuristica-problema-5.png" alt="Captura del problema #5" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Renombrar el acceso como «Mi perfil» y organizar el perfil en tres secciones: billetera, plan e intereses.
+
+**PROBLEMA #6:** Los errores y confirmaciones se muestran con mensajes temporales (Toast o SnackBar) que no se pueden volver a leer
+
+* **Severidad:** 2
+* **Heurística violada:** Usability: Visibilidad del estado del sistema
+* **Problema:** Catorce pantallas muestran sus errores de red y sus confirmaciones con `Toast` (40 usos). Desaparecen en pocos segundos y no se pueden releer, por ejemplo si falla el envío del certificado o el registro. En la app Flutter, el inicio de sesión y las pantallas de revisión de casos, disponibilidad, reevaluación, supervisión y compartir un logro usan `SnackBar`, que también se cierra solo.
+
+**Figura 172**
+
+*Captura del problema #6*
+
+<p align="center">
+  <img src="images-doc/heuristica-problema-6.png" alt="Captura del problema #6" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Mostrar los errores que requieren una acción como mensajes persistentes en la pantalla (con «Reintentar») y dejar el `Toast` solo para confirmaciones breves.
+
+**PROBLEMA #7:** Las dos aplicaciones solo tienen tema claro
+
+* **Severidad:** 1
+* **Heurística violada:** Inclusive Design: Offer choice
+* **Problema:** El tema de la app nativa y el de la app Flutter (`AppTheme.light()`) no ofrecen modo oscuro, por lo que las personas que lo prefieren, o lo necesitan por sensibilidad a la luz, no pueden cambiarlo.
+
+**Figura 173**
+
+*Captura del problema #7*
+
+<p align="center">
+  <img src="images-doc/heuristica-problema-7.png" alt="Captura del problema #7" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Definir una paleta oscura con el mismo contraste en el tema de Compose de la app nativa y en el `AppTheme` de la app Flutter, y aplicarla según la preferencia del sistema.
+
+**PROBLEMA #8:** El Landing Page tiene español e inglés, pero las aplicaciones solo tienen español
+
+* **Severidad:** 1
+* **Heurística violada:** Inclusive Design: Provide comparable experience
+* **Problema:** El Landing Page ofrece el cambio ES/EN, mientras que los textos de la aplicación están escritos en el código y el archivo `strings.xml` solo tiene una cadena, así que una persona que elige inglés en el sitio encuentra la aplicación solo en español. Las pantallas de la app Flutter también tienen sus textos escritos en español dentro del código.
+
+**Figura 174**
+
+*Captura del problema #8*
+
+<p align="center">
+  <img src="images-doc/heuristica-problema-8.png" alt="Captura del problema #8" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Mover los textos de la app nativa a `strings.xml` y los de la app Flutter a archivos ARB con `flutter_localizations`, y agregar la traducción al inglés (en_US) junto al español (es_419), o indicar en el Landing Page que las aplicaciones están en español.
+
+**PROBLEMA #9:** La app Flutter muestra «Aún no eres Verificador» sin ofrecer una salida
+
+* **Severidad:** 3
+* **Heurística violada:** Usability: Control y libertad del usuario
+* **Problema:** Si la cuenta no tiene el rol de Verificador, la pantalla de casos solo indica que debe completar un nodo en la app del Estudiante y habilitarse, y ofrece «Volver a revisar». La app Flutter no permite habilitarse y el segmento de Verificadores usa solo esa app, por lo que quien no tiene la cuenta ya habilitada no puede continuar.
+
+**Figura 175**
+
+*Captura del problema #9*
+
+<p align="center">
+  <img src="images-doc/heuristica-problema-9.png" alt="Captura del problema #9" width="500">
+</p>
+
+*Nota.* Elaboración propia.
+
+* **Recomendación:** Agregar en la app Flutter la acción para solicitar la habilitación como Verificador de una habilidad, o aclarar en la pantalla cómo obtener el rol y usar en las sesiones una cuenta ya habilitada.
+
+
 ---
 
 
 # Conclusiones
+
+## Conclusiones y recomendaciones
 
 **Sobre el pivote del proyecto y lo que aprendimos de él**
 
@@ -5975,7 +7263,7 @@ Al implementar Assessment & Peer Review descubrimos que nuestro propio informe t
 
 **Sobre investigar la tecnología externa antes de comprometerla en el diseño**
 
-La pasarela de pago pasó por tres decisiones distintas a lo largo del proyecto: primero Stripe (descartada porque no opera en Perú), luego Culqi o Mercado Pago (considerados durante el modelado inicial), y finalmente Google Play Billing, que terminó siendo la opción correcta no por preferencia sino porque es un requisito real de Google para suscripciones distribuidas vía Play Store. Llegar a esa conclusión nos obligó además a corregir el propio modelo de dominio: a diferencia de Stripe, el backend nunca "cobra" directamente, solo verifica una compra ya realizada del lado del cliente, lo que cambió el método `charge()` original por `verifyPurchase()`. Después adoptamos RevenueCat sobre Google Play Billing para no implementar a mano la validación de compras ni las notificaciones RTDN, entendiendo que RevenueCat no reemplaza la facturación de Google: Google Play sigue procesando el cobro y RevenueCat solo valida la compra y notifica sus cambios al backend. De forma parecida, al intentar desplegar en Render descubrimos que la plataforma no ofrece MySQL como base de datos administrada —solo PostgreSQL de forma nativa— y tuvimos que migrar todo el diseño de persistencia antes de escribir una sola línea de código de infraestructura. En ambos casos, la lección fue la misma: las restricciones reales de las tecnologías y plataformas externas solo aparecen cuando uno intenta usarlas de verdad, y conviene descubrirlas investigando a tiempo en vez de durante el despliegue.
+La pasarela de pago pasó por tres decisiones distintas a lo largo del proyecto: primero Stripe (descartada porque no opera en Perú), luego Culqi o Mercado Pago (considerados durante el modelado inicial), y finalmente Google Play Billing, que terminó siendo la opción correcta no por preferencia sino porque es un requisito real de Google para suscripciones distribuidas vía Play Store. Llegar a esa conclusión nos obligó además a corregir el propio modelo de dominio: a diferencia de Stripe, el backend nunca "cobra" directamente, solo verifica una compra ya realizada del lado del cliente, lo que cambió el método `charge()` original por `verifyPurchase()`. Después adoptamos RevenueCat sobre Google Play Billing para no implementar a mano la validación de compras ni las notificaciones RTDN, entendiendo que RevenueCat no reemplaza la facturación de Google: Google Play sigue procesando el cobro y RevenueCat solo valida la compra y notifica sus cambios al backend. De forma parecida, al intentar desplegar en Render descubrimos que la plataforma no ofrece MySQL como base de datos administrada —solo PostgreSQL de forma nativa— y tuvimos que migrar todo el diseño de persistencia antes de escribir una sola línea de código de infraestructura. En ambos casos, la lección fue la misma: las restricciones reales de las tecnologías y plataformas externas solo aparecen cuando uno intenta usarlas de verdad, y conviene descubrirlas investigando a tiempo en vez de durante el despliegue. Algo parecido pasó en el Sprint 2: la base de datos gratuita de Render expiró el 31 de octubre de 2026 y el backend se trasladó a AWS (4.2.2.8).
 
 **Sobre migrar el backend de .NET a Java sin perder lo construido**
 
@@ -5985,6 +7273,140 @@ El backend del Sprint 1 se construyó primero en C# / ASP.NET Core, y cuando el 
 
 Terminado el Sprint 1, nos sentamos a comparar sistemáticamente lo que el backend realmente hacía contra lo que el informe decía, Bounded Context por Bounded Context. Encontramos decenas de diferencias pequeñas (nombres de clases, rutas de endpoints, campos que no existían) y varias de fondo (registrar un certificado no completa un nodo por sí solo, sino solo cuando un Verificador lo valida; la evidencia de un caso es solo una URL y no un archivo subido, Identity & Access exige el dominio institucional desde el registro y no mediante un código posterior). Ninguna de esas diferencias era un error del código: eran decisiones reales que tomamos durante la construcción y que el documento de diseño simplemente no había alcanzado a reflejar todavía. Corregirlas todas de una sola vez, en vez de ir parchando el informe mientras programábamos, nos permitió entregar un documento consistente de principio a fin — y nos dejó claro que, en un proyecto de este tamaño, el informe de arquitectura necesita su propio ciclo de mantenimiento, igual que el código.
 
+
+**Sobre atender la retroalimentación del docente y separar a los actores por aplicación**
+
+La revisión del TB1 nos dejó ajustes concretos que cambiaron el informe más de lo que esperábamos. Sacar el Landing Page del Deployment Diagram nos recordó que un sitio estático independiente no pertenece a la infraestructura de la aplicación; definir mejor al Verificador nos obligó a reunir en una sola descripción reglas que estaban repartidas en varias secciones (habilitación por habilidad, rúbrica, confiabilidad, apelaciones y Verificador senior); y la indicación del docente de que, para este curso, cada actor se vincule a una sola aplicación —el Estudiante a la aplicación nativa (Kotlin / Jetpack Compose) y al Landing Page, y el Verificador a la aplicación Flutter— nos llevó a rehacer los diagramas de contexto, contenedores y despliegue. Lo que lo hizo manejable fue que el backend expone un único contrato de API para ambos clientes: la separación por actor cambia quién consume cada pantalla, no las reglas del dominio.
+
+**Sobre planificar el Sprint 2 con el tiempo que queda**
+
+Para el Sprint 2 incluimos las trece historias que seguían pendientes. Por indicación del docente, en este avance la aplicación del Estudiante debe quedar completa y la del Verificador solo en una parte, así que entraron todas las historias del Estudiante (captura del certificado, confirmación de la habilidad, uso sin conexión, evaluación práctica, acceso con biometría y demostración final) y, del Verificador, siete de sus catorce historias (el 50 %), con la reevaluación, la suspensión, las métricas, el logro compartible, la revisión de casos, la disponibilidad y el canje de SkillCredits. Las 34 tasks suman 197 horas y las repartimos entre los cinco integrantes en cargas similares, de modo que nadie concentre el backend más complejo y que cada aplicación (nativa y Flutter) tenga responsables claros. Al 30 de octubre las 34 tasks del Sprint 2 están en Done: la aplicación del Estudiante quedó completa, la del Verificador tiene sus siete pantallas integradas y el Landing Page ofrece la descarga de la app.
+
+### Contraste con los Problem Statements, las hipótesis y los criterios de éxito
+
+El Problem Statement (1.2.2.1) plantea que los certificados informan que una persona terminó una formación, pero no cómo se desempeña ante un caso concreto. Al cierre del Sprint 2 el producto responde a esa brecha con un recorrido completo: el Estudiante registra su certificado con la cámara, resuelve un quiz, entrega un miniproyecto y, cuando la evaluación automática no basta, un Verificador habilitado revisa su caso con una rúbrica y se programa una demostración final. Las siete hipótesis de 1.2.2.3 se contrastan en la Tabla 37 con lo construido y con la tarea de 4.3.1 que la pondrá a prueba.
+
+**Tabla 37**
+
+*Hipótesis de Lean UX, lo construido en el Sprint 2 y la tarea que las valida*
+
+| Hipótesis | Medida de éxito | Construido al Sprint 2 | Cómo se valida (Tabla 34) |
+|---|---|---|---|
+| H1. Ruta estructurada por objetivo | Renovación mensual superior al 80 % | El Estudiante declara su meta, confirma la habilidad interpretada y consulta su ruta, también sin conexión (US06, US07, US08, US10) | Tareas E3 y E5; pregunta sobre pagar la suscripción |
+| H2. Registro asistido con OCR | Al menos 85 % completa el registro del certificado | Captura con la cámara, lectura con ML Kit en el dispositivo y corrección de los datos leídos (US11 a US13) | Tarea E4: se observa si lo completa sin ayuda |
+| H3. Evaluación aplicada | Menos del 30 % de los intentos requiere un Verificador | Quiz con sub-tema débil, miniproyecto con evaluación preliminar de IA y apertura de caso solo si no alcanza 70 puntos o la confianza es baja (US17 a US21) | Tareas E6 y E7 |
+| H4. Habilitación del Verificador | Menos del 3 % de las decisiones se revierte | Habilitación al completar el nodo de la habilidad, revisión con rúbrica, reevaluación y suspensión (US24, US37, US38) | Tareas V2 y V3 |
+| H5. Asignación automática | Al menos 85 % de los casos se resuelve en 48 horas | Asignación por habilidad y disponibilidad; el Verificador activa su disponibilidad y revisa con la rúbrica (US23 a US25) | Tareas V1 y V2; pregunta sobre cómo se asignan los casos |
+| H6. SkillCredits e historial | Al menos 60 % de los Verificadores resuelve un caso al mes | SkillCredits, billetera, tienda de beneficios y logro compartible (US32, US33) | Tarea V4; pregunta sobre canjear SkillCredits |
+| H7. Apelación | Al menos 90 % de las apelaciones se resuelve en 72 horas | Backend de Moderation & Disputes desplegado; en la app nativa, el Estudiante consulta el estado de su caso y adjunta evidencia adicional (US26) | Tarea E7 |
+
+*Nota.* Las historias y tareas se detallan en 4.2.2.3. Elaboración propia.
+
+Las medidas de éxito del Problem Statement y de las hipótesis (70 % de evaluaciones completadas, 85 % de casos resueltos en 48 horas, menos del 3 % de decisiones revertidas, renovación mensual superior al 80 %) requieren uso sostenido de la plataforma. Con 3 a 5 entrevistas por segmento, las sesiones de 4.3 solo permiten comprobar si las personas entienden y completan las tareas, y si confían en la verificación; las medidas se obtienen después con las métricas de la plataforma (US40) cuando haya usuarios. Los supuestos sobre el comportamiento de los segmentos (1.2.2.2) se contrastan con los hallazgos de las entrevistas de descubrimiento (2.2.3) y se actualizan con las sesiones de validación.
+
+**Resultados de las sesiones con las personas que validan el conocimiento.** Las tres entrevistas de 4.3.2 (un estudiante de Ingeniería de Software, una estudiante de Enfermería y un contador con experiencia en auditoría interna) permiten contrastar las hipótesis H4, H5 y H6 y sus supuestos. Como los participantes vieron la aplicación en un video, sus respuestas muestran lo que esperan de cada función y no una medición de uso, de modo que los resultados son cualitativos y ninguna medida de éxito de la Tabla 37 puede darse por alcanzada con ellos.
+
+* **H4, habilitación y moderación del Verificador:** no hubo evidencia en contra. Los tres pidieron una rúbrica específica y un espacio obligatorio para dejar un feedback que explique dónde falló el trabajo, y los tres pidieron ver el historial completo (el entregable, la rúbrica llenada y la justificación) para reevaluar un resultado o suspender a un Verificador. Los tres señalaron el mismo riesgo: que alguien apruebe trabajos mediocres solo para ganar SkillCredits rápido, y coincidieron en que ese Verificador debe ser suspendido. Esto respalda la reevaluación y la suspensión como parte del proceso, pero no permite comprobar que menos del 3 % de las decisiones se revierta.
+* **H5, asignación automática:** se confirmó parcialmente. Los tres esperan que la asignación se base en su especialidad y que el sistema respete su disponibilidad, como plantea la hipótesis. Pidieron además dos cosas que la hipótesis no incluía: un botón para rechazar un caso que no dominan sin que les bajen puntos, y apagar la disponibilidad por completo en cualquier momento. La estudiante de Enfermería propuso que el caso se reasigne si no lo abre en 15 minutos, y los tres quieren un cronómetro visible y un recordatorio unas horas antes de que venza el plazo.
+* **H6, SkillCredits e historial:** los tres lo valoraron como un buen incentivo y nombraron beneficios concretos que les interesarían (licencias de software, saldo en la nube y descuentos en certificaciones; materiales de enfermería y acceso a revistas científicas; cursos de Power BI y de actualización tributaria). Los tres dijeron que confirmar el canje con la huella o el PIN les da seguridad, y los tres compartirían un logro verificado en LinkedIn, con un texto formal y un enlace que muestre la rúbrica o la validación estricta que se aplicó. Varios agregaron que su motivación no es solo el premio, sino ayudar a que otras personas puedan demostrar lo que saben. Esto es coherente con la hipótesis, aunque no mide que el 60 % de los Verificadores resuelva un caso al mes.
+
+**Supuestos que cambian** (1.2.2.2):
+
+* **Quién es el Verificador.** Se confirma que es un estudiante avanzado o un joven profesional dispuesto a revisar a cambio de reconocimiento, pero ya no solo del ámbito de la tecnología: dos de los tres vienen de Enfermería y de Contabilidad. Eso implica que los casos no se reducen a un enlace o un repositorio: pidieron ver videos de procedimientos, documentos en PDF, hojas de cálculo y asientos contables. Además, una de las participantes vive en Tarapoto, lo que cuestiona el supuesto de que los usuarios son de Lima Metropolitana.
+* **Qué mantiene activo al Verificador.** Los SkillCredits siguen siendo un incentivo válido, pero se suma la motivación de ayudar y de que la revisión sea justa, por lo que conviene que la reputación del Verificador considere la calidad de su feedback, y no solo la cantidad de casos resueltos.
+* **Cuánto control tiene sobre su tiempo.** El supuesto de que la asignación reduce el tiempo de respuesta se matiza: los Verificadores tienen horarios fragmentados (guardias, auditorías hasta la madrugada) y necesitan control inmediato sobre su disponibilidad y sobre los casos que aceptan.
+
+**Resultados de las sesiones con las personas que quieren aprender.** Las tres entrevistas de 4.3.2 (estudiantes de Ingeniería de Sistemas, Administración e Ingeniería de Gestión Empresarial) se hicieron con personajes elaborados por el equipo, como se indica en ese apartado, de modo que sus respuestas no corresponden a usuarios reales. Por eso sirven para revisar si los flujos y los mensajes que diseñamos se entienden como esperábamos, y no para confirmar ni descartar ninguna de las hipótesis H1, H2, H3 y H7. Estas deben contrastarse con usuarios reales y con las métricas de la plataforma (US40).
+
+* **H1, ruta estructurada por objetivo:** en las tres sesiones la ruta propuesta fue coherente con la meta declarada (SQL y Python para «analista de datos», análisis de datos con Excel para «analista de gestión») y dejó claro por dónde empezar. Con «marketing digital», en cambio, la aplicación propuso analítica de marketing cuando el participante esperaba redes sociales. En las tres sesiones el quiz conservó las respuestas al perder la conexión. Mariana pidió ver el tiempo aproximado de cada nodo. Sobre la suscripción, los tres pagarían hasta 20 soles al mes, y uno de ellos menos de 15. La renovación mensual superior al 80 % no puede evaluarse con estas sesiones.
+* **H2, registro asistido con OCR:** los tres completaron el registro del certificado, pero los tres tuvieron que corregir al menos un dato: el logo tapó el nombre de la institución en un certificado de Scrum, un certificado con fondo oscuro no se leyó y el participante escribió el nombre del curso, y una fecha en inglés se leyó mal. Las correcciones se hicieron sin dificultad antes de guardar, y valoraron que la aplicación confirmara que el certificado correspondía a la habilidad del nodo. Surgió la sugerencia de indicar que la foto se tome con buena luz.
+* **H3, evaluación aplicada:** dos de los tres quizzes quedaron por debajo del mínimo (dos y tres respuestas correctas de cinco) y uno lo aprobó con cuatro. En los tres casos la aplicación mostró el sub-tema a reforzar; una participante lo valoró, otro pidió un mensaje más motivador al no aprobar y otra pidió recomendaciones de dónde estudiarlo. En el miniproyecto los tres dudaron del formato de la entrega (repositorio público de GitHub o enlace de Google Drive) y de cuánto tarda la revisión. Esto no permite estimar el porcentaje de intentos que requiere un Verificador.
+* **H7, apelación:** ninguna sesión incluyó una apelación ni la carga de evidencia adicional, por lo que esta hipótesis no se contrastó. La única señal es que, ante un caso pendiente, los participantes no sabían cuánto tardaría la respuesta ni si recibirían una notificación.
+
+**Supuestos que cambian** (1.2.2.2), a partir de las mismas sesiones y con la misma salvedad:
+
+* **Quiénes son los Estudiantes.** Dos de los tres participantes no estudian una carrera de tecnología, y uno de ellos pidió más rutas para carreras que no son de tecnología. Conviene ampliar el catálogo de rutas más allá del perfil de software.
+* **Qué entienden del plan.** Los tres participantes no entendieron el término «escalamiento» del plan, y uno de ellos tuvo que leer dos veces los planes por los términos nuevos. El texto del plan debe reformularse con palabras que el Estudiante use.
+* **Qué esperan de la entrega y de la espera.** Piden saber el formato válido del miniproyecto, la duración máxima del video de la demostración, una barra de progreso al subir archivos con datos móviles y un tiempo estimado de revisión. Esto supone mostrar esos datos en las pantallas correspondientes.
+
+### Recomendaciones y próximos pasos
+
+1. **Corregir los problemas de severidad 3 de 4.3.3 antes del lanzamiento:** los problemas #1 y #2 del Landing Page ya están corregidos (PR #9); quedan la recuperación de contraseña y la salida de la pantalla «Aún no eres Verificador» de la app Flutter.
+2. **Completar el rol del Verificador:** quedan siete de las catorce historias del Verificador para el Sprint 3; tres de ellas (disputas pendientes, certificados sospechosos y plazo de actividad) aún no tienen pantalla.
+3. **Publicar las aplicaciones en Google Play:** hoy se distribuyen como APK con Firebase App Distribution (4.2.2.8); la publicación en la tienda se hará cuando el docente la presente en clase.
+4. **Activar el cobro real de la suscripción:** hoy está simulado, porque RevenueCat no tiene una clave de producción (4.1.4).
+5. **Mantener estable el backend en AWS:** el backend dejó de depender de los planes gratuitos de Render (su base de datos expiró el 31 de octubre de 2026) y hoy corre en una instancia EC2 `t3.small`; antes de recibir usuarios reales conviene definir copias de seguridad de la base de datos y vigilar el costo y la disponibilidad del servidor.
+6. **Medir las hipótesis con datos reales:** usar las métricas de la plataforma para comprobar los criterios de éxito de la Tabla 37.
+7. **Ampliar la accesibilidad:** agregar tema oscuro y textos en inglés a las dos aplicaciones, como recomiendan los problemas #7 y #8 de 4.3.3, y revisar con TalkBack cada pantalla nueva antes de integrarla, también cuando su código se escriba con apoyo de asistentes de IA. Un estudio reciente sobre interfaces nativas de Android generadas con modelos de lenguaje encontró que las construidas con Jetpack Compose resultaron más accesibles que las de las otras técnicas de diseño de pantallas evaluadas, pero que aun así presentaban problemas de accesibilidad, y que pedir la accesibilidad de forma explícita en el prompt con frecuencia introducía más problemas (Rabelo et al., 2026); por eso conviene verificar la accesibilidad de la app nativa sobre la pantalla real, sin darla por resuelta con el uso de Compose.
+
+## Video About the product
+
+El video está dirigido a quienes visitan el Landing Page y quieren conocer el modelo de negocio y las características de la solución, y a quienes usarán la aplicación para realizar sus tareas. Mantiene el tono cercano y directo del Landing Page e incluye el testimonio positivo de una persona que participó en las sesiones de validación (4.3.2).
+
+* **Nombre del archivo:** upc-pre-202620-1acc0238-4948-Innovify-about-the-product-av2.mp4
+* **URL en el OneDrive del docente:** [Video about the product.mp4](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201924127_upc_edu_pe/IQClZp6U7r6kT68Jjloa2_T5AVcuypOv8O1nrOvlZubxXNc?e=Q7sAeB&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+* **URL en YouTube (incrustado en el Landing Page):** [https://youtu.be/-XpgJySK29A](https://youtu.be/-XpgJySK29A)
+* **Duración:** 01:30
+
+**Figura 176**
+
+*Cuadro del video About the Product*
+
+<p align="center">
+  <img src="images-doc/video-about-product.png" alt="Cuadro del video About the Product" width="900">
+</p>
+
+*Nota.* Elaboración propia.
+
+**Tabla 38**
+
+*Pauta planificada del video About the Product*
+
+| Sección | Contenido | Inicio planificado |
+|---|---|---|
+| Problema | La persona que tiene certificados pero no puede demostrar lo que sabe | 00:00:00 |
+| Qué es SkillSwap | Ruta de aprendizaje, verificación de habilidades y credencial compartible | 00:00:15 |
+| Estudiante | Registro, meta, certificado con la cámara, quiz y uso sin conexión | 00:00:30 |
+| Verificador | Revisión de un caso con rúbrica, SkillCredits y logro compartible | 00:01:00 |
+| Testimonio | Opinión de una persona que participó en las sesiones de validación | 00:01:20 |
+| Cierre | Cómo probar la app y el Landing Page | 00:01:40 |
+
+*Nota.* Los tiempos se reemplazan por los reales al editar el video. Elaboración propia.
+
+## Video About the team
+
+El video presenta al equipo Innovify a través del testimonio ante cámara de cada integrante sobre las actividades realizadas, los outcomes alcanzados y las competencias desarrolladas, en línea con la sección Student Outcome. Abre con una portada del proyecto, identifica a cada integrante con su nombre y código, une los testimonios con fundidos y cierra con el logo de Innovify. Esta es la primera versión, entregada en el AV2.
+
+* **Nombre del archivo:** upc-pre-202620-1acc0238-4948-Innovify-about-the-team-av2.mp4
+* **URL en Microsoft Stream:** [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202423711_upc_edu_pe/IQDRlxDmHM6wQoCCaQL3QMScAQQaq8qkfUHYdJfHhx5yQ7w](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202423711_upc_edu_pe/IQDRlxDmHM6wQoCCaQL3QMScAQQaq8qkfUHYdJfHhx5yQ7w)
+* **URL en YouTube (incrustado en el Landing Page, página Sobre nosotros):** [https://youtu.be/_XDtUMnAASU](https://youtu.be/_XDtUMnAASU)
+* **Duración:** 07:26
+
+**Figura 177**
+
+*Cuadro del video About the Team*
+
+<p align="center">
+  <img src="images-doc/video-about-team.png" alt="Cuadro del video About the Team" width="900">
+</p>
+
+*Nota.* Testimonio de Alberca Saavedra, Víctor Manuel, con su nombre y código. Elaboración propia.
+
+**Tabla 39**
+
+*Pauta del video About the Team*
+
+| Sección | Contenido | Inicio |
+|---|---|---|
+| Portada | SkillSwap, About the Team, equipo Innovify, curso y NRC | 00:00:00 |
+| Testimonio de Alberca Saavedra, Víctor Manuel | El pivote de tutorías a verificación de habilidades, el trabajo por sprints con GitFlow, Conventional Commits y Pull Requests, la solución construida y sus aportes en el backend, las entrevistas, el Landing Page y la aplicación del Estudiante | 00:00:04 |
+| Testimonio de Becerra Ninahuanca, Luis Angel | La investigación inicial y las entrevistas, el diseño UX/UI en Figma, sus pantallas del Sprint 2 en las dos aplicaciones y el aprendizaje de Jetpack Compose y Flutter | 00:02:01 |
+| Testimonio de Komatsu Dueñas, David | El trabajo en equipo, el uso de Git y sus aportes en el informe, el backend y la corrección de errores | 00:03:20 |
+| Testimonio de Lopez Montalvo, Kevin Edu | El Startup Profile, el Solution Profile y Lean UX, la arquitectura y los design concepts, la ruta de aprendizaje y sus recomendaciones para el equipo | 00:04:04 |
+| Testimonio de Sulca Sánchez, Piero Angel | Su liderazgo en el backend del Sprint 2, la investigación de Gemini y Firebase y lo aprendido como equipo | 00:06:04 |
+| Cierre | Logo de Innovify y agradecimiento | 00:07:22 |
+
+*Nota.* Elaboración propia.
 
 # Glosario
 
@@ -6035,12 +7457,16 @@ En esta sección se definen los términos técnicos, abreviaturas y acrónimos d
 
 # Bibliografía
 
-Las referencias se organizan en las tres categorías de recursos bibliográficos que establece el enunciado del trabajo final: dominio de negocio; métodos y técnicas de ingeniería de software; y lenguajes, frameworks y herramientas.
+Las referencias se organizan en las tres categorías de recursos bibliográficos que establece el enunciado del trabajo final (Anexo G): dominio de negocio; métodos y técnicas de ingeniería de software; y lenguajes, frameworks y herramientas.
 
 **Dominio de negocio**
 
+* Alasmari, T. (2024). Reshaping vocational training: A study on the recognition of micro-credentials in job markets. *Education + Training, 66*(2/3), 233–251. [https://doi.org/10.1108/ET-07-2023-0282](https://doi.org/10.1108/ET-07-2023-0282)
+* Bruguera, C., Pagés, C., Peters, M., & Fitó, À. (2025). Micro-credentials and soft skills in online education: The employers' perspective. *Distance Education, 46*(1), 56–76. [https://doi.org/10.1080/01587919.2024.2435645](https://doi.org/10.1080/01587919.2024.2435645)
 * Coursera. (2025). *Global skills report 2025*. [https://www.coursera.org/skills-reports/global](https://www.coursera.org/skills-reports/global)
 * Instituto Nacional de Estadística e Informática. (2025). *Estadísticas de las tecnologías de información y comunicación en los hogares: II trimestre 2025* (Informe Técnico N.° 03). [https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf](https://www.inei.gob.pe/media/MenuRecursivo/boletines/informetecnico_tics_iit25.pdf)
+* Käpylä, J., & Palvalin, M. (2025). Integrating peer assessment into experiential learning: The validity and learning benefits of peer assessment in reading circle discussions. *Assessment & Evaluation in Higher Education, 50*(8), 1253–1276. [https://doi.org/10.1080/02602938.2025.2566659](https://doi.org/10.1080/02602938.2025.2566659)
+* Nguyen, T. N. H., Van Dyke, N., & Spittle, M. (2026). Micro-credentials in higher education: Perceived benefits for graduate employability and interest levels in micro-credentials for training employability skills. *Studies in Higher Education, 51*(7), 1447–1459. [https://doi.org/10.1080/03075079.2025.2516709](https://doi.org/10.1080/03075079.2025.2516709)
 * Novella, R., Alvarado, A., Rosas, D., & González-Velosa, C. (2019). *Encuesta de habilidades al trabajo (ENHAT) 2017-2018: Causas y consecuencias de la brecha de habilidades en Perú* (Nota Técnica N.° IDB-TN-1652). Banco Interamericano de Desarrollo. [https://proyectos.inei.gob.pe/iinei/srienaho/Descarga/DocumentosMetodologicos/2017-18/6-ENHAT_2017-2018_Caus_y_consec_de_la_brecha_de_habil_en_Peru.pdf](https://proyectos.inei.gob.pe/iinei/srienaho/Descarga/DocumentosMetodologicos/2017-18/6-ENHAT_2017-2018_Caus_y_consec_de_la_brecha_de_habil_en_Peru.pdf)
 * Organisation for Economic Co-operation and Development. (2024). *Bridging talent shortages in tech: Skills-first hiring, micro-credentials and inclusive outreach*. OECD Publishing. [https://doi.org/10.1787/f35da44f-en](https://doi.org/10.1787/f35da44f-en)
 * Platzi. (s. f.). *Todo lo que debes saber sobre certificados en Platzi*. Recuperado el 8 de octubre de 2026, de [https://platzi.com/blog/todo-lo-que-debes-saber-sobre-certificados-en-platzi/](https://platzi.com/blog/todo-lo-que-debes-saber-sobre-certificados-en-platzi/)
@@ -6060,7 +7486,9 @@ Las referencias se organizan en las tres categorías de recursos bibliográficos
 * Driessen, V. (2010). *A successful Git branching model*. [https://nvie.com/posts/a-successful-git-branching-model/](https://nvie.com/posts/a-successful-git-branching-model/)
 * Evans, E. (2003). *Domain-driven design: Tackling complexity in the heart of software*. Addison-Wesley.
 * Gothelf, J., & Seiden, J. (2021). *Lean UX: Creating great products with agile teams* (3.ª ed.). O'Reilly Media.
+* Grévisse, C., Pavlou, M. A. S., & Schneider, J. G. (2024). Docimological quality analysis of LLM-generated multiple choice questions in computer science and medicine. *SN Computer Science, 5*(5), Artículo 636. [https://doi.org/10.1007/s42979-024-02963-6](https://doi.org/10.1007/s42979-024-02963-6)
 * Hofer, S., & Schwentner, H. (2021). *Domain storytelling: A collaborative, visual, and agile way to build domain-driven software*. Addison-Wesley.
+* Nielsen, J. (1994). *10 usability heuristics for user interface design*. Nielsen Norman Group. [https://www.nngroup.com/articles/ten-usability-heuristics/](https://www.nngroup.com/articles/ten-usability-heuristics/)
 * Preston-Werner, T. (s. f.). *Semantic Versioning 2.0.0*. Recuperado el 8 de octubre de 2026, de [https://semver.org/](https://semver.org/)
 * Schwaber, K., & Sutherland, J. (2020). *The Scrum guide*. [https://scrumguides.org/scrum-guide.html](https://scrumguides.org/scrum-guide.html)
 * Vernon, V. (2013). *Implementing domain-driven design*. Addison-Wesley.
@@ -6082,11 +7510,13 @@ Las referencias se organizan en las tres categorías de recursos bibliográficos
 * Google Play Console Help. (s. f.-a). *Understanding Google Play's Payments policy*. Recuperado el 9 de octubre de 2026, de [https://support.google.com/googleplay/android-developer/answer/9858738](https://support.google.com/googleplay/android-developer/answer/9858738)
 * Google Play Console Help. (s. f.-b). *Understanding user choice billing on Google Play*. Recuperado el 9 de octubre de 2026, de [https://support.google.com/googleplay/android-developer/answer/13821247](https://support.google.com/googleplay/android-developer/answer/13821247)
 * Hibernate. (s. f.). *Hibernate ORM documentation*. Recuperado el 9 de octubre de 2026, de [https://hibernate.org/orm/documentation/](https://hibernate.org/orm/documentation/)
+* Jošt, G., & Taneski, V. (2025). State-of-the-art cross-platform mobile application development frameworks: A comparative study of market and developer trends. *Informatics, 12*(2), Artículo 45. [https://doi.org/10.3390/informatics12020045](https://doi.org/10.3390/informatics12020045)
 * JUnit Team. (s. f.). *JUnit 5 user guide*. Recuperado el 9 de octubre de 2026, de [https://junit.org/junit5/docs/current/user-guide/](https://junit.org/junit5/docs/current/user-guide/)
 * jwtk. (s. f.). *JJWT: Java JWT*. Recuperado el 9 de octubre de 2026, de [https://github.com/jwtk/jjwt](https://github.com/jwtk/jjwt)
 * OpenAPI Initiative. (s. f.). *OpenAPI Specification*. Recuperado el 8 de octubre de 2026, de [https://spec.openapis.org/oas/latest.html](https://spec.openapis.org/oas/latest.html)
 * Oracle. (s. f.). *Java SE 21 documentation*. Recuperado el 9 de octubre de 2026, de [https://docs.oracle.com/en/java/javase/21/](https://docs.oracle.com/en/java/javase/21/)
 * PostgreSQL Global Development Group. (s. f.). *PostgreSQL documentation*. Recuperado el 8 de octubre de 2026, de [https://www.postgresql.org/docs/](https://www.postgresql.org/docs/)
+* Rabelo, D. M. F., Muniz, J. H., Gama, K., Rocha, L., & Viana, W. (2026). Designing for all? Accessibility of native android interfaces from large language models. *Universal Access in the Information Society, 25*(4), Artículo 110. [https://doi.org/10.1007/s10209-026-01373-0](https://doi.org/10.1007/s10209-026-01373-0)
 * Render. (s. f.). *Render docs*. Recuperado el 8 de octubre de 2026, de [https://render.com/docs](https://render.com/docs)
 * RevenueCat. (s. f.). *RevenueCat documentation*. Recuperado el 9 de octubre de 2026, de [https://www.revenuecat.com/docs](https://www.revenuecat.com/docs)
 * Spring. (s. f.-a). *Spring Boot reference documentation*. Recuperado el 9 de octubre de 2026, de [https://docs.spring.io/spring-boot/](https://docs.spring.io/spring-boot/)
@@ -6107,11 +7537,6 @@ Las referencias se organizan en las tres categorías de recursos bibliográficos
 [https://github.com/Aplicaciones-Dispositivos-Moviles](https://github.com/Aplicaciones-Dispositivos-Moviles)
 
 link: [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/)
-
-**Papers:**
-Alasmari, T. (2024). Reshaping vocational training: A study on the recognition of micro-credentials in job markets. Education + Training. [https://doi.org/10.1108/ET-07-2023-0282](https://doi.org/10.1108/ET-07-2023-0282)
-
-Grevisse, C., Pavlou, M. A., & Schneider, J. (2024). Docimological quality analysis of LLM-generated multiple choice questions in computer science and medicine. SN Computer Science, 5. [https://doi.org/10.1007/s42979-024-02963-6](https://doi.org/10.1007/s42979-024-02963-6)
 
 ---
 
@@ -6142,6 +7567,20 @@ Tabla 22. *Pruebas unitarias y de integración por Bounded Context y capa*<br>
 Tabla 23. *Commits del Sprint 1 que incorporan pruebas automatizadas*<br>
 Tabla 24. *Endpoints documentados en el Sprint 1*<br>
 Tabla 25. *Commits relacionados con la documentación de los Web Services*<br>
+Tabla 26. *Sprint Planning 2*<br>
+Tabla 27. *Leadership-and-Collaboration Matrix del Sprint 2*<br>
+Tabla 28. *Sprint Backlog 2*<br>
+Tabla 29. *Commits de desarrollo en el Sprint 2*<br>
+Tabla 30. *Commits del Sprint 2 que incorporan pruebas automatizadas*<br>
+Tabla 31. *Endpoints documentados en el Sprint 2*<br>
+Tabla 32. *Commits relacionados con la documentación de los Web Services en el Sprint 2*<br>
+Tabla 33. *Parámetros de distribución de las aplicaciones móviles*<br>
+Tabla 34. *Tareas de las sesiones de validación y user flows que ejercitan*<br>
+Tabla 35. *Escala de severidad de los problemas*<br>
+Tabla 36. *Resumen de los problemas de la evaluación heurística*<br>
+Tabla 37. *Hipótesis de Lean UX, lo construido en el Sprint 2 y la tarea que las valida*<br>
+Tabla 38. *Pauta planificada del video About the Product*<br>
+Tabla 39. *Pauta del video About the Team*<br>
 
 ---
 
@@ -6286,6 +7725,44 @@ Figura 136. *Dockerfile del backend*<br>
 Figura 137. *Health check del backend en Render*<br>
 Figura 138. *Landing Page publicado en GitHub Pages*<br>
 Figura 139. *Historial de commits del repositorio SkillSwap-WebServices-Java durante el Sprint 1*<br>
+Figura 140. *Reunión de Sprint Planning 2*<br>
+Figura 141. *Sprint Backlog 2 en Trello*<br>
+Figura 142. *Captura del certificado con la cámara y lectura con ML Kit*<br>
+Figura 143. *Confirmación de la habilidad interpretada*<br>
+Figura 144. *Consulta de la ruta sin conexión*<br>
+Figura 145. *Quiz con respuestas conservadas ante la pérdida de conexión*<br>
+Figura 146. *Resultado del quiz con el sub-tema débil*<br>
+Figura 147. *Entrega de un miniproyecto*<br>
+Figura 148. *Pantalla principal del Verificador en la aplicación Flutter*<br>
+Figura 149. *Acceso con biometría del dispositivo*<br>
+Figura 150. *Documentación Swagger de los endpoints del Sprint 2*<br>
+Figura 151. *Instancia EC2 del backend en AWS*<br>
+Figura 152. *Swagger UI del backend en AWS*<br>
+Figura 153. *Versión 1.2 de la app nativa publicada en Firebase App Distribution*<br>
+Figura 154. *Correo de invitación de Firebase App Distribution*<br>
+Figura 155. *Release de la app nativa del Estudiante en GitHub Releases*<br>
+Figura 156. *Release de la app Flutter del Verificador en GitHub Releases*<br>
+Figura 157. *App nativa del Estudiante instalada en un dispositivo físico*<br>
+Figura 158. *Landing Page publicado y verificado en el Sprint 2*<br>
+Figura 159. *Historial de commits de los repositorios durante el Sprint 2*<br>
+Figura 160. *Gráficos de contribuciones de los repositorios durante el Sprint 2*<br>
+Figura 161. *Entrevista de validación 1: Personas que quieren aprender*<br>
+Figura 162. *Entrevista de validación 2: Personas que quieren aprender*<br>
+Figura 163. *Entrevista de validación 3: Personas que quieren aprender*<br>
+Figura 164. *Entrevista de validación 1: Personas que validan el conocimiento*<br>
+Figura 165. *Entrevista de validación 2: Personas que validan el conocimiento*<br>
+Figura 166. *Entrevista de validación 3: Personas que validan el conocimiento*<br>
+Figura 167. *Captura del problema #1*<br>
+Figura 168. *Captura del problema #2*<br>
+Figura 169. *Captura del problema #3*<br>
+Figura 170. *Captura del problema #4*<br>
+Figura 171. *Captura del problema #5*<br>
+Figura 172. *Captura del problema #6*<br>
+Figura 173. *Captura del problema #7*<br>
+Figura 174. *Captura del problema #8*<br>
+Figura 175. *Captura del problema #9*<br>
+Figura 176. *Cuadro del video About the Product*<br>
+Figura 177. *Cuadro del video About the Team*<br>
 
 ## Anexo A. Enlaces de Acceso a la Solución
 
@@ -6293,12 +7770,16 @@ Figura 139. *Historial de commits del repositorio SkillSwap-WebServices-Java dur
 | :--- | :--- | :--- |
 | **Landing Page — Sitio desplegado** | Sitio web estático de presentación del modelo de negocio Innovify (SkillSwap), publicado en GitHub Pages. | [https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/](https://aplicaciones-dispositivos-moviles.github.io/SkillSwap-LandingPage/) |
 | **Landing Page — Repositorio** | Código fuente del Landing Page (HTML5, CSS3 y JavaScript). | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-LandingPage) |
-| **Android Native Application** | Aplicación móvil nativa (Kotlin / Jetpack Compose) donde interactúan Estudiantes y Verificadores. En el Sprint 1, el repositorio contiene únicamente su `README.md`. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp) |
-| **Cross-Platform Application (Flutter)** | Aplicación móvil multiplataforma (Flutter / Dart, dirigida a Android). En el Sprint 1, el repositorio contiene únicamente su `README.md`. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter) |
+| **Android Native Application** | Aplicación móvil nativa (Kotlin / Jetpack Compose) del Estudiante. Es la app del Estudiante (versión 1.3) y se descarga como APK desde GitHub Releases; también se distribuye con Firebase App Distribution. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp) |
+| **Cross-Platform Application (Flutter)** | Aplicación móvil multiplataforma (Flutter / Dart, dirigida a Android) del Verificador. Versión 1.0.1, con sus siete pantallas integradas en `develop` y su cliente apuntando al backend en AWS desde el PR #7 (9 de noviembre de 2026); se descarga como APK desde GitHub Releases. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter) |
+| **App nativa — Firebase App Distribution** | Enlace de invitación para instalar la versión de prueba de la app del Estudiante (versión 1.2, que consume el backend en AWS, publicada según confirmó el equipo el 11 de noviembre de 2026). | [https://appdistribution.firebase.dev/i/eb345a85ef8857fa](https://appdistribution.firebase.dev/i/eb345a85ef8857fa) |
+| **App nativa — Descarga directa (GitHub Releases)** | APK de la versión 1.3 de la app del Estudiante (`skillswap-student.apk`), enlace que usa el Landing Page. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp/releases/latest/download/skillswap-student.apk](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp/releases/latest/download/skillswap-student.apk) |
+| **App Flutter del Verificador — Descarga directa (GitHub Releases)** | APK de la versión 1.0.1 de la app del Verificador (`skillswap-verificador.apk`), enlace que usa el Landing Page. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter/releases/latest/download/skillswap-verificador.apk](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-MobileApp-Flutter/releases/latest/download/skillswap-verificador.apk) |
 | **Prototipo y mock-ups (Figma)** | Archivo de diseño con el prototipo y los mock-ups de la aplicación móvil para los roles Estudiante y Verificador (Capítulo III). | [https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo?node-id=3-959](https://www.figma.com/design/KPBI1lj3uu2vLccOcJOFBG/Sin-t%C3%ADtulo?node-id=3-959) |
-| **Backend — Swagger UI** | Documentación interactiva (OpenAPI) de los Web Services RESTful (Java 21 / Spring Boot), desplegados en Render. | [https://skillswap-webservices-java.onrender.com/swagger-ui/index.html](https://skillswap-webservices-java.onrender.com/swagger-ui/index.html) |
+| **Backend — Swagger UI** | Documentación interactiva (OpenAPI) de los Web Services RESTful (Java 21 / Spring Boot), desplegados en AWS desde el 31 de octubre de 2026. | [https://skillswap-innovify.duckdns.org/swagger-ui/index.html](https://skillswap-innovify.duckdns.org/swagger-ui/index.html) |
+| **Backend — Swagger UI (Render, Sprint 1)** | Entorno en el que se desplegó el backend durante el Sprint 1; ya no está activo. | [https://skillswap-webservices-java.onrender.com/swagger-ui/index.html](https://skillswap-webservices-java.onrender.com/swagger-ui/index.html) |
 | **Backend — Repositorio** | Código fuente de los Web Services RESTful en Java / Spring Boot, organizados en los ocho Bounded Contexts. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices-Java](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-WebServices-Java) |
-| **Base de Datos** | Base de datos relacional única (PostgreSQL administrado en Render), compartida por los ocho Bounded Contexts. | Ver el Diagrama de Base de Datos completo de SkillSwap en la sección 2.6. |
+| **Base de Datos** | Base de datos relacional única (PostgreSQL 16 en Docker Compose sobre AWS EC2; en el Sprint 1, administrado en Render), compartida por los ocho Bounded Contexts. | Ver el Diagrama de Base de Datos completo de SkillSwap en la sección 2.6. |
 | **Product Backlog (Trello)** | Tablero público del Product Backlog, organizado por Sprint. | [https://trello.com/b/sTMGwnPf/skillswap-product-backlog](https://trello.com/b/sTMGwnPf/skillswap-product-backlog) |
 | **Project Report (GitHub)** | Repositorio del informe del proyecto. | [https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport](https://github.com/Aplicaciones-Dispositivos-Moviles/SkillSwap-ProjectReport) |
 
@@ -6310,7 +7791,7 @@ Figura 139. *Historial de commits del repositorio SkillSwap-WebServices-Java dur
 | :--- | :--- | :--- |
 | **AV1** | **Nombre del archivo:** upc-pre-202620-1acc0238-4948-Innovify-expo-av1.mp4 <br> **Duración:** | |
 | **TB1** | **Nombre del archivo:** upc-pre-202620-1acc0238-4948-Innovify-expo-tb1.mp4 <br> **Duración:** | |
-| **AV2** | **Nombre del archivo:** upc-pre-202620-1acc0238-4948-Innovify-expo-av2.mp4 <br> **Duración:** | |
+| **AV2** | **Nombre del archivo:** upc-pre-202620-1acc0238-4948-Innovify-expo-av2.mp4 <br> **Duración:** No aplica. | No aplica: el docente indicó que en la entrega AV2 no se presenta video de exposición. |
 | **TB2** | **Nombre del archivo:** upc-pre-202620-1acc0238-4948-Innovify-expo-tb2.mp4 <br> **Duración:** | |
 
 <div style="page-break-after: always;"></div>
@@ -6323,6 +7804,6 @@ Figura 139. *Historial de commits del repositorio SkillSwap-WebServices-Java dur
 | :--- | :--- | :--- | :--- |
 | **Needfinding Interviews** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-needfinding-tb1.mp4<br><br>Formato: .mp4<br><br>Duración: de 3 a 5 minutos de edición por entrevista. | Consolida todas las entrevistas a los segmentos objetivo, con títulos que indican el entrevistado, el segmento y la fecha de cada entrevista. | Video en el OneDrive del docente. Registro de cada entrevista en la sección 2.2.2. |
 | **Prototype / Product Navigation** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-prototypenavigation-tb1.mp4<br><br>Formato: .mp4<br><br>Duración: de 3 a 5 minutos de edición por aplicación. | Demuestra el flujo de navegación del Landing Page y de la aplicación móvil, priorizando los user flows del core business. | Video en el OneDrive del docente. Referenciado en la sección 3.1.4.5. |
-| **Validation Interviews** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-validation-av2.mp4<br><br>Formato: .mp4<br><br>Duración: de 3 a 5 minutos de edición por entrevista. | Consolida las sesiones de validación en las que usuarios de los segmentos objetivo interactúan con el Landing Page y la aplicación móvil y comparten sus observaciones. | Pendiente (a partir de AV2). |
-| **About the Product** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-about-the-product-av2.mp4<br><br>Formato: .mp4<br><br>Duración: de 1 a 2 minutos. | Video promocional que resume el modelo de negocio, las características y beneficios del producto, con escenas de uso y al menos una opinión por segmento objetivo. | Pendiente (a partir de AV2). Se publicará en el OneDrive del docente y en YouTube, e irá incrustado en el Landing Page. |
-| **About the Team** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-about-the-team-av2.mp4<br><br>Formato: .mp4<br><br>Duración: según el contenido (unos 5 minutos de retrospectiva y 1 minuto por testimonio). | Resume el proceso de trabajo del equipo con escenas de sesiones reales y narración, e incluye el testimonio de cada integrante sobre sus actividades y el logro del student outcome. | Pendiente (a partir de AV2). Se publicará en el OneDrive del docente y en YouTube, e irá incrustado en el Landing Page. |
+| **Validation Interviews** | Cantidad de videos: 1 por entrevista (6 entrevistas)<br><br>Formato: .mp4 | Cada entrevista de validación se graba en video, con el entrevistado, el segmento y la fecha. | Videos en el OneDrive del docente. Cada entrevista se registra en la sección 4.3.2 con el enlace a su video, su duración y un cuadro representativo. No se presenta un video consolidado de las entrevistas de validación. |
+| **About the Product** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-about-the-product-av2.mp4<br><br>Formato: .mp4<br><br>Duración: de 1 a 2 minutos. | Video promocional que resume el modelo de negocio, las características y beneficios del producto, con escenas de uso y al menos una opinión por segmento objetivo. | Primera versión de AV2 publicada en OneDrive y en YouTube (duración 01:30), e incrustada en el Landing Page (PR #11 de `SkillSwap-LandingPage`). Los enlaces están en la sección Video About the product. |
+| **About the Team** | Cantidad de videos: 1<br><br>Nomenclatura: upc-pre-202620-1acc0238-4948-Innovify-about-the-team-av2.mp4<br><br>Formato: .mp4<br><br>Duración: según el contenido (unos 5 minutos de retrospectiva y 1 minuto por testimonio). | Incluye el testimonio de cada integrante sobre sus actividades y el logro del student outcome. | Primera versión de AV2 publicada en OneDrive ([enlace](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202423711_upc_edu_pe/IQDRlxDmHM6wQoCCaQL3QMScAQQaq8qkfUHYdJfHhx5yQ7w)) y en YouTube ([enlace](https://youtu.be/_XDtUMnAASU)), e incrustada en la página Sobre nosotros del Landing Page. |

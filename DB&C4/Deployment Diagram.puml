@@ -1,51 +1,65 @@
 @startuml SkillSwapDeployment
 !pragma layout smetana
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!include <C4/C4_Deployment>
+
+AddRelTag("simulated", $lineStyle = DashedLine(), $legendText = "Integración preparada, cobro simulado (sin clave de producción)")
 
 LAYOUT_WITH_LEGEND()
 
-Deployment_Node(userDevice, "Dispositivo Móvil del Usuario", "Android"){
-    Container(androidApp, "Android Native App", "Kotlin / Jetpack Compose", "Cliente móvil nativo usado por Estudiantes y Verificadores.")
-    Container(flutterApp, "Cross-Platform App", "Flutter / Dart (Android)", "Cliente móvil multiplataforma dirigido a Android.")
-    Container(mlKitSdk, "ML Kit SDK", "Firebase On-Device", "Lee los datos del certificado en el dispositivo; la app los envía al backend en el multipart.")
+Deployment_Node(studentDevice, "Dispositivo Android del Estudiante", "Android 10+ (API 29)"){
+    Container(androidApp, "Android Native App v1.2", "Kotlin / Jetpack Compose", "Cliente móvil nativo del Estudiante, con acceso biométrico (BiometricPrompt). Distribuido como APK con Firebase App Distribution.")
+    Container(mlKitSdk, "ML Kit Text Recognition", "On-device SDK", "Lee institución, curso y fecha del certificado en el dispositivo; la app los envía al backend en el multipart.")
+    ContainerDb(studentLocalDb, "Base de datos local", "SQLite (SQLiteOpenHelper)", "Ruta para consulta sin conexión y respuestas del quiz pendientes de reenvío.")
 }
 
-Deployment_Node(staticHosting, "Hosting Estático", "GitHub Pages"){
-    Container(landingPage, "Landing Page", "HTML5 / CSS3 / JavaScript", "Sitio web estático que presenta el modelo de negocio de SkillSwap.")
+Deployment_Node(verifierDevice, "Dispositivo Android del Verificador", "Android"){
+    Container(flutterApp, "Cross-Platform App v1.0.0", "Flutter / Dart (Android)", "Cliente móvil del Verificador y del Verificador senior, con confirmación biométrica (local_auth). Instalado como APK; aún no se distribuye con Firebase App Distribution.")
 }
 
-Deployment_Node(cloudPlatform, "Render", "Plataforma Cloud"){
-    Deployment_Node(backendRuntime, "Web Service", "Docker Container (JRE 21)"){
-        Container(api, "SkillSwap API", "Java 21 / Spring Boot", "API RESTful que aloja los ocho Bounded Contexts y publica la documentación OpenAPI.")
-    }
-    Deployment_Node(dbServer, "Render PostgreSQL", "Base de datos administrada"){
-        ContainerDb(mainDB, "SkillSwap Database", "PostgreSQL 16", "Instancia única compartida por los Bounded Contexts; migraciones Flyway.")
+Deployment_Node(aws, "Amazon Web Services", "us-east-1 (N. Virginia)"){
+    Deployment_Node(ec2, "Amazon EC2", "t3.small, Ubuntu Server 24.04 LTS, IP elástica"){
+        Deployment_Node(compose, "Docker Compose", "docker-compose.yml"){
+            Deployment_Node(caddyNode, "caddy", "Docker Container (caddy:2), puertos 80 y 443"){
+                Container(caddy, "Reverse Proxy", "Caddy 2", "Publica skillswap-innovify.duckdns.org con HTTPS automático (Let's Encrypt) y reenvía las peticiones a la API.")
+            }
+            Deployment_Node(appNode, "app", "Docker Container (eclipse-temurin:21-jre), puerto interno 8080"){
+                Container(api, "SkillSwap API", "Java 21 / Spring Boot", "API RESTful que aloja los ocho Bounded Contexts y publica la documentación OpenAPI (Swagger UI).")
+            }
+            Deployment_Node(dbNode, "db", "Docker Container (postgres:16), volumen pgdata"){
+                ContainerDb(mainDB, "SkillSwap Database", "PostgreSQL 16", "Instancia única compartida por los Bounded Contexts; migraciones Flyway. Sin puertos publicados.")
+            }
+        }
     }
 }
 
 Deployment_Node(externalCloud, "Servicios Externos en la Nube", "SaaS"){
+    System_Ext(duckDns, "DuckDNS", "Resuelve skillswap-innovify.duckdns.org a la IP elástica")
+    System_Ext(appDistribution, "Firebase App Distribution", "Distribuye el APK de la app nativa (v1.2) al grupo de probadores")
     System_Ext(cloudStorage, "Cloudinary", "Archivos de certificados")
     System_Ext(emailService, "Brevo (Email API)", "Correo de verificación")
     System_Ext(pushService, "Firebase Cloud Messaging", "Entrega las notificaciones push al dispositivo")
-    System_Ext(geminiApi, "Gemini API", "Interpretación de la meta y generación de preguntas")
+    System_Ext(geminiApi, "Gemini API", "Interpretación de la meta, preguntas y evaluación preliminar del miniproyecto")
     System_Ext(playBilling, "Google Play Billing (vía RevenueCat)", "Suscripción mensual")
 }
 
 Rel(androidApp, mlKitSdk, "Invoca localmente", "SDK call")
-Rel(flutterApp, mlKitSdk, "Invoca localmente", "SDK call")
+Rel(androidApp, studentLocalDb, "Lee/Escribe", "SQLite")
+Rel(appDistribution, androidApp, "Instala y actualiza el APK", "HTTPS")
 
-Rel(androidApp, api, "Consume la API RESTful", "HTTPS")
-Rel(flutterApp, api, "Consume la API RESTful", "HTTPS")
+Rel(androidApp, duckDns, "Resuelve el dominio", "DNS")
+Rel(flutterApp, duckDns, "Resuelve el dominio", "DNS")
+Rel(androidApp, caddy, "Consume la API RESTful", "HTTPS :443")
+Rel(flutterApp, caddy, "Consume la API RESTful", "HTTPS :443")
 
-Rel(api, mainDB, "Lee/Escribe", "JDBC")
+Rel(caddy, api, "Reenvía las peticiones (reverse_proxy app:8080)", "HTTP, red interna")
+Rel(api, mainDB, "Lee/Escribe", "JDBC, red interna")
 
 Rel(api, cloudStorage, "Guarda certificados", "HTTPS")
 Rel(api, emailService, "Envía correos", "HTTPS")
 Rel(api, pushService, "Envía notificaciones push", "HTTPS")
-Rel(api, geminiApi, "Interpreta la meta y genera preguntas", "HTTPS")
-Rel(api, playBilling, "Verifica la compra y cancela la renovación", "HTTPS")
-Rel(playBilling, api, "Notifica cambios de la suscripción (webhook)", "HTTPS")
-Rel(androidApp, playBilling, "Compra el plan mensual (SDK de RevenueCat)", "HTTPS")
-Rel(flutterApp, playBilling, "Compra el plan mensual (SDK de RevenueCat)", "HTTPS")
+Rel(pushService, androidApp, "Entrega la notificación push", "FCM")
+Rel(api, geminiApi, "Interpreta la meta, genera preguntas y evalúa miniproyectos", "HTTPS")
+Rel(api, playBilling, "Verifica la compra y cancela la renovación", "HTTPS", $tags = "simulated")
+Rel(playBilling, caddy, "Notifica cambios de la suscripción (webhook)", "HTTPS", $tags = "simulated")
 
 @enduml
