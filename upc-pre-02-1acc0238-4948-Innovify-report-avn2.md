@@ -6909,11 +6909,11 @@ El Sprint 3 agrega 30 pruebas automatizadas a la aplicación Flutter del Verific
   <img src="images-doc/pruebas-flutter-sprint-3.png" alt="Resultado de las pruebas de la app Flutter del Verificador en el Sprint 3" width="900">
 </p>
 
-*Nota.* Resultado de `flutter test` sobre la rama `develop` de `SkillSwap-MobileApp-Flutter`. Elaboración propia.
+*Nota.* Resultado de `flutter test` sobre la rama `develop` de `SkillSwap-MobileApp-Flutter`: 96 pruebas, todas aprobadas (`+96: All tests passed!`). Elaboración propia.
 
 #### 4.2.3.6. Execution Evidence for Sprint Review
 
-Esta sección muestra las pantallas del Verificador incorporadas en el Sprint 3, ejecutadas en un dispositivo físico con el backend en AWS.
+Esta sección presenta las vistas principales implementadas en el Sprint 3, ejecutadas en un dispositivo físico con el backend en AWS, junto con el video que muestra la navegación lograda: [Link del video]()
 
 **Figura 164**
 
